@@ -194,7 +194,7 @@
 
 
     <!------- News ------->
-    <div class="container">
+    <!-- <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita Terkini</h5>
         </div>
@@ -229,7 +229,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-2">
-                                                        <!-- Button trigger modal -->
                                                         <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="bi bi-three-dots-vertical"></i>
                                                         </button>
@@ -261,7 +260,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-2">
-                                                        <!-- Button trigger modal -->
                                                         <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="bi bi-three-dots-vertical"></i>
                                                         </button>
@@ -291,7 +289,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-2">
-                                                        <!-- Button trigger modal -->
                                                         <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="bi bi-three-dots-vertical"></i>
                                                         </button>
@@ -325,7 +322,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-2">
-                                                        <!-- Button trigger modal -->
                                                         <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="bi bi-three-dots-vertical"></i>
                                                         </button>
@@ -357,7 +353,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-2">
-                                                        <!-- Button trigger modal -->
                                                         <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="bi bi-three-dots-vertical"></i>
                                                         </button>
@@ -387,7 +382,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-2">
-                                                        <!-- Button trigger modal -->
                                                         <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                             <i class="bi bi-three-dots-vertical"></i>
                                                         </button>
@@ -420,7 +414,6 @@
                 </div>
                 <div class="card">
                     <div class="card-body" style="height: 460px;overflow-y:scroll;padding: 0;">
-                        <!-- start content -->
                         <div class="side-news-item">
                             <div class="d-flex">
                                 <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">WHO Ungkap Strategi India Sukses Tangani Tsunami Corona: Berani Lockdown</h6>
@@ -443,7 +436,6 @@
                                             </div>
                                         </div>
                                         <div class="col-2">
-                                            <!-- Button trigger modal -->
                                             <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <i class="bi bi-three-dots-vertical"></i>
                                             </button>
@@ -452,8 +444,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- start content -->
-                        <!-- start content -->
                         <div class="side-news-item">
                             <div class="d-flex">
                                 <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">BREAKING NEWS: Corona di Indonesia Menggila, Melonjak 20.574 Orang Sehari</h6>
@@ -476,7 +466,6 @@
                                             </div>
                                         </div>
                                         <div class="col-2">
-                                            <!-- Button trigger modal -->
                                             <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <i class="bi bi-three-dots-vertical"></i>
                                             </button>
@@ -485,8 +474,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- start content -->
-                        <!-- start content -->
                         <div class="side-news-item">
                             <div class="d-flex">
                                 <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">Kapal Perang Rusia Serang Kapal Inggris yang Masuk Perairan Crimea</h6>
@@ -509,7 +496,6 @@
                                             </div>
                                         </div>
                                         <div class="col-2">
-                                            <!-- Button trigger modal -->
                                             <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <i class="bi bi-three-dots-vertical"></i>
                                             </button>
@@ -518,8 +504,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- start content -->
-                        <!-- start content -->
                         <div class="side-news-item">
                             <div class="d-flex">
                                 <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">Kapal Perang Rusia Serang Kapal Inggris yang Masuk Perairan Crimea</h6>
@@ -542,7 +526,6 @@
                                             </div>
                                         </div>
                                         <div class="col-2">
-                                            <!-- Button trigger modal -->
                                             <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <i class="bi bi-three-dots-vertical"></i>
                                             </button>
@@ -551,17 +534,68 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- start content -->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+
+    <!------- Berita ------->
+    <section id="Berita">
+        <div class="container mt-4 pb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita</h5>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="card p-3">
+                        <svg class="bd-placeholder-img align-self-center rounded-1" width="310" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                        </svg>
+                        <h4 class="mt-3 ms-2 mb-0 pb-0">Heading</h4>
+                        <small class="ms-2 mb-2">Kategori</small>
+                        <p class="truncate-string-2 ms-2">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                        <p class="mt-3 me-2"><a class="btn btn-sm btn-secondary float-end" href="#">Selengkapnya &raquo;</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card p-3">
+                        <svg class="bd-placeholder-img align-self-center rounded-1" width="310" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                        </svg>
+                        <h4 class="mt-3 ms-2 mb-0 pb-0">Heading</h4>
+                        <small class="ms-2 mb-2">Kategori</small>
+                        <p class="truncate-string-2 ms-2">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                        <p class="mt-3 me-2"><a class="btn btn-sm btn-secondary float-end" href="#">Selengkapnya &raquo;</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card p-3">
+                        <svg class="bd-placeholder-img align-self-center rounded-1" width="310" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                        </svg>
+                        <h4 class="mt-3 ms-2 mb-0 pb-0">Heading</h4>
+                        <small class="ms-2 mb-2">Kategori</small>
+                        <p class="truncate-string-2 ms-2">Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+                        <p class="mt-3 me-2"><a class="btn btn-sm btn-secondary float-end" href="#">Selengkapnya &raquo;</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
     <!------- Layanan ------->
     <section id="Layanan">
-        <div class="container mt-5 pb-5">
+        <div class="container mt-4 pb-5">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Layanan Terbaik Kami</h5>
             </div>
@@ -619,13 +653,33 @@
                 </div>
                 <div class="card-body" style="padding: 10px 0 0 0;">
                     <div class="row">
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
-                                    <div class="js-video [youtube, widescreen]">
-                                        <iframe src="https://www.youtube.com/embed/FM7MFYoylVs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
 
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body" style="padding: 1rem;">
+                                    <div class="js-video [youtube, widescreen]">
+                                        <iframe src="https://www.youtube.com/embed/cFSO8w_kTtw" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body" style="padding: 1rem;">
+                                    <div class="js-video [youtube, widescreen]">
+                                        <iframe src="https://www.youtube.com/embed/ugGJ3tzw7Rk" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body" style="padding: 1rem;">
+                                    <div class="js-video [youtube, widescreen]">
+                                        <iframe src="https://www.youtube.com/embed/46pra8NwhzU" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -653,133 +707,57 @@
                     <div class="row">
                         <div class="col-3">
                             <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
+                                <div class="card-body" style="padding: 1rem">
+                                    <div class="img-video" style="background: url('/assets/logo/PTA-logo.png');background-size: cover;background-position: top center;">
+                                    </div>
+                                    <div class="video-text pt-2 truncate-string-2">
+                                        <h6 class="text-dark">Pengakuan Pilu Britney Spears Selama 13 Tahun Perwalian: Dipaksa Minum Lithium</h6>
+                                    </div>
+                                    <div class="pt-3 float-end">
+                                        <button class="btn btn-sm btn-primary">Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body" style="padding: 1rem">
                                     <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/B0d36KfE/poster.jpg);background-size: cover;background-position: top center;">
                                     </div>
-                                    <div class="video-text pt-3">
-                                        <h6 class="text-dark truncate-string-2">Pengakuan Pilu Britney Spears Selama 13 Tahun Perwalian: Dipaksa Minum Lithium</h6>
-                                        <div class="row justify-content-around pt-2">
-                                            <div class="col d-flex">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark sub-item" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <div class="video-text pt-2 truncate-string-2">
+                                        <h6 class="text-dark">Pengakuan Pilu Britney Spears Selama 13 Tahun Perwalian: Dipaksa Minum Lithium</h6>
                                     </div>
-
+                                    <div class="pt-3 float-end">
+                                        <button class="btn btn-sm btn-primary">Detail</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
-                                    <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/zVmaswGz/poster.jpg);background-size: cover;background-position: top center;">
+                                <div class="card-body" style="padding: 1rem">
+                                    <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/B0d36KfE/poster.jpg);background-size: cover;background-position: top center;">
                                     </div>
-                                    <div class="video-text pt-3">
-                                        <h6 class="text-dark truncate-string-2">Tolak Vonis 4 Tahun Penjara Kasus RS UMMI, Rizieq Shihab Ajukan Banding</h6>
-                                        <div class="row justify-content-around pt-2">
-                                            <div class="col d-flex">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark sub-item" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <div class="video-text pt-2 truncate-string-2">
+                                        <h6 class="text-dark">Pengakuan Pilu Britney Spears Selama 13 Tahun Perwalian: Dipaksa Minum Lithium</h6>
                                     </div>
-
+                                    <div class="pt-3 float-end">
+                                        <button class="btn btn-sm btn-primary">Detail</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
-                                    <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/AFLWUjPK/poster.jpg);background-size: cover;background-position: top center;">
+                                <div class="card-body" style="padding: 1rem">
+                                    <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/B0d36KfE/poster.jpg);background-size: cover;background-position: top center;">
                                     </div>
-                                    <div class="video-text pt-3">
-                                        <h6 class="text-dark truncate-string-2">Selama PPKM Mikro, Masjid dan Musala di Jakarta Ditutup</h6>
-                                        <div class="row justify-content-around pt-2">
-                                            <div class="col d-flex">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark sub-item" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <div class="video-text pt-2 truncate-string-2">
+                                        <h6 class="text-dark">Pengakuan Pilu Britney Spears Selama 13 Tahun Perwalian: Dipaksa Minum Lithium</h6>
                                     </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
-                                    <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/AknIXiCP/poster.jpg);background-size: cover;background-position: top center;">
+                                    <div class="pt-3 float-end">
+                                        <button class="btn btn-sm btn-primary">Detail</button>
                                     </div>
-                                    <div class="video-text pt-3">
-                                        <h6 class="text-dark truncate-string-2">Menag : Salat Idul Adha Ditiadakan di Daerah Zona Merah dan Oranye</h6>
-                                        <div class="row justify-content-around pt-2">
-                                            <div class="col d-flex">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark sub-item" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
@@ -805,135 +783,51 @@
                 </div>
                 <div class="card-body" style="padding: 10px 0 0 0;">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-2">
                             <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
-                                    <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/B0d36KfE/poster.jpg);background-size: cover;background-position: top center;">
+                                <div class="card-body" style="padding: 1rem">
+                                    <div class="img-video" style="background: url('/assets/logo/PTA-logo.png');background-size: cover;background-position: top center;">
                                     </div>
-                                    <div class="video-text pt-3">
-                                        <h6 class="text-dark truncate-string-2">Pengakuan Pilu Britney Spears Selama 13 Tahun Perwalian: Dipaksa Minum Lithium</h6>
-                                        <div class="row justify-content-around pt-2">
-                                            <div class="col d-flex">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark sub-item" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
+                                <div class="card-body" style="padding: 1rem">
                                     <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/zVmaswGz/poster.jpg);background-size: cover;background-position: top center;">
                                     </div>
-                                    <div class="video-text pt-3">
-                                        <h6 class="text-dark truncate-string-2">Tolak Vonis 4 Tahun Penjara Kasus RS UMMI, Rizieq Shihab Ajukan Banding</h6>
-                                        <div class="row justify-content-around pt-2">
-                                            <div class="col d-flex">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark sub-item" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
+                                <div class="card-body" style="padding: 1rem">
                                     <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/AFLWUjPK/poster.jpg);background-size: cover;background-position: top center;">
                                     </div>
-                                    <div class="video-text pt-3">
-                                        <h6 class="text-dark truncate-string-2">Selama PPKM Mikro, Masjid dan Musala di Jakarta Ditutup</h6>
-                                        <div class="row justify-content-around pt-2">
-                                            <div class="col d-flex">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark sub-item" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <div class="card">
-                                <div class="card-body" style="padding: 1rem 1.5rem 0 1.5rem;">
+                                <div class="card-body" style="padding: 1rem">
                                     <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/AknIXiCP/poster.jpg);background-size: cover;background-position: top center;">
                                     </div>
-                                    <div class="video-text pt-3">
-                                        <h6 class="text-dark truncate-string-2">Menag : Salat Idul Adha Ditiadakan di Daerah Zona Merah dan Oranye</h6>
-                                        <div class="row justify-content-around pt-2">
-                                            <div class="col d-flex">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark sub-item" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="card">
+                                <div class="card-body" style="padding: 1rem">
+                                    <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/AknIXiCP/poster.jpg);background-size: cover;background-position: top center;">
                                     </div>
-
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="card">
+                                <div class="card-body" style="padding: 1rem">
+                                    <div class="img-video" style="background: url(https://content.jwplatform.com/v2/media/AknIXiCP/poster.jpg);background-size: cover;background-position: top center;">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -946,43 +840,37 @@
         </div>
     </div>
 
-
-
-    <!-- footer -->
-    <div class="footer mt-5" style="background-color: lightgrey;padding: 20px 30px;">
-        <div class="container">
-            <div class="d-flex justify-content-between">
-                <div class="footer-left float-left align-items-center">
-                    <a class="navbar-brand" href="#">
-                        <img src="/assets/logo/PTA-logo.png" alt="" width="100">
-                    </a>
-                    <h6 style="font-size: 12px;margin-top: 15px;">2021 &copy; Sinergi News</h6>
-                </div>
-                <div class="footer-right" style="width: 450px;">
-                    <div class="row">
-                        <div class="col-4">
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Facebook</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Instagram</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Twitter</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Youtube</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">LINE</a></h6>
-                        </div>
-                        <div class="col-4">
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Tentang Kumparan</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Ketentuan & Kebijakan Privasi</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Panduan Komunitas</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Pedoman Media Siber</a></h6>
-                        </div>
-                        <div class="col-4">
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Bantuan</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Iklan</a></h6>
-                            <h6 style="font-size: 12px;margin-top: 5px;margin-bottom: 0;"><a href="" style="text-decoration: none;color: black;">Karir</a></h6>
-                        </div>
-                    </div>
-                </div>
+    <!------- Footer ------->
+    <div class="container-fluid bg-dark">
+        <footer class="row row-cols-5 py-4 mt-5 border-top">
+            <div class="col-md-7 ps-5 pt-4">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                    <img src="/assets/logo/PTA-logo.png" alt="" width="80">
+                </a>
+                <p class="text-muted">2021 &copy; Sinergi News</p>
             </div>
-        </div>
+
+            <div class="col-md-2">
+                <ul class="nav flex-column">
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">Facebook</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">Instagram</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">Twitter</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">Youtube</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">LINE</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <ul class="nav flex-column">
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">Tentang Kami</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">Ketentuan & Kebijakan Privasi</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">Panduan Komunitas</a></li>
+                    <li class="nav-item "><a href="#" class="nav-link p-0 text-muted">Pedoman Media Siber</a></li>
+                </ul>
+            </div>
+        </footer>
     </div>
+
 
     <!-- Vertically centered modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

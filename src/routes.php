@@ -7,6 +7,7 @@ use App\CmsSetting\Controller\CmsSettingController;
 use App\CmsTitle\Controller\CmsTitleController;
 use App\Contact\Controller\ContactController;
 use App\Customer\Controller\CustomerController;
+use App\Galeri\Controller\GaleriController;
 use App\GaleriAdmin\Controller\GaleriAdminController;
 use App\Gallery\Controller\GalleryController;
 use App\Home\Controller\HomeController;
@@ -14,6 +15,7 @@ use App\KategoriBeritaAdmin\Controller\KategoriBeritaAdminController;
 use App\KategoriGaleriAdmin\Controller\KategoriGaleriAdminController;
 use App\KategoriLayananAdmin\Controller\KategoriLayananAdminController;
 use App\KategoriProdukAdmin\Controller\KategoriProdukAdminController;
+use App\Layanan\Controller\LayananController;
 use App\LayananAdmin\Controller\LayananAdminController;
 use App\Login\Controller\LoginController;
 use App\Maintenance\Controller\MaintenanceController;
@@ -22,6 +24,7 @@ use App\PelangganAdmin\Controller\PelangganAdminController;
 use App\PelangganAdmin\Model\PelangganAdmin;
 use App\Product\Controller\ProductController;
 use App\ProductAndService\Controller\ProductAndServiceController;
+use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Service\Controller\ServiceController;
@@ -215,34 +218,37 @@ $routes->push('home', '/', [HomeController::class, 'index']);
 
 /* ------------------------------- Front News ------------------------------- */
 $routes->prefix('news', function ($routes) {
-    $routes->push('news', '', [NewsController::class, 'index']);
-    $routes->push('news_detail', '/{id}/detail', [NewsController::class, 'detail']);
-    $routes->push('news_kategori', '/{kategori}/kategori', [NewsController::class, 'kategori']);
+    $routes->push('news', '', [BeritaController::class, 'index']);
+    $routes->push('news_detail', '/{id}/detail', [BeritaController::class, 'detail']);
+    $routes->push('news_kategori', '/{kategori}/kategori', [BeritaController::class, 'kategori']);
 });
 /* -------------------------------------------------------------------------- */
 
 
 /* ------------------------------ Front Product ----------------------------- */
 $routes->prefix('product', function ($routes) {
-    $routes->push('product', '', [ProductController::class, 'index']);
-    $routes->push('product_detail', '/{id}/detail', [ProductController::class, 'detail']);
-    $routes->push('product_kategori', '/{kategori}/kategori', [ProductController::class, 'kategori']);
+    $routes->push('product', '', [ProdukController::class, 'index']);
+    $routes->push('product_detail', '/{id}/detail', [ProdukController::class, 'detail']);
+    $routes->push('product_kategori', '/{kategori}/kategori', [ProdukController::class, 'kategori']);
 });
 /* -------------------------------------------------------------------------- */
 
 
 /* ------------------------------ Front Service ----------------------------- */
 $routes->prefix('service', function ($routes) {
-    $routes->push('service', '', [ServiceController::class, 'index']);
-    $routes->push('service_detail', '/{id}/detail', [ServiceController::class, 'detail']);
-    $routes->push('service_kategori', '/{kategori}/kategori', [ServiceController::class, 'kategori']);
+    $routes->push('service', '', [LayananController::class, 'index']);
+    $routes->push('service_detail', '/{id}/detail', [LayananController::class, 'detail']);
+    $routes->push('service_kategori', '/{kategori}/kategori', [LayananController::class, 'kategori']);
 });
 /* -------------------------------------------------------------------------- */
 
 
 /* ------------------------------ Front Gallery ----------------------------- */
-$routes->push('gallery', '/gallery', [GalleryController::class, 'index']);
-$routes->push('galleryDetail', '/gallery-detail', [GalleryController::class, 'detail']);
+$routes->prefix('gallery', function ($routes) {
+    $routes->push('gallery', '', [GaleriController::class, 'index']);
+    $routes->push('gallery_detail', '/{id}/detail', [GaleriController::class, 'detail']);
+    $routes->push('gallery_kategori', '/{kategori}/kategori', [GaleriController::class, 'kategori']);
+});
 /* -------------------------------------------------------------------------- */
 
 

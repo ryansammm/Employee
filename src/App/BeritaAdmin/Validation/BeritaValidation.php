@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-namespace App\Berita\Validation;
+namespace App\BeritaAdmin\Validation;
 
 use Core\Validation;
 use Symfony\Component\HttpFoundation\Request;

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Gallery\Model;
+namespace App\Galeri\Model;
 
 use App\QueryBuilder\Model\QueryBuilder;
 use Core\Model;
 
-class Gallery extends Model
+class Galeri extends Model
 {
     protected $table = 'galeri';
     protected $primaryKey = 'id_galeri';

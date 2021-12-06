@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Service\Model;
+namespace App\Layanan\Model;
 
 use App\QueryBuilder\Model\QueryBuilder;
 
-class Service extends QueryBuilder
+class Layanan extends QueryBuilder
 {
     protected $table = 'layanan';
     protected $primaryKey = 'id_layanan';

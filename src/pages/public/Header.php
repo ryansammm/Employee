@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panca Teknologi Aksesindo</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/logo/PTA.png" />
+
+    <!------- Bootstrap ------->
+    <link href="/assets/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/public/css/bootstrap.css" rel="stylesheet">
+    <!------- Bootstrap Icon ------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!------- Fontawesome ------->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+
+    <!------- Style theme ------->
+    <link rel="stylesheet" href="/assets/public/css/style.css">
+
+    <!------- Plugins ------->
+    <link rel="stylesheet" href="/assets/plugins/truncate.css">
+
+    <!-- <script src="https://unpkg.com/feather-icons"></script> -->
+
+</head>
+
+
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+
+<body style="background-color: #d8d8d86b !important;">
+
+    <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
+        <!------- Top Header ------->
+        <div class="container d-flex align-items-md-center pb-3">
+            <div class="position-relative me-auto">
+                <div class="d-flex">
+                    <a class="navbar-brand pe-1" href="#">
+                        <img src="/assets/logo/PTA-logo.png" alt="" style="width: 82px;">
+                    </a>
+                    <h6 style="margin-top: auto;margin-bottom: auto;">Panca Teknologi Aksesindo</h6>
+                    <form>
+                        <div class="input-group mt-3 ms-3" style="width: 570pt;">
+                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <ul class="nav justify-content-end ps-5">
+                <li class="nav-item">
+                    <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none text-dark">
+                        <i class="bi bi-person fs-4"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!------- Navigation ------->
+        <div class="container-fluid d-flex justify-content-center" style="background-color: #0853a6;">
+            <div id="carouselExampleControlsDark" class="carousel carousel-dark slide carousel-navigation" data-bs-ride="carousel" data-bs-interval="false">
+                <div class="carousel-inner" style="padding: 0px 15px;">
+                    <div class="carousel-item active">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item <?= $GLOBALS['url'] == '/' ? 'nav-item-active' : '' ?>">
+                                <a class="nav-link  text-white" href="/">Beranda</a>
+                            </li>
+                            <li class="nav-item <?= strpos($GLOBALS['url'], '/news') == '/news' ? 'nav-item-active' : '' ?>">
+                                <a class="nav-link  text-white" href="/news">Berita</a>
+                            </li>
+                            <li class="nav-item <?= strpos($GLOBALS['url'], '/product') == '/product' ? 'nav-item-active' : '' ?>">
+                                <a class="nav-link  text-white" href="/product">Produk</a>
+                            </li>
+                            <li class="nav-item <?= strpos($GLOBALS['url'], '/service') == '/service' ? 'nav-item-active' : '' ?>">
+                                <a class="nav-link  text-white" href="/service">Layanan</a>
+                            </li>
+                            <li class="nav-item <?= strpos($GLOBALS['url'], '/gallery') == '/gallery' ? 'nav-item-active' : '' ?>">
+                                <a class="nav-link  text-white" href="/gallery">Jejak Kami</a>
+                            </li>
+                            <li class="nav-item <?= strpos($GLOBALS['url'], '/customer') == '/customer' ? 'nav-item-active' : '' ?>">
+                                <a class="nav-link  text-white" href="/customer">Klien Kami</a>
+                            </li>
+                            <li class="nav-item <?= strpos($GLOBALS['url'], '/contact') == '/contact' ? 'nav-item-active' : '' ?>">
+                                <a class="nav-link  text-white" href="/contact">Kontak</a>
+                            </li>
+                            <li class="nav-item <?= strpos($GLOBALS['url'], '/about') == '/about' ? 'nav-item-active' : '' ?>">
+                                <a class="nav-link  text-white" href="/about">Tentang Kami</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!------- Modal ------->
+    <div class="container" style="padding-top: 20px;">
+
+        <div class="modal rounded" tabindex="1" id="modalLogin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body p-4">
+                        <form>
+                            <img src="/assets/img/logo.png" class="d-block mx-auto" width="50%">
+                            <h6 class="text-center my-4 fw-lighter px-5">Login dulu biar bisa komen, atur notifikasi konten<br>favoritmu, dan bisa bikin konten. Yuk!</h6>
+                            <div class="input-group mt-3 mb-2">
+                                <span class="input-group-text  bg-body border-0 text-danger" id="inputGroup-sizing-default">
+                                    <i data-feather="user"></i>
+                                </span>
+                                <input type="text" name="namaUser" class="form-control rounded" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required placeholder="Nama Pengguna/Email">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-body border-0 text-danger" id="inputGroup-sizing-default">
+                                    <i data-feather="lock"></i>
+                                </span>
+                                <input type="password" name="cPassword" class="form-control rounded" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Kata Sandi" required>
+                            </div>
+                            <div class="d-flex">
+                                <div class="col-6 ps-5 text-danger">
+                                    <input type="checkbox" name="" class="form-check-input"><span>&nbsp;Ingatkan Saya</span>
+                                </div>
+                                <div class="col-6">
+                                    <a href="" style="text-decoration: none;" class="text-danger float-end"><span>Lupa Password?</span></a>
+                                </div>
+                            </div>
+                            <center>
+                                <button type="submit" class="btn btn-danger w-25 rounded-pill mt-3 mb-1" name="register" value="login">Masuk</button>
+                                <p class="text-danger mx-auto my-1">Atau gunakan</p>
+                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><img src="assets/img/fblogo.png" width="25px"><span> &nbsp;Facebook</span></a>
+                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width="25px"><span> Goggle</span></a>
+                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><i class="fas fa-mobile-alt text-danger fs-5"></i><span> Nomor Handphone</span></a>
+                                <p class="mx-auto my-2">Belum punya akun? <a href="" class="text-danger" style="text-decoration:none;" data-bs-target="#modalRegister" data-bs-toggle="modal" data-bs-dismiss="modal">Daftar Sekarang</a></p>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal rounded" tabindex="1" id="modalRegister">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body p-4">
+                        <form>
+                            <h3 class="text-center">Register</h3>
+                            <h6 class="text-center my-4 fw-lighter px-5">Daftar dulu biar bisa komen, bikin konten, langganan kumparan+ dan atur notifikasi konten favoritmu. Yuk!</h6>
+                            <div class="input-group mt-3 mb-2">
+                                <input type="text" name="emailUser" class="form-control rounded" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required placeholder="Email">
+                            </div>
+                            <center>
+                                <button type="submit" class="btn btn-danger w-25 rounded-pill mt-3 mb-1" name="register" value="login">Register</button>
+                                <p class="text-danger mx-auto my-1">Atau gunakan</p>
+                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><img src="assets/img/fblogo.png" width="25px"><span> &nbsp;Facebook</span></a>
+                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width="25px"><span> Goggle</span></a>
+                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><i class="fas fa-mobile-alt text-danger fs-5"></i><span> Nomor Handphone</span></a>
+                                <p class="mx-auto my-2">Sudah punya akun? <a href="" class="text-danger" style="text-decoration:none;" data-bs-target="#modalLogin" data-bs-toggle="modal" data-bs-dismiss="modal">Masuk</a></p>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        feather.replace()
+    </script>
+
+
+    <!-- content -->

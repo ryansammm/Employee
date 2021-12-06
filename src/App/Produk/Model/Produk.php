@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Product\Model;
+namespace App\Produk\Model;
 
 use App\QueryBuilder\Model\QueryBuilder;
 
-class Product extends QueryBuilder
+class Produk extends QueryBuilder
 {
     protected $table = 'produk';
     protected $primaryKey = 'id_produk';

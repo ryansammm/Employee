@@ -1,32 +1,32 @@
 <?php
 
-namespace App\Service\Controller;
+namespace App\Layanan\Controller;
 
 use App\KategoriLayananAdmin\Model\KategoriLayananAdmin;
 use App\Media\Model\Media;
-use App\Service\Model\Service;
+use App\Layanan\Model\Layanan;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class ServiceController
+class LayananController
 {
     public $model;
 
     public function __construct()
     {
-        $this->model = new Service();
+        $this->model = new Layanan();
     }
 
     public function index(Request $request)
     {
         $media = new Media();
-        $kategori_layanan = new KategoriLayananAdmin();
-        $data_kategori_layanan = $kategori_layanan->get();
+        // $kategori_layanan = new KategoriLayananAdmin();
+        // $data_kategori_layanan = $kategori_layanan->get();
         $data_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->paginate(8)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
-        return render_template('public/service/index', ['data_kategori_layanan' => $data_kategori_layanan, 'data_layanan' => $data_layanan]);
+        return render_template('public/service/index', ['data_layanan' => $data_layanan]);
     }
 
     public function create(Request $request)
@@ -65,8 +65,8 @@ class ServiceController
         $id = $request->attributes->get("id");
 
         $media = new Media();
-        $kategori_layanan = new KategoriLayananAdmin();
-        $data_kategori_layanan = $kategori_layanan->get();
+        // $kategori_layanan = new KategoriLayananAdmin();
+        // $data_kategori_layanan = $kategori_layanan->get();
         $data_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->where('id_layanan', $id)->first();
@@ -76,27 +76,27 @@ class ServiceController
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->paginate(2)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
-        return render_template('public/service/detail', ['data_kategori_layanan' => $data_kategori_layanan, 'data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan]);
+        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan]);
     }
 
     public function kategori(Request $request)
     {
         $media = new Media();
-        $kategori_layanan = new KategoriLayananAdmin();
+        // $kategori_layanan = new KategoriLayananAdmin();
 
-        $kategori = $request->attributes->get("kategori");
+        // $kategori = $request->attributes->get("kategori");
 
-        $detail_kategori_layanan = $kategori_layanan
-            ->where('id_kategori_layanan', $kategori)
-            ->first();
+        // $detail_kategori_layanan = $kategori_layanan
+        //     ->where('id_kategori_layanan', $kategori)
+        //     ->first();
 
-        $data_kategori_layanan = $kategori_layanan->get();
+        // $data_kategori_layanan = $kategori_layanan->get();
 
         $data_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
-            ->where('id_kategori_layanan', $kategori)
+            // ->where('id_kategori_layanan', $kategori)
             ->paginate(8)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
-        return render_template('public/service/kategori', ['data_kategori_layanan' => $data_kategori_layanan, 'data_layanan' => $data_layanan, 'detail_kategori_layanan' => $detail_kategori_layanan]);
+        return render_template('public/service/kategori', ['data_layanan' => $data_layanan,]);
     }
 }

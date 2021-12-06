@@ -7,8 +7,10 @@ use App\Berita\Model\Berita;
 use App\Customer\Model\Customer;
 use App\Home\Model\Home;
 use App\KategoriBeritaAdmin\Model\KategoriBeritaAdmin;
+use App\Layanan\Model\Layanan;
 use App\Media\Model\Media;
 use App\Product\Model\Product;
+use App\Produk\Model\Produk;
 use App\Service\Model\Service;
 use App\VideoAdmin\Model\VideoAdmin;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -28,8 +30,8 @@ class HomeController
     {
         $media = new Media();
         $about = new About();
-        $service = new Service();
-        $product = new Product();
+        $service = new Layanan();
+        $product = new Produk();
         $customer = new Customer();
         $video = new VideoAdmin();
         $berita = new Berita();

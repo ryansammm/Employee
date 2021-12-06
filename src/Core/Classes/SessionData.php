@@ -34,7 +34,6 @@ class SessionData
     /**
      * Get session
      *
-     * @return Session
      */
     public static function get($key = null)
     {

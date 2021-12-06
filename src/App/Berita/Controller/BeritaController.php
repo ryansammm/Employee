@@ -2,114 +2,113 @@
 
 namespace App\Berita\Controller;
 
-use App\Berita\Model\Berita;
-use App\Berita\Validation\BeritaValidation;
 use App\KategoriBerita\Model\KategoriBerita;
+use App\KategoriBeritaAdmin\Model\KategoriBeritaAdmin;
 use App\Media\Model\Media;
-use Core\Classes\SessionData;
-use Symfony\Component\HttpFoundation\Request;
+use App\Berita\Model\Berita;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class BeritaController
 {
     public $model;
-    public $modelKategoriBerita;
 
     public function __construct()
     {
         $this->model = new Berita();
-        $this->modelKategoriBerita = new KategoriBerita();
     }
 
     public function index(Request $request)
     {
-        $kategori_berita = $this->modelKategoriBerita->get();
-        $id_kategori_berita = $request->query->get('kategori_berita');
+        $berita = new Berita();
+        $media = new Media();
+        $kategori_berita = new KategoriBeritaAdmin();
 
+        $data_kategori_berita = $kategori_berita->get();
         $data_berita = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
-            ->where(function ($query) use ($request) {
-                if ($request->query->get('kategori_berita') != null) {
-                    $query->where('berita.id_kategori_berita', $request->query->get('kategori_berita'));
-                }
-            })
             ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
 
-        return render_template('admin/berita/index', ['data_berita' => $data_berita, 'kategori_berita' => $kategori_berita, 'id_kategori_berita' => $id_kategori_berita]);
+        return render_template('public/news/index', ['data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita]);
     }
 
     public function create(Request $request)
     {
-        $data_kategori_berita = $this->modelKategoriBerita->get();
-        $errors = SessionData::get()->getFlashBag()->get('errors', []);
 
-        // dd($data_kategori_berita);
-
-        return render_template('admin/berita/create', ['data_kategori_berita' => $data_kategori_berita, 'errors' => $errors]);
+        return render_template('home/create', []);
     }
 
     public function store(Request $request)
     {
-        $berita_validation = new BeritaValidation($request);
-        $validation = $berita_validation->validate();
 
-        if (!$validation->passed) {
-            return new RedirectResponse('/admin/berita/create');
-        }
-
-        $request->request->set('slug_berita', str_slug($request->request->get('judul_berita'), '-'));
-        $request->request->set('id_user', SessionData::get('id_user'));
-        $create = $this->model->insert($request->request->all());
-
-        $media = new Media();
-        $media->storeMedia($_FILES['gambar_thumbnail_berita'], [
-            'id_relation' => $create,
-            'jenis_dokumen' => '',
-        ]);
-
-        return new RedirectResponse('/admin/berita');
+        return new RedirectResponse('/home');
     }
 
     public function edit(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $berita = $this->model->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')->where('id_berita', $id)->first();
-        $data_kategori_berita = $this->modelKategoriBerita->get();
 
-        return render_template('admin/berita/edit', ['berita' => $berita, 'data_kategori_berita' => $data_kategori_berita]);
+
+        return render_template('home/edit', []);
     }
 
     public function update(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $berita_validation = new BeritaValidation($request);
-        $validation = $berita_validation->validate();
 
-        if (!$validation->passed) {
-            return new RedirectResponse('/admin/berita/' . $id . '/edit');
-        }
-
-        $request->request->set('slug_berita', str_slug($request->request->get('judul_berita'), '-'));
-        $this->model->where('id_berita', $id)->update($request->request->all());
-
-        $media = new Media();
-        $media->updateMedia($_FILES['gambar_thumbnail_berita'], [
-            'id_relation' => $id,
-            'jenis_dokumen' => '',
-        ], $this->model, $id);
-
-        return new RedirectResponse('/admin/berita');
+        return new RedirectResponse('/home');
     }
 
     public function delete(Request $request)
     {
-        $id = $request->attributes->get('id');
 
+        return new RedirectResponse('/home');
+    }
+
+    public function detail(Request $request)
+    {
+
+        $berita = new Berita();
         $media = new Media();
-        $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')->where('id_berita', $id)->first();
-        $this->model->where('id_berita', $id)->delete();
-        $media->deleteMedia($media_data);
+        $kategori_berita = new KategoriBeritaAdmin();
 
-        return new RedirectResponse('/admin/berita');
+        $id = $request->attributes->get("id");
+
+        $detail_berita = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->where('id_berita', $id)->first();
+
+        $data_kategori_berita = $kategori_berita->get();
+        $data_berita = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
+            ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
+
+        // dd($detail_berita);
+
+        return render_template('public/news/detail', ['data_kategori_berita' => $data_kategori_berita, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita]);
+    }
+
+    public function kategori(Request $request)
+    {
+        $berita = new Berita();
+        $media = new Media();
+        $kategori_berita = new KategoriBeritaAdmin();
+
+        $kategori = $request->attributes->get("kategori");
+
+        $detail_kategori_berita = $kategori_berita
+            ->where('id_kategori_berita', $kategori)
+            ->first();
+
+        $data_kategori_berita = $kategori_berita->get();
+        $data_berita = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
+            ->where('berita.id_kategori_berita', $kategori)
+            ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
+
+        // dd($data_berita);
+
+        return render_template('public/news/kategori', ['data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita, 'detail_kategori_berita' => $detail_kategori_berita]);
     }
 }

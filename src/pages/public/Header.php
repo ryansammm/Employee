@@ -49,6 +49,59 @@
 <body style="background-color: #d8d8d86b !important;">
 
     <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
+
+        <!------- Button Ubah Logo & Nama Perusahaan ------->
+        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 4rem;top: 1.5rem;">
+            <i class="bi bi-pencil-square"></i>
+        </button>
+
+        <!------- Modal Ubah Logo & Nama Perusahaan ------->
+        <div class="modal fade" id="logo-header" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logo-headerLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logo-headerLabel">Ubah Logo & Nama Perusahaan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Logo</label>
+                            <input class="form-control" type="file" id="formFile" name="logoPerusahaan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Nama Perusahaan</label>
+                            <input class="form-control" type="text" name="namaPerusahaan">
+                        </div>
+                        <hr>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault1" value="1" checked>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Logo
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault2" value="2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Nama Perusahaan
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault3" value="3">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                Logo & Nama Perusahaan
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!------- Top Header ------->
         <div class="container d-flex align-items-md-center pb-3">
             <div class="position-relative me-auto">

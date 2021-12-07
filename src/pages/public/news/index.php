@@ -221,121 +221,163 @@
             </div>
             <div class="card">
                 <div class="card-body" style="height: 460px;overflow-y:scroll;padding: 0;">
+
                     <div class="side-news-item">
-                        <div class="d-flex">
-                            <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">WHO Ungkap Strategi India Sukses Tangani Tsunami Corona: Berani Lockdown</h6>
-                            <div class="side-trending-image" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1618899920/t9jgmld9fd9mwqwvhdq2.jpg);background-size: cover;background-position: top center;"></div>
-                        </div>
                         <div class="row">
-                            <div class="col-9">
+                            <div class="d-flex">
+                                <a href="" class="text-decoration-none text-dark">
+                                    <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">WHO Ungkap Strategi India Sukses Tangani Tsunami Corona: Berani Lockdown</h6>
+                                </a>
+                                <a href="">
+                                    <div class="rounded" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1618899920/t9jgmld9fd9mwqwvhdq2.jpg);background-size: cover;background-position: center; width: 80px; height: 80px;"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12">
                                 <div class="row justify-content-around text-side-trending">
                                     <div class="col d-flex">
-                                        <div class="sub-item">
+                                        <div class="sub-item" style="margin-top: 2px;">
                                             <i class="bi bi-heart"></i>
                                             <span>0</span>
                                         </div>
-                                        <div class="sub-item">
-                                            <i class="bi bi-heart"></i>
+                                        <div class="sub-item" style="margin-top: 2px;">
+                                            <i class="bi bi-chat"></i>
                                             <span>0</span>
                                         </div>
-                                        <div class="sub-item">
+                                        <div class="sub-item" style="margin-top: 2px;">
+                                            <i class="bi bi-eye"></i>
+                                            <span>0</span>
+                                        </div>
+                                        <div class="sub-item" style="margin-top: 2px;">
                                             <span>50 menit</span>
                                         </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="bi bi-three-dots-vertical"></i>
-                                        </button>
+                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                            <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                <i class="fas fa-share"></i>
+                                                <span>Bagikan</span>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="side-news-item">
                         <div class="d-flex">
-                            <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">BREAKING NEWS: Corona di Indonesia Menggila, Melonjak 20.574 Orang Sehari</h6>
-                            <div class="side-trending-image" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1579862421/jaytgvbgn9gwzyvburtb.jpg);background-size: cover;background-position: top center;"></div>
+                            <a href="" class="text-dark text-decoration-none">
+                                <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">BREAKING NEWS: Corona di Indonesia Menggila, Melonjak 20.574 Orang Sehari</h6>
+                            </a>
+                            <a href="">
+                                <div class="rounded" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1579862421/jaytgvbgn9gwzyvburtb.jpg);background-size: cover;background-position: center; width: 80px; height: 80px;"></div>
+                            </a>
                         </div>
-                        <div class="row">
-                            <div class="col-9">
+                        <div class="row mt-2">
+                            <div class="col-12">
                                 <div class="row justify-content-around text-side-trending">
                                     <div class="col d-flex">
-                                        <div class="sub-item">
+                                        <div class="sub-item" style="margin-top: 2px;">
                                             <i class="bi bi-heart"></i>
                                             <span>0</span>
                                         </div>
-                                        <div class="sub-item">
-                                            <i class="bi bi-heart"></i>
+                                        <div class="sub-item" style="margin-top: 2px;">
+                                            <i class="bi bi-chat"></i>
                                             <span>0</span>
                                         </div>
-                                        <div class="sub-item">
+                                        <div class="sub-item" style="margin-top: 2px;">
+                                            <i class="bi bi-eye"></i>
+                                            <span>0</span>
+                                        </div>
+                                        <div class="sub-item" style="margin-top: 2px;">
                                             <span>50 menit</span>
                                         </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="bi bi-three-dots-vertical"></i>
-                                        </button>
+                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                            <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                <i class="fas fa-share"></i>
+                                                <span>Bagikan</span>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="side-news-item">
                         <div class="d-flex">
-                            <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">Kapal Perang Rusia Serang Kapal Inggris yang Masuk Perairan Crimea</h6>
-                            <div class="side-trending-image" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1624511580/obm9melj25hcea0oeiwl.jpg);background-size: cover;background-position: top center;"></div>
+                            <a href="" class="text-dark text-decoration-none">
+                                <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">Kapal Perang Rusia Serang Kapal Inggris yang Masuk Perairan Crimea</h6>
+                            </a>
+                            <a href="">
+                                <div class="rounded" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1624511580/obm9melj25hcea0oeiwl.jpg);background-size: cover;background-position: center;width: 80px; height: 80px;"></div>
+                            </a>
                         </div>
-                        <div class="row">
-                            <div class="col-9">
+                        <div class="row mt-2">
+                            <div class="col-12">
                                 <div class="row justify-content-around text-side-trending">
                                     <div class="col d-flex">
-                                        <div class="sub-item">
+                                        <div class="sub-item" style="margin-top: 2px;">
                                             <i class="bi bi-heart"></i>
                                             <span>0</span>
                                         </div>
-                                        <div class="sub-item">
-                                            <i class="bi bi-heart"></i>
+                                        <div class="sub-item" style="margin-top: 2px;">
+                                            <i class="bi bi-chat"></i>
                                             <span>0</span>
                                         </div>
-                                        <div class="sub-item">
+                                        <div class="sub-item" style="margin-top: 2px;">
+                                            <i class="bi bi-eye"></i>
+                                            <span>0</span>
+                                        </div>
+                                        <div class="sub-item" style="margin-top: 2px;">
                                             <span>50 menit</span>
                                         </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="bi bi-three-dots-vertical"></i>
-                                        </button>
+                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                            <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                <i class="fas fa-share"></i>
+                                                <span>Bagikan</span>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="side-news-item">
                         <div class="d-flex">
-                            <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">Kapal Perang Rusia Serang Kapal Inggris yang Masuk Perairan Crimea</h6>
-                            <div class="side-trending-image" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1624511580/obm9melj25hcea0oeiwl.jpg);background-size: cover;background-position: top center;"></div>
+                            <a href="" class="text-dark text-decoration-none">
+                                <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">Bikin Adem, 9 Warna Cat Ini Bikin Ruang Tamu Lebih Sejuk!</h6>
+                            </a>
+                            <a href="">
+                                <div class="rounded" style="background: url(/assets/media/AARvvdn.jpg);background-size: cover;background-position: center;width: 80px; height: 80px;"></div>
+                            </a>
                         </div>
-                        <div class="row">
-                            <div class="col-9">
+                        <div class="row mt-2">
+                            <div class="col-12">
                                 <div class="row justify-content-around text-side-trending">
                                     <div class="col d-flex">
-                                        <div class="sub-item">
+                                        <div class="sub-item" style="margin-top: 2px;">
                                             <i class="bi bi-heart"></i>
                                             <span>0</span>
                                         </div>
-                                        <div class="sub-item">
-                                            <i class="bi bi-heart"></i>
+                                        <div class="sub-item" style="margin-top: 2px;">
+                                            <i class="bi bi-chat"></i>
                                             <span>0</span>
                                         </div>
-                                        <div class="sub-item">
+                                        <div class="sub-item" style="margin-top: 2px;">
+                                            <i class="bi bi-eye"></i>
+                                            <span>0</span>
+                                        </div>
+                                        <div class="sub-item" style="margin-top: 2px;">
                                             <span>50 menit</span>
                                         </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="bi bi-three-dots-vertical"></i>
-                                        </button>
+                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                            <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                <i class="fas fa-share"></i>
+                                                <span>Bagikan</span>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -370,6 +412,7 @@
                         <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Technology</a></li>
                         <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Jobs</a></li>
                         <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Media</a></li>
+                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">IT</a></li>
                         <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Administration</a></li>
                         <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Sports</a></li>
                         <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Game</a></li>
@@ -386,51 +429,198 @@
                 <div class="card-header" style="background-color: unset;padding: 0;border: unset;">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Feed</h5>
+                        <a href="/service" class="text-decoration-none">Feed Lainnya <i class="bi bi-chevron-right"></i></a>
                     </div>
                 </div>
                 <div class="card-body" style="padding: 0 20px 0 20px;">
                     <div class="row">
                         <div class="col-12" style="background-color: white;border-radius: 7px;margin: 10px 0 0 0;">
+
+
                             <div class="side-news-item">
-                                <div class="row py-2">
+                                <div class="row py-3">
+                                    <div class="col-2 p-0">
+                                        <div class="" style="background: url(/assets/media/AARwe9C.jpg);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
+                                    </div>
                                     <div class="col">
                                         <a href="/news/879123/detail" style="text-decoration: none;color: black">
                                             <div class="row">
-                                                <h6 class="card-title" style="padding: 0 20px 0 0;">Judul Berita nya</h6>
+                                                <h6 class="card-title">Dilengkapi Furnitur, Begini Desain Rusun Mahasiswa Aceh Senilai Rp12,74 Miliar</h6>
+                                                <p class="truncate-string-1" style="font-size: 14px;">Aceh: Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR) terus mendorong pembangunan rumah susun (rusun) bagi mahasiswa di seluruh wilayah Indonesia. Salah satunya pembangunan rusun Universitas Abulyatama di Aceh Besar senilai Rp12,74 miliar.</p>
                                             </div>
                                         </a>
                                         <div class="row justify-content-around text-side-trending">
-                                            <div class="col d-flex">
+                                            <div class="col d-flex" style="margin-top: auto;">
                                                 <div class="sub-item">
                                                     <i class="bi bi-heart"></i>
                                                     <span>0</span>
                                                 </div>
                                                 <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
+                                                    <i class="bi bi-chat"></i>
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="sub-item">
+                                                    <i class="bi bi-eye"></i>
                                                     <span>0</span>
                                                 </div>
                                                 <div class="sub-item">
                                                     <span>50 menit</span>
                                                 </div>
                                             </div>
-                                            <div class="col-1">
-                                                <!-- Button trigger modal -->
-                                                <button class="btn text-dark" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
+                                            <div class="col-2 d-flex">
+                                                <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                    <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                        <i class="fas fa-share"></i>
+                                                        <span>Bagikan</span>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-2">
-                                        <div class="side-trending-image" style="background: url(/assets/logo/PTA.png);background-size: cover;background-position: top center;"></div>
+                                </div>
+                            </div>
+
+                            <div class="side-news-item">
+                                <div class="row py-3">
+                                    <div class="col-2 p-0">
+                                        <div class="" style="background: url(/assets/media/AARvvdn.jpg);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="/news/879123/detail" style="text-decoration: none;color: black">
+                                            <div class="row">
+                                                <h6 class="card-title">Bikin Adem, 9 Warna Cat Ini Bikin Ruang Tamu Lebih Sejuk!</h6>
+                                                <p class="truncate-string-1" style="font-size: 14px;">Warna cat dinding tak hanya sekedar berfungsi untuk mempercantik ruang tamu, tetapi lebih dari itu, bisa menghidupkan suasana, meningkatkan semangat, dan bisa memengaruhi suhu ruangan. Misalnya saja, warna cat dinding yang terang akan memantulkan panas -- membuat ruangan lebih sejuk. Sedangkan warna cat dinding yang lebih gelap cenderung menyerap panas -- membuat ruangan lebih panas. Lalu, apa saja warna cat yang bisa membuat ruang tamu terasa lebih sejuk? Ini pilihannya untuk Anda!</p>
+                                            </div>
+                                        </a>
+                                        <div class="row justify-content-around text-side-trending">
+                                            <div class="col d-flex" style="margin-top: auto;">
+                                                <div class="sub-item">
+                                                    <i class="bi bi-heart"></i>
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="sub-item">
+                                                    <i class="bi bi-chat"></i>
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="sub-item">
+                                                    <i class="bi bi-eye"></i>
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="sub-item">
+                                                    <span>50 menit</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 d-flex">
+                                                <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                    <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                        <i class="fas fa-share"></i>
+                                                        <span>Bagikan</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="" style="padding: 0.5rem 1rem;">
+                                <div class="row py-3">
+                                    <div class="col-2 p-0">
+                                        <div class="" style="background: url(/assets/media/AAMY8B8.jpg);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="/news/879123/detail" style="text-decoration: none;color: black">
+                                            <div class="row">
+                                                <h6 class="card-title">Cara Cuci Baju di Hotel, Tanpa Ribet dan Hasilnya Bersih</h6>
+                                                <p class="truncate-string-1" style="font-size: 14px;">Saat pergi berlibur dan menginap di hotel, baju yang dibawa tentunya tak sebanyak seperti di rumah. Jika baju yang dibawa sedikit, mau tak mau tamu harus mencuci baju di hotel. Namun, sayangnya tak ada mesin cuci.</p>
+                                            </div>
+                                        </a>
+                                        <div class="row justify-content-around text-side-trending">
+                                            <div class="col d-flex" style="margin-top: auto;">
+                                                <div class="sub-item">
+                                                    <i class="bi bi-heart"></i>
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="sub-item">
+                                                    <i class="bi bi-chat"></i>
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="sub-item">
+                                                    <i class="bi bi-eye"></i>
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="sub-item">
+                                                    <span>50 menit</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 d-flex">
+                                                <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                    <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                        <i class="fas fa-share"></i>
+                                                        <span>Bagikan</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
 
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modalSosmed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Share Berita</h5>
+                <button type="button" class="btn btn-outline-danger btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-2 mb-3">
+                        <a href="" class="whatsapp text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/whatsapp.svg" class="w-50 d-block mx-auto" alt="">
+                            <p class="text-dark text-center" style="font-size: 12px"><br>Whatsapp</p>
+                        </a>
+                    </div>
+                    <div class="col-2 mb-3">
+                        <a href="" class="instagram text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/instagram.svg" class="w-50 d-block mx-auto" alt="">
+                            <p class="text-dark text-center" style="font-size: 12px"><br>Instagram</p>
+                        </a>
+                    </div>
+                    <div class="col-2 mb-3">
+                        <a href="" class="telegram text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/telegram.svg" class="w-50 d-block mx-auto" alt="">
+                            <p class="text-dark text-center" style="font-size: 12px"><br>Telegram</p>
+                        </a>
+                    </div>
+                    <div class="col-2 mb-3">
+                        <a href="" class="facebook text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/facebook.svg" class="w-50 d-block mx-auto" alt="">
+                            <p class="text-dark text-center" style="font-size: 12px"><br>Facebook</p>
+                        </a>
+                    </div>
+                    <div class="col-2 mb-3">
+                        <a href="" class="twitter text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/twitter.svg" class="w-50 d-block mx-auto" alt="">
+                            <p class="text-dark text-center" style="font-size: 12px"><br>Twitter</p>
+                        </a>
+                    </div>
+                    <div class="col-2 mb-3">
+                        <a href="" class="email text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/email.svg" class="w-50 d-block mx-auto" alt="">
+                            <p class="text-dark text-center" style="font-size: 12px"><br>Email</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

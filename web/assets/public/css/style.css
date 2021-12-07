@@ -97,7 +97,7 @@
 
 .img-video {
     /* border-radius: 10px; */
-    height: 120px;
+    height: 89px;
 }
 
 .carousel-navigation .nav-item-active {
@@ -123,4 +123,12 @@
 
 .category .nav-item:hover {
     background-color: #eeeeee;
+}
+
+.for-hover {
+    background-color: #ffffff;
+}
+
+.for-hover:hover {
+    background-color: #ffffff78;
 }

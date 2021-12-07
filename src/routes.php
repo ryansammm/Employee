@@ -49,6 +49,8 @@ $routes->push('registerAction', '/register/action', [RegisterController::class, 
 
 
 $routes->prefix('admin', function ($routes) {
+    /* ---------------------------- Logout --------------------------- */
+    $routes->push('logout', '/logout', [LoginController::class, 'logout']);
 
     /* --------------------------- Route Kelola Berita -------------------------- */
     $routes->prefix('berita', function ($routes) {
@@ -232,15 +234,24 @@ $routes->prefix('admin', function ($routes) {
     $routes->push('profile', '/profile-saya', [ProfileController::class, 'index']);
     $routes->push('profileUpdate', '/profile-saya/update', [ProfileController::class, 'update']);
 
-    /* ---------------------------- Logout --------------------------- */
-    $routes->push('logout', '/logout', [LoginController::class, 'logout']);
-
     /* ---------------------------- Kelola Template Login --------------------------- */
     $routes->prefix('login-template', function ($routes) {
         $routes->push('cms-title', '', [CmsTitleController::class, 'index']);
         $routes->push('cms-title-update', '/cms-title/update', [CmsTitleController::class, 'update']);
         $routes->push('cms-background', '/cms-background/update', [CmsBackgroundController::class, 'update']);
         $routes->push('cms-setting', '/cms-setting/update', [CmsSettingController::class, 'update']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------- Route Kelola Menu ------------------------- */
+    $routes->prefix('menu', function ($routes) {
+        $routes->push('menu', '', [UsersController::class, 'index']);
+        $routes->push('menu_create', '/create', [UsersController::class, 'create']);
+        $routes->push('menu_store', '/store', [UsersController::class, 'store']);
+        $routes->push('menu_edit', '/{id}/edit', [UsersController::class, 'edit']);
+        $routes->push('menu_update', '/{id}/update', [UsersController::class, 'update']);
+        $routes->push('menu_show', '/{id}/show', [UsersController::class, 'show']);
+        $routes->push('menu_delete', '/{id}/delete', [UsersController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 });

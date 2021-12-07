@@ -83,6 +83,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
+                                <label for="cms_icon_kategori" class="form-label">Icon Kategori</label> (.jpg, .jpeg, .png)
                                 <div class="row">
                                     <?php if (arr_offset($detail, 'path_media') != null) { ?>
                                         <div class="col-2">
@@ -90,7 +91,6 @@
                                         </div>
                                     <?php } ?>
                                     <div class="col">
-                                        <label for="cms_icon_kategori" class="form-label">Icon Kategori</label> (.jpg, .jpeg, .png)
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="custom-file">

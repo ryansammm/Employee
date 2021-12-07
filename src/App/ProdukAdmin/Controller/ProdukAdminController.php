@@ -58,7 +58,7 @@ class ProdukAdminController
 
         /* ------------------------------ Media Produk ------------------------------ */
         $media = new Media();
-        $media->storeMedia($_FILES['produk_foto'], [
+        $media->storeMedia($request->files->get('produk_foto'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -84,7 +84,7 @@ class ProdukAdminController
         $this->model->where('id_produk', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($_FILES['produk_foto'], [
+        $media->updateMedia($request->files->get('produk_foto'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->model, $id);

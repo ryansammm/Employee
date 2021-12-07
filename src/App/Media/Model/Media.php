@@ -73,7 +73,9 @@ class Media extends Model
             $newFilename = $file->getClientOriginalName();
         }
 
-        $this->path = $this->path == '' ? $this->path() : $this->path;
+        if ($this->path == '') {
+            $this->path();
+        }
 
         try {
             $file->move(

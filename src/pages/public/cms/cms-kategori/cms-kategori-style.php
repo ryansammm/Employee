@@ -9,9 +9,7 @@
 
     .text-kategori a {
         color: <?= $cms_kategori_style['cms_font_color'] ?> !important;
-        <?php if (arr_offset($cms_kategori_style, 'font_face') != null) { ?>
         font-family: <?= $cmsKategoriStyle->fontFamily(arr_offset($cms_kategori_style, 'cms_font_name')) ?>;
-        <?php } ?>
         font-weight: <?= $cmsKategoriStyle->fontWeight($cms_kategori_style['cms_font_weight']) ?>;
         font-size: <?= $cms_kategori_style['cms_font_size'] . '' . $cmsKategoriStyle->fontSizeUnit($cms_kategori_style['cms_font_size_unit']) ?>;
     }

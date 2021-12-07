@@ -186,6 +186,14 @@
                     </a>
                 </li>
                 <li class="nav-item border-top">
+                    <a href="/admin/menu" class="nav-link">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Kelola Menu Website
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/login-template" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>

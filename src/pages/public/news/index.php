@@ -212,6 +212,8 @@
                 </button>
             </div>
         </div>
+
+        <!------- Trending ------->
         <div class="col">
             <div style="background-color: white;padding: 5px 0 5px 0;">
                 <div class="d-flex justify-content-between align-items-center">
@@ -576,7 +578,7 @@
 </div>
 
 
-
+<!------- Model Share ------->
 <div class="modal fade" id="modalSosmed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

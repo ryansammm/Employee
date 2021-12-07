@@ -36,7 +36,7 @@
         <div class="row">
 
             <div class="col-lg-4">
-                <a href="" class="text-dark text-decoration-none">
+                <a href="/news/asdw/detail" class="text-dark text-decoration-none">
                     <div class="card for-hover p-3">
                         <div class="align-self-center rounded-1" style="background-image: url(/assets/media/AARwe9C.jpg);width: 310px;height: 140px;background-size: cover;background-position: center;"></div>
                         <h6 class="mt-3 ms-2 mb-0 pb-0">Dilengkapi Furnitur, Begini Desain Rusun Mahasiswa Aceh Senilai Rp12,74 Miliar</h6>

@@ -37,180 +37,55 @@
 
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
 
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div style="background-image: url(/assets/media/support.jpeg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
                         <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h6>Support</h6>
+                            <p class="card-text truncate-string-2">Kami dapat menunjukkan kesalahan dengan menggunakan fasilitas pemeliharaan jarak jauh kami dan segera memasang kembali instalasi Anda ke dalam layanan. Dengan Güdel, suku cadang tersedia dengan sangat cepat, berkat jaringan kami di seluruh dunia.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary">View</button>
                                 </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-
-                        <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-
-                        <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
+                                <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col-md-4">
                     <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-
+                        <div style="background-image: url(/assets/media/protect1.jpeg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
                         <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h6>Protect</h6>
+                            <p class="card-text truncate-string-2">Kami memelihara instalasi Anda dan mengganti suku cadang yang aus pada waktu yang tepat. Selama inspeksi rutin kami, kami menganalisis sistem Anda dan mendeteksi cacat sebelum dapat menyebabkan kerusakan.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary">View</button>
                                 </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-
-                        <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-
-                        <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
+                                <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col-md-4">
                     <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-
+                        <div style="background-image: url(/assets/media/improve-teaser.jpeg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
                         <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h6>Improve </h6>
+                            <p class="card-text truncate-string-2">Pakar kami mengoptimalkan proses dan mesin Anda menggunakan modul Güdel Improve. Solusi retrofit dapat melengkapi instalasi Anda untuk memenuhi persyaratan baru dan meningkatkan produktivitas Anda.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary">View</button>
                                 </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
+                                <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
 
-                        <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-
-                        <div class="card-body">
-                            <h6>Nama Layanan</h6>
-                            <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <a href=""><small class="text-muted">Kategori</small></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
 

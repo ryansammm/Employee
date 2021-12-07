@@ -14,60 +14,48 @@
                     <div class="col-2">
                         <div class="card">
                             <div class="card-body" style="padding: 1rem">
-                                <a href="">
-                                    <div class="img-video" style="background: url('/assets/logo/PTA-logo.png');background-size: cover;background-position: top center;">
-                                    </div>
-                                </a>
+                                <div class="img-video" style="background: url('/assets/media/Catalent-logo.png');background-size: cover;background-position:  center;">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="card">
                             <div class="card-body" style="padding: 1rem">
-                                <a href="">
-                                    <div class="img-video" style="background: url('/assets/logo/PTA-logo.png');background-size: cover;background-position: top center;">
-                                    </div>
-                                </a>
+                                <div class="img-video" style="background: url('/assets/media/Benecol-agency-logo.png');background-size: cover;background-position:  center;">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="card">
                             <div class="card-body" style="padding: 1rem">
-                                <a href="">
-                                    <div class="img-video" style="background: url('/assets/logo/PTA-logo.png');background-size: cover;background-position: top center;">
-                                    </div>
-                                </a>
+                                <div class="img-video" style="background: url('/assets/media/SGD-pharma-logo.png');background-size: cover;background-position:  center;">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="card">
                             <div class="card-body" style="padding: 1rem">
-                                <a href="">
-                                    <div class="img-video" style="background: url('/assets/logo/PTA-logo.png');background-size: cover;background-position: top center;">
-                                    </div>
-                                </a>
+                                <div class="img-video" style="background: url('/assets/media/Ashland-logo.jpg');background-size: cover;background-position:  center;">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="card">
                             <div class="card-body" style="padding: 1rem">
-                                <a href="">
-                                    <div class="img-video" style="background: url('/assets/logo/PTA-logo.png');background-size: cover;background-position: top center;">
-                                    </div>
-                                </a>
+                                <div class="img-video" style="background: url('/assets/media/Peak-scientific-logo.jpg');background-size: cover;background-position:  center;">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="card">
                             <div class="card-body" style="padding: 1rem">
-                                <a href="">
-                                    <div class="img-video" style="background: url('/assets/logo/PTA-logo.png');background-size: cover;background-position: top center;">
-                                    </div>
-                                </a>
+                                <div class="img-video" style="background: url('/assets/media/Purolite+Lifesciences+logo.png');background-size: cover;background-position:  center;">
+                                </div>
                             </div>
                         </div>
                     </div>

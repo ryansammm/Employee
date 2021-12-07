@@ -74,7 +74,7 @@ class Media extends Model
         }
 
         if ($this->path == '') {
-            $this->path = $this->path();
+            $this->path();
         }
 
         try {

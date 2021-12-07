@@ -1,34 +1,14 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
+<?php require __DIR__.'/../cms/cms-kategori/cms-kategori-error.php' ?>
+<?php require __DIR__.'/../cms/cms-kategori/cms-kategori-style.php' ?>
+
 <div class="container">
     <div class="row">
-        <!------- Category ------->
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
-                    <div style="background-color: white;padding: 5px 0 5px 0;">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Kategori</h5>
-                        </div>
-                        <hr>
-                    </div>
-                    <ul class="nav flex-column category" style="font-size: 14px;">
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Polstics</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">International</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Finance</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Health care</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Technology</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Jobs</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Media</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Administration</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Sports</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Game</a></li>
-                        <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="#">Art</a></li>
-                        <li class="nav-item mb-2"><a class="nav-link p-0 text-dark" href="#">Kids</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <!------- Left Category ------->
+        <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
+            <?php require __DIR__.'/../cms/cms-kategori/cms-kategori.php' ?>
+        <?php } ?>
 
         <div class="col-md-9">
             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -106,6 +86,11 @@
 
 
         </div>
+
+        <!------- Right Category ------->
+        <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
+            <?php require __DIR__.'/../cms/cms-kategori/cms-kategori.php' ?>
+        <?php } ?>
 
     </div>
 </div>

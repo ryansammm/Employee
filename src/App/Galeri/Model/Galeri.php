@@ -2,7 +2,6 @@
 
 namespace App\Galeri\Model;
 
-use App\QueryBuilder\Model\QueryBuilder;
 use Core\Model;
 
 class Galeri extends Model

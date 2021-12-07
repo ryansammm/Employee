@@ -6,7 +6,8 @@
         "vlucas/phpdotenv": "^5.4",
         "symfony/validator": "^5.3",
         "doctrine/annotations": "^1.13",
-        "siriusphp/validation": "^3.0"
+        "siriusphp/validation": "^3.0",
+        "symfony/mime": "^5.4"
     },
 	"autoload": {
         "files": [

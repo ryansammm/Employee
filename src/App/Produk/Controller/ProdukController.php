@@ -2,6 +2,7 @@
 
 namespace App\Produk\Controller;
 
+use App\CmsKategoriStyle\Model\CmsKategoriModule;
 use App\KategoriProdukAdmin\Model\KategoriProdukAdmin;
 use App\Media\Model\Media;
 use App\Produk\Model\Produk;
@@ -19,15 +20,14 @@ class ProdukController
 
     public function index(Request $request)
     {
-
-        $media = new Media();
-        // $kategori_produk = new KategoriProdukAdmin();
-        // $data_kategori_produk = $kategori_produk->get();
         $data_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->paginate(8)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
 
-        return render_template('public/product/index', ['data_produk' => $data_produk]);
+        $cmsKategoriModule = new CmsKategoriModule('produk-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
+
+        return render_template('public/product/index', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 
     public function create(Request $request)
@@ -64,11 +64,6 @@ class ProdukController
     public function detail(Request $request)
     {
         $id = $request->attributes->get("id");
-
-        $media = new Media();
-        // $kategori_produk = new KategoriProdukAdmin();
-
-        // $data_kategori_produk = $kategori_produk->get();
 
         $data_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')

@@ -1,5 +1,6 @@
 <?php
 
+use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\Response;
 
 if (!function_exists('render_template')) {
@@ -62,3 +63,70 @@ if (!function_exists('str_slug')) {
         return $slug;
     }
 }
+
+if (!function_exists('show')) {
+    /**
+     * Show value of variable
+     *
+     * @param mixed $var
+     * @return void
+     */
+    function show($var)
+    {
+        return isset($var) ? $var : '';
+    }
+}
+
+if (!function_exists('session')) {
+    /**
+     * Get session
+     *
+     * @param string $key
+     * @param mixed $default
+     * @return mixed
+     */
+    function session($key = null)
+    {
+        return $key == null ? SessionData::get()->all() : SessionData::get($key);
+    }
+
+}
+
+if (!function_exists('arr_offset')) {
+    /**
+     * Get offset of array
+     *
+     * @return mixed
+     */
+    function arr_offset($array, $offset)
+    {
+        return $array && isset($array[$offset]) ? $array[$offset] : null;
+    }
+}
+
+if (!function_exists('storage_path')) {
+    /**
+     * Get storage path
+     *
+     * @param string $path
+     * @return string
+     */
+    function storage_path($path = '')
+    {
+        return __DIR__ . '/../../../web/assets/media/' . $path;
+    }
+}
+
+if (!function_exists('fonts_path')) {
+    /**
+     * Get fonts path
+     *
+     * @param string $path
+     * @return string
+     */
+    function fonts_path($path = '')
+    {
+        return __DIR__ . '/../../../web/assets/fonts/' . $path;
+    }
+}
+

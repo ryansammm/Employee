@@ -4,52 +4,139 @@ namespace App\Media\Model;
 
 use Core\Classes\SessionData;
 use Core\Model;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Media extends Model
 {
     protected $table = 'media';
     protected $primaryKey = 'id_media';
 
+    public $path = '';
+    protected $originalName = false;
+
+    public function path(string $path = '')
+    {
+        if ($path == 'fonts') {
+            $this->path = fonts_path();
+        } else {
+            $this->path = storage_path();
+        }
+
+        return $this;
+    }
+
+    public function useOriginalName()
+    {
+        $this->originalName = true;
+
+        return $this;
+    }
+
+    // /**
+    //  * Function upload file
+    //  * 
+    //  * @param array $file
+    //  */
+    // public function uploadFileCustom(array $file)
+    // {
+    //     $fileUpload = $file;
+    //     $target_file_name = null;
+    //     if (!is_null($fileUpload)) {
+    //         $source_path  = $fileUpload['tmp_name'];
+    //         $file_name = $fileUpload['name'];
+    //         $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
+    //         $target_file_name = time() . "-" . uniqid() . "." . $file_extension;
+    //         $target_directory = "../web/assets/media/" . $target_file_name;
+    //         $uploads = [];
+
+    //         move_uploaded_file($source_path, $target_directory);
+    //         $uploads['status'] = true;
+    //         $uploads['file'] = $target_file_name;
+    //     }
+
+    //     return $uploads;
+    // }
+
     /**
      * Function upload file
      * 
-     * @param array $file
+     * @param UploadedFile $file
      */
-    public function uploadFileCustom(array $file)
+    public function uploadFile(UploadedFile $file)
     {
-        $fileUpload = $file;
-        $target_file_name = null;
-        if (!is_null($fileUpload)) {
-            $source_path  = $fileUpload['tmp_name'];
-            $file_name = $fileUpload['name'];
-            $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
-            $target_file_name = time() . "-" . uniqid() . "." . $file_extension;
-            $target_directory = "../web/assets/media/" . $target_file_name;
-            $uploads = [];
-
-            move_uploaded_file($source_path, $target_directory);
-            $uploads['status'] = true;
-            $uploads['file'] = $target_file_name;
+        $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $safeFilename = str_slug($originalFilename);
+        if (!$this->originalName) {
+            $newFilename = $safeFilename . '-' . uniqid() . '.' . $file->guessExtension();
+        } else {
+            $newFilename = $file->getClientOriginalName();
         }
 
-        return $uploads;
+        $this->path = $this->path == '' ? $this->path() : $this->path;
+
+        try {
+            $file->move(
+                $this->path,
+                $newFilename
+            );
+
+            $data = [
+                'status' => true,
+                'file' => $newFilename,
+                'message' => 'File uploaded successfully'
+            ];
+            $this->originalName = false;
+
+        } catch (FileException $e) {
+            $data = [
+                'status' => false,
+                'file' => null,
+                'message' => 'Error uploading file: ' . $e->getMessage()
+            ];
+        }
+
+        return $data;
     }
+
+    // /**
+    //  * Function store media
+    //  * 
+    //  * @param array $file
+    //  * @param array $data_media example: ['id_relation' => '', 'jenis_dokumen' => '']
+    //  * 
+    //  */
+    // public function storeMedia(array $file, array $data_media)
+    // {
+    //     if (isset($file) && $file['name'] != '') {
+    //         $dokumen = $this->uploadFileCustom($file);
+    //         $data_media = [
+    //             'path_media' => $dokumen['file'],
+    //             'id_relation' => $data_media['id_relation'],
+    //             'id_entity' => SessionData::get('id_user') != null ?? '',
+    //             'jenis_dokumen' => $data_media['jenis_dokumen'],
+    //         ];
+    //         $this->insert($data_media);
+    //     }
+
+    //     return $dokumen;
+    // }
 
     /**
      * Function store media
      * 
-     * @param array $file
+     * @param UploadedFile|null $file
      * @param array $data_media example: ['id_relation' => '', 'jenis_dokumen' => '']
      * 
      */
-    public function storeMedia(array $file, array $data_media)
+    public function storeMedia($file, array $data_media)
     {
-        if (isset($file) && $file['name'] != '') {
-            $dokumen = $this->uploadFileCustom($file);
+        if ($file != null) {
+            $dokumen = $this->uploadFile($file);
             $data_media = [
                 'path_media' => $dokumen['file'],
                 'id_relation' => $data_media['id_relation'],
-                'id_entity' => SessionData::get()->get('id_user'),
+                'id_entity' => SessionData::get('id_user') ?? '',
                 'jenis_dokumen' => $data_media['jenis_dokumen'],
             ];
             $this->insert($data_media);
@@ -61,14 +148,16 @@ class Media extends Model
     /**
      * Function update media
      * 
-     * @param array $file
+     * @param UploadedFile|null $file
      * @param array $data_media example: ['id_relation' => '', 'jenis_dokumen' => '']
      * 
      */
-    public function updateMedia(array $file, array $data_media, Model $model, string $id_tabel)
+    public function updateMedia($file, array $data_media, Model $model, string $id_tabel)
     {
-        if (isset($file) && $file['name'] != '') {
-            $media_data = $model->select('media.*')->leftJoin('media', 'media.id_relation', '=', $model->table . '.' . $model->primaryKey)->where($model->primaryKey, $id_tabel)->first();
+        if ($file != null) {
+            $media_data = $model->select('media.*')
+                ->leftJoin('media', 'media.id_relation', '=', $model->table . '.' . $model->primaryKey)
+                ->where($model->primaryKey, $id_tabel)->first();
             $this->deleteMedia($media_data);
             $dokumen = $this->storeMedia($file, $data_media);
 

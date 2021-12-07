@@ -489,7 +489,11 @@ class Query
                     if ($key1 != $tableColumn['primaryKey']) {
                         $datasQuery[$key][$key1] = isset($value[$key1]) ? $value[$key1] : null;
                     } else {
-                        $datasQuery[$key][$tableColumn['primaryKey']] = uniqid();
+                        if (isset($value[$tableColumn['primaryKey']])) {
+                            $datasQuery[$key][$tableColumn['primaryKey']] = $value[$key1];
+                        } else {
+                            $datasQuery[$key][$tableColumn['primaryKey']] = uniqid();
+                        }
                         array_push($primaryKey, $datasQuery[$key][$tableColumn['primaryKey']]);
                     }
                 }
@@ -515,7 +519,11 @@ class Query
                 if ($key != $tableColumn['primaryKey']) {
                     $tableColumn['column'][$key] = isset($datas[$key]) ? $datas[$key] : null;
                 } else {
-                    $tableColumn['column'][$tableColumn['primaryKey']] = uniqid();
+                    if (isset($datas[$tableColumn['primaryKey']])) {
+                        $tableColumn['column'][$tableColumn['primaryKey']] = $datas[$key];
+                    } else {
+                        $tableColumn['column'][$tableColumn['primaryKey']] = uniqid();
+                    }
                     $primaryKey = $tableColumn['column'][$tableColumn['primaryKey']];
                 }
             }

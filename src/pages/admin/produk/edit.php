@@ -1,0 +1,88 @@
+<?php include(__DIR__ . '/../layouts/admin-header.php'); ?>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-1">
+                    <a href="/admin/produk" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                </div>
+                <div class="col-sm-5">
+                    <h1 class="m-0">Data Produk</h1>
+                </div>
+                <div class="col">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Produk</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Produk</a></li>
+                        <li class="breadcrumb-item active">Edit Data Produk</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content">
+        <div class="container-fluid">
+            <form action="/admin/produk/<?= $produk['id_produk'] ?>/update" method="POST" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <!------- Kategori Produk ------->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label for="id_kategori_produk" class="form-label">Kategori Produk</label>
+                                        <select class="custom-select" name="id_kategori_produk" id="id_kategori_produk">
+                                            <?php foreach ($data_kategori_produk->items as $value) { ?>
+                                                <option <?= $produk['id_kategori_produk'] == $value['id_kategori_produk'] ? 'selected' : '' ?> value="<?= $value['id_kategori_produk'] ?>"><?= $value['nama_kategori_produk'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!------- Nama Produk ------->
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label for="nama_produk" class="form-label">Nama Produk</label>
+                                    <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?= $produk['nama_produk'] ?>">
+                                </div>
+                            </div>
+                            <!------- Deskripsi Produk ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="deskripsi_produk" class="form-label">Deskripsi Produk</label>
+                                    <textarea id="deskripsi_produk" name="deskripsi_produk"><?= $produk['deskripsi_produk'] ?></textarea>
+                                </div>
+                            </div>
+                            <!------- Foto Produk ------->
+                            <div class="col-md-4">
+                                <label for="produk_foto" class="form-label">Foto Produk</label> (.jpg, .jpeg, .png)
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="produk_foto" name="produk_foto">
+                                            <label class="custom-file-label" for="produk_foto">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+
+
+<?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

@@ -112,7 +112,7 @@
                     <h6 style="margin-top: auto;margin-bottom: auto;">Panca Teknologi Aksesindo</h6>
                     <form>
                         <div class="input-group mt-3 ms-3" style="width: 570pt;">
-                            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                            <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
                         </div>
                     </form>
                 </div>

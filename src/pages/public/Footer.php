@@ -5,7 +5,7 @@
             <!-- <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none"> -->
             <img src="/assets/logo/PTA-logo.png" alt="" width="80">
             <!-- </a> -->
-            <p class="text-muted">2021 &copy; Sinergi News</p>
+            <p class="text-muted">2021 &copy; Panca Teknologi Aksesindo</p>
         </div>
 
         <div class="col-md-2">

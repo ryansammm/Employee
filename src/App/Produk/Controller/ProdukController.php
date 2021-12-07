@@ -22,7 +22,10 @@ class ProdukController
     {
         $data_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
+            ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
             ->paginate(8)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
+
+        // dd($data_produk->items);
 
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);

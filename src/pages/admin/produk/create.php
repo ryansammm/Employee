@@ -82,6 +82,24 @@
     </section>
 </div>
 
+<script src="/assets/js/app/file-preview.js"></script>
+<script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+    $(function() {
+        // Summernote
+        $('#deskripsi_produk').summernote({
+            placeholder: 'Start writing or type',
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
+    });
+</script>
 
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

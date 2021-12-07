@@ -1,13 +1,13 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
-<?php require __DIR__.'/../cms/cms-kategori/cms-kategori-error.php' ?>
-<?php require __DIR__.'/../cms/cms-kategori/cms-kategori-style.php' ?>
+<?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-error.php' ?>
+<?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-style.php' ?>
 
 <div class="container">
     <div class="row">
         <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
-            <?php require __DIR__.'/../cms/cms-kategori/cms-kategori.php' ?>
+            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
         <?php } ?>
 
         <div class="col-md-9">
@@ -18,23 +18,26 @@
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-                <div class="col-md-4">
-                    <div class="card shadow-sm">
-                        <div style="background-image: url(/assets/media/1a7e6156-f9b9-4d54-a202-85fbc6bc6d9c.jpg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
-                        <div class="card-body">
-                            <h6>Bacchus</h6>
-                            <p class="card-text truncate-string-2">Bacchus is creative one-page HTML 5 template and it’s great for any corporate, portfolio and creative agency. It’s easy to use and customize. Bacchus is fully responsive and it will look great on any screen size: desktop, notebook and mobile phone.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-primary">View</button>
+
+                <?php foreach ($data_produk->items as $key => $value) { ?>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
+                            <div class="card-body">
+                                <h6><?= $value['nama_produk'] ?></h6>
+                                <div class="card-text truncate-string-1"><?= $value['deskripsi_produk'] ?></div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-primary">View</button>
+                                    </div>
+                                    <a href="" class="text-muted text-decoration-none"><small><?= $value['nama_kategori_produk'] ?></small></a>
                                 </div>
-                                <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
 
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <div class="card shadow-sm">
                         <div style="background-image: url(/assets/media/0e7b8ff6-0f0a-42c1-be06-8c20e48cf974.jpg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
                         <div class="card-body">
@@ -80,7 +83,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -89,7 +92,7 @@
 
         <!------- Right Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
-            <?php require __DIR__.'/../cms/cms-kategori/cms-kategori.php' ?>
+            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
         <?php } ?>
 
     </div>

@@ -7,13 +7,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Kelola Tampilan Kategori Jejak Kami</h1>
+                    <h1 class="m-0">Kelola Tampilan Kategori Produk Kami</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Jejak Kami</a></li>
+                        <li class="breadcrumb-item"><a href="#">Produk Kami</a></li>
                         <li class="breadcrumb-item"><a href="#">Kelola Kategori</a></li>
-                        <li class="breadcrumb-item">Kelola Tampilan Kategori Jejak Kami</li>
+                        <li class="breadcrumb-item">Kelola Tampilan Kategori Produk Kami</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -23,7 +23,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="/admin/kategori-galeri/style/update" method="POST" enctype="multipart/form-data">
+            <form action="/admin/kategori-produk/style/update" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -169,7 +169,7 @@
                         <input type="file" class="form-control" name="cms_font_file" required>
                         <span class="text-muted">Ukuran maksimum file : 1 Mb</span>
                     </div>
-                    <input type="hidden" name="redirect_to" value="/admin/kategori-galeri/style">
+                    <input type="hidden" name="redirect_to" value="/admin/kategori-produk/style">
                 </form>
             </div>
             <div class="modal-footer">

@@ -4,14 +4,15 @@ use App\About\Controller\AboutController;
 use App\Berita\Controller\BeritaController;
 use App\CmsBackground\Controller\CmsBackgroundController;
 use App\CmsFonts\Controller\CmsFontsController;
-use App\CmsKategoriGaleriStyle\Controller\CmsKategoriGaleriStyleController;
+use App\CmsKategoriGaleri\Controller\CmsKategoriGaleriController;
+use App\CmsKategoriLayanan\Controller\CmsKategoriLayananController;
+use App\CmsKategoriProduk\Controller\CmsKategoriProdukController;
 use App\CmsSetting\Controller\CmsSettingController;
 use App\CmsTitle\Controller\CmsTitleController;
 use App\Contact\Controller\ContactController;
 use App\Customer\Controller\CustomerController;
 use App\Galeri\Controller\GaleriController;
 use App\GaleriAdmin\Controller\GaleriAdminController;
-use App\Gallery\Controller\GalleryController;
 use App\GroupGaleri\Controller\GroupGaleriController;
 use App\Home\Controller\HomeController;
 use App\KategoriBeritaAdmin\Controller\KategoriBeritaAdminController;
@@ -22,15 +23,11 @@ use App\Layanan\Controller\LayananController;
 use App\LayananAdmin\Controller\LayananAdminController;
 use App\Login\Controller\LoginController;
 use App\Maintenance\Controller\MaintenanceController;
-use App\News\Controller\NewsController;
 use App\PelangganAdmin\Controller\PelangganAdminController;
-use App\Product\Controller\ProductController;
-use App\ProductAndService\Controller\ProductAndServiceController;
 use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
-use App\Service\Controller\ServiceController;
 use App\Users\Controller\UsersController;
 use App\VideoAdmin\Controller\VideoAdminController;
 use Core\RouteCollection;
@@ -89,13 +86,19 @@ $routes->prefix('admin', function ($routes) {
 
     /* ---------------------- Route Kelola Kategori Produk ---------------------- */
     $routes->prefix('kategori-produk', function ($routes) {
-        $routes->push('kategori_produk', '', [KategoriProdukAdminController::class, 'index']);
-        $routes->push('kategori_produk_create', '/create', [KategoriProdukAdminController::class, 'create']);
-        $routes->push('kategori_produk_store', '/store', [KategoriProdukAdminController::class, 'store']);
-        $routes->push('kategori_produk_edit', '/{id}/edit', [KategoriProdukAdminController::class, 'edit']);
-        $routes->push('kategori_produk_update', '/{id}/update', [KategoriProdukAdminController::class, 'update']);
-        $routes->push('kategori_produk_show', '/{id}/show', [KategoriProdukAdminController::class, 'show']);
-        $routes->push('kategori_produk_delete', '/{id}/delete', [KategoriProdukAdminController::class, 'delete']);
+        $routes->prefix('konten', function ($routes) {
+            $routes->push('kategori_produk', '', [KategoriProdukAdminController::class, 'index']);
+            $routes->push('kategori_produk_create', '/create', [KategoriProdukAdminController::class, 'create']);
+            $routes->push('kategori_produk_store', '/store', [KategoriProdukAdminController::class, 'store']);
+            $routes->push('kategori_produk_edit', '/{id}/edit', [KategoriProdukAdminController::class, 'edit']);
+            $routes->push('kategori_produk_update', '/{id}/update', [KategoriProdukAdminController::class, 'update']);
+            $routes->push('kategori_produk_show', '/{id}/show', [KategoriProdukAdminController::class, 'show']);
+            $routes->push('kategori_produk_delete', '/{id}/delete', [KategoriProdukAdminController::class, 'delete']);
+        });
+        $routes->prefix('style', function ($routes) {
+            $routes->push('kategori_produk_style', '', [CmsKategoriProdukController::class, 'edit']);
+            $routes->push('kategori_produk_style_update', '/update', [CmsKategoriProdukController::class, 'update']);
+        });
     });
     /* -------------------------------------------------------------------------- */
 
@@ -113,13 +116,19 @@ $routes->prefix('admin', function ($routes) {
 
     /* -------------------------- Route Kelola Kategori Layanan -------------------------- */
     $routes->prefix('kategori-layanan', function ($routes) {
-        $routes->push('kategori_layanan', '', [KategoriLayananAdminController::class, 'index']);
-        $routes->push('kategori_layanan_create', '/create', [KategoriLayananAdminController::class, 'create']);
-        $routes->push('kategori_layanan_store', '/store', [KategoriLayananAdminController::class, 'store']);
-        $routes->push('kategori_layanan_edit', '/{id}/edit', [KategoriLayananAdminController::class, 'edit']);
-        $routes->push('kategori_layanan_update', '/{id}/update', [KategoriLayananAdminController::class, 'update']);
-        $routes->push('kategori_layanan_show', '/{id}/show', [KategoriLayananAdminController::class, 'show']);
-        $routes->push('kategori_layanan_delete', '/{id}/delete', [KategoriLayananAdminController::class, 'delete']);
+        $routes->prefix('konten', function ($routes) {
+            $routes->push('kategori_layanan', '', [KategoriLayananAdminController::class, 'index']);
+            $routes->push('kategori_layanan_create', '/create', [KategoriLayananAdminController::class, 'create']);
+            $routes->push('kategori_layanan_store', '/store', [KategoriLayananAdminController::class, 'store']);
+            $routes->push('kategori_layanan_edit', '/{id}/edit', [KategoriLayananAdminController::class, 'edit']);
+            $routes->push('kategori_layanan_update', '/{id}/update', [KategoriLayananAdminController::class, 'update']);
+            $routes->push('kategori_layanan_show', '/{id}/show', [KategoriLayananAdminController::class, 'show']);
+            $routes->push('kategori_layanan_delete', '/{id}/delete', [KategoriLayananAdminController::class, 'delete']);
+        });
+        $routes->prefix('style', function ($routes) {
+            $routes->push('kategori_layanan_style', '', [CmsKategoriLayananController::class, 'edit']);
+            $routes->push('kategori_layanan_style_update', '/update', [CmsKategoriLayananController::class, 'update']);
+        });
     });
     /* -------------------------------------------------------------------------- */
 
@@ -171,8 +180,8 @@ $routes->prefix('admin', function ($routes) {
             $routes->push('kategori_galeri_delete', '/{id}/delete', [KategoriGaleriAdminController::class, 'delete']);
         });
         $routes->prefix('style', function ($routes) {
-            $routes->push('kategori_galeri_style', '', [CmsKategoriGaleriStyleController::class, 'edit']);
-            $routes->push('kategori_galeri_style_update', '/update', [CmsKategoriGaleriStyleController::class, 'update']);
+            $routes->push('kategori_galeri_style', '', [CmsKategoriGaleriController::class, 'edit']);
+            $routes->push('kategori_galeri_style_update', '/update', [CmsKategoriGaleriController::class, 'update']);
         });
     });
     /* -------------------------------------------------------------------------- */

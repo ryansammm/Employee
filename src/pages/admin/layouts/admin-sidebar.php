@@ -59,11 +59,31 @@
                                 <p>Kelola Produk</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/admin/kategori-produk" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kelola Kategori</p>
                             </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Produk</p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item" style="padding-left: 55px;">
+                                    <a href="/admin/kategori-produk/konten" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Kelola Konten</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="padding-left: 55px;">
+                                    <a href="/admin/kategori-produk/style" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Kelola Tampilan</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -83,10 +103,24 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/kategori-layanan" class="nav-link" style="padding-left: 43px;">
+                            <a href="#" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Kategori</p>
+                                <p>Kelola Layanan</p>
                             </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item" style="padding-left: 55px;">
+                                    <a href="/admin/kategori-layanan/konten" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Kelola Konten</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="padding-left: 55px;">
+                                    <a href="/admin/kategori-layanan/style" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Kelola Tampilan</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -105,20 +139,7 @@
                                 <p>Kelola Jejak Kami</p>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="/admin/kategori-galeri" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Kategori</p>
-                            </a>
-                        </li> -->
                         <li class="nav-item">
-                            <!-- <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    Level 2
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a> -->
                             <a href="#" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kelola Kategori</p>

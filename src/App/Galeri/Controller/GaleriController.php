@@ -62,7 +62,6 @@ class GaleriController
         return render_template('public/gallery/detail', ['data_galeri' => $data_galeri]);
     }
 
-
     public function delete(Request $request)
     {
 

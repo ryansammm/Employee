@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use App\CmsFonts\Model\CmsFonts;
+use App\CmsKategoriStyle\Model\CmsKategoriStyle;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,9 +41,8 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         // !!!! Overriding Core Framework !!!!
 
-        // if (SessionData::get('id_user') == null) {
-        //     $pathInfo = '/admin';
-        // }
+        // Get data cms kategori and make it global
+
 
         // -----------------------------------
 

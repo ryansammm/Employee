@@ -2,30 +2,31 @@
 
 namespace App\Galeri\Controller;
 
+use App\CmsKategoriStyle\Model\CmsKategoriModule;
 use App\Galeri\Model\Galeri;
-use App\KategoriGaleriAdmin\Model\KategoriGaleriAdmin;
-use App\KategoriProdukAdmin\Model\KategoriProdukAdmin;
-use App\Media\Model\Media;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class GaleriController
 {
-    public $model;
+    public $galeri;
 
     public function __construct()
     {
-        $this->model = new Galeri();
+        $this->galeri = new Galeri();
     }
 
     public function index(Request $request)
     {
-        $data_galeri = $this->model
+        $data_galeri = $this->galeri
             ->leftJoin('media', 'media.id_relation', '=', 'galeri.id_galeri')
             ->leftJoin('kategori_galeri', 'kategori_galeri.id_kategori_galeri', '=', 'galeri.id_kategori_galeri')
             ->paginate(8)->appends(['kategori_galeri' => $request->query->get('kategori_galeri')]);
 
-        return render_template('public/gallery/index', ['data_galeri' => $data_galeri]);
+        $cmsKategoriModule = new CmsKategoriModule('jejak-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
+
+        return render_template('public/gallery/index', ['data_galeri' => $data_galeri, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 
     public function create(Request $request)
@@ -53,10 +54,7 @@ class GaleriController
 
     public function detail(Request $request)
     {
-        $media = new Media();
-        // $kategori_galeri = new KategoriGaleriAdmin();
-        // $data_kategori_galeri = $kategori_galeri->get();
-        $data_galeri = $this->model
+        $data_galeri = $this->galeri
             ->leftJoin('media', 'media.id_relation', '=', 'galeri.id_galeri')
             ->leftJoin('kategori_galeri', 'kategori_galeri.id_kategori_galeri', '=', 'galeri.id_kategori_galeri')
             ->paginate(8);

@@ -29,13 +29,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="cms_font_color" class="form-label d-block">Warna Teks Kategori</label>
+                                    <label for="cms_font_color" class="form-label d-block">Warna Teks</label>
                                     <input type="color" id="favcolor" name="cms_font_color" value="<?= arr_offset($detail, 'cms_font_color') ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="id_cms_font" class="form-label d-block">Font Teks Kategori</label>
+                                    <label for="id_cms_font" class="form-label d-block">Font Teks</label>
                                     <select name="id_cms_font" class="form-control">
                                         <option value=""> -- Pilih Font Teks -- </option>
                                         <?php foreach ($fonts->items as $font) { ?>
@@ -48,22 +48,38 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <div class="mb-3">
-                                    <label for="cms_font_style" class="form-label d-block">Gaya Font Teks Kategori</label>
-                                    <select name="cms_font_style" class="form-control">
+                                    <label for="cms_font_weight" class="form-label d-block">Gaya Font Teks</label>
+                                    <select name="cms_font_weight" class="form-control">
                                         <option value=""> -- Pilih Gaya Font -- </option>
-                                        <option value="1" class="font-weight-normal" <?= arr_offset($detail, 'cms_font_style') == '1' ? 'selected' : '' ?>>Normal</option>
-                                        <option value="2" class="font-weight-bold" <?= arr_offset($detail, 'cms_font_style') == '2' ? 'selected' : '' ?>>Bold</option>
-                                        <option value="3" class="font-italic" <?= arr_offset($detail, 'cms_font_style') == '3' ? 'selected' : '' ?>>Italic</option>
-                                        <option value="4" class="font-weight-light" <?= arr_offset($detail, 'cms_font_style') == '4' ? 'selected' : '' ?>>Light</option>
+                                        <option value="1" class="font-weight-normal" <?= arr_offset($detail, 'cms_font_weight') == '1' ? 'selected' : '' ?>>Normal</option>
+                                        <option value="2" class="font-weight-bold" <?= arr_offset($detail, 'cms_font_weight') == '2' ? 'selected' : '' ?>>Bold</option>
+                                        <option value="3" class="font-italic" <?= arr_offset($detail, 'cms_font_weight') == '3' ? 'selected' : '' ?>>Italic</option>
+                                        <option value="4" class="font-weight-light" <?= arr_offset($detail, 'cms_font_weight') == '4' ? 'selected' : '' ?>>Light</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="mb-3">
+                                    <label for="cms_font_size" class="form-label d-block">Ukuran Font</label>
+                                    <input type="number" min="1" class="form-control" name="cms_font_size" value="<?= arr_offset($detail, 'cms_font_size') ?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
-                                    <label for="cms_font_size" class="form-label d-block">Ukuran Font Teks Kategori</label>
-                                    <input type="number" min="1" class="form-control" name="cms_font_size" value="<?= arr_offset($detail, 'cms_font_size') ?>">
+                                    <label for="cms_font_size_unit" class="form-label d-block">Satuan Ukuran Font</label>
+                                    <select name="cms_font_size_unit" class="form-control">
+                                        <option value=""> -- Pilih Satuan -- </option>
+                                        <option value="1" <?= arr_offset($detail, 'cms_font_size_unit') == '1' ? 'selected' : '' ?>>cm</option>
+                                        <option value="2" <?= arr_offset($detail, 'cms_font_size_unit') == '2' ? 'selected' : '' ?>>mm</option>
+                                        <option value="3" <?= arr_offset($detail, 'cms_font_size_unit') == '3' ? 'selected' : '' ?>>in</option>
+                                        <option value="4" <?= arr_offset($detail, 'cms_font_size_unit') == '4' ? 'selected' : '' ?>>px</option>
+                                        <option value="5" <?= arr_offset($detail, 'cms_font_size_unit') == '5' ? 'selected' : '' ?>>pt</option>
+                                        <option value="6" <?= arr_offset($detail, 'cms_font_size_unit') == '6' ? 'selected' : '' ?>>pc</option>
+                                        <option value="7" <?= arr_offset($detail, 'cms_font_size_unit') == '7' ? 'selected' : '' ?>>em</option>
+                                        <option value="8" <?= arr_offset($detail, 'cms_font_size_unit') == '8' ? 'selected' : '' ?>>rem</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -84,30 +100,35 @@
                                             </div>
                                             <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                         </div>
+                                        <span class="d-block">Menggunakan Ikon?</span>
+                                        <div class="mr-2 d-inline">
+                                            <input type="radio" name="cms_use_icon" value="1" <?= $detail['cms_use_icon'] == '1' ? 'checked' : '' ?>> Ya
+                                        </div>
+                                        <input type="radio" name="cms_use_icon" value="2" <?= $detail['cms_use_icon'] == '2' ? 'checked' : '' ?>> Tidak
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="mb-3">
-                                    <label for="cms_bg_color" class="form-label d-block">Warna Background Teks Kategori</label>
+                                    <label for="cms_bg_color" class="form-label d-block">Warna Background Teks</label>
                                     <input type="color" id="favcolor" name="cms_bg_color" value="<?= arr_offset($detail, 'cms_bg_color') ?>">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="cms_font_color_hover" class="form-label d-block">Warna Teks Kategori Saat Di Hover</label>
+                                    <label for="cms_font_color_hover" class="form-label d-block">Warna Teks Saat Di Hover</label>
                                     <input type="color" id="favcolor" name="cms_font_color_hover" value="<?= arr_offset($detail, 'cms_font_color_hover') ?>">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="cms_bg_color_hover" class="form-label d-block">Warna Background Teks Kategori Saat Di Hover</label>
+                                    <label for="cms_bg_color_hover" class="form-label d-block">Warna Background Teks Saat Di Hover</label>
                                     <input type="color" id="favcolor" name="cms_bg_color_hover" value="<?= arr_offset($detail, 'cms_bg_color_hover') ?>">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="cms_side_menu_position" class="form-label d-block">Posisi Menu Kategori</label>
+                                    <label for="cms_side_menu_position" class="form-label d-block">Posisi Menu</label>
                                     <select name="cms_side_menu_position" class="form-control">
                                         <option value=""> -- Pilih Posisi -- </option>
                                         <option value="1" <?= arr_offset($detail, 'cms_side_menu_position') == '1' ? 'selected' : '' ?>>Kiri</option>

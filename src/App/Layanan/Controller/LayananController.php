@@ -2,7 +2,7 @@
 
 namespace App\Layanan\Controller;
 
-use App\KategoriLayananAdmin\Model\KategoriLayananAdmin;
+use App\CmsKategoriStyle\Model\CmsKategoriModule;
 use App\Media\Model\Media;
 use App\Layanan\Model\Layanan;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -19,14 +19,16 @@ class LayananController
 
     public function index(Request $request)
     {
-        $media = new Media();
-        // $kategori_layanan = new KategoriLayananAdmin();
-        // $data_kategori_layanan = $kategori_layanan->get();
         $data_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->paginate(8)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
-        return render_template('public/service/index', ['data_layanan' => $data_layanan]);
+        $cmsKategoriModule = new CmsKategoriModule('layanan-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
+
+        // dd(get_defined_vars());
+
+        return render_template('public/service/index', ['data_layanan' => $data_layanan, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 
     public function create(Request $request)

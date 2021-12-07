@@ -1,30 +1,31 @@
 <?php
 
-namespace App\CmsKategoriGaleriStyle\Controller;
+namespace App\CmsKategoriStyle\Controller;
 
 use App\CmsFonts\Model\CmsFonts;
-use App\CmsKategoriGaleriStyle\Model\CmsKategoriGaleriStyle;
+use App\CmsKategoriStyle\Model\CmsKategoriStyle;
 use App\Media\Model\Media;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Route;
 
-class CmsKategoriGaleriStyleController
+class CmsKategoriStyleController
 {
-    public $cmsKategoriGaleriStyle;
+    public $cmsKategoriStyle;
     public $cmsFonts;
     public $media;
 
     public function __construct()
     {
-        $this->cmsKategoriGaleriStyle = new CmsKategoriGaleriStyle();
+        $this->cmsKategoriStyle = new CmsKategoriStyle();
         $this->cmsFonts = new CmsFonts();
         $this->media = new Media();
     }
 
     public function edit(Request $request)
     {
-        $detail = $this->cmsKategoriGaleriStyle->leftJoin('media', 'media.id_relation', '=', 'cms_kategori_galeri.id_cms_kategori_galeri')->first();
+        $detail = $this->cmsKategoriStyle
+            ->leftJoin('media', 'media.id_relation', '=', 'cms_kategori_galeri.id_cms_kategori_galeri')
+            ->where('cms_jenis_kategori', 'jejak-kami')->first();
         $fonts = $this->cmsFonts->get();
 
         return render_template('admin/cms-kategori-galeri/edit', compact('detail', 'fonts'));
@@ -32,18 +33,19 @@ class CmsKategoriGaleriStyleController
 
     public function update(Request $request)
     {
-        $data = $this->cmsKategoriGaleriStyle->first();
+        $data = $this->cmsKategoriStyle->where('cms_jenis_kategori', 'jejak-kami')->first();
         if ($data) {
             $id = $data['id_cms_kategori_galeri'];
-            $this->cmsKategoriGaleriStyle->update($request->request->all());
+            $this->cmsKategoriStyle->where('cms_jenis_kategori', 'jejak-kami')->update($request->request->all());
         } else {
-            $id = $this->cmsKategoriGaleriStyle->insert($request->request->all());
+            $request->request->set('cms_jenis_kategori', 'jejak-kami');
+            $id = $this->cmsKategoriStyle->insert($request->request->all());
         }
 
         $this->media->updateMedia($request->files->get('cms_icon_kategori'), [
             'id_relation' => $id,
             'jenis_dokumen' => 'cms_icon_kategori'
-        ], $this->cmsKategoriGaleriStyle, $id);
+        ], $this->cmsKategoriStyle, $id);
 
         return new RedirectResponse('/admin/kategori-galeri/style');
     }

@@ -50,7 +50,7 @@
             <section class="mt-4">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Produk Lainnya</h5>
-                    <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
+                    <a href="/product" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
                 </div>
                 <div class="row">
                     <?php foreach ($datas_produk->items as $key => $value) { ?>
@@ -59,7 +59,7 @@
                                 <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 220px;height: 140px;background-size: cover;background-position: center;"></div>
                                 <h4 class="mt-3"><?= $value['nama_produk'] ?></h4>
                                 <div class="truncate-string-1"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
-                                <p class="mt-3"><a class="btn btn-sm btn-secondary" href="/product/<?= $value['id_produk'] ?>/detail">View details &raquo;</a></p>
+                                <p class="mt-3"><a class="btn btn-sm btn-secondary" href="/product/<?= $value['id_produk'] ?>/detail">Selengkapnya &raquo;</a></p>
                             </div>
                         </div>
                     <?php } ?>
@@ -71,7 +71,7 @@
             <section class="mt-4">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Produk Yang Mungkin Anda Sukai</h5>
-                    <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
+                    <a href="/product" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
                 </div>
                 <div class="row">
                     <?php foreach ($all_produk->items as $key => $value) { ?>
@@ -80,7 +80,7 @@
                                 <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 220px;height: 140px;background-size: cover;background-position: center;"></div>
                                 <h4 class="mt-3"><?= $value['nama_produk'] ?></h4>
                                 <div class="truncate-string-1"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
-                                <p class="mt-3"><a class="btn btn-sm btn-secondary" href="/product/<?= $value['id_produk'] ?>/detail">View details &raquo;</a></p>
+                                <p class="mt-3"><a class="btn btn-sm btn-secondary" href="/product/<?= $value['id_produk'] ?>/detail">Selengkapnya &raquo;</a></p>
                             </div>
                         </div>
                     <?php } ?>

@@ -139,13 +139,13 @@ $routes->prefix('admin', function ($routes) {
 
     /* -------------------------- Route Kelola Galeri -------------------------- */
     $routes->prefix('galeri', function ($routes) {
-        $routes->push('galeri', '', [GaleriController::class, 'index']);
-        $routes->push('galeri_create', '/create', [GaleriController::class, 'create']);
-        $routes->push('galeri_store', '/store', [GaleriController::class, 'store']);
-        $routes->push('galeri_edit', '/{id}/edit', [GaleriController::class, 'edit']);
-        $routes->push('galeri_update', '/{id}/update', [GaleriController::class, 'update']);
-        $routes->push('galeri_show', '/{id}/show', [GaleriController::class, 'show']);
-        $routes->push('galeri_delete', '/{id}/delete', [GaleriController::class, 'delete']);
+        $routes->push('galeri', '', [GaleriAdminController::class, 'index']);
+        $routes->push('galeri_create', '/create', [GaleriAdminController::class, 'create']);
+        $routes->push('galeri_store', '/store', [GaleriAdminController::class, 'store']);
+        $routes->push('galeri_edit', '/{id}/edit', [GaleriAdminController::class, 'edit']);
+        $routes->push('galeri_update', '/{id}/update', [GaleriAdminController::class, 'update']);
+        $routes->push('galeri_show', '/{id}/show', [GaleriAdminController::class, 'show']);
+        $routes->push('galeri_delete', '/{id}/delete', [GaleriAdminController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 

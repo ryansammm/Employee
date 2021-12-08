@@ -35,9 +35,6 @@ class ProdukController
             $datas_kategori->items[$key]['nama_kategori'] = $value['nama_kategori_produk'];
         }
 
-        // dd($data_produk);
-
-
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
@@ -100,6 +97,7 @@ class ProdukController
         $all_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
+            ->orderBy("RAND()")
             ->paginate(3)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
 
 

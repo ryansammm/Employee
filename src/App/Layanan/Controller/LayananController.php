@@ -87,17 +87,26 @@ class LayananController
 
         $data_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
+            ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->where('id_layanan', $id)->first();
+
 
         $datas_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
+            ->where('layanan.id_kategori_layanan', $data_layanan['id_kategori_layanan'])
+            ->paginate(3)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
+
+        $all_layanan = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
+            ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
+            ->orderBy("RAND()")
             ->paginate(3)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
+        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_layanan' => $all_layanan]);
     }
 
     public function kategori(Request $request)

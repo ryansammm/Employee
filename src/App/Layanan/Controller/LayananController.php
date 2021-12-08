@@ -27,11 +27,19 @@ class LayananController
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->paginate(8)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
-        $datas_kategori_layanan = $this->modelKategoriLayanan
+        $datas_kategori = $this->modelKategoriLayanan
             ->get();
 
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_layanan'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['nama_kategori_layanan'];
+        }
 
-        return render_template('public/service/index', ['data_layanan' => $data_layanan, 'datas_kategori_layanan' => $datas_kategori_layanan]);
+        $cmsKategoriModule = new CmsKategoriModule('produk-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
+
+
+        return render_template('public/service/index', ['data_layanan' => $data_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 
     public function create(Request $request)
@@ -69,6 +77,14 @@ class LayananController
     {
         $id = $request->attributes->get("id");
 
+        $datas_kategori = $this->modelKategoriLayanan
+            ->get();
+
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_layanan'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['nama_kategori_layanan'];
+        }
+
         $data_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->where('id_layanan', $id)->first();
@@ -78,7 +94,10 @@ class LayananController
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->paginate(3)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
-        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan]);
+        $cmsKategoriModule = new CmsKategoriModule('produk-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
+
+        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 
     public function kategori(Request $request)
@@ -96,7 +115,13 @@ class LayananController
             ->where('id_kategori_layanan', $kategori)
             ->first();
 
-        $datas_kategori_layanan = $kategori_layanan->get();
+        $datas_kategori = $this->modelKategoriLayanan
+            ->get();
+
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_layanan'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['nama_kategori_layanan'];
+        }
 
         $data_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
@@ -104,8 +129,9 @@ class LayananController
             ->where('layanan.id_kategori_layanan', $kategori)
             ->paginate(8)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
-        // dd($kategori, $data_layanan);
+        $cmsKategoriModule = new CmsKategoriModule('produk-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/service/category', ['data_layanan' => $data_layanan, 'datas_kategori_layanan' => $datas_kategori_layanan]);
+        return render_template('public/service/category', ['data_layanan' => $data_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 }

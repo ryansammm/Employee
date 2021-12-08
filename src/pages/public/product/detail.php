@@ -74,7 +74,7 @@
                     <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
                 </div>
                 <div class="row">
-                    <?php foreach ($datas_produk->items as $key => $value) { ?>
+                    <?php foreach ($all_produk->items as $key => $value) { ?>
                         <div class="col-lg-4 text-center">
                             <div class="card p-3">
                                 <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 220px;height: 140px;background-size: cover;background-position: center;"></div>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                     <?php } ?>
-                    <?= $datas_produk->links() ?>
+                    <?= $all_produk->links() ?>
                 </div>
             </section>
 

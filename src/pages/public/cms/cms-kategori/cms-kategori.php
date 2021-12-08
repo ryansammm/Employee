@@ -8,12 +8,12 @@
                 <hr>
             </div>
             <ul class="nav flex-column category" style="font-size: 14px;">
-                <?php foreach ($datas_kategori_produk->items as $key => $value) { ?>
+                <?php foreach ($datas_kategori->items as $key => $value) { ?>
                     <li class="nav-item border-bottom mb-2 text-kategori">
                         <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
                             <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
                         <?php } ?>
-                        <a class="nav-link p-0 text-dark d-inline" href="/product/<?= $value['id_kategori_produk'] ?>/kategori"><?= $value['nama_kategori_produk'] ?></a>
+                        <a class="nav-link p-0 text-dark d-inline" href="/<?= $GLOBALS['current_url'] ?>/<?= $value['id_kategori'] ?>/kategori"><?= $value['nama_kategori'] ?></a>
                     </li>
                 <?php } ?>
             </ul>

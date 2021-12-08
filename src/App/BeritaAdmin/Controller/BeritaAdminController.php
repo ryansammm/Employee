@@ -93,7 +93,7 @@ class BeritaAdminController
         $this->model->where('id_berita', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($_FILES['gambar_thumbnail_berita'], [
+        $media->updateMedia($request->files->get('gambar_thumbnail_berita'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->model, $id);

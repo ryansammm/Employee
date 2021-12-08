@@ -49,7 +49,7 @@ class PelangganAdminController
 
         /* ------------------------------ Media Layanan ------------------------------ */
         $media = new Media();
-        $media->storeMedia($_FILES['pelanggan_foto'], [
+        $media->storeMedia($request->files->get('pelanggan_foto'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);

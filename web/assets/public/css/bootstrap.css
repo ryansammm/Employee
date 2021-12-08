@@ -7905,7 +7905,7 @@ textarea.form-control-lg {
 }
 
 .rounded-1 {
-  border-radius: 0.2rem !important;
+  /* border-radius: 0.2rem !important; */
 }
 
 .rounded-2 {

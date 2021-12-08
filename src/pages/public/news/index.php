@@ -6,39 +6,110 @@
         <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita Terkini</h5>
     </div>
     <div class="row mt-3">
+
         <div class="col-8">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 525px;">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner" style="padding: 0px 15px;">
-                    <div class="carousel-item active">
-                        <div class="row mb-1">
-                            <div class="col-12" style="padding: 0;">
-                                <div class="img-atas-berita" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1610100998/cpjpb98sxycemxtxik8i.jpg);background-size: cover;background-position: top center;">
-                                    <div class="bg-atas-berita">
-                                        <div class="text-atas-berita">
-                                            <h6 class="text-white">Gempa 5,4 Magnitudo Guncang Namela, Pulau Buru</h6>
-                                            <div class="row justify-content-around">
-                                                <div class="col d-flex">
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
+                    <?php for ($i = 0; $i < 2; $i++) { ?>
+                        <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
+                            <div class="row mb-1">
+                                <div class="col-12" style="padding: 0;">
+                                    <div class="img-atas-berita" style="background: url(/assets/media/<?= $item_berita_new(0, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                        <div class="bg-atas-berita">
+                                            <div class="text-atas-berita">
+                                                <a href="/berita/<?= $item_berita_new(0, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
+                                                    <h6 class="text-white"><?= $item_berita_new(0, $i, $datas->items, 'judul_berita') ?></h6>
+                                                </a>
+                                                <div class="row justify-content-around">
+                                                    <div class="col d-flex">
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                        <div class="sub-item">
+                                                            <span>50 menit</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <span>50 menit</span>
+                                                    <div class="col-2">
+                                                        <!-- Button trigger modal -->
+                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
-                                                <div class="col-2">
-                                                    <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <i class="bi bi-three-dots-vertical"></i>
-                                                    </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6" style="padding: 0;padding-right: 2.5px;">
+                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(1, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                        <div class="bg-atas-berita">
+                                            <div class="text-bawah-berita">
+                                                <a href="/berita/<?= $item_berita_new(1, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
+                                                    <h6 class="text-white"><?= $item_berita_new(1, $i, $datas->items, 'judul_berita') ?></h6>
+                                                </a>
+                                                <div class="row justify-content-around">
+                                                    <div class="col d-flex">
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                        <div class="sub-item">
+                                                            <span>50 menit</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <!-- Button trigger modal -->
+                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6" style="padding: 0;padding-left: 2.5px;">
+                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(2, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                        <div class="bg-atas-berita">
+                                            <div class="text-bawah-berita">
+                                                <a href="/berita/<?= $item_berita_new(2, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
+                                                    <h6 class="text-white"><?= $item_berita_new(2, $i, $datas->items, 'judul_berita') ?></h6>
+                                                </a>
+                                                <div class="row justify-content-around">
+                                                    <div class="col d-flex">
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                        <div class="sub-item">
+                                                            <span>50 menit</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <!-- Button trigger modal -->
+                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -46,161 +117,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6" style="padding: 0;padding-right: 2.5px;">
-                                <div class="img-bawah-berita" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1619498280/kwflvelwv9i7beibbo2n.jpg);background-size: cover;background-position: top center;">
-                                    <div class="bg-atas-berita">
-                                        <div class="text-bawah-berita">
-                                            <h6 class="text-white">Grafik: Kasus Aktif Corona di Jakarta Salip Jabar, Naik 75% dalam Sepekan</h6>
-                                            <div class="row justify-content-around">
-                                                <div class="col d-flex">
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <span>50 menit</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2">
-                                                    <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <i class="bi bi-three-dots-vertical"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6" style="padding: 0;padding-left: 2.5px;">
-                                <div class="img-bawah-berita" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1612966334/xn77tyei89hu8jzvu4xk.jpg);background-size: cover;background-position: top center;">
-                                    <div class="bg-atas-berita">
-                                        <div class="text-bawah-berita">
-                                            <h6 class="text-white">Kejagung Lelang 17 Kapal Sitaan Kasus ASABRI, Harga Rp 1,8 hingga 8,3 Miliar</h6>
-                                            <div class="row justify-content-around">
-                                                <div class="col d-flex">
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <span>50 menit</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2">
-                                                    <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <i class="bi bi-three-dots-vertical"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row mb-1">
-                            <div class="col-12" style="padding: 0;">
-                                <div class="img-atas-berita" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1610100998/cpjpb98sxycemxtxik8i.jpg);background-size: cover;background-position: top center;">
-                                    <div class="bg-atas-berita">
-                                        <div class="text-atas-berita">
-                                            <h6 class="text-white">Gempa 5,4 Magnitudo Guncang Namela, Pulau Buru</h6>
-                                            <div class="row justify-content-around">
-                                                <div class="col d-flex">
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <span>50 menit</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2">
-                                                    <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <i class="bi bi-three-dots-vertical"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6" style="padding: 0;padding-right: 2.5px;">
-                                <div class="img-bawah-berita" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1619498280/kwflvelwv9i7beibbo2n.jpg);background-size: cover;background-position: top center;">
-                                    <div class="bg-atas-berita">
-                                        <div class="text-bawah-berita">
-                                            <h6 class="text-white">Grafik: Kasus Aktif Corona di Jakarta Salip Jabar, Naik 75% dalam Sepekan</h6>
-                                            <div class="row justify-content-around">
-                                                <div class="col d-flex">
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <span>50 menit</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2">
-                                                    <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <i class="bi bi-three-dots-vertical"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6" style="padding: 0;padding-left: 2.5px;">
-                                <div class="img-bawah-berita" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1612966334/xn77tyei89hu8jzvu4xk.jpg);background-size: cover;background-position: top center;">
-                                    <div class="bg-atas-berita">
-                                        <div class="text-bawah-berita">
-                                            <h6 class="text-white">Kejagung Lelang 17 Kapal Sitaan Kasus ASABRI, Harga Rp 1,8 hingga 8,3 Miliar</h6>
-                                            <div class="row justify-content-around">
-                                                <div class="col d-flex">
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="sub-item">
-                                                        <span>50 menit</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2">
-                                                    <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <i class="bi bi-three-dots-vertical"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php } ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -223,168 +140,45 @@
             </div>
             <div class="card">
                 <div class="card-body" style="height: 460px;overflow-y:scroll;padding: 0;">
-
-                    <div class="side-news-item">
-                        <div class="row">
-                            <div class="d-flex">
-                                <a href="" class="text-decoration-none text-dark">
-                                    <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">WHO Ungkap Strategi India Sukses Tangani Tsunami Corona: Berani Lockdown</h6>
-                                </a>
-                                <a href="">
-                                    <div class="rounded" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1618899920/t9jgmld9fd9mwqwvhdq2.jpg);background-size: cover;background-position: center; width: 80px; height: 80px;"></div>
-                                </a>
+                    <?php foreach ($data_berita->items as $key => $value) { ?>
+                        <div class="side-news-item">
+                            <div class="row">
+                                <div class="d-flex">
+                                    <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;"><a href="/news/<?= $value['id_berita'] ?>/detail" class="text-decoration-none text-dark"><?= $value['judul_berita'] ?> </a></h6>
+                                    <div class="rounded" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: center; width: 80px; height: 80px;"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <div class="row justify-content-around text-side-trending">
-                                    <div class="col d-flex">
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-heart"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-chat"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-eye"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <span>50 menit</span>
-                                        </div>
-                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                            <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                <i class="fas fa-share"></i>
-                                                <span>Bagikan</span>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <div class="row justify-content-around text-side-trending">
+                                        <div class="col d-flex">
+                                            <div class="sub-item" style="margin-top: 2px;">
+                                                <i class="bi bi-heart"></i>
+                                                <span>0</span>
                                             </div>
-                                        </a>
+                                            <div class="sub-item" style="margin-top: 2px;">
+                                                <i class="bi bi-chat"></i>
+                                                <span>0</span>
+                                            </div>
+                                            <div class="sub-item" style="margin-top: 2px;">
+                                                <i class="bi bi-eye"></i>
+                                                <span>0</span>
+                                            </div>
+                                            <div class="sub-item" style="margin-top: 2px;">
+                                                <span>50 menit</span>
+                                            </div>
+                                            <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                    <i class="fas fa-share"></i>
+                                                    <span>Bagikan</span>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="side-news-item">
-                        <div class="d-flex">
-                            <a href="" class="text-dark text-decoration-none">
-                                <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">BREAKING NEWS: Corona di Indonesia Menggila, Melonjak 20.574 Orang Sehari</h6>
-                            </a>
-                            <a href="">
-                                <div class="rounded" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1579862421/jaytgvbgn9gwzyvburtb.jpg);background-size: cover;background-position: center; width: 80px; height: 80px;"></div>
-                            </a>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <div class="row justify-content-around text-side-trending">
-                                    <div class="col d-flex">
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-heart"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-chat"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-eye"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <span>50 menit</span>
-                                        </div>
-                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                            <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                <i class="fas fa-share"></i>
-                                                <span>Bagikan</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="side-news-item">
-                        <div class="d-flex">
-                            <a href="" class="text-dark text-decoration-none">
-                                <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">Kapal Perang Rusia Serang Kapal Inggris yang Masuk Perairan Crimea</h6>
-                            </a>
-                            <a href="">
-                                <div class="rounded" style="background: url(https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1624511580/obm9melj25hcea0oeiwl.jpg);background-size: cover;background-position: center;width: 80px; height: 80px;"></div>
-                            </a>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <div class="row justify-content-around text-side-trending">
-                                    <div class="col d-flex">
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-heart"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-chat"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-eye"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <span>50 menit</span>
-                                        </div>
-                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                            <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                <i class="fas fa-share"></i>
-                                                <span>Bagikan</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="side-news-item">
-                        <div class="d-flex">
-                            <a href="" class="text-dark text-decoration-none">
-                                <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;">Bikin Adem, 9 Warna Cat Ini Bikin Ruang Tamu Lebih Sejuk!</h6>
-                            </a>
-                            <a href="">
-                                <div class="rounded" style="background: url(/assets/media/AARvvdn.jpg);background-size: cover;background-position: center;width: 80px; height: 80px;"></div>
-                            </a>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <div class="row justify-content-around text-side-trending">
-                                    <div class="col d-flex">
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-heart"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-chat"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <i class="bi bi-eye"></i>
-                                            <span>0</span>
-                                        </div>
-                                        <div class="sub-item" style="margin-top: 2px;">
-                                            <span>50 menit</span>
-                                        </div>
-                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                            <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                <i class="fas fa-share"></i>
-                                                <span>Bagikan</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

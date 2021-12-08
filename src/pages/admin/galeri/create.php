@@ -35,7 +35,7 @@
                                         <label for="id_kategori_galeri" class="form-label">Kategori Galeri</label>
                                         <select class="custom-select" name="id_kategori_galeri" id="id_kategori_galeri" required>
                                             <option value="">-- Pilih Kategori --</option>
-                                            <?php foreach ($kategori->items as $value) { ?>
+                                            <?php foreach ($data_kategori_galeri->items as $value) { ?>
                                                 <option value="<?= $value['id_kategori_galeri'] ?>"><?= $value['nama_kategori_galeri'] ?></option>
                                             <?php } ?>
                                         </select>

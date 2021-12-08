@@ -30,7 +30,19 @@ class BeritaController
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
 
-        return render_template('public/news/index', ['data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita]);
+
+        $datas = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->get();
+        $count_news_trending = intval(ceil(count($datas->items) / 3) < 1 ? 1 : ceil(count($datas->items) / 3));
+        $item_berita_new = function ($index, $halaman, $datas, $label) {
+            return isset($datas[($index + (3 * $halaman))]) ? $datas[($index + (3 * $halaman))][$label] : '';
+        };
+        $item_berita_trending = function ($index, $datas, $label) {
+            return isset($datas[$index]) ? $datas[$index][$label] : '';
+        };
+
+        return render_template('public/news/index', ['data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending]);
     }
 
     public function create(Request $request)
@@ -75,6 +87,8 @@ class BeritaController
 
         $detail_berita = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->leftJoin('users', 'users.id_user', '=', 'berita.id_user')
+            ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->where('id_berita', $id)->first();
 
         $data_kategori_berita = $kategori_berita->get();

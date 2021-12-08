@@ -4,14 +4,35 @@
     <div class="row">
 
         <!------- Main Content ------->
-        <div class="col-md-8 ">
-            <div class="card rounded p-3">
-                <h4 class="ps-3">Dilengkapi Furnitur, Begini Desain Rusun Mahasiswa Aceh Senilai Rp12,74 Miliar</h4>
-                <span class="text-muted ps-3" style="font-size: 12px;">1 Des 2021 | Admin | <a href="" class="text-muted text-decoration-none"> Contoh</a></span>
+        <div class="col-md-8">
+            <div class="card rounded p-3" style="border-top: 5px solid red;">
+                <h4 class="ps-3"><?= $detail_berita['judul_berita'] ?></h4>
+                <span class="text-muted ps-3" style="font-size: 12px;"><?= date_format(date_create($detail_berita['tgl_publish']), "j M Y") ?> | <?= $detail_berita['nama_depan'] ?> <?= $detail_berita['nama_belakang'] ?> | <a href="" class="text-muted text-decoration-none"> <?= $detail_berita['kategori_berita'] ?></a></span>
                 <div class="px-3 pt-4">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur perspiciatis maxime unde fugit cupiditate enim. Est provident quam similique culpa. Libero sapiente quam hic architecto quos harum perspiciatis minus porro voluptatum? Doloremque, culpa rem. Ratione laudantium accusamus quo quasi aperiam illum illo officiis a doloribus praesentium, maxime quidem, at ex cupiditate repellendus obcaecati atque doloremque quia quibusdam deserunt ipsam temporibus fugit laborum. Minus ratione alias omnis reprehenderit labore a itaque esse recusandae at quos. Assumenda totam eveniet vel quam dolorum, blanditiis sit excepturi culpa vitae nobis quidem cumque porro perferendis soluta dignissimos commodi dolores perspiciatis voluptates reiciendis, tenetur ea odio.</p>
+                    <?= html_entity_decode(nl2br($detail_berita['isi_berita'])) ?>
                     <span class="badge bg-danger">Opini suara & publik</span>
                     <span class="badge bg-danger">Public Government</span>
+                    <hr>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6 col-md-4 text-center text-grey">
+                            <a href="/likeBerita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
+                                <i class="far fa-thumbs-up"></i>
+                            </a>
+                            <span>0</span> Suka
+                        </div>
+                        <div class="col-6 col-md-4 text-center text-grey">
+                            <a href="/dislikeBerita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
+                                <i class="far fa-thumbs-up" style="-ms-transform: rotate(180deg);transform: rotate(180deg);"></i>
+                            </a>
+                            <span>0</span> Tidak Suka
+                        </div>
+                        <div class="col-6 col-md-4 text-center text-grey">
+                            <a href="#" class="text-dark text-decoration-none btn-sosmed" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-bs-url="<?= $site_url ?>/informasi/berita/<?= $detail_berita['id_berita'] ?>" data-bs-idBerita="<?= $detail_berita['id_berita'] ?>">
+                                <i class="fas fa-share-alt"></i>
+                                <span>0</span> Bagikan
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card my-2 p-4">

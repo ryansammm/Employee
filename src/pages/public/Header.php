@@ -24,6 +24,8 @@
 
     <!------- Plugins ------->
     <link rel="stylesheet" href="/assets/plugins/truncate.css">
+    <link rel="stylesheet" href="/assets/plugins/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/plugins/owl-carousel/css/owl.theme.default.min.css">
 
     <!-- <script src="https://unpkg.com/feather-icons"></script> -->
 

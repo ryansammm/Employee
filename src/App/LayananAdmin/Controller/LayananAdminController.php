@@ -55,7 +55,7 @@ class LayananAdminController
 
         /* ------------------------------ Media Layanan ------------------------------ */
         $media = new Media();
-        $media->storeMedia($_FILES['layanan_foto'], [
+        $media->storeMedia($request->files->get('layanan_foto'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -78,7 +78,7 @@ class LayananAdminController
         $this->model->where('id_layanan', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($_FILES['layanan_foto'], [
+        $media->updateMedia($request->files->get('layanan_foto'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->model, $id);

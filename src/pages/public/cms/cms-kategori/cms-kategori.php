@@ -1,5 +1,5 @@
 <div class="col-md-3">
-    <div class="card">
+    <div class="card mb-3">
         <div class="card-body">
             <div style="background-color: white;padding: 5px 0 5px 0;">
                 <div class="d-flex justify-content-between align-items-center">
@@ -8,79 +8,23 @@
                 <hr>
             </div>
             <ul class="nav flex-column category" style="font-size: 14px;">
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Poltics</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">International</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Finance</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Health care</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Technology</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Jobs</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Media</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Administration</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Sports</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Game</a>
-                </li>
-                <li class="nav-item border-bottom mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Art</a>
-                </li>
-                <li class="nav-item mb-2 text-kategori">
-                    <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
-                        <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
-                    <?php } ?>
-                    <a class="nav-link p-0 text-dark d-inline" href="#">Kids</a>
-                </li>
+                <?php foreach ($datas_kategori_produk->items as $key => $value) { ?>
+                    <li class="nav-item border-bottom mb-2 text-kategori">
+                        <?php if (arr_offset($cms_kategori_style, 'icon_kategori') != null && $cms_kategori_style['cms_use_icon'] == '1') { ?>
+                            <img src="/assets/media/<?= arr_offset($cms_kategori_style, 'icon_kategori') ?>" class="d-inline icon-kategori" alt="">
+                        <?php } ?>
+                        <a class="nav-link p-0 text-dark d-inline" href="/product/<?= $value['id_kategori_produk'] ?>/kategori"><?= $value['nama_kategori_produk'] ?></a>
+                    </li>
+                <?php } ?>
             </ul>
+        </div>
+    </div>
+
+    <!------- Banner ------->
+    <div class="card">
+        <div class="card-body p-0">
+            <img class="w-100" src="/assets/media/sidebanner.png" alt="">
+            <div></div>
         </div>
     </div>
 </div>

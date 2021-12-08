@@ -79,35 +79,17 @@
         </div>
         <div class="row">
 
-            <div class="col-lg-4 text-center">
-                <a href="" class="text-dark text-decoration-none">
-                    <div class="card for-hover p-3">
-                        <div class="align-self-center rounded-1" style="background-image: url(/assets/media/support.jpeg);width: 310px;height: 140px;background-size: cover;background-position: center;"></div>
-                        <h4 class="mt-3">Support</h4>
-                        <p class="truncate-string-3" style="font-size: 14px;">Kami dapat menunjukkan kesalahan dengan menggunakan fasilitas pemeliharaan jarak jauh kami dan segera memasang kembali instalasi Anda ke dalam layanan. Dengan Güdel, suku cadang tersedia dengan sangat cepat, berkat jaringan kami di seluruh dunia.</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 text-center">
-                <a href="" class="text-dark text-decoration-none">
-                    <div class="card for-hover p-3">
-                        <div class="align-self-center rounded-1" style="background-image: url(/assets/media/protect1.jpeg);width: 310px;height: 140px;background-size: cover;background-position: center;"></div>
-                        <h4 class="mt-3">Protect</h4>
-                        <p class="truncate-string-3" style="font-size: 14px;">Kami memelihara instalasi Anda dan mengganti suku cadang yang aus pada waktu yang tepat. Selama inspeksi rutin kami, kami menganalisis sistem Anda dan mendeteksi cacat sebelum dapat menyebabkan kerusakan.</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 text-center">
-                <a href="" class="text-dark text-decoration-none">
-                    <div class="card for-hover p-3">
-                        <div class="align-self-center rounded-1" style="background-image: url(/assets/media/improve-teaser.jpeg);width: 310px;height: 140px;background-size: cover;background-position: center;"></div>
-                        <h4 class="mt-3">Improve</h4>
-                        <p class="truncate-string-3" style="font-size: 14px;">Pakar kami mengoptimalkan proses dan mesin Anda menggunakan modul Güdel Improve. Solusi retrofit dapat melengkapi instalasi Anda untuk memenuhi persyaratan baru dan meningkatkan produktivitas Anda.</p>
-                    </div>
-                </a>
-            </div>
+            <?php foreach ($data_layanan->items as $key => $value) { ?>
+                <div class="col-lg-4 text-center">
+                    <a href="/service/<?= $value['id_layanan'] ?>/detail" class="text-dark text-decoration-none">
+                        <div class="card for-hover p-3">
+                            <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 310px;height: 140px;background-size: cover;background-position: center;"></div>
+                            <h4 class="mt-3"><?= $value['nama_layanan'] ?></h4>
+                            <div class="mb-3 truncate-string-3" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['deskripsi_layanan'])) ?></div>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
 
         </div>
     </div>
@@ -175,69 +157,24 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
 
-                    <div class="col-md-3">
-                        <div class="card shadow-sm">
-                            <div style="background-image: url(/assets/media/1a7e6156-f9b9-4d54-a202-85fbc6bc6d9c.jpg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
-                            <div class="card-body">
-                                <h6>Bacchus</h6>
-                                <p class="card-text truncate-string-2">Bacchus is creative one-page HTML 5 template and it’s great for any corporate, portfolio and creative agency. It’s easy to use and customize. Bacchus is fully responsive and it will look great on any screen size: desktop, notebook and mobile phone.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary">View</button>
+                    <?php foreach ($data_produk->items as $key => $value) { ?>
+                        <div class="col-md-3">
+                            <div class="card shadow-sm">
+                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
+                                <div class="card-body">
+                                    <h6><?= $value['nama_produk'] ?></h6>
+                                    <div class="card-text truncate-string-2 mb-3"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="/product/<?= $value['id_produk'] ?>/detail" type="button" class="btn btn-sm btn-outline-primary">View</a>
+                                        </div>
+                                        <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
                                     </div>
-                                    <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
 
-                    <div class="col-md-3">
-                        <div class="card shadow-sm">
-                            <div style="background-image: url(/assets/media/0e7b8ff6-0f0a-42c1-be06-8c20e48cf974.jpg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
-                            <div class="card-body">
-                                <h6>Selfer</h6>
-                                <p class="card-text truncate-string-2">Creative, Mobile First Personal Portfolio Landing Page for every designer, developer, coder, freelancer, architect or any creative person. Dark background will make your website different to other portfolio templates. Gentle and smooth interaction animations makes user experience more natural and comfortable.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary">View</button>
-                                    </div>
-                                    <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card shadow-sm">
-                            <div style="background-image: url(/assets/media/54641cd6-8b83-43b8-aae4-9d7bb544b5cb.jpg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
-                            <div class="card-body">
-                                <h6>FinWin </h6>
-                                <p class="card-text truncate-string-2">Creative, Mobile First Startup Landing Page with stylish parallax effect. Template uses Bootstrap 4 grid system so it’s responsive on every device. You can choose from 8 different homepage designs.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary">View</button>
-                                    </div>
-                                    <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card shadow-sm">
-                            <div style="background-image: url(/assets/media/de0f74d1-1dd5-4000-b342-1a83eba4ca6d.jpg);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
-                            <div class="card-body">
-                                <h6>Swan Lake</h6>
-                                <p class="card-text truncate-string-2">Swan Lake is a Modern and Creative premium Onepage Lead Generation Marketing Landing Page HTML5 Template. Swan Lake is made in a beautiful style. Anyone can use it for Agency, business, business services, and etc.Theme has a universal design, it thought every detail and animation effect. Its just as easy to customize to fit your needs, replace images and texts. Swan Lake based on bootstrap 1170px grid system, HTML5 and CSS3, and it’s very easy to customize each and every block of HTML and CSS file is properly commented which will help you to customize this template as per your requirements.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary">View</button>
-                                    </div>
-                                    <a href="" class="text-muted text-decoration-none"><small>Kategori</small></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>

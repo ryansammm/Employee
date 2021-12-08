@@ -31,12 +31,20 @@
 
 
 
-<!------- Bootstrap JS ------->
-<script src="assets/public/js/bootstrap.bundle.min.js"></script>
-<script src="assets/public/js/bootstrap.min.js"></script>
-<script src="assets/public/js/bootstrap.js"></script>
+<!------- JQuery ------->
+<script src="/assets/js/jquery-3.6.0.min.js"></script>
 
+<!------- Bootstrap JS ------->
+<script src="/assets/public/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/public/js/bootstrap.min.js"></script>
+<script src="/assets/public/js/bootstrap.js"></script>
+
+<!------- Fontawesome ------->
 <script src="https://kit.fontawesome.com/997e36de6c.js" crossorigin="anonymous"></script>
+
+<!------- Owl Carousel ------->
+<script src="/assets/plugins/owl-carousel/js/owl.carousel.min.js"></script>
+<script src="/assets/plugins/owl-carousel/js/owl.carousel.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 </body>

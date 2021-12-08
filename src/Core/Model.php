@@ -22,4 +22,22 @@ class Model extends QueryBuilder
 
         return $this->$property;
     }
+
+    public function lastOrder()
+    {
+        $tableColumn = $this->columnExists('urutan');
+        if (!$tableColumn) {
+            echo 'Undefined column "urutan" in table "'.$this->table.'"';
+            die();
+        }
+
+        $lastData = $this->orderBy('created_at', 'DESC')->first();
+        if (!$lastData) {
+            $lastOrder = 1;
+        } else {
+            $lastOrder = intval($lastData['urutan']) + 1;
+        }
+
+        return $lastOrder;
+    }
 }

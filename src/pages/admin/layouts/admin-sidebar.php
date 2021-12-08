@@ -59,16 +59,10 @@
                                 <p>Kelola Produk</p>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="/admin/kategori-produk" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Kategori</p>
-                            </a>
-                        </li> -->
-                        <li class="nav-item">
+                        <li class="nav-item has-treeview">
                             <a href="#" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Produk</p>
+                                <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview" style="display: none;">
                                 <li class="nav-item" style="padding-left: 55px;">
@@ -105,7 +99,7 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Layanan</p>
+                                <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview" style="display: none;">
                                 <li class="nav-item" style="padding-left: 55px;">
@@ -142,7 +136,7 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Kategori</p>
+                                <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
                             </a>
                             <ul class="nav nav-treeview" style="display: none;">
                                 <li class="nav-item" style="padding-left: 55px;">
@@ -186,12 +180,27 @@
                     </a>
                 </li>
                 <li class="nav-item border-top">
-                    <a href="/admin/menu" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
                             Kelola Menu Website
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/menu" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Menu</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/sub-menu" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Sub Menu</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="/admin/login-template" class="nav-link">
@@ -201,6 +210,7 @@
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="/admin/profile-saya" class="nav-link">
                         <i class="nav-icon fas fa-user-cog"></i>

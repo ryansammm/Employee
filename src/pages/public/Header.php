@@ -25,7 +25,7 @@
     <!------- Plugins ------->
     <link rel="stylesheet" href="/assets/plugins/truncate.css">
 
-    <!-- <script src="https://unpkg.com/feather-icons"></script> -->
+    <link rel="stylesheet" href="/assets/public/css/multi-dropdown.css">
 
 </head>
 
@@ -157,13 +157,52 @@
                             <li class="nav-item <?= strpos($GLOBALS['url'], '/about') == '/about' ? 'nav-item-active' : '' ?>">
                                 <a class="nav-link  text-white" href="/about">Tentang Kami</a>
                             </li>
+                            <?php foreach ($GLOBALS['web_menu']->items as $key => $menu) { ?>
+                                <li class="nav-item <?= (arr_offset($menu, 'link_url') != null && strpos($GLOBALS['url'], arr_offset($menu, 'link_url')) == arr_offset($menu, 'link_url')) ? 'nav-item-active' : '' ?>">
+                                    <a class="nav-link  text-white" href="<?= arr_offset($menu, 'link_url') ?>"><?= arr_offset($menu, 'menu') ?></a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
 
                 </div>
             </div>
         </div>
+
+        <!-- <div id="menu_area" class="menu-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="navbar navbar-light navbar-expand-lg mainmenu dNone">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="dropdown"><a class="dropdown-none fw-bold" style="font-size: 13px;" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle fw-bold" style="font-size: 13px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menus</a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item fw-bold" style="font-size: 13px;" href="/">Sub Menu 1</a></li>
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle dropdown-sub-toggle fw-bold" style="font-size: 13px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub menu 2</a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item fw-bold" style="font-size: 13px;" href="/">Sub Sub menu 1</a></li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-toggle dropdown-sub-toggle fw-bold" style="font-size: 13px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Sub menu 2</a>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <li><a class="dropdown-item fw-bold" style="font-size: 13px;" href="/">Sub Sub Sub menu 1</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div> -->
     </nav>
+
+
 
     <!------- Modal ------->
     <div class="container" style="padding-top: 20px;">

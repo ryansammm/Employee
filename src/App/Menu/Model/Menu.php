@@ -6,6 +6,6 @@ use Core\Model;
 
 class Menu extends Model
 {
-    protected $table = 'menu';
-    protected $primaryKey = 'id_menu';
+    protected $table = 'cms_menu';
+    protected $primaryKey = 'id_cms_menu';
 }

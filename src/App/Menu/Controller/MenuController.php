@@ -17,18 +17,19 @@ class MenuController
 
     public function index(Request $request)
     {
-        $datas = $this->menu->get();
+        $datas = $this->menu->paginate(10);
 
-        return render_template('menu/index', compact('datas'));
+        return render_template('admin/menu/index', compact('datas'));
     }
 
     public function create(Request $request)
     {
-        return render_template('menu/create');
+        return render_template('admin/menu/create');
     }
 
     public function store(Request $request)
     {
+        $request->request->set('urutan', $this->menu->lastOrder());
         $create = $this->menu->insert($request->request->all());
 
         return new RedirectResponse('/admin/menu');
@@ -36,22 +37,22 @@ class MenuController
 
     public function edit(Request $request)
     {
-        $detail = $this->menu->where('id_menu', $request->attributes->get('id'))->first();
+        $detail = $this->menu->where('id_cms_menu', $request->attributes->get('id'))->first();
 
-        return render_template('menu/edit', compact('detail'));
+        return render_template('admin/menu/edit', compact('detail'));
     }
 
     public function update(Request $request)
     {
-        $update = $this->menu->where('id_menu', $request->attributes->get('id'))->update($request->request->all());
+        $update = $this->menu->where('id_cms_menu', $request->attributes->get('id'))->update($request->request->all());
 
         return new RedirectResponse('/admin/menu');
     }
 
     public function delete(Request $request)
     {
-        $delete = $this->menu->where('id_menu', $request->attributes->get('id'))->delete();
+        $delete = $this->menu->where('id_cms_menu', $request->attributes->get('id'))->delete();
 
-        return new RedirectResponse('/home');
+        return new RedirectResponse('/admin/menu');
     }
 }

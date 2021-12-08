@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Kelola Menu <a href="/admin/menu/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
+                    <h1 class="m-0">Kelola Sub Menu <a href="/admin/sub-menu/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Kelola Menu</a></li>
-                        <li class="breadcrumb-item active">Menu</li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Sub Menu</a></li>
+                        <li class="breadcrumb-item active">Sub Menu</li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +26,8 @@
                         <thead class="table-light">
                             <tr>
                                 <th>No</th>
-                                <th>Menu</th>
+                                <th>Sub Menu</th>
+                                <th>Parent Menu</th>
                                 <th>Urutan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -35,11 +36,12 @@
                             <?php foreach ($datas->items as $key => $value) { ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>
+                                    <td><?= $value['sub_menu'] ?></td>
                                     <td><?= $value['menu'] ?></td>
-                                    <td><?= $value['urutan'] ?></td>
+                                    <td><?= $value['sub_menu_urutan'] ?></td>
                                     <td>
-                                        <a class="btn btn-info m-2" href="/admin/menu/<?= $value['id_cms_menu'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_cms_menu'] ?>">hapus</a>
+                                        <a class="btn btn-info m-2" href="/admin/sub-menu/<?= $value['id_cms_sub_menu'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_cms_sub_menu'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -86,7 +88,7 @@
         var id = button.data('id')
 
         var modal = $(this)
-        modal.find('#form_hapus').attr('action', '/admin/menu/' + id + '/delete')
+        modal.find('#form_hapus').attr('action', '/admin/sub-menu/' + id + '/delete')
     })
 </script>
 

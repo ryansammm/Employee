@@ -2,6 +2,7 @@
 
 use App\About\Controller\AboutController;
 use App\Berita\Controller\BeritaController;
+use App\BeritaAdmin\Controller\BeritaAdminController;
 use App\CmsBackground\Controller\CmsBackgroundController;
 use App\CmsFonts\Controller\CmsFontsController;
 use App\CmsKategoriGaleri\Controller\CmsKategoriGaleriController;
@@ -23,11 +24,13 @@ use App\Layanan\Controller\LayananController;
 use App\LayananAdmin\Controller\LayananAdminController;
 use App\Login\Controller\LoginController;
 use App\Maintenance\Controller\MaintenanceController;
+use App\Menu\Controller\MenuController;
 use App\PelangganAdmin\Controller\PelangganAdminController;
 use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
+use App\SubMenu\Controller\SubMenuController;
 use App\Users\Controller\UsersController;
 use App\VideoAdmin\Controller\VideoAdminController;
 use Core\RouteCollection;
@@ -54,12 +57,12 @@ $routes->prefix('admin', function ($routes) {
 
     /* --------------------------- Route Kelola Berita -------------------------- */
     $routes->prefix('berita', function ($routes) {
-        $routes->push('berita', '', [BeritaController::class, 'index']);
-        $routes->push('berita_create', '/create', [BeritaController::class, 'create']);
-        $routes->push('berita_store', '/store', [BeritaController::class, 'store']);
-        $routes->push('berita_edit', '/{id}/edit', [BeritaController::class, 'edit']);
-        $routes->push('berita_update', '/{id}/update', [BeritaController::class, 'update']);
-        $routes->push('berita_delete', '/{id}/delete', [BeritaController::class, 'delete']);
+        $routes->push('berita', '', [BeritaAdminController::class, 'index']);
+        $routes->push('berita_create', '/create', [BeritaAdminController::class, 'create']);
+        $routes->push('berita_store', '/store', [BeritaAdminController::class, 'store']);
+        $routes->push('berita_edit', '/{id}/edit', [BeritaAdminController::class, 'edit']);
+        $routes->push('berita_update', '/{id}/update', [BeritaAdminController::class, 'update']);
+        $routes->push('berita_delete', '/{id}/delete', [BeritaAdminController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 
@@ -245,13 +248,25 @@ $routes->prefix('admin', function ($routes) {
 
     /* -------------------------- Route Kelola Menu ------------------------- */
     $routes->prefix('menu', function ($routes) {
-        $routes->push('menu', '', [UsersController::class, 'index']);
-        $routes->push('menu_create', '/create', [UsersController::class, 'create']);
-        $routes->push('menu_store', '/store', [UsersController::class, 'store']);
-        $routes->push('menu_edit', '/{id}/edit', [UsersController::class, 'edit']);
-        $routes->push('menu_update', '/{id}/update', [UsersController::class, 'update']);
-        $routes->push('menu_show', '/{id}/show', [UsersController::class, 'show']);
-        $routes->push('menu_delete', '/{id}/delete', [UsersController::class, 'delete']);
+        $routes->push('menu', '', [MenuController::class, 'index']);
+        $routes->push('menu_create', '/create', [MenuController::class, 'create']);
+        $routes->push('menu_store', '/store', [MenuController::class, 'store']);
+        $routes->push('menu_edit', '/{id}/edit', [MenuController::class, 'edit']);
+        $routes->push('menu_update', '/{id}/update', [MenuController::class, 'update']);
+        $routes->push('menu_show', '/{id}/show', [MenuController::class, 'show']);
+        $routes->push('menu_delete', '/{id}/delete', [MenuController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------- Route Kelola Sub Menu ------------------------- */
+    $routes->prefix('sub-menu', function ($routes) {
+        $routes->push('sub_menu', '', [SubMenuController::class, 'index']);
+        $routes->push('sub_menu_create', '/create', [SubMenuController::class, 'create']);
+        $routes->push('sub_menu_store', '/store', [SubMenuController::class, 'store']);
+        $routes->push('sub_menu_edit', '/{id}/edit', [SubMenuController::class, 'edit']);
+        $routes->push('sub_menu_update', '/{id}/update', [SubMenuController::class, 'update']);
+        $routes->push('sub_menu_show', '/{id}/show', [SubMenuController::class, 'show']);
+        $routes->push('sub_menu_delete', '/{id}/delete', [SubMenuController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 });

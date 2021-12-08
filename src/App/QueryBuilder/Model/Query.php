@@ -571,4 +571,11 @@ class Query
 
         return $query->rowCount();
     }
+
+    public function columnExists(string $column)
+    {
+        $tableColumn = $this->getTableColumn($this->table);
+        
+        return array_key_exists($column, $tableColumn['column']);
+    }
 }

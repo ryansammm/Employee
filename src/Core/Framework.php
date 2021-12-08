@@ -4,6 +4,8 @@ namespace Core;
 
 use App\CmsFonts\Model\CmsFonts;
 use App\CmsKategoriStyle\Model\CmsKategoriStyle;
+use App\Menu\Model\Menu;
+use App\SubMenu\Model\SubMenu;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,6 +45,15 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         // Get data cms kategori and make it global
 
+        $menu = new Menu();
+        $data_menu = $menu->get();
+        $sub_menu = new SubMenu();
+        foreach ($data_menu->items as $key => $value) {
+            $data_sub_menu = $sub_menu->where('parent_id', $value['id_cms_menu'])->first();
+            $data_menu->items[$key]['sub_menu'][] = $data_sub_menu;
+        }
+
+        $GLOBALS['web_menu'] = $data_menu;
 
         // -----------------------------------
 

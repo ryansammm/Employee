@@ -5,16 +5,16 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-1">
-                    <a href="/admin/menu" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                    <a href="/admin/sub-menu" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Tambah Data Menu</h1>
+                    <h1 class="m-0">Tambah Data Sub Menu</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Menu</a></li>
-                        <li class="breadcrumb-item"><a href="#">Kelola Menu</a></li>
-                        <li class="breadcrumb-item active">Tambah Data Menu</li>
+                        <li class="breadcrumb-item"><a href="#">Sub Menu</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Sub Menu</a></li>
+                        <li class="breadcrumb-item active">Tambah Data Sub Menu</li>
                     </ol>
                 </div>
             </div>
@@ -23,14 +23,23 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="/admin/menu/store" method="POST" enctype="multipart/form-data">
+            <form action="/admin/sub-menu/store" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="container mt-4">
                                 <div class="mb-3">
-                                    <label for="menu" class="form-label">Nama Menu *</label>
-                                    <input type="text" class="form-control" name="menu" required>
+                                    <label for="parent_id" class="form-label">Parent Menu *</label>
+                                    <select name="parent_id" class="form-control" required>
+                                        <option value=""> -- Pilih Parent Menu -- </option>
+                                        <?php foreach ($menu->items as $key => $data) { ?>
+                                            <option value="<?= $data['id_cms_menu'] ?>"><?= $data['menu'] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sub_menu" class="form-label">Nama Sub Menu *</label>
+                                    <input type="text" class="form-control" name="sub_menu" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="have_sub" class="form-label d-block">Mempunyai sub menu? *</label>
@@ -92,26 +101,28 @@
 <script>
     $(document).ready(function() {
         $('.tipe').on('change', function() {
-            if ($(this).val() == '1') {
-                // halaman
-                $('.link_url').addClass('d-none');
-                $('.link_url').find('input').prop('disabled', true);
+            if ($(this).val() != '') {
+                if ($(this).val() == '1') {
+                    // halaman
+                    $('.link_url').addClass('d-none');
+                    $('.link_url').find('input').prop('disabled', true);
 
-                $('.link_url_opened').addClass('d-none');
-                $('.link_url_opened').find('select').prop('disabled', true);
+                    $('.link_url_opened').addClass('d-none');
+                    $('.link_url_opened').find('select').prop('disabled', true);
 
-                $('.halaman_id').removeClass('d-none');
-                $('.halaman_id').find('select').prop('disabled', false);
-            } else {
-                // link dan halaman
-                $('.link_url').removeClass('d-none');
-                $('.link_url').find('input').prop('disabled', false);
+                    $('.halaman_id').removeClass('d-none');
+                    $('.halaman_id').find('select').prop('disabled', false);
+                } else {
+                    // link dan halaman
+                    $('.link_url').removeClass('d-none');
+                    $('.link_url').find('input').prop('disabled', false);
 
-                $('.link_url_opened').removeClass('d-none');
-                $('.link_url_opened').find('select').prop('disabled', false);
+                    $('.link_url_opened').removeClass('d-none');
+                    $('.link_url_opened').find('select').prop('disabled', false);
 
-                $('.halaman_id').addClass('d-none');
-                $('.halaman_id').find('select').prop('disabled', true);
+                    $('.halaman_id').addClass('d-none');
+                    $('.halaman_id').find('select').prop('disabled', true);
+                }
             }
         });
 
@@ -120,16 +131,24 @@
                 $('.tipe').removeClass('d-none');
                 $('.tipe').find('select').prop('disabled', false);
             } else {
-                $('.tipe').addClass('d-none');
+                if (!$('.tipe').hasClass('d-none')) {
+                    $('.tipe').addClass('d-none');
+                }
                 $('.tipe').find('select').prop('disabled', true);
 
-                $('.link_url').addClass('d-none');
+                if (!$('.link_url').hasClass('d-none')) {
+                    $('.link_url').addClass('d-none');
+                }
                 $('.link_url').find('input').prop('disabled', true);
 
-                $('.link_url_opened').addClass('d-none');
+                if (!$('.link_url_opened').hasClass('d-none')) {
+                    $('.link_url_opened').addClass('d-none');
+                }
                 $('.link_url_opened').find('select').prop('disabled', true);
 
-                $('.halaman_id').addClass('d-none');
+                if (!$('.halaman_id').hasClass('d-none')) {
+                    $('.halaman_id').addClass('d-none');
+                }
                 $('.halaman_id').find('select').prop('disabled', true);
             }
         });

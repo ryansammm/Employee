@@ -10,7 +10,7 @@ use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class BeritaController
+class BeritaAdminController
 {
     public $model;
     public $modelKategoriBerita;

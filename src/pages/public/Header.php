@@ -186,8 +186,8 @@
                                     <?php foreach ($GLOBALS['web_menu'] as $key => $menu) { ?>
                                         <?php if ($menu['parent_id'] == '0') { ?>
                                             <?php if (empty($menu['sub_menu'])) { ?>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
+                                                <li>
+                                                    <a class="dropdown-item" style="font-size: 14px;" href="<?= $menu['link_url'] ?>"><?= $menu['menu'] ?></a>
                                                 </li>
                                             <?php } else { ?>
                                                 <li class="dropdown">

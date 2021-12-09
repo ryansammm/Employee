@@ -44,7 +44,6 @@ class CmsTitleController
         $title = $this->model->first();
 
         $option = $request->request->get('title-option');
-        dd($request->request->all());
 
         if ($option == '1') {
 

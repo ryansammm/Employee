@@ -33,10 +33,7 @@ class LoginController
         $media = new Media();
         $data_media = $media->where('jenis_dokumen', 'cms-title')->first();
 
-        $role = new Role();
-        $data_role = $role->get();
-
-        return render_template('admin/auth/login', ['errors' => $errors, 'data_cms_title' => $data_cms_title, 'data_media' => $data_media, 'data_cms_background' => $data_cms_background, 'role' => $data_role]);
+        return render_template('admin/auth/login', ['errors' => $errors, 'data_cms_title' => $data_cms_title, 'data_media' => $data_media, 'data_cms_background' => $data_cms_background]);
     }
 
     public function login(Request $request)

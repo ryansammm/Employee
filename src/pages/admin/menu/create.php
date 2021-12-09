@@ -30,7 +30,7 @@
                             <div class="container mt-4">
                                 <div class="mb-3">
                                     <label for="parent_id" class="form-label">Submenu dari menu?</label>
-                                    <select name="parent_id" class="form-control" required>
+                                    <select name="parent_id" class="form-control">
                                         <option value=""> -- Pilih Parent Menu -- </option>
                                         <?php foreach ($parent_menu->items as $key => $data) { ?>
                                             <option value="<?= $data['id_cms_menu'] ?>"><?= $data['menu'] ?></option>

@@ -65,45 +65,47 @@
         <div class="modal fade" id="logo-header" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logo-headerLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="logo-headerLabel">Ubah Logo & Nama Perusahaan</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
+                    <form action="/admin/login-template/cms-title/update" method="POST" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="logo-headerLabel">Ubah Logo & Nama Perusahaan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
 
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Logo</label>
-                            <input class="form-control" type="file" id="formFile" name="logoPerusahaan">
-                        </div>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Nama Perusahaan</label>
-                            <input class="form-control" type="text" name="namaPerusahaan">
-                        </div>
-                        <hr>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault1" value="1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Logo
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault2" value="2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Nama Perusahaan
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault3" value="3">
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                Logo & Nama Perusahaan
-                            </label>
-                        </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Logo</label>
+                                <input class="form-control" type="file" id="formFile" name="logoPerusahaan">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Nama Perusahaan</label>
+                                <input class="form-control" type="text" name="namaPerusahaan" value="<?= arr_offset($GLOBALS['web_title'], 'cms_title') ?>">
+                            </div>
+                            <hr>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault1" value="1" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '1' ? 'checked' : '' ?>>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Logo
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault2" value="2" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '2' ? 'checked' : '' ?>>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Nama Perusahaan
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault3" value="3" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '3' ? 'checked' : '' ?>>
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                    Logo & Nama Perusahaan
+                                </label>
+                            </div>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -113,7 +115,7 @@
             <div class="position-relative me-auto">
                 <div class="d-flex">
                     <a class="navbar-brand pe-1" href="#">
-                        <img src="/assets/logo/PTA-logo.png" alt="" style="width: 82px;">
+                        <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">
                     </a>
                     <h6 style="margin-top: auto;margin-bottom: auto;">Panca Teknologi Aksesindo</h6>
                     <form>

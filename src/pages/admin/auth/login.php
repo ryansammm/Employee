@@ -196,7 +196,7 @@
         <div class="modal fade" id="BackgroundColor" tabindex="-1" aria-labelledby="BackgroundColorLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form action="/cms-background/update" method="POST" enctype="multipart/form-data">
+              <form action="/admin/login-template/cms-background/update" method="POST" enctype="multipart/form-data">
                 <div class="modal-header">
                   <h5 class="modal-title" id="BackgroundColorLabel">Modal title</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -260,7 +260,7 @@
 
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                  <form method="POST" action="/cms-title/update" enctype="multipart/form-data">
+                  <form method="POST" action="/admin/login-template/cms-title/update" enctype="multipart/form-data">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Ubah Logo atau Nama</h5>
@@ -271,7 +271,7 @@
                       <div class="modal-body">
                         <div class="form-group">
                           <label for="exampleFormControlFile1">Logo</label>
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1" name="logoLogin">
+                          <input type="file" class="form-control-file" id="exampleFormControlFile1" name="logoPerusahaan">
                         </div>
                         <p>- OR -</p>
                         <div class="form-group">

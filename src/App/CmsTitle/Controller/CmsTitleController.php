@@ -44,10 +44,11 @@ class CmsTitleController
         $title = $this->model->first();
 
         $option = $request->request->get('title-option');
+        dd($request);
 
         if ($option == '1') {
 
-            $media->updateMedia($_FILES['logoLogin'], [
+            $media->updateMedia($request->request->get('logoPerusahaan'), [
                 'id_relation' => '',
                 'jenis_dokumen' => 'cms-title',
             ], $this->model, '');
@@ -63,10 +64,14 @@ class CmsTitleController
             }
             $create = $this->model->insert($request->request->all());
 
-            $media->updateMedia($_FILES['logoLogin'], [
+            $media->updateMedia($request->request->get('logoPerusahaan'), [
                 'id_relation' => '',
                 'jenis_dokumen' => 'cms-title',
             ], $this->model, '');
+        }
+
+        if ($request->request->get('redirect_to') != null) {
+            return new RedirectResponse($request->request->get('redirect_to'));
         }
 
         return new RedirectResponse('/admin/login-template');

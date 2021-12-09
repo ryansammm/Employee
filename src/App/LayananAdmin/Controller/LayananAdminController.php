@@ -32,7 +32,6 @@ class LayananAdminController
             })
             ->paginate(10)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
-
         return render_template('admin/layanan/index', ['data_layanan' => $data_layanan, 'kategori_layanan' => $kategori_layanan, 'id_kategori_layanan' => $id_kategori_layanan]);
     }
 

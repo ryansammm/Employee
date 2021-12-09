@@ -2,8 +2,11 @@
 
 namespace Core;
 
+use App\CmsBackground\Model\CmsBackground;
 use App\CmsFonts\Model\CmsFonts;
 use App\CmsKategoriStyle\Model\CmsKategoriStyle;
+use App\CmsTitle\Model\CmsTitle;
+use App\Media\Model\Media;
 use App\Menu\Model\Menu;
 use App\SubMenu\Model\SubMenu;
 use Core\Classes\SessionData;
@@ -43,6 +46,7 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         // !!!! Overriding Core Framework !!!!
 
+        // Get list of website main menu
         $menu_model = new Menu();
         function recursive_menu($parent_id, $menu_model)
         {
@@ -59,20 +63,27 @@ class Framework extends HttpKernel implements HttpKernelInterface
         }
 
         $menu_utama = recursive_menu('0', $menu_model);
-
         $GLOBALS['web_menu'] = $menu_utama;
 
+        // Get website logo and title
+        $cms_title = new CmsTitle();
+        $data_cms_title = $cms_title->first();
 
+        $media = new Media();
+        $data_media_title = $media->where('jenis_dokumen', 'cms-title')->first();
 
-        // -----------------------------------
+        $GLOBALS['web_logo'] = $data_media_title;
+        $GLOBALS['web_title'] = $data_cms_title;
 
+        
         $urlTujuan = $request->getPathInfo();
-
         $explode_url = explode("/", $urlTujuan);
         $current_url = $explode_url[1];
 
         $GLOBALS['url'] = $urlTujuan;
         $GLOBALS['current_url'] = $current_url;
+
+        // -----------------------------------
 
         try {
             $request->attributes->add($this->matcher->match($pathInfo));

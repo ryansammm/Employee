@@ -70,7 +70,7 @@ class PelangganAdminController
         $this->model->where('id_pelanggan', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($_FILES['pelanggan_foto'], [
+        $media->updateMedia($request->request->get('pelanggan_foto'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->model, $id);

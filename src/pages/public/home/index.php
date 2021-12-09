@@ -40,10 +40,10 @@
                 <div class="col-md">
                     <a href="/news/asdw/detail" class="text-dark text-decoration-none">
                         <div class="card for-hover p-3">
-                            <div class="align-self-center rounded-1" style="background-image: url(/assets/media/AARwe9C.jpg);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                            <h6 class="mt-3 mb-0 pb-0">Dilengkapi Furnitur, Begini Desain Rusun Mahasiswa Aceh Senilai Rp12,74 Miliar</h6>
-                            <small class=" mb-1 text-muted">Kategori</small>
-                            <p class="truncate-string-2" style="font-size: 14px;">Aceh: Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR) terus mendorong pembangunan rumah susun (rusun) bagi mahasiswa di seluruh wilayah Indonesia. Salah satunya pembangunan rusun Universitas Abulyatama di Aceh Besar senilai Rp12,74 miliar.</p>
+                            <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
+                            <h6 class="mt-3 mb-0 pb-0"><?= $value['judul_berita'] ?></h6>
+                            <small class=" mb-1 text-muted"><?= $value['kategori_berita'] ?></small>
+                            <div class="truncate-string-2" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['isi_berita'])) ?></div>
                         </div>
                     </a>
                 </div>
@@ -150,40 +150,6 @@
             </div>
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
-                    <?php foreach ($data_produk->items as $key => $value) { ?>
-                        <div class="col-md-2 mb-3">
-                            <div class="card shadow-sm" style="border-radius: 8px;">
-                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 8px 8px 0 0;"></div>
-                                <div class="card-body" style="font-size: 12px;">
-                                    <h6><?= $value['nama_produk'] ?></h6>
-                                    <div class="card-text truncate-string-2 mb-1"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="/product/<?= $value['id_produk'] ?>/detail" type="button" class="btn btn-sm btn-outline-primary">Detail</a>
-                                        </div>
-                                        <a href="/product/<?= $value['id_kategori_produk'] ?>/kategori" class="text-muted text-decoration-none"><small><?= $value['nama_kategori_produk'] ?></small></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
-                    <?php foreach ($data_produk->items as $key => $value) { ?>
-                        <div class="col-md-2 mb-3">
-                            <div class="card shadow-sm" style="border-radius: 8px;">
-                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 8px 8px 0 0;"></div>
-                                <div class="card-body" style="font-size: 12px;">
-                                    <h6><?= $value['nama_produk'] ?></h6>
-                                    <div class="card-text truncate-string-2 mb-1"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="/product/<?= $value['id_produk'] ?>/detail" type="button" class="btn btn-sm btn-outline-primary">Detail</a>
-                                        </div>
-                                        <a href="/product/<?= $value['id_kategori_produk'] ?>/kategori" class="text-muted text-decoration-none"><small><?= $value['nama_kategori_produk'] ?></small></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
                     <?php foreach ($data_produk->items as $key => $value) { ?>
                         <div class="col-md-2 mb-3">
                             <div class="card shadow-sm" style="border-radius: 8px;">

@@ -36,56 +36,19 @@
         </div>
         <div class="row">
 
-            <div class="col-md">
-                <a href="/news/asdw/detail" class="text-dark text-decoration-none">
-                    <div class="card for-hover p-3">
-                        <div class="align-self-center rounded-1" style="background-image: url(/assets/media/AARwe9C.jpg);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                        <h6 class="mt-3 mb-0 pb-0">Dilengkapi Furnitur, Begini Desain Rusun Mahasiswa Aceh Senilai Rp12,74 Miliar</h6>
-                        <small class=" mb-1 text-muted">Kategori</small>
-                        <p class="truncate-string-2" style="font-size: 14px;">Aceh: Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR) terus mendorong pembangunan rumah susun (rusun) bagi mahasiswa di seluruh wilayah Indonesia. Salah satunya pembangunan rusun Universitas Abulyatama di Aceh Besar senilai Rp12,74 miliar.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md">
-                <a href="" class="text-dark text-decoration-none">
-                    <div class="card for-hover p-3">
-                        <div class="align-self-center rounded-1" style="background-image: url(/assets/media/AARvvdn.jpg);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                        <h6 class="mt-3 mb-0 pb-0">Bikin Adem, 9 Warna Cat Ini Bikin Ruang Tamu Lebih Sejuk!</h6>
-                        <small class=" mb-1 text-muted">Kategori</small>
-                        <p class="truncate-string-2" style="font-size: 14px;">Warna cat dinding tak hanya sekedar berfungsi untuk mempercantik ruang tamu, tetapi lebih dari itu, bisa menghidupkan suasana, meningkatkan semangat, dan bisa memengaruhi suhu ruangan. Misalnya saja, warna cat dinding yang terang akan memantulkan panas -- membuat ruangan lebih sejuk. Sedangkan warna cat dinding yang lebih gelap cenderung menyerap panas -- membuat ruangan lebih panas. Lalu, apa saja warna cat yang bisa membuat ruang tamu terasa lebih sejuk? Ini pilihannya untuk Anda!</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md">
-                <a href="" class="text-dark text-decoration-none">
-                    <div class="card for-hover p-3">
-                        <div class="align-self-center rounded-1" style="background-image: url(/assets/media/AAMY8B8.jpg);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                        <h6 class="mt-3 mb-0 pb-0">Cara Cuci Baju di Hotel, Tanpa Ribet dan Hasilnya Bersih</h6>
-                        <small class=" mb-1 text-muted">Kategori</small>
-                        <p class="truncate-string-2" style="font-size: 14px;">Saat pergi berlibur dan menginap di hotel, baju yang dibawa tentunya tak sebanyak seperti di rumah. Jika baju yang dibawa sedikit, mau tak mau tamu harus mencuci baju di hotel. Namun, sayangnya tak ada mesin cuci. </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md">
-                <a href="" class="text-dark text-decoration-none">
-                    <div class="card for-hover p-3">
-                        <div class="align-self-center rounded-1" style="background-image: url(/assets/media/AAMY8B8.jpg);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                        <h6 class="mt-3 mb-0 pb-0">Cara Cuci Baju di Hotel, Tanpa Ribet dan Hasilnya Bersih</h6>
-                        <small class=" mb-1 text-muted">Kategori</small>
-                        <p class="truncate-string-2" style="font-size: 14px;">Saat pergi berlibur dan menginap di hotel, baju yang dibawa tentunya tak sebanyak seperti di rumah. Jika baju yang dibawa sedikit, mau tak mau tamu harus mencuci baju di hotel. Namun, sayangnya tak ada mesin cuci. </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md">
-                <a href="" class="text-dark text-decoration-none">
-                    <div class="card for-hover p-3">
-                        <div class="align-self-center rounded-1" style="background-image: url(/assets/media/AAMY8B8.jpg);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                        <h6 class="mt-3 mb-0 pb-0">Cara Cuci Baju di Hotel, Tanpa Ribet dan Hasilnya Bersih</h6>
-                        <small class=" mb-1 text-muted">Kategori</small>
-                        <p class="truncate-string-2" style="font-size: 14px;">Saat pergi berlibur dan menginap di hotel, baju yang dibawa tentunya tak sebanyak seperti di rumah. Jika baju yang dibawa sedikit, mau tak mau tamu harus mencuci baju di hotel. Namun, sayangnya tak ada mesin cuci. </p>
-                    </div>
-                </a>
-            </div>
+            <?php foreach ($data_berita->items as $key => $value) { ?>
+                <div class="col-md">
+                    <a href="/news/asdw/detail" class="text-dark text-decoration-none">
+                        <div class="card for-hover p-3">
+                            <div class="align-self-center rounded-1" style="background-image: url(/assets/media/AARwe9C.jpg);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
+                            <h6 class="mt-3 mb-0 pb-0">Dilengkapi Furnitur, Begini Desain Rusun Mahasiswa Aceh Senilai Rp12,74 Miliar</h6>
+                            <small class=" mb-1 text-muted">Kategori</small>
+                            <p class="truncate-string-2" style="font-size: 14px;">Aceh: Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR) terus mendorong pembangunan rumah susun (rusun) bagi mahasiswa di seluruh wilayah Indonesia. Salah satunya pembangunan rusun Universitas Abulyatama di Aceh Besar senilai Rp12,74 miliar.</p>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+
         </div>
     </div>
 </section>

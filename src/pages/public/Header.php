@@ -165,11 +165,6 @@
                             <li class="nav-item <?= strpos($GLOBALS['url'], '/about') == '/about' ? 'nav-item-active' : '' ?>">
                                 <a class="nav-link  text-white" href="/about">Tentang Kami</a>
                             </li>
-                            <?php foreach ($GLOBALS['web_menu'] as $key => $menu) { ?>
-                                <li class="nav-item <?= (arr_offset($menu, 'link_url') != null && strpos($GLOBALS['url'], arr_offset($menu, 'link_url')) == arr_offset($menu, 'link_url')) ? 'nav-item-active' : '' ?>">
-                                    <a class="nav-link  text-white" href="<?= arr_offset($menu, 'link_url') ?>"><?= arr_offset($menu, 'menu') ?></a>
-                                </li>
-                            <?php } ?>
                         </ul>
                     </div>
                 </div>
@@ -186,30 +181,30 @@
                                     <?php foreach ($GLOBALS['web_menu'] as $key => $menu) { ?>
                                         <?php if ($menu['parent_id'] == '0') { ?>
                                             <?php if (empty($menu['sub_menu'])) { ?>
-                                                <li>
-                                                    <a class="dropdown-item" style="font-size: 14px;" href="<?= $menu['link_url'] ?>"><?= $menu['menu'] ?></a>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item" style="font-size: 16px;text-transform: capitalize;padding: 8px 16px;display: block !important;text-decoration: none;" href="<?= $menu['link_url'] ?>"><?= $menu['menu'] ?></a>
                                                 </li>
                                             <?php } else { ?>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
+                                                    <a class="dropdown-toggle" style="font-size: 16px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         <?php foreach ($menu['sub_menu'] as $key1 => $menu1) { ?>
                                                             <?php if (empty($menu1['sub_menu'])) { ?>
-                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/"><?= $menu1['menu'] ?></a></li>
+                                                                <li><a class="dropdown-item" style="font-size: 16px;" href="/"><?= $menu1['menu'] ?></a></li>
                                                             <?php } else { ?>
                                                                 <li class="dropdown">
-                                                                    <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu1['menu'] ?></a>
+                                                                    <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 16px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu1['menu'] ?></a>
                                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                         <?php foreach ($menu1['sub_menu'] as $key2 => $menu2) { ?>
                                                                             <?php if (empty($menu2['sub_menu'])) { ?>
-                                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/"><?= $menu2['menu'] ?></a></li>
+                                                                                <li><a class="dropdown-item" style="font-size: 16px;" href="/"><?= $menu2['menu'] ?></a></li>
                                                                             <?php } else { ?>
                                                                                 <li class="dropdown">
-                                                                                    <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu2['menu'] ?></a>
+                                                                                    <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 16px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu2['menu'] ?></a>
                                                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                                         <?php foreach ($menu2['sub_menu'] as $key3 => $menu3) { ?>
                                                                                             <?php if (empty($menu3['sub_menu'])) { ?>
-                                                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/">Sub Sub Sub menu 1</a></li>
+                                                                                                <li><a class="dropdown-item" style="font-size: 16px;" href="/">Sub Sub Sub menu 1</a></li>
                                                                                             <?php } ?>
                                                                                         <?php } ?>
                                                                                     </ul>

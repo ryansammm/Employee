@@ -91,45 +91,17 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
 
-                    <div class="col-md-3">
-                        <div class="card" style="height: 200px !important;">
-                            <div class="card-body p-0">
-                                <div class="js-video [youtube, widescreen]">
-                                    <iframe src="https://www.youtube.com/embed/cFSO8w_kTtw" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <?php foreach ($data_video->items as $key => $value) { ?>
+                        <div class="col-md-3">
+                            <div class="card" style="height: 200px !important;">
+                                <div class="card-body p-0">
+                                    <div class="js-video [youtube, widescreen]">
+                                        <iframe src="<?= $value['link_video'] ?>" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card" style="height: 200px !important;">
-                            <div class="card-body p-0">
-                                <div class="js-video [youtube, widescreen]">
-                                    <iframe src="https://www.youtube.com/embed/ugGJ3tzw7Rk" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card" style="height: 200px !important;">
-                            <div class="card-body p-0">
-                                <div class="js-video [youtube, widescreen]">
-                                    <iframe src="https://www.youtube.com/embed/46pra8NwhzU" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card" style="height: 200px !important;">
-                            <div class="card-body p-0">
-                                <div class="js-video [youtube, widescreen]">
-                                    <iframe src="https://www.youtube.com/embed/46pra8NwhzU" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
 
                 </div>
             </div>

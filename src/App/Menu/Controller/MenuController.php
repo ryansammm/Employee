@@ -32,6 +32,7 @@ class MenuController
     public function store(Request $request)
     {
         $request->request->set('urutan', $this->menu->lastOrder());
+        $request->request->set('parent_id', $request->request->get('parent_id') == '' ? '0' : $request->request->get('parent_id'));
         $create = $this->menu->insert($request->request->all());
 
         return new RedirectResponse('/admin/menu');

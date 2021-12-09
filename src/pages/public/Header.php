@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="/assets/plugins/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/assets/plugins/owl-carousel/css/owl.theme.default.min.css">
 
+    <!------- Captcha ------->
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+
     <link rel="stylesheet" href="/assets/public/css/multi-dropdown.css">
     <link rel="stylesheet" href="/assets/public/css/dropdown-style-custom.css">
 
@@ -54,7 +57,7 @@
     <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
 
         <!------- Button Ubah Logo & Nama Perusahaan ------->
-        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 4rem;top: 1.5rem;">
+        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
             <i class="bi bi-pencil-square"></i>
         </button>
 

@@ -20,6 +20,7 @@ class CustomerController
     public function index(Request $request)
     {
         $media = new Media();
+
         $data_pelanggan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')->get();
 

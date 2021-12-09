@@ -126,9 +126,10 @@
 }
 
 .for-hover {
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .for-hover:hover {
-    background-color: #ffffff78;
+    background-color: #fff;
+    border: 1px solid #0000003b;
 }

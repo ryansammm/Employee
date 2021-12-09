@@ -27,13 +27,18 @@ class ProdukController
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
             ->paginate(8)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
 
-        $datas_kategori_produk = $this->modelKategoriProduk
+        $datas_kategori = $this->modelKategoriProduk
             ->get();
-        
+
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_produk'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['nama_kategori_produk'];
+        }
+
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/product/index', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori_produk' => $datas_kategori_produk]);
+        return render_template('public/product/index', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori]);
     }
 
     public function create(Request $request)
@@ -73,27 +78,35 @@ class ProdukController
 
         $data_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
+            ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
             ->where('id_produk', $id)->first();
 
-        $datas_kategori_produk = $this->modelKategoriProduk
+        $datas_kategori = $this->modelKategoriProduk
             ->get();
+
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_produk'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['nama_kategori_produk'];
+        }
 
         $datas_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
             ->where('produk.id_kategori_produk', $data_produk['id_kategori_produk'])
-            ->paginate(3)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
-
+            ->paginate(4)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
 
         $all_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
-            ->paginate(3)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
+            ->orderBy("RAND()")
+            ->paginate(5)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
+
 
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/product/detail', ['data_produk' => $data_produk, 'datas_produk' => $datas_produk, 'datas_kategori_produk' => $datas_kategori_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
+
+        return render_template('public/product/detail', ['data_produk' => $data_produk, 'datas_produk' => $datas_produk, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_produk' => $all_produk]);
     }
 
     public function kategori(Request $request)
@@ -111,7 +124,13 @@ class ProdukController
             ->where('id_kategori_produk', $kategori)
             ->first();
 
-        $datas_kategori_produk = $kategori_produk->get();
+        $datas_kategori = $this->modelKategoriProduk
+            ->get();
+
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_produk'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['nama_kategori_produk'];
+        }
 
         $data_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
@@ -124,6 +143,6 @@ class ProdukController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/product/category', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori_produk' => $datas_kategori_produk]);
+        return render_template('public/product/category', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori]);
     }
 }

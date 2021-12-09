@@ -29,7 +29,7 @@ class ProfilAdminController
 
         /* ------------------------------ Media Profil ------------------------------ */
         $media = new Media();
-        $media->storeMedia($_FILES['profil_foto'], [
+        $media->storeMedia($request->files->get('profil_foto'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -60,7 +60,7 @@ class ProfilAdminController
         }
 
         $media->deleteMedia($datas);
-        $media->updateMedia($_FILES['profil_foto'], [
+        $media->updateMedia($request->files->get('profil_foto'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->profilAdmin, $id);

@@ -11,60 +11,21 @@
             </div>
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
-                    <div class="col-2">
-                        <div class="card">
-                            <div class="card-body" style="padding: 1rem">
-                                <div class="img-video" style="background: url('/assets/media/Catalent-logo.png');background-size: cover;background-position:  center;">
+                    <?php foreach ($data_pelanggan->items as $key => $value) { ?>
+                        <div class="col-2">
+                            <div class="card">
+                                <div class="card-body" style="padding: 1rem">
+                                    <a href="">
+                                        <div class="img-video" style="background: url('/assets/media/<?= $value['path_media'] ?>');background-size: cover;background-position:  center;">
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="card">
-                            <div class="card-body" style="padding: 1rem">
-                                <div class="img-video" style="background: url('/assets/media/Benecol-agency-logo.png');background-size: cover;background-position:  center;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="card">
-                            <div class="card-body" style="padding: 1rem">
-                                <div class="img-video" style="background: url('/assets/media/SGD-pharma-logo.png');background-size: cover;background-position:  center;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="card">
-                            <div class="card-body" style="padding: 1rem">
-                                <div class="img-video" style="background: url('/assets/media/Ashland-logo.jpg');background-size: cover;background-position:  center;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="card">
-                            <div class="card-body" style="padding: 1rem">
-                                <div class="img-video" style="background: url('/assets/media/Peak-scientific-logo.jpg');background-size: cover;background-position:  center;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="card">
-                            <div class="card-body" style="padding: 1rem">
-                                <div class="img-video" style="background: url('/assets/media/Purolite+Lifesciences+logo.png');background-size: cover;background-position:  center;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php } ?>
                 </div>
             </div>
         </div>
-
-        <!-- end main content -->
     </div>
 </div>
 

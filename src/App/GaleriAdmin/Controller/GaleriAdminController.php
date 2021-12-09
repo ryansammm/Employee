@@ -30,6 +30,7 @@ class GaleriAdminController
     public function create(Request $request)
     {
         $data_kategori_galeri = $this->modelKategoriGaleri->get();
+
         $errors = SessionData::get()->getFlashBag()->get('errors', []);
 
         return render_template('admin/galeri/create', ['erros' => $errors, 'data_kategori_galeri' => $data_kategori_galeri]);
@@ -45,7 +46,7 @@ class GaleriAdminController
 
         /* ------------------------------ Media Profil ------------------------------ */
         $media = new Media();
-        $media->storeMedia($_FILES['galeri_foto'], [
+        $media->storeMedia($request->files->get('galeri_foto'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);

@@ -28,7 +28,7 @@
   <!-- Bootstrap 4 -->
   <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
+  <!------- Captcha ------->
   <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 </head>
 

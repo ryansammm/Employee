@@ -62,10 +62,17 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         $GLOBALS['web_menu'] = $menu_utama;
 
+
+
         // -----------------------------------
 
         $urlTujuan = $request->getPathInfo();
+
+        $explode_url = explode("/", $urlTujuan);
+        $current_url = $explode_url[1];
+
         $GLOBALS['url'] = $urlTujuan;
+        $GLOBALS['current_url'] = $current_url;
 
         try {
             $request->attributes->add($this->matcher->match($pathInfo));

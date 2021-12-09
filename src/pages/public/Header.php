@@ -134,7 +134,7 @@
         </div>
 
         <!------- Navigation ------->
-        <div class="container-fluid d-flex justify-content-center" style="background-color: #0853a6;">
+        <!-- <div class="container-fluid d-flex justify-content-center" style="background-color: #0853a6;">
             <div id="carouselExampleControlsDark" class="carousel carousel-dark slide carousel-navigation" data-bs-ride="carousel" data-bs-interval="false">
                 <div class="carousel-inner" style="padding: 0px 15px;">
                     <div class="carousel-item active">
@@ -170,62 +170,63 @@
                             <?php } ?>
                         </ul>
                     </div>
-
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div id="menu_area" class="menu-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <nav class="navbar navbar-light navbar-expand-lg mainmenu dNone">
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                                <?php foreach ($GLOBALS['web_menu'] as $key => $menu) { ?>
-                                    <?php if ($menu['parent_id'] == '0') { ?>
-                                        <?php if (empty($menu['sub_menu'])) { ?>
-                                            <li class="dropdown">
-                                                <a class="dropdown-toggle fw-bold" style="font-size: 13px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
-                                            </li>
-                                        <?php } else { ?>
-                                            <li class="dropdown">
-                                                <a class="dropdown-toggle fw-bold" style="font-size: 13px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
-                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    <?php foreach ($menu['sub_menu'] as $key1 => $menu1) { ?>
-                                                        <?php if (empty($menu1['sub_menu'])) { ?>
-                                                            <li><a class="dropdown-item fw-bold" style="font-size: 13px;" href="/"><?= $menu1['menu'] ?></a></li>
-                                                        <?php } else { ?>
-                                                            <li class="dropdown">
-                                                                <a class="dropdown-toggle dropdown-sub-toggle fw-bold" style="font-size: 13px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu1['menu'] ?></a>
-                                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                                    <?php foreach ($menu1['sub_menu'] as $key2 => $menu2) { ?>
-                                                                        <?php if (empty($menu2['sub_menu'])) { ?>
-                                                                            <li><a class="dropdown-item fw-bold" style="font-size: 13px;" href="/"><?= $menu2['menu'] ?></a></li>
-                                                                        <?php } else { ?>
-                                                                            <li class="dropdown">
-                                                                                <a class="dropdown-toggle dropdown-sub-toggle fw-bold" style="font-size: 13px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu2['menu'] ?></a>
-                                                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                                                    <?php foreach ($menu2['sub_menu'] as $key3 => $menu3) { ?>
-                                                                                        <?php if (empty($menu3['sub_menu'])) { ?>
-                                                                                            <li><a class="dropdown-item fw-bold" style="font-size: 13px;" href="/">Sub Sub Sub menu 1</a></li>
+        <div class="container-fluid d-flex justify-content-center" style="background-color: #0853a6;">
+            <div id="menu_area" class="menu-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <nav class="navbar navbar-light navbar-expand-lg mainmenu dNone">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <?php foreach ($GLOBALS['web_menu'] as $key => $menu) { ?>
+                                        <?php if ($menu['parent_id'] == '0') { ?>
+                                            <?php if (empty($menu['sub_menu'])) { ?>
+                                                <li class="dropdown nav-item-active">
+                                                    <a class="dropdown-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
+                                                </li>
+                                            <?php } else { ?>
+                                                <li class="dropdown nav-item-active">
+                                                    <a class="dropdown-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <?php foreach ($menu['sub_menu'] as $key1 => $menu1) { ?>
+                                                            <?php if (empty($menu1['sub_menu'])) { ?>
+                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/"><?= $menu1['menu'] ?></a></li>
+                                                            <?php } else { ?>
+                                                                <li class="dropdown">
+                                                                    <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu1['menu'] ?></a>
+                                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                                        <?php foreach ($menu1['sub_menu'] as $key2 => $menu2) { ?>
+                                                                            <?php if (empty($menu2['sub_menu'])) { ?>
+                                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/"><?= $menu2['menu'] ?></a></li>
+                                                                            <?php } else { ?>
+                                                                                <li class="dropdown">
+                                                                                    <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu2['menu'] ?></a>
+                                                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                                                        <?php foreach ($menu2['sub_menu'] as $key3 => $menu3) { ?>
+                                                                                            <?php if (empty($menu3['sub_menu'])) { ?>
+                                                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/">Sub Sub Sub menu 1</a></li>
+                                                                                            <?php } ?>
                                                                                         <?php } ?>
-                                                                                    <?php } ?>
-                                                                                </ul>
-                                                                            </li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            <?php } ?>
                                                                         <?php } ?>
-                                                                    <?php } ?>
-                                                                </ul>
-                                                            </li>
+                                                                    </ul>
+                                                                </li>
+                                                            <?php } ?>
                                                         <?php } ?>
-                                                    <?php } ?>
-                                                </ul>
-                                            </li>
+                                                    </ul>
+                                                </li>
+                                            <?php } ?>
                                         <?php } ?>
                                     <?php } ?>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </nav>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 /* multi dropdown */
 .menu-area {
-  background: #F5911E
+  background: #0853a6
 }
 
 .dropdown-menu {
@@ -16,12 +16,11 @@
 .mainmenu .dropdown-toggle,
 .mainmenu .dropdown-none,
 /* .mainmenu ul li a, */
-.mainmenu .nav-link 
-{
+.mainmenu .nav-link {
   color: rgb(255, 255, 255);
   font-size: 16px;
   text-transform: capitalize;
-  padding: 16px 15px;
+  padding: 8px 16px;
   display: block !important;
   text-decoration: none;
 }
@@ -33,14 +32,15 @@
 }
 
 
-.mainmenu .dropdown-toggle:after{
- color: rgb(255, 255, 255);
+.mainmenu .dropdown-toggle:after {
+  color: rgb(255, 255, 255);
 }
 
 .mainmenu .dropdown .dropdown-item:hover {
   color: rgb(255, 255, 255);
 }
- /* .mainmenu .dropdown .dropdown-item:after {
+
+/* .mainmenu .dropdown .dropdown-item:after {
   color: rgb(0, 0, 0);
 }
 
@@ -57,45 +57,44 @@
 .navbar-default .nav-pills>.show>a:focus,
 .navbar-default .nav-pills>.show>a:hover {
   color: #fff;
-  background: utline: 0;
+  /* background: utline 0; */
 }
 
 /*==========Sub Menu=v==========*/
 .mainmenu ul>li:hover>a {
-  background: #d4760b;
+  background: #0853a6;
   /* color: rgb(255, 0, 0); */
 }
 
 .mainmenu ul ul>li:hover>a,
 .navbar-default .nav-pills .show .dropdown-menu>li>a:focus,
 .navbar-default .nav-pills .show .dropdown-menu>li>a:hover {
-  background: #d4760b;
+  background: #004591;
 }
 
 .mainmenu ul ul ul>li:hover>a {
-  background: #d4760b;
+  background: #004591;
 }
 
 .mainmenu ul ul,
 .mainmenu ul ul.dropdown-menu {
   /* background: #1565C0; */
   /* background: white; */
-  background-color: #f5911e;
+  background-color: #0853a6;
   color: white;
   box-shadow: 1 1 4 black;
-
 }
 
 .mainmenu ul ul ul,
 .mainmenu ul ul ul.dropdown-menu {
-  background: #f5911e;
+  background: #0853a6;
   box-shadow: 0px 1px 3px 0px #505050 !important;
 }
 
 
 .mainmenu ul ul ul ul,
 .mainmenu ul ul ul ul.dropdown-menu {
-  background: #f5911e;
+  background: #0853a6;
   box-shadow: 0px 1px 3px 0px #505050 !important;
 }
 
@@ -112,50 +111,50 @@
 
 @media only screen and (min-width: 767px) {
   .mainmenu ul li:hover>ul {
-      display: block
+    display: block
   }
 
   .mainmenu ul ul {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 250px;
-      display: none
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 250px;
+    display: none
   }
 
   /*******/
   .mainmenu ul ul li {
-      position: relative
+    position: relative
   }
 
   .mainmenu ul ul li:hover>ul {
-      display: block
+    display: block
   }
 
   .mainmenu ul ul ul {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      min-width: 250px;
-      display: none
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 250px;
+    display: none
   }
 
   /*******/
   .mainmenu ul ul ul li {
-      position: relative
+    position: relative
   }
 
   .mainmenu ul ul ul li:hover ul {
-      display: block
+    display: block
   }
 
   .mainmenu ul ul ul ul {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      min-width: 250px;
-      display: none;
-      z-index: 1
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 250px;
+    display: none;
+    z-index: 1
   }
 
 }
@@ -180,4 +179,8 @@
 
 .mainmenu .dropdown-toggle {
   color: white !important;
+}
+
+.nav-item-active {
+  border-bottom: 4px solid #ff4c01;
 }

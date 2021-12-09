@@ -21,32 +21,28 @@
                                     <div class="img-atas-berita" style="background: url(/assets/media/<?= $item_berita_new(0, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-atas-berita">
-                                                <a href="/news/<?= $item_berita_new(0, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
-                                                    <h6 class="text-white mx-4"><?= $item_berita_new(0, $i, $datas->items, 'judul_berita') ?></h6>
+                                                <a href="/berita/<?= $item_berita_new(0, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
+                                                    <h6 class="text-white"><?= $item_berita_new(0, $i, $datas->items, 'judul_berita') ?></h6>
                                                 </a>
-                                                <div class="row justify-content-around mx-3">
+                                                <div class="row justify-content-around">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                        <div class="sub-item">
                                                             <i class="bi bi-heart"></i>
                                                             <span>0</span>
                                                         </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-chat"></i>
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
                                                             <span>0</span>
                                                         </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-eye"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                        <div class="sub-item">
                                                             <span>50 menit</span>
                                                         </div>
-                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                                            <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                                <i class="fas fa-share"></i>
-                                                                <span>Bagikan</span>
-                                                            </div>
-                                                        </a>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <!-- Button trigger modal -->
+                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -59,32 +55,28 @@
                                     <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(1, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-bawah-berita">
-                                                <a href="/news/<?= $item_berita_new(1, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
+                                                <a href="/berita/<?= $item_berita_new(1, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
                                                     <h6 class="text-white"><?= $item_berita_new(1, $i, $datas->items, 'judul_berita') ?></h6>
                                                 </a>
                                                 <div class="row justify-content-around">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                        <div class="sub-item">
                                                             <i class="bi bi-heart"></i>
                                                             <span>0</span>
                                                         </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-chat"></i>
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
                                                             <span>0</span>
                                                         </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-eye"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                        <div class="sub-item">
                                                             <span>50 menit</span>
                                                         </div>
-                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                                            <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                                <i class="fas fa-share"></i>
-                                                                <span>Bagikan</span>
-                                                            </div>
-                                                        </a>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <!-- Button trigger modal -->
+                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,32 +87,28 @@
                                     <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(2, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-bawah-berita">
-                                                <a href="/news/<?= $item_berita_new(2, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
+                                                <a href="/berita/<?= $item_berita_new(2, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
                                                     <h6 class="text-white"><?= $item_berita_new(2, $i, $datas->items, 'judul_berita') ?></h6>
                                                 </a>
                                                 <div class="row justify-content-around">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                        <div class="sub-item">
                                                             <i class="bi bi-heart"></i>
                                                             <span>0</span>
                                                         </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-chat"></i>
+                                                        <div class="sub-item">
+                                                            <i class="bi bi-heart"></i>
                                                             <span>0</span>
                                                         </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-eye"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                        <div class="sub-item">
                                                             <span>50 menit</span>
                                                         </div>
-                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                                            <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                                <i class="fas fa-share"></i>
-                                                                <span>Bagikan</span>
-                                                            </div>
-                                                        </a>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <!-- Button trigger modal -->
+                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,7 +140,7 @@
             </div>
             <div class="card">
                 <div class="card-body" style="height: 460px;overflow-y:scroll;padding: 0;">
-                    <?php foreach ($data_berita->items as $key => $value) { ?>
+                    <?php foreach ($all_berita->items as $key => $value) { ?>
                         <div class="side-news-item">
                             <div class="row">
                                 <div class="d-flex">

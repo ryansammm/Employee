@@ -75,7 +75,7 @@ class Framework extends HttpKernel implements HttpKernelInterface
         $GLOBALS['web_logo'] = $data_media_title;
         $GLOBALS['web_title'] = $data_cms_title;
 
-        
+
         $urlTujuan = $request->getPathInfo();
         $explode_url = explode("/", $urlTujuan);
         $current_url = $explode_url[1];

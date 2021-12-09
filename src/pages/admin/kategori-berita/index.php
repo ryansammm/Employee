@@ -90,4 +90,15 @@
 </div>
 
 
+<script>
+    $('#modal_konfirmasi_hapus_kategori_berita').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+
+        var modal = $(this)
+        modal.find('#form_hapus').attr('action', '/admin/kategori-berita/' + id + '/delete')
+    })
+</script>
+
+
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

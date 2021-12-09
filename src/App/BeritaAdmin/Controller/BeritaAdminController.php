@@ -59,10 +59,13 @@ class BeritaAdminController
 
         $request->request->set('slug_berita', str_slug($request->request->get('judul_berita'), '-'));
         $request->request->set('id_user', SessionData::get('id_user'));
+        $content = htmlspecialchars($request->request->get('isi_berita'));
+        $request->request->set('isi_berita', $content);
         $create = $this->model->insert($request->request->all());
 
+
         $media = new Media();
-        $media->storeMedia($request->request->files->get('gambar_thumbnail_berita'), [
+        $media->storeMedia($request->files->get('gambar_thumbnail_berita'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -90,6 +93,8 @@ class BeritaAdminController
         }
 
         $request->request->set('slug_berita', str_slug($request->request->get('judul_berita'), '-'));
+        $content = htmlspecialchars($request->request->get('isi_berita'));
+        $request->request->set('isi_berita', $content);
         $this->model->where('id_berita', $id)->update($request->request->all());
 
         $media = new Media();

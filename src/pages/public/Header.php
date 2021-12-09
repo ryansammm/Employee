@@ -111,27 +111,38 @@
         </div>
 
         <!------- Top Header ------->
-        <div class="container d-flex align-items-md-center pb-3">
+        <div class="container pb-3">
             <div class="position-relative me-auto">
                 <div class="d-flex">
-                    <div class="web-title d-flex justify-content-around">
-                        <a class="navbar-brand pe-1" href="#">
-                            <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">
-                        </a>
-                        <h6 style="margin-top: auto;margin-bottom: auto;">Panca Teknologi Aksesindo</h6>
-                    </div>
-                    <form class="d-flex">
-                        <div class="input-group mt-3 ms-3" style="width: 570pt;">
-                            <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
+                    <div class="row" style="width: 100%;">
+
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="web-title d-flex ">
+                                <a class="navbar-brand pe-1" href="#">
+                                    <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">
+                                </a>
+                                <!-- Mun rek katengahkeun, si breakword jeung inline di hapus -->
+                                <h6 style="margin-top: auto;margin-bottom: auto;word-wrap: break-word;inline-size: 117px;">Panca Teknologi Aksesindo</h6>
+                            </div>
+                            <!-- mun katengah, si form di hide -->
+                            <form class="">
+                                <div class="input-group mt-3 ms-3" style="width: 570pt;">
+                                    <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                    <ul class="nav justify-content-end ps-5 d-flex">
-                        <li class="nav-item">
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none text-dark">
-                                <i class="bi bi-person fs-4"></i>
-                            </a>
-                        </li>
-                    </ul>
+
+                        <div class="" style="position: absolute;top: 20%;">
+                            <ul class="nav justify-content-end" style="height: 100%;">
+                                <li class="nav-item" style="margin-top: auto;margin-bottom: auto;">
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none text-dark">
+                                        <i class="bi bi-person fs-4"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,7 +193,7 @@
                                     <?php foreach ($GLOBALS['web_menu'] as $key => $menu) { ?>
                                         <?php if ($menu['parent_id'] == '0') { ?>
                                             <?php if (empty($menu['sub_menu'])) { ?>
-                                                <li class="dropdown">
+                                                <li class="dropdown <?= $GLOBALS['url'] == $menu['link_url'] ? 'nav-item-active' : '' ?>">
                                                     <a class="dropdown-item" style="font-size: 16px;text-transform: capitalize;padding: 8px 16px;display: block !important;text-decoration: none;" href="<?= $menu['link_url'] ?>"><?= $menu['menu'] ?></a>
                                                 </li>
                                             <?php } else { ?>

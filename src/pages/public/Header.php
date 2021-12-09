@@ -71,30 +71,30 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-
+                            <input type="hidden" name="redirect_to" value="<?= $GLOBALS['url'] ?>">
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Logo</label>
                                 <input class="form-control" type="file" id="formFile" name="logoPerusahaan">
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Nama Perusahaan</label>
-                                <input class="form-control" type="text" name="namaPerusahaan" value="<?= arr_offset($GLOBALS['web_title'], 'cms_title') ?>">
+                                <input class="form-control" type="text" name="cms_title" value="<?= arr_offset($GLOBALS['web_title'], 'cms_title') ?>">
                             </div>
                             <hr>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault1" value="1" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '1' ? 'checked' : '' ?>>
+                                <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault1" value="1" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '1' ? 'checked' : '' ?>>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Logo
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault2" value="2" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '2' ? 'checked' : '' ?>>
+                                <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault2" value="2" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '2' ? 'checked' : '' ?>>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Nama Perusahaan
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="opsiLogo" id="flexRadioDefault3" value="3" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '3' ? 'checked' : '' ?>>
+                                <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault3" value="3" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '3' ? 'checked' : '' ?>>
                                 <label class="form-check-label" for="flexRadioDefault3">
                                     Logo & Nama Perusahaan
                                 </label>
@@ -114,25 +114,26 @@
         <div class="container d-flex align-items-md-center pb-3">
             <div class="position-relative me-auto">
                 <div class="d-flex">
-                    <a class="navbar-brand pe-1" href="#">
-                        <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">
-                    </a>
-                    <h6 style="margin-top: auto;margin-bottom: auto;">Panca Teknologi Aksesindo</h6>
-                    <form>
+                    <div class="web-title d-flex justify-content-around">
+                        <a class="navbar-brand pe-1" href="#">
+                            <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">
+                        </a>
+                        <h6 style="margin-top: auto;margin-bottom: auto;">Panca Teknologi Aksesindo</h6>
+                    </div>
+                    <form class="d-flex">
                         <div class="input-group mt-3 ms-3" style="width: 570pt;">
                             <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
                         </div>
                     </form>
+                    <ul class="nav justify-content-end ps-5 d-flex">
+                        <li class="nav-item">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none text-dark">
+                                <i class="bi bi-person fs-4"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <ul class="nav justify-content-end ps-5">
-                <li class="nav-item">
-                    <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none text-dark">
-                        <i class="bi bi-person fs-4"></i>
-                    </a>
-                </li>
-            </ul>
         </div>
 
         <!------- Navigation ------->

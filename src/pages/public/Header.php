@@ -186,11 +186,11 @@
                                     <?php foreach ($GLOBALS['web_menu'] as $key => $menu) { ?>
                                         <?php if ($menu['parent_id'] == '0') { ?>
                                             <?php if (empty($menu['sub_menu'])) { ?>
-                                                <li class="dropdown nav-item-active">
+                                                <li class="dropdown">
                                                     <a class="dropdown-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
                                                 </li>
                                             <?php } else { ?>
-                                                <li class="dropdown nav-item-active">
+                                                <li class="dropdown">
                                                     <a class="dropdown-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         <?php foreach ($menu['sub_menu'] as $key1 => $menu1) { ?>

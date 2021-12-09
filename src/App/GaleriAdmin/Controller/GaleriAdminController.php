@@ -70,7 +70,7 @@ class GaleriAdminController
         $this->model->where('id_galeri', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($_FILES['galeri_foto'], [
+        $media->updateMedia($request->request->get('galeri_foto'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->model, $id);

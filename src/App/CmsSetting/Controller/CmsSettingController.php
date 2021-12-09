@@ -43,7 +43,6 @@ class CmsSettingController
     public function update(Request $request)
     {
         $datas = $request->request->all();
-        dd($datas);
         $cms_setting = $this->model->first();
 
         $this->model->where('id_cms_setting', $cms_setting['id_cms_setting'])->update($request->request->all());

@@ -47,7 +47,7 @@ class CmsTitleController
 
         if ($option == '1') {
 
-            $media->updateMedia($_FILES['logoLogin'], [
+            $media->updateMedia($request->request->get('logoLogin'), [
                 'id_relation' => '',
                 'jenis_dokumen' => 'cms-title',
             ], $this->model, '');
@@ -63,7 +63,7 @@ class CmsTitleController
             }
             $create = $this->model->insert($request->request->all());
 
-            $media->updateMedia($_FILES['logoLogin'], [
+            $media->updateMedia($request->request->get('logoLogin'), [
                 'id_relation' => '',
                 'jenis_dokumen' => 'cms-title',
             ], $this->model, '');

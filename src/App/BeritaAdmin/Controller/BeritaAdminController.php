@@ -62,7 +62,7 @@ class BeritaAdminController
         $create = $this->model->insert($request->request->all());
 
         $media = new Media();
-        $media->storeMedia($_FILES['gambar_thumbnail_berita'], [
+        $media->storeMedia($request->request->files->get('gambar_thumbnail_berita'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);

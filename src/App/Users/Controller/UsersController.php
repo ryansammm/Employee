@@ -20,7 +20,6 @@ class UsersController
     {
         $data_pengguna = $this->model
             ->paginate(10);
-        // dd($data_pengguna);
 
         return render_template('admin/pengguna/index', ['data_pengguna' => $data_pengguna]);
     }

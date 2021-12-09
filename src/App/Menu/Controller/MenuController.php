@@ -24,7 +24,9 @@ class MenuController
 
     public function create(Request $request)
     {
-        return render_template('admin/menu/create');
+        $parent_menu = $this->menu->get();
+
+        return render_template('admin/menu/create', compact('parent_menu'));
     }
 
     public function store(Request $request)

@@ -43,17 +43,24 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         // !!!! Overriding Core Framework !!!!
 
-        // Get data cms kategori and make it global
+        $menu_model = new Menu();
+        function recursive_menu($parent_id, $menu_model)
+        {
+            $menus = [];
+            $data_menu = $menu_model->where('parent_id', $parent_id)->get()->items;
+            if (!empty($data_menu)) {
+                foreach ($data_menu as $key => $value) {
+                    $value['sub_menu'] = recursive_menu($value['id_cms_menu'], $menu_model);
+                    $menus[] = $value;
+                }
+            }
 
-        $menu = new Menu();
-        $data_menu = $menu->get();
-        $sub_menu = new SubMenu();
-        foreach ($data_menu->items as $key => $value) {
-            $data_sub_menu = $sub_menu->where('parent_id', $value['id_cms_menu'])->first();
-            $data_menu->items[$key]['sub_menu'][] = $data_sub_menu;
+            return $menus;
         }
 
-        $GLOBALS['web_menu'] = $data_menu;
+        $menu_utama = recursive_menu('0', $menu_model);
+
+        $GLOBALS['web_menu'] = $menu_utama;
 
         // -----------------------------------
 

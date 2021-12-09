@@ -29,6 +29,15 @@
                         <div class="row">
                             <div class="container mt-4">
                                 <div class="mb-3">
+                                    <label for="parent_id" class="form-label">Submenu dari menu?</label>
+                                    <select name="parent_id" class="form-control" required>
+                                        <option value=""> -- Pilih Parent Menu -- </option>
+                                        <?php foreach ($parent_menu->items as $key => $data) { ?>
+                                            <option value="<?= $data['id_cms_menu'] ?>"><?= $data['menu'] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
                                     <label for="menu" class="form-label">Nama Menu *</label>
                                     <input type="text" class="form-control" name="menu" required>
                                 </div>
@@ -92,26 +101,28 @@
 <script>
     $(document).ready(function() {
         $('.tipe').on('change', function() {
-            if ($(this).val() == '1') {
-                // halaman
-                $('.link_url').addClass('d-none');
-                $('.link_url').find('input').prop('disabled', true);
+            if ($(this).val() != '') {
+                if ($(this).val() == '1') {
+                    // halaman
+                    $('.link_url').addClass('d-none');
+                    $('.link_url').find('input').prop('disabled', true);
 
-                $('.link_url_opened').addClass('d-none');
-                $('.link_url_opened').find('select').prop('disabled', true);
+                    $('.link_url_opened').addClass('d-none');
+                    $('.link_url_opened').find('select').prop('disabled', true);
 
-                $('.halaman_id').removeClass('d-none');
-                $('.halaman_id').find('select').prop('disabled', false);
-            } else {
-                // link dan halaman
-                $('.link_url').removeClass('d-none');
-                $('.link_url').find('input').prop('disabled', false);
+                    $('.halaman_id').removeClass('d-none');
+                    $('.halaman_id').find('select').prop('disabled', false);
+                } else {
+                    // link dan halaman
+                    $('.link_url').removeClass('d-none');
+                    $('.link_url').find('input').prop('disabled', false);
 
-                $('.link_url_opened').removeClass('d-none');
-                $('.link_url_opened').find('select').prop('disabled', false);
+                    $('.link_url_opened').removeClass('d-none');
+                    $('.link_url_opened').find('select').prop('disabled', false);
 
-                $('.halaman_id').addClass('d-none');
-                $('.halaman_id').find('select').prop('disabled', true);
+                    $('.halaman_id').addClass('d-none');
+                    $('.halaman_id').find('select').prop('disabled', true);
+                }
             }
         });
 

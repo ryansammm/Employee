@@ -37,7 +37,6 @@ class SubMenuController
     public function store(Request $request)
     {
         $request->request->set('urutan', $this->sub_menu->lastOrder());
-
         $create = $this->sub_menu->insert($request->request->all());
 
         return new RedirectResponse('/admin/sub-menu');

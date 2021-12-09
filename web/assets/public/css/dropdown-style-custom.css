@@ -1,0 +1,183 @@
+/* multi dropdown */
+.menu-area {
+  background: #F5911E
+}
+
+.dropdown-menu {
+  padding: 0;
+  margin: 0;
+  border: 0 solid transition !important;
+  border: 0 solid rgba(0, 0, 0, .15);
+  border-radius: 0;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important
+}
+
+.mainmenu .dropdown-toggle,
+.mainmenu .dropdown-none,
+/* .mainmenu ul li a, */
+.mainmenu .nav-link 
+{
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  text-transform: capitalize;
+  padding: 16px 15px;
+  display: block !important;
+  text-decoration: none;
+}
+
+.mainmenu .dropdown-sub-toggle {
+  padding: 0;
+  color: rgb(0, 0, 0);
+  padding: .25rem 1rem;
+}
+
+
+.mainmenu .dropdown-toggle:after{
+ color: rgb(255, 255, 255);
+}
+
+.mainmenu .dropdown .dropdown-item:hover {
+  color: rgb(255, 255, 255);
+}
+ /* .mainmenu .dropdown .dropdown-item:after {
+  color: rgb(0, 0, 0);
+}
+
+.mainmenu .dropdown-sub-toggle:active {
+  color: rgb(0, 0, 0);
+} */
+
+.mainmenu .active a,
+.mainmenu .active a:focus,
+.mainmenu .active a:hover,
+.mainmenu li a:hover,
+.mainmenu li a:focus,
+.navbar-default .nav-pills>.show>a,
+.navbar-default .nav-pills>.show>a:focus,
+.navbar-default .nav-pills>.show>a:hover {
+  color: #fff;
+  background: utline: 0;
+}
+
+/*==========Sub Menu=v==========*/
+.mainmenu ul>li:hover>a {
+  background: #d4760b;
+  /* color: rgb(255, 0, 0); */
+}
+
+.mainmenu ul ul>li:hover>a,
+.navbar-default .nav-pills .show .dropdown-menu>li>a:focus,
+.navbar-default .nav-pills .show .dropdown-menu>li>a:hover {
+  background: #d4760b;
+}
+
+.mainmenu ul ul ul>li:hover>a {
+  background: #d4760b;
+}
+
+.mainmenu ul ul,
+.mainmenu ul ul.dropdown-menu {
+  /* background: #1565C0; */
+  /* background: white; */
+  background-color: #f5911e;
+  color: white;
+  box-shadow: 1 1 4 black;
+
+}
+
+.mainmenu ul ul ul,
+.mainmenu ul ul ul.dropdown-menu {
+  background: #f5911e;
+  box-shadow: 0px 1px 3px 0px #505050 !important;
+}
+
+
+.mainmenu ul ul ul ul,
+.mainmenu ul ul ul ul.dropdown-menu {
+  background: #f5911e;
+  box-shadow: 0px 1px 3px 0px #505050 !important;
+}
+
+
+/******************************Drop-down menu work on hover**********************************/
+.mainmenu {
+  background: none;
+  border: 0 solid;
+  margin: 0;
+  padding: 0;
+  min-height: 20px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 767px) {
+  .mainmenu ul li:hover>ul {
+      display: block
+  }
+
+  .mainmenu ul ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 250px;
+      display: none
+  }
+
+  /*******/
+  .mainmenu ul ul li {
+      position: relative
+  }
+
+  .mainmenu ul ul li:hover>ul {
+      display: block
+  }
+
+  .mainmenu ul ul ul {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      min-width: 250px;
+      display: none
+  }
+
+  /*******/
+  .mainmenu ul ul ul li {
+      position: relative
+  }
+
+  .mainmenu ul ul ul li:hover ul {
+      display: block
+  }
+
+  .mainmenu ul ul ul ul {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      min-width: 250px;
+      display: none;
+      z-index: 1
+  }
+
+}
+
+#daftar_menu a:hover {
+  background-color: #d4760b;
+}
+
+.linkMenu {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.linkMenu:hover {
+  background-color: #FE7801;
+  color: #ffffff;
+}
+
+.mainmenu .dropdown-item {
+  color: white !important;
+}
+
+.mainmenu .dropdown-toggle {
+  color: white !important;
+}

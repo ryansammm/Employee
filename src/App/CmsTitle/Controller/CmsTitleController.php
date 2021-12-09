@@ -43,11 +43,11 @@ class CmsTitleController
         $media = new Media();
         $title = $this->model->first();
 
-        $option = $request->request->get('title-option');
+        $option = $request->request->get('cms_title_option');
 
         if ($option == '1') {
 
-            $media->updateMedia($request->request->get('logoPerusahaan'), [
+            $media->updateMedia($request->files->get('logoPerusahaan'), [
                 'id_relation' => '',
                 'jenis_dokumen' => 'cms-title',
             ], $this->model, '');
@@ -63,7 +63,7 @@ class CmsTitleController
             }
             $create = $this->model->insert($request->request->all());
 
-            $media->updateMedia($request->request->get('logoPerusahaan'), [
+            $media->updateMedia($request->files->get('logoPerusahaan'), [
                 'id_relation' => '',
                 'jenis_dokumen' => 'cms-title',
             ], $this->model, '');

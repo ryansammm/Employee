@@ -35,8 +35,8 @@
 
             <div class="row">
                 <div class="col-6">
-                <label for="kategori_berita">Kategori Berita</label>
-                    <form action="/admin/berita" method="GET" enctype="multipart/form-data" class="form-inline"> 
+                    <label for="kategori_berita">Kategori Berita</label>
+                    <form action="/admin/berita" method="GET" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group mb-2">
                             <select class="form-control mr-2" name="kategori_berita" id="kategori_berita">
                                 <option value="">Semua</option>
@@ -109,6 +109,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#modal_konfirmasi_hapus_berita').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+
+        var modal = $(this)
+        modal.find('#form_hapus').attr('action', '/admin/berita/' + id + '/delete')
+    })
+</script>
 
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

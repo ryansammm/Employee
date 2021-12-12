@@ -6719,6 +6719,7 @@ textarea.form-control-lg {
 
 .d-flex {
   display: flex !important;
+  /* margin-left: auto; */
 }
 
 .d-inline-flex {
@@ -6995,7 +6996,6 @@ textarea.form-control-lg {
 }
 
 .flex-column {
-  flex-direction: column !important;
 }
 
 .flex-row-reverse {

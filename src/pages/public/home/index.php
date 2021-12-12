@@ -38,12 +38,12 @@
 
             <?php foreach ($data_berita->items as $key => $value) { ?>
                 <div class="col-md">
-                    <a href="/news/asdw/detail" class="text-dark text-decoration-none">
+                    <a href="/news/<?= $value['id_berita'] ?>/detail" class="text-dark text-decoration-none">
                         <div class="card for-hover p-3">
                             <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                            <h6 class="mt-3 mb-0 pb-0"><?= $value['judul_berita'] ?></h6>
+                            <h6 class="mt-3 mb-0 pb-0 truncate-string-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $value['judul_berita'] ?>"><?= $value['judul_berita'] ?></h6>
                             <small class=" mb-1 text-muted"><?= $value['kategori_berita'] ?></small>
-                            <div class="truncate-string-2" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['isi_berita'])) ?></div>
+                            <div class="truncate-string-2" style="font-size: 12px;"><?= html_entity_decode(nl2br($value['isi_berita'])) ?></div>
                         </div>
                     </a>
                 </div>
@@ -68,7 +68,7 @@
                     <a href="/service/<?= $value['id_layanan'] ?>/detail" class="text-dark text-decoration-none">
                         <div class="card for-hover p-3">
                             <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                            <h4 class="mt-3"><?= $value['nama_layanan'] ?></h4>
+                            <h4 class="mt-3" style="font-size: 18px;"><?= $value['nama_layanan'] ?></h4>
                             <div class="mb-3 truncate-string-3" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['deskripsi_layanan'])) ?></div>
                         </div>
                     </a>
@@ -91,45 +91,17 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
 
-                    <div class="col-md-3">
-                        <div class="card" style="height: 200px !important;">
-                            <div class="card-body p-0">
-                                <div class="js-video [youtube, widescreen]">
-                                    <iframe src="https://www.youtube.com/embed/cFSO8w_kTtw" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <?php foreach ($data_video->items as $key => $value) { ?>
+                        <div class="col-md-3">
+                            <div class="card" style="height: 200px !important;">
+                                <div class="card-body p-0">
+                                    <div class="js-video [youtube, widescreen]">
+                                        <iframe src="<?= $value['link_video'] ?>" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card" style="height: 200px !important;">
-                            <div class="card-body p-0">
-                                <div class="js-video [youtube, widescreen]">
-                                    <iframe src="https://www.youtube.com/embed/ugGJ3tzw7Rk" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card" style="height: 200px !important;">
-                            <div class="card-body p-0">
-                                <div class="js-video [youtube, widescreen]">
-                                    <iframe src="https://www.youtube.com/embed/46pra8NwhzU" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card" style="height: 200px !important;">
-                            <div class="card-body p-0">
-                                <div class="js-video [youtube, widescreen]">
-                                    <iframe src="https://www.youtube.com/embed/46pra8NwhzU" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
 
                 </div>
             </div>

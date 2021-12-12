@@ -23,11 +23,14 @@ use App\KategoriBeritaAdmin\Controller\KategoriBeritaAdminController;
 use App\KategoriGaleriAdmin\Controller\KategoriGaleriAdminController;
 use App\KategoriLayananAdmin\Controller\KategoriLayananAdminController;
 use App\KategoriProdukAdmin\Controller\KategoriProdukAdminController;
+use App\Ketentuan\Controller\KetentuanController;
 use App\Layanan\Controller\LayananController;
 use App\LayananAdmin\Controller\LayananAdminController;
 use App\Login\Controller\LoginController;
 use App\Maintenance\Controller\MaintenanceController;
 use App\Menu\Controller\MenuController;
+use App\Panduan\Controller\PanduanController;
+use App\Pedoman\Controller\PedomanController;
 use App\PelangganAdmin\Controller\PelangganAdminController;
 use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
@@ -361,5 +364,18 @@ $routes->push('maintenance', '/maintenance', [MaintenanceController::class, 'ind
 $routes->prefix('/page', function ($routes) {
     $routes->push('page-dinamis', '/{page_url}', [HalamanController::class, 'index']);
 });
+
+/* ---------------------- Ketentaun & Kebijakan Privasi --------------------- */
+$routes->push('ketentuan', '/ketentuan', [KetentuanController::class, 'index']);
+
+
+/* ---------------------------- Panduan Komunitas --------------------------- */
+$routes->push('panduan', '/panduan', [PanduanController::class, 'index']);
+
+
+/* --------------------------- Pedoman Media Siber -------------------------- */
+$routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
+
+
 
 return $routes;

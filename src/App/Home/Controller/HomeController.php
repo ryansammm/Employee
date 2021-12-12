@@ -51,21 +51,21 @@ class HomeController
             ->paginate(5)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
         /* -------------------------------------------------------------------------- */
 
-        /* ------------------------------ Top Features ------------------------------ */
+        /* --------------------------------- Service -------------------------------- */
         $data_layanan = $service
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->paginate(4)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
         /* -------------------------------------------------------------------------- */
 
-        /* ---------------------------- See It In Action ---------------------------- */
+        /* ---------------------------------- Video --------------------------------- */
         $data_video = $video->get();
         /* -------------------------------------------------------------------------- */
 
-        /* --------------------------- Most Viewed Product -------------------------- */
+        /* --------------------------------- Produk --------------------------------- */
         $data_produk = $product
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
-            ->paginate(4)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
+            ->paginate(6)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
         /* -------------------------------------------------------------------------- */
 
         /* ------------------------------ Our Customers ----------------------------- */

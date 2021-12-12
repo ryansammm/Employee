@@ -6,6 +6,7 @@ use App\KategoriBerita\Model\KategoriBerita;
 use App\KategoriBeritaAdmin\Model\KategoriBeritaAdmin;
 use App\Media\Model\Media;
 use App\Berita\Model\Berita;
+use App\CmsKategoriStyle\Model\CmsKategoriModule;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,11 +25,23 @@ class BeritaController
         $media = new Media();
         $kategori_berita = new KategoriBeritaAdmin();
 
-        $data_kategori_berita = $kategori_berita->get();
+        $datas_kategori = $kategori_berita
+            ->get();
+
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_berita'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['kategori_berita'];
+        }
+
+        $data_berita_hangat = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
+            ->paginate(4)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
+
         $data_berita = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
-            ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
+            ->paginate(5)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
 
 
         $datas = $this->model
@@ -42,7 +55,10 @@ class BeritaController
             return isset($datas[$index]) ? $datas[$index][$label] : '';
         };
 
-        return render_template('public/news/index', ['data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending]);
+        $cmsKategoriModule = new CmsKategoriModule('produk-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
+
+        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat]);
     }
 
     public function create(Request $request)
@@ -92,6 +108,7 @@ class BeritaController
             ->where('id_berita', $id)->first();
 
         $data_kategori_berita = $kategori_berita->get();
+
         $data_berita = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
@@ -114,15 +131,41 @@ class BeritaController
             ->where('id_kategori_berita', $kategori)
             ->first();
 
-        $data_kategori_berita = $kategori_berita->get();
+        $datas_kategori = $kategori_berita
+            ->get();
+
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_berita'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['kategori_berita'];
+        }
+
         $data_berita = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->where('berita.id_kategori_berita', $kategori)
             ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
 
-        // dd($data_berita);
+        $all_berita = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
+            ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
 
-        return render_template('public/news/kategori', ['data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita, 'detail_kategori_berita' => $detail_kategori_berita]);
+
+        $datas = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->get();
+        $count_news_trending = intval(ceil(count($datas->items) / 3) < 1 ? 1 : ceil(count($datas->items) / 3));
+        $item_berita_new = function ($index, $halaman, $datas, $label) {
+            return isset($datas[($index + (3 * $halaman))]) ? $datas[($index + (3 * $halaman))][$label] : '';
+        };
+        $item_berita_trending = function ($index, $datas, $label) {
+            return isset($datas[$index]) ? $datas[$index][$label] : '';
+        };
+
+
+        $cmsKategoriModule = new CmsKategoriModule('produk-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
+
+        return render_template('public/news/category', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_berita' => $all_berita]);
     }
 }

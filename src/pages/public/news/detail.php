@@ -5,10 +5,11 @@
 
         <!------- Main Content ------->
         <div class="col-md-8">
-            <div class="card rounded p-3" style="border-top: 5px solid red;">
+            <div class="card rounded p-3" style="border-top: 5px solid #fe4d01;">
                 <h4 class="ps-3"><?= $detail_berita['judul_berita'] ?></h4>
                 <span class="text-muted ps-3" style="font-size: 12px;"><?= date_format(date_create($detail_berita['tgl_publish']), "j M Y") ?> | <?= $detail_berita['nama_depan'] ?> <?= $detail_berita['nama_belakang'] ?> | <a href="" class="text-muted text-decoration-none"> <?= $detail_berita['kategori_berita'] ?></a></span>
-                <div class="px-3 pt-4">
+                <img src="/assets/media/<?= $detail_berita['path_media'] ?>" alt="" style="width: 100%;height: 100%;" class="mt-3 px-3">
+                <div class="px-3 mt-3">
                     <?= html_entity_decode(nl2br($detail_berita['isi_berita'])) ?>
                     <span class="badge bg-danger">Opini suara & publik</span>
                     <span class="badge bg-danger">Public Government</span>
@@ -40,14 +41,12 @@
                 <div class="d-flex flex-row-reverse">
                     <button class="btn btn-danger rounded mt-3">Kirim</button>
                 </div>
-            </div>
-            <div class="card my-2 p-4">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab">
                         <a class="nav-item nav-link active" data-toggle="tab" href="#nav-semua" role="tab">Semua Komentar</a>
-                        <a class="nav-item nav-link" data-toggle="tab" href="#nav-populer" role="tab">Terpopuler</a>
+                        <!-- <a class="nav-item nav-link" data-toggle="tab" href="#nav-populer" role="tab">Terpopuler</a>
                         <a class="nav-item nav-link" data-toggle="tab" href="#nav-terbaru" role="tab">Terbaru</a>
-                        <a class="nav-item nav-link" data-toggle="tab" href="#nav-terdahulu" role="tab">Terdahulu</a>
+                        <a class="nav-item nav-link" data-toggle="tab" href="#nav-terdahulu" role="tab">Terdahulu</a> -->
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -117,7 +116,7 @@
 
                     <div style="background-color: white;padding: 5px 0 5px 0;">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Tren</h5>
+                            <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h5>
                             <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>

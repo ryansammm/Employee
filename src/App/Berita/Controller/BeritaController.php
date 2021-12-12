@@ -33,10 +33,15 @@ class BeritaController
             $datas_kategori->items[$key]['nama_kategori'] = $value['kategori_berita'];
         }
 
+        $data_berita_hangat = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
+            ->paginate(4)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
+
         $data_berita = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
-            ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
+            ->paginate(5)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
 
 
         $datas = $this->model
@@ -53,7 +58,7 @@ class BeritaController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
+        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat]);
     }
 
     public function create(Request $request)

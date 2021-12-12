@@ -6719,7 +6719,7 @@ textarea.form-control-lg {
 
 .d-flex {
   display: flex !important;
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 
 .d-inline-flex {

@@ -116,7 +116,8 @@
                 <div class="d-flex">
                     <div class="row" style="width: 100%;">
 
-                        <div class="col-12 d-flex justify-content-center">
+                        <!-- Pake justify-content-center mun rek katengah -->
+                        <div class="col-12 d-flex ">
                             <div class="web-title d-flex ">
                                 <a class="navbar-brand pe-1" href="#">
                                     <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">

@@ -2,13 +2,14 @@
 
 <!-- ----- News ------->
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-        <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita Terkini</h5>
-    </div>
+
     <div class="row mt-3">
 
         <div class="col-8">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 525px;">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita Terkini</h5>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 586px;">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -18,7 +19,7 @@
                         <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
                             <div class="row mb-1">
                                 <div class="col-12" style="padding: 0;">
-                                    <div class="img-atas-berita" style="background: url(/assets/media/<?= $item_berita_new(0, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                    <div class="img-atas-berita" style="background: url(/assets/media/<?= $item_berita_new(0, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-atas-berita">
                                                 <a href="/news/<?= $item_berita_new(0, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
@@ -56,7 +57,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-6" style="padding: 0;padding-right: 2.5px;">
-                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(1, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(1, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-bawah-berita">
                                                 <a href="/news/<?= $item_berita_new(1, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
@@ -92,7 +93,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6" style="padding: 0;padding-left: 2.5px;">
-                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(2, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(2, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-bawah-berita">
                                                 <a href="/news/<?= $item_berita_new(2, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
@@ -144,15 +145,15 @@
 
         <!------- Trending ------->
         <div class="col">
-            <div style="background-color: white;padding: 5px 0 5px 0;">
+            <div style="padding: 5px 0 5px 0;">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Tren</h5>
+                    <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h6>
                     <a href="" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
                 </div>
             </div>
             <div class="card">
-                <div class="card-body" style="height: 460px;overflow-y:scroll;padding: 0;">
-                    <?php foreach ($data_berita->items as $key => $value) { ?>
+                <div class="card-body" style="height: 558px;padding: 0;">
+                    <?php foreach ($data_berita_hangat->items as $key => $value) { ?>
                         <div class="side-news-item">
                             <div class="row">
                                 <div class="d-flex">
@@ -199,9 +200,33 @@
 </div>
 
 
+<section id="Berita">
+    <div class="container mt-2 pb-2">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <!-- <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita</h5> -->
+        </div>
+        <div class="row">
+            <?php foreach ($data_berita->items as $key => $value) { ?>
+                <div class="col-md">
+                    <a href="/news/<?= $value['id_berita'] ?>/detail" class="text-dark text-decoration-none">
+                        <div class="card for-hover p-3">
+                            <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
+                            <h6 class="mt-3 mb-0 pb-0 truncate-string-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $value['judul_berita'] ?>"><?= $value['judul_berita'] ?></h6>
+                            <small class=" mb-1 text-muted"><?= $value['kategori_berita'] ?></small>
+                            <div class="truncate-string-2" style="font-size: 12px;"><?= html_entity_decode(nl2br($value['isi_berita'])) ?></div>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+        <?= $data_berita->links() ?>
+    </div>
+</section>
+
+
 <!------- Feed ------->
 <div class="container">
-    <div class="row mt-3">
+    <div class="row mt-1">
 
         <!------- Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-1">
-                    <a href="/admin/kategori-layanan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                    <a href="/admin/kategori-layanan/konten" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
                     <h1 class="m-0">Tambah Data Kategori Layanan</h1>
@@ -24,7 +24,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="/admin/kategori-layanan/store" method="POST" enctype="multipart/form-data">
+            <form action="/admin/kategori-layanan/konten/store" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">

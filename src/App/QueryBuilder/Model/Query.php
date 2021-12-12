@@ -544,7 +544,16 @@ class Query
         $tableColumn = $this->getTableColumn($this->table);
         $sql = "UPDATE " . $this->table . " SET ";
 
+        $form_data = [];
         foreach ($datas as $key => $value) {
+            foreach ($tableColumn['column'] as $key1 => $value1) {
+                if ($key == $key1) {
+                    $form_data[$key] = $value;
+                }
+            }
+        }
+
+        foreach ($form_data as $key => $value) {
             if ($key != $tableColumn['primaryKey']) {
                 $sql .= $key . " = " . ($value == null ? "NULL, " : "'" . $value . "', ");
             }

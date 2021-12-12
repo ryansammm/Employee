@@ -42,9 +42,7 @@ class BeritaAdminController
     {
         $data_kategori_berita = $this->modelKategoriBerita->get();
         $errors = SessionData::get()->getFlashBag()->get('errors', []);
-
-        // dd($data_kategori_berita);
-
+        
         return render_template('admin/berita/create', ['data_kategori_berita' => $data_kategori_berita, 'errors' => $errors]);
     }
 
@@ -52,7 +50,6 @@ class BeritaAdminController
     {
         $berita_validation = new BeritaValidation($request);
         $validation = $berita_validation->validate();
-
         if (!$validation->passed) {
             return new RedirectResponse('/admin/berita/create');
         }
@@ -82,9 +79,9 @@ class BeritaAdminController
     public function update(Request $request)
     {
         $id = $request->attributes->get("id");
+
         $berita_validation = new BeritaValidation($request);
         $validation = $berita_validation->validate();
-
         if (!$validation->passed) {
             return new RedirectResponse('/admin/berita/' . $id . '/edit');
         }

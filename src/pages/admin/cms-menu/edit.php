@@ -48,13 +48,13 @@
                                         <option value="3" <?= arr_offset($detail, 'tipe') == '3' ? 'selected' : '' ?>>Halaman Statik</option>
                                     </select>
                                 </div>
-                                <div class="mb-3 link_url <?= arr_offset($detail, 'have_sub') == '1' || arr_offset($detail, 'tipe') == '1' ? 'd-none' : '' ?>">
+                                <div class="mb-3 link_url <?= arr_offset($detail, 'have_sub') == '1' ? 'd-none' : '' ?>">
                                     <label for="link_url" class="form-label">Link Url *</label>
-                                    <input type="text" class="form-control" name="link_url" required <?= arr_offset($detail, 'have_sub') == '1' || arr_offset($detail, 'tipe') == '1' ? 'disabled' : '' ?> value=<?= arr_offset($detail, 'link_url') ?>>
+                                    <input type="text" class="form-control" name="link_url" required <?= arr_offset($detail, 'have_sub') == '1' ? 'disabled' : '' ?> value=<?= arr_offset($detail, 'link_url') ?>>
                                 </div>
-                                <div class="mb-3 link_url_opened <?= arr_offset($detail, 'have_sub') == '1' || arr_offset($detail, 'tipe') == '1' ? 'd-none' : '' ?>">
+                                <div class="mb-3 link_url_opened <?= arr_offset($detail, 'have_sub') == '1' ? 'd-none' : '' ?>">
                                     <label for="link_url_opened" class="form-label">Buka Link di? *</label>
-                                    <select name="link_url_opened" class="form-control" required <?= arr_offset($detail, 'have_sub') == '1' || arr_offset($detail, 'tipe') == '1' ? 'disabled' : '' ?>>
+                                    <select name="link_url_opened" class="form-control" required <?= arr_offset($detail, 'have_sub') == '1' ? 'disabled' : '' ?>>
                                         <option value="1" <?= arr_offset($detail, 'link_url_opened') == '1' ? 'selected' : '' ?>>Tab baru</option>
                                         <option value="2" <?= arr_offset($detail, 'link_url_opened') == '2' ? 'selected' : '' ?>>Halaman yang sama</option>
                                     </select>
@@ -63,15 +63,17 @@
                                     <label for="halaman_id" class="form-label">Halaman *</label>
                                     <select name="halaman_id" class="form-control" required <?= arr_offset($detail, 'have_sub') == '1' || arr_offset($detail, 'tipe') != '1' ? 'disabled' : '' ?>>
                                         <option value=""> -- Pilih Halaman -- </option>
-                                        <option value="1" <?= arr_offset($detail, 'halaman_id') == '1' ? 'selected' : '' ?>>Halaman Baru</option>
+                                        <?php foreach ($halaman->items as $key => $data) { ?>
+                                            <option value="<?= $data['id_cms_halaman'] ?>" <?= arr_offset($detail, 'halaman_id') == $data['id_cms_halaman'] ? 'selected' : '' ?>><?= $data['cms_halaman'] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="footer" class="form-label d-block">Muncul di Footer? *</label>
                                     <div class="d-inline mr-2">
-                                        <input type="radio" name="footer" value="1" required <?= arr_offset($detail, 'footer') == '1' ? 'selected' : '' ?>> Ya
+                                        <input type="radio" name="footer" value="1" required <?= arr_offset($detail, 'footer') == '1' ? 'checked' : '' ?>> Ya
                                     </div>
-                                    <input type="radio" name="footer" value="2" required <?= arr_offset($detail, 'footer') == '2' ? 'selected' : '' ?>> Tidak
+                                    <input type="radio" name="footer" value="2" required <?= arr_offset($detail, 'footer') == '2' ? 'checked' : '' ?>> Tidak
                                 </div>
                             </div>
                         </div>
@@ -92,26 +94,24 @@
 <script>
     $(document).ready(function() {
         $('.tipe').on('change', function() {
-            if ($(this).val() == '1') {
-                // halaman
-                $('.link_url').addClass('d-none');
-                $('.link_url').find('input').prop('disabled', true);
+            if ($(this).val() != '') {
+                if ($(this).val() == '1') {
+                    // halaman
 
-                $('.link_url_opened').addClass('d-none');
-                $('.link_url_opened').find('select').prop('disabled', true);
+                    $('.link_url').removeClass('d-none');
+                    $('.link_url').find('input').prop('disabled', false);
 
-                $('.halaman_id').removeClass('d-none');
-                $('.halaman_id').find('select').prop('disabled', false);
-            } else {
-                // link dan halaman
-                $('.link_url').removeClass('d-none');
-                $('.link_url').find('input').prop('disabled', false);
+                    $('.link_url_opened').removeClass('d-none');
+                    $('.link_url_opened').find('select').prop('disabled', false);
 
-                $('.link_url_opened').removeClass('d-none');
-                $('.link_url_opened').find('select').prop('disabled', false);
+                    $('.halaman_id').removeClass('d-none');
+                    $('.halaman_id').find('select').prop('disabled', false);
+                } else {
+                    // link dan halaman
 
-                $('.halaman_id').addClass('d-none');
-                $('.halaman_id').find('select').prop('disabled', true);
+                    $('.halaman_id').addClass('d-none');
+                    $('.halaman_id').find('select').prop('disabled', true);
+                }
             }
         });
 

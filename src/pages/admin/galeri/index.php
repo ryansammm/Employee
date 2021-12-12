@@ -85,7 +85,6 @@
     </div>
 </div>
 
-
 <script>
     $('#modal_konfirmasi_hapus_galeri').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)

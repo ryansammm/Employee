@@ -4,7 +4,9 @@ use App\About\Controller\AboutController;
 use App\Berita\Controller\BeritaController;
 use App\BeritaAdmin\Controller\BeritaAdminController;
 use App\CmsBackground\Controller\CmsBackgroundController;
+use App\CmsComponent\Controller\CmsComponentController;
 use App\CmsFonts\Controller\CmsFontsController;
+use App\CmsHalaman\Controller\CmsHalamanController;
 use App\CmsKategoriGaleri\Controller\CmsKategoriGaleriController;
 use App\CmsKategoriLayanan\Controller\CmsKategoriLayananController;
 use App\CmsKategoriProduk\Controller\CmsKategoriProdukController;
@@ -15,6 +17,7 @@ use App\Customer\Controller\CustomerController;
 use App\Galeri\Controller\GaleriController;
 use App\GaleriAdmin\Controller\GaleriAdminController;
 use App\GroupGaleri\Controller\GroupGaleriController;
+use App\Halaman\Controller\HalamanController;
 use App\Home\Controller\HomeController;
 use App\KategoriBeritaAdmin\Controller\KategoriBeritaAdminController;
 use App\KategoriGaleriAdmin\Controller\KategoriGaleriAdminController;
@@ -269,6 +272,30 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('sub_menu_delete', '/{id}/delete', [SubMenuController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
+
+    /* -------------------------- Route Kelola Component ------------------------- */
+    $routes->prefix('component', function ($routes) {
+        $routes->push('component', '', [CmsComponentController::class, 'index']);
+        $routes->push('component_create', '/create', [CmsComponentController::class, 'create']);
+        $routes->push('component_store', '/store', [CmsComponentController::class, 'store']);
+        $routes->push('component_edit', '/{id}/edit', [CmsComponentController::class, 'edit']);
+        $routes->push('component_update', '/{id}/update', [CmsComponentController::class, 'update']);
+        $routes->push('component_show', '/{id}/show', [CmsComponentController::class, 'show']);
+        $routes->push('component_delete', '/{id}/delete', [CmsComponentController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+    
+    /* -------------------------- Route Kelola Halaman ------------------------- */
+    $routes->prefix('halaman', function ($routes) {
+        $routes->push('halaman', '', [CmsHalamanController::class, 'index']);
+        $routes->push('halaman_create', '/create', [CmsHalamanController::class, 'create']);
+        $routes->push('halaman_store', '/store', [CmsHalamanController::class, 'store']);
+        $routes->push('halaman_edit', '/{id}/edit', [CmsHalamanController::class, 'edit']);
+        $routes->push('halaman_update', '/{id}/update', [CmsHalamanController::class, 'update']);
+        $routes->push('halaman_show', '/{id}/show', [CmsHalamanController::class, 'show']);
+        $routes->push('halaman_delete', '/{id}/delete', [CmsHalamanController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
 });
 
 
@@ -330,5 +357,9 @@ $routes->push('about', '/about', [AboutController::class, 'index']);
 
 /* ---------------------------- Front Maintenance --------------------------- */
 $routes->push('maintenance', '/maintenance', [MaintenanceController::class, 'index']);
+
+$routes->prefix('/page', function ($routes) {
+    $routes->push('page-dinamis', '/{page_url}', [HalamanController::class, 'index']);
+});
 
 return $routes;

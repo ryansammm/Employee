@@ -98,7 +98,6 @@ class QueryBuilder extends Query
         $paginator = $this->to_paginator($datas, $pagination);
         $this->clearQuery = true;
         $this->clearQuery();
-        // dd($this->sql, $this->query);
 
         return $paginator;
     }

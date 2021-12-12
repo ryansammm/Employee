@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Kategori Layanan <a href="/admin/kategori-layanan/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
+                    <h1 class="m-0">Kategori Layanan <a href="/admin/kategori-layanan/konten/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -36,7 +36,7 @@
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['nama_kategori_layanan'] ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-info" href="/admin/kategori-layanan/<?= $value['id_kategori_layanan'] ?>/edit">Edit</a>
+                                        <a class="btn btn-sm btn-info" href="/admin/kategori-layanan/konten/<?= $value['id_kategori_layanan'] ?>/edit">Edit</a>
                                         <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_kategori_layanan" data-id="<?= $value['id_kategori_layanan'] ?>">hapus</a>
                                     </td>
                                 </tr>
@@ -82,7 +82,7 @@
         var id = button.data('id')
 
         var modal = $(this)
-        modal.find('#form_hapus').prop('action', '/admin/kategori-layanan/' + id + '/delete')
+        modal.find('#form_hapus').prop('action', '/admin/kategori-layanan/konten/' + id + '/delete')
     })
 </script>
 

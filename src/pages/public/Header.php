@@ -188,7 +188,7 @@
                                         <?php if ($menu['parent_id'] == '0') { ?>
                                             <?php if (empty($menu['sub_menu'])) { ?>
                                                 <li>
-                                                    <a class="dropdown-item" style="font-size: 14px;" href="<?= $menu['link_url'] ?>"><?= $menu['menu'] ?></a>
+                                                    <a class="dropdown-item" style="font-size: 14px;" href="<?= $menu['tipe'] == '1' ? '/page/'.$menu['link_url'] : $menu['link_url'] ?>"><?= $menu['menu'] ?></a>
                                                 </li>
                                             <?php } else { ?>
                                                 <li class="dropdown">
@@ -196,21 +196,21 @@
                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         <?php foreach ($menu['sub_menu'] as $key1 => $menu1) { ?>
                                                             <?php if (empty($menu1['sub_menu'])) { ?>
-                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/"><?= $menu1['menu'] ?></a></li>
+                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="<?= $menu1['tipe'] == '1' ? '/page/'.$menu1['link_url'] : $menu1['link_url'] ?>"><?= $menu1['menu'] ?></a></li>
                                                             <?php } else { ?>
                                                                 <li class="dropdown">
                                                                     <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu1['menu'] ?></a>
                                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                         <?php foreach ($menu1['sub_menu'] as $key2 => $menu2) { ?>
                                                                             <?php if (empty($menu2['sub_menu'])) { ?>
-                                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/"><?= $menu2['menu'] ?></a></li>
+                                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="<?= $menu2['tipe'] == '1' ? '/page/'.$menu2['link_url'] : $menu2['link_url'] ?>"><?= $menu2['menu'] ?></a></li>
                                                                             <?php } else { ?>
                                                                                 <li class="dropdown">
                                                                                     <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 14px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu2['menu'] ?></a>
                                                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                                         <?php foreach ($menu2['sub_menu'] as $key3 => $menu3) { ?>
                                                                                             <?php if (empty($menu3['sub_menu'])) { ?>
-                                                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="/">Sub Sub Sub menu 1</a></li>
+                                                                                                <li><a class="dropdown-item" style="font-size: 14px;" href="<?= $menu3['tipe'] == '1' ? '/page/'.$menu3['link_url'] : $menu3['link_url'] ?>">Sub Sub Sub menu 1</a></li>
                                                                                             <?php } ?>
                                                                                         <?php } ?>
                                                                                     </ul>

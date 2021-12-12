@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Core;
 
@@ -10,7 +10,7 @@ abstract class Validation
     protected $validation;
     protected $validator;
     protected $request;
-    public $errors;
+    public $errors = [];
     public $passed = true;
 
     public function validate()
@@ -30,7 +30,7 @@ abstract class Validation
     public function makeRules($rules)
     {
         $validation = [];
-        
+
         // generate rules
         foreach ($rules as $key => $value) {
             foreach ($value as $key1 => $value1) {
@@ -58,19 +58,61 @@ abstract class Validation
 
     public function errors()
     {
-        $errors = [];
         $messages_validation = $this->validator->getMessages();
         $messages_custom = $this->validation->messages();
-        foreach ($messages_validation as $key => $value) {
-            $errors[$key] = $value[0]->getTemplate();
-            foreach ($value[0]->getVariables() as $key1 => $value1) {
-                $errors[$key] = str_replace('{'.$key1.'}', $value[0]->getVariables()[$key1], $errors[$key]);
+
+        $rules = $this->validation->rules();
+        foreach ($rules as $key => $value) {
+            foreach ($value as $key1 => $value1) {
+                list($error_index_rules,) = explode(':', $key);
+                $error_rules = $value1;
+                $rules_options_arr = explode('(', $error_rules);
+                if (count($rules_options_arr) > 1) {
+                    list($rules_options,) = explode(')', $rules_options_arr[1]);
+                } else {
+                    list($rules_options,) = explode('(', $error_rules);
+                }
+
+                foreach ($messages_custom as $key3 => $value3) {
+                    $msg_index_rules = explode('.', $key3)[0];
+                    $msg_rules = isset(explode('.', $key3)[1]) ? explode('.', $key3)[1] : null;
+
+                    if (isset($messages_validation[$error_index_rules])) {
+                        foreach ($messages_validation[$error_index_rules][0]->getVariables() as $key4 => $value4) {
+                            if (strpos($rules_options, $key4) !== false || strpos($messages_validation[$error_index_rules][0]->getTemplate(), $key4) !== false) {
+                                $this->setErrorMessage($error_index_rules, $messages_validation[$error_index_rules][0]->getTemplate());
+                                continue 1;
+                            }
+                        }
+                    }
+                    if ($error_index_rules == $msg_index_rules && $rules_options_arr[0] == $msg_rules) {
+                        echo $error_index_rules . ' ' . $msg_index_rules . ' | ' . $rules_options_arr[0] . ' ' . $msg_rules . '<br>';
+                        $this->setErrorMessage($error_index_rules, $value3);
+                        continue 3;
+                    }
+                }
             }
         }
-        $this->errors = $errors;
+
+        // dd($messages_validation, $messages_custom, $this->errors, $this->validation->rules());
 
         SessionData::get()->getFlashBag()->set('errors', $this->errors);
     }
 
+    public function setErrorMessage(string $index_rules, string $message)
+    {
+        $messages_validation = $this->validator->getMessages();
+        foreach ($messages_validation as $key => $value) {
+            if ($index_rules == $key) {
+                $this->errors[$key] = $message;
+                foreach ($value[0]->getVariables() as $key1 => $value1) {
+                    $this->errors[$key] = str_replace('{' . $key1 . '}', $value1, $this->errors[$key]);
+                }
+            }
+        }
+    }
+
     abstract function rules();
+
+    abstract function messages();
 }

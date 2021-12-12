@@ -24,7 +24,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="/admin/galeri/store" method="POST" enctype="multipart/form-data">
+            <form action="/admin/galeri/<?= show($galeri['id_galeri']) ?>/update" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -33,12 +33,14 @@
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label for="id_kategori_galeri" class="form-label">Kategori Galeri</label>
-                                        <select class="custom-select" name="id_kategori_galeri" id="id_kategori_galeri" required>
+                                        <select class="custom-select" name="id_kategori_galeri" id="id_kategori_galeri">
                                             <option value="">-- Pilih Kategori --</option>
                                             <?php foreach ($kategori->items as $value) { ?>
                                                 <option <?= $value['id_kategori_galeri'] == show($galeri['id_kategori_galeri']) ? 'selected' : '' ?> value="<?= $value['id_kategori_galeri'] ?>"><?= $value['nama_kategori_galeri'] ?></option>
                                             <?php } ?>
                                         </select>
+                                        <?= errors('id_kategori_galeri') ?>
+                                        <?= errors('galeri_foto') ?>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +55,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="tgl_galeri" class="form-label">Tanggal Upload</label>
-                                    <input type="date" class="form-control" id="tgl_galeri" name="tgl_galeri" value="<?= show($galeri['tanggal_publish']) ?>">
+                                    <input type="date" class="form-control" id="tgl_galeri" name="tgl_galeri" value="<?= show($galeri['tgl_galeri']) ?>">
                                 </div>
                             </div>
                             <!------- Deskripsi Galeri ------->
@@ -80,6 +82,7 @@
                                             </div>
                                             <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +95,7 @@
                                     <?php foreach ($group_galeri->items as $key => $value) {
                                         $keyForElement = $key + 1; ?>
                                         <div class="listfoto pt-3" id="<?= 'listfoto_' . $keyForElement ?>">
-                                            <input type="text" name="id_groupgaleri[]" value="<?= $value['id_group_galeri'] ?>" hidden>
+                                            <input type="hidden" name="id_groupgaleri[]" value="<?= $value['id_group_galeri'] ?>">
                                             <h6><?= 'Foto ' . $keyForElement ?></h6>
                                             <div class="row">
                                                 <div class="col-md-6 mb-2">
@@ -127,7 +130,6 @@
                                                 <button type="button" class="btn btn-danger hapusformfoto mb-2" id="<?= 'hapuslistfoto_' . $keyForElement ?>">Hapus</button>
                                             <?php } ?>
                                         </div>
-
                                     <?php } ?>
                                 </div>
                             </div>

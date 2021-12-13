@@ -178,7 +178,7 @@
                         <div class="" style="position: absolute;top: 20%;">
                             <ul class="nav justify-content-end" style="height: 100%;">
                                 <li class="nav-item" style="margin-top: auto;margin-bottom: auto;">
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none text-dark">
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none" style="color: #fc5102;">
                                         <i class="bi bi-person fs-4"></i>
                                     </a>
                                 </li>
@@ -286,17 +286,17 @@
     </nav>
 
     <?php if ($GLOBALS['web_title']['cms_title_position'] == '2' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
-    <div class="d-block">
-        <form class="float-end me-5">
-            <div class="input-group mt-3 ms-3">
-                <input type="text" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 500pt;">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+        <div class="d-block">
+            <form class="float-end me-5">
+                <div class="input-group mt-3 ms-3">
+                    <input type="text" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 500pt;">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div style="clear:both"></div>
+            </form>
+        </div>
+        <div style="clear:both"></div>
     <?php } ?>
 
 

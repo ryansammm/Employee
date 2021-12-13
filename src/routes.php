@@ -40,6 +40,7 @@ use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
+use App\SosialMedia\Controller\SosialMediaController;
 use App\SubMenu\Controller\SubMenuController;
 use App\Users\Controller\UsersController;
 use App\VideoAdmin\Controller\VideoAdminController;
@@ -346,6 +347,18 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('kontak_delete', '/{id}/delete', [KontakController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
+
+    /* -------------------------------- Asosiasi -------------------------------- */
+    $routes->prefix('sosial-media', function ($routes) {
+        $routes->push('sosial_media', '', [SosialMediaController::class, 'index']);
+        $routes->push('sosial_media_create', '/create', [SosialMediaController::class, 'create']);
+        $routes->push('sosial_media_store', '/store', [SosialMediaController::class, 'store']);
+        $routes->push('sosial_media_edit', '/{id}/edit', [SosialMediaController::class, 'edit']);
+        $routes->push('sosial_media_update', '/{id}/update', [SosialMediaController::class, 'update']);
+        $routes->push('sosial_media_show', '/{id}/show', [SosialMediaController::class, 'show']);
+        $routes->push('sosial_media_delete', '/{id}/delete', [SosialMediaController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
 });
 
 
@@ -397,6 +410,7 @@ $routes->push('customer', '/customer', [CustomerController::class, 'index']);
 
 /* ------------------------------ Front Contact ----------------------------- */
 $routes->push('contact', '/contact', [ContactController::class, 'index']);
+$routes->push('contact_kintun', '/contact/kintun', [ContactController::class, 'create']);
 /* -------------------------------------------------------------------------- */
 
 

@@ -10,6 +10,7 @@ use App\CmsKategoriStyle\Model\CmsKategoriStyle;
 use App\CmsTitle\Model\CmsTitle;
 use App\Media\Model\Media;
 use App\Menu\Model\Menu;
+use App\SosialMedia\Model\SosialMedia;
 use App\SubMenu\Model\SubMenu;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -87,10 +88,18 @@ class Framework extends HttpKernel implements HttpKernelInterface
         $asosiasi = $asosiasi_model->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->get();
         /* -------------------------------------------------------------------------- */
 
+        /* ------------------------------ Sosial Media ------------------------------ */
+        $sosial_media_model = new SosialMedia();
+        $sosial_media = $sosial_media_model->leftJoin('media', 'media.id_relation', '=', 'sosial_media.id_sosial_media')->get();
+        /* -------------------------------------------------------------------------- */
+
         $GLOBALS['web_logo'] = $data_media_title;
         $GLOBALS['web_title'] = $data_cms_title;
         $GLOBALS['akreditasi'] = $akreditasi;
         $GLOBALS['asosiasi'] = $asosiasi;
+        $GLOBALS['sosial_media'] = $sosial_media;
+
+        // dd($sosial_media);
 
         $urlTujuan = $request->getPathInfo();
         $explode_url = explode("/", $urlTujuan);

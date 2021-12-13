@@ -36,7 +36,7 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="table-light">
+                        <tbody>
                             <?php foreach ($data_galeri->items as $key => $value) { ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>

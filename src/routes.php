@@ -1,6 +1,7 @@
 <?php
 
 use App\About\Controller\AboutController;
+use App\Akreditasi\Controller\AkreditasiController;
 use App\Berita\Controller\BeritaController;
 use App\BeritaAdmin\Controller\BeritaAdminController;
 use App\CmsBackground\Controller\CmsBackgroundController;
@@ -306,6 +307,18 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('setting', '', [CmsSettingController::class, 'index']);
         $routes->push('setting_update', '/update', [CmsSettingController::class, 'update']);
     });
+
+    /* -------------------------- Route Kelola Akreditasi ------------------------- */
+    $routes->prefix('akreditasi', function ($routes) {
+        $routes->push('akreditasi', '', [AkreditasiController::class, 'index']);
+        $routes->push('akreditasi_create', '/create', [AkreditasiController::class, 'create']);
+        $routes->push('akreditasi_store', '/store', [AkreditasiController::class, 'store']);
+        $routes->push('akreditasi_edit', '/{id}/edit', [AkreditasiController::class, 'edit']);
+        $routes->push('akreditasi_update', '/{id}/update', [AkreditasiController::class, 'update']);
+        $routes->push('akreditasi_show', '/{id}/show', [AkreditasiController::class, 'show']);
+        $routes->push('akreditasi_delete', '/{id}/delete', [AkreditasiController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
 });
 
 

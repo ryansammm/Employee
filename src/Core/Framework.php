@@ -2,6 +2,7 @@
 
 namespace Core;
 
+use App\Akreditasi\Model\Akreditasi;
 use App\CmsBackground\Model\CmsBackground;
 use App\CmsFonts\Model\CmsFonts;
 use App\CmsKategoriStyle\Model\CmsKategoriStyle;
@@ -72,9 +73,12 @@ class Framework extends HttpKernel implements HttpKernelInterface
         $media = new Media();
         $data_media_title = $media->where('jenis_dokumen', 'cms-title')->first();
 
+        $akreditasi_model = new Akreditasi();
+        $akreditasi = $akreditasi_model->leftJoin('media', 'media.id_relation', '=', 'akreditasi.id_akreditasi')->get();
+
         $GLOBALS['web_logo'] = $data_media_title;
         $GLOBALS['web_title'] = $data_cms_title;
-
+        $GLOBALS['akreditasi'] = $akreditasi;
 
         $urlTujuan = $request->getPathInfo();
         $explode_url = explode("/", $urlTujuan);

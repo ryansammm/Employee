@@ -39,6 +39,7 @@ use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
+use App\SosialMedia\Controller\SosialMediaController;
 use App\SubMenu\Controller\SubMenuController;
 use App\Users\Controller\UsersController;
 use App\VideoAdmin\Controller\VideoAdminController;
@@ -331,6 +332,18 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('asosiasi_update', '/{id}/update', [AsosiasiController::class, 'update']);
         $routes->push('asosiasi_show', '/{id}/show', [AsosiasiController::class, 'show']);
         $routes->push('asosiasi_delete', '/{id}/delete', [AsosiasiController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------------- Asosiasi -------------------------------- */
+    $routes->prefix('sosial-media', function ($routes) {
+        $routes->push('sosial_media', '', [SosialMediaController::class, 'index']);
+        $routes->push('sosial_media_create', '/create', [SosialMediaController::class, 'create']);
+        $routes->push('sosial_media_store', '/store', [SosialMediaController::class, 'store']);
+        $routes->push('sosial_media_edit', '/{id}/edit', [SosialMediaController::class, 'edit']);
+        $routes->push('sosial_media_update', '/{id}/update', [SosialMediaController::class, 'update']);
+        $routes->push('sosial_media_show', '/{id}/show', [SosialMediaController::class, 'show']);
+        $routes->push('sosial_media_delete', '/{id}/delete', [SosialMediaController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 });

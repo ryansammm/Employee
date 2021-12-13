@@ -52,7 +52,7 @@
             <div class="card">
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
-                        <thead class=" table-light">
+                        <thead>
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Kategori Berita</th>
@@ -62,7 +62,7 @@
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="table-light">
+                        <tbody>
                             <?php foreach ($data_berita->items as $key => $value) { ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>

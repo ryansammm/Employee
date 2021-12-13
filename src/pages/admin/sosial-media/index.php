@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Asosiasi <a href="/admin/asosiasi/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
+                    <h1 class="m-0">Sosial Media <a href="/admin/sosial-media/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Asosiasi</a></li>
-                        <li class="breadcrumb-item active">Kelola Asosiasi</li>
+                        <li class="breadcrumb-item"><a href="#">Sosial Media</a></li>
+                        <li class="breadcrumb-item active">Kelola Sosial Media</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -40,7 +40,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Akdreditas</th>
-                                <th scope="col">Ikon Asosiasi</th>
+                                <th scope="col">Icon Sosial Media</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -48,11 +48,11 @@
                             <?php foreach ($datas->items as $key => $value) { ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>
-                                    <td><?= $value['nama_asosiasi'] ?></td>
-                                    <td><img src="/assets/media/<?= $value['path_media'] ?>" class="img-fluid" width="60px"></td>
+                                    <td><?= $value['nama_sosial_media'] ?></td>
+                                    <td> <i class="<?= $value['icon_sosial_media'] ?>"></i></td>
                                     <td>
-                                        <a class="btn btn-info m-2" href="/admin/asosiasi/<?= $value['id_asosiasi'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_asosiasi'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-info m-2" href="/admin/sosial-media/<?= $value['id_sosial_media'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_sosial_media'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -80,8 +80,7 @@
                 Apakah anda yakin untuk menghapus berita ini?
             </div>
             <div class="modal-footer">
-                <a class="btn btn-primary" href="#" onclick="event.preventDefault();
-                                        document.getElementById('form_hapus').submit();">
+                <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('form_hapus').submit();">
                     Ya
                 </a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
@@ -99,7 +98,7 @@
         var id = button.data('id')
 
         var modal = $(this)
-        modal.find('#form_hapus').attr('action', '/admin/asosiasi/' + id + '/delete')
+        modal.find('#form_hapus').attr('action', '/admin/sosial-media/' + id + '/delete')
     })
 </script>
 

@@ -188,6 +188,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/sosial-media" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Kelola Sosial Media
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/pengguna" class="nav-link">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>

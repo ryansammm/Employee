@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
-                        <thead class="table-light">
+                        <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Username</th>
@@ -32,7 +32,7 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="table-light">
+                        <tbody>
                             <?php foreach ($data_pengguna->items as $key => $value) { ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>
@@ -40,8 +40,8 @@
                                     <td><?= $value['nama_user'] ?></td>
                                     <!-- <td><?= $value['role_admin'] ?></td> -->
                                     <td>
-                                        <a class="btn btn-info m-2" href="/admin/pengguna/<?= $value['id_user'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus_pengguna" data-id="<?= $value['id_user'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-info m-2" href="/admin/pengguna/<?= $value['id_user'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus_pengguna" data-id="<?= $value['id_user'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>

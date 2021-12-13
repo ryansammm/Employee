@@ -33,6 +33,9 @@
     <link rel="stylesheet" href="/assets/public/css/multi-dropdown.css">
     <link rel="stylesheet" href="/assets/public/css/dropdown-style-custom.css">
 
+    <!------- JQuery ------->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+
 </head>
 
 

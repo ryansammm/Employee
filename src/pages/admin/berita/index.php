@@ -49,34 +49,37 @@
                     </form>
                 </div>
             </div>
-
-            <table class="table table-sm mt-3">
-                <thead class="table-light">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Kategori Berita</th>
-                        <th scope="col">Judul Berita</th>
-                        <th scope="col">Tgl Publish</th>
-                        <th scope="col">url / slug</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="table-light">
-                    <?php foreach ($data_berita->items as $key => $value) { ?>
-                        <tr>
-                            <td><?= $key + 1 ?></td>
-                            <td><?= $value['kategori_berita'] ?></td>
-                            <td><?= $value['judul_berita'] ?></td>
-                            <td><?= $value['tgl_publish'] ?></td>
-                            <td><?= $value['slug_berita'] ?></td>
-                            <td>
-                                <a class="btn btn-info m-2" href="/admin/berita/<?= $value['id_berita'] ?>/edit">Edit</a>
-                                <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus_berita" data-id="<?= $value['id_berita'] ?>">hapus</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+            <div class="card">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead class=" table-light">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Kategori Berita</th>
+                                <th scope="col">Judul Berita</th>
+                                <th scope="col">Tgl Publish</th>
+                                <th scope="col">url / slug</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-light">
+                            <?php foreach ($data_berita->items as $key => $value) { ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value['kategori_berita'] ?></td>
+                                    <td class="text-truncate" style="max-width: 150pt;" data-toggle="tooltip" data-placement="bottom" title="<?= $value['judul_berita'] ?>"><?= $value['judul_berita'] ?></td>
+                                    <td><?= date_format(date_create($value['tgl_publish']), "j F Y") ?></td>
+                                    <td class="text-truncate" style="max-width: 150pt;" data-toggle="tooltip" data-placement="bottom" title="<?= $value['slug_berita'] ?>"><?= $value['slug_berita'] ?></td>
+                                    <td>
+                                        <a class=" btn btn-sm btn-info m-2" href="/admin/berita/<?= $value['id_berita'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus_berita" data-id="<?= $value['id_berita'] ?>">hapus</a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             <?= $data_berita->links(); ?>
         </div>
@@ -117,6 +120,12 @@
 
         var modal = $(this)
         modal.find('#form_hapus').attr('action', '/admin/berita/' + id + '/delete')
+    })
+</script>
+
+<script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
     })
 </script>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 06:08 AM
+-- Generation Time: Dec 13, 2021 at 06:24 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -72,6 +72,26 @@ INSERT INTO `application` (`id_application`, `name`, `alias`, `url`, `descriptio
 ('2', 'Aplikasi Scan QR Code Barang', 'aplikasi-scan-qr-code-barang', 'http://localhost:7001', NULL, '2021-12-01 12:06:03', '2021-12-01 12:06:03', 1),
 ('3', 'Website Balai Besar Keramik', 'website-balai-besar-keramik', 'http://localhost:7002', NULL, '2021-12-01 12:46:39', '2021-12-01 12:46:39', 0),
 ('4', 'Aplikasi Survey Anti Korupsi', 'aplikasi-survey-anti-korupsi', 'http://localhost:7003', 'asasd', '2021-12-01 14:03:38', '2021-12-01 14:03:38', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `asosiasi`
+--
+
+CREATE TABLE `asosiasi` (
+  `id_asosiasi` varchar(255) NOT NULL,
+  `nama_asosiasi` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `asosiasi`
+--
+
+INSERT INTO `asosiasi` (`id_asosiasi`, `nama_asosiasi`, `created_at`, `updated_at`) VALUES
+('61b6d80d6764b', 'Asosiasi A', '2021-12-13 05:20:13', '2021-12-13 05:20:13');
 
 -- --------------------------------------------------------
 
@@ -647,7 +667,8 @@ INSERT INTO `media` (`id_media`, `path_media`, `id_relation`, `id_entity`, `jeni
 ('61b2fdc9c7f62', '7ba60f36b4912b0d0bd5b7a524ee0073c74a5444-1920x1080-61b2fdc9c3753.jpg', '61b2fcdd49237', 'usr61037f9c85184', NULL, '2021-12-10 07:12:09', '2021-12-10 07:12:09'),
 ('61b611febdc6b', '164123455-61b611fead67a.jpg', '61b611fea79c9', 'usr61037f9c85184', 'cover-galeri', '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
 ('61b611fec04ab', 'aarfdew-61b611febf4be.jpg', '61b611febeda3', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
-('61b611fec2ad5', 'aarf9bs-61b611fec1b7f.jpg', '61b611fec1506', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10');
+('61b611fec2ad5', 'aarf9bs-61b611fec1b7f.jpg', '61b611fec1506', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
+('61b6d80d79fda', 'square-61b6d80d683a0.jpg', '61b6d80d6764b', 'usr61037f9c85184', NULL, '2021-12-13 05:20:13', '2021-12-13 05:20:13');
 
 -- --------------------------------------------------------
 
@@ -879,6 +900,12 @@ ALTER TABLE `akreditasi`
 ALTER TABLE `application`
   ADD PRIMARY KEY (`id_application`) USING BTREE,
   ADD UNIQUE KEY `applications_alias_unique` (`alias`) USING BTREE;
+
+--
+-- Indexes for table `asosiasi`
+--
+ALTER TABLE `asosiasi`
+  ADD PRIMARY KEY (`id_asosiasi`);
 
 --
 -- Indexes for table `berita`

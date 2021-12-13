@@ -2,6 +2,7 @@
 
 use App\About\Controller\AboutController;
 use App\Akreditasi\Controller\AkreditasiController;
+use App\Asosiasi\Controller\AsosiasiController;
 use App\Berita\Controller\BeritaController;
 use App\BeritaAdmin\Controller\BeritaAdminController;
 use App\CmsBackground\Controller\CmsBackgroundController;
@@ -317,6 +318,19 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('akreditasi_update', '/{id}/update', [AkreditasiController::class, 'update']);
         $routes->push('akreditasi_show', '/{id}/show', [AkreditasiController::class, 'show']);
         $routes->push('akreditasi_delete', '/{id}/delete', [AkreditasiController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+
+    /* -------------------------------- Asosiasi -------------------------------- */
+    $routes->prefix('asosiasi', function ($routes) {
+        $routes->push('asosiasi', '', [AsosiasiController::class, 'index']);
+        $routes->push('asosiasi_create', '/create', [AsosiasiController::class, 'create']);
+        $routes->push('asosiasi_store', '/store', [AsosiasiController::class, 'store']);
+        $routes->push('asosiasi_edit', '/{id}/edit', [AsosiasiController::class, 'edit']);
+        $routes->push('asosiasi_update', '/{id}/update', [AsosiasiController::class, 'update']);
+        $routes->push('asosiasi_show', '/{id}/show', [AsosiasiController::class, 'show']);
+        $routes->push('asosiasi_delete', '/{id}/delete', [AsosiasiController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 });

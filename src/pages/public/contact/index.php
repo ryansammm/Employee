@@ -10,7 +10,7 @@
                         <div class="form h-100">
                             <h3>Kirim Pesan</h3>
                             <hr>
-                            <form class="mb-5" method="post" id="contactForm" name="contactForm">
+                            <form class="mb-5" method="post" id="contactForm" name="contactForm" action="/contact/kintun">
                                 <div class="row">
                                     <div class="col-md-6 form-group mb-2">
                                         <label for="" class="col-form-label">Nama Lengkap</label>
@@ -30,6 +30,12 @@
                                     <div class="col-md-6 form-group mb-2">
                                         <label for="" class="col-form-label">Perusahaan</label>
                                         <input type="text" class="form-control" name="company" id="company">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 form-group mb-2">
+                                        <label for="" class="col-form-label">Subject</label>
+                                        <input type="text" class="form-control" name="subject" id="subject">
                                     </div>
                                 </div>
 

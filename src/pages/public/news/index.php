@@ -408,70 +408,70 @@
                                     </div>
                                 </div>
 
+                            </div>
+                        </div>
+                        <?= $data_berita->links() ?>
+                    </div>
+                </div>
+
+            </div>
+
+            <!------- Right Category ------->
+            <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            <?php } ?>
+
+        </div>
+    </div>
+
+
+    <!------- Model Share ------->
+    <div class="modal fade" id="modalSosmed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Share Berita</h5>
+                    <button type="button" class="btn btn-outline-danger btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-2 mb-3">
+                            <a href="" class="whatsapp text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/whatsapp.svg" class="w-50 d-block mx-auto" alt="">
+                                <p class="text-dark text-center" style="font-size: 12px"><br>Whatsapp</p>
+                            </a>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <a href="" class="instagram text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/instagram.svg" class="w-50 d-block mx-auto" alt="">
+                                <p class="text-dark text-center" style="font-size: 12px"><br>Instagram</p>
+                            </a>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <a href="" class="telegram text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/telegram.svg" class="w-50 d-block mx-auto" alt="">
+                                <p class="text-dark text-center" style="font-size: 12px"><br>Telegram</p>
+                            </a>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <a href="" class="facebook text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/facebook.svg" class="w-50 d-block mx-auto" alt="">
+                                <p class="text-dark text-center" style="font-size: 12px"><br>Facebook</p>
+                            </a>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <a href="" class="twitter text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/twitter.svg" class="w-50 d-block mx-auto" alt="">
+                                <p class="text-dark text-center" style="font-size: 12px"><br>Twitter</p>
+                            </a>
+                        </div>
+                        <div class="col-2 mb-3">
+                            <a href="" class="email text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/email.svg" class="w-50 d-block mx-auto" alt="">
+                                <p class="text-dark text-center" style="font-size: 12px"><br>Email</p>
+                            </a>
                         </div>
                     </div>
-                    <?= $data_berita->links() ?>
                 </div>
-            </div>
-
-        </div>
-
-        <!------- Right Category ------->
-        <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
-        <?php } ?>
-
-    </div>
-</div>
-
-
-<!------- Model Share ------->
-<div class="modal fade" id="modalSosmed" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Share Berita</h5>
-                <button type="button" class="btn btn-outline-danger btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row justify-content-center">
-                    <div class="col-2 mb-3">
-                        <a href="" class="whatsapp text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/whatsapp.svg" class="w-50 d-block mx-auto" alt="">
-                            <p class="text-dark text-center" style="font-size: 12px"><br>Whatsapp</p>
-                        </a>
-                    </div>
-                    <div class="col-2 mb-3">
-                        <a href="" class="instagram text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/instagram.svg" class="w-50 d-block mx-auto" alt="">
-                            <p class="text-dark text-center" style="font-size: 12px"><br>Instagram</p>
-                        </a>
-                    </div>
-                    <div class="col-2 mb-3">
-                        <a href="" class="telegram text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/telegram.svg" class="w-50 d-block mx-auto" alt="">
-                            <p class="text-dark text-center" style="font-size: 12px"><br>Telegram</p>
-                        </a>
-                    </div>
-                    <div class="col-2 mb-3">
-                        <a href="" class="facebook text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/facebook.svg" class="w-50 d-block mx-auto" alt="">
-                            <p class="text-dark text-center" style="font-size: 12px"><br>Facebook</p>
-                        </a>
-                    </div>
-                    <div class="col-2 mb-3">
-                        <a href="" class="twitter text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/twitter.svg" class="w-50 d-block mx-auto" alt="">
-                            <p class="text-dark text-center" style="font-size: 12px"><br>Twitter</p>
-                        </a>
-                    </div>
-                    <div class="col-2 mb-3">
-                        <a href="" class="email text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/email.svg" class="w-50 d-block mx-auto" alt="">
-                            <p class="text-dark text-center" style="font-size: 12px"><br>Email</p>
-                        </a>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Close</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-</div>
 
-<?php include __DIR__ . '/../Footer.php' ?>
+    <?php include __DIR__ . '/../Footer.php' ?>

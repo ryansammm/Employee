@@ -99,7 +99,31 @@
                                     Logo & Nama Perusahaan
                                 </label>
                             </div>
-
+                            <hr>
+                            <div class="mb-3">
+                                <label for="">Posisi Logo</label>
+                                <select name="cms_title_position" class="form-control">
+                                    <option value="1" <?= $GLOBALS['web_title']['cms_title_position'] == '1' ? 'selected' : '' ?>>Kiri</option>
+                                    <option value="2" <?= $GLOBALS['web_title']['cms_title_position'] == '2' ? 'selected' : '' ?>>Tengah</option>
+                                    <option value="3" <?= $GLOBALS['web_title']['cms_title_position'] == '3' ? 'selected' : '' ?>>Kanan</option>
+                                </select>
+                            </div>
+                            <hr>
+                            <div class="mb-3">
+                                <label for="">Menggunakan form Pencarian?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cms_search" id="flexRadioDefault2" value="1" <?= arr_offset($GLOBALS['web_title'], 'cms_search') == '1' ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Ya
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cms_search" id="flexRadioDefault3" value="2" <?= arr_offset($GLOBALS['web_title'], 'cms_search') == '2' ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        Tidak
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -117,20 +141,35 @@
                     <div class="row" style="width: 100%;">
 
                         <!-- Pake justify-content-center mun rek katengah -->
-                        <div class="col-12 d-flex ">
+                        <div class="col-12 d-flex <?= $GLOBALS['web_title']['cms_title_position'] == '2' ? 'justify-content-center' : ($GLOBALS['web_title']['cms_title_position'] == '3' ? 'justify-content-end' : '') ?>">
+                            <?php if ($GLOBALS['web_title']['cms_title_position'] == '3' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
+                                <form class="pe-5">
+                                    <div class="input-group mt-3 ms-3" style="width: 570pt;">
+                                        <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
+                                    </div>
+                                </form>
+                            <?php } ?>
                             <div class="web-title d-flex ">
-                                <a class="navbar-brand pe-1" href="#">
-                                    <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">
-                                </a>
+                                <?php if ($GLOBALS['web_title']['cms_title_option'] == 1 || $GLOBALS['web_title']['cms_title_option'] == 3) { ?>
+                                    <a class="navbar-brand pe-1" href="#">
+                                        <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">
+                                    </a>
+                                <?php } ?>
                                 <!-- Mun rek katengahkeun, si breakword jeung inline di hapus -->
-                                <h6 style="margin-top: auto;margin-bottom: auto;word-wrap: break-word;inline-size: 117px;">Panca Teknologi Aksesindo</h6>
+                                <?php if ($GLOBALS['web_title']['cms_title_option'] == 2) { ?>
+                                    <h6 style="margin-top: auto;margin-bottom: auto;"><?= $GLOBALS['web_title']['cms_title'] ?></h6>
+                                <?php } else if ($GLOBALS['web_title']['cms_title_option'] == 3) { ?>
+                                    <h6 style="margin-top: auto;margin-bottom: auto;word-wrap: break-word;inline-size: 117px;"><?= $GLOBALS['web_title']['cms_title'] ?></h6>
+                                <?php } ?>
                             </div>
                             <!-- mun katengah, si form di hide -->
-                            <form class="">
-                                <div class="input-group mt-3 ms-3" style="width: 570pt;">
-                                    <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
-                                </div>
-                            </form>
+                            <?php if ($GLOBALS['web_title']['cms_title_position'] == '1' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
+                                <form class="">
+                                    <div class="input-group mt-3 ms-3" style="width: 570pt;">
+                                        <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
+                                    </div>
+                                </form>
+                            <?php } ?>
                         </div>
 
                         <div class="" style="position: absolute;top: 20%;">
@@ -243,6 +282,19 @@
 
     </nav>
 
+    <?php if ($GLOBALS['web_title']['cms_title_position'] == '2' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
+    <div class="d-block">
+        <form class="float-end me-5">
+            <div class="input-group mt-3 ms-3">
+                <input type="text" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 500pt;">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div style="clear:both"></div>
+    <?php } ?>
 
 
     <!------- Modal ------->

@@ -45,29 +45,12 @@ class CmsTitleController
 
         $option = $request->request->get('cms_title_option');
 
-        if ($option == '1') {
+        $this->model->where('id_cms_title', $title['id_cms_title'])->update($request->request->all());
 
-            $media->updateMedia($request->files->get('logoPerusahaan'), [
-                'id_relation' => '',
-                'jenis_dokumen' => 'cms-title',
-            ], $this->model, '');
-        } elseif ($option == '2') {
-
-            if ($title != false) {
-                $this->model->where('id_cms_title', $title['id_cms_title'])->delete();
-            }
-            $create = $this->model->insert($request->request->all());
-        } else {
-            if ($title != false) {
-                $this->model->where('id_cms_title', $title['id_cms_title'])->delete();
-            }
-            $create = $this->model->insert($request->request->all());
-
-            $media->updateMedia($request->files->get('logoPerusahaan'), [
-                'id_relation' => '',
-                'jenis_dokumen' => 'cms-title',
-            ], $this->model, '');
-        }
+        $media->updateMedia($request->files->get('logoPerusahaan'), [
+            'id_relation' => '',
+            'jenis_dokumen' => 'cms-title',
+        ], $this->model, '');
 
         if ($request->request->get('redirect_to') != null) {
             return new RedirectResponse($request->request->get('redirect_to'));

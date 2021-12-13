@@ -39,8 +39,6 @@
                                                 <option <?= $value['id_kategori_galeri'] == show($galeri['id_kategori_galeri']) ? 'selected' : '' ?> value="<?= $value['id_kategori_galeri'] ?>"><?= $value['nama_kategori_galeri'] ?></option>
                                             <?php } ?>
                                         </select>
-                                        <?= errors('id_kategori_galeri') ?>
-                                        <?= errors('galeri_foto') ?>
                                     </div>
                                 </div>
                             </div>

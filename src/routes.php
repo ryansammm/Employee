@@ -384,6 +384,7 @@ $routes->push('customer', '/customer', [CustomerController::class, 'index']);
 
 /* ------------------------------ Front Contact ----------------------------- */
 $routes->push('contact', '/contact', [ContactController::class, 'index']);
+$routes->push('contact_kintun', '/contact/kintun', [ContactController::class, 'create']);
 /* -------------------------------------------------------------------------- */
 
 

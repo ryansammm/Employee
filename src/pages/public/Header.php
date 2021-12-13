@@ -286,17 +286,17 @@
     </nav>
 
     <?php if ($GLOBALS['web_title']['cms_title_position'] == '2' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
-    <div class="d-block">
-        <form class="float-end me-5">
-            <div class="input-group mt-3 ms-3">
-                <input type="text" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 500pt;">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+        <div class="d-block">
+            <form class="float-end me-5">
+                <div class="input-group mt-3 ms-3">
+                    <input type="text" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 500pt;">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div style="clear:both"></div>
+            </form>
+        </div>
+        <div style="clear:both"></div>
     <?php } ?>
 
 

@@ -10,26 +10,14 @@
         <div class="col-md-2 pe-3">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Asosiasi</h6>
             <div class="row">
-                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
-                </div>
-                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
-                </div>
-                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
-                </div>
-                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
-                </div>
-                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
-                </div>
-                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
-                </div>
+                <?php foreach ($GLOBALS['asosiasi']->items as $key => $data) { ?>
+                    <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                        <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="100%">
+                    </div>
+                <?php } ?>
             </div>
         </div>
+
         <div class="col-md-2 pe-3">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Akreditasi</h6>
             <div class="row">

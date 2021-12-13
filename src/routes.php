@@ -26,6 +26,7 @@ use App\KategoriProdukAdmin\Controller\KategoriProdukAdminController;
 use App\Ketentuan\Controller\KetentuanController;
 use App\Layanan\Controller\LayananController;
 use App\LayananAdmin\Controller\LayananAdminController;
+use App\LikeBerita\Controller\LikeBeritaController;
 use App\Login\Controller\LoginController;
 use App\Maintenance\Controller\MaintenanceController;
 use App\Menu\Controller\MenuController;
@@ -287,7 +288,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('component_delete', '/{id}/delete', [CmsComponentController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
-    
+
     /* -------------------------- Route Kelola Halaman ------------------------- */
     $routes->prefix('halaman', function ($routes) {
         $routes->push('halaman', '', [CmsHalamanController::class, 'index']);
@@ -299,6 +300,12 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('halaman_delete', '/{id}/delete', [CmsHalamanController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
+
+    // pengaturan website
+    $routes->prefix('setting-website', function ($routes) {
+        $routes->push('setting', '', [CmsSettingController::class, 'index']);
+        $routes->push('setting_update', '/update', [CmsSettingController::class, 'update']);
+    });
 });
 
 
@@ -361,6 +368,7 @@ $routes->push('about', '/about', [AboutController::class, 'index']);
 /* ---------------------------- Front Maintenance --------------------------- */
 $routes->push('maintenance', '/maintenance', [MaintenanceController::class, 'index']);
 
+// page website dinamis
 $routes->prefix('/page', function ($routes) {
     $routes->push('page-dinamis', '/{page_url}', [HalamanController::class, 'index']);
 });
@@ -376,6 +384,8 @@ $routes->push('panduan', '/panduan', [PanduanController::class, 'index']);
 /* --------------------------- Pedoman Media Siber -------------------------- */
 $routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
 
-
+// routes like berita
+$routes->push('like-berita', '/likeBerita/{id}/store', [LikeBeritaController::class, 'storeLike']);
+$routes->push('dislike-berita', '/dislikeBerita/{id}/store', [LikeBeritaController::class, 'storeDislike']);
 
 return $routes;

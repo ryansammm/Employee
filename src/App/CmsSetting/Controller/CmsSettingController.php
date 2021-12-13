@@ -8,17 +8,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CmsSettingController
 {
-    public $model;
+    public $cmsSetting;
 
     public function __construct()
     {
-        $this->model = new CmsSetting();
+        $this->cmsSetting = new CmsSetting();
     }
 
     public function index(Request $request)
     {
+        $datas = $this->cmsSetting->first();
 
-        return render_template('home/index', []);
+        return render_template('admin/cms-setting/index', compact('datas'));
     }
 
     public function create(Request $request)
@@ -42,12 +43,15 @@ class CmsSettingController
 
     public function update(Request $request)
     {
-        $datas = $request->request->all();
-        $cms_setting = $this->model->first();
+        $cms_setting = $this->cmsSetting->first();
 
-        $this->model->where('id_cms_setting', $cms_setting['id_cms_setting'])->update($request->request->all());
+        if ($cms_setting == false) {
+            $this->cmsSetting->insert($request->request->all());
+        } else {
+            $this->cmsSetting->where('id_cms_setting', $cms_setting['id_cms_setting'])->update($request->request->all());
+        }
 
-        return new RedirectResponse('/admin');
+        return new RedirectResponse('/admin/setting-website');
     }
 
     public function delete(Request $request)

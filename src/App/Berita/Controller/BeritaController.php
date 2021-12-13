@@ -7,16 +7,19 @@ use App\KategoriBeritaAdmin\Model\KategoriBeritaAdmin;
 use App\Media\Model\Media;
 use App\Berita\Model\Berita;
 use App\CmsKategoriStyle\Model\CmsKategoriModule;
+use App\CmsSetting\Model\CmsSetting;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class BeritaController
 {
     public $model;
+    public $cmsSetting;
 
     public function __construct()
     {
         $this->model = new Berita();
+        $this->cmsSetting = new CmsSetting();
     }
 
     public function index(Request $request)
@@ -58,7 +61,9 @@ class BeritaController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat]);
+        $cms_setting = $this->cmsSetting->first();
+
+        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting]);
     }
 
     public function create(Request $request)
@@ -114,9 +119,9 @@ class BeritaController
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
 
-        // dd($detail_berita);
+        $cms_setting = $this->cmsSetting->first();
 
-        return render_template('public/news/detail', ['data_kategori_berita' => $data_kategori_berita, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita]);
+        return render_template('public/news/detail', ['data_kategori_berita' => $data_kategori_berita, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting]);
     }
 
     public function kategori(Request $request)

@@ -27,18 +27,24 @@
                                                 </a>
                                                 <div class="row justify-content-around mx-3">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-chat"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-eye"></i>
-                                                            <span>0</span>
-                                                        </div>
+                                                        <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-heart"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-chat"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-eye"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <span>50 menit</span>
                                                         </div>
@@ -65,18 +71,24 @@
                                                 </a>
                                                 <div class="row justify-content-around">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-chat"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-eye"></i>
-                                                            <span>0</span>
-                                                        </div>
+                                                        <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-heart"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-chat"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-eye"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <span>50 menit</span>
                                                         </div>
@@ -101,18 +113,24 @@
                                                 </a>
                                                 <div class="row justify-content-around">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-chat"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-eye"></i>
-                                                            <span>0</span>
-                                                        </div>
+                                                        <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-heart"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-chat"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-eye"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <span>50 menit</span>
                                                         </div>
@@ -166,18 +184,24 @@
                                 <div class="col-12">
                                     <div class="row justify-content-around text-side-trending">
                                         <div class="col d-flex">
-                                            <div class="sub-item" style="margin-top: 2px;">
-                                                <i class="bi bi-heart"></i>
-                                                <span>0</span>
-                                            </div>
-                                            <div class="sub-item" style="margin-top: 2px;">
-                                                <i class="bi bi-chat"></i>
-                                                <span>0</span>
-                                            </div>
-                                            <div class="sub-item" style="margin-top: 2px;">
-                                                <i class="bi bi-eye"></i>
-                                                <span>0</span>
-                                            </div>
+                                            <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                <div class="sub-item" style="margin-top: 2px;">
+                                                    <i class="bi bi-heart"></i>
+                                                    <span>0</span>
+                                                </div>
+                                            <?php } ?>
+                                            <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                <div class="sub-item" style="margin-top: 2px;">
+                                                    <i class="bi bi-chat"></i>
+                                                    <span>0</span>
+                                                </div>
+                                            <?php } ?>
+                                            <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                <div class="sub-item" style="margin-top: 2px;">
+                                                    <i class="bi bi-eye"></i>
+                                                    <span>0</span>
+                                                </div>
+                                            <?php } ?>
                                             <div class="sub-item" style="margin-top: 2px;">
                                                 <span>50 menit</span>
                                             </div>
@@ -260,18 +284,24 @@
                                         </a>
                                         <div class="row justify-content-around text-side-trending">
                                             <div class="col d-flex" style="margin-top: auto;">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-chat"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-eye"></i>
-                                                    <span>0</span>
-                                                </div>
+                                                <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-heart"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
+                                                <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-chat"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
+                                                <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-eye"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
                                                 <div class="sub-item">
                                                     <span>50 menit</span>
                                                 </div>
@@ -303,18 +333,24 @@
                                         </a>
                                         <div class="row justify-content-around text-side-trending">
                                             <div class="col d-flex" style="margin-top: auto;">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-chat"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-eye"></i>
-                                                    <span>0</span>
-                                                </div>
+                                                <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-heart"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
+                                                <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-chat"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
+                                                <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-eye"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
                                                 <div class="sub-item">
                                                     <span>50 menit</span>
                                                 </div>
@@ -346,18 +382,24 @@
                                         </a>
                                         <div class="row justify-content-around text-side-trending">
                                             <div class="col d-flex" style="margin-top: auto;">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-chat"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-eye"></i>
-                                                    <span>0</span>
-                                                </div>
+                                                <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-heart"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
+                                                <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-chat"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
+                                                <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                    <div class="sub-item" style="margin-top: 2px;">
+                                                        <i class="bi bi-eye"></i>
+                                                        <span>0</span>
+                                                    </div>
+                                                <?php } ?>
                                                 <div class="sub-item">
                                                     <span>50 menit</span>
                                                 </div>

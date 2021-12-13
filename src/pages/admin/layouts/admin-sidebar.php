@@ -218,6 +218,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/admin/setting-website" class="nav-link">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Pengaturan Website
+                        </p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="/admin/profile-saya" class="nav-link">

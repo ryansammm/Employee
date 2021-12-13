@@ -19,29 +19,6 @@ if (!function_exists('render_template')) {
             extract($request->attributes->all(), EXTR_SKIP);
         }
 
-        // $errors = SessionData::get()->getFlashBag()->get('errors', []);
-        function errors($key = null)
-        {
-            global $errors;
-            $html_elem = '';
-            if (isset($errors[$key])) {
-                $html_elem = html_entity_decode('<span class="text-danger d-block"><b>' . $errors[$key] . '</b></span>');
-            }
-            return $html_elem;
-        }
-
-        $success = SessionData::get()->getFlashBag()->get('success', []);
-        function success($key = null)
-        {
-            global $success;
-            $html_elem = '';
-            if (isset($success[$key])) {
-                $html_elem = html_entity_decode('<span class="text-success d-block"><b>' . $success[$key] . '</b></span>');
-            }
-            return $html_elem;
-        }
-
-        $data['errors'] = SessionData::get()->getFlashBag()->get('errors', []);
         extract($data, EXTR_SKIP);
 
         ob_start();

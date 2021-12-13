@@ -15,10 +15,16 @@
                                     <div class="col-md-6 form-group mb-2">
                                         <label for="" class="col-form-label">Nama Lengkap</label>
                                         <input type="text" class="form-control" name="name" id="name">
+                                        <?php if (isset($errors['name'])) { ?>
+                                            <span class="text-danger d-block"><b><?= $errors['name'] ?></b></span>
+                                        <?php } ?>
                                     </div>
                                     <div class="col-md-6 form-group mb-2">
                                         <label for="" class="col-form-label">Email</label>
                                         <input type="text" class="form-control" name="email" id="email">
+                                        <?php if (isset($errors['email'])) { ?>
+                                            <span class="text-danger d-block"><b><?= $errors['email'] ?></b></span>
+                                        <?php } ?>
                                     </div>
                                 </div>
 
@@ -26,16 +32,25 @@
                                     <div class="col-md-6 form-group mb-2">
                                         <label for="" class="col-form-label">Nomor Handphone</label>
                                         <input type="text" class="form-control" name="phone" id="phone">
+                                        <?php if (isset($errors['phone'])) { ?>
+                                            <span class="text-danger d-block"><b><?= $errors['phone'] ?></b></span>
+                                        <?php } ?>
                                     </div>
                                     <div class="col-md-6 form-group mb-2">
                                         <label for="" class="col-form-label">Perusahaan</label>
                                         <input type="text" class="form-control" name="company" id="company">
+                                        <?php if (isset($errors['company'])) { ?>
+                                            <span class="text-danger d-block"><b><?= $errors['company'] ?></b></span>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 form-group mb-2">
                                         <label for="" class="col-form-label">Subject</label>
                                         <input type="text" class="form-control" name="subject" id="subject">
+                                        <?php if (isset($errors['subject'])) { ?>
+                                            <span class="text-danger d-block"><b><?= $errors['subject'] ?></b></span>
+                                        <?php } ?>
                                     </div>
                                 </div>
 
@@ -43,6 +58,9 @@
                                     <div class="col-md-12 form-group mb-2">
                                         <label for="message" class="col-form-label">Pesan</label>
                                         <textarea class="form-control" name="message" id="message" cols="30" rows="4"></textarea>
+                                        <?php if (isset($errors['message'])) { ?>
+                                            <span class="text-danger d-block"><b><?= $errors['message'] ?></b></span>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="row">

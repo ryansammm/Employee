@@ -5,6 +5,8 @@ namespace App\Contact\Controller;
 use App\Contact\Model\Contact;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use App\Contact\Validation\ContactValidation;
+use Core\Classes\SessionData;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -20,12 +22,18 @@ class ContactController
 
     public function index(Request $request)
     {
-
-        return render_template('public/contact/index', []);
+        $errors = SessionData::get()->getFlashBag()->get('errors');
+        // dd($errors);
+        return render_template('public/contact/index', ['errors' => $errors]);
     }
 
     public function create(Request $request)
     {
+        $validasi = new ContactValidation($request);
+        $validasiTest = $validasi->validate();
+        if (!$validasiTest->passed) {
+            return new RedirectResponse('/contact');
+        }
         ini_set('default_socket_timeout', 360);
         $mail = new PHPMailer();
         $mail_body = file_get_contents(__DIR__ . '/../../../pages/email.php');

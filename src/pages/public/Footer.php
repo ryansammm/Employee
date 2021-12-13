@@ -34,9 +34,9 @@
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Akreditasi</h6>
             <div class="row">
                 <?php foreach ($GLOBALS['akreditasi']->items as $key => $data) { ?>
-                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                    <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="100%">
-                </div>
+                    <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                        <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="100%">
+                    </div>
                 <?php } ?>
             </div>
         </div>
@@ -65,10 +65,10 @@
         <div class="col-md-2" style="margin-bottom: auto;width: 18% !important;">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Lainnya</h6>
             <ul class="nav flex-column">
+                <?php foreach ($GLOBALS['menu_footer'] as $key1 => $data1) { ?>
+                    <li class="nav-item "><a href="<?= arr_offset($data1, 'link_url') ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank"><?= arr_offset($data1, 'cms_menu') ?></a></li>
+                <?php } ?>
                 <li class="nav-item "><a href="/about" class="nav-link p-0 text" style="color: #c1c1c1;">Tentang Kami</a></li>
-                <li class="nav-item "><a href="/ketentuan" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank">Ketentuan & Kebijakan Privasi</a></li>
-                <li class="nav-item "><a href="/panduan" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank">Panduan Komunitas</a></li>
-                <li class="nav-item "><a href="/pedoman" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank">Pedoman Media Siber</a></li>
             </ul>
         </div>
 

@@ -82,6 +82,13 @@
                                     </div>
                                     <input type="radio" name="footer" value="2" required> Tidak
                                 </div>
+                                <div class="mb-3">
+                                    <label for="header" class="form-label d-block">Muncul di Header? *</label>
+                                    <div class="d-inline mr-2">
+                                        <input type="radio" name="header" value="1" required> Ya
+                                    </div>
+                                    <input type="radio" name="header" value="2" required> Tidak
+                                </div>
                             </div>
                         </div>
                     </div>

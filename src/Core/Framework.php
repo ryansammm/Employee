@@ -52,7 +52,7 @@ class Framework extends HttpKernel implements HttpKernelInterface
         function recursive_menu($parent_id, $menu_model)
         {
             $menus = [];
-            $data_menu = $menu_model->where('parent_id', $parent_id)->get()->items;
+            $data_menu = $menu_model->where('parent_id', $parent_id)->where('header', '1')->get()->items;
             if (!empty($data_menu)) {
                 foreach ($data_menu as $key => $value) {
                     $value['sub_menu'] = recursive_menu($value['id_cms_menu'], $menu_model);
@@ -65,6 +65,9 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         $menu_utama = recursive_menu('0', $menu_model);
         $GLOBALS['web_menu'] = $menu_utama;
+
+        $menu_footer = $menu_model->where('parent_id', '0')->where('header', '2')->where('footer', '1')->get()->items;
+        $GLOBALS['menu_footer'] = $menu_footer;
 
         // Get website logo and title
         $cms_title = new CmsTitle();

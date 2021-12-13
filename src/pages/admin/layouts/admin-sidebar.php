@@ -203,7 +203,10 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item border-top">
+
+                <li class="nav-header">Developer</li>
+
+                <li class="nav-item">
                     <a href="/admin/menu" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>

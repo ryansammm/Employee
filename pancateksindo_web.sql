@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2021 at 02:14 PM
+-- Generation Time: Dec 13, 2021 at 06:08 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `pancateksindo_web`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `akreditasi`
+--
+
+CREATE TABLE `akreditasi` (
+  `id_akreditasi` varchar(255) NOT NULL,
+  `nama_akreditasi` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `akreditasi`
+--
+
+INSERT INTO `akreditasi` (`id_akreditasi`, `nama_akreditasi`, `created_at`, `updated_at`) VALUES
+('61b6cda7aa5bd', 'akreditasi 1', '2021-12-13 04:35:51', '2021-12-13 04:35:51'),
+('61b6ce14d6870', 'akreditasi 2', '2021-12-13 04:37:40', '2021-12-13 04:37:40'),
+('61b6ce2c16532', 'akreditasi 3', '2021-12-13 04:38:04', '2021-12-13 04:38:04'),
+('61b6ce3b8d049', 'akreditasi 4', '2021-12-13 04:38:19', '2021-12-13 04:38:19'),
+('61b6ce4b3f8c9', 'akreditasi 5', '2021-12-13 04:38:35', '2021-12-13 04:38:35'),
+('61b6ce584818d', 'akreditasi 6', '2021-12-13 04:38:48', '2021-12-13 04:38:48');
 
 -- --------------------------------------------------------
 
@@ -253,14 +278,11 @@ CREATE TABLE `cms_menu` (
 --
 
 INSERT INTO `cms_menu` (`id_cms_menu`, `menu`, `tipe`, `urutan`, `link_url`, `link_url_opened`, `halaman_id`, `have_sub`, `parent_id`, `footer`, `created_at`, `updated_at`) VALUES
-('61b2eefa89c57', 'Beranda', '2', 1, '/', '1', NULL, '2', '0', 2, '2021-12-10 06:08:58', '2021-12-10 06:08:58'),
-('61b2ef0da906c', 'Berita', '2', 2, '/news', '1', NULL, '2', '0', 2, '2021-12-10 06:09:17', '2021-12-10 06:09:17'),
-('61b2ef20da664', 'Produk', '2', 3, '/product', '1', NULL, '2', '0', 2, '2021-12-10 06:09:36', '2021-12-10 06:09:36'),
-('61b2ef36dbc7d', 'Layanan', '2', 4, '/service', '1', NULL, '2', '0', 2, '2021-12-10 06:09:58', '2021-12-10 06:09:58'),
-('61b2ef8cd52de', 'Galeri', '2', 5, '/gallery', '1', NULL, '2', '0', 2, '2021-12-10 06:11:24', '2021-12-10 06:11:24'),
-('61b2efd520dd4', 'Klien', '2', 6, '/customer', '1', NULL, '2', '0', 2, '2021-12-10 06:12:37', '2021-12-10 06:12:37'),
-('61b2efe55d417', 'Kontak', '2', 7, '/contact', '1', NULL, '2', '0', 2, '2021-12-10 06:12:53', '2021-12-10 06:12:53'),
-('61b2eff90feb5', 'Tentang Kami', '2', 8, '/about', '1', NULL, '2', '0', 2, '2021-12-10 06:13:13', '2021-12-10 06:13:13');
+('61b05b55ba041', 'Menu with submenu', NULL, 1, NULL, NULL, NULL, '1', '0', 2, '2021-12-08 07:14:29', '2021-12-08 07:14:29'),
+('61b0616276194', 'Sub Menu 1', NULL, 2, NULL, NULL, NULL, '1', '61b05b55ba041', 2, '2021-12-08 07:40:18', '2021-12-08 07:40:18'),
+('61b061b062144', 'Sub Sub Menu 1', '2', 3, '/news', '1', NULL, '2', '61b0616276194', 1, '2021-12-08 07:41:36', '2021-12-08 07:41:36'),
+('61b078e3749ad', 'Sub Menu 2', '2', 4, '/news', '1', NULL, '2', '61b05b55ba041', 1, '2021-12-08 09:20:35', '2021-12-08 09:20:35'),
+('61b079b444671', 'Sub Sub Sub Menu 1', '2', 5, '/news', '1', NULL, '2', '61b061b062144', 2, '2021-12-08 09:24:04', '2021-12-08 09:24:04');
 
 -- --------------------------------------------------------
 
@@ -270,12 +292,22 @@ INSERT INTO `cms_menu` (`id_cms_menu`, `menu`, `tipe`, `urutan`, `link_url`, `li
 
 CREATE TABLE `cms_setting` (
   `id_cms_setting` varchar(255) NOT NULL,
-  `header_cms_setting` varchar(255) NOT NULL,
-  `remember_cms_setting` varchar(255) NOT NULL,
-  `footer_cms_setting` varchar(255) NOT NULL,
+  `header_cms_setting` varchar(255) DEFAULT NULL,
+  `remember_cms_setting` varchar(255) DEFAULT NULL,
+  `footer_cms_setting` varchar(255) DEFAULT NULL,
+  `cms_like_berita` char(1) DEFAULT '1' COMMENT '1=ya, 2=tidak',
+  `cms_comment_berita` char(1) DEFAULT '1' COMMENT '1=ya, 2=tidak',
+  `cms_view_berita` char(1) DEFAULT '1' COMMENT '1=ya, 2=tidak',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `cms_setting`
+--
+
+INSERT INTO `cms_setting` (`id_cms_setting`, `header_cms_setting`, `remember_cms_setting`, `footer_cms_setting`, `cms_like_berita`, `cms_comment_berita`, `cms_view_berita`, `created_at`, `updated_at`) VALUES
+('61b6c1b52f5f5', '1', NULL, '1', '2', '2', '2', '2021-12-13 03:44:53', '2021-12-13 03:44:53');
 
 -- --------------------------------------------------------
 
@@ -288,6 +320,7 @@ CREATE TABLE `cms_title` (
   `cms_title` varchar(255) NOT NULL,
   `cms_title_option` char(1) DEFAULT '2' COMMENT '1=logo, 2=nama perusahan, 3=logo&nama perusahaan',
   `cms_title_position` char(1) DEFAULT '1' COMMENT '1=kiri, 2=tengah, 3=kanan',
+  `cms_search` char(1) DEFAULT '1' COMMENT '1=ya, 2=tidak',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
@@ -296,8 +329,8 @@ CREATE TABLE `cms_title` (
 -- Dumping data for table `cms_title`
 --
 
-INSERT INTO `cms_title` (`id_cms_title`, `cms_title`, `cms_title_option`, `cms_title_position`, `created_at`, `updated_at`) VALUES
-('61b179daed255', 'Panca Teknologi Aksesindo', '3', '1', '2021-12-09 03:36:58', '2021-12-09 03:36:58');
+INSERT INTO `cms_title` (`id_cms_title`, `cms_title`, `cms_title_option`, `cms_title_position`, `cms_search`, `created_at`, `updated_at`) VALUES
+('61b69daecbff8', 'Panca Teknologi Aksesindo', '3', '1', '1', '2021-12-13 01:11:10', '2021-12-13 01:11:10');
 
 -- --------------------------------------------------------
 
@@ -360,10 +393,7 @@ CREATE TABLE `galeri` (
 --
 
 INSERT INTO `galeri` (`id_galeri`, `id_kategori_galeri`, `judul_galeri`, `deskripsi_galeri`, `tgl_galeri`, `created_at`, `updated_at`) VALUES
-('61ad7741b1de1', '61a6f8062e856', 'ert', 'ert', '2021-12-06', '2021-12-06 02:36:49', '2021-12-06 02:36:49'),
-('61ada0fbe65b4', '61a6f8062e856', 'ert', 'ert', NULL, '2021-12-06 05:34:51', '2021-12-06 05:34:51'),
-('61ada30f273f1', '61a6f809f4090', 'galleri baru', 'deskripsi 1', '2021-12-06', '2021-12-06 05:43:43', '2021-12-06 05:43:43'),
-('61ada4619514a', '61a6f8062e856', 'galeri 10 foto', 'asdkj', '2021-12-06', '2021-12-06 05:49:21', '2021-12-06 05:49:21');
+('61b611fea79c9', '61a6f809f4090', 'Kegiatan A', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2021-12-12', '2021-12-12 15:15:10', '2021-12-12 15:15:10');
 
 -- --------------------------------------------------------
 
@@ -388,18 +418,8 @@ CREATE TABLE `group_galeri` (
 --
 
 INSERT INTO `group_galeri` (`id_group_galeri`, `id_galeri`, `judul_group_galeri`, `deskripsi_group_galeri`, `tanggal_publish`, `id_user`, `kategori_group_galeri`, `created_at`, `updated_at`) VALUES
-('61ad7741d9851', '61ad7741b1de1', 'ert', 'ert', '0000-00-00', 'usr61037f9c85184', 'foto', '2021-12-06 02:36:49', '2021-12-06 02:36:49'),
-('61ada30f61d46', '61ada30f273f1', 'foto 1', 'deskrpsi 1', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:43:43', '2021-12-06 05:43:43'),
-('61ada461be090', '61ada4619514a', 'foto 1', 'asd', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:21', '2021-12-06 05:49:21'),
-('61ada461e8d65', '61ada4619514a', 'foto 2', 'asdk', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:21', '2021-12-06 05:49:21'),
-('61ada46227334', '61ada4619514a', 'foto 3', 'asdjk', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:22', '2021-12-06 05:49:22'),
-('61ada46253581', '61ada4619514a', 'foto 4', 'asdkjsd', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:22', '2021-12-06 05:49:22'),
-('61ada4627fe9c', '61ada4619514a', 'foto 5', 'sdkjsd', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:22', '2021-12-06 05:49:22'),
-('61ada46309677', '61ada4619514a', 'foto 6', 'asdkjs', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:23', '2021-12-06 05:49:23'),
-('61ada4632fda1', '61ada4619514a', 'foto 7', 'askjs', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:23', '2021-12-06 05:49:23'),
-('61ada463485b2', '61ada4619514a', 'foto 8', 'zkxjc', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:23', '2021-12-06 05:49:23'),
-('61ada4635b946', '61ada4619514a', 'foto 9', 'aksjd', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:23', '2021-12-06 05:49:23'),
-('61ada4638184f', '61ada4619514a', 'foto 10', 'saksd', '2021-12-06', 'usr61037f9c85184', 'foto', '2021-12-06 05:49:23', '2021-12-06 05:49:23'),
+('61b611febeda3', '61b611fea79c9', 'Foto A', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', '2021-12-12', 'usr61037f9c85184', 'foto', '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
+('61b611fec1506', '61b611fea79c9', 'Foto B', 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', '2021-12-12', 'usr61037f9c85184', 'foto', '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
 ('grglr611cf8d93e52a', 'grglr611cf8ba6d056', '', '', '2021-08-18', '', 'video_youtube', NULL, NULL),
 ('grglr611cf8d95edd7', 'grglr611cf8ba875de', '', '', '2021-08-18', '', 'foto', NULL, NULL),
 ('grglr611cfaa8b6c0d', 'glr611cfaa89f6ce', '', '', '2021-09-06', '', 'video_upload', NULL, '2021-09-06 03:40:12'),
@@ -464,9 +484,8 @@ CREATE TABLE `kategori_galeri` (
 --
 
 INSERT INTO `kategori_galeri` (`id_kategori_galeri`, `nama_kategori_galeri`, `created_at`, `updated_at`) VALUES
-('61a6f8062e856', 'Tess', '2021-12-01 04:20:22', '2021-12-01 04:20:22'),
-('61a6f809f4090', '1111', '2021-12-01 04:20:25', '2021-12-01 04:20:25'),
-('61a6f80e2004b', '2222', '2021-12-01 04:20:30', '2021-12-01 04:20:30');
+('61a6f8062e856', 'Lapangan', '2021-12-01 04:20:22', '2021-12-01 04:20:22'),
+('61a6f809f4090', 'Kegiatan', '2021-12-01 04:20:25', '2021-12-01 04:20:25');
 
 -- --------------------------------------------------------
 
@@ -625,7 +644,10 @@ INSERT INTO `media` (`id_media`, `path_media`, `id_relation`, `id_entity`, `jeni
 ('61b2f8d917849', '218f53e1-b009-45f9-aa51-3426b399fbb1-61b2f8d91522e.jpg', '61b2f8d9127a8', 'usr61037f9c85184', NULL, '2021-12-10 06:51:05', '2021-12-10 06:51:05'),
 ('61b2fd0b79750', 'training-1-ou1n3ptzfgacm1y1ned50o228ma0fzad82wbwv194s-61b2fd0b779dc.png', '61b2fd0b65d25', 'usr61037f9c85184', NULL, '2021-12-10 07:08:59', '2021-12-10 07:08:59'),
 ('61b2fd89f2474', '164123455-61b2fd89f02db.jpg', '61b2fd89ef6a4', 'usr61037f9c85184', NULL, '2021-12-10 07:11:05', '2021-12-10 07:11:05'),
-('61b2fdc9c7f62', '7ba60f36b4912b0d0bd5b7a524ee0073c74a5444-1920x1080-61b2fdc9c3753.jpg', '61b2fcdd49237', 'usr61037f9c85184', NULL, '2021-12-10 07:12:09', '2021-12-10 07:12:09');
+('61b2fdc9c7f62', '7ba60f36b4912b0d0bd5b7a524ee0073c74a5444-1920x1080-61b2fdc9c3753.jpg', '61b2fcdd49237', 'usr61037f9c85184', NULL, '2021-12-10 07:12:09', '2021-12-10 07:12:09'),
+('61b611febdc6b', '164123455-61b611fead67a.jpg', '61b611fea79c9', 'usr61037f9c85184', 'cover-galeri', '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
+('61b611fec04ab', 'aarfdew-61b611febf4be.jpg', '61b611febeda3', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
+('61b611fec2ad5', 'aarf9bs-61b611fec1b7f.jpg', '61b611fec1506', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10');
 
 -- --------------------------------------------------------
 
@@ -844,6 +866,12 @@ INSERT INTO `video` (`id_video`, `judul_video`, `link_video`, `keterangan_video`
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `akreditasi`
+--
+ALTER TABLE `akreditasi`
+  ADD PRIMARY KEY (`id_akreditasi`) USING BTREE;
 
 --
 -- Indexes for table `application`

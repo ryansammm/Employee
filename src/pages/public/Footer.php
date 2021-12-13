@@ -43,10 +43,9 @@
         <div class="col-md-2" style="margin-bottom: auto; width: 12% !important;">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Social Media</h6>
             <ul class="nav flex-column">
-                <li class="nav-item "><a href="#" class="nav-link p-0 text" style="color: #c1c1c1;"><i class="bi bi-facebook"></i> Facebook</a></li>
-                <li class="nav-item "><a href="#" class="nav-link p-0 text" style="color: #c1c1c1;"><i class="bi bi-instagram"></i> Instagram</a></li>
-                <li class="nav-item "><a href="#" class="nav-link p-0 text" style="color: #c1c1c1;"><i class="bi bi-twitter"></i> Twitter</a></li>
-                <li class="nav-item "><a href="#" class="nav-link p-0 text" style="color: #c1c1c1;"><i class="bi bi-youtube"></i> Youtube</a></li>
+                <?php foreach ($GLOBALS['sosial_media']->items as $key => $data) { ?>
+                    <li class="nav-item "><a href="<?= $data['link_sosial_media'] ?>" class="nav-link p-0 text" style="color: #c1c1c1;"><i class="<?= $data['icon_sosial_media'] ?>"></i> <?= $data['nama_sosial_media'] ?></a></li>
+                <?php } ?>
             </ul>
         </div>
 

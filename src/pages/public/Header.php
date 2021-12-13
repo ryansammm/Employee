@@ -178,7 +178,7 @@
                         <div class="" style="position: absolute;top: 20%;">
                             <ul class="nav justify-content-end" style="height: 100%;">
                                 <li class="nav-item" style="margin-top: auto;margin-bottom: auto;">
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none text-dark">
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none" style="color: #fc5102;">
                                         <i class="bi bi-person fs-4"></i>
                                     </a>
                                 </li>

@@ -33,29 +33,33 @@
                 </div>
             </div> -->
 
-            <table class="table table-sm mt-3">
-                <thead class="table-light">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Akdreditas</th>
-                        <th scope="col">Ikon Akreditasi</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="table-light">
-                    <?php foreach ($datas->items as $key => $value) { ?>
-                        <tr>
-                            <td><?= $key + 1 ?></td>
-                            <td><?= $value['nama_akreditasi'] ?></td>
-                            <td><img src="/assets/media/<?= $value['path_media'] ?>" class="img-fluid" width="60px"></td>
-                            <td>
-                                <a class="btn btn-info m-2" href="/admin/akreditasi/<?= $value['id_akreditasi'] ?>/edit">Edit</a>
-                                <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_akreditasi'] ?>">hapus</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+            <div class="card">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Akdreditas</th>
+                                <th scope="col">Ikon Akreditasi</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($datas->items as $key => $value) { ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value['nama_akreditasi'] ?></td>
+                                    <td><img src="/assets/media/<?= $value['path_media'] ?>" class="img-fluid" width="60px"></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-info m-2" href="/admin/akreditasi/<?= $value['id_akreditasi'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_akreditasi'] ?>">hapus</a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             <?= $datas->links(); ?>
         </div>

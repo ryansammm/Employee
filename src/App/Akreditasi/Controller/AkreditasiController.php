@@ -58,7 +58,7 @@ class AkreditasiController
         $media->updateMedia($request->files->get('ikon_akreditasi'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
-        ], $this->model, $id);
+        ], $this->akreditasi, $id);
 
         return new RedirectResponse('/admin/akreditasi');
     }

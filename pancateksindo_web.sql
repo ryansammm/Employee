@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 06:24 AM
+-- Generation Time: Dec 13, 2021 at 10:33 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -288,7 +288,8 @@ CREATE TABLE `cms_menu` (
   `halaman_id` varchar(255) DEFAULT NULL,
   `have_sub` char(1) DEFAULT NULL COMMENT '1=ya, 2=tidak',
   `parent_id` varchar(255) DEFAULT NULL,
-  `footer` int(11) DEFAULT 0,
+  `header` char(1) DEFAULT '1' COMMENT '1=ya, 2=tidak',
+  `footer` char(1) DEFAULT '1' COMMENT '1=ya, 2=tidak',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
@@ -297,12 +298,18 @@ CREATE TABLE `cms_menu` (
 -- Dumping data for table `cms_menu`
 --
 
-INSERT INTO `cms_menu` (`id_cms_menu`, `menu`, `tipe`, `urutan`, `link_url`, `link_url_opened`, `halaman_id`, `have_sub`, `parent_id`, `footer`, `created_at`, `updated_at`) VALUES
-('61b05b55ba041', 'Menu with submenu', NULL, 1, NULL, NULL, NULL, '1', '0', 2, '2021-12-08 07:14:29', '2021-12-08 07:14:29'),
-('61b0616276194', 'Sub Menu 1', NULL, 2, NULL, NULL, NULL, '1', '61b05b55ba041', 2, '2021-12-08 07:40:18', '2021-12-08 07:40:18'),
-('61b061b062144', 'Sub Sub Menu 1', '2', 3, '/news', '1', NULL, '2', '61b0616276194', 1, '2021-12-08 07:41:36', '2021-12-08 07:41:36'),
-('61b078e3749ad', 'Sub Menu 2', '2', 4, '/news', '1', NULL, '2', '61b05b55ba041', 1, '2021-12-08 09:20:35', '2021-12-08 09:20:35'),
-('61b079b444671', 'Sub Sub Sub Menu 1', '2', 5, '/news', '1', NULL, '2', '61b061b062144', 2, '2021-12-08 09:24:04', '2021-12-08 09:24:04');
+INSERT INTO `cms_menu` (`id_cms_menu`, `menu`, `tipe`, `urutan`, `link_url`, `link_url_opened`, `halaman_id`, `have_sub`, `parent_id`, `header`, `footer`, `created_at`, `updated_at`) VALUES
+('61b2eefa89c57', 'Beranda', '2', 1, '/', '1', NULL, '2', '0', '1', '2', '2021-12-10 06:08:58', '2021-12-10 06:08:58'),
+('61b2ef0da906c', 'Berita', '2', 2, '/news', '1', NULL, '2', '0', '1', '2', '2021-12-10 06:09:17', '2021-12-10 06:09:17'),
+('61b2ef20da664', 'Produk', '2', 3, '/product', '1', NULL, '2', '0', '1', '2', '2021-12-10 06:09:36', '2021-12-10 06:09:36'),
+('61b2ef36dbc7d', 'Layanan', '2', 4, '/service', '1', NULL, '2', '0', '1', '2', '2021-12-10 06:09:58', '2021-12-10 06:09:58'),
+('61b2ef8cd52de', 'Galeri', '2', 5, '/gallery', '1', NULL, '2', '0', '1', '2', '2021-12-10 06:11:24', '2021-12-10 06:11:24'),
+('61b2efd520dd4', 'Klien', '2', 6, '/customer', '1', NULL, '2', '0', '1', '2', '2021-12-10 06:12:37', '2021-12-10 06:12:37'),
+('61b2efe55d417', 'Kontak', '2', 7, '/contact', '1', NULL, '2', '0', '1', '2', '2021-12-10 06:12:53', '2021-12-10 06:12:53'),
+('61b2eff90feb5', 'Tentang Kami', '2', 8, '/about', '1', NULL, '2', '0', '1', '1', '2021-12-10 06:13:13', '2021-12-10 06:13:13'),
+('61b6d4bf25c41', 'Ketentuan & Kebijakan Privasi', '2', 9, '/ketentuan', '1', NULL, '2', '0', '2', '1', '2021-12-13 05:06:07', '2021-12-13 05:06:07'),
+('61b6d4f92678e', 'Panduan Komunitas', '2', 10, '/panduan', '1', NULL, '2', '0', '2', '1', '2021-12-13 05:07:05', '2021-12-13 05:07:05'),
+('61b6d5145a4b8', 'Pedoman Media Siber', '2', 11, '/pedoman', '1', NULL, '2', '0', '2', '1', '2021-12-13 05:07:32', '2021-12-13 05:07:32');
 
 -- --------------------------------------------------------
 
@@ -668,7 +675,15 @@ INSERT INTO `media` (`id_media`, `path_media`, `id_relation`, `id_entity`, `jeni
 ('61b611febdc6b', '164123455-61b611fead67a.jpg', '61b611fea79c9', 'usr61037f9c85184', 'cover-galeri', '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
 ('61b611fec04ab', 'aarfdew-61b611febf4be.jpg', '61b611febeda3', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
 ('61b611fec2ad5', 'aarf9bs-61b611fec1b7f.jpg', '61b611fec1506', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
-('61b6d80d79fda', 'square-61b6d80d683a0.jpg', '61b6d80d6764b', 'usr61037f9c85184', NULL, '2021-12-13 05:20:13', '2021-12-13 05:20:13');
+('61b6d80d79fda', 'square-61b6d80d683a0.jpg', '61b6d80d6764b', 'usr61037f9c85184', NULL, '2021-12-13 05:20:13', '2021-12-13 05:20:13'),
+('61b6e7855e91e', 'square-61b6e78559799.jpg', '61b6cda7aa5bd', 'usr61037f9c85184', NULL, '2021-12-13 06:26:13', '2021-12-13 06:26:13'),
+('61b6e78ab0954', 'square-61b6e78aac5a4.jpg', '61b6ce14d6870', 'usr61037f9c85184', NULL, '2021-12-13 06:26:18', '2021-12-13 06:26:18'),
+('61b6e78f90356', 'square-61b6e78f8b0b5.jpg', '61b6ce2c16532', 'usr61037f9c85184', NULL, '2021-12-13 06:26:23', '2021-12-13 06:26:23'),
+('61b6e79ad8bca', 'square-61b6e79ad6070.jpg', '61b6ce3b8d049', 'usr61037f9c85184', NULL, '2021-12-13 06:26:34', '2021-12-13 06:26:34'),
+('61b6e7c8a2fe3', 'square-61b6e7c89ce7e.jpg', '61b6ce4b3f8c9', 'usr61037f9c85184', NULL, '2021-12-13 06:27:20', '2021-12-13 06:27:20'),
+('61b6e7ce14ed7', 'square-61b6e7ce10354.jpg', '61b6ce584818d', 'usr61037f9c85184', NULL, '2021-12-13 06:27:26', '2021-12-13 06:27:26'),
+('61b6ee729b360', 'square-61b6ee7298bb4.jpg', '61b6ee7297e52', 'usr61037f9c85184', NULL, '2021-12-13 06:55:46', '2021-12-13 06:55:46'),
+('61b6f3f21426b', 'square-61b6f3f2104fd.jpg', '61b6f3f20f4cf', 'usr61037f9c85184', NULL, '2021-12-13 07:19:14', '2021-12-13 07:19:14');
 
 -- --------------------------------------------------------
 
@@ -789,6 +804,30 @@ CREATE TABLE `role` (
 
 INSERT INTO `role` (`id_role`, `nama_role`, `alias_role`, `created_at`, `updated_at`) VALUES
 ('rol611bb6d4526b0', 'Administrator', 'administrator', '2021-08-16 17:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sosial_media`
+--
+
+CREATE TABLE `sosial_media` (
+  `id_sosial_media` varchar(255) NOT NULL,
+  `nama_sosial_media` varchar(255) NOT NULL,
+  `link_sosial_media` varchar(255) NOT NULL,
+  `icon_sosial_media` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sosial_media`
+--
+
+INSERT INTO `sosial_media` (`id_sosial_media`, `nama_sosial_media`, `link_sosial_media`, `icon_sosial_media`, `created_at`, `updated_at`) VALUES
+('61b6ee7297e52', 'Instagram', 'https://www.instagram.com/ryansam._/', 'fab fa-instagram', '2021-12-13 06:55:46', '2021-12-13 06:55:46'),
+('61b6f3f20f4cf', 'Facebook', 'https://www.facebook.com/', 'fab fa-facebook-square', '2021-12-13 07:19:14', '2021-12-13 07:19:14'),
+('61b70de8a00b3', 'Youtube', 'https://www.instagram.com/ryansam._/', 'fab fa-youtube', '2021-12-13 09:10:00', '2021-12-13 09:10:00');
 
 -- --------------------------------------------------------
 
@@ -1056,6 +1095,12 @@ ALTER TABLE `profil`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id_role`) USING BTREE;
+
+--
+-- Indexes for table `sosial_media`
+--
+ALTER TABLE `sosial_media`
+  ADD PRIMARY KEY (`id_sosial_media`);
 
 --
 -- Indexes for table `temp_visitor`

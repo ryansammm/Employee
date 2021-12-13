@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
-                        <thead class="table-light">
+                        <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Komponen</th>
@@ -31,15 +31,15 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="table-light">
+                        <tbody>
                             <?php foreach ($datas->items as $key => $value) { ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['cms_component'] ?></td>
                                     <td><?= $cmsComponent->cmsComponentType($value['cms_component_type']) ?></td>
                                     <td>
-                                        <a class="btn btn-info m-2" href="/admin/component/<?= $value['id_cms_component'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_cms_component'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-info m-2" href="/admin/component/<?= $value['id_cms_component'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_cms_component'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>

@@ -2,7 +2,7 @@
 
 namespace App\Contact\Controller;
 
-use App\Contact\Model\Contact;
+use App\Kontak\Model\Kontak;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -11,17 +11,27 @@ use PHPMailer\PHPMailer\SMTP;
 
 class ContactController
 {
-    public $model;
+    public $kontak;
 
     public function __construct()
     {
-        // $this->model = new Contact();
+        $this->kontak = new Kontak();
     }
 
     public function index(Request $request)
     {
+        $datas = $this->kontak->groupBy('nama_kontak')->get();
+        $list_data = $this->kontak->get();
+        foreach ($datas->items as $key => $data) {
+            foreach ($list_data->items as $key1 => $data1) {
+                if ($data['nama_kontak'] == $data1['nama_kontak']) {
+                    $datas->items[$key]['list_kontak'][] = $data1;
+                }
+            }
+        }
+        $kontak = $this->kontak;
 
-        return render_template('public/contact/index', []);
+        return render_template('public/contact/index', compact('datas', 'kontak'));
     }
 
     public function create(Request $request)

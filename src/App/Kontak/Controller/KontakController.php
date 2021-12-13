@@ -69,7 +69,6 @@ class KontakController
                 $request->request->set('id_kontak_jenis', $kontak_jenis['id_kontak_jenis']);
                 $request->request->set('ikon_kontak', $ikon_kontak);
                 $request->request->set('isi_kontak', $value);
-                $request->request->set('ishide_kontak', '2');
                 $request->request->set('jenis_kontak', $jenis_kontak);
 
                 $create = $this->kontak->insert($request->request->all());
@@ -132,7 +131,6 @@ class KontakController
                 $request->request->set('id_kontak_jenis', $kontak_jenis['id_kontak_jenis']);
                 $request->request->set('ikon_kontak', $ikon_kontak);
                 $request->request->set('isi_kontak', $value);
-                $request->request->set('ishide_kontak', '2');
                 $request->request->set('jenis_kontak', $jenis_kontak);
 
                 $create = $this->kontak->insert($request->request->all());

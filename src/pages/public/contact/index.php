@@ -101,26 +101,49 @@
 
                     <div class="card-body" style="position: relative;">
                         <div class="row">
-                            <div class="col-md-4 pe-0">
-                                <div class="flex-column">
-                                    <div class="d-flex text-white">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <h6 class="card-title ms-2" style="font-size: 12px !important;">Alamat Kantor Pusat</h6>
-                                    </div>
-                                    <div class="d-flex ms-4 me-2">
-                                        <p style="font-size: 12px;color:#c5c5c5 !important">Jln. Talun Kidul RT.01/RW.06, Kel.Talun, Kec. Sumedang Utara, Kab. Sumedang</p>
-                                    </div>
-                                    <div class="d-flex text-white">
-                                        <i class="fas fa-clock"></i>
-                                        <h6 class="card-title ms-2" style="font-size: 12px !important;">Jam Operasional</h6>
-                                    </div>
-                                    <div class="flex-column ms-4">
-                                        <p class="mb-0" style="font-size: 12px;color:#c5c5c5 !important">Senin - Jum'at</p>
-                                        <p style=" font-size: 12px;color:#c5c5c5 !important">08.00 s/d 17.00 WIB</p>
+                            <?php foreach ($datas->items as $key => $data) { ?>
+                                <?php if ($data['ishide_kontak'] == '2') { ?>
+                                <div class="col-md-4 pe-0" style="<?= $key == 0 || $key % 3 != 0 ? 'border-right: 1pt solid white;' : '' ?>">
+                                    <div class="flex-column">
+                                        <div class="d-flex text-white">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <h6 class="card-title ms-2" style="font-size: 12px !important;"><?= $data['list_kontak'][0]['nama_kontak'] ?></h6>
+                                        </div>
+                                        <div class="d-flex ms-4 me-2">
+                                            <p style="font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'alamat')['isi_kontak'] ?></p>
+                                        </div>
+                                        <div class="d-flex text-white">
+                                            <i class="fas fa-clock"></i>
+                                            <h6 class="card-title ms-2" style="font-size: 12px !important;">Jam Operasional</h6>
+                                        </div>
+                                        <div class="flex-column ms-4">
+                                            <p class="mb-0" style="font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'jam_operasional', 'normal')['isi_kontak'] ?></p>
+                                            <p style=" font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'jam_operasional', 'libur')['isi_kontak'] ?></p>
+                                        </div>
+                                        <div class="d-flex text-white">
+                                            <i class="fas fa-user"></i>
+                                            <h6 class="card-title ms-2" style="font-size: 12px !important;">Customer Service</h6>
+                                        </div>
+                                        <div class="flex-column ms-4">
+                                            <p class="mb-0" style="font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'customer_service', 'nama')['isi_kontak'] ?></p>
+                                            <p class="mb-0" style=" font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'customer_service', 'nomor')['isi_kontak'] ?></p>
+                                            <p style=" font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'customer_service', 'email')['isi_kontak'] ?></p>
+                                        </div>
+                                        <div class="d-flex text-white">
+                                            <i class="fas fa-user-cog"></i>
+                                            <h6 class="card-title ms-2" style="font-size: 12px !important;">Technical Support</h6>
+                                        </div>
+                                        <div class="flex-column ms-4">
+                                            <p class="mb-0" style="font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'technical_support', 'nama')['isi_kontak'] ?></p>
+                                            <p class="mb-0" style=" font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'technical_support', 'nomor')['isi_kontak'] ?></p>
+                                            <p style=" font-size: 12px;color:#c5c5c5 !important"><?= $kontak->getKontak($data['list_kontak'], 'technical_support', 'email')['isi_kontak'] ?></p>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                            </div>
-                            <div class=" col-md-4" style="border-left: 1pt solid white;border-right: 1pt solid white;">
+                                <?php } ?>
+                            <?php } ?>
+                            <!-- <div class=" col-md-4" style="border-left: 1pt solid white;border-right: 1pt solid white;">
                                 <div class="flex-column">
                                     <div class="d-flex text-white">
                                         <i class="fas fa-map-marker-alt"></i>
@@ -157,12 +180,12 @@
                                         <p style=" font-size: 12px;color:#c5c5c5 !important">08.00 s/d 17.00 WIB</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- <hr style="border-bottom: 1pt solid white;opacity: inherit;"> -->
 
-                        <div class="row mt-5">
+                        <!-- <div class="row mt-5">
                             <div class="col-md-6 justify-content-center" style="border-right: 1pt solid white;">
                                 <div class="flex-column">
                                     <div class="d-flex justify-content-center text-white">
@@ -193,7 +216,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <hr style="border-bottom: 1pt solid white;opacity: inherit;"> -->
 

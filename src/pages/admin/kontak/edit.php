@@ -30,7 +30,12 @@
                             <div class="container">
                                 <div class="mb-3">
                                     <label for="nama_kontak" class="form-label">Nama Kontak</label>
-                                    <input type="text" class="form-control" id="nama_kontak" name="nama_kontak" value="<?= $detail_one['nama_kontak'] ?>">
+                                    <input type="text" class="form-control" id="nama_kontak" name="nama_kontak" value="<?= arr_offset($detail_one, 'nama_kontak') ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="d-block">Sembunyikan</label>
+                                    <input type="radio" name="ishide_kontak" class="d-inline" value="1" <?= arr_offset($detail_one, 'ishide_kontak') == '1' ? 'checked' : '' ?>> Ya
+                                    <input type="radio" name="ishide_kontak" class="d-inline ml-2" value="2" <?= arr_offset($detail_one, 'ishide_kontak') == '2' ? 'checked' : '' ?>> Tidak
                                 </div>
                                 <!-- <div class="mb-3">
                                     <label for="ikon_kontak" class="form-label">Ikon Kontak (Bootstrap Icon Class)</label>
@@ -48,7 +53,7 @@
                                     <label for="" class="form-label">Alamat</label>
                                     <div class="row">
                                         <div class="col-6">
-                                            <textarea name="alamat" class="form-control mb-2" placeholder="Alamat Lengkap Perusahaan" rows="5"><?= $kontak->getKontak($detail, 'alamat')['isi_kontak']; ?></textarea>
+                                            <textarea name="alamat" class="form-control mb-2" placeholder="Alamat Lengkap Perusahaan" rows="5"><?= $kontak->getKontak($detail->items, 'alamat')['isi_kontak']; ?></textarea>
                                         </div>
                                         <div class="col-6">
                                             <small class="text-muted">
@@ -63,8 +68,8 @@
                                     <label for="" class="form-label">Jam Operasional</label>
                                     <div class="row">
                                         <div class="col-6">
-                                            <input type="text" name="jam_operasional_normal" class="form-control mb-2" placeholder="Hari & Jam Operasional" value="<?= $kontak->getKontak($detail, 'jam_operasional', 'normal')['isi_kontak']; ?>">
-                                            <input type="text" name="jam_operasional_libur" class="form-control" placeholder="Hari Libur" value="<?= $kontak->getKontak($detail, 'jam_operasional', 'libur')['isi_kontak']; ?>">
+                                            <input type="text" name="jam_operasional_normal" class="form-control mb-2" placeholder="Hari & Jam Operasional" value="<?= $kontak->getKontak($detail->items, 'jam_operasional', 'normal')['isi_kontak']; ?>">
+                                            <input type="text" name="jam_operasional_libur" class="form-control" placeholder="Hari Libur" value="<?= $kontak->getKontak($detail->items, 'jam_operasional', 'libur')['isi_kontak']; ?>">
                                         </div>
                                         <div class="col-6">
                                             <small class="text-muted">
@@ -83,15 +88,15 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="">Customer Service</label>
-                                            <input type="text" name="customer_service_nama" class="form-control mb-2" placeholder="Nama Kontak" value="<?= $kontak->getKontak($detail, 'customer_service', 'nama')['isi_kontak']; ?>">
-                                            <input type="text" name="customer_service_nomor" class="form-control mb-2" placeholder="Nomor Kontak" value="<?= $kontak->getKontak($detail, 'customer_service', 'nomor')['isi_kontak']; ?>">
-                                            <input type="text" name="customer_service_email" class="form-control" placeholder="Email Kontak" value="<?= $kontak->getKontak($detail, 'customer_service', 'email')['isi_kontak']; ?>">
+                                            <input type="text" name="customer_service_nama" class="form-control mb-2" placeholder="Nama Kontak" value="<?= $kontak->getKontak($detail->items, 'customer_service', 'nama')['isi_kontak']; ?>">
+                                            <input type="text" name="customer_service_nomor" class="form-control mb-2" placeholder="Nomor Kontak" value="<?= $kontak->getKontak($detail->items, 'customer_service', 'nomor')['isi_kontak']; ?>">
+                                            <input type="text" name="customer_service_email" class="form-control" placeholder="Email Kontak" value="<?= $kontak->getKontak($detail->items, 'customer_service', 'email')['isi_kontak']; ?>">
                                         </div>
                                         <div class="col-6">
                                             <label for="">Technical Support</label>
-                                            <input type="text" name="technical_support_nama" class="form-control mb-2" placeholder="Nama Kontak" value="<?= $kontak->getKontak($detail, 'technical_support', 'nama')['isi_kontak']; ?>">
-                                            <input type="text" name="technical_support_nomor" class="form-control mb-2" placeholder="Nomor Kontak" value="<?= $kontak->getKontak($detail, 'technical_support', 'nomor')['isi_kontak']; ?>">
-                                            <input type="text" name="technical_support_email" class="form-control" placeholder="Email Kontak" value="<?= $kontak->getKontak($detail, 'technical_support', 'email')['isi_kontak']; ?>">
+                                            <input type="text" name="technical_support_nama" class="form-control mb-2" placeholder="Nama Kontak" value="<?= $kontak->getKontak($detail->items, 'technical_support', 'nama')['isi_kontak']; ?>">
+                                            <input type="text" name="technical_support_nomor" class="form-control mb-2" placeholder="Nomor Kontak" value="<?= $kontak->getKontak($detail->items, 'technical_support', 'nomor')['isi_kontak']; ?>">
+                                            <input type="text" name="technical_support_email" class="form-control" placeholder="Email Kontak" value="<?= $kontak->getKontak($detail->items, 'technical_support', 'email')['isi_kontak']; ?>">
                                         </div>
                                     </div>
                                 </div>

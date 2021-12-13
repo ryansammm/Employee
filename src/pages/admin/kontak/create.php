@@ -32,6 +32,11 @@
                                     <label for="nama_kontak" class="form-label">Nama Kontak</label>
                                     <input type="text" class="form-control" id="nama_kontak" name="nama_kontak">
                                 </div>
+                                <div class="mb-3">
+                                    <label for="" class="d-block">Sembunyikan</label>
+                                    <input type="radio" name="ishide_kontak" class="d-inline" value="1"> Ya
+                                    <input type="radio" name="ishide_kontak" class="d-inline ml-2" value="2" checked> Tidak
+                                </div>
                                 <!-- <div class="mb-3">
                                     <label for="ikon_kontak" class="form-label">Ikon Kontak (Bootstrap Icon Class)</label>
                                     <div class="d-block">

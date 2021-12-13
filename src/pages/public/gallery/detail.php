@@ -111,7 +111,7 @@
                 <div class="row">
                     <?php foreach ($data_group_galeri->items as $key => $value) { ?>
                         <div class="col-md-2">
-                            <a type="button" href="" data-bs-toggle="modal" data-bs-target="#detailGaleri">
+                            <a type="button" href="" data-bs-toggle="modal" data-bs-target="#detailGaleri" data-file="<?= show($value['path_media']) ?>">
                                 <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>); width: 170px; height: 170px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
                             </a>
                         </div>
@@ -126,19 +126,19 @@
 
 <!-- Modal -->
 <div class="modal fade" id="detailGaleri" tabindex="-1" aria-labelledby="detailGaleriLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <!-- <h5 class="modal-title" id="detailGaleriLabel">Modal title</h5> -->
+            <!-- <div class="modal-header">
+                <h5 class="modal-title" id="detailGaleriLabel">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> -->
+            <div class="modal-body m-0 p-0">
+                <img src="" alt="" class="img-fluid detailGaleri d-none" style="width: 100%;height: auto;">
+                <iframe src="" frameborder="0" id="detailGaleriPDF" style="display: block;width:100%;height:400px;"></iframe>
             </div>
-            <div class="modal-body">
-                <img src="" alt="" class="img-fluid fileSakip d-none">
-                <iframe src="" frameborder="0" id="detailGaleri" style="display: block;width:100%;height:400px;"></iframe>
-            </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -151,21 +151,19 @@
         var extFile = file.split(".");
 
         if (extFile[1] == "jpg" || extFile[1] == "png" || extFile[1] == "jpeg") {
-            $(this).find(".fileSakip").removeClass("d-none");
-            $(this).find("#fileSakipPDF").addClass("d-none");
+            $(this).find(".detailGaleri").removeClass("d-none");
+            $(this).find("#detailGaleriPDF").addClass("d-none");
             $(this)
-                .find(".fileSakip")[0]
+                .find(".detailGaleri")[0]
                 .setAttribute("src", "/assets/media/" + file);
         } else {
-            $(this).find(".fileSakip").addClass("d-none");
-            $(this).find("#fileSakipPDF").removeClass("d-none");
+            $(this).find(".detailGaleri").addClass("d-none");
+            $(this).find("#detailGaleriPDF").removeClass("d-none");
             $(this)
-                .find("#fileSakipPDF")[0]
+                .find("#detailGaleriPDF")[0]
                 .setAttribute("src", "/assets/media/" + file);
         }
     });
 </script>
-
-
 
 <?php include __DIR__ . '/../Footer.php' ?>

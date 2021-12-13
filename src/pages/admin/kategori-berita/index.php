@@ -33,29 +33,33 @@
                 </div>
             </div> -->
 
-            <table class="table table-sm" id="myTable">
-                <thead class="table-light">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Kategori Berita</th>
-                        <th scope="col">url</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="table-light">
-                    <?php foreach ($data_kategori_berita->items as $key => $value) { ?>
-                        <tr>
-                            <td><?= $key + 1 ?></td>
-                            <td><?= $value['kategori_berita'] ?></td>
-                            <td><?= $value['url'] ?></td>
-                            <td>
-                                <a class="btn btn-info m-2" href="/admin/kategori-berita/<?= $value['id_kategori_berita'] ?>/edit">Edit</a>
-                                <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus_kategori_berita" data-id="<?= $value['id_kategori_berita'] ?>">hapus</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+            <div class="card">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Kategori Berita</th>
+                                <th scope="col">url</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-light">
+                            <?php foreach ($data_kategori_berita->items as $key => $value) { ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value['kategori_berita'] ?></td>
+                                    <td><?= $value['url'] ?></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-info m-2" href="/admin/kategori-berita/<?= $value['id_kategori_berita'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus_kategori_berita" data-id="<?= $value['id_kategori_berita'] ?>">hapus</a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <?= $data_kategori_berita->links() ?>
 
         </div>

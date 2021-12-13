@@ -404,21 +404,14 @@
                                                     <span>50 menit</span>
                                                 </div>
                                             </div>
-                                            <div class="col-2 d-flex">
-                                                <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                                    <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                        <i class="fas fa-share"></i>
-                                                        <span>Bagikan</span>
-                                                    </div>
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
 
                         </div>
                     </div>
+                    <?= $data_berita->links() ?>
                 </div>
             </div>
 

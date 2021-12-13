@@ -8,7 +8,7 @@
         </div>
 
         <div class="col-md-2 pe-3">
-            <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Akreditasi</h6>
+            <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Asosiasi</h6>
             <div class="row">
                 <?php foreach ($GLOBALS['akreditasi']->items as $key => $data) { ?>
                 <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
@@ -80,8 +80,6 @@
 
 
 
-<!------- JQuery ------->
-<script src="/assets/js/jquery-3.6.0.min.js"></script>
 
 <!------- Bootstrap JS ------->
 <script src="/assets/public/js/bootstrap.bundle.min.js"></script>
@@ -96,6 +94,10 @@
 <script src="/assets/plugins/owl-carousel/js/owl.carousel.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
+
+
+
 </body>
 
 </html>

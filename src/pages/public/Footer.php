@@ -54,9 +54,9 @@
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Lainnya</h6>
             <ul class="nav flex-column">
                 <?php foreach ($GLOBALS['menu_footer'] as $key1 => $data1) { ?>
-                    <li class="nav-item "><a href="<?= arr_offset($data1, 'link_url') ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank"><?= arr_offset($data1, 'cms_menu') ?></a></li>
+                    <li class="nav-item "><a href="<?= arr_offset($data1, 'link_url') ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank" aria-label="<?= arr_offset($data1, 'menu') ?>"><?= arr_offset($data1, 'menu') ?></a></li>
                 <?php } ?>
-                <li class="nav-item "><a href="/about" class="nav-link p-0 text" style="color: #c1c1c1;">Tentang Kami</a></li>
+                
             </ul>
         </div>
 
@@ -65,7 +65,6 @@
 <div class="container-fluid justify-content-center text-center py-3" style="background-color: #101010 !important;">
     <p class="text-muted mb-0">2021 &copy; Panca Teknologi Aksesindo</p>
 </div>
-
 
 
 

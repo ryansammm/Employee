@@ -60,7 +60,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Apakah anda yakin untuk menghapus kategori_galeri ini?
+                Apakah anda yakin untuk menghapus kategori galeri ini?
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('form_hapus').submit();">

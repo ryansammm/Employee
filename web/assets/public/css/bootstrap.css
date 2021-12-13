@@ -7068,6 +7068,8 @@ textarea.form-control-lg {
 
 .justify-content-center {
   justify-content: center !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .justify-content-between {

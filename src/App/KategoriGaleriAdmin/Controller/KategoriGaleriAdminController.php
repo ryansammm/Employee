@@ -56,7 +56,7 @@ class KategoriGaleriAdminController
         $id = $request->attributes->get("id");
         $this->model->where('id_kategori_galeri', $id)->update($request->request->all());
 
-        return new RedirectResponse('/admin/kategori-galeri');
+        return new RedirectResponse('/admin/kategori-galeri/konten');
     }
 
     public function delete(Request $request)

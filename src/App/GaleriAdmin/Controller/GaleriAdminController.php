@@ -27,7 +27,10 @@ class GaleriAdminController
     public function index(Request $request)
     {
         $data_galeri = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'galeri.id_galeri')
             ->paginate(10);
+
+        // dd($data_galeri);
 
         return render_template('admin/galeri/index', ['data_galeri' => $data_galeri]);
     }

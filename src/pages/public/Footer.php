@@ -2,12 +2,59 @@
 <div class="container-fluid " style="background-color: #141414 !important;">
     <footer class="row py-4 mt-5 border-top">
 
-        <div class="col-md-4 ps-5" style="margin-top: auto;margin-bottom: auto;">
-            <img src="/assets/logo/PTA-logo.png" alt="" width="80">
+        <div class="col-md-2" style="margin-top: auto;margin-bottom: auto;">
+            <img class="d-flex mx-auto mb-2" src="/assets/logo/PTA-logo.png" alt="" width="80">
             <p class=" m-0" style="color: #c1c1c1;">Panca Teknologi Aksesindo</p>
         </div>
 
-        <div class="col-md-3 text-end px-3 me-3" style="margin-top: auto;margin-bottom: auto;">
+        <div class="col-md-2 pe-3">
+            <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Akreditasi</h6>
+            <div class="row">
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 pe-3">
+            <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Akreditasi</h6>
+            <div class="row">
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+                <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <img class="rounded-circle" src="/assets/logo/square.jpg" alt="" width="100%">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 text-center" style="margin-top: auto;margin-bottom: auto;">
             <div class="d-flex-column justify-content-end">
                 <a href="">
                     <img class="mb-2" src="/assets/logo/playstore.png" alt="" style="width: 120pt;">
@@ -18,7 +65,7 @@
             </div>
         </div>
 
-        <div class="col-md-2 me-3" style="width: 11%;;margin-bottom: auto;">
+        <div class="col-md-2" style="margin-bottom: auto; width: 12% !important;">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Social Media</h6>
             <ul class="nav flex-column">
                 <li class="nav-item "><a href="#" class="nav-link p-0 text" style="color: #c1c1c1;"><i class="bi bi-facebook"></i> Facebook</a></li>
@@ -28,7 +75,7 @@
             </ul>
         </div>
 
-        <div class="col-md-3" style="margin-bottom: auto;">
+        <div class="col-md-2" style="margin-bottom: auto;width: 18% !important;">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Lainnya</h6>
             <ul class="nav flex-column">
                 <li class="nav-item "><a href="/about" class="nav-link p-0 text" style="color: #c1c1c1;">Tentang Kami</a></li>
@@ -37,6 +84,7 @@
                 <li class="nav-item "><a href="/pedoman" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank">Pedoman Media Siber</a></li>
             </ul>
         </div>
+
     </footer>
 </div>
 <div class="container-fluid justify-content-center text-center py-3" style="background-color: #101010 !important;">

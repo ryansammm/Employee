@@ -26,6 +26,7 @@ use App\KategoriGaleriAdmin\Controller\KategoriGaleriAdminController;
 use App\KategoriLayananAdmin\Controller\KategoriLayananAdminController;
 use App\KategoriProdukAdmin\Controller\KategoriProdukAdminController;
 use App\Ketentuan\Controller\KetentuanController;
+use App\Kontak\Controller\KontakController;
 use App\Layanan\Controller\LayananController;
 use App\LayananAdmin\Controller\LayananAdminController;
 use App\LikeBerita\Controller\LikeBeritaController;
@@ -322,7 +323,7 @@ $routes->prefix('admin', function ($routes) {
     /* -------------------------------------------------------------------------- */
 
 
-    /* -------------------------------- Asosiasi -------------------------------- */
+    /* -------------------------------- Route Kelola Asosiasi -------------------------------- */
     $routes->prefix('asosiasi', function ($routes) {
         $routes->push('asosiasi', '', [AsosiasiController::class, 'index']);
         $routes->push('asosiasi_create', '/create', [AsosiasiController::class, 'create']);
@@ -331,6 +332,18 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('asosiasi_update', '/{id}/update', [AsosiasiController::class, 'update']);
         $routes->push('asosiasi_show', '/{id}/show', [AsosiasiController::class, 'show']);
         $routes->push('asosiasi_delete', '/{id}/delete', [AsosiasiController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------------- Route Kelola Kontak -------------------------------- */
+    $routes->prefix('kontak', function ($routes) {
+        $routes->push('kontak', '', [KontakController::class, 'index']);
+        $routes->push('kontak_create', '/create', [KontakController::class, 'create']);
+        $routes->push('kontak_store', '/store', [KontakController::class, 'store']);
+        $routes->push('kontak_edit', '/{id}/edit', [KontakController::class, 'edit']);
+        $routes->push('kontak_update', '/{id}/update', [KontakController::class, 'update']);
+        $routes->push('kontak_show', '/{id}/show', [KontakController::class, 'show']);
+        $routes->push('kontak_delete', '/{id}/delete', [KontakController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 });

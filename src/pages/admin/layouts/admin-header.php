@@ -15,7 +15,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets/admin/css/adminlte.min.css">
     <!-- summernote -->
@@ -26,6 +26,8 @@
     <script src="/assets/js/jquery-3.3.1.min.js"></script>
     <!-- Bootstrap -->
     <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!------- Bootstrap Icon ------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
 </head>
 

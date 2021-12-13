@@ -23,8 +23,9 @@ class ContactController
     public function index(Request $request)
     {
         $errors = SessionData::get()->getFlashBag()->get('errors');
+        $success = SessionData::get()->getFlashBag()->get('success');
         // dd($errors);
-        return render_template('public/contact/index', ['errors' => $errors]);
+        return render_template('public/contact/index', ['errors' => $errors, 'success' => $success]);
     }
 
     public function create(Request $request)
@@ -32,6 +33,7 @@ class ContactController
         $validasi = new ContactValidation($request);
         $validasiTest = $validasi->validate();
         if (!$validasiTest->passed) {
+            //dd($validasi, $request->request->all());
             return new RedirectResponse('/contact');
         }
         ini_set('default_socket_timeout', 360);
@@ -81,6 +83,8 @@ class ContactController
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
             die();
+        } else {
+            SessionData::get()->getFlashBag()->set('success', "Pesan anda telah terkirim! silakan ditunggu balasannya");
         }
 
         return new RedirectResponse('/contact');

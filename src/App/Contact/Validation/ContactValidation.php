@@ -19,9 +19,9 @@ class ContactValidation extends Validation
             'name:Nama Lengkap' => ['required', 'fullname'],
             'email:Email' => ['required', 'email'],
             'phone:Nomor Handphone' => ['required', 'length(min:11,max:12)'],
-            'company:Perusahaan' => ['required', 'fullname'],
+            'company:Perusahaan' => ['required', 'length(min:3,max:50)'],
             'subject:Subjek' => ['required', 'fullname'],
-            'pesan:Pesan' => ['required', 'fullname'],
+            'message:Pesan' => ['required', 'fullname'],
             // 'gambar_thumbnail_berita:Cover Berita' => ['required', 'uploadextension(allowed:jpg,png,jpeg)'],
         ];
     }
@@ -39,8 +39,8 @@ class ContactValidation extends Validation
             'company.fullname' => '{label} harus lengkap dan nyata',
             'subject.required' => '{label} harus diisi',
             'subject.fullname' => '{label} harus lengkap dan nyata',
-            'pesan.required' => '{label} harus diisi',
-            'pesan.fullname' => '{label} harus lengkap dan nyata',
+            'message.required' => '{label} harus diisi',
+            'message.fullname' => '{label} harus lengkap dan nyata',
         ];
     }
 }

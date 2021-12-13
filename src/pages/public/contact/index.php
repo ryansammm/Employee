@@ -9,6 +9,9 @@
                     <div class="card-body">
                         <div class="form h-100">
                             <h3>Kirim Pesan</h3>
+                            <?php if (isset($success[0])) { ?>
+                                <span class="text-success d-block"><b><?= $success[0] ?></b></span>
+                            <?php } ?>
                             <hr>
                             <form class="mb-5" method="post" id="contactForm" name="contactForm" action="/contact/kintun">
                                 <div class="row">

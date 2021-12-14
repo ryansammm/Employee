@@ -146,7 +146,7 @@
                         <!-- Pake justify-content-center mun rek katengah -->
                         <div class="col-12 d-flex <?= $GLOBALS['web_title']['cms_title_position'] == '2' ? 'justify-content-center' : ($GLOBALS['web_title']['cms_title_position'] == '3' ? 'justify-content-end' : '') ?>">
                             <?php if ($GLOBALS['web_title']['cms_title_position'] == '3' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
-                                <form class="pe-5">
+                                <form class="pe-5" action="" method="POST">
                                     <div class="input-group mt-3 ms-3" style="width: 570pt;">
                                         <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
                                     </div>
@@ -167,15 +167,21 @@
                             </div>
                             <!-- mun katengah, si form di hide -->
                             <?php if ($GLOBALS['web_title']['cms_title_position'] == '1' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
-                                <form class="">
-                                    <div class="input-group mt-3 ms-3" style="width: 570pt;">
+                                <form action="/search" method="GET">
+                                    <!-- <div class="input-group mt-3 ms-3" style="width: 570pt;">
                                         <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
+                                    </div> -->
+                                    <div class="input-group mt-3 ms-3">
+                                        <input type="text" class="form-control" name="search" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 500pt;">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+                                        </div>
                                     </div>
                                 </form>
                             <?php } ?>
                         </div>
 
-                        <div class="" style="position: absolute;top: 20%;">
+                        <!-- <div class="" style="position: absolute;top: 20%;">
                             <ul class="nav justify-content-end" style="height: 100%;">
                                 <li class="nav-item" style="margin-top: auto;margin-bottom: auto;">
                                     <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none" style="color: #fc5102;">
@@ -183,7 +189,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>

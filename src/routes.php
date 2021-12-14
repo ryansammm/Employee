@@ -40,6 +40,7 @@ use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
+use App\Search\Controller\SearchController;
 use App\SosialMedia\Controller\SosialMediaController;
 use App\SubMenu\Controller\SubMenuController;
 use App\Users\Controller\UsersController;
@@ -441,5 +442,9 @@ $routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
 // routes like berita
 $routes->push('like-berita', '/likeBerita/{id}/store', [LikeBeritaController::class, 'storeLike']);
 $routes->push('dislike-berita', '/dislikeBerita/{id}/store', [LikeBeritaController::class, 'storeDislike']);
+
+// routes search header
+$routes->push('search_result', '/search', [SearchController::class, 'index']);
+// $routes->push('search', '{url}', [SearchController::class, 'index']);
 
 return $routes;

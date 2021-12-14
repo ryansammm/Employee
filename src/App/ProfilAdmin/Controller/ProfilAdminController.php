@@ -59,7 +59,6 @@ class ProfilAdminController
             $this->profilAdmin->insert($request->request->all());
         }
 
-        $media->deleteMedia($datas);
         $media->updateMedia($request->files->get('profil_foto'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',

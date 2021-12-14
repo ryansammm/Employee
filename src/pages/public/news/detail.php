@@ -46,64 +46,6 @@
                             <button type="submit" class="btn btn-danger rounded mt-3">Kirim</button>
                         </div>
                     </form>
-                    <!-- <nav>
-                    <div class="nav nav-tabs" id="nav-tab">
-                        <a class="nav-item nav-link active" data-toggle="tab" href="#nav-semua" role="tab">Semua Komentar</a>
-                    </div>
-                </nav>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active p-3" id="nav-semua" role="tabpanel">
-                        <span>2 Komentar</span>
-                        <div class="row my-3">
-                            <div class="col-sm-2">
-                                <img src="https://awsimages.detik.net.id/community/media/visual/2019/09/25/f970f73a-2f96-47f0-9de8-70ba736a287f.jpeg?w=750&q=90" class="rounded-circle" width="80px">
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="d-flex">
-                                    <h6>Johan Yudiono</h6>
-                                    <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
-                                </div>
-                                <p class="text-grey">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                    nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-                                    erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                                    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-                                </p>
-                                <span class="pe-2 text-lightgrey"><i class="far fa-thumbs-up"></i>2k</span>
-                                <span class="pe-2 text-lightgrey"><i class="far fa-thumbs-down"></i></i>50</span>
-                                <span class="pe-2 text-lightgrey"><i class="far fa-comment"></i>1</span>
-                                <div class="card shadow my-2 p-2">
-                                    <span>Balasan</span>
-                                    <div class="row my-3">
-                                        <div class="col-sm-3">
-                                            <img src="https://awsimages.detik.net.id/community/media/visual/2019/09/25/f970f73a-2f96-47f0-9de8-70ba736a287f.jpeg?w=750&q=90" class="rounded-circle" width="80px">
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="d-flex">
-                                                <h6>Johan Yudiono</h6>
-                                                <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
-                                            </div>
-                                            <p class="text-grey">
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-                                                erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                                                tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-                                            </p>
-                                            <span class="pe-2 text-lightgrey"><i class="far fa-thumbs-up"></i>2k</span>
-                                            <span class="pe-2 text-lightgrey"><i class="far fa-thumbs-down"></i></i>50</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-populer" role="tabpanel">
-                        <h4>Komentar Populer</h4>
-                    </div>
-                    <div class="tab-pane fade" id="nav-terbaru" role="tabpanel">
-                        <h4>Komentar Terbaru</h4>
-                    </div>
-                </div> -->
                 </div>
             <?php } ?>
 
@@ -114,9 +56,8 @@
         <div class="col-md-4">
             <div class="row d-flex align-items-center">
 
-                <!------- Trending ------->
+                <!------- Berita Hangat ------->
                 <div class="card mb-4 px-0">
-
                     <div style="background-color: white;padding: 5px 0 5px 0;">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h5>
@@ -124,18 +65,17 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-body" style="height: 460px;overflow-y:scroll;padding: 0;">
-
-                            <?php foreach ($data_berita->items as $key => $value) { ?>
-                                <div class="side-news-item">
+                        <div class="card-body" style="height: 558px;padding: 0;">
+                            <?php foreach ($data_berita_hangat->items as $key => $value) { ?>
+                                <div class="<?= $key == (count($data_berita_hangat->items) - 1) ? '' : 'side-news-item' ?>" style="<?= $key == (count($data_berita_hangat->items) - 1) ? 'padding: 0.5rem 1rem;' : '' ?>">
                                     <div class="row">
-                                        <div class="d-flex">
-                                            <a href="/news/<?= $value['id_berita'] ?>/detail" class="text-decoration-none text-dark">
-                                                <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;"><?= $value['judul_berita'] ?></h6>
-                                            </a>
-                                            <a href="/news/<?= $value['id_berita'] ?>/detail">
-                                                <div class="rounded" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: center; width: 80px; height: 80px;"></div>
-                                            </a>
+                                        <div class="col-md-8 pe-0">
+                                            <h6 class="card-title">
+                                                <a href="/news/<?= $value['id_berita'] ?>/detail" class="text-decoration-none text-dark truncate-string-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $value['judul_berita'] ?>"><?= $value['judul_berita'] ?></a>
+                                            </h6>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="rounded" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: center; width: 100%; height: 80px;"></div>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
@@ -174,8 +114,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <?php  } ?>
-
+                            <?php } ?>
                         </div>
                     </div>
 
@@ -202,7 +141,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!------- Model Share ------->

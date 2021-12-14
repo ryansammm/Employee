@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 10:33 AM
+-- Generation Time: Dec 14, 2021 at 08:53 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.26
 
@@ -84,14 +84,7 @@ CREATE TABLE `asosiasi` (
   `nama_asosiasi` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `asosiasi`
---
-
-INSERT INTO `asosiasi` (`id_asosiasi`, `nama_asosiasi`, `created_at`, `updated_at`) VALUES
-('61b6d80d6764b', 'Asosiasi A', '2021-12-13 05:20:13', '2021-12-13 05:20:13');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -415,13 +408,6 @@ CREATE TABLE `galeri` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
---
--- Dumping data for table `galeri`
---
-
-INSERT INTO `galeri` (`id_galeri`, `id_kategori_galeri`, `judul_galeri`, `deskripsi_galeri`, `tgl_galeri`, `created_at`, `updated_at`) VALUES
-('61b611fea79c9', '61a6f809f4090', 'Kegiatan A', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2021-12-12', '2021-12-12 15:15:10', '2021-12-12 15:15:10');
-
 -- --------------------------------------------------------
 
 --
@@ -445,8 +431,6 @@ CREATE TABLE `group_galeri` (
 --
 
 INSERT INTO `group_galeri` (`id_group_galeri`, `id_galeri`, `judul_group_galeri`, `deskripsi_group_galeri`, `tanggal_publish`, `id_user`, `kategori_group_galeri`, `created_at`, `updated_at`) VALUES
-('61b611febeda3', '61b611fea79c9', 'Foto A', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', '2021-12-12', 'usr61037f9c85184', 'foto', '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
-('61b611fec1506', '61b611fea79c9', 'Foto B', 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', '2021-12-12', 'usr61037f9c85184', 'foto', '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
 ('grglr611cf8d93e52a', 'grglr611cf8ba6d056', '', '', '2021-08-18', '', 'video_youtube', NULL, NULL),
 ('grglr611cf8d95edd7', 'grglr611cf8ba875de', '', '', '2021-08-18', '', 'foto', NULL, NULL),
 ('grglr611cfaa8b6c0d', 'glr611cfaa89f6ce', '', '', '2021-09-06', '', 'video_upload', NULL, '2021-09-06 03:40:12'),
@@ -511,8 +495,9 @@ CREATE TABLE `kategori_galeri` (
 --
 
 INSERT INTO `kategori_galeri` (`id_kategori_galeri`, `nama_kategori_galeri`, `created_at`, `updated_at`) VALUES
-('61a6f8062e856', 'Lapangan', '2021-12-01 04:20:22', '2021-12-01 04:20:22'),
-('61a6f809f4090', 'Kegiatan', '2021-12-01 04:20:25', '2021-12-01 04:20:25');
+('61a6f8062e856', 'Tess', '2021-12-01 04:20:22', '2021-12-01 04:20:22'),
+('61a6f809f4090', '1111', '2021-12-01 04:20:25', '2021-12-01 04:20:25'),
+('61a6f80e2004b', '2222', '2021-12-01 04:20:30', '2021-12-01 04:20:30');
 
 -- --------------------------------------------------------
 
@@ -577,6 +562,82 @@ CREATE TABLE `kategori_produk` (
 INSERT INTO `kategori_produk` (`id_kategori_produk`, `nama_kategori_produk`, `created_at`, `updated_at`) VALUES
 ('619fba433c765', 'Tes111', '2021-11-25 16:30:59', '2021-11-25 16:30:59'),
 ('8293746', 'Barang', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kontak`
+--
+
+CREATE TABLE `kontak` (
+  `id_kontak` varchar(255) NOT NULL,
+  `nama_kontak` varchar(255) DEFAULT NULL,
+  `isi_kontak` varchar(255) DEFAULT NULL,
+  `ikon_kontak` varchar(255) DEFAULT NULL,
+  `ishide_kontak` char(1) DEFAULT '2' COMMENT '1=ya, 2=tidak',
+  `id_kontak_jenis` varchar(255) DEFAULT NULL,
+  `jenis_kontak` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `kontak`
+--
+
+INSERT INTO `kontak` (`id_kontak`, `nama_kontak`, `isi_kontak`, `ikon_kontak`, `ishide_kontak`, `id_kontak_jenis`, `jenis_kontak`, `created_at`, `updated_at`) VALUES
+('61b720a9af7b3', 'Alamat Kantor Pusat', 'Jln. Talun Kidul RT.01/RW.06, Kel.Talun, Kec. Sumedang Utara, Kab. Sumedang, 40235', 'fas fa-map-marker-alt', '2', '129asjdhjas', NULL, '2021-12-13 10:30:01', '2021-12-13 10:30:01'),
+('61b720a9c6dfe', 'Alamat Kantor Pusat', 'Senin - Jum\'at | 08.00 s/d 17.00 WIB', 'fas fa-clock', '2', 'sadyi1762e', 'normal', '2021-12-13 10:30:01', '2021-12-13 10:30:01'),
+('61b720a9d2fc3', 'Alamat Kantor Pusat', 'Sabtu - Minggu & hari libur nasional, hubungi customer service kami', 'fas fa-clock', '2', 'sadyi1762e', 'libur', '2021-12-13 10:30:01', '2021-12-13 10:30:01'),
+('61b720a9dc6f4', 'Alamat Kantor Pusat', 'Ryan Samsudin', 'fas fa-user', '2', 'kasd87293', 'nama', '2021-12-13 10:30:01', '2021-12-13 10:30:01'),
+('61b720a9ecfa2', 'Alamat Kantor Pusat', '089-531-123-123', 'fas fa-user', '2', 'kasd87293', 'nomor', '2021-12-13 10:30:01', '2021-12-13 10:30:01'),
+('61b720aa0d5ee', 'Alamat Kantor Pusat', 'ryan@mail.com', 'fas fa-user', '2', 'kasd87293', 'email', '2021-12-13 10:30:02', '2021-12-13 10:30:02'),
+('61b720aa1ac71', 'Alamat Kantor Pusat', 'Ryan Samsudin', 'fas fa-user-cog', '2', 'sd9892387', 'nama', '2021-12-13 10:30:02', '2021-12-13 10:30:02'),
+('61b720aa242b6', 'Alamat Kantor Pusat', '089-531-123-123', 'fas fa-user-cog', '2', 'sd9892387', 'nomor', '2021-12-13 10:30:02', '2021-12-13 10:30:02'),
+('61b720aa30848', 'Alamat Kantor Pusat', 'ryan@mail.com', 'fas fa-user-cog', '2', 'sd9892387', 'email', '2021-12-13 10:30:02', '2021-12-13 10:30:02'),
+('61b721332a2b5', 'Alamat Workshop', 'Jln. Talun Kidul RT.01/RW.06, Kel.Talun, Kec. Sumedang Utara, Kab. Sumedang, 40235', 'fas fa-map-marker-alt', '2', '129asjdhjas', NULL, '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b721333d1e7', 'Alamat Workshop', 'Senin - Jum\'at | 08.00 s/d 17.00 WIB', 'fas fa-clock', '2', 'sadyi1762e', 'normal', '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b721334e682', 'Alamat Workshop', 'Sabtu - Minggu & hari libur nasional, hubungi customer service kami', 'fas fa-clock', '2', 'sadyi1762e', 'libur', '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b721335f0ff', 'Alamat Workshop', 'Ryan Samsudin', 'fas fa-user', '2', 'kasd87293', 'nama', '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b7213373a90', 'Alamat Workshop', '089-531-123-123', 'fas fa-user', '2', 'kasd87293', 'nomor', '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b72133894a2', 'Alamat Workshop', 'ryan@mail.com', 'fas fa-user', '2', 'kasd87293', 'email', '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b72133981cd', 'Alamat Workshop', 'Ryan Samsudin', 'fas fa-user-cog', '2', 'sd9892387', 'nama', '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b72133ab0cc', 'Alamat Workshop', '089-531-123-123', 'fas fa-user-cog', '2', 'sd9892387', 'nomor', '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b72133c2b88', 'Alamat Workshop', 'ryan@mail.com', 'fas fa-user-cog', '2', 'sd9892387', 'email', '2021-12-13 10:32:19', '2021-12-13 10:32:19'),
+('61b74d87496e1', 'Alamat Kantor Cabang', '1', NULL, '1', NULL, NULL, '2021-12-13 13:41:27', '2021-12-13 13:41:27'),
+('61b74d8770e7f', 'Alamat Kantor Cabang', 'Jln. Talun Kidul RT.01/RW.06, Kel.Talun, Kec. Sumedang Utara, Kab. Sumedang, 40235', 'fas fa-map-marker-alt', '1', '129asjdhjas', NULL, '2021-12-13 13:41:27', '2021-12-13 13:41:27'),
+('61b74d87812a8', 'Alamat Kantor Cabang', 'Senin - Jum\'at | 08.00 s/d 17.00 WIB', 'fas fa-clock', '1', 'sadyi1762e', 'normal', '2021-12-13 13:41:27', '2021-12-13 13:41:27'),
+('61b74d8790651', 'Alamat Kantor Cabang', 'Sabtu - Minggu & hari libur nasional, hubungi customer service kami', 'fas fa-clock', '1', 'sadyi1762e', 'libur', '2021-12-13 13:41:27', '2021-12-13 13:41:27'),
+('61b74d87a3f16', 'Alamat Kantor Cabang', 'Ryan Samsudin', 'fas fa-user', '1', 'kasd87293', 'nama', '2021-12-13 13:41:27', '2021-12-13 13:41:27'),
+('61b74d87b3cb5', 'Alamat Kantor Cabang', '089-531-123-123', 'fas fa-user', '1', 'kasd87293', 'nomor', '2021-12-13 13:41:27', '2021-12-13 13:41:27'),
+('61b74d87bfd4e', 'Alamat Kantor Cabang', 'ryan@mail.com', 'fas fa-user', '1', 'kasd87293', 'email', '2021-12-13 13:41:27', '2021-12-13 13:41:27'),
+('61b74d87db412', 'Alamat Kantor Cabang', 'Ryan Samsudin', 'fas fa-user-cog', '1', 'sd9892387', 'nama', '2021-12-13 13:41:27', '2021-12-13 13:41:27'),
+('61b74d881e2af', 'Alamat Kantor Cabang', '089-531-123-123', 'fas fa-user-cog', '1', 'sd9892387', 'nomor', '2021-12-13 13:41:28', '2021-12-13 13:41:28'),
+('61b74d8830444', 'Alamat Kantor Cabang', 'ryan@mail.com', 'fas fa-user-cog', '1', 'sd9892387', 'email', '2021-12-13 13:41:28', '2021-12-13 13:41:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kontak_jenis`
+--
+
+CREATE TABLE `kontak_jenis` (
+  `id_kontak_jenis` varchar(255) NOT NULL,
+  `nama_kontak_jenis` varchar(255) DEFAULT NULL,
+  `alias_kontak_jenis` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `kontak_jenis`
+--
+
+INSERT INTO `kontak_jenis` (`id_kontak_jenis`, `nama_kontak_jenis`, `alias_kontak_jenis`, `created_at`, `updated_at`) VALUES
+('129asjdhjas', 'Alamat', 'alamat', '2021-12-13 08:14:06', '2021-12-13 08:14:09'),
+('kasd87293', 'Customer Service', 'customer_service', '2021-12-13 08:20:21', '2021-12-13 08:20:24'),
+('sadyi1762e', 'Jam Operasional', 'jam_operasional', '2021-12-13 09:00:14', '2021-12-13 09:00:16'),
+('sd9892387', 'Technical Support', 'technical_support', '2021-12-13 08:20:43', '2021-12-13 08:20:49');
 
 -- --------------------------------------------------------
 
@@ -655,7 +716,6 @@ INSERT INTO `media` (`id_media`, `path_media`, `id_relation`, `id_entity`, `jeni
 ('61af360ea6a26', 'improve-teaser-61af360e9e746.jpg', '61af360e9d9e0', 'usr61037f9c85184', NULL, '2021-12-07 10:23:10', '2021-12-07 10:23:10'),
 ('61af3790c7eb8', 'support-61af3790c4dd3.jpg', '61af357e487b1', 'usr61037f9c85184', NULL, '2021-12-07 10:29:36', '2021-12-07 10:29:36'),
 ('61b179db2f49a', 'pta-logo-61b179db05ab4.png', NULL, 'usr61037f9c85184', 'cms-title', '2021-12-09 03:36:59', '2021-12-09 03:36:59'),
-('61b2f31fca162', '7ba60f36b4912b0d0bd5b7a524ee0073c74a5444-1920x1080-61b2f31fbad9d.jpg', 'usr61037f9c85184', 'usr61037f9c85184', NULL, '2021-12-10 06:26:39', '2021-12-10 06:26:39'),
 ('61b2f3c457fbc', 'aardmwn-61b2f3c452753.jpg', '61b2f3c44ea85', 'usr61037f9c85184', NULL, '2021-12-10 06:29:24', '2021-12-10 06:29:24'),
 ('61b2f400d5bec', 'bb1gmrt7-61b2f400d3d93.jpg', '61b2f400d32b1', 'usr61037f9c85184', NULL, '2021-12-10 06:30:24', '2021-12-10 06:30:24'),
 ('61b2f441b23cf', 'aaremeq-61b2f441b04a0.jpg', '61b2f441af9f6', 'usr61037f9c85184', NULL, '2021-12-10 06:31:29', '2021-12-10 06:31:29'),
@@ -672,18 +732,15 @@ INSERT INTO `media` (`id_media`, `path_media`, `id_relation`, `id_entity`, `jeni
 ('61b2fd0b79750', 'training-1-ou1n3ptzfgacm1y1ned50o228ma0fzad82wbwv194s-61b2fd0b779dc.png', '61b2fd0b65d25', 'usr61037f9c85184', NULL, '2021-12-10 07:08:59', '2021-12-10 07:08:59'),
 ('61b2fd89f2474', '164123455-61b2fd89f02db.jpg', '61b2fd89ef6a4', 'usr61037f9c85184', NULL, '2021-12-10 07:11:05', '2021-12-10 07:11:05'),
 ('61b2fdc9c7f62', '7ba60f36b4912b0d0bd5b7a524ee0073c74a5444-1920x1080-61b2fdc9c3753.jpg', '61b2fcdd49237', 'usr61037f9c85184', NULL, '2021-12-10 07:12:09', '2021-12-10 07:12:09'),
-('61b611febdc6b', '164123455-61b611fead67a.jpg', '61b611fea79c9', 'usr61037f9c85184', 'cover-galeri', '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
-('61b611fec04ab', 'aarfdew-61b611febf4be.jpg', '61b611febeda3', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
-('61b611fec2ad5', 'aarf9bs-61b611fec1b7f.jpg', '61b611fec1506', 'usr61037f9c85184', NULL, '2021-12-12 15:15:10', '2021-12-12 15:15:10'),
-('61b6d80d79fda', 'square-61b6d80d683a0.jpg', '61b6d80d6764b', 'usr61037f9c85184', NULL, '2021-12-13 05:20:13', '2021-12-13 05:20:13'),
-('61b6e7855e91e', 'square-61b6e78559799.jpg', '61b6cda7aa5bd', 'usr61037f9c85184', NULL, '2021-12-13 06:26:13', '2021-12-13 06:26:13'),
-('61b6e78ab0954', 'square-61b6e78aac5a4.jpg', '61b6ce14d6870', 'usr61037f9c85184', NULL, '2021-12-13 06:26:18', '2021-12-13 06:26:18'),
-('61b6e78f90356', 'square-61b6e78f8b0b5.jpg', '61b6ce2c16532', 'usr61037f9c85184', NULL, '2021-12-13 06:26:23', '2021-12-13 06:26:23'),
-('61b6e79ad8bca', 'square-61b6e79ad6070.jpg', '61b6ce3b8d049', 'usr61037f9c85184', NULL, '2021-12-13 06:26:34', '2021-12-13 06:26:34'),
-('61b6e7c8a2fe3', 'square-61b6e7c89ce7e.jpg', '61b6ce4b3f8c9', 'usr61037f9c85184', NULL, '2021-12-13 06:27:20', '2021-12-13 06:27:20'),
-('61b6e7ce14ed7', 'square-61b6e7ce10354.jpg', '61b6ce584818d', 'usr61037f9c85184', NULL, '2021-12-13 06:27:26', '2021-12-13 06:27:26'),
-('61b6ee729b360', 'square-61b6ee7298bb4.jpg', '61b6ee7297e52', 'usr61037f9c85184', NULL, '2021-12-13 06:55:46', '2021-12-13 06:55:46'),
-('61b6f3f21426b', 'square-61b6f3f2104fd.jpg', '61b6f3f20f4cf', 'usr61037f9c85184', NULL, '2021-12-13 07:19:14', '2021-12-13 07:19:14');
+('61b6cda84fa5a', 'layer-46140354cd90cd-61b6cda7be586.png', '61b6cda7aa5bd', 'usr61037f9c85184', NULL, '2021-12-13 04:35:52', '2021-12-13 04:35:52'),
+('61b6ce1525b2e', 'layer-7614035f392df4-61b6ce1508b6e.png', '61b6ce14d6870', 'usr61037f9c85184', NULL, '2021-12-13 04:37:41', '2021-12-13 04:37:41'),
+('61b6ce2c26e31', 'layer-56140355cc4341-61b6ce2c21e8a.png', '61b6ce2c16532', 'usr61037f9c85184', NULL, '2021-12-13 04:38:04', '2021-12-13 04:38:04'),
+('61b6ce3ba7aaf', 'layer-66140356c5c703-61b6ce3b9c7e7.png', '61b6ce3b8d049', 'usr61037f9c85184', NULL, '2021-12-13 04:38:19', '2021-12-13 04:38:19'),
+('61b6ce4b4be17', 'layer-261403537ab812-61b6ce4b4800f.png', '61b6ce4b3f8c9', 'usr61037f9c85184', NULL, '2021-12-13 04:38:35', '2021-12-13 04:38:35'),
+('61b6ce589d94e', 'layer-86140360030a43-61b6ce587bf07.png', '61b6ce584818d', 'usr61037f9c85184', NULL, '2021-12-13 04:38:48', '2021-12-13 04:38:48'),
+('61b722fd58d92', 'logoerzie611cd1bdaf28c-61b722fd31691.png', NULL, 'usr61037f9c85184', NULL, '2021-12-13 10:39:57', '2021-12-13 10:39:57'),
+('61b83941edfc6', '164123455-61b83941e77dc.jpg', 'usr61037f9c85184', 'usr61037f9c85184', 'profil_foto', '2021-12-14 06:27:13', '2021-12-14 06:27:13'),
+('61b83941f1d0d', '20191114-screen-shot-201-1200-650thumb-61b83941ef008.png', 'usr61037f9c85184', 'usr61037f9c85184', 'struktur_organisasi', '2021-12-14 06:27:13', '2021-12-14 06:27:13');
 
 -- --------------------------------------------------------
 
@@ -694,6 +751,7 @@ INSERT INTO `media` (`id_media`, `path_media`, `id_relation`, `id_entity`, `jeni
 CREATE TABLE `pelanggan` (
   `id_pelanggan` varchar(255) NOT NULL,
   `nama_pelanggan` varchar(255) DEFAULT NULL,
+  `link_pelanggan` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
@@ -702,10 +760,10 @@ CREATE TABLE `pelanggan` (
 -- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `created_at`, `updated_at`) VALUES
-('61b2f646ebd7e', 'Catalent', '2021-12-10 06:40:06', '2021-12-10 06:40:06'),
-('61b2f6577661b', 'Benecol', '2021-12-10 06:40:23', '2021-12-10 06:40:23'),
-('61b2f669567ba', 'SGD', '2021-12-10 06:40:41', '2021-12-10 06:40:41');
+INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `link_pelanggan`, `created_at`, `updated_at`) VALUES
+('61b2f646ebd7e', 'Catalent', 'https://google.com', '2021-12-10 06:40:06', '2021-12-10 06:40:06'),
+('61b2f6577661b', 'Benecol', 'https://google.com', '2021-12-10 06:40:23', '2021-12-10 06:40:23'),
+('61b2f669567ba', 'SGD', 'https://google.com', '2021-12-10 06:40:41', '2021-12-10 06:40:41');
 
 -- --------------------------------------------------------
 
@@ -747,6 +805,7 @@ CREATE TABLE `produk` (
   `id_kategori_produk` varchar(255) DEFAULT NULL,
   `nama_produk` varchar(255) DEFAULT NULL,
   `deskripsi_produk` text DEFAULT NULL,
+  `spesifikasi_produk` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
@@ -755,13 +814,13 @@ CREATE TABLE `produk` (
 -- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `id_kategori_produk`, `nama_produk`, `deskripsi_produk`, `created_at`, `updated_at`) VALUES
-('61af2a008d782', '619fba433c765', 'Bacchus', '&lt;p&gt;Bacchus adalah template HTML 5 satu halaman yang kreatif dan sangat bagus untuk perusahaan, portofolio, dan agensi kreatif mana pun. Mudah digunakan dan disesuaikan. Bacchus sepenuhnya responsif dan akan terlihat bagus di semua ukuran layar: desktop, notebook, dan ponsel.&lt;br&gt;&lt;/p&gt;', '2021-12-07 09:31:44', '2021-12-07 09:31:44'),
-('61af2a5cddf58', '8293746', 'Selfer', '&lt;p&gt;Halaman Arahan Portofolio Pribadi Pertama yang Kreatif dan Seluler untuk setiap desainer, pengembang, pembuat kode, pekerja lepas, arsitek, atau orang kreatif lainnya. Latar belakang yang gelap akan membuat website Anda berbeda dengan template portofolio lainnya. Animasi interaksi yang lembut dan halus membuat pengalaman pengguna lebih alami dan nyaman.&lt;br&gt;&lt;/p&gt;', '2021-12-07 09:33:16', '2021-12-07 09:33:16'),
-('61b2f794d09ec', '619fba433c765', 'FinWin', '&lt;p&gt;Halaman Landing Startup Pertama yang Kreatif dan Seluler dengan efek paralaks yang bergaya. Template menggunakan sistem grid Bootstrap 4 sehingga responsif di setiap perangkat. Anda dapat memilih dari 8 desain beranda yang berbeda.&lt;br&gt;&lt;/p&gt;', '2021-12-10 06:45:40', '2021-12-10 06:45:40'),
-('61b2f7df92737', '8293746', 'Swan Lake', '&lt;p&gt;Swan Lake adalah Template HTML5 Halaman Arahan Pemasaran Onepage Lead Generation Premium Modern dan Kreatif. Swan Lake dibuat dengan gaya yang indah. Siapapun dapat menggunakannya untuk Agensi, bisnis, layanan bisnis, dan lain-lain. Tema memiliki desain universal, memikirkan setiap detail dan efek animasi. Mudah untuk menyesuaikan agar sesuai dengan kebutuhan Anda, mengganti gambar dan teks. Swan Lake berdasarkan sistem grid bootstrap 1170px, HTML5 dan CSS3, dan sangat mudah untuk menyesuaikan setiap blok file HTML dan CSS dikomentari dengan benar yang akan membantu Anda menyesuaikan template ini sesuai kebutuhan Anda.&lt;br&gt;&lt;/p&gt;', '2021-12-10 06:46:55', '2021-12-10 06:46:55'),
-('61b2f810b8338', '619fba433c765', 'Lana', '&lt;p&gt;Lana adalah template yang kreatif, modern, minimal, dan sepenuhnya responsif segera/sedang dibangun yang cocok untuk orang kreatif, bisnis, agensi, portofolio, dll…&lt;br&gt;&lt;/p&gt;', '2021-12-10 06:47:44', '2021-12-10 06:47:44'),
-('61b2f8d9127a8', '8293746', 'Ebo', '&lt;p&gt;Ebo adalah template halaman arahan modern dan sederhana, Sangat cocok untuk menampilkan &amp;amp; menjual e-book Anda dengan cara yang menarik &amp;amp; mudah.&lt;br&gt;&lt;/p&gt;', '2021-12-10 06:51:05', '2021-12-10 06:51:05');
+INSERT INTO `produk` (`id_produk`, `id_kategori_produk`, `nama_produk`, `deskripsi_produk`, `spesifikasi_produk`, `created_at`, `updated_at`) VALUES
+('61af2a008d782', '619fba433c765', 'Bacchus', '&lt;p&gt;Bacchus adalah template HTML 5 satu halaman yang kreatif dan sangat bagus untuk perusahaan, portofolio, dan agensi kreatif mana pun. Mudah digunakan dan disesuaikan. Bacchus sepenuhnya responsif dan akan terlihat bagus di semua ukuran layar: desktop, notebook, dan ponsel.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;Bacchus adalah template HTML 5 satu halaman yang kreatif dan sangat bagus untuk perusahaan, portofolio, dan agensi kreatif mana pun. Mudah digunakan dan disesuaikan. Bacchus sepenuhnya responsif dan akan terlihat bagus di semua ukuran layar: desktop, notebook, dan ponsel.&lt;br&gt;&lt;/p&gt;', '2021-12-07 09:31:44', '2021-12-07 09:31:44'),
+('61af2a5cddf58', '8293746', 'Selfer', '&lt;p&gt;Halaman Arahan Portofolio Pribadi Pertama yang Kreatif dan Seluler untuk setiap desainer, pengembang, pembuat kode, pekerja lepas, arsitek, atau orang kreatif lainnya. Latar belakang yang gelap akan membuat website Anda berbeda dengan template portofolio lainnya. Animasi interaksi yang lembut dan halus membuat pengalaman pengguna lebih alami dan nyaman.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;Halaman Arahan Portofolio Pribadi Pertama yang Kreatif dan Seluler untuk setiap desainer, pengembang, pembuat kode, pekerja lepas, arsitek, atau orang kreatif lainnya. Latar belakang yang gelap akan membuat website Anda berbeda dengan template portofolio lainnya. Animasi interaksi yang lembut dan halus membuat pengalaman pengguna lebih alami dan nyaman.&lt;br&gt;&lt;/p&gt;', '2021-12-07 09:33:16', '2021-12-07 09:33:16'),
+('61b2f794d09ec', '619fba433c765', 'FinWin', '&lt;p&gt;Halaman Landing Startup Pertama yang Kreatif dan Seluler dengan efek paralaks yang bergaya. Template menggunakan sistem grid Bootstrap 4 sehingga responsif di setiap perangkat. Anda dapat memilih dari 8 desain beranda yang berbeda.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;Halaman Landing Startup Pertama yang Kreatif dan Seluler dengan efek paralaks yang bergaya. Template menggunakan sistem grid Bootstrap 4 sehingga responsif di setiap perangkat. Anda dapat memilih dari 8 desain beranda yang berbeda.&lt;br&gt;&lt;/p&gt;', '2021-12-10 06:45:40', '2021-12-10 06:45:40'),
+('61b2f7df92737', '8293746', 'Swan Lake', '&lt;p&gt;Swan Lake adalah Template HTML5 Halaman Arahan Pemasaran Onepage Lead Generation Premium Modern dan Kreatif. Swan Lake dibuat dengan gaya yang indah. Siapapun dapat menggunakannya untuk Agensi, bisnis, layanan bisnis, dan lain-lain. Tema memiliki desain universal, memikirkan setiap detail dan efek animasi. Mudah untuk menyesuaikan agar sesuai dengan kebutuhan Anda, mengganti gambar dan teks. Swan Lake berdasarkan sistem grid bootstrap 1170px, HTML5 dan CSS3, dan sangat mudah untuk menyesuaikan setiap blok file HTML dan CSS dikomentari dengan benar yang akan membantu Anda menyesuaikan template ini sesuai kebutuhan Anda.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;Swan Lake adalah Template HTML5 Halaman Arahan Pemasaran Onepage Lead Generation Premium Modern dan Kreatif. Swan Lake dibuat dengan gaya yang indah. Siapapun dapat menggunakannya untuk Agensi, bisnis, layanan bisnis, dan lain-lain. Tema memiliki desain universal, memikirkan setiap detail dan efek animasi. Mudah untuk menyesuaikan agar sesuai dengan kebutuhan Anda, mengganti gambar dan teks. Swan Lake berdasarkan sistem grid bootstrap 1170px, HTML5 dan CSS3, dan sangat mudah untuk menyesuaikan setiap blok file HTML dan CSS dikomentari dengan benar yang akan membantu Anda menyesuaikan template ini sesuai kebutuhan Anda.&lt;br&gt;&lt;/p&gt;', '2021-12-10 06:46:55', '2021-12-10 06:46:55'),
+('61b2f810b8338', '619fba433c765', 'Lana', '&lt;p&gt;Lana adalah template yang kreatif, modern, minimal, dan sepenuhnya responsif segera/sedang dibangun yang cocok untuk orang kreatif, bisnis, agensi, portofolio, dllï¿½&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;Lana adalah template yang kreatif, modern, minimal, dan sepenuhnya responsif segera/sedang dibangun yang cocok untuk orang kreatif, bisnis, agensi, portofolio, dllï¿½&lt;br&gt;&lt;/p&gt;', '2021-12-10 06:47:44', '2021-12-10 06:47:44'),
+('61b2f8d9127a8', '8293746', 'Ebo', '&lt;p&gt;Ebo adalah template halaman arahan modern dan sederhana, Sangat cocok untuk menampilkan &amp;amp; menjual e-book Anda dengan cara yang menarik &amp;amp; mudah.&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;Ebo adalah template halaman arahan modern dan sederhana, Sangat cocok untuk menampilkan &amp;amp; menjual e-book Anda dengan cara yang menarik &amp;amp; mudah.&lt;br&gt;&lt;/p&gt;', '2021-12-10 06:51:05', '2021-12-10 06:51:05');
 
 -- --------------------------------------------------------
 
@@ -773,6 +832,7 @@ CREATE TABLE `profil` (
   `id_profil` varchar(255) NOT NULL,
   `judul_profil` varchar(255) DEFAULT NULL,
   `deskripsi_profil` longtext DEFAULT NULL,
+  `visi_misi` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
@@ -781,8 +841,8 @@ CREATE TABLE `profil` (
 -- Dumping data for table `profil`
 --
 
-INSERT INTO `profil` (`id_profil`, `judul_profil`, `deskripsi_profil`, `created_at`, `updated_at`) VALUES
-('usr61037f9c85184', 'Panca Teknologi Aksesindo', '<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p>', '2021-12-04 08:34:35', '2021-12-04 08:34:35');
+INSERT INTO `profil` (`id_profil`, `judul_profil`, `deskripsi_profil`, `visi_misi`, `created_at`, `updated_at`) VALUES
+('usr61037f9c85184', 'Panca Teknologi Aksesindo', '<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p>', '<h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Visi</strong><br>“Menjadi Perusahaan Teknologi Kelas Dunia yang Terpercaya’’</h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"> </p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Misi</strong></h4><ul style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 1.618em; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami perusahaan solusi total berbasis teknologi elektronika dan informasi.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami memberikan solusi integrasi sistem yang inovatif dan berorientasi kepada harapan pelanggan dengan keunggulan SDM tersertifikasi dan aliansi global.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami memberikan produk dan layanan yang terkini dan berkelanjutan dengan menjamin keselamatan dan purna jual yang responsif.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami berkontribusi menjaga kedaulatan negara dan meningkatkan kualitas hidup.</li></ul><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"> </p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Peran Strategis</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">Teknologi yang dikembangkan Len mempunyai peran strategis dalam :<br>a) Meningkatkan kesejahteraan masyarakat, melalui produk-produk energi terbarukan.<br>b) Turut serta menjaga kedaulatan negara, dengan produk-produk pertahanan, transportasi dan ICT (<em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Information & Communication Technology</em>).<br>c) <em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Manufacturing</em>, sebagai teknologi pendukung kedua peran di atas.<br>Semua usaha tersebut pada akhirnya bermuara pada target Len untuk mengembangkan kemandirian teknologi yang berdaya saing.</p><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"> </p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Maksud dan Tujuan</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">Dalam Perubahan Anggaran Dasar Perusahaan Pasal 3 disebutkan bahwa maksud dan tujuan perusahaan adalah:<br><em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">“Turut melaksanakan dan menunjang kebijakan dan program Pemerintah di bidang Ekonomi dan Pembangunan Nasional pada umumnya dan khususnya dalam bidang Industri Elektronika dan Prasarana, yang mencakup bidang-bidang Broadcasting, Multimedia, Teknologi Informasi, Elektronika Daya, Elektronika Energi, Jaringan Telekomunikasi, Sistem Pengendalian dan Pengaturan, Navigasi, Persinyalan Kereta Api, Elektronika Kelautan (Maritim), Elektronika Penerbangan (Avionics), Elektronika Pertahanan baik perangkat lunak maupun perangkat kerasnya, selanjutnya disebut Elektronika Industri dan Prasarana serta rekayasa di bidang keteknikan lainnya serta optimalisasi aset-aset Perseroan, dengan menerapkan prinsip-prinsip Perseroan Terbatas.”</em></p><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"> </p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Sasaran Perusahaan</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">RKAP 2015 merupakan milestone dalam pencapaian sasaran perusahaan jangka panjang. Dalam RJP Len tahun 2014-2019, sasaran jangka panjang perusahaan tahun 2019 adalah :<br><em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">”Menjadi perusahaan berstandar Global yang mampu mencapai lonjakan pertumbuhan kinerja yang signifikan, didukung oleh struktur modal yang kuat melalui inovasi, reposisi dan transformasi bisnis EPC dan Investasi”.</em></p>', '2021-12-04 08:34:35', '2021-12-04 08:34:35');
 
 -- --------------------------------------------------------
 
@@ -818,16 +878,7 @@ CREATE TABLE `sosial_media` (
   `icon_sosial_media` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `sosial_media`
---
-
-INSERT INTO `sosial_media` (`id_sosial_media`, `nama_sosial_media`, `link_sosial_media`, `icon_sosial_media`, `created_at`, `updated_at`) VALUES
-('61b6ee7297e52', 'Instagram', 'https://www.instagram.com/ryansam._/', 'fab fa-instagram', '2021-12-13 06:55:46', '2021-12-13 06:55:46'),
-('61b6f3f20f4cf', 'Facebook', 'https://www.facebook.com/', 'fab fa-facebook-square', '2021-12-13 07:19:14', '2021-12-13 07:19:14'),
-('61b70de8a00b3', 'Youtube', 'https://www.instagram.com/ryansam._/', 'fab fa-youtube', '2021-12-13 09:10:00', '2021-12-13 09:10:00');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -941,12 +992,6 @@ ALTER TABLE `application`
   ADD UNIQUE KEY `applications_alias_unique` (`alias`) USING BTREE;
 
 --
--- Indexes for table `asosiasi`
---
-ALTER TABLE `asosiasi`
-  ADD PRIMARY KEY (`id_asosiasi`);
-
---
 -- Indexes for table `berita`
 --
 ALTER TABLE `berita`
@@ -1055,6 +1100,18 @@ ALTER TABLE `kategori_produk`
   ADD PRIMARY KEY (`id_kategori_produk`) USING BTREE;
 
 --
+-- Indexes for table `kontak`
+--
+ALTER TABLE `kontak`
+  ADD PRIMARY KEY (`id_kontak`) USING BTREE;
+
+--
+-- Indexes for table `kontak_jenis`
+--
+ALTER TABLE `kontak_jenis`
+  ADD PRIMARY KEY (`id_kontak_jenis`) USING BTREE;
+
+--
 -- Indexes for table `layanan`
 --
 ALTER TABLE `layanan`
@@ -1095,12 +1152,6 @@ ALTER TABLE `profil`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id_role`) USING BTREE;
-
---
--- Indexes for table `sosial_media`
---
-ALTER TABLE `sosial_media`
-  ADD PRIMARY KEY (`id_sosial_media`);
 
 --
 -- Indexes for table `temp_visitor`

@@ -40,8 +40,9 @@ class ProfilAdminController
     public function edit(Request $request)
     {
         $profil = $this->profilAdmin->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->where('id_profil', session('id_user'))->first();
+        $visi_misi = $this->profilAdmin->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->where('id_profil', session('id_user'))->first();
 
-        return render_template('admin/profil/edit', ['profil' => $profil]);
+        return render_template('admin/profil/edit', ['profil' => $profil, 'visi_misi' => $visi_misi]);
     }
 
     public function update(Request $request)
@@ -59,10 +60,14 @@ class ProfilAdminController
             $this->profilAdmin->insert($request->request->all());
         }
 
-        $media->deleteMedia($datas);
         $media->updateMedia($request->files->get('profil_foto'), [
             'id_relation' => $id,
-            'jenis_dokumen' => '',
+            'jenis_dokumen' => 'profil_foto',
+        ], $this->profilAdmin, $id);
+
+        $media->updateMedia($request->files->get('struktur_organisasi'), [
+            'id_relation' => $id,
+            'jenis_dokumen' => 'struktur_organisasi',
         ], $this->profilAdmin, $id);
 
         return new RedirectResponse('/admin/profil');

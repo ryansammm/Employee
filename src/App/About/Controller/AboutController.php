@@ -21,9 +21,10 @@ class AboutController
         $media = new Media();
         $data_profil = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->get();
-        $profil = $data_profil->items[0];
 
-        return render_template('public/about/index', ['data_profil' => $data_profil, 'profil' => $profil]);
+        // dd($data_profil);
+
+        return render_template('public/about/index', ['data_profil' => $data_profil]);
     }
 
     public function create(Request $request)

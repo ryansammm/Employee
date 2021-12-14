@@ -21,7 +21,6 @@
         </div>
     </section>
 
-
     <section class="content">
         <div class="container-fluid">
             <form action="/admin/pelanggan/store" method="POST" enctype="multipart/form-data">
@@ -46,6 +45,13 @@
                                         </div>
                                     </div>
                                     <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                </div>
+                            </div>
+                            <!-- link pelanggan -->
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="link_pelanggan" class="form-label">Link Eksternal</label>
+                                    <input type="text" class="form-control" id="link_pelanggan" name="link_pelanggan">
                                 </div>
                             </div>
                         </div>

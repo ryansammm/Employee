@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/" class="brand-link">
         <img src="/assets/logo/PTA.png" alt="Balai Besar Keramik" class="brand-image">
         <span class="brand-text font-weight-light h6">Panca Teknologi Aksesindo</span>
     </a>
@@ -184,6 +184,14 @@
                         <i class="nav-icon fas fa-handshake"></i>
                         <p>
                             Kelola Asosiasi
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/kontak" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Kelola Kontak
                         </p>
                     </a>
                 </li>

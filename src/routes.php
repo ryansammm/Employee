@@ -26,6 +26,7 @@ use App\KategoriGaleriAdmin\Controller\KategoriGaleriAdminController;
 use App\KategoriLayananAdmin\Controller\KategoriLayananAdminController;
 use App\KategoriProdukAdmin\Controller\KategoriProdukAdminController;
 use App\Ketentuan\Controller\KetentuanController;
+use App\Kontak\Controller\KontakController;
 use App\Layanan\Controller\LayananController;
 use App\LayananAdmin\Controller\LayananAdminController;
 use App\LikeBerita\Controller\LikeBeritaController;
@@ -39,6 +40,7 @@ use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
+use App\Search\Controller\SearchController;
 use App\SosialMedia\Controller\SosialMediaController;
 use App\SubMenu\Controller\SubMenuController;
 use App\Users\Controller\UsersController;
@@ -323,7 +325,7 @@ $routes->prefix('admin', function ($routes) {
     /* -------------------------------------------------------------------------- */
 
 
-    /* -------------------------------- Asosiasi -------------------------------- */
+    /* -------------------------------- Route Kelola Asosiasi -------------------------------- */
     $routes->prefix('asosiasi', function ($routes) {
         $routes->push('asosiasi', '', [AsosiasiController::class, 'index']);
         $routes->push('asosiasi_create', '/create', [AsosiasiController::class, 'create']);
@@ -332,6 +334,18 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('asosiasi_update', '/{id}/update', [AsosiasiController::class, 'update']);
         $routes->push('asosiasi_show', '/{id}/show', [AsosiasiController::class, 'show']);
         $routes->push('asosiasi_delete', '/{id}/delete', [AsosiasiController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------------- Route Kelola Kontak -------------------------------- */
+    $routes->prefix('kontak', function ($routes) {
+        $routes->push('kontak', '', [KontakController::class, 'index']);
+        $routes->push('kontak_create', '/create', [KontakController::class, 'create']);
+        $routes->push('kontak_store', '/store', [KontakController::class, 'store']);
+        $routes->push('kontak_edit', '/{id}/edit', [KontakController::class, 'edit']);
+        $routes->push('kontak_update', '/{id}/update', [KontakController::class, 'update']);
+        $routes->push('kontak_show', '/{id}/show', [KontakController::class, 'show']);
+        $routes->push('kontak_delete', '/{id}/delete', [KontakController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 
@@ -428,5 +442,9 @@ $routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
 // routes like berita
 $routes->push('like-berita', '/likeBerita/{id}/store', [LikeBeritaController::class, 'storeLike']);
 $routes->push('dislike-berita', '/dislikeBerita/{id}/store', [LikeBeritaController::class, 'storeDislike']);
+
+// routes search header
+$routes->push('search_result', '/search', [SearchController::class, 'index']);
+// $routes->push('search', '{url}', [SearchController::class, 'index']);
 
 return $routes;

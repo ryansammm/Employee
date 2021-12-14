@@ -55,6 +55,13 @@
                                     <textarea id="deskripsi_produk" name="deskripsi_produk"><?= $produk['deskripsi_produk'] ?></textarea>
                                 </div>
                             </div>
+                            <!------- Spesifikasi Produk ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="spesifikasi_produk" class="form-label">Spesifikasi Produk</label>
+                                    <textarea id="spesifikasi_produk" name="spesifikasi_produk"><?= $produk['spesifikasi_produk'] ?></textarea>
+                                </div>
+                            </div>
                             <!------- Foto Produk ------->
                             <div class="col-md-4">
                                 <label for="produk_foto" class="form-label">Foto Produk</label> (.jpg, .jpeg, .png)
@@ -89,7 +96,18 @@
         // Summernote
         $('#deskripsi_produk').summernote({
             placeholder: 'Start writing or type',
-            height: 500,
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
+        $('#spesifikasi_produk').summernote({
+            placeholder: 'Start writing or type',
+            height: 200,
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['color', ['color']],
@@ -100,6 +118,5 @@
         });
     });
 </script>
-
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

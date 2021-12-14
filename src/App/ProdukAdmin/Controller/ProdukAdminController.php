@@ -53,6 +53,7 @@ class ProdukAdminController
 
         /* ------------------------------ Create Produk ----------------------------- */
         $request->request->set('deskripsi_produk', htmlspecialchars($request->request->get('deskripsi_produk')));
+        $request->request->set('spesifikasi_produk', htmlspecialchars($request->request->get('spesifikasi_produk')));
         $create = $this->model->insert($request->request->all());
         /* -------------------------------------------------------------------------- */
 
@@ -81,6 +82,7 @@ class ProdukAdminController
         $id = $request->attributes->get("id");
 
         $request->request->set('deskripsi_produk', htmlspecialchars($request->request->get('deskripsi_produk')));
+        $request->request->set('spesifikasi_produk', htmlspecialchars($request->request->get('spesifikasi_produk')));
         $this->model->where('id_produk', $id)->update($request->request->all());
 
         $media = new Media();

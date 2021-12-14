@@ -42,7 +42,7 @@ class BeritaAdminController
     {
         $data_kategori_berita = $this->modelKategoriBerita->get();
         $errors = SessionData::get()->getFlashBag()->get('errors', []);
-        
+
         return render_template('admin/berita/create', ['data_kategori_berita' => $data_kategori_berita, 'errors' => $errors]);
     }
 

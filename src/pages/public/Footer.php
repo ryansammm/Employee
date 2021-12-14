@@ -54,7 +54,7 @@
             <ul class="nav flex-column">
                 <li class="nav-item "><a href="/about" class="nav-link p-0 text" style="color: #c1c1c1;">Tentang Kami</a></li>
                 <?php foreach ($GLOBALS['menu_footer'] as $key1 => $data1) { ?>
-                    <li class="nav-item "><a href="<?= arr_offset($data1, 'link_url') ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank"><?= arr_offset($data1, 'cms_menu') ?></a></li>
+                    <li class="nav-item "><a href="<?= arr_offset($data1, 'link_url') ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank" aria-label="<?= arr_offset($data1, 'menu') ?>"><?= arr_offset($data1, 'menu') ?></a></li>
                 <?php } ?>
             </ul>
         </div>
@@ -64,8 +64,6 @@
 <div class="container-fluid justify-content-center text-center py-3" style="background-color: #101010 !important;">
     <p class="text-muted mb-0">2021 &copy; Panca Teknologi Aksesindo</p>
 </div>
-
-
 
 
 <!------- Bootstrap JS ------->
@@ -81,8 +79,6 @@
 <script src="/assets/plugins/owl-carousel/js/owl.carousel.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-
-
 
 
 </body>

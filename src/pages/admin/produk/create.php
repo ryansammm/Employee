@@ -21,7 +21,6 @@
         </div>
     </section>
 
-
     <section class="content">
         <div class="container-fluid">
             <form action="/admin/produk/store" method="POST" enctype="multipart/form-data">
@@ -56,6 +55,13 @@
                                     <textarea id="deskripsi_produk" name="deskripsi_produk"></textarea>
                                 </div>
                             </div>
+                            <!------- Spesifikasi Produk ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="spesifikasi_produk" class="form-label">Spesifikasi Produk</label>
+                                    <textarea id="spesifikasi_produk" name="spesifikasi_produk"></textarea>
+                                </div>
+                            </div>
                             <!------- Foto Produk ------->
                             <div class="col-md-4">
                                 <label for="produk_foto" class="form-label">Foto Produk</label> (.jpg, .jpeg, .png)
@@ -82,7 +88,6 @@
     </section>
 </div>
 
-<script src="/assets/js/app/file-preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function() {
@@ -98,8 +103,18 @@
                 ['view', ['fullscreen', 'codeview', 'help']],
             ],
         });
+        $('#spesifikasi_produk').summernote({
+            placeholder: 'Start writing or type',
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
     });
 </script>
-
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

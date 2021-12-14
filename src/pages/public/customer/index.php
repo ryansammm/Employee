@@ -15,7 +15,7 @@
                         <div class="col-2">
                             <div class="card">
                                 <div class="card-body" style="padding: 1rem">
-                                    <a href="">
+                                    <a href="<?= $value['link_pelanggan'] ?>" target="_blank">
                                         <div class="img-video" style="background: url('/assets/media/<?= $value['path_media'] ?>');background-size: cover;background-position:  center;">
                                         </div>
                                     </a>

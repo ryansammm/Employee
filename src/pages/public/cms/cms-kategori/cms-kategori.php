@@ -21,9 +21,16 @@
     </div>
 
     <!------- Banner ------->
+    <div class="card mb-3">
+        <div class="card-body p-0">
+            <img class="w-100" src="/assets/banner/rog.jpg" alt="">
+            <div></div>
+        </div>
+    </div>
+
     <div class="card">
         <div class="card-body p-0">
-            <img class="w-100" src="/assets/media/sidebanner.png" alt="">
+            <img class="w-100" src="/assets/banner/razer.png" alt="">
             <div></div>
         </div>
     </div>

@@ -89,6 +89,14 @@
                                     </div>
                                     <input type="radio" name="header" value="2" required> Tidak
                                 </div>
+                                <div class="mb-3">
+                                    <label for="">Title Halaman</label>
+                                    <input type="text" name="title" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Meta Description</label>
+                                    <textarea name="meta_description" class="form-control"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>

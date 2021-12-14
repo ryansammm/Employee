@@ -82,6 +82,14 @@
                                     </div>
                                     <input type="radio" name="header" value="2" required <?= arr_offset($detail, 'header') == '2' ? 'checked' : '' ?>> Tidak
                                 </div>
+                                <div class="mb-3">
+                                    <label for="">Title Halaman</label>
+                                    <input type="text" name="title" class="form-control" value="<?= arr_offset($detail, 'title') ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Meta Description</label>
+                                    <textarea name="meta_description" class="form-control"><?= arr_offset($detail, 'meta_description') ?></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>

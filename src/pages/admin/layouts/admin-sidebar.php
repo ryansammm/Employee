@@ -164,6 +164,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/banner" class="nav-link">
+                        <i class="nav-icon fas fa-video"></i>
+                        <p>
+                            Kelola Banner
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/pelanggan" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>

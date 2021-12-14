@@ -3,6 +3,7 @@
 use App\About\Controller\AboutController;
 use App\Akreditasi\Controller\AkreditasiController;
 use App\Asosiasi\Controller\AsosiasiController;
+use App\Banner\Controller\BannerController;
 use App\Berita\Controller\BeritaController;
 use App\BeritaAdmin\Controller\BeritaAdminController;
 use App\CmsBackground\Controller\CmsBackgroundController;
@@ -358,6 +359,18 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('sosial_media_update', '/{id}/update', [SosialMediaController::class, 'update']);
         $routes->push('sosial_media_show', '/{id}/show', [SosialMediaController::class, 'show']);
         $routes->push('sosial_media_delete', '/{id}/delete', [SosialMediaController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------------- Banner -------------------------------- */
+    $routes->prefix('banner', function ($routes) {
+        $routes->push('banner', '', [BannerController::class, 'index']);
+        $routes->push('banner_create', '/create', [BannerController::class, 'create']);
+        $routes->push('banner_store', '/store', [BannerController::class, 'store']);
+        $routes->push('banner_edit', '/{id}/edit', [BannerController::class, 'edit']);
+        $routes->push('banner_update', '/{id}/update', [BannerController::class, 'update']);
+        $routes->push('banner_show', '/{id}/show', [BannerController::class, 'show']);
+        $routes->push('banner_delete', '/{id}/delete', [BannerController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 });

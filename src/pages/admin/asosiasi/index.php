@@ -40,7 +40,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Akdreditas</th>
-                                <th scope="col">Ikon Asosiasi</th>
+                                <th scope="col">Icon Asosiasi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -51,8 +51,8 @@
                                     <td><?= $value['nama_asosiasi'] ?></td>
                                     <td><img src="/assets/media/<?= $value['path_media'] ?>" class="img-fluid" width="60px"></td>
                                     <td>
-                                        <a class="btn btn-info m-2" href="/admin/asosiasi/<?= $value['id_asosiasi'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_asosiasi'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-info m-2" href="/admin/asosiasi/<?= $value['id_asosiasi'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_asosiasi'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>

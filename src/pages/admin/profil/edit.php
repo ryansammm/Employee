@@ -25,17 +25,10 @@
                     <div class="card-body">
                         <div class="row">
                             <!------- Judul Profil ------->
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="judul_profil" class="form-label">Judul Profil</label>
                                     <input type="text" class="form-control" id="judul_profil" name="judul_profil" value="<?= arr_offset($profil, 'judul_profil') ?>">
-                                </div>
-                            </div>
-                            <!------- Deskripsi Profil ------->
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="deskripsi_profil" class="form-label">Deskripsi Profil</label>
-                                    <textarea id="deskripsi_profil" name="deskripsi_profil"><?= arr_offset($profil, 'deskripsi_profil') ?></textarea>
                                 </div>
                             </div>
                             <!------- Foto Profil ------->
@@ -51,6 +44,37 @@
                                     <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
                                     <?php if (arr_offset($profil, 'path_media') != null) { ?>
                                         <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= arr_offset($profil, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
+
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <!------- Deskripsi Profil ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="deskripsi_profil" class="form-label">Deskripsi Profil</label>
+                                    <textarea id="deskripsi_profil" name="deskripsi_profil"><?= arr_offset($profil, 'deskripsi_profil') ?></textarea>
+                                </div>
+                            </div>
+                            <!------- Visi Misi ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="visi_misi" class="form-label">Visi Misi</label>
+                                    <textarea id="visi_misi" name="visi_misi"><?= arr_offset($visi_misi, 'visi_misi') ?></textarea>
+                                </div>
+                            </div>
+                            <!------- Struktur Organisasi ------->
+                            <div class="col-md-4">
+                                <label for="struktur_organisasi" class="form-label">Struktur Organisasi</label> (.jpg, .jpeg, .png)
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="struktur_organisasi">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
+                                    <?php if (arr_offset($profil, 'path_media') != null) { ?>
+                                        <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#strukturOrganisasi" data-file="<?= arr_offset($profil, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
 
                                     <?php } ?>
                                 </div>
@@ -72,16 +96,37 @@
 
 <!-- Modal Dokumen -->
 <div class="modal fade" id="dokumenPersyaratan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">Dokumen ORMAS</h6>
+                <h6 class="modal-title" id="exampleModalLabel">Foto Profil</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <img src="" alt="" class="img-fluid fileSakip d-none">
+                <img src="" alt="" class="img-fluid fileSakip d-none" style="width: 100% !important;">
+                <iframe src="" frameborder="0" id="fileSakipPDF" style="display: block;width:100%;height:400px;"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Struktur Organisasi -->
+<div class="modal fade" id="strukturOrganisasi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Foto Profil</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="" alt="" class="img-fluid fileSakip d-none" style="width: 100% !important;">
                 <iframe src="" frameborder="0" id="fileSakipPDF" style="display: block;width:100%;height:400px;"></iframe>
             </div>
             <div class="modal-footer">
@@ -97,6 +142,22 @@
     $(function() {
         // Summernote
         $('#deskripsi_profil').summernote({
+            placeholder: 'Start writing or type',
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
+    });
+</script>
+<script>
+    $(function() {
+        // Summernote
+        $('#visi_misi').summernote({
             placeholder: 'Start writing or type',
             height: 200,
             toolbar: [

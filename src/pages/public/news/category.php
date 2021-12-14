@@ -2,13 +2,12 @@
 
 <!-- ----- News ------->
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-        <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita Terkini</h5>
-    </div>
     <div class="row mt-3">
-
         <div class="col-8">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 525px;">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita Terkini</h5>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="height: 586px;">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -18,31 +17,41 @@
                         <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
                             <div class="row mb-1">
                                 <div class="col-12" style="padding: 0;">
-                                    <div class="img-atas-berita" style="background: url(/assets/media/<?= $item_berita_new(0, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                    <div class="img-atas-berita" style="background: url(/assets/media/<?= $item_berita_new(0, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-atas-berita">
-                                                <a href="/berita/<?= $item_berita_new(0, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
-                                                    <h6 class="text-white"><?= $item_berita_new(0, $i, $datas->items, 'judul_berita') ?></h6>
+                                                <a href="/news/<?= $item_berita_new(0, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
+                                                    <h6 class="text-white mx-4"><?= $item_berita_new(0, $i, $datas->items, 'judul_berita') ?></h6>
                                                 </a>
-                                                <div class="row justify-content-around">
+                                                <div class="row justify-content-around mx-3">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item">
+                                                        <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-heart"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-chat"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-eye"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <div class="sub-item" style="margin-top: 2px;">
                                                             <span>50 menit</span>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <!-- Button trigger modal -->
-                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                            <i class="bi bi-three-dots-vertical"></i>
-                                                        </button>
+                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                            <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                                <i class="fas fa-share"></i>
+                                                                <span>Bagikan</span>
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -52,31 +61,41 @@
                             </div>
                             <div class="row">
                                 <div class="col-6" style="padding: 0;padding-right: 2.5px;">
-                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(1, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(1, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-bawah-berita">
-                                                <a href="/berita/<?= $item_berita_new(1, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
+                                                <a href="/news/<?= $item_berita_new(1, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
                                                     <h6 class="text-white"><?= $item_berita_new(1, $i, $datas->items, 'judul_berita') ?></h6>
                                                 </a>
                                                 <div class="row justify-content-around">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item">
+                                                        <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-heart"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-chat"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-eye"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <div class="sub-item" style="margin-top: 2px;">
                                                             <span>50 menit</span>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <!-- Button trigger modal -->
-                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                            <i class="bi bi-three-dots-vertical"></i>
-                                                        </button>
+                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                            <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                                <i class="fas fa-share"></i>
+                                                                <span>Bagikan</span>
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -84,31 +103,41 @@
                                     </div>
                                 </div>
                                 <div class="col-6" style="padding: 0;padding-left: 2.5px;">
-                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(2, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: top center;">
+                                    <div class="img-bawah-berita" style="background: url(/assets/media/<?= $item_berita_new(2, $i, $datas->items, 'path_media') ?>);background-size: cover;background-position: center;">
                                         <div class="bg-atas-berita">
                                             <div class="text-bawah-berita">
-                                                <a href="/berita/<?= $item_berita_new(2, $i, $datas->items, 'id_berita') ?>" style="text-decoration: none;">
+                                                <a href="/news/<?= $item_berita_new(2, $i, $datas->items, 'id_berita') ?>/detail" style="text-decoration: none;">
                                                     <h6 class="text-white"><?= $item_berita_new(2, $i, $datas->items, 'judul_berita') ?></h6>
                                                 </a>
                                                 <div class="row justify-content-around">
                                                     <div class="col d-flex">
-                                                        <div class="sub-item">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
-                                                        </div>
-                                                        <div class="sub-item">
+                                                        <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-heart"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-chat"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                            <div class="sub-item" style="margin-top: 2px;">
+                                                                <i class="bi bi-eye"></i>
+                                                                <span>0</span>
+                                                            </div>
+                                                        <?php } ?>
+                                                        <div class="sub-item" style="margin-top: 2px;">
                                                             <span>50 menit</span>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <!-- Button trigger modal -->
-                                                        <button class="btn text-white" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                            <i class="bi bi-three-dots-vertical"></i>
-                                                        </button>
+                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                            <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                                <i class="fas fa-share"></i>
+                                                                <span>Bagikan</span>
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -130,41 +159,50 @@
             </div>
         </div>
 
-        <!------- Trending ------->
+        <!------- Berita Hangat ------->
         <div class="col">
-            <div style="background-color: white;padding: 5px 0 5px 0;">
+            <div style="padding: 5px 0 5px 0;">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h5>
+                    <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h6>
                     <a href="" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
                 </div>
             </div>
             <div class="card">
-                <div class="card-body" style="height: 460px;overflow-y:scroll;padding: 0;">
-                    <?php foreach ($all_berita->items as $key => $value) { ?>
-                        <div class="side-news-item">
+                <div class="card-body" style="height: 558px;padding: 0;">
+                    <?php foreach ($data_berita_hangat->items as $key => $value) { ?>
+                        <div class="<?= $key == (count($data_berita_hangat->items) - 1) ? '' : 'side-news-item' ?>" style="<?= $key == (count($data_berita_hangat->items) - 1) ? 'padding: 0.5rem 1rem;' : '' ?>">
                             <div class="row">
-                                <div class="d-flex">
-                                    <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;"><a href="/news/<?= $value['id_berita'] ?>/detail" class="text-decoration-none text-dark"><?= $value['judul_berita'] ?> </a></h6>
-                                    <div class="rounded" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: center; width: 80px; height: 80px;"></div>
-
+                                <div class="col-md-8 pe-0">
+                                    <h6 class="card-title">
+                                        <a href="/news/<?= $value['id_berita'] ?>/detail" class="text-decoration-none text-dark truncate-string-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $value['judul_berita'] ?>"><?= $value['judul_berita'] ?></a>
+                                    </h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="rounded" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: center; width: 100%; height: 80px;"></div>
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-12">
                                     <div class="row justify-content-around text-side-trending">
                                         <div class="col d-flex">
-                                            <div class="sub-item" style="margin-top: 2px;">
-                                                <i class="bi bi-heart"></i>
-                                                <span>0</span>
-                                            </div>
-                                            <div class="sub-item" style="margin-top: 2px;">
-                                                <i class="bi bi-chat"></i>
-                                                <span>0</span>
-                                            </div>
-                                            <div class="sub-item" style="margin-top: 2px;">
-                                                <i class="bi bi-eye"></i>
-                                                <span>0</span>
-                                            </div>
+                                            <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                <div class="sub-item" style="margin-top: 2px;">
+                                                    <i class="bi bi-heart"></i>
+                                                    <span>0</span>
+                                                </div>
+                                            <?php } ?>
+                                            <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                <div class="sub-item" style="margin-top: 2px;">
+                                                    <i class="bi bi-chat"></i>
+                                                    <span>0</span>
+                                                </div>
+                                            <?php } ?>
+                                            <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                <div class="sub-item" style="margin-top: 2px;">
+                                                    <i class="bi bi-eye"></i>
+                                                    <span>0</span>
+                                                </div>
+                                            <?php } ?>
                                             <div class="sub-item" style="margin-top: 2px;">
                                                 <span>50 menit</span>
                                             </div>
@@ -196,6 +234,7 @@
             <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
         <?php } ?>
 
+        <!------- Feed Content ------->
         <div class="col-md-9">
             <div class="card" style="background-color: unset;border: unset;">
                 <div class="card-header" style="background-color: unset;padding: 0;border: unset;">
@@ -207,141 +246,67 @@
                 <div class="card-body" style="padding: 0 20px 0 20px;">
                     <div class="row">
                         <div class="col-12" style="background-color: white;border-radius: 7px;margin: 10px 0 0 0;">
-
-
-                            <div class="side-news-item">
-                                <div class="row py-3">
-                                    <div class="col-2 p-0">
-                                        <div class="" style="background: url(/assets/media/AARwe9C.jpg);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
-                                    </div>
-                                    <div class="col">
-                                        <a href="/news/879123/detail" style="text-decoration: none;color: black">
-                                            <div class="row">
-                                                <h6 class="card-title">Dilengkapi Furnitur, Begini Desain Rusun Mahasiswa Aceh Senilai Rp12,74 Miliar</h6>
-                                                <p class="truncate-string-1" style="font-size: 14px;">Aceh: Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR) terus mendorong pembangunan rumah susun (rusun) bagi mahasiswa di seluruh wilayah Indonesia. Salah satunya pembangunan rusun Universitas Abulyatama di Aceh Besar senilai Rp12,74 miliar.</p>
-                                            </div>
-                                        </a>
-                                        <div class="row justify-content-around text-side-trending">
-                                            <div class="col d-flex" style="margin-top: auto;">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
+                            <?php foreach ($data_feed->items as $key => $value) { ?>
+                                <div class="<?= $key == (count($data_feed->items) - 1) ? '' : 'side-news-item' ?>" style="<?= $key == (count($data_feed->items) - 1) ? 'padding: 0.5rem 1rem;' : '' ?>">
+                                    <div class="row py-2 pb-1">
+                                        <div class="col-2 p-0">
+                                            <div class="" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
+                                        </div>
+                                        <div class="col">
+                                            <a href="/news/879123/detail" style="text-decoration: none;color: black">
+                                                <div class="row">
+                                                    <h6 class="card-title"><?= $value['judul_berita'] ?></h6>
+                                                    <div class="truncate-string-2" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['isi_berita'])) ?></div>
                                                 </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-chat"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-eye"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 d-flex">
-                                                <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                                    <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                        <i class="fas fa-share"></i>
-                                                        <span>Bagikan</span>
+                                            </a>
+                                            <div class="row justify-content-around text-side-trending mt-3">
+                                                <div class="col d-flex" style="margin-top: auto;">
+                                                    <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                            <i class="bi bi-heart"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                    <?php } ?>
+                                                    <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                            <i class="bi bi-chat"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                    <?php } ?>
+                                                    <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
+                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                            <i class="bi bi-eye"></i>
+                                                            <span>0</span>
+                                                        </div>
+                                                    <?php } ?>
+                                                    <div class="sub-item">
+                                                        <span>50 menit</span>
                                                     </div>
-                                                </a>
+                                                </div>
+                                                <div class="col-2 d-flex">
+                                                    <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                        <div class="me-3 sub-item" style="margin-top: 2px;">
+                                                            <i class="fas fa-share"></i>
+                                                            <span>Bagikan</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="side-news-item">
-                                <div class="row py-3">
-                                    <div class="col-2 p-0">
-                                        <div class="" style="background: url(/assets/media/AARvvdn.jpg);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
-                                    </div>
-                                    <div class="col">
-                                        <a href="/news/879123/detail" style="text-decoration: none;color: black">
-                                            <div class="row">
-                                                <h6 class="card-title">Bikin Adem, 9 Warna Cat Ini Bikin Ruang Tamu Lebih Sejuk!</h6>
-                                                <p class="truncate-string-1" style="font-size: 14px;">Warna cat dinding tak hanya sekedar berfungsi untuk mempercantik ruang tamu, tetapi lebih dari itu, bisa menghidupkan suasana, meningkatkan semangat, dan bisa memengaruhi suhu ruangan. Misalnya saja, warna cat dinding yang terang akan memantulkan panas -- membuat ruangan lebih sejuk. Sedangkan warna cat dinding yang lebih gelap cenderung menyerap panas -- membuat ruangan lebih panas. Lalu, apa saja warna cat yang bisa membuat ruang tamu terasa lebih sejuk? Ini pilihannya untuk Anda!</p>
-                                            </div>
-                                        </a>
-                                        <div class="row justify-content-around text-side-trending">
-                                            <div class="col d-flex" style="margin-top: auto;">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-chat"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-eye"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 d-flex">
-                                                <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                                    <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                        <i class="fas fa-share"></i>
-                                                        <span>Bagikan</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="" style="padding: 0.5rem 1rem;">
-                                <div class="row py-3">
-                                    <div class="col-2 p-0">
-                                        <div class="" style="background: url(/assets/media/AAMY8B8.jpg);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
-                                    </div>
-                                    <div class="col">
-                                        <a href="/news/879123/detail" style="text-decoration: none;color: black">
-                                            <div class="row">
-                                                <h6 class="card-title">Cara Cuci Baju di Hotel, Tanpa Ribet dan Hasilnya Bersih</h6>
-                                                <p class="truncate-string-1" style="font-size: 14px;">Saat pergi berlibur dan menginap di hotel, baju yang dibawa tentunya tak sebanyak seperti di rumah. Jika baju yang dibawa sedikit, mau tak mau tamu harus mencuci baju di hotel. Namun, sayangnya tak ada mesin cuci.</p>
-                                            </div>
-                                        </a>
-                                        <div class="row justify-content-around text-side-trending">
-                                            <div class="col d-flex" style="margin-top: auto;">
-                                                <div class="sub-item">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-chat"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <i class="bi bi-eye"></i>
-                                                    <span>0</span>
-                                                </div>
-                                                <div class="sub-item">
-                                                    <span>50 menit</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-2 d-flex">
-                                                <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
-                                                    <div class="me-3 sub-item" style="margin-top: 2px;">
-                                                        <i class="fas fa-share"></i>
-                                                        <span>Bagikan</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <?php } ?>
                         </div>
+                        <?= $data_feed->links() ?>
                     </div>
                 </div>
+
             </div>
+
+            <!------- Right Category ------->
+            <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            <?php } ?>
 
         </div>
 

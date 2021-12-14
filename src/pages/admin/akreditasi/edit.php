@@ -41,7 +41,10 @@
                                         <?php } ?>
                                         <div class="col">
                                             <label for="ikon_akreditasi" class="form-label">Ikon Akreditasi</label> (.jpg, .jpeg, .png)
-                                            <input type="file" class="form-control" id="ikon_akreditasi" name="ikon_akreditasi">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="ikon_akreditasi" name="ikon_akreditasi">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                             <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                         </div>
                                     </div>

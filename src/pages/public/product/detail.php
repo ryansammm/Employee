@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div style="background-image: url('/assets/media/<?= $data_produk['path_media'] ?>');width:410px;height: 460px;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div>
+                            <div style="background-image: url('/assets/media/<?= $data_produk['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div>
                         </div>
                         <div class="col-md-6">
                             <div class=" justify-content-between align-items-center mb-3 ms-3">

@@ -34,7 +34,10 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="ikon_akreditasi" class="form-label">Ikon Akreditasi</label> (.jpg, .jpeg, .png)
-                                    <input type="file" class="form-control" id="ikon_akreditasi" name="ikon_akreditasi">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="ikon_akreditasi" name="ikon_akreditasi">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
                                     <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                     <?php if (isset($errors['ikon_akreditasi'])) { ?>
                                         <span class="text-danger d-block"><b><?= $errors['ikon_akreditasi'] ?></b></span>

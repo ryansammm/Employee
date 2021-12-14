@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $(".tambahformfoto").on('click', function(){
+$(document).ready(function () {
+    $(".tambahformfoto").on('click', function () {
         let lastId = $(".listfoto:last").attr('id');
         let numberLastId = parseInt(lastId.split('_')[1]) + 1;
 
@@ -20,8 +20,11 @@ $(document).ready(function(){
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Upload Galeri</label> <span class="text-muted font-weight-light" style="font-size: 14px;">(.jpg, .jpeg, .png)</span>
-                    <input type="file" class="form-control" name="upload_galeri[]">
+                    <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="upload_galeri[]">
+                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                     <span class="text-muted font-weight-light" style="font-size: 14px;">Ukuran maksimum file : 2 Mb</span>
+                    </div>
                 </div>
                 <button type="button" class="btn btn-danger hapusformfoto mb-2" id="hapuslistfoto_${numberLastId}">Hapus</button>
             </div>
@@ -30,7 +33,7 @@ $(document).ready(function(){
         $(".listFormFoto").append(elementFormFoto);
     });
 
-    $(document).on('click', '.hapusformfoto',function(){
+    $(document).on('click', '.hapusformfoto', function () {
         let idButton = $(this).attr("id");
         let numberId = idButton.split('_')[1];
 

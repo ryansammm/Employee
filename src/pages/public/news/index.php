@@ -174,10 +174,11 @@
                     <?php foreach ($data_berita_hangat->items as $key => $value) { ?>
                         <div class="side-news-item">
                             <div class="row">
-                                <div class="d-flex">
-                                    <h6 class="card-title" style="padding: 0 20px 0 0;width: 225px;"><a href="/news/<?= $value['id_berita'] ?>/detail" class="text-decoration-none text-dark"><?= $value['judul_berita'] ?> </a></h6>
-                                    <div class="rounded" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: center; width: 80px; height: 80px;"></div>
-
+                                <div class="col-md-8 pe-0">
+                                    <h6 class="card-title"><a href="/news/<?= $value['id_berita'] ?>/detail" class="text-decoration-none text-dark"><?= $value['judul_berita'] ?> </a></h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="rounded" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: center; width: 100%; height: 80px;"></div>
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -474,4 +475,7 @@
         </div>
     </div>
 
-    <?php include __DIR__ . '/../Footer.php' ?>
+</div>
+
+
+<?php include __DIR__ . '/../Footer.php' ?>

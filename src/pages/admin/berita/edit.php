@@ -50,7 +50,9 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="gambar_thumbnail_berita" class="form-label">Gambar Thumbnail Berita</label> (.jpg, .jpeg, .png)
-                                    <input type="file" class="form-control" id="gambar_thumbnail_berita" name="gambar_thumbnail_berita">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-inpu" id="gambar_thumbnail_berita" name="gambar_thumbnail_berita">
+                                    </div>
                                     <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
                                     <?php if ($berita['path_media'] != null) { ?>
                                         <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= $berita['path_media'] ?>"><i class="fas fa-eye"></i> Pratinjau File</a>

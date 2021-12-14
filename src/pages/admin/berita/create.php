@@ -1,7 +1,7 @@
 <?php include(__DIR__ . '/../layouts/admin-header.php'); ?>
 
 <div class="content-wrapper">
-    <section class="content-header">
+    <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-1">
@@ -10,7 +10,7 @@
                 <div class="col-sm-5">
                     <h1 class="m-0">Data Berita</h1>
                 </div>
-                <div class="col">
+                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Berita</a></li>
                         <li class="breadcrumb-item"><a href="#">Kelola Berita</a></li>
@@ -19,9 +19,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="content">
+    <div class="content">
         <div class="container-fluid">
             <form action="/admin/berita/store" method="POST" enctype="multipart/form-data">
                 <div class="wrapper" style="height: 100%;">
@@ -56,7 +56,10 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="gambar_thumbnail_berita" class="form-label">Gambar Thumbnail Berita</label> (.jpg, .jpeg, .png)
-                                    <input type="file" class="form-control" id="gambar_thumbnail_berita" name="gambar_thumbnail_berita">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="gambar_thumbnail_berita" name="gambar_thumbnail_berita">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
                                     <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                     <?php if (isset($errors['gambar_thumbnail_berita'])) { ?>
                                         <span class="text-danger d-block"><b><?= $errors['gambar_thumbnail_berita'] ?></b></span>
@@ -70,11 +73,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </form>
         </div>
-    </section>
+    </div>
 </div>
 
 <!-- Modal Dokumen -->

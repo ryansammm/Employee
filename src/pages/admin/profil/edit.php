@@ -72,16 +72,16 @@
 
 <!-- Modal Dokumen -->
 <div class="modal fade" id="dokumenPersyaratan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">Dokumen ORMAS</h6>
+                <h6 class="modal-title" id="exampleModalLabel">Foto Profil</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <img src="" alt="" class="img-fluid fileSakip d-none">
+                <img src="" alt="" class="img-fluid fileSakip d-none" style="width: 100% !important;">
                 <iframe src="" frameborder="0" id="fileSakipPDF" style="display: block;width:100%;height:400px;"></iframe>
             </div>
             <div class="modal-footer">

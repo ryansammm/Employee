@@ -173,7 +173,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/admin/akreditasi" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-award"></i>
                         <p>
                             Kelola Akreditasi
                         </p>
@@ -181,7 +181,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/admin/asosiasi" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-handshake"></i>
                         <p>
                             Kelola Asosiasi
                         </p>
@@ -189,7 +189,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/admin/sosial-media" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-thumbs-up"></i>
                         <p>
                             Kelola Sosial Media
                         </p>

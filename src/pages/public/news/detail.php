@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card rounded p-3" style="border-top: 5px solid #fe4d01;">
                 <h4 class="ps-3"><?= $detail_berita['judul_berita'] ?></h4>
-                <span class="text-muted ps-3" style="font-size: 12px;"><?= date_format(date_create($detail_berita['tgl_publish']), "j M Y") ?> | <?= $detail_berita['nama_depan'] ?> <?= $detail_berita['nama_belakang'] ?> | <a href="" class="text-muted text-decoration-none"> <?= $detail_berita['kategori_berita'] ?></a></span>
+                <span class="text-muted ps-3" style="font-size: 12px;"><?= date_format(date_create($detail_berita['tgl_publish']), "j M Y") ?> | <?= $detail_berita['nama_depan'] ?> <?= $detail_berita['nama_belakang'] ?> | <a href="/news/<?= $detail_berita['id_kategori_berita'] ?>/kategori" class="text-muted text-decoration-none"> <?= $detail_berita['kategori_berita'] ?></a></span>
                 <img src="/assets/media/<?= $detail_berita['path_media'] ?>" alt="" style="width: 100%;height: 100%;" class="mt-3 px-3">
                 <div class="px-3 mt-3">
                     <?= html_entity_decode(nl2br($detail_berita['isi_berita'])) ?>
@@ -16,18 +16,18 @@
                     <hr>
                     <div class="row d-flex justify-content-center">
                         <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
-                        <div class="col-6 col-md-4 text-center text-grey">
-                            <a href="/likeBerita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
-                                <i class="far fa-thumbs-up"></i>
-                            </a>
-                            <span>0</span> Suka
-                        </div>
-                        <div class="col-6 col-md-4 text-center text-grey">
-                            <a href="/dislikeBerita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
-                                <i class="far fa-thumbs-up" style="-ms-transform: rotate(180deg);transform: rotate(180deg);"></i>
-                            </a>
-                            <span>0</span> Tidak Suka
-                        </div>
+                            <div class="col-6 col-md-4 text-center text-grey">
+                                <a href="/likeBerita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
+                                    <i class="far fa-thumbs-up"></i>
+                                </a>
+                                <span>0</span> Suka
+                            </div>
+                            <div class="col-6 col-md-4 text-center text-grey">
+                                <a href="/dislikeBerita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
+                                    <i class="far fa-thumbs-up" style="-ms-transform: rotate(180deg);transform: rotate(180deg);"></i>
+                                </a>
+                                <span>0</span> Tidak Suka
+                            </div>
                         <?php } ?>
                         <div class="col-6 col-md-4 text-center text-grey">
                             <a href="#" class="text-dark text-decoration-none btn-sosmed" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-bs-url="<?= $site_url ?>/informasi/berita/<?= $detail_berita['id_berita'] ?>" data-bs-idBerita="<?= $detail_berita['id_berita'] ?>">
@@ -39,14 +39,14 @@
                 </div>
             </div>
             <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
-            <div class="card my-2 p-4">
-                <form action="/komentar/<?= $detail_berita['id_berita'] ?>/store" method="POST">
-                    <textarea class="form-control" rows="5" placeholder="Silahkan tuliskan komentarmu...."></textarea>
-                    <div class="d-flex flex-row-reverse">
-                        <button type="submit" class="btn btn-danger rounded mt-3">Kirim</button>
-                    </div>
-                </form>
-                <!-- <nav>
+                <div class="card my-2 p-4">
+                    <form action="/komentar/<?= $detail_berita['id_berita'] ?>/store" method="POST">
+                        <textarea class="form-control" rows="5" placeholder="Silahkan tuliskan komentarmu...."></textarea>
+                        <div class="d-flex flex-row-reverse">
+                            <button type="submit" class="btn btn-danger rounded mt-3">Kirim</button>
+                        </div>
+                    </form>
+                    <!-- <nav>
                     <div class="nav nav-tabs" id="nav-tab">
                         <a class="nav-item nav-link active" data-toggle="tab" href="#nav-semua" role="tab">Semua Komentar</a>
                     </div>
@@ -104,7 +104,7 @@
                         <h4>Komentar Terbaru</h4>
                     </div>
                 </div> -->
-            </div>
+                </div>
             <?php } ?>
 
         </div>
@@ -143,22 +143,22 @@
                                             <div class="row justify-content-around text-side-trending">
                                                 <div class="col d-flex">
                                                     <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
-                                                    <div class="sub-item" style="margin-top: 2px;">
-                                                        <i class="bi bi-heart"></i>
-                                                        <span>0</span>
-                                                    </div>
+                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                            <i class="bi bi-heart"></i>
+                                                            <span>0</span>
+                                                        </div>
                                                     <?php } ?>
                                                     <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
-                                                    <div class="sub-item" style="margin-top: 2px;">
-                                                        <i class="bi bi-chat"></i>
-                                                        <span>0</span>
-                                                    </div>
+                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                            <i class="bi bi-chat"></i>
+                                                            <span>0</span>
+                                                        </div>
                                                     <?php } ?>
                                                     <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
-                                                    <div class="sub-item" style="margin-top: 2px;">
-                                                        <i class="bi bi-eye"></i>
-                                                        <span>0</span>
-                                                    </div>
+                                                        <div class="sub-item" style="margin-top: 2px;">
+                                                            <i class="bi bi-eye"></i>
+                                                            <span>0</span>
+                                                        </div>
                                                     <?php } ?>
                                                     <div class="sub-item" style="margin-top: 2px;">
                                                         <span>50 menit</span>

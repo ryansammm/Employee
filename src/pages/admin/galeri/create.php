@@ -96,7 +96,10 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="" class="form-label">Upload Galeri</label>
-                                            <input type="file" class="form-control" name="upload_galeri[]">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="upload_galeri[]">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
 

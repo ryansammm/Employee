@@ -80,7 +80,7 @@
                                             </div>
                                             <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,10 @@
                                                                 <img class="img-fluid img-thumbnail" src="/assets/media/<?= $value['path_media'] ?>" alt="">
                                                             </div>
                                                             <div class="col">
-                                                                <input type="file" class="form-control" name="<?= 'upload_galeri_' . $value['id_group_galeri'] ?>">
+                                                                <div class="custom-file">
+                                                                    <input type="file" class="custom-file-input" name="<?= 'upload_galeri_' . $value['id_group_galeri'] ?>">
+                                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                                </div>
                                                                 <span class="text-muted font-weight-light" style="font-size: 14px;">Ukuran maksimum file : 2 Mb</span>
                                                             </div>
                                                         </div>

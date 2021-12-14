@@ -65,6 +65,8 @@
     <p class="text-muted mb-0">2021 &copy; Panca Teknologi Aksesindo</p>
 </div>
 
+<!------- Popper ------->
+<script src="/assets/js/popper.min.js"></script>
 
 <!------- Bootstrap JS ------->
 <script src="/assets/public/js/bootstrap.bundle.min.js"></script>

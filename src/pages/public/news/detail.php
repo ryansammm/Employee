@@ -61,7 +61,7 @@
                     <div style="background-color: white;padding: 5px 0 5px 0;">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h5>
-                            <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
+                            <!-- <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a> -->
                         </div>
                     </div>
                     <div class="card">

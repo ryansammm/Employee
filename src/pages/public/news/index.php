@@ -4,9 +4,11 @@
 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-style.php' ?>
 
 <!------- Landscape Banner ------->
-<?php if (isset($banner_landscape[0])) { ?>
-    <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[0], 'path_media')]) ?>
-<?php } ?>
+<div class="container">
+    <?php if (isset($banner_landscape[0])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[0], 'path_media')]) ?>
+    <?php } ?>
+</div>
 
 <!-- ----- News ------->
 <div class="container">
@@ -257,14 +259,16 @@
 
 
 <!------- Landscape Banner ------->
-<?php if (isset($banner_landscape[1])) { ?>
-    <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
-<?php } ?>
+<div class="container">
+    <?php if (isset($banner_landscape[1])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+    <?php } ?>
+</div>
 
 
 <!------- Feed ------->
 <div class="container">
-    <div class="row mt-1">
+    <div class="row mt-3">
 
         <!------- Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
@@ -297,7 +301,7 @@
                                             <div class="" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
                                         </div>
                                         <div class="col">
-                                            <a href="/news/879123/detail" style="text-decoration: none;color: black">
+                                            <a href="/news/<?= $value['id_berita'] ?>/detail" style="text-decoration: none;color: black">
                                                 <div class="row">
                                                     <h6 class="card-title"><?= $value['judul_berita'] ?></h6>
                                                     <div class="truncate-string-2" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['isi_berita'])) ?></div>

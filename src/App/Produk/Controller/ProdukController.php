@@ -2,7 +2,9 @@
 
 namespace App\Produk\Controller;
 
+use App\Banner\Model\Banner;
 use App\CmsKategoriStyle\Model\CmsKategoriModule;
+use App\CmsSetting\Model\CmsSetting;
 use App\KategoriProdukAdmin\Model\KategoriProdukAdmin;
 use App\Media\Model\Media;
 use App\Produk\Model\Produk;
@@ -18,6 +20,8 @@ class ProdukController
     {
         $this->model = new Produk();
         $this->modelKategoriProduk = new KategoriProdukAdmin();
+        $this->cmsSetting = new CmsSetting();
+        $this->banner = new Banner();
     }
 
     public function index(Request $request)
@@ -38,7 +42,18 @@ class ProdukController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/product/index', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori]);
+        /* ----------------------------------- Banner ---------------------------------- */
+        $banner_potrait = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '1')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        $banner_landscape = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '2')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        /* -------------------------------------------------------------------------- */
+
+        return render_template('public/product/index', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
     }
 
     public function create(Request $request)
@@ -106,7 +121,19 @@ class ProdukController
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
 
-        return render_template('public/product/detail', ['data_produk' => $data_produk, 'datas_produk' => $datas_produk, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_produk' => $all_produk]);
+        /* ----------------------------------- Banner ---------------------------------- */
+        $banner_potrait = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '1')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        $banner_landscape = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '2')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        /* -------------------------------------------------------------------------- */
+
+
+        return render_template('public/product/detail', ['data_produk' => $data_produk, 'datas_produk' => $datas_produk, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_produk' => $all_produk, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
     }
 
     public function kategori(Request $request)
@@ -143,6 +170,17 @@ class ProdukController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/product/category', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori]);
+        /* ----------------------------------- Banner ---------------------------------- */
+        $banner_potrait = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '1')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        $banner_landscape = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '2')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        /* -------------------------------------------------------------------------- */
+
+        return render_template('public/product/category', ['data_produk' => $data_produk, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
     }
 }

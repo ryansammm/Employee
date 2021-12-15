@@ -3,8 +3,8 @@
     <footer class="row py-4 mt-5 border-top">
 
         <div class="col-md-2" style="margin-top: auto;margin-bottom: auto;">
-            <img class="d-flex mx-auto mb-2" src="/assets/logo/PTA-logo.png" alt="" width="80">
-            <p class="text-center m-0" style="color: #c1c1c1;">Panca Teknologi Aksesindo</p>
+            <img class="d-flex mx-auto mb-2" src="/assets/logo/PTA-logo.png" alt="" style="width: 110px;">
+            <p class="text-center m-0" style="color: #c1c1c1;font-weight: 600;">Panca Teknologi Aksesindo</p>
         </div>
 
         <div class="col-md-2 pe-3">
@@ -65,6 +65,8 @@
     <p class="text-muted mb-0">2021 &copy; Panca Teknologi Aksesindo</p>
 </div>
 
+<!------- Popper ------->
+<script src="/assets/js/popper.min.js"></script>
 
 <!------- Bootstrap JS ------->
 <script src="/assets/public/js/bootstrap.bundle.min.js"></script>

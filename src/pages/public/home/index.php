@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <div style="background-image: url('/assets/media/<?= $detail_profil['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 5pt;"></div>
+                    <div style="background-image: url('/assets/media/<?= $detail_profil['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex justify-content-between align-items-center mb-1 ms-1">
@@ -39,10 +39,10 @@
             <?php foreach ($data_berita->items as $key => $value) { ?>
                 <div class="col-md">
                     <a href="/news/<?= $value['id_berita'] ?>/detail" class="text-dark text-decoration-none">
-                        <div class="card for-hover p-3">
+                        <div class="card for-hover p-2">
                             <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
-                            <h6 class="mt-3 mb-0 pb-0 truncate-string-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $value['judul_berita'] ?>"><?= $value['judul_berita'] ?></h6>
-                            <small class=" mb-1 text-muted"><?= $value['kategori_berita'] ?></small>
+                            <small class="mt-1 text-muted" style="font-size: 12px;"><?= $value['kategori_berita'] ?></small>
+                            <h6 class="mb-2 mb-0 pb-0 truncate-string-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $value['judul_berita'] ?>"><?= $value['judul_berita'] ?></h6>
                             <div class="truncate-string-2" style="font-size: 12px;"><?= html_entity_decode(nl2br($value['isi_berita'])) ?></div>
                         </div>
                     </a>
@@ -66,7 +66,7 @@
             <?php foreach ($data_layanan->items as $key => $value) { ?>
                 <div class="col-md text-center">
                     <a href="/service/<?= $value['id_layanan'] ?>/detail" class="text-dark text-decoration-none">
-                        <div class="card for-hover p-3">
+                        <div class="card for-hover p-2">
                             <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
                             <h4 class="mt-3" style="font-size: 18px;"><?= $value['nama_layanan'] ?></h4>
                             <div class="mb-3 truncate-string-3" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['deskripsi_layanan'])) ?></div>
@@ -96,7 +96,7 @@
                             <div class="card" style="height: 200px !important;">
                                 <div class="card-body p-0">
                                     <div class="js-video [youtube, widescreen]">
-                                        <iframe src="<?= $value['link_video'] ?>" style="width: 100%; height: 150pt;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe src="<?= $value['link_video'] ?>" style="width: 100%; height: 150pt;border-radius: 0.25rem;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                     <?php foreach ($data_produk->items as $key => $value) { ?>
                         <div class="col-md-2 mb-3">
                             <div class="card shadow-sm" style="border-radius: 8px;">
-                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 8px 8px 0 0;"></div>
+                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 0.25rem 0.25rem 0 0;"></div>
                                 <div class="card-body" style="font-size: 12px;">
                                     <h6><?= $value['nama_produk'] ?></h6>
                                     <div class="card-text truncate-string-2 mb-1"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>

@@ -173,25 +173,51 @@
                                         <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
                                     </div> -->
                                     <div class="input-group mt-3 ms-3">
-                                        <input type="text" class="form-control" name="search" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 500pt;" value="<?= isset($search) ? show($search) : '' ?>">
+                                        <input type="text" class="form-control" name="search" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 480pt;" value="<?= isset($search) ? show($search) : '' ?>">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
                                         </div>
                                     </div>
                                 </form>
                             <?php } ?>
+
+
+                            <div class="dropdown ps-5 ">
+                                <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="d-flex mt-3">
+                                        <div class="user-img align-items-center mr-3">
+                                            <img src="/assets/icon/avatar.jpg" style="width: 38px;height: 38px;" class="rounded-circle">
+                                        </div>
+                                        <div class="user-name text-start ms-3">
+                                            <h6 class="mb-0 text-muted" style="font-size: 14px;">Administrator</h6>
+                                            <p class="mb-0 text-sm text-primary" style="font-size: 14px;">Online</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <ul class="dropdown-menu border mt-2" aria-labelledby="dropdownMenuButton">
+                                    <li class="px-2">
+                                        <h6 class="dropdown-header">Hello, Administrator!</h6>
+                                    </li>
+                                    <li class="px-2">
+                                        <a class="dropdown-item" href="">
+                                            <i class="icon-mid bi bi-person me-2"></i> My
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li class="px-2">
+                                        <a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="icon-mid bi bi-box-arrow-left me-2"></i>
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
-
-                        <!-- <div class="" style="position: absolute;top: 20%;">
-                            <ul class="nav justify-content-end" style="height: 100%;">
-                                <li class="nav-item" style="margin-top: auto;margin-bottom: auto;">
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#modalLogin" class="text-decoration-none" style="color: #fc5102;">
-                                        <i class="bi bi-person fs-4"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> -->
-
                     </div>
                 </div>
             </div>

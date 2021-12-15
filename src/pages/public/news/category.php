@@ -1,5 +1,12 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
+<!------- Landscape Banner ------->
+<section>
+    <div class="container mb-4">
+        <div style="background-image: url(/assets/banner/razer-laptop.png);width: 100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+    </div>
+</section>
+
 <!-- ----- News ------->
 <div class="container">
     <div class="row mt-3">
@@ -164,7 +171,7 @@
             <div style="padding: 5px 0 5px 0;">
                 <div class="d-flex justify-content-between align-items-center">
                     <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h6>
-                    <a href="" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
+                    <!-- <a href="" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a> -->
                 </div>
             </div>
             <div class="card">
@@ -225,6 +232,14 @@
 </div>
 
 
+<!------- Landscape Banner ------->
+<section>
+    <div class="container mb-4">
+        <div style="background-image: url(/assets/banner/logitech.jpg);width: 100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+    </div>
+</section>
+
+
 <!------- Feed ------->
 <div class="container">
     <div class="row mt-3">
@@ -242,7 +257,7 @@
                 <div class="card-header" style="background-color: unset;padding: 0;border: unset;">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Feed</h5>
-                        <a href="/service" class="text-decoration-none" style="font-size: 14px;">Feed Lainnya <i class="bi bi-chevron-right"></i></a>
+                        <!-- <a href="/service" class="text-decoration-none" style="font-size: 14px;">Feed Lainnya <i class="bi bi-chevron-right"></i></a> -->
                     </div>
                 </div>
                 <div class="card-body" style="padding: 0 20px 0 20px;">

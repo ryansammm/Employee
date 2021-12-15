@@ -11,6 +11,13 @@
 <div class="container">
     <div class="row">
 
+        <!------- Landscape Banner ------->
+        <section class="pe-0">
+            <div class="container px-0 mb-4">
+                <div style="background-image: url(/assets/banner/logitech.jpg);width: 100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+            </div>
+        </section>
+
         <!------- Main Content ------->
         <div class="col-md-8">
             <div class="card rounded p-3" style="border-top: 5px solid #fe4d01;">
@@ -69,7 +76,7 @@
                     <div style="background-color: white;padding: 5px 0 5px 0;">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h5>
-                            <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
+                            <!-- <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a> -->
                         </div>
                     </div>
                     <div class="card">

@@ -21,13 +21,13 @@
                             <div style="background-image: url('/assets/media/<?= $data_produk['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div>
                         </div>
                         <div class="col-md-6">
-                            <div class=" justify-content-between align-items-center mb-3 ms-3">
-                                <h4 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;"><?= $data_produk['nama_produk'] ?></h4>
+                            <div class=" justify-content-between align-items-center mb-3">
+                                <h4 style=" border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;"><?= $data_produk['nama_produk'] ?></h4>
                                 <hr>
-                                <small class="">Kode Produk : 980829</small><br>
-                                <small class="">Kategori : <?= $data_produk['nama_kategori_produk'] ?></small>
+                                <small class="text-muted">Kode Produk : 980829</small><br>
+                                <small class="text-muted">Kategori : <a href="/product/<?= $data_produk['id_kategori_produk'] ?>/kategori" class="text-decoration-none text-muted"><?= $data_produk['nama_kategori_produk'] ?></a></small>
                             </div>
-                            <div class="description  ms-3">
+                            <div class="description">
                                 <h6 class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_produk['deskripsi_produk'])) ?></h6>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
             <!------- Spesifikasi ------->
             <section class="mt-4">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body px-0 pe-3">
                         <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
                             <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Spesifikasi</h6>
                         </div>

@@ -1,11 +1,9 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
 <!------- Landscape Banner ------->
-<section>
-    <div class="container mb-4">
-        <div style="background-image: url(/assets/banner/razer-laptop.png);width: 100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-    </div>
-</section>
+<?php if (isset($banner_landscape[0])) { ?>
+    <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[0], 'path_media')]) ?>
+<?php } ?>
 
 <!-- ----- News ------->
 <div class="container">
@@ -231,13 +229,10 @@
     </div>
 </div>
 
-
 <!------- Landscape Banner ------->
-<section>
-    <div class="container mb-4">
-        <div style="background-image: url(/assets/banner/logitech.jpg);width: 100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-    </div>
-</section>
+<?php if (isset($banner_landscape[1])) { ?>
+    <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+<?php } ?>
 
 
 <!------- Feed ------->

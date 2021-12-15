@@ -11,13 +11,6 @@
 <div class="container">
     <div class="row">
 
-        <!------- Landscape Banner ------->
-        <section class="pe-0">
-            <div class="container px-0 mb-4">
-                <div style="background-image: url(/assets/banner/logitech.jpg);width: 100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-            </div>
-        </section>
-
         <!------- Main Content ------->
         <div class="col-md-8">
             <div class="card rounded p-3" style="border-top: 5px solid #fe4d01;">
@@ -133,23 +126,6 @@
                         </div>
                     </div>
 
-                </div>
-
-                <!------- Category ------->
-                <div class="card">
-                    <div class="card-body">
-                        <div style="background-color: white;padding: 5px 0 5px 0;">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Kategori</h5>
-                            </div>
-                            <hr>
-                        </div>
-                        <ul class="nav flex-column" style="font-size: 14px;">
-                            <?php foreach ($data_kategori_berita->items as $key => $value) { ?>
-                                <li class="nav-item border-bottom mb-2"><a class="nav-link p-0 text-dark" href="/news/<?= $value['id_kategori_berita'] ?>/kategori"><?= $value['kategori_berita'] ?></a></li>
-                            <?php } ?>
-                        </ul>
-                    </div>
                 </div>
 
                 <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>

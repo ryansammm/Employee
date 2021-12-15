@@ -96,7 +96,7 @@
                             <div class="row justify-content-center">
                                 <?php foreach ($datas->items as $key => $data) { ?>
                                     <?php if ($data['ishide_kontak'] == '2') { ?>
-                                        <div class="col-md-4 pe-0" style=" <?= $key == (count($datas->items) - 1) ? '' : 'border-right: 1pt solid white;' ?>">
+                                        <div class="col-md pe-0" style=" <?= $key == (count($datas->items) - 1) ? '' : 'border-right: 1pt solid white;' ?>">
                                             <div class="flex-column">
                                                 <div class="d-flex text-white">
                                                     <i class="fas fa-map-marker-alt"></i>

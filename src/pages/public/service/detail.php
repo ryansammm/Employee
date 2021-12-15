@@ -38,38 +38,71 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!------- Product Image ------->
-            <div class="card mt-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <div style="background-image: url(/assets/layanan/layanan1.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                    <hr>
+
+                    <!------- Share ------->
+                    <div class="row justify-content-center">
+
+                        <div class="col-md-2">
+                            <a href="">
+                                <i class="fab fa-whatsapp"> Whatsapp</i>
                             </a>
                         </div>
-                        <div class="col-md-3">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                <div style="background-image: url(/assets/layanan/layanan2.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                        <div class="col-md-2">
+                            <a href="">
+                                <i class="fab fa-facebook"> Facebook</i>
                             </a>
                         </div>
-                        <div class="col-md-3">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                <div style="background-image: url(/assets/layanan/layanan3.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                                <div style="background-image: url(/assets/layanan/layanan4.png);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+
+                        <div class="col-md-2">
+                            <a href="">
+                                <i class="fab fa-twitter"> Twiiter</i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!------- Modal Product Image ------->
+            <!------- Service Image ------->
+            <div class="card mt-3">
+                <div class="card-body p-2">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <div style="background-image: url(/assets/layanan/layanan1.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <div style="background-image: url(/assets/layanan/layanan2.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                <div style="background-image: url(/assets/layanan/layanan3.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                <div style="background-image: url(/assets/layanan/layanan4.png);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                                <div style="background-image: url(/assets/layanan/layanan5.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+                                <div style="background-image: url(/assets/layanan/layanan6.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------- Modal Service Image ------->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -102,6 +135,24 @@
                     <div class="modal-content">
                         <div class="modal-body p-1">
                             <img src="/assets/layanan/layanan4.png" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body p-1">
+                            <img src="/assets/layanan/layanan5.jpg" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body p-1">
+                            <img src="/assets/layanan/layanan6.jpg" width="100%" alt="">
                         </div>
                     </div>
                 </div>
@@ -205,6 +256,7 @@
 
     </div>
 </div>
+
 
 
 <?php include __DIR__ . '/../Footer.php' ?>

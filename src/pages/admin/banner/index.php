@@ -50,7 +50,7 @@
                                 <tr>
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['nama_banner'] ?></td>
-                                    <td><?= $value['orientasi_banner'] == '1' ? 'Vertical' : 'Horizontal' ?></td>
+                                    <td><?= $value['orientasi_banner'] == '1' ? 'Potrait' : 'Lanscape' ?></td>
                                     <td><?= $value['lokasi_banner'] ?></td>
                                     <td>
                                         <a class="btn btn-sm btn-info m-2" href="/admin/banner/<?= $value['id_banner'] ?>/edit">Edit</a>

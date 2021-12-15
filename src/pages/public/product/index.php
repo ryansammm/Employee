@@ -7,7 +7,9 @@
     <div class="row">
         <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
+            <div class="col-md-3">
             <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            </div>
         <?php } ?>
 
         <!------- Main Content ------->
@@ -38,7 +40,9 @@
 
         <!------- Right Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
+            <div class="col-md-3">
             <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+        </div>
         <?php } ?>
 
     </div>

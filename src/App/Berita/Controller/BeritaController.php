@@ -2,6 +2,7 @@
 
 namespace App\Berita\Controller;
 
+use App\Banner\Model\Banner;
 use App\KategoriBerita\Model\KategoriBerita;
 use App\KategoriBeritaAdmin\Model\KategoriBeritaAdmin;
 use App\Media\Model\Media;
@@ -15,17 +16,17 @@ class BeritaController
 {
     public $model;
     public $cmsSetting;
+    public $banner;
 
     public function __construct()
     {
         $this->model = new Berita();
         $this->cmsSetting = new CmsSetting();
+        $this->banner = new Banner();
     }
 
     public function index(Request $request)
     {
-        $berita = new Berita();
-        $media = new Media();
         $kategori_berita = new KategoriBeritaAdmin();
 
         /* -------------------------------- Kategori -------------------------------- */
@@ -79,7 +80,18 @@ class BeritaController
         $cms_setting = $this->cmsSetting->first();
         /* -------------------------------------------------------------------------- */
 
-        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed]);
+        /* ----------------------------------- Banner ---------------------------------- */
+        $banner_potrait = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '1')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        $banner_landscape = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '2')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        /* -------------------------------------------------------------------------- */
+
+        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
     }
 
     public function create(Request $request)
@@ -134,7 +146,15 @@ class BeritaController
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->where('id_berita', $id)->first();
 
-        $data_kategori_berita = $kategori_berita->get();
+        /* -------------------------------- Kategori -------------------------------- */
+        $datas_kategori = $kategori_berita
+            ->get();
+
+        foreach ($datas_kategori->items as $key => $value) {
+            $datas_kategori->items[$key]['id_kategori'] = $value['id_kategori_berita'];
+            $datas_kategori->items[$key]['nama_kategori'] = $value['kategori_berita'];
+        }
+        /* -------------------------------------------------------------------------- */
 
         $data_berita = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
@@ -143,7 +163,24 @@ class BeritaController
 
         $cms_setting = $this->cmsSetting->first();
 
-        return render_template('public/news/detail', ['data_kategori_berita' => $data_kategori_berita, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting, 'data_berita_hangat' => $data_berita_hangat]);
+        /* ----------------------------------- CMS ---------------------------------- */
+        $cmsKategoriModule = new CmsKategoriModule('produk-kami');
+        extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
+        $cms_setting = $this->cmsSetting->first();
+        /* -------------------------------------------------------------------------- */
+
+        /* ----------------------------------- Banner ---------------------------------- */
+        $banner_potrait = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '1')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        $banner_landscape = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '2')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        /* -------------------------------------------------------------------------- */
+
+        return render_template('public/news/detail', ['datas_kategori' => $datas_kategori, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting, 'data_berita_hangat' => $data_berita_hangat, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 
     public function kategori(Request $request)

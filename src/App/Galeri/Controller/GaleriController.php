@@ -29,6 +29,8 @@ class GaleriController
             ->leftJoin('kategori_galeri', 'kategori_galeri.id_kategori_galeri', '=', 'galeri.id_kategori_galeri')
             ->paginate(8)->appends(['kategori_galeri' => $request->query->get('kategori_galeri')]);
 
+            // dd($data_galeri);
+
         $datas_kategori = $this->modelKategoriGaleri
             ->get();
 

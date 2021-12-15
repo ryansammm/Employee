@@ -34,14 +34,14 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Orientasi Banner</label>
-                                    <select name="orientasi_banner" class="form-control">
-                                        <option value="1">Vertical</option>
-                                        <option value="2">Horizontal</option>
+                                    <select name="orientasi_banner" class="form-control orientasi_banner">
+                                        <option value="1">Potrait</option>
+                                        <option value="2">Lanscape</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Lokasi Banner Dimunculkan</label>
-                                    <select name="lokasi_banner" class="form-control">
+                                    <select name="lokasi_banner" class="form-control lokasi_banner">
                                         <option value=""> -- Pilih Lokasi Banner -- </option>
                                         <?php foreach ($menu->items as $key => $value) { ?>
                                             <option value="<?= $value['link_url'] ?>"><?= $value['menu'] ?></option>
@@ -55,6 +55,49 @@
                                     <?php if (isset($errors['foto_banner'])) { ?>
                                         <span class="text-danger d-block"><b><?= $errors['foto_banner'] ?></b></span>
                                     <?php } ?>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="d-block">Sembunyikan Banner?</label>
+                                    <input type="radio" name="ishide_banner" value="1"> Ya
+                                    <input type="radio" name="ishide_banner" value="2" class="ml-2" checked> Tidak
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Urutan Banner</label>
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="card">
+                                            <div class="card-header p-0">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        Atur Urutan Banner Berdasarkan Lokasi dan Orientasi Banner
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <table class="table table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Banner</th>
+                                                                <th scope="col">Thumbnail</th>
+                                                                <th scope="col">Urutan</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="body-table-banner">
+
+                                                        </tbody>
+                                                        <tbody>
+                                                            <tr class="bg-light">
+                                                                <td style="width: 400px;" colspan="3"><b>Banner yang akan ditambakan</b></td>
+                                                                <td><input type="number" min="1" name="urutan_banner" class="form-control" placeholder="urutan" style="width: 100px;" value=""></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row my-4">
                                     <div class="col-md d-flex justify-content-end">
@@ -110,6 +153,7 @@
         });
     });
 </script>
+<script src="/assets/js/app/banner.js"></script>
 
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

@@ -371,6 +371,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('banner_update', '/{id}/update', [BannerController::class, 'update']);
         $routes->push('banner_show', '/{id}/show', [BannerController::class, 'show']);
         $routes->push('banner_delete', '/{id}/delete', [BannerController::class, 'delete']);
+        $routes->push('banner_get', '/get', [BannerController::class, 'get']);
     });
     /* -------------------------------------------------------------------------- */
 });

@@ -7,7 +7,9 @@
     <div class="row">
         <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
+            <div class="col-3">
             <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            </div>
         <?php } ?>
 
         <div class="col-md-9">
@@ -22,6 +24,7 @@
                         <div class="card shadow-sm">
                             <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 225px;background-size: cover;background-position: center;"></div>
                             <div class="card-body">
+                                <h6><?= $value['judul_galeri'] ?></h6>
                                 <div class="card-text truncate-string-2 mb-3" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['deskripsi_galeri'])) ?></div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
@@ -41,7 +44,9 @@
 
         <!------- Right Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
+            <div class="col-3">
             <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            </div>
         <?php } ?>
 
     </div>

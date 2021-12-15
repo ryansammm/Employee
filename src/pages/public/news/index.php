@@ -1,13 +1,12 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
+<?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-error.php' ?>
+<?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-style.php' ?>
 
 <!------- Landscape Banner ------->
-<section>
-    <div class="container mb-4">
-        <div style="background-image: url(/assets/banner/razer-laptop.png);width: 100%;height: 200px;background-size: cover;background-position: center;"></div>
-    </div>
-</section>
-
+<?php if (isset($banner_landscape[0])) { ?>
+    <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[0], 'path_media')]) ?>
+<?php } ?>
 
 <!-- ----- News ------->
 <div class="container">
@@ -258,11 +257,9 @@
 
 
 <!------- Landscape Banner ------->
-<section>
-    <div class="container mb-4">
-        <div style="background-image: url(/assets/banner/logitech.jpg);width: 100%;height: 200px;background-size: cover;background-position: center;"></div>
-    </div>
-</section>
+<?php if (isset($banner_landscape[1])) { ?>
+    <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+<?php } ?>
 
 
 <!------- Feed ------->
@@ -271,7 +268,14 @@
 
         <!------- Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            <div class="col-md-3">
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <?php if (!empty($banner_potrait)) { ?>
+                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                        <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                    <?php } ?>
+                <?php } ?>
+            </div>
         <?php } ?>
 
         <!------- Feed Content ------->
@@ -345,7 +349,14 @@
 
             <!------- Right Category ------->
             <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
-                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <div class="col-md-3">
+                    <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                    <?php if (!empty($banner_potrait)) { ?>
+                        <?php foreach ($banner_potrait as $key => $data) { ?>
+                            <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
             <?php } ?>
 
         </div>

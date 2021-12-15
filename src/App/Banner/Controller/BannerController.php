@@ -5,6 +5,7 @@ namespace App\Banner\Controller;
 use App\Banner\Model\Banner;
 use App\Media\Model\Media;
 use App\Menu\Model\Menu;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -35,6 +36,17 @@ class BannerController
 
     public function store(Request $request)
     {
+        $update_banner_order = $request->request->all();
+        unset($update_banner_order['nama_banner']);
+        unset($update_banner_order['orientasi_banner']);
+        unset($update_banner_order['lokasi_banner']);
+        unset($update_banner_order['ishide_banner']);
+        unset($update_banner_order['urutan_banner']);
+
+        foreach ($update_banner_order as $key => $data) {
+            $this->banner->where('id_banner', $key)->update(['urutan_banner' => $data]);
+        }
+
         $create = $this->banner->insert($request->request->all());
 
         $media = new Media();
@@ -51,17 +63,35 @@ class BannerController
         $id = $request->attributes->get('id');
         $detail = $this->banner->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')->where('id_banner', $id)->first();
         $menu = $this->menu->where('header', '1')->get();
+        $banner = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('id_banner', '!=', $detail['id_banner'])
+            ->where('orientasi_banner', $detail['orientasi_banner'])
+            ->where('lokasi_banner', $detail['lokasi_banner'])
+            ->where('ishide_banner', '2')
+            ->orderBy('urutan_banner', 'ASC')->get();
 
-        return render_template('admin/banner/edit', compact('detail', 'menu'));
+        return render_template('admin/banner/edit', compact('detail', 'menu', 'banner'));
     }
 
     public function update(Request $request)
     {
         $id = $request->attributes->get('id');
+        $update_banner_order = $request->request->all();
+        unset($update_banner_order['nama_banner']);
+        unset($update_banner_order['orientasi_banner']);
+        unset($update_banner_order['lokasi_banner']);
+        unset($update_banner_order['ishide_banner']);
+        unset($update_banner_order['urutan_banner']);
+
+        foreach ($update_banner_order as $key => $data) {
+            $this->banner->where('id_banner', $key)->update(['urutan_banner' => $data]);
+        }
+
         $this->banner->where('id_banner', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('ikon_akreditasi'), [
+        $media->updateMedia($request->files->get('foto_banner'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->banner, $id);
@@ -73,10 +103,23 @@ class BannerController
     {
         $id = $request->attributes->get('id');
         $media = new Media();
-        $media_data = $this->model->select('media.*')->where('id_banner', $id)->first();
-        $this->model->where('id_banner', $id)->delete();
+        $media_data = $this->banner->select('media.*')->where('id_banner', $id)->first();
+        $this->banner->where('id_banner', $id)->delete();
         $media->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/banner');
+    }
+
+    public function get(Request $request)
+    {
+        $datas = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('id_banner', '!=', $request->query->get('id_banner'))
+            ->where('orientasi_banner', $request->query->get('orientasi'))
+            ->where('lokasi_banner', $request->query->get('lokasi'))
+            ->where('ishide_banner', '2')
+            ->orderBy('urutan_banner', 'ASC')->get();
+
+        return new JsonResponse($datas);
     }
 }

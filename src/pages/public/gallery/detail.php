@@ -7,7 +7,9 @@
     <div class="row">
         <!------- Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
+            <div class="col-md-3">
             <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            </div>
         <?php } ?>
 
 
@@ -21,7 +23,7 @@
                         <div class="col-md-6">
                             <div class=" justify-content-between align-items-center mb-3 ms-3">
                                 <h4 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;"><?= $detail_galeri['judul_galeri'] ?></h4>
-                                <small class="">Kategori : <?= $detail_galeri['nama_kategori_galeri'] ?></small>
+                                <small class="text-muted">Kategori : <a href="/gallery/<?= $detail_galeri['id_kategori_galeri'] ?>/kategori" class="text-muted text-decoration-none"><?= $detail_galeri['nama_kategori_galeri'] ?></a></small>
                             </div>
                             <div class="description  ms-3">
                                 <h6 class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($detail_galeri['deskripsi_galeri'])) ?></h6>
@@ -100,7 +102,9 @@
 
         <!------- Right Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
+            <div class="col-md-3">
             <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            </div>
         <?php } ?>
 
     </div>

@@ -23,11 +23,11 @@ class Model extends QueryBuilder
         return $this->$property;
     }
 
-    public function lastOrder()
+    public function lastOrder(string $column = 'urutan')
     {
-        $tableColumn = $this->columnExists('urutan');
+        $tableColumn = $this->columnExists($column);
         if (!$tableColumn) {
-            echo 'Undefined column "urutan" in table "'.$this->table.'"';
+            echo 'Undefined column "'.$column.'" in table "'.$this->table.'"';
             die();
         }
 

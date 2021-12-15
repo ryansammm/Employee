@@ -130,40 +130,26 @@ if (!function_exists('fonts_path')) {
     }
 }
 
-// if (!function_exists('errors')) {
-//     /**
-//      * Show errors message
-//      *
-//      * @param string $key
-//      * @param mixed $default
-//      * @return mixed
-//      */
-//     function errors($key = null)
-//     {
-//         $errors = SessionData::get()->getFlashBag()->get('errors', []);
-//         $html_elem = '';
-//         if (isset($errors[$key])) {
-//             $html_elem = html_entity_decode('<span class="text-danger d-block"><b>' . $errors[$key] . '</b></span>');
-//         }
-//         return $html_elem;
-//     }
-// }
+if (!function_exists('component')) {
+    /**
+     * Get component
+     *
+     * @param string $path
+     * @param array $datas
+     * @return string
+     */
+    function component(string $path = '', array $datas)
+    {
+        $base_path = 'cms';
+        $component_path = file_get_contents(__DIR__ . '/../../pages/public/' . $base_path . '/' . $path . '.php');
 
-// if (!function_exists('success')) {
-//     /**
-//      * Show success message
-//      *
-//      * @param string $key
-//      * @param mixed $default
-//      * @return mixed
-//      */
-//     function success($key = null)
-//     {
-//         $success = SessionData::get()->getFlashBag()->get('success', []);
-//         $html_elem = '';
-//         if (isset($success[$key])) {
-//             $html_elem = html_entity_decode('<span class="text-success d-block"><b>' . $success[$key] . '</b></span>');
-//         }
-//         return $html_elem;
-//     }
-// }
+        extract($datas, EXTR_SKIP);
+
+        $component_final = $component_path;
+        foreach ($datas as $key => $value) {
+            $component_final = str_replace('{'.$key.'}', $value, $component_final);
+        }
+
+        return html_entity_decode($component_final);
+    }
+}

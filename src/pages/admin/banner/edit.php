@@ -8,7 +8,7 @@
                     <a href="/admin/banner" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Data Banner</h1>
+                    <h1 class="m-0">Edit Banner</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
@@ -34,14 +34,14 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Orientasi Banner</label>
-                                    <select name="orientasi_banner" class="form-control">
-                                        <option value="1" <?= arr_offset($detail, 'orientasi_banner') == '1' ? 'selected' : '' ?>>Vertical</option>
-                                        <option value="2" <?= arr_offset($detail, 'oriesntasi_banner') == '2' ? 'selected' : '' ?>>Horizontal</option>
+                                    <select name="orientasi_banner" class="form-control orientasi_banner">
+                                        <option value="1" <?= arr_offset($detail, 'orientasi_banner') == '1' ? 'selected' : '' ?>>Potrait</option>
+                                        <option value="2" <?= arr_offset($detail, 'orientasi_banner') == '2' ? 'selected' : '' ?>>Lanscape</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Lokasi Banner Dimunculkan</label>
-                                    <select name="lokasi_banner" class="form-control">
+                                    <select name="lokasi_banner" class="form-control lokasi_banner">
                                         <option value=""> -- Pilih Lokasi Banner -- </option>
                                         <?php foreach ($menu->items as $key => $value) { ?>
                                             <option value="<?= $value['link_url'] ?>" <?= arr_offset($detail, 'lokasi_banner') == $value['link_url'] ? 'selected' : '' ?>><?= $value['menu'] ?></option>
@@ -56,6 +56,57 @@
                                     <?php if (isset($errors['foto_banner'])) { ?>
                                         <span class="text-danger d-block"><b><?= $errors['foto_banner'] ?></b></span>
                                     <?php } ?>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="d-block">Sembunyikan Banner?</label>
+                                    <input type="radio" name="ishide_banner" value="1" <?= arr_offset($detail, 'ishide_banner') == '1' ? 'checked' : '' ?>> Ya
+                                    <input type="radio" name="ishide_banner" value="2" class="ml-2" <?= arr_offset($detail, 'ishide_banner') == '2' ? 'checked' : '' ?>> Tidak
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Urutan Banner</label>
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="card">
+                                            <div class="card-header p-0">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        Atur Urutan Banner Berdasarkan Lokasi dan Orientasi Banner
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <table class="table table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Banner</th>
+                                                                <th scope="col">Thumbnail</th>
+                                                                <th scope="col">Urutan</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="body-table-banner">
+                                                            <?php foreach ($banner->items as $key => $data) { ?>
+                                                                <tr>
+                                                                    <th scope="row"><?= $key += 1 ?></th>
+                                                                    <td style="width: 400px;"><?= arr_offset($data, 'nama_banner') ?></td>
+                                                                    <td><img src="/assets/media/<?= arr_offset($data, 'path_media') ?>" class="img-fluid img-thumbnail" style="width: 100px;"></td>
+                                                                    <td><input type="number" min="1" name="<?= arr_offset($data, 'id_banner') ?>" class="form-control" placeholder="urutan" style="width: 100px;" value="<?= arr_offset($data, 'urutan_banner') ?>"></td>
+                                                                </tr>
+                                                            <?php } ?>
+                                                        </tbody>
+                                                        <tbody>
+                                                            <tr class="bg-light">
+                                                                <input type="hidden" class="id_banner_edit" name="id_banner_edit" value="<?= arr_offset($detail, 'id_banner') ?>">
+                                                                <td style="width: 400px;" colspan="3"><b>Banner yang sedang diedit</b></td>
+                                                                <td><input type="number" min="1" name="urutan_banner" class="form-control" placeholder="urutan" style="width: 100px;" value="<?= arr_offset($detail, 'urutan_banner') ?>"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row my-4">
                                     <div class="col-md d-flex justify-content-end">
@@ -111,6 +162,6 @@
         });
     });
 </script>
-
+<script src="/assets/js/app/banner.js"></script>
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

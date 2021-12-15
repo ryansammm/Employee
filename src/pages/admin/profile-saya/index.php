@@ -81,7 +81,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Foto Profile</label>
-                                <input type="file" class="form-control" id="exampleFormControlInput1" name="foto_profil">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file" id="exampleInputFile" name="foto_profil">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
                                 <?php if (show($detail['path_media']) != '') { ?>
                                     <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($detail['path_media']) ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
 

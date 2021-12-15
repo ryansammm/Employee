@@ -185,7 +185,7 @@
                                 <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="d-flex mt-3">
                                         <div class="user-img align-items-center mr-3">
-                                            <img src="/assets/banner/logitech.jpg" style="width: 38px;height: 38px;" class="rounded-circle">
+                                            <img src="/assets/icon/avatar.jpg" style="width: 38px;height: 38px;" class="rounded-circle">
                                         </div>
                                         <div class="user-name text-start ms-3">
                                             <h6 class="mb-0 text-muted" style="font-size: 14px;">Administrator</h6>
@@ -199,8 +199,10 @@
                                         <h6 class="dropdown-header">Hello, Administrator!</h6>
                                     </li>
                                     <li class="px-2">
-                                        <a class="dropdown-item" href="{{ route('profile.show') }}"><i class="icon-mid bi bi-person me-2"></i> My
-                                            Profile</a>
+                                        <a class="dropdown-item" href="">
+                                            <i class="icon-mid bi bi-person me-2"></i> My
+                                            Profile
+                                        </a>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">

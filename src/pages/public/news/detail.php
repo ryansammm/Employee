@@ -3,6 +3,13 @@
 <div class="container">
     <div class="row">
 
+        <!------- Landscape Banner ------->
+        <section class="pe-0">
+            <div class="container px-0 mb-4">
+                <div style="background-image: url(/assets/banner/logitech.jpg);width: 100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+            </div>
+        </section>
+
         <!------- Main Content ------->
         <div class="col-md-8">
             <div class="card rounded p-3" style="border-top: 5px solid #fe4d01;">
@@ -136,6 +143,13 @@
                         </ul>
                     </div>
                 </div>
+
+                <!------- Landscape Banner ------->
+                <section class="px-0">
+                    <div class="container-fluid p-0 mt-4">
+                        <div style="background-image: url(/assets/banner/razer-laptop.png);width: 100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                    </div>
+                </section>
 
             </div>
         </div>

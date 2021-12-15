@@ -48,16 +48,15 @@
             </div>
 
             <section class="mt-4">
-                <!-- <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Lainnya</h5>
-                </div> -->
+
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <?php foreach ($data_group_galeri->items as $key => $value) { ?>
                         <div class="col-md-3">
                             <div class="card shadow-sm">
                                 <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>); width: 100%; height: 170px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-3"><?= $value['judul_group_galeri'] ?></h6>
+                                    <div class="d-flex justify-content-left align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailGaleri" data-file="<?= show($value['path_media']) ?>">View</button>
                                         </div>

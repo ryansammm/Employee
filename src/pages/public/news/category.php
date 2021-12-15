@@ -268,12 +268,12 @@
                 </div>
                 <div class="card-body" style="padding: 0 20px 0 20px;">
                     <div class="row">
-                        <div class="col-12" style="background-color: white;border-radius: 7px;margin: 10px 0 0 0;">
+                        <div class="col-12" style="background-color: white;border-radius: 0.25rem;margin: 10px 0 0 0;">
                             <?php foreach ($data_feed->items as $key => $value) { ?>
                                 <div class="<?= $key == (count($data_feed->items) - 1) ? '' : 'side-news-item' ?>" style="<?= $key == (count($data_feed->items) - 1) ? 'padding: 0.5rem 1rem;' : '' ?>">
                                     <div class="row py-2 pb-1">
                                         <div class="col-2 p-0">
-                                            <div class="" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: top center;width: 130px;height: 100px;"></div>
+                                            <div class="" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: top center;width: 130px;height: 100px;border-radius: 0.25rem;"></div>
                                         </div>
                                         <div class="col">
                                             <a href="/news/<?= $value['id_berita'] ?>/detail" style="text-decoration: none;color: black">

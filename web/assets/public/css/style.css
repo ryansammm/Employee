@@ -36,7 +36,7 @@
 .img-atas-berita,
 .img-bawah-berita {
     height: 314px;
-    border-radius: 10px;
+    border-radius: 0.25rem;
 }
 
 .img-atas-berita-1 {
@@ -52,7 +52,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    border-radius: 10px;
+    border-radius: 0.25rem;
 }
 
 .text-atas-berita,

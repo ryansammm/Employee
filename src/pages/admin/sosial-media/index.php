@@ -39,7 +39,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Akdreditas</th>
+                                <th scope="col">Nama Sosial Media</th>
                                 <th scope="col">Icon Sosial Media</th>
                                 <th scope="col">Aksi</th>
                             </tr>

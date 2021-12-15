@@ -31,10 +31,10 @@
 
         <div class="col-md-2 text-center" style="margin-top: auto;margin-bottom: auto;">
             <div class="d-flex-column justify-content-end">
-                <a href="">
+                <a href="https://play.google.com/store/apps/dev?id=5430770932615639149" target="_blank">
                     <img class="mb-2" src="/assets/logo/playstore.png" alt="" style="width: 90%">
                 </a>
-                <a href="">
+                <a href="https://play.google.com/store/apps/dev?id=5430770932615639149" target="_blank">
                     <img src="/assets/logo/appstore.png" alt="" style="width: 90%">
                 </a>
             </div>
@@ -44,7 +44,7 @@
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Social Media</h6>
             <ul class="nav flex-column">
                 <?php foreach ($GLOBALS['sosial_media']->items as $key => $data) { ?>
-                    <li class="nav-item "><a href="<?= $data['link_sosial_media'] ?>" class="nav-link p-0 text" style="color: #c1c1c1;"><i class="<?= $data['icon_sosial_media'] ?>"></i> <?= $data['nama_sosial_media'] ?></a></li>
+                    <li class="nav-item "><a href="<?= $data['link_sosial_media'] ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank"><i class="<?= $data['icon_sosial_media'] ?>"></i> <?= $data['nama_sosial_media'] ?></a></li>
                 <?php } ?>
             </ul>
         </div>
@@ -82,6 +82,27 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+</script>
 
 </body>
 

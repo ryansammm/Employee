@@ -27,6 +27,7 @@ class QueryBuilder extends Query
     public function get()
     {
         $this->generateSql();
+        // dd($this->sql);
         $modelCollection = $this->to_model_collection($this->exec_get_all());
 
         return $modelCollection;
@@ -84,7 +85,9 @@ class QueryBuilder extends Query
         $page_first_result = ($page - 1) * $result_per_page;
         $number_of_page = ceil($countRows / $result_per_page);
 
+        // $datas = $this->limit($result_per_page, $page_first_result);
         $datas = $this->limit($result_per_page, $page_first_result)->get();
+        // dd($datas);
 
         $pagination = [
             'current_page' => intval($page),

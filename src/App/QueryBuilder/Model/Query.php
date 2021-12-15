@@ -23,6 +23,11 @@ class Query
     protected $queryString = "";
 
     /**
+     * @var array
+     */
+    protected $union = [];
+
+    /**
      * Method to generate the base format of `WHERE` query
      * 
      * @return string
@@ -80,6 +85,8 @@ class Query
             $this->query['select'] .= $column;
         }
 
+        $this->generateSql();
+
         return $this;
     }
 
@@ -113,6 +120,8 @@ class Query
             }
         }
 
+        $this->generateSql();
+
         return $statusObject;
     }
 
@@ -139,6 +148,8 @@ class Query
         if (gettype($param[0]) != 'object') {
             $this->generateWhere($param);
         }
+
+        $this->generateSql();
 
         return $this;
     }
@@ -167,6 +178,8 @@ class Query
             $this->generateWhere($param);
         }
 
+        $this->generateSql();
+
         return $this;
     }
 
@@ -191,6 +204,8 @@ class Query
 
         $this->query['orderBy'] .= $column . " " . $type;
 
+        $this->generateSql();
+
         return $this;
     }
 
@@ -204,6 +219,8 @@ class Query
         $this->query['limit'] = " LIMIT ";
         $this->query['limit'] .= $limit;
         $this->query['limit'] .= " OFFSET " . $offset;
+
+        $this->generateSql();
 
         return $this;
     }
@@ -231,6 +248,8 @@ class Query
     {
         $this->join('LEFT', $table, $onColumn, $onColumnOperator, $onValue);
 
+        $this->generateSql();
+
         return $this;
     }
 
@@ -242,6 +261,8 @@ class Query
     public function rightJoin(string $table, string $onColumn, string $onColumnOperator, string $onValue)
     {
         $this->join('RIGHT', $table, $onColumn, $onColumnOperator, $onValue);
+
+        $this->generateSql();
 
         return $this;
     }
@@ -255,6 +276,8 @@ class Query
     {
         $this->join('INNER', $table, $onColumn, $onColumnOperator, $onValue);
 
+        $this->generateSql();
+
         return $this;
     }
 
@@ -266,6 +289,8 @@ class Query
     public function outerJoin(string $table, string $onColumn, string $onColumnOperator, string $onValue)
     {
         $this->join('OUTER', $table, $onColumn, $onColumnOperator, $onValue);
+
+        $this->generateSql();
 
         return $this;
     }
@@ -295,6 +320,8 @@ class Query
             $this->query['groupBy'] .= $column;
         }
 
+        $this->generateSql();
+
         return $this;
     }
 
@@ -303,6 +330,7 @@ class Query
      */
     public function generateSql()
     {
+        $this->sql = '';
         if (!isset($this->table)) {
             echo "There is no <b>\$table</b> property in <b>" . get_class($this) . "</b>";
             die();
@@ -324,10 +352,12 @@ class Query
         }
 
         foreach ($this->query as $key => $value) {
-            if ($key == 'table') {
-                $this->sql .= " FROM ";
-            }
-            $this->sql .= $value;
+            // if (!empty($this->union) && $key != 'limit') {
+                if ($key == 'table') {
+                    $this->sql .= " FROM ";
+                }
+                $this->sql .= $value;
+            // }
         }
 
         if (strpos(substr($this->sql, -7), "WHERE") !== false) {
@@ -336,6 +366,10 @@ class Query
             $this->sql = substr($this->sql, 0, -5);
         } else if (strpos(substr($this->sql, -4), "OR") !== false) {
             $this->sql = substr($this->sql, 0, -4);
+        }
+
+        foreach ($this->union as $key => $value) {
+            $this->sql .= ' UNION ' . $value;
         }
     }
 
@@ -465,6 +499,11 @@ class Query
             }
         }
 
+        if ($primaryKey == '') {
+            echo "There is no primary key in <b>$table</b>";
+            dd();
+        }
+
         return ['column' => $tableColumn, 'primaryKey' => $primaryKey];
     }
 
@@ -584,7 +623,16 @@ class Query
     public function columnExists(string $column)
     {
         $tableColumn = $this->getTableColumn($this->table);
-        
+
         return array_key_exists($column, $tableColumn['column']);
+    }
+
+    public function union(QueryBuilder $query)
+    {
+        $this->union[] = $query->sql;
+
+        $this->generateSql();
+
+        return $this;
     }
 }

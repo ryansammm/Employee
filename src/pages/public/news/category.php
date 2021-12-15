@@ -6,7 +6,7 @@
 <?php } ?>
 
 <!-- ----- News ------->
-<div class="container">
+<div class="container mb-3">
     <div class="row mt-3">
         <div class="col-8">
             <div class="d-flex justify-content-between align-items-center">
@@ -242,7 +242,14 @@
         <!------- Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
             <div class="col-md-3">
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <!-- Kategori -->
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <!-- Banner Potrait -->
+                <?php if (!empty($banner_potrait)) { ?>
+                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                        <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                    <?php } ?>
+                <?php } ?>
             </div>
         <?php } ?>
 
@@ -314,17 +321,20 @@
                 </div>
 
             </div>
-
-            <!------- Right Category ------->
-            <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
-                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
-            <?php } ?>
-
         </div>
 
         <!------- Right Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            <div class="col-3">
+                <!-- Kategori -->
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <!-- Banner Potrait -->
+                <?php if (!empty($banner_potrait)) { ?>
+                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                        <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                    <?php } ?>
+                <?php } ?>
+            </div>
         <?php } ?>
 
     </div>

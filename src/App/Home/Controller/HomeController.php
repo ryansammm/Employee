@@ -77,18 +77,7 @@ class HomeController
             ->get();
         /* -------------------------------------------------------------------------- */
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/home/index', ['detail_profil' => $detail_profil, 'data_layanan' => $data_layanan, 'data_produk' => $data_produk, 'data_pelanggan' => $data_pelanggan, 'data_video' => $data_video, 'data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/home/index', ['detail_profil' => $detail_profil, 'data_layanan' => $data_layanan, 'data_produk' => $data_produk, 'data_pelanggan' => $data_pelanggan, 'data_video' => $data_video, 'data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita]);
     }
 
     public function create(Request $request)

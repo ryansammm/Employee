@@ -4,6 +4,7 @@ namespace Core;
 
 use App\Akreditasi\Model\Akreditasi;
 use App\Asosiasi\Model\Asosiasi;
+use App\Banner\Model\Banner;
 use App\CmsBackground\Model\CmsBackground;
 use App\CmsFonts\Model\CmsFonts;
 use App\CmsKategoriStyle\Model\CmsKategoriStyle;
@@ -91,6 +92,30 @@ class Framework extends HttpKernel implements HttpKernelInterface
         /* ------------------------------ Sosial Media ------------------------------ */
         $sosial_media_model = new SosialMedia();
         $sosial_media = $sosial_media_model->leftJoin('media', 'media.id_relation', '=', 'sosial_media.id_sosial_media')->get();
+        /* -------------------------------------------------------------------------- */
+
+        /* ----------------------------------- Banner ---------------------------------- */
+        $banner_model = new Banner();
+        $current_menu = $menu_model->where('link_url', 'like', '%' . explode('/', $pathInfo)[1] . '%')->first();
+
+        if ($current_menu) {
+            $banner_potrait = $banner_model
+                ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+                ->where('orientasi_banner', '1')
+                ->where('ishide_banner', '2')
+                ->where('lokasi_banner', $current_menu['id_cms_menu'])
+                ->orderBy('urutan_banner', 'ASC')->get()->items;
+
+            $banner_landscape = $banner_model
+                ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+                ->where('orientasi_banner', '2')
+                ->where('ishide_banner', '2')
+                ->where('lokasi_banner', $current_menu['id_cms_menu'])
+                ->orderBy('urutan_banner', 'ASC')->get()->items;
+                
+            $GLOBALS['banner_potrait'] = $banner_potrait;
+            $GLOBALS['banner_landscape'] = $banner_landscape;
+        }
         /* -------------------------------------------------------------------------- */
 
         $GLOBALS['web_logo'] = $data_media_title;

@@ -5,8 +5,8 @@
 
 <!------- Landscape Banner ------->
 <div class="container">
-    <?php if (isset($banner_landscape[0])) { ?>
-        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[0], 'path_media')]) ?>
+    <?php if (isset($GLOBALS['banner_landscape'][0])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($GLOBALS['banner_landscape'][0], 'path_media')]) ?>
     <?php } ?>
 </div>
 
@@ -134,8 +134,8 @@
                     <!-- Kategori -->
                     <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
                     <!-- Banner Potrait -->
-                    <?php if (!empty($banner_potrait)) { ?>
-                        <?php foreach ($banner_potrait as $key => $data) { ?>
+                    <?php if (!empty($GLOBALS['banner_potrait'])) { ?>
+                        <?php foreach ($GLOBALS['banner_potrait'] as $key => $data) { ?>
                             <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
                         <?php } ?>
                     <?php } ?>

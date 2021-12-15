@@ -4,11 +4,25 @@
 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-style.php' ?>
 
 <div class="container">
+
+    <!------- Landscape Banner Bawah ------->
+    <div class="mb-3">
+        <?php if (isset($banner_landscape[1])) { ?>
+            <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+        <?php } ?>
+    </div>
+
     <div class="row">
-        <!------- Category ------->
+        <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
             <div class="col-md-3">
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <!------- Landscape Banner Samping ------->
+                <?php if (!empty($banner_potrait)) { ?>
+                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                        <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                    <?php } ?>
+                <?php } ?>
             </div>
         <?php } ?>
 
@@ -33,97 +47,46 @@
                 </div>
             </div>
 
-
-            <!-- <section class="mt-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+            <section class="mt-4">
+                <!-- <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Lainnya</h5>
-                    <a href="" class="text-decoration-none">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
-                </div>
+                </div> -->
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-
-                            <div class="card-body">
-                                <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <?php foreach ($data_group_galeri->items as $key => $value) { ?>
+                        <div class="col-md-3">
+                            <div class="card shadow-sm">
+                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>); width: 100%; height: 170px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#detailGaleri" data-file="<?= show($value['path_media']) ?>">View</button>
+                                        </div>
                                     </div>
-                                    <a href=""><small class="text-muted">9 mins</small></a>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
+                    <?php } ?>
 
-                            <div class="card-body">
-                                <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    </div>
-                                    <a href=""><small class="text-muted">9 mins</small></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-
-                            <div class="card-body">
-                                <p class="card-text truncate-string-2">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    </div>
-                                    <a href=""><small class="text-muted">9 mins</small></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </section> -->
+            </section>
 
         </div>
 
         <!------- Right Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
             <div class="col-md-3">
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <!------- Landscape Banner Samping ------->
+                <?php if (!empty($banner_potrait)) { ?>
+                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                        <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                    <?php } ?>
+                <?php } ?>
             </div>
         <?php } ?>
 
     </div>
 
-    <section>
-        <div class="card mt-3">
-            <div class="card-body">
-                <div class="row">
-                    <?php foreach ($data_group_galeri->items as $key => $value) { ?>
-                        <div class="col-md-2">
-                            <a type="button" href="" data-bs-toggle="modal" data-bs-target="#detailGaleri" data-file="<?= show($value['path_media']) ?>">
-                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>); width: 170px; height: 170px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
-    </section>
 
 </div>
 

@@ -8,7 +8,13 @@
         <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
             <div class="col-md-3">
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <!------- Landscape Banner Samping ------->
+                <?php if (!empty($banner_potrait)) { ?>
+                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                        <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                    <?php } ?>
+                <?php } ?>
             </div>
         <?php } ?>
 
@@ -41,7 +47,15 @@
 
         <!------- Right Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            <div class="col-md-3">
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            </div>
+            <!------- Landscape Banner Samping ------->
+            <?php if (!empty($banner_potrait)) { ?>
+                <?php foreach ($banner_potrait as $key => $data) { ?>
+                    <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                <?php } ?>
+            <?php } ?>
         <?php } ?>
 
     </div>

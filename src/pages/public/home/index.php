@@ -1,8 +1,14 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
+<!------- Landscape Banner Atas ------->
+<div class="container">
+    <?php if (isset($banner_landscape[0])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+    <?php } ?>
+</div>
 
 <!------- About Us ------->
-<section id="about-us" class="container pb-3">
+<section id="about-us" class="container pb-3 mt-3">
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -80,9 +86,9 @@
 </section>
 
 <!------- Video ------->
-<div class="container">
+<div class="container mb-3">
     <div class="row">
-        <div class="card pt-3 pb-3" style="background-color: unset;border: unset;">
+        <div class="card pt-3 mb-3" style="background-color: unset;border: unset;">
             <div class="card-header" style="background-color: unset;padding: 0;border: unset;">
                 <div class="d-flex justify-content-between align-items-center">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Video</h5>
@@ -90,7 +96,6 @@
             </div>
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
-
                     <?php foreach ($data_video->items as $key => $value) { ?>
                         <div class="col-md-3">
                             <div class="card" style="height: 200px !important;">
@@ -102,11 +107,18 @@
                             </div>
                         </div>
                     <?php } ?>
-
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<!------- Landscape Banner Bawah ------->
+<div class="container">
+    <?php if (isset($banner_landscape[1])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+    <?php } ?>
 </div>
 
 

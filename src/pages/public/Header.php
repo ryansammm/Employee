@@ -148,7 +148,7 @@
                         <div class="col-12 d-flex <?= $GLOBALS['web_title']['cms_title_position'] == '2' ? 'justify-content-center' : ($GLOBALS['web_title']['cms_title_position'] == '3' ? 'justify-content-end' : '') ?>">
                             <?php if ($GLOBALS['web_title']['cms_title_position'] == '3' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
                                 <form class="pe-5" action="" method="POST">
-                                    <div class="input-group mt-3 ms-3" style="width: 570pt;">
+                                    <div class="input-group mt-3 ms-3" style="width: 570pt;font-size: 14px !important;">
                                         <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
                                     </div>
                                 </form>
@@ -173,7 +173,7 @@
                                         <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
                                     </div> -->
                                     <div class="input-group mt-3 ms-3">
-                                        <input type="text" class="form-control" name="search" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 480pt;" value="<?= isset($search) ? show($search) : '' ?>">
+                                        <input type="text" class="form-control" name="search" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 480pt;font-size: 14px;" value="<?= isset($search) ? show($search) : '' ?>">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
                                         </div>

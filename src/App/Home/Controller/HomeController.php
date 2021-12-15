@@ -3,7 +3,9 @@
 namespace App\Home\Controller;
 
 use App\About\Model\About;
+use App\Banner\Model\Banner;
 use App\Berita\Model\Berita;
+use App\CmsSetting\Model\CmsSetting;
 use App\Customer\Model\Customer;
 use App\Home\Model\Home;
 use App\KategoriBeritaAdmin\Model\KategoriBeritaAdmin;
@@ -23,7 +25,8 @@ class HomeController
 
     public function __construct()
     {
-        // $this->model = new Home();
+        $this->cmsSetting = new CmsSetting();
+        $this->banner = new Banner();
     }
 
     public function index(Request $request)
@@ -74,9 +77,18 @@ class HomeController
             ->get();
         /* -------------------------------------------------------------------------- */
 
-        // dd($data_video);
+        /* ----------------------------------- Banner ---------------------------------- */
+        $banner_potrait = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '1')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        $banner_landscape = $this->banner
+            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+            ->where('orientasi_banner', '2')
+            ->orderBy('urutan_banner', 'ASC')->get()->items;
+        /* -------------------------------------------------------------------------- */
 
-        return render_template('public/home/index', ['detail_profil' => $detail_profil, 'data_layanan' => $data_layanan, 'data_produk' => $data_produk, 'data_pelanggan' => $data_pelanggan, 'data_video' => $data_video, 'data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita]);
+        return render_template('public/home/index', ['detail_profil' => $detail_profil, 'data_layanan' => $data_layanan, 'data_produk' => $data_produk, 'data_pelanggan' => $data_pelanggan, 'data_video' => $data_video, 'data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
     }
 
     public function create(Request $request)

@@ -8,12 +8,16 @@
         <!------- Left Content ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
             <div class="col-md-3">
-            <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+                <?php if (!empty($banner_potrait)) { ?>
+                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                        <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                    <?php } ?>
+                <?php } ?>
             </div>
         <?php } ?>
 
         <div class="col-md-9">
-
             <div class="card">
                 <div class="card-body">
                     <div class="row">
@@ -34,6 +38,86 @@
                     </div>
                 </div>
             </div>
+
+            <!------- Product Image ------->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <div style="background-image: url(/assets/produk/produk1.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <div style="background-image: url(/assets/produk/produk2.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                <div style="background-image: url(/assets/produk/produk3.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                <div style="background-image: url(/assets/produk/produk4.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------- Modal Product Image ------->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body p-1">
+                            <img src="/assets/produk/produk1.jpg" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body p-1">
+                            <img src="/assets/produk/produk2.jpg" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body p-1">
+                            <img src="/assets/produk/produk3.jpg" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body p-1">
+                            <img src="/assets/produk/produk4.jpg" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------- Deskripsi Lengkap ------->
+            <section class="mt-4">
+                <div class="card">
+                    <div class="card-body px-0 pe-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
+                            <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Deskripsi Lengkap</h6>
+                        </div>
+                        <div class="description  ms-3">
+                            <h6 class="fw-normal" style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos ad ipsa ex doloremque voluptatum iusto aperiam. Totam, obcaecati. Mollitia quisquam vitae, neque consequatur molestias, suscipit velit exercitationem consequuntur perspiciatis unde voluptatem quod, aliquam minima asperiores et nihil? Vitae nam accusamus nihil tempora quam, animi necessitatibus obcaecati atque perspiciatis doloremque! Exercitationem itaque mollitia dolor adipisci dolorum fugit? Rerum vel unde quo eos labore ipsa doloribus voluptatem recusandae iusto hic repudiandae, quidem soluta doloremque dolor cupiditate. A repellendus laudantium alias qui quisquam sed, sequi recusandae iste atque ipsa quia fugit odio ipsam nesciunt eveniet eos magnam natus suscipit exercitationem excepturi. Aliquam, similique.</h6>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!------- Spesifikasi ------->
             <section class="mt-4">
@@ -94,7 +178,26 @@
                 <?= $all_produk->links() ?>
             </section>
 
+            <!------- Landscape Banner Bawah ------->
+            <?php if (isset($banner_landscape[1])) { ?>
+                <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+            <?php } ?>
+
         </div>
+
+        <!------- Right Category ------->
+        <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '2') { ?>
+            <div class="col-md-3">
+                <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
+            </div>
+            <!------- Landscape Banner Samping ------->
+            <?php if (!empty($banner_potrait)) { ?>
+                <?php foreach ($banner_potrait as $key => $data) { ?>
+                    <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
+                <?php } ?>
+            <?php } ?>
+        <?php } ?>
+
     </div>
 </div>
 

@@ -57,7 +57,7 @@ class BeritaController
         $data_feed = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
-            ->paginate(5)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
+            ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
         /* -------------------------------------------------------------------------- */
 
         /* ----------------------------- Berita Terkini ----------------------------- */

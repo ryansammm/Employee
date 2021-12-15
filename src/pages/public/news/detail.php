@@ -4,11 +4,13 @@
 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-style.php' ?>
 
 <!------- Landscape Banner ------->
-<?php if (isset($banner_landscape[0])) { ?>
-    <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[0], 'path_media')]) ?>
-<?php } ?>
-
 <div class="container">
+    <?php if (isset($banner_landscape[0])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[0], 'path_media')]) ?>
+    <?php } ?>
+</div>
+
+<div class="container mt-3">
     <div class="row">
 
         <!------- Main Content ------->
@@ -61,11 +63,11 @@
 
 
         <!------- Side Content ------->
-        <div class="col-md-4">
+        <div class="col-md-4 pe-4">
             <div class="row d-flex align-items-center">
 
                 <!------- Berita Hangat ------->
-                <div class="card mb-4 px-0">
+                <div class="card mb-3 px-0">
                     <div style="background-color: white;padding: 5px 0 5px 0;">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;">Sedang Hangat</h5>

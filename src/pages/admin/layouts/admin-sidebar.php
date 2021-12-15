@@ -165,7 +165,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/admin/banner" class="nav-link">
-                        <i class="nav-icon fas fa-video"></i>
+                        <i class="nav-icon fas fa-file-image"></i>
                         <p>
                             Kelola Banner
                         </p>

@@ -85,27 +85,21 @@
 <body style="background-color: #d8d8d86b !important;">
 
     <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
-        
-        <?php if (session('id_user') != '') { ?>
-        <!------- Button Ubah Logo & Nama Perusahaan ------->
-        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
-            <i class="bi bi-pencil-square"></i>
-        </button>
 
-        <!------- Modal Ubah Logo & Nama Perusahaan ------->
-        <div class="modal fade" id="logo-header" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logo-headerLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="/admin/login-template/cms-title/update" method="POST" enctype="multipart/form-data">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="logo-headerLabel">Ubah Logo & Nama Perusahaan</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="hidden" name="redirect_to" value="<?= $GLOBALS['url'] ?>">
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label">Logo</label>
-                                <input class="form-control" type="file" id="formFile" name="logoPerusahaan">
+        <?php if ($GLOBALS['id_user'] != '') { ?>
+            <!------- Button Ubah Logo & Nama Perusahaan ------->
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
+                <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <!------- Modal Ubah Logo & Nama Perusahaan ------->
+            <div class="modal fade" id="logo-header" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logo-headerLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/admin/login-template/cms-title/update" method="POST" enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="logo-headerLabel">Ubah Logo & Nama Perusahaan</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <input type="hidden" name="redirect_to" value="<?= $GLOBALS['url'] ?>">

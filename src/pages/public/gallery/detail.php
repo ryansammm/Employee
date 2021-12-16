@@ -48,7 +48,6 @@
             </div>
 
             <section class="mt-4">
-
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <?php foreach ($data_group_galeri->items as $key => $value) { ?>
                         <div class="col-md-3">
@@ -65,9 +64,9 @@
                             </div>
                         </div>
                     <?php } ?>
-
                 </div>
             </section>
+
 
         </div>
 

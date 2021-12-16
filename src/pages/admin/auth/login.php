@@ -243,10 +243,8 @@
           <div class="login-logo">
 
             <?php if ($data_media != false) { ?>
-              <img src="/assets/media/<?= $data_media['path_media'] ?>" alt="" style="height: 80px;width: auto;">
+              <img src="/assets/media/<?= $data_media['path_media'] ?>" alt="" style="height: 80px;width: auto;display: block;margin: auto;">
             <?php   } ?>
-            <br>
-
 
             <a href="/" class="d-block text-center" style="color: <?= $data_cms_background['text_cms_background'] ?> !important;"><?= $data_cms_title != false ? $data_cms_title['cms_title'] : '' ?></a>
 

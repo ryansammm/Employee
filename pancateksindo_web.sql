@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 15/12/2021 09:46:11
+ Date: 16/12/2021 11:27:45
 */
 
 SET NAMES utf8mb4;
@@ -98,10 +98,23 @@ CREATE TABLE `banner`  (
 -- ----------------------------
 -- Records of banner
 -- ----------------------------
-INSERT INTO `banner` VALUES ('61b859fcdf531', 'Banner 1', '2', '/news', 1, '2', '2021-12-14 15:46:52', NULL);
-INSERT INTO `banner` VALUES ('61b8666d38bed', 'Banner 2', '2', '/news', 2, '2', '2021-12-14 16:39:57', NULL);
-INSERT INTO `banner` VALUES ('61b8723f1766a', 'Banner 3', '1', '/news', 1, '2', '2021-12-14 17:30:23', NULL);
-INSERT INTO `banner` VALUES ('61b874f260cb4', 'Banner 4', '1', '/news', 2, '2', '2021-12-14 17:41:54', NULL);
+INSERT INTO `banner` VALUES ('61b9a97a4f4d1', 'Banner Home 1', '2', '61b2eefa89c57', 1, '2', '2021-12-15 15:38:18', NULL);
+INSERT INTO `banner` VALUES ('61b9ac52caec4', 'Banner Home 2', '2', '61b2eefa89c57', 2, '2', '2021-12-15 15:50:26', NULL);
+INSERT INTO `banner` VALUES ('61b9ac77a5817', 'Banner Berita 1', '2', '61b2ef0da906c', 1, '2', '2021-12-15 15:51:03', NULL);
+INSERT INTO `banner` VALUES ('61b9ac8951eef', 'Banner Berita 2', '2', '61b2ef0da906c', 2, '2', '2021-12-15 15:51:21', NULL);
+INSERT INTO `banner` VALUES ('61b9acabec56e', 'Banner Berita Samping 1', '1', '61b2ef0da906c', 1, '2', '2021-12-15 15:51:55', NULL);
+INSERT INTO `banner` VALUES ('61b9acbe3bd49', 'Banner Berita Samping 2', '1', '61b2ef0da906c', 2, '2', '2021-12-15 15:52:14', NULL);
+INSERT INTO `banner` VALUES ('61b9c1ac5769a', 'Banner Produk 1', '2', '61b2ef20da664', 1, '2', '2021-12-15 17:21:32', NULL);
+INSERT INTO `banner` VALUES ('61b9c24cd6001', 'Banner Produk Samping 1', '1', '61b2ef20da664', 1, '2', '2021-12-15 17:24:12', NULL);
+INSERT INTO `banner` VALUES ('61b9c580824d4', 'Banner Produk Samping 2', '1', '61b2ef20da664', 2, '2', '2021-12-15 17:37:52', NULL);
+INSERT INTO `banner` VALUES ('61b9c5db43847', 'Banner Layanan 1', '2', '61b2ef36dbc7d', 1, '2', '2021-12-15 17:39:23', NULL);
+INSERT INTO `banner` VALUES ('61b9c650d05ef', 'Banner Layanan Samping 1', '1', '61b2ef36dbc7d', 1, '2', '2021-12-15 17:41:20', NULL);
+INSERT INTO `banner` VALUES ('61b9c6d9e1c98', 'Banner Layanan Samping 2', '1', '61b2ef36dbc7d', 2, '2', '2021-12-15 17:43:37', NULL);
+INSERT INTO `banner` VALUES ('61b9c8efd8e82', 'Banner Jejak Kami 1', '2', '61b2ef8cd52de', 1, '2', '2021-12-15 17:52:31', NULL);
+INSERT INTO `banner` VALUES ('61b9c91bd1b3c', 'Banner Jejak Kami 2', '1', '61b2ef8cd52de', 1, '2', '2021-12-15 17:53:15', NULL);
+INSERT INTO `banner` VALUES ('61b9d9e37a695', 'Banner Klien Kami 1', '2', '61b2efd520dd4', 1, '2', '2021-12-15 19:04:51', NULL);
+INSERT INTO `banner` VALUES ('61b9da5378f61', 'Banner Kontak 1', '2', '61b2efe55d417', 1, '2', '2021-12-15 19:06:43', NULL);
+INSERT INTO `banner` VALUES ('61b9db06ae910', 'Banner Tentang Kami 1', '2', '61b2eff90feb5', 1, '2', '2021-12-15 19:09:42', NULL);
 
 -- ----------------------------
 -- Table structure for berita
@@ -275,8 +288,8 @@ CREATE TABLE `cms_menu`  (
   `halaman_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `have_sub` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '1=ya, 2=tidak',
   `parent_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `header` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '1=ya, 2=tidak',
-  `footer` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '1=ya, 2=tidak',
+  `jenis_menu` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '1=header, 2=footer, 3=header&footer',
+  `hide` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '1=ya, 2=tidak',
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `meta_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -288,16 +301,16 @@ CREATE TABLE `cms_menu`  (
 -- Records of cms_menu
 -- ----------------------------
 INSERT INTO `cms_menu` VALUES ('61b2eefa89c57', 'Beranda', '2', 1, '/', '1', NULL, '2', '0', '1', '2', 'Beranda | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:08:58', '2021-12-10 13:08:58');
-INSERT INTO `cms_menu` VALUES ('61b2ef0da906c', 'Berita', '2', 2, '/news', '1', NULL, '2', '0', '1', '2', 'Berita | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:09:17', '2021-12-10 13:09:17');
+INSERT INTO `cms_menu` VALUES ('61b2ef0da906c', 'Berita', '2', 7, '/news', '1', NULL, '2', '0', '1', '1', 'Berita | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:09:17', '2021-12-10 13:09:17');
 INSERT INTO `cms_menu` VALUES ('61b2ef20da664', 'Produk', '2', 3, '/product', '1', NULL, '2', '0', '1', '2', 'Produk | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:09:36', '2021-12-10 13:09:36');
 INSERT INTO `cms_menu` VALUES ('61b2ef36dbc7d', 'Layanan', '2', 4, '/service', '1', NULL, '2', '0', '1', '2', 'Layanan | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:09:58', '2021-12-10 13:09:58');
 INSERT INTO `cms_menu` VALUES ('61b2ef8cd52de', 'Jejak Kami', '2', 5, '/gallery', '1', NULL, '2', '0', '1', '2', 'Jejak Kami | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:11:24', '2021-12-10 13:11:24');
 INSERT INTO `cms_menu` VALUES ('61b2efd520dd4', 'Klien', '2', 6, '/customer', '1', NULL, '2', '0', '1', '2', 'Klien | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:12:37', '2021-12-10 13:12:37');
-INSERT INTO `cms_menu` VALUES ('61b2efe55d417', 'Kontak', '2', 7, '/contact', '1', NULL, '2', '0', '1', '2', 'Kontak | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:12:53', '2021-12-10 13:12:53');
-INSERT INTO `cms_menu` VALUES ('61b2eff90feb5', 'Tentang Kami', '2', 8, '/about', '1', NULL, '2', '0', '1', '1', 'Tentang Kami | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:13:13', '2021-12-10 13:13:13');
-INSERT INTO `cms_menu` VALUES ('61b6d4bf25c41', 'Ketentuan & Kebijakan Privasi', '2', 9, '/ketentuan', '1', NULL, '2', '0', '2', '1', 'Ketentuan & Kebijakan Privasi | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-13 12:06:07', '2021-12-13 12:06:07');
-INSERT INTO `cms_menu` VALUES ('61b6d4f92678e', 'Panduan Komunitas', '2', 10, '/panduan', '1', NULL, '2', '0', '2', '1', 'Panduan Komunitas | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-13 12:07:05', '2021-12-13 12:07:05');
-INSERT INTO `cms_menu` VALUES ('61b6d5145a4b8', 'Pedoman Media Siber', '2', 11, '/pedoman', '1', NULL, '2', '0', '2', '1', 'Pedoman Media Siber | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-13 12:07:32', '2021-12-13 12:07:32');
+INSERT INTO `cms_menu` VALUES ('61b2efe55d417', 'Kontak', '2', 8, '/contact', '1', NULL, '2', '0', '1', '2', 'Kontak | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:12:53', '2021-12-10 13:12:53');
+INSERT INTO `cms_menu` VALUES ('61b2eff90feb5', 'Tentang Kami', '2', 2, '/about', '1', NULL, '2', '0', '3', '2', 'Tentang Kami | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-10 13:13:13', '2021-12-10 13:13:13');
+INSERT INTO `cms_menu` VALUES ('61b6d4bf25c41', 'Ketentuan & Kebijakan Privasi', '2', 9, '/ketentuan', '1', NULL, '2', '0', '2', '2', 'Ketentuan & Kebijakan Privasi | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-13 12:06:07', '2021-12-13 12:06:07');
+INSERT INTO `cms_menu` VALUES ('61b6d4f92678e', 'Panduan Komunitas', '2', 10, '/panduan', '1', NULL, '2', '0', '2', '2', 'Panduan Komunitas | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-13 12:07:05', '2021-12-13 12:07:05');
+INSERT INTO `cms_menu` VALUES ('61b6d5145a4b8', 'Pedoman Media Siber', '2', 11, '/pedoman', '1', NULL, '2', '0', '2', '2', 'Pedoman Media Siber | Panca Teknologi Aksesindo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore harum commodi architecto eaque nostrum! Itaque omnis illum rem, corrupti aliquam velit officia ex soluta accusantium consectetur laboriosam quisquam dolore blanditiis.', '2021-12-13 12:07:32', '2021-12-13 12:07:32');
 
 -- ----------------------------
 -- Table structure for cms_setting
@@ -722,6 +735,27 @@ INSERT INTO `media` VALUES ('61b864c73274e', 'logitech-61b864c72a83e.jpg', '61b8
 INSERT INTO `media` VALUES ('61b8666d51aec', 'logitech-61b8666d4c1ca.jpg', '61b8666d38bed', 'usr61037f9c85184', NULL, '2021-12-14 16:39:57', '2021-12-14 16:39:57');
 INSERT INTO `media` VALUES ('61b8723f47047', 'rog-61b8723f3e3fe.jpg', '61b8723f1766a', NULL, NULL, '2021-12-14 17:30:23', '2021-12-14 17:30:23');
 INSERT INTO `media` VALUES ('61b874f2700b0', 'razer-61b874f26b2c0.png', '61b874f260cb4', NULL, NULL, '2021-12-14 17:41:54', '2021-12-14 17:41:54');
+INSERT INTO `media` VALUES ('61b99f8f559e4', 'razer-laptop-61b99f8f0daeb.png', '61b99f8ee0c82', 'usr61037f9c85184', NULL, '2021-12-15 14:55:59', '2021-12-15 14:55:59');
+INSERT INTO `media` VALUES ('61b9a303ddfc3', 'logitech-61b9a303c3e9d.jpg', '61b9a303b49ed', 'usr61037f9c85184', NULL, '2021-12-15 15:10:43', '2021-12-15 15:10:43');
+INSERT INTO `media` VALUES ('61b9a8a9ace76', 'rog-61b9a8a9a270a.jpg', '61b9a8a9929c0', 'usr61037f9c85184', NULL, '2021-12-15 15:34:49', '2021-12-15 15:34:49');
+INSERT INTO `media` VALUES ('61b9a97a6714c', 'razer-laptop-61b9a97a5cc14.png', '61b9a97a4f4d1', 'usr61037f9c85184', NULL, '2021-12-15 15:38:18', '2021-12-15 15:38:18');
+INSERT INTO `media` VALUES ('61b9ac52e4db6', 'logitech-61b9ac52da834.jpg', '61b9ac52caec4', 'usr61037f9c85184', NULL, '2021-12-15 15:50:26', '2021-12-15 15:50:26');
+INSERT INTO `media` VALUES ('61b9ac77bd041', 'logitech-61b9ac77b959a.jpg', '61b9ac77a5817', 'usr61037f9c85184', NULL, '2021-12-15 15:51:03', '2021-12-15 15:51:03');
+INSERT INTO `media` VALUES ('61b9ac896b967', 'razer-laptop-61b9ac89616b9.png', '61b9ac8951eef', 'usr61037f9c85184', NULL, '2021-12-15 15:51:21', '2021-12-15 15:51:21');
+INSERT INTO `media` VALUES ('61b9acac088d5', 'rog-61b9acac03d4f.jpg', '61b9acabec56e', 'usr61037f9c85184', NULL, '2021-12-15 15:51:56', '2021-12-15 15:51:56');
+INSERT INTO `media` VALUES ('61b9acbe50f8f', 'razer-61b9acbe49728.png', '61b9acbe3bd49', 'usr61037f9c85184', NULL, '2021-12-15 15:52:14', '2021-12-15 15:52:14');
+INSERT INTO `media` VALUES ('61b9c1ac6dfcb', 'logitech-61b9c1ac659f0.jpg', '61b9c1ac5769a', 'usr61037f9c85184', NULL, '2021-12-15 17:21:32', '2021-12-15 17:21:32');
+INSERT INTO `media` VALUES ('61b9c24d21bf5', 'rog-61b9c24d147c7.jpg', '61b9c24cd6001', 'usr61037f9c85184', NULL, '2021-12-15 17:24:13', '2021-12-15 17:24:13');
+INSERT INTO `media` VALUES ('61b9c58099afe', 'razer-61b9c58094f32.png', '61b9c580824d4', 'usr61037f9c85184', NULL, '2021-12-15 17:37:52', '2021-12-15 17:37:52');
+INSERT INTO `media` VALUES ('61b9c5db84f43', 'razer-laptop-61b9c5db7f70c.png', '61b9c5db43847', 'usr61037f9c85184', NULL, '2021-12-15 17:39:23', '2021-12-15 17:39:23');
+INSERT INTO `media` VALUES ('61b9c650eaae7', 'razer-61b9c650dff4a.png', '61b9c650d05ef', 'usr61037f9c85184', NULL, '2021-12-15 17:41:20', '2021-12-15 17:41:20');
+INSERT INTO `media` VALUES ('61b9c6943fae3', 'rog-61b9c6943a6bc.jpg', '61b9c6648d805', 'usr61037f9c85184', NULL, '2021-12-15 17:42:28', '2021-12-15 17:42:28');
+INSERT INTO `media` VALUES ('61b9c6d9f1f29', 'rog-61b9c6d9ede6b.jpg', '61b9c6d9e1c98', 'usr61037f9c85184', NULL, '2021-12-15 17:43:37', '2021-12-15 17:43:37');
+INSERT INTO `media` VALUES ('61b9c8efefb44', 'razer-laptop-61b9c8efe855a.png', '61b9c8efd8e82', 'usr61037f9c85184', NULL, '2021-12-15 17:52:31', '2021-12-15 17:52:31');
+INSERT INTO `media` VALUES ('61b9c91be9682', 'rog-61b9c91be18ff.jpg', '61b9c91bd1b3c', 'usr61037f9c85184', NULL, '2021-12-15 17:53:15', '2021-12-15 17:53:15');
+INSERT INTO `media` VALUES ('61b9d9e3acd2f', 'logitech-61b9d9e3a0613.jpg', '61b9d9e37a695', 'usr61037f9c85184', NULL, '2021-12-15 19:04:51', '2021-12-15 19:04:51');
+INSERT INTO `media` VALUES ('61b9da539066e', 'razer-laptop-61b9da5389ccd.png', '61b9da5378f61', 'usr61037f9c85184', NULL, '2021-12-15 19:06:43', '2021-12-15 19:06:43');
+INSERT INTO `media` VALUES ('61b9db06c0a7b', 'razer-laptop-61b9db06b90ca.png', '61b9db06ae910', 'usr61037f9c85184', NULL, '2021-12-15 19:09:42', '2021-12-15 19:09:42');
 
 -- ----------------------------
 -- Table structure for pelanggan
@@ -840,7 +874,8 @@ CREATE TABLE `sosial_media`  (
   `link_sosial_media` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `icon_sosial_media` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_sosial_media`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------

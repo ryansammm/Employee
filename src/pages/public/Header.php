@@ -41,6 +41,7 @@
     <!------- JQuery ------->
     <script src="/assets/js/jquery-3.6.0.min.js"></script>
 
+
 </head>
 
 
@@ -67,7 +68,7 @@
 
 <body style="background-color: #d8d8d86b !important;">
 
-    <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
+    <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white mb-3">
 
         <?php if ($GLOBALS['id_user'] != '') { ?>
             <!------- Button Ubah Logo & Nama Perusahaan ------->
@@ -201,7 +202,10 @@
                                     <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                         <div class="d-flex mt-3">
                                             <div class="user-img align-items-center mr-3">
-                                                <img src="/assets/icon/avatar.jpg" style="width: 38px;height: 38px;" class="rounded-circle">
+
+                                                <div style="background-image: url(/assets/media/<?= $GLOBALS['path_media'] ?>);width: 38px;height: 38px;background-size: cover;background-position: center;border-radius: 50%;"></div>
+
+                                                <!-- <img src="/assets/media/<?= $GLOBALS['path_media'] ?>" style="width: 38px;height: 38px;" class="rounded-circle"> -->
                                             </div>
                                             <div class="user-name text-start ms-3">
                                                 <h6 class="mb-0 text-muted" style="font-size: 14px;"><?= $GLOBALS['nama_user'] ?></h6>

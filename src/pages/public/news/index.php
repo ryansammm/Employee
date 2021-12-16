@@ -253,7 +253,11 @@
                 </div>
             <?php } ?>
         </div>
-        <?= $data_berita->links() ?>
+        <div class="mt-3 text-center">
+            <!-- <div class="col-md-3 pe-0"> -->
+            <a type="button" href="/all-news" class="btn btn-outline-secondary">Lihat Berita Lainnya..</a>
+            <!-- </div> -->
+        </div>
     </div>
 </section>
 

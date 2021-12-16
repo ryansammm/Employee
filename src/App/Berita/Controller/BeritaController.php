@@ -186,6 +186,13 @@ class BeritaController
         }
         /* -------------------------------------------------------------------------- */
 
+        /* ------------------------------ Semua Berita ------------------------------ */
+        $data_berita = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
+            ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
+            ->paginate(5)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
+        /* -------------------------------------------------------------------------- */
+
         /* ---------------------------------- Feed ---------------------------------- */
         $data_feed = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
@@ -214,6 +221,6 @@ class BeritaController
         $cms_setting = $this->cmsSetting->first();
         /* -------------------------------------------------------------------------- */
 
-        return render_template('public/news/category', ['datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed]);
+        return render_template('public/news/category', ['datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed, 'data_berita' => $data_berita]);
     }
 }

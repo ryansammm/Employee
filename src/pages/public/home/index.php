@@ -136,19 +136,21 @@
                 <div class="row">
                     <?php foreach ($data_produk->items as $key => $value) { ?>
                         <div class="col-md-2 mb-3">
-                            <div class="card shadow-sm" style="border-radius: 8px;">
-                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 0.25rem 0.25rem 0 0;"></div>
-                                <div class="card-body" style="font-size: 12px;">
-                                    <h6><?= $value['nama_produk'] ?></h6>
-                                    <div class="card-text truncate-string-2 mb-1"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
+                            <a href="" class="text-decoration-none">
+                                <div class="card for-hover" style="border-radius: 8px;">
+                                    <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 0.25rem 0.25rem 0 0;"></div>
+                                    <div class="card-body" style="font-size: 12px;">
+                                        <h6><?= $value['nama_produk'] ?></h6>
+                                        <div class="card-text truncate-string-2 mb-1"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
+                                        <div class="d-flex justify-content-start align-items-start">
+                                            <!-- <div class="btn-group">
                                             <a href="/product/<?= $value['id_produk'] ?>/detail" type="button" class="btn btn-sm btn-outline-primary">Detail</a>
+                                        </div> -->
+                                            <a class="mt-2 text-decoration-none" href="/product/<?= $value['id_kategori_produk'] ?>/kategori" class="text-muted text-decoration-none"><small style="color: #0853a6;background-color: #acd0f7;font-weight: bold;padding: 3px 8px 3px 8px;border-radius: 0.25rem;"><?= $value['nama_kategori_produk'] ?></small></a>
                                         </div>
-                                        <a href="/product/<?= $value['id_kategori_produk'] ?>/kategori" class="text-muted text-decoration-none"><small><?= $value['nama_kategori_produk'] ?></small></a>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     <?php } ?>
                 </div>
@@ -188,7 +190,9 @@
     </div>
 </div>
 
-<script> window.intergramId = "1669128873" </script>
-<script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
+<script>
+    window.intergramId = "626917343"
+</script>
+<script id="intergram" type="text/javascript" src="/assets/public/js/server.js"></script>
 
 <?php include __DIR__ . '/../Footer.php' ?>

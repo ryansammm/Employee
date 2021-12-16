@@ -4,6 +4,7 @@ namespace Core;
 
 use App\Akreditasi\Model\Akreditasi;
 use App\Asosiasi\Model\Asosiasi;
+use App\Banner\Model\Banner;
 use App\CmsBackground\Model\CmsBackground;
 use App\CmsFonts\Model\CmsFonts;
 use App\CmsKategoriStyle\Model\CmsKategoriStyle;
@@ -49,12 +50,21 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         // !!!! Overriding Core Framework !!!!
 
+        // Get user id
+        $id_user = SessionData::get('id_user');
+        $GLOBALS['id_user'] = $id_user;
+
         // Get list of website main menu
         $menu_model = new Menu();
         function recursive_menu($parent_id, $menu_model)
         {
             $menus = [];
-            $data_menu = $menu_model->where('parent_id', $parent_id)->where('header', '1')->get()->items;
+            $data_menu = $menu_model->where('parent_id', $parent_id)
+                ->where('hide', '2')
+                ->where(function($query) {
+                    $query->where('jenis_menu', '1')->orWhere('jenis_menu', '3');
+                })
+                ->get()->items;
             if (!empty($data_menu)) {
                 foreach ($data_menu as $key => $value) {
                     $value['sub_menu'] = recursive_menu($value['id_cms_menu'], $menu_model);
@@ -66,9 +76,16 @@ class Framework extends HttpKernel implements HttpKernelInterface
         }
 
         $menu_utama = recursive_menu('0', $menu_model);
+        usort($menu_utama, function ($a, $b) {
+            return $a['urutan'] - $b['urutan'];
+        });
         $GLOBALS['web_menu'] = $menu_utama;
 
-        $menu_footer = $menu_model->where('parent_id', '0')->where('header', '2')->where('footer', '1')->get()->items;
+        $menu_footer = $menu_model->where('parent_id', '0')
+            ->where('hide', '2')
+            ->where(function($query) {
+                $query->where('jenis_menu', '2')->orWhere('jenis_menu', '3');
+            })->get()->items;
         $GLOBALS['menu_footer'] = $menu_footer;
 
         // Get website logo and title
@@ -93,13 +110,35 @@ class Framework extends HttpKernel implements HttpKernelInterface
         $sosial_media = $sosial_media_model->leftJoin('media', 'media.id_relation', '=', 'sosial_media.id_sosial_media')->get();
         /* -------------------------------------------------------------------------- */
 
+        /* ----------------------------------- Banner ---------------------------------- */
+        $banner_model = new Banner();
+        $current_menu = $menu_model->where('link_url', 'like', '%' . explode('/', $pathInfo)[1] . '%')->first();
+
+        if ($current_menu) {
+            $banner_potrait = $banner_model
+                ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+                ->where('orientasi_banner', '1')
+                ->where('ishide_banner', '2')
+                ->where('lokasi_banner', $current_menu['id_cms_menu'])
+                ->orderBy('urutan_banner', 'ASC')->get()->items;
+
+            $banner_landscape = $banner_model
+                ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
+                ->where('orientasi_banner', '2')
+                ->where('ishide_banner', '2')
+                ->where('lokasi_banner', $current_menu['id_cms_menu'])
+                ->orderBy('urutan_banner', 'ASC')->get()->items;
+                
+            $GLOBALS['banner_potrait'] = $banner_potrait;
+            $GLOBALS['banner_landscape'] = $banner_landscape;
+        }
+        /* -------------------------------------------------------------------------- */
+
         $GLOBALS['web_logo'] = $data_media_title;
         $GLOBALS['web_title'] = $data_cms_title;
         $GLOBALS['akreditasi'] = $akreditasi;
         $GLOBALS['asosiasi'] = $asosiasi;
         $GLOBALS['sosial_media'] = $sosial_media;
-
-        // dd($sosial_media);
 
         $urlTujuan = $request->getPathInfo();
         $explode_url = explode("/", $urlTujuan);

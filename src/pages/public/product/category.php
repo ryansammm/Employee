@@ -3,14 +3,21 @@
 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-error.php' ?>
 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori-style.php' ?>
 
+<!------- Landscape Banner ------->
 <div class="container">
+    <?php if (isset($GLOBALS['banner_landscape'][0])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($GLOBALS['banner_landscape'][0], 'path_media')]) ?>
+    <?php } ?>
+</div>
+
+<div class="container mt-4">
     <div class="row">
         <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
             <div class="col-md-3">
                 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
-                <?php if (!empty($banner_potrait)) { ?>
-                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                <?php if (!empty($GLOBALS['banner_potrait'])) { ?>
+                    <?php foreach ($GLOBALS['banner_potrait'] as $key => $data) { ?>
                         <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
                     <?php } ?>
                 <?php } ?>
@@ -22,9 +29,7 @@
                 <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Produk Kami</h5>
             </div>
 
-
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
 
                 <?php foreach ($data_produk->items as $key => $value) { ?>
                     <div class="col-md-4">
@@ -54,8 +59,8 @@
                 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
             </div>
             <!------- Landscape Banner Samping ------->
-            <?php if (!empty($banner_potrait)) { ?>
-                <?php foreach ($banner_potrait as $key => $data) { ?>
+            <?php if (!empty($GLOBALS['banner_potrait'])) { ?>
+                <?php foreach ($GLOBALS['banner_potrait'] as $key => $data) { ?>
                     <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
                 <?php } ?>
             <?php } ?>

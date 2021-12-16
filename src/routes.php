@@ -264,6 +264,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('menu', '', [MenuController::class, 'index']);
         $routes->push('menu_create', '/create', [MenuController::class, 'create']);
         $routes->push('menu_store', '/store', [MenuController::class, 'store']);
+        $routes->push('menu_sort', '/sort', [MenuController::class, 'sort']);
         $routes->push('menu_edit', '/{id}/edit', [MenuController::class, 'edit']);
         $routes->push('menu_update', '/{id}/update', [MenuController::class, 'update']);
         $routes->push('menu_show', '/{id}/show', [MenuController::class, 'show']);

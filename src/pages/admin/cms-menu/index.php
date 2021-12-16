@@ -17,9 +17,71 @@
         </div>
     </div>
 
-
     <div class="content">
         <div class="container-fluid">
+            <!-- menu ordering -->
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header p-0" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left d-flex justify-content-between text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="">
+                                            <i class="fas fa-exchange-alt mr-1" style="transform: rotate(90deg);"></i>
+                                            <span>Atur Urutan Menu Header</span>
+                                        </div>
+                                        <i class="fas fa-sort-down"></i>
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+
+                                    <form action="/admin/menu/sort" method="POST">
+                                        <!-- /.card-header -->
+                                        <ul class="todo-list" data-widget="todo-list">
+                                            <?php foreach ($datas->items as $key => $data) { ?>
+                                                <?php if (arr_offset($data, 'jenis_menu') == '1' || arr_offset($data, 'jenis_menu') == '3') { ?>
+                                                    <li class="<?= arr_offset($data, 'hide') == '1' ? 'done' : '' ?> d-flex justify-content-between">
+                                                        <input type="hidden" class="urutan-menu" name="urutan_menu[]" value="<?= arr_offset($data, 'id_cms_menu') ?>">
+                                                        <div>
+                                                            <!-- drag handle -->
+                                                            <span class="handle mr-3">
+                                                                <i class="fas fa-ellipsis-v"></i>
+                                                                <i class="fas fa-ellipsis-v"></i>
+                                                            </span>
+                                                            <!-- todo text -->
+                                                            <span style="font-size: 14px;"><?= arr_offset($data, 'menu') ?></span>
+                                                        </div>
+                                                        <!-- Emphasis label -->
+                                                        <!-- <a href="#" class="btn-tampil btn-sm btn-danger" data-id="<?= arr_offset($data, 'header') ?>">
+                                                            <i class="far <?= arr_offset($data, 'hide') == '1' ? 'fa-eye-slash' : 'fa-eye' ?> mr-1" style="font-size: 12px;"></i>
+                                                            <?= arr_offset($data, 'hide') == '1' ? 'Tampilkan' : 'Sembunyikan' ?>
+                                                        </a> -->
+                                                        <div class="form-group mb-0">
+                                                            <div class="custom-control custom-switch">
+                                                                <input type="checkbox" class="custom-control-input" id="customSwitch_<?= arr_offset($data, 'id_cms_menu') ?>" name="<?= arr_offset($data, 'id_cms_menu') ?>" value="1" <?= arr_offset($data, 'hide') == '2' ? 'checked' : '' ?>>
+                                                                <label class="custom-control-label" for="customSwitch_<?= arr_offset($data, 'id_cms_menu') ?>">Show/Hide</label>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </ul>
+                                        <!-- /.card-body -->
+                                        <button type="submit" class="btn btn-danger mt-3">Update</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- content -->
             <div class="card">
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
@@ -79,7 +141,8 @@
     </div>
 </div>
 
-
+<script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/assets/js/app/ui-sortable.js"></script>
 <script>
     $('#modal_konfirmasi_hapus').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)

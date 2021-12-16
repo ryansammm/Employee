@@ -44,7 +44,7 @@
                                     <select name="lokasi_banner" class="form-control lokasi_banner">
                                         <option value=""> -- Pilih Lokasi Banner -- </option>
                                         <?php foreach ($menu->items as $key => $value) { ?>
-                                            <option value="<?= $value['link_url'] ?>"><?= $value['menu'] ?></option>
+                                            <option value="<?= $value['id_cms_menu'] ?>"><?= $value['menu'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>

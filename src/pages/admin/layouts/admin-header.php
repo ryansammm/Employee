@@ -23,7 +23,8 @@
     <!-- Truncate -->
     <link rel="stylesheet" href="/assets/plugins/truncate.css">
     <!-- jQuery -->
-    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="/assets/js/jquery-3.3.1.min.js"></script> -->
+    <script src="/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!------- Bootstrap Icon ------->

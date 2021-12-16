@@ -22,7 +22,7 @@ class BannerController
 
     public function index(Request $request)
     {
-        $datas = $this->banner->paginate(10);
+        $datas = $this->banner->leftJoin('cms_menu', 'cms_menu.id_cms_menu', '=', 'banner.lokasi_banner')->paginate(10);
 
         return render_template('admin/banner/index', compact('datas'));
     }

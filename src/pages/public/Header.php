@@ -64,6 +64,7 @@
 
     <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
 
+        <?php if ($GLOBALS['id_user'] != '') { ?>
         <!------- Button Ubah Logo & Nama Perusahaan ------->
         <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
             <i class="bi bi-pencil-square"></i>
@@ -141,6 +142,7 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
 
         <!------- Top Header ------->
         <div class="container pb-3">

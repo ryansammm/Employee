@@ -1,5 +1,13 @@
 <?php include __DIR__ . '/../Header.php' ?>
+
+<!------- Landscape Banner ------->
 <div class="container">
+    <?php if (isset($GLOBALS['banner_landscape'][0])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($GLOBALS['banner_landscape'][0], 'path_media')]) ?>
+    <?php } ?>
+</div>
+
+<div class="container mt-4">
     <div class="card">
         <div class="card-body p-0">
             <div class="row align-items-stretch no-gutters contact-wrap">

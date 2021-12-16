@@ -2,8 +2,8 @@
 
 <!------- Landscape Banner Atas ------->
 <div class="container">
-    <?php if (isset($banner_landscape[0])) { ?>
-        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+    <?php if (isset($GLOBALS['banner_landscape'][0])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($GLOBALS['banner_landscape'][0], 'path_media')]) ?>
     <?php } ?>
 </div>
 
@@ -116,8 +116,8 @@
 
 <!------- Landscape Banner Bawah ------->
 <div class="container">
-    <?php if (isset($banner_landscape[1])) { ?>
-        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+    <?php if (isset($GLOBALS['banner_landscape'][1])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($GLOBALS['banner_landscape'][1], 'path_media')]) ?>
     <?php } ?>
 </div>
 

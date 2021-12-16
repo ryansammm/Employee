@@ -51,7 +51,7 @@
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['nama_banner'] ?></td>
                                     <td><?= $value['orientasi_banner'] == '1' ? 'Potrait' : 'Lanscape' ?></td>
-                                    <td><?= $value['lokasi_banner'] ?></td>
+                                    <td><?= $value['menu'] ?></td>
                                     <td>
                                         <a class="btn btn-sm btn-info m-2" href="/admin/banner/<?= $value['id_banner'] ?>/edit">Edit</a>
                                         <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_banner'] ?>">hapus</a>

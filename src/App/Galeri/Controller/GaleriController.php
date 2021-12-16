@@ -8,7 +8,6 @@ use App\CmsSetting\Model\CmsSetting;
 use App\Galeri\Model\Galeri;
 use App\GroupGaleri\Model\GroupGaleriNew;
 use App\KategoriGaleriAdmin\Model\KategoriGaleriAdmin;
-use App\Media\Model\Media;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -46,18 +45,7 @@ class GaleriController
         $cmsKategoriModule = new CmsKategoriModule('jejak-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/gallery/index', ['data_galeri' => $data_galeri, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/gallery/index', ['data_galeri' => $data_galeri, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori]);
     }
 
     public function create(Request $request)
@@ -114,18 +102,7 @@ class GaleriController
         $cmsKategoriModule = new CmsKategoriModule('jejak-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/gallery/detail', ['data_galeri' => $data_galeri, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori, 'detail_galeri' => $detail_galeri, 'data_group_galeri' => $data_group_galeri, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/gallery/detail', ['data_galeri' => $data_galeri, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori, 'detail_galeri' => $detail_galeri, 'data_group_galeri' => $data_group_galeri]);
     }
 
     public function delete(Request $request)
@@ -159,18 +136,6 @@ class GaleriController
         $cmsKategoriModule = new CmsKategoriModule('jejak-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-
-        return render_template('public/gallery/category', ['data_galeri' => $data_galeri, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/gallery/category', ['data_galeri' => $data_galeri, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'datas_kategori' => $datas_kategori]);
     }
 }

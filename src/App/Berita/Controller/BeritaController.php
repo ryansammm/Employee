@@ -80,18 +80,7 @@ class BeritaController
         $cms_setting = $this->cmsSetting->first();
         /* -------------------------------------------------------------------------- */
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/news/index', ['data_berita' => $data_berita, 'datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed]);
     }
 
     public function create(Request $request)
@@ -169,18 +158,7 @@ class BeritaController
         $cms_setting = $this->cmsSetting->first();
         /* -------------------------------------------------------------------------- */
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/news/detail', ['datas_kategori' => $datas_kategori, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting, 'data_berita_hangat' => $data_berita_hangat, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
+        return render_template('public/news/detail', ['datas_kategori' => $datas_kategori, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting, 'data_berita_hangat' => $data_berita_hangat, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 
     public function kategori(Request $request)
@@ -236,17 +214,6 @@ class BeritaController
         $cms_setting = $this->cmsSetting->first();
         /* -------------------------------------------------------------------------- */
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/news/category', ['datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/news/category', ['datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed]);
     }
 }

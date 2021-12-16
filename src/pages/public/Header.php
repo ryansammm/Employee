@@ -42,22 +42,6 @@
     <script src="/assets/js/jquery-3.6.0.min.js"></script>
 
 
-    <script>
-        window.intergramId = "626917343";
-        window.intergramCustomizations = {
-            titleClosed: 'Closed chat title',
-            titleOpen: 'Opened chat title',
-            introMessage: 'First message when the user opens the chat for the first time',
-            autoResponse: 'A message that is sent immediately after the user sends its first message',
-            autoNoResponse: 'A message that is sent one minute after the user sends its first message ' +
-                'and no response was received',
-            mainColor: "#E91E63", // Can be any css supported color 'red', 'rgb(255,87,34)', etc
-            alwaysUseFloatingButton: false // Use the mobile floating button also on large screens
-        };
-    </script>
-
-    <script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
-
 </head>
 
 
@@ -218,7 +202,10 @@
                                     <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                         <div class="d-flex mt-3">
                                             <div class="user-img align-items-center mr-3">
-                                                <img src="/assets/icon/avatar.jpg" style="width: 38px;height: 38px;" class="rounded-circle">
+
+                                                <div style="background-image: url(/assets/media/<?= $GLOBALS['path_media'] ?>);width: 38px;height: 38px;background-size: cover;background-position: center;border-radius: 50%;"></div>
+
+                                                <!-- <img src="/assets/media/<?= $GLOBALS['path_media'] ?>" style="width: 38px;height: 38px;" class="rounded-circle"> -->
                                             </div>
                                             <div class="user-name text-start ms-3">
                                                 <h6 class="mb-0 text-muted" style="font-size: 14px;"><?= $GLOBALS['nama_user'] ?></h6>

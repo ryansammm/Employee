@@ -13,6 +13,7 @@ use App\Media\Model\Media;
 use App\Menu\Model\Menu;
 use App\SosialMedia\Model\SosialMedia;
 use App\SubMenu\Model\SubMenu;
+use App\Users\Model\Users;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -56,6 +57,14 @@ class Framework extends HttpKernel implements HttpKernelInterface
         $GLOBALS['id_user'] = $id_user;
         $GLOBALS['nama_user'] = $nama_user;
 
+        $this->users = new Users();
+        $data_users = $this->users
+            ->leftjoin('media', 'media.id_relation', '=', 'users.id_user')
+            ->where('id_user', $id_user)->first();
+
+        $GLOBALS['path_media'] = $data_users['path_media'];
+
+
         // Get list of website main menu
         $menu_model = new Menu();
         function recursive_menu($parent_id, $menu_model)
@@ -96,6 +105,9 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         $media = new Media();
         $data_media_title = $media->where('jenis_dokumen', 'cms-title')->first();
+
+
+
 
         /* ------------------------------- Akreditasi ------------------------------- */
         $akreditasi_model = new Akreditasi();

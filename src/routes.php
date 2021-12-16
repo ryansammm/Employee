@@ -42,6 +42,7 @@ use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
 use App\Search\Controller\SearchController;
+use App\SemuaBerita\Controller\SemuaBeritaController;
 use App\SosialMedia\Controller\SosialMediaController;
 use App\SubMenu\Controller\SubMenuController;
 use App\Users\Controller\UsersController;
@@ -388,6 +389,15 @@ $routes->prefix('news', function ($routes) {
     $routes->push('news', '', [BeritaController::class, 'index']);
     $routes->push('news_detail', '/{id}/detail', [BeritaController::class, 'detail']);
     $routes->push('news_kategori', '/{kategori}/kategori', [BeritaController::class, 'kategori']);
+});
+/* -------------------------------------------------------------------------- */
+
+
+/* ----------------------------- Front All News ----------------------------- */
+$routes->prefix('all-news', function ($routes) {
+    $routes->push('all_news', '', [SemuaBeritaController::class, 'index']);
+    $routes->push('all_news_detail', '/{id}/detail', [SemuaBeritaController::class, 'detail']);
+    $routes->push('all_news_kategori', '/{kategori}/kategori', [SemuaBeritaController::class, 'kategori']);
 });
 /* -------------------------------------------------------------------------- */
 

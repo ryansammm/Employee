@@ -231,6 +231,35 @@
     </div>
 </div>
 
+
+<!------- Row Berita ------->
+<section id="Berita">
+    <div class="container mt-2 pb-2">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <!-- <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita</h5> -->
+        </div>
+        <div class="row">
+            <?php foreach ($data_berita->items as $key => $value) { ?>
+                <div class="col-md">
+                    <a href="/news/<?= $value['id_berita'] ?>/detail" class="text-dark text-decoration-none">
+                        <div class="card for-hover p-3">
+                            <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
+                            <h6 class="mt-3 mb-0 pb-0 truncate-string-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?= $value['judul_berita'] ?>"><?= $value['judul_berita'] ?></h6>
+                            <small class=" mb-1 text-muted"><?= $value['kategori_berita'] ?></small>
+                            <div class="truncate-string-2" style="font-size: 12px;"><?= html_entity_decode(nl2br($value['isi_berita'])) ?></div>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+        <div class="mt-3 text-center">
+            <!-- <div class="col-md-3 pe-0"> -->
+            <a type="button" href="/all-news" class="btn btn-outline-secondary">Lihat Berita Lainnya..</a>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
+
 <!------- Landscape Banner ------->
 <div class="container">
     <?php if (isset($GLOBALS['banner_landscape'][1])) { ?>

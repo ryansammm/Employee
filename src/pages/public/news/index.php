@@ -234,7 +234,7 @@
 
 
 <!------- Row Berita ------->
-<section id="Berita">
+<section id="Berita" class="mb-3">
     <div class="container mt-2 pb-2">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <!-- <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita</h5> -->
@@ -253,7 +253,6 @@
                 </div>
             <?php } ?>
         </div>
-        <?= $data_berita->links() ?>
     </div>
 </section>
 

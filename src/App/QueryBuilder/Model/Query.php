@@ -28,6 +28,11 @@ class Query
     protected $union = [];
 
     /**
+     * @var bool
+     */
+    public $paginate = false;
+
+    /**
      * Method to generate the base format of `WHERE` query
      * 
      * @return string
@@ -352,12 +357,12 @@ class Query
         }
 
         foreach ($this->query as $key => $value) {
-            // if (!empty($this->union) && $key != 'limit') {
+            if ($key != 'limit') {
                 if ($key == 'table') {
                     $this->sql .= " FROM ";
                 }
                 $this->sql .= $value;
-            // }
+            }
         }
 
         if (strpos(substr($this->sql, -7), "WHERE") !== false) {
@@ -368,9 +373,13 @@ class Query
             $this->sql = substr($this->sql, 0, -4);
         }
 
-        foreach ($this->union as $key => $value) {
-            $this->sql .= ' UNION ' . $value;
+        if (!empty($this->union)) {
+            foreach ($this->union as $key => $value) {
+                $this->sql .= ' UNION ' . $value;
+            }
         }
+
+        $this->sql .= $this->query['limit'];
     }
 
     /**

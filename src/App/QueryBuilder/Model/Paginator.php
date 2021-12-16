@@ -20,6 +20,11 @@ class Paginator extends Query
     public $items = [];
 
     /**
+     * @return array
+     */
+    public $active = [];
+
+    /**
      * Method to set paginator property
      */
     public function setProp(array $datas)
@@ -55,6 +60,8 @@ class Paginator extends Query
      */
     public function links()
     {
+        $this->active = [];
+
         $template = '<div class="row mt-3"><div class="col-4"><h6 class="text-muted fw-normal mt-2" style="font-size: 14px;">Showing ' . ($this->countRows > 0 ? ($this->page_first_result + 1) : $this->page_first_result) . ' to ' . $this->total_data_per_page . ' of ' . $this->countRows . ' entries</h6></div>';
 
         if ($this->number_of_page > 1) {

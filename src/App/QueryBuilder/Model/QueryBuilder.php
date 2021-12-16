@@ -46,18 +46,29 @@ class QueryBuilder extends Query
     }
 
     /**
-     * @return array
+     * @return int
      */
     public function count()
     {
         $this->query['table'] = "" . $this->table . "";
 
-        $this->sql = "SELECT COUNT(*) AS count";
+        // $this->sql = "SELECT COUNT(*) AS count";
+        // foreach ($this->query as $key => $value) {
+        //     if ($key == 'table') {
+        //         $this->sql .= " FROM ";
+        //     }
+        //     if ($key != 'select') {
+        //         $this->sql .= $value;
+        //     }
+        // }
+
+        $this->sql = "SELECT ";
+
         foreach ($this->query as $key => $value) {
-            if ($key == 'table') {
-                $this->sql .= " FROM ";
-            }
-            if ($key != 'select') {
+            if ($key != 'limit') {
+                if ($key == 'table') {
+                    $this->sql .= " FROM ";
+                }
                 $this->sql .= $value;
             }
         }
@@ -70,7 +81,13 @@ class QueryBuilder extends Query
             $this->sql = substr($this->sql, 0, -4);
         }
 
-        return $this->exec_get_one();
+        if (!empty($this->union)) {
+            foreach ($this->union as $key => $value) {
+                $this->sql .= ' UNION ' . $value;
+            }
+        }
+
+        return count($this->exec_get_all());
     }
 
     /**
@@ -80,14 +97,14 @@ class QueryBuilder extends Query
     public function paginate(int $result_per_page)
     {
         $this->clearQuery = false;
+
         $page = !isset($_REQUEST['page']) || $_REQUEST['page'] == null ? 1 : $_REQUEST['page'];
-        $countRows = $this->count()['count'];
+        // $countRows = $this->count()['count'];
+        $countRows = $this->count();
         $page_first_result = ($page - 1) * $result_per_page;
         $number_of_page = ceil($countRows / $result_per_page);
 
-        // $datas = $this->limit($result_per_page, $page_first_result);
         $datas = $this->limit($result_per_page, $page_first_result)->get();
-        // dd($datas);
 
         $pagination = [
             'current_page' => intval($page),

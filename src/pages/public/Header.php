@@ -84,7 +84,7 @@
 
 <body style="background-color: #d8d8d86b !important;">
 
-    <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
+    <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white mb-3">
 
         <?php if ($GLOBALS['id_user'] != '') { ?>
             <!------- Button Ubah Logo & Nama Perusahaan ------->

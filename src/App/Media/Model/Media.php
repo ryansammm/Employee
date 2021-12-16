@@ -159,7 +159,13 @@ class Media extends Model
         if ($file != null) {
             $media_data = $model->select('media.*')
                 ->leftJoin('media', 'media.id_relation', '=', $model->table . '.' . $model->primaryKey)
+                ->where(function($query) use ($data_media) {
+                    if ($data_media['jenis_dokumen'] != '') {
+                        $query->where('media.jenis_dokumen', $data_media['jenis_dokumen']);
+                    }
+                })
                 ->where($model->primaryKey, $id_tabel)->first();
+                // dd($media_data);
             $this->deleteMedia($media_data);
             $dokumen = $this->storeMedia($file, $data_media);
 

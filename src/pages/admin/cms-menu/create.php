@@ -76,18 +76,20 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="footer" class="form-label d-block">Muncul di Footer? *</label>
-                                    <div class="d-inline mr-2">
-                                        <input type="radio" name="footer" value="1" required> Ya
-                                    </div>
-                                    <input type="radio" name="footer" value="2" required> Tidak
+                                    <label for="jenis_menu" class="form-label d-block">Jenis Menu *</label>
+                                    <select name="jenis_menu" class="form-control">
+                                        <option value=""> -- Pilih Jenis Menu -- </option>
+                                        <option value="1">Header</option>
+                                        <option value="2">Footer</option>
+                                        <option value="3">Header & Footer</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="header" class="form-label d-block">Muncul di Header? *</label>
+                                    <label for="hide" class="form-label d-block">Sembunyikan Menu? *</label>
                                     <div class="d-inline mr-2">
-                                        <input type="radio" name="header" value="1" required> Ya
+                                        <input type="radio" name="hide" value="1" required> Ya
                                     </div>
-                                    <input type="radio" name="header" value="2" required> Tidak
+                                    <input type="radio" name="hide" value="2" required> Tidak
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Title Halaman</label>

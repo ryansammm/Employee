@@ -42,18 +42,7 @@ class LayananController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/service/index', ['data_layanan' => $data_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/service/index', ['data_layanan' => $data_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 
     public function create(Request $request)
@@ -120,18 +109,7 @@ class LayananController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_layanan' => $all_layanan, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_layanan' => $all_layanan]);
     }
 
     public function kategori(Request $request)
@@ -166,17 +144,6 @@ class LayananController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        /* ----------------------------------- Banner ---------------------------------- */
-        $banner_potrait = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '1')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        $banner_landscape = $this->banner
-            ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
-            ->where('orientasi_banner', '2')
-            ->orderBy('urutan_banner', 'ASC')->get()->items;
-        /* -------------------------------------------------------------------------- */
-
-        return render_template('public/service/category', ['data_layanan' => $data_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'banner_potrait' => $banner_potrait, 'banner_landscape' => $banner_landscape]);
+        return render_template('public/service/category', ['data_layanan' => $data_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
     }
 }

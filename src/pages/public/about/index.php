@@ -1,7 +1,14 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
+<!------- Landscape Banner ------->
+<div class="container">
+    <?php if (isset($GLOBALS['banner_landscape'][0])) { ?>
+        <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($GLOBALS['banner_landscape'][0], 'path_media')]) ?>
+    <?php } ?>
+</div>
+
 <!------- About Us ------->
-<section id="about-us" class="container">
+<section id="about-us" class="container mt-4">
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -49,7 +56,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
-                    <h4 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Sturktur Organinasi</h4>
+                    <h4 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Struktur Organinasi</h4>
                 </div>
                 <div class="description ms-3">
                     <?php foreach ($data_profil->items as $key => $value) { ?>

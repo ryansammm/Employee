@@ -50,12 +50,21 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         // !!!! Overriding Core Framework !!!!
 
+        // Get user id
+        $id_user = SessionData::get('id_user');
+        $GLOBALS['id_user'] = $id_user;
+
         // Get list of website main menu
         $menu_model = new Menu();
         function recursive_menu($parent_id, $menu_model)
         {
             $menus = [];
-            $data_menu = $menu_model->where('parent_id', $parent_id)->where('header', '1')->get()->items;
+            $data_menu = $menu_model->where('parent_id', $parent_id)
+                ->where('hide', '2')
+                ->where(function($query) {
+                    $query->where('jenis_menu', '1')->orWhere('jenis_menu', '3');
+                })
+                ->get()->items;
             if (!empty($data_menu)) {
                 foreach ($data_menu as $key => $value) {
                     $value['sub_menu'] = recursive_menu($value['id_cms_menu'], $menu_model);
@@ -67,9 +76,16 @@ class Framework extends HttpKernel implements HttpKernelInterface
         }
 
         $menu_utama = recursive_menu('0', $menu_model);
+        usort($menu_utama, function ($a, $b) {
+            return $a['urutan'] - $b['urutan'];
+        });
         $GLOBALS['web_menu'] = $menu_utama;
 
-        $menu_footer = $menu_model->where('parent_id', '0')->where('header', '2')->where('footer', '1')->get()->items;
+        $menu_footer = $menu_model->where('parent_id', '0')
+            ->where('hide', '2')
+            ->where(function($query) {
+                $query->where('jenis_menu', '2')->orWhere('jenis_menu', '3');
+            })->get()->items;
         $GLOBALS['menu_footer'] = $menu_footer;
 
         // Get website logo and title
@@ -123,8 +139,6 @@ class Framework extends HttpKernel implements HttpKernelInterface
         $GLOBALS['akreditasi'] = $akreditasi;
         $GLOBALS['asosiasi'] = $asosiasi;
         $GLOBALS['sosial_media'] = $sosial_media;
-
-        // dd($sosial_media);
 
         $urlTujuan = $request->getPathInfo();
         $explode_url = explode("/", $urlTujuan);

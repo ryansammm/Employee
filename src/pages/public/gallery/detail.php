@@ -7,8 +7,8 @@
 
     <!------- Landscape Banner Bawah ------->
     <div class="mb-3">
-        <?php if (isset($banner_landscape[1])) { ?>
-            <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($banner_landscape[1], 'path_media')]) ?>
+        <?php if (isset($GLOBALS['banner_landscape'][0])) { ?>
+            <?= component('cms-banner-landscape/cms-banner-landscape', ['banner_foto' => arr_offset($GLOBALS['banner_landscape'][0], 'path_media')]) ?>
         <?php } ?>
     </div>
 
@@ -18,8 +18,8 @@
             <div class="col-md-3">
                 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
                 <!------- Landscape Banner Samping ------->
-                <?php if (!empty($banner_potrait)) { ?>
-                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                <?php if (!empty($GLOBALS['banner_potrait'])) { ?>
+                    <?php foreach ($GLOBALS['banner_potrait'] as $key => $data) { ?>
                         <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
                     <?php } ?>
                 <?php } ?>
@@ -76,8 +76,8 @@
             <div class="col-md-3">
                 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
                 <!------- Landscape Banner Samping ------->
-                <?php if (!empty($banner_potrait)) { ?>
-                    <?php foreach ($banner_potrait as $key => $data) { ?>
+                <?php if (!empty($GLOBALS['banner_potrait'])) { ?>
+                    <?php foreach ($GLOBALS['banner_potrait'] as $key => $data) { ?>
                         <?= component('cms-banner-potrait/cms-banner-potrait', ['banner_foto' => arr_offset($data, 'path_media')]) ?>
                     <?php } ?>
                 <?php } ?>

@@ -69,18 +69,20 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="footer" class="form-label d-block">Muncul di Footer? *</label>
-                                    <div class="d-inline mr-2">
-                                        <input type="radio" name="footer" value="1" required <?= arr_offset($detail, 'footer') == '1' ? 'checked' : '' ?>> Ya
-                                    </div>
-                                    <input type="radio" name="footer" value="2" required <?= arr_offset($detail, 'footer') == '2' ? 'checked' : '' ?>> Tidak
+                                    <label for="jenis_menu" class="form-label d-block">Jenis Menu *</label>
+                                    <select name="jenis_menu" class="form-control">
+                                        <option value=""> -- Pilih Jenis Menu -- </option>
+                                        <option value="1" <?= arr_offset($detail, 'jenis_menu') == '1' ? 'selected' : '' ?>>Header</option>
+                                        <option value="2" <?= arr_offset($detail, 'jenis_menu') == '2' ? 'selected' : '' ?>>Footer</option>
+                                        <option value="3" <?= arr_offset($detail, 'jenis_menu') == '3' ? 'selected' : '' ?>>Header & Footer</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="header" class="form-label d-block">Muncul di Header? *</label>
+                                    <label for="hide" class="form-label d-block">Sembunyikan Menu? *</label>
                                     <div class="d-inline mr-2">
-                                        <input type="radio" name="header" value="1" required <?= arr_offset($detail, 'header') == '1' ? 'checked' : '' ?>> Ya
+                                        <input type="radio" name="hide" value="1" required <?= arr_offset($detail, 'hide') == '1' ? 'checked' : '' ?>> Ya
                                     </div>
-                                    <input type="radio" name="header" value="2" required <?= arr_offset($detail, 'header') == '2' ? 'checked' : '' ?>> Tidak
+                                    <input type="radio" name="hide" value="2" required <?= arr_offset($detail, 'hide') == '2' ? 'checked' : '' ?>> Tidak
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Title Halaman</label>

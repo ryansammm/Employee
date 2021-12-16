@@ -63,8 +63,8 @@
 <body style="background-color: #d8d8d86b !important;">
 
     <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
-
-        <?php if ($GLOBALS['id_user'] != '') { ?>
+        
+        <?php if (session('id_user') != '') { ?>
         <!------- Button Ubah Logo & Nama Perusahaan ------->
         <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
             <i class="bi bi-pencil-square"></i>

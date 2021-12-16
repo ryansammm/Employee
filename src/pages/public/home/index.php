@@ -188,4 +188,7 @@
     </div>
 </div>
 
+<script> window.intergramId = "1669128873" </script>
+<script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
+
 <?php include __DIR__ . '/../Footer.php' ?>

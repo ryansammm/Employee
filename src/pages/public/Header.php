@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
 
-    <title>Panca Teknologi Aksesindo</title>
+    <title>PT. Panca Teknologi Aksesindo</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/logo/PTA.png" />
@@ -41,6 +41,23 @@
     <!------- JQuery ------->
     <script src="/assets/js/jquery-3.6.0.min.js"></script>
 
+
+    <script>
+        window.intergramId = "626917343";
+        window.intergramCustomizations = {
+            titleClosed: 'Closed chat title',
+            titleOpen: 'Opened chat title',
+            introMessage: 'First message when the user opens the chat for the first time',
+            autoResponse: 'A message that is sent immediately after the user sends its first message',
+            autoNoResponse: 'A message that is sent one minute after the user sends its first message ' +
+                'and no response was received',
+            mainColor: "#E91E63", // Can be any css supported color 'red', 'rgb(255,87,34)', etc
+            alwaysUseFloatingButton: false // Use the mobile floating button also on large screens
+        };
+    </script>
+
+    <script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
+
 </head>
 
 
@@ -58,6 +75,11 @@
             font-size: 3.5rem;
         }
     }
+
+    @font-face {
+        font-family: 'Astro-Space';
+        src: url('/assets/fonts/Astro-Space.ttf') format('truetype');
+    }
 </style>
 
 <body style="background-color: #d8d8d86b !important;">
@@ -65,93 +87,94 @@
     <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white ">
 
         <?php if ($GLOBALS['id_user'] != '') { ?>
-        <!------- Button Ubah Logo & Nama Perusahaan ------->
-        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
-            <i class="bi bi-pencil-square"></i>
-        </button>
+            <!------- Button Ubah Logo & Nama Perusahaan ------->
+            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
+                <i class="bi bi-pencil-square"></i>
+            </button>
 
-        <!------- Modal Ubah Logo & Nama Perusahaan ------->
-        <div class="modal fade" id="logo-header" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logo-headerLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="/admin/login-template/cms-title/update" method="POST" enctype="multipart/form-data">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="logo-headerLabel">Ubah Logo & Nama Perusahaan</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="hidden" name="redirect_to" value="<?= $GLOBALS['url'] ?>">
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label">Logo</label>
-                                <input class="form-control" type="file" id="formFile" name="logoPerusahaan">
+            <!------- Modal Ubah Logo & Nama Perusahaan ------->
+            <div class="modal fade" id="logo-header" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="logo-headerLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/admin/login-template/cms-title/update" method="POST" enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="logo-headerLabel">Ubah Logo & Nama Perusahaan</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label">Nama Perusahaan</label>
-                                <input class="form-control" type="text" name="cms_title" value="<?= arr_offset($GLOBALS['web_title'], 'cms_title') ?>">
-                            </div>
-                            <hr>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault1" value="1" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '1' ? 'checked' : '' ?>>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Logo
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault2" value="2" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '2' ? 'checked' : '' ?>>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Nama Perusahaan
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault3" value="3" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '3' ? 'checked' : '' ?>>
-                                <label class="form-check-label" for="flexRadioDefault3">
-                                    Logo & Nama Perusahaan
-                                </label>
-                            </div>
-                            <hr>
-                            <div class="mb-3">
-                                <label for="">Posisi Logo</label>
-                                <select name="cms_title_position" class="form-control">
-                                    <option value="1" <?= $GLOBALS['web_title']['cms_title_position'] == '1' ? 'selected' : '' ?>>Kiri</option>
-                                    <option value="2" <?= $GLOBALS['web_title']['cms_title_position'] == '2' ? 'selected' : '' ?>>Tengah</option>
-                                    <option value="3" <?= $GLOBALS['web_title']['cms_title_position'] == '3' ? 'selected' : '' ?>>Kanan</option>
-                                </select>
-                            </div>
-                            <hr>
-                            <div class="mb-3">
-                                <label for="">Menggunakan form Pencarian?</label>
+                            <div class="modal-body">
+                                <input type="hidden" name="redirect_to" value="<?= $GLOBALS['url'] ?>">
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Logo</label>
+                                    <input class="form-control" type="file" id="formFile" name="logoPerusahaan">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Nama Perusahaan</label>
+                                    <input class="form-control" type="text" name="cms_title" value="<?= arr_offset($GLOBALS['web_title'], 'cms_title') ?>">
+                                </div>
+                                <hr>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="cms_search" id="flexRadioDefault2" value="1" <?= arr_offset($GLOBALS['web_title'], 'cms_search') == '1' ? 'checked' : '' ?>>
+                                    <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault1" value="1" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '1' ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Logo
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault2" value="2" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '2' ? 'checked' : '' ?>>
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                        Ya
+                                        Nama Perusahaan
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="cms_search" id="flexRadioDefault3" value="2" <?= arr_offset($GLOBALS['web_title'], 'cms_search') == '2' ? 'checked' : '' ?>>
+                                    <input class="form-check-input" type="radio" name="cms_title_option" id="flexRadioDefault3" value="3" <?= arr_offset($GLOBALS['web_title'], 'cms_title_option') == '3' ? 'checked' : '' ?>>
                                     <label class="form-check-label" for="flexRadioDefault3">
-                                        Tidak
+                                        Logo & Nama Perusahaan
                                     </label>
                                 </div>
+                                <hr>
+                                <div class="mb-3">
+                                    <label for="">Posisi Logo</label>
+                                    <select name="cms_title_position" class="form-control">
+                                        <option value="1" <?= $GLOBALS['web_title']['cms_title_position'] == '1' ? 'selected' : '' ?>>Kiri</option>
+                                        <option value="2" <?= $GLOBALS['web_title']['cms_title_position'] == '2' ? 'selected' : '' ?>>Tengah</option>
+                                        <option value="3" <?= $GLOBALS['web_title']['cms_title_position'] == '3' ? 'selected' : '' ?>>Kanan</option>
+                                    </select>
+                                </div>
+                                <hr>
+                                <div class="mb-3">
+                                    <label for="">Menggunakan form Pencarian?</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="cms_search" id="flexRadioDefault2" value="1" <?= arr_offset($GLOBALS['web_title'], 'cms_search') == '1' ? 'checked' : '' ?>>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Ya
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="cms_search" id="flexRadioDefault3" value="2" <?= arr_offset($GLOBALS['web_title'], 'cms_search') == '2' ? 'checked' : '' ?>>
+                                        <label class="form-check-label" for="flexRadioDefault3">
+                                            Tidak
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php } ?>
 
         <!------- Top Header ------->
-        <div class="container pb-3">
+        <div class="container py-2">
             <div class="position-relative me-auto">
                 <div class="d-flex">
                     <div class="row" style="width: 100%;">
 
                         <!-- Pake justify-content-center mun rek katengah -->
                         <div class="col-12 d-flex <?= $GLOBALS['web_title']['cms_title_position'] == '2' ? 'justify-content-center' : ($GLOBALS['web_title']['cms_title_position'] == '3' ? 'justify-content-end' : '') ?>">
+
                             <?php if ($GLOBALS['web_title']['cms_title_position'] == '3' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
                                 <form class="pe-5" action="" method="POST">
                                     <div class="input-group mt-3 ms-3" style="width: 570pt;font-size: 14px !important;">
@@ -159,27 +182,30 @@
                                     </div>
                                 </form>
                             <?php } ?>
-                            <div class="web-title d-flex ">
+
+                            <div class="web-title d-flex float-start">
                                 <?php if ($GLOBALS['web_title']['cms_title_option'] == 1 || $GLOBALS['web_title']['cms_title_option'] == 3) { ?>
-                                    <a class="navbar-brand pe-1" href="#">
-                                        <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 82px;">
+                                    <a class="navbar-brand pe-1" href="/">
+                                        <img src="/assets/media/<?= arr_offset($GLOBALS['web_logo'], 'path_media') ?>" alt="" style="width: 110px;">
                                     </a>
                                 <?php } ?>
                                 <!-- Mun rek katengahkeun, si breakword jeung inline di hapus -->
                                 <?php if ($GLOBALS['web_title']['cms_title_option'] == 2) { ?>
-                                    <h6 style="margin-top: auto;margin-bottom: auto;"><?= $GLOBALS['web_title']['cms_title'] ?></h6>
+                                    <a class="text-decoration-none" href="/" style="margin-top: auto;margin-bottom: auto;font-family: Astro-Space;">
+                                        <h6><?= $GLOBALS['web_title']['cms_title'] ?></h6>
+                                    </a>
                                 <?php } else if ($GLOBALS['web_title']['cms_title_option'] == 3) { ?>
-                                    <h6 style="margin-top: auto;margin-bottom: auto;word-wrap: break-word;inline-size: 117px;"><?= $GLOBALS['web_title']['cms_title'] ?></h6>
+                                    <a class="text-decoration-none" href="/" style="margin-top: auto;margin-bottom: auto;font-family: Astro-Space;">
+                                        <h6><?= $GLOBALS['web_title']['cms_title'] ?></h6>
+                                    </a>
                                 <?php } ?>
                             </div>
+
                             <!-- mun katengah, si form di hide -->
                             <?php if ($GLOBALS['web_title']['cms_title_position'] == '1' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
                                 <form action="/search" method="GET">
-                                    <!-- <div class="input-group mt-3 ms-3" style="width: 570pt;">
-                                        <input type="search" class="form-control" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Search">
-                                    </div> -->
                                     <div class="input-group mt-3 ms-3">
-                                        <input type="text" class="form-control" name="search" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 480pt;font-size: 14px;" value="<?= isset($search) ? show($search) : '' ?>">
+                                        <input type="text" class="form-control" name="search" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: <?= $GLOBALS['id_user'] != '' ? '320pt' : '458pt' ?>;font-size: 14px;" value="<?= isset($search) ? show($search) : '' ?>">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
                                         </div>
@@ -187,41 +213,42 @@
                                 </form>
                             <?php } ?>
 
-
-                            <div class="dropdown ps-5 ">
-                                <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="d-flex mt-3">
-                                        <div class="user-img align-items-center mr-3">
-                                            <img src="/assets/icon/avatar.jpg" style="width: 38px;height: 38px;" class="rounded-circle">
+                            <?php if ($GLOBALS['id_user'] != '') { ?>
+                                <div class="dropdown ps-4 ms-auto">
+                                    <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="d-flex mt-3">
+                                            <div class="user-img align-items-center mr-3">
+                                                <img src="/assets/icon/avatar.jpg" style="width: 38px;height: 38px;" class="rounded-circle">
+                                            </div>
+                                            <div class="user-name text-start ms-3">
+                                                <h6 class="mb-0 text-muted" style="font-size: 14px;"><?= $GLOBALS['nama_user'] ?></h6>
+                                                <p class="mb-0 text-sm text-primary" style="font-size: 14px;">Online</p>
+                                            </div>
                                         </div>
-                                        <div class="user-name text-start ms-3">
-                                            <h6 class="mb-0 text-muted" style="font-size: 14px;">Administrator</h6>
-                                            <p class="mb-0 text-sm text-primary" style="font-size: 14px;">Online</p>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
 
-                                <ul class="dropdown-menu border mt-2" aria-labelledby="dropdownMenuButton">
-                                    <li class="px-2">
-                                        <h6 class="dropdown-header">Hello, Administrator!</h6>
-                                    </li>
-                                    <li class="px-2">
-                                        <a class="dropdown-item" href="">
-                                            <i class="icon-mid bi bi-person me-2"></i> My
-                                            Profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li class="px-2">
-                                        <a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            <i class="icon-mid bi bi-box-arrow-left me-2"></i>
-                                            Logout
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                                    <ul class="dropdown-menu border mt-2" aria-labelledby="dropdownMenuButton">
+                                        <li class="px-2">
+                                            <h6 class="dropdown-header">Hello, <?= $GLOBALS['nama_user'] ?>!</h6>
+                                        </li>
+                                        <li class="px-2">
+                                            <a class="dropdown-item" href="/admin/profile-saya">
+                                                <i class="icon-mid bi bi-person me-2"></i> My
+                                                Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li class="px-2">
+                                            <a class="dropdown-item" href="/admin/logout" role="button">
+                                                <i class="icon-mid bi bi-box-arrow-left me-2"></i>
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <?php } ?>
 
                         </div>
                     </div>
@@ -324,7 +351,7 @@
 
     </nav>
 
-    <?php if ($GLOBALS['web_title']['cms_title_position'] == '2' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
+    <!-- 
         <div class="d-block">
             <form class="float-end me-5">
                 <div class="input-group mt-3 ms-3">
@@ -336,78 +363,23 @@
             </form>
         </div>
         <div style="clear:both"></div>
+    -->
+    <?php if ($GLOBALS['web_title']['cms_title_position'] == '2' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
+        <div class="container">
+            <div class=" float-end">
+                <form action="/search" method="GET">
+                    <div class="input-group mt-3 ms-3">
+                        <input type="text" class="form-control" name="search" placeholder="Pencarian.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: 480pt;font-size: 14px;max-width: 200px;" value="<?= isset($search) ? show($search) : '' ?>">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
     <?php } ?>
 
-
-    <!------- Modal ------->
-    <div class="container" style="padding-top: 20px;">
-
-        <div class="modal rounded" tabindex="1" id="modalLogin">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body p-4">
-                        <form>
-                            <img src="/assets/img/logo.png" class="d-block mx-auto" width="50%">
-                            <h6 class="text-center my-4 fw-lighter px-5">Login dulu biar bisa komen, atur notifikasi konten<br>favoritmu, dan bisa bikin konten. Yuk!</h6>
-                            <div class="input-group mt-3 mb-2">
-                                <span class="input-group-text  bg-body border-0 text-danger" id="inputGroup-sizing-default">
-                                    <i data-feather="user"></i>
-                                </span>
-                                <input type="text" name="namaUser" class="form-control rounded" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required placeholder="Nama Pengguna/Email">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-body border-0 text-danger" id="inputGroup-sizing-default">
-                                    <i data-feather="lock"></i>
-                                </span>
-                                <input type="password" name="cPassword" class="form-control rounded" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Kata Sandi" required>
-                            </div>
-                            <div class="d-flex">
-                                <div class="col-6 ps-5 text-danger">
-                                    <input type="checkbox" name="" class="form-check-input"><span>&nbsp;Ingatkan Saya</span>
-                                </div>
-                                <div class="col-6">
-                                    <a href="" style="text-decoration: none;" class="text-danger float-end"><span>Lupa Password?</span></a>
-                                </div>
-                            </div>
-                            <center>
-                                <button type="submit" class="btn btn-danger w-25 rounded-pill mt-3 mb-1" name="register" value="login">Masuk</button>
-                                <p class="text-danger mx-auto my-1">Atau gunakan</p>
-                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><img src="assets/img/fblogo.png" width="25px"><span> &nbsp;Facebook</span></a>
-                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width="25px"><span> Goggle</span></a>
-                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><i class="fas fa-mobile-alt text-danger fs-5"></i><span> Nomor Handphone</span></a>
-                                <p class="mx-auto my-2">Belum punya akun? <a href="" class="text-danger" style="text-decoration:none;" data-bs-target="#modalRegister" data-bs-toggle="modal" data-bs-dismiss="modal">Daftar Sekarang</a></p>
-                            </center>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal rounded" tabindex="1" id="modalRegister">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body p-4">
-                        <form>
-                            <h3 class="text-center">Register</h3>
-                            <h6 class="text-center my-4 fw-lighter px-5">Daftar dulu biar bisa komen, bikin konten, langganan kumparan+ dan atur notifikasi konten favoritmu. Yuk!</h6>
-                            <div class="input-group mt-3 mb-2">
-                                <input type="text" name="emailUser" class="form-control rounded" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required placeholder="Email">
-                            </div>
-                            <center>
-                                <button type="submit" class="btn btn-danger w-25 rounded-pill mt-3 mb-1" name="register" value="login">Register</button>
-                                <p class="text-danger mx-auto my-1">Atau gunakan</p>
-                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><img src="assets/img/fblogo.png" width="25px"><span> &nbsp;Facebook</span></a>
-                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" width="25px"><span> Goggle</span></a>
-                                <a href="" class="btn w-75 mx-auto my-1" style="background-color: #e6e6e6;"><i class="fas fa-mobile-alt text-danger fs-5"></i><span> Nomor Handphone</span></a>
-                                <p class="mx-auto my-2">Sudah punya akun? <a href="" class="text-danger" style="text-decoration:none;" data-bs-target="#modalLogin" data-bs-toggle="modal" data-bs-dismiss="modal">Masuk</a></p>
-                            </center>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
 
 
     <script>

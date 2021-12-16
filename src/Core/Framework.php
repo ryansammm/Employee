@@ -52,7 +52,9 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         // Get user id
         $id_user = SessionData::get('id_user');
+        $nama_user = SessionData::get('nama_user');
         $GLOBALS['id_user'] = $id_user;
+        $GLOBALS['nama_user'] = $nama_user;
 
         // Get list of website main menu
         $menu_model = new Menu();
@@ -61,7 +63,7 @@ class Framework extends HttpKernel implements HttpKernelInterface
             $menus = [];
             $data_menu = $menu_model->where('parent_id', $parent_id)
                 ->where('hide', '2')
-                ->where(function($query) {
+                ->where(function ($query) {
                     $query->where('jenis_menu', '1')->orWhere('jenis_menu', '3');
                 })
                 ->get()->items;
@@ -83,7 +85,7 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         $menu_footer = $menu_model->where('parent_id', '0')
             ->where('hide', '2')
-            ->where(function($query) {
+            ->where(function ($query) {
                 $query->where('jenis_menu', '2')->orWhere('jenis_menu', '3');
             })->get()->items;
         $GLOBALS['menu_footer'] = $menu_footer;
@@ -128,7 +130,7 @@ class Framework extends HttpKernel implements HttpKernelInterface
                 ->where('ishide_banner', '2')
                 ->where('lokasi_banner', $current_menu['id_cms_menu'])
                 ->orderBy('urutan_banner', 'ASC')->get()->items;
-                
+
             $GLOBALS['banner_potrait'] = $banner_potrait;
             $GLOBALS['banner_landscape'] = $banner_landscape;
         }

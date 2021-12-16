@@ -31,5 +31,3 @@
         }
     </style>
 <?php } ?>
-
-<?php dd($cms_kategori_style['cms_font_name']) ?>

@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
         <img src="/assets/logo/PTA.png" alt="Balai Besar Keramik" class="brand-image">
-        <span class="brand-text font-weight-light h6">Panca Teknologi Aksesindo</span>
+        <span class="brand-text font-weight-light" style="font-size: 14px;">PT. Panca Teknologi Aksesindo</span>
     </a>
 
     <!-- Sidebar -->

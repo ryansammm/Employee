@@ -28,7 +28,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="judul_profil" class="form-label">Judul Profil</label>
-                                    <input type="text" class="form-control" id="judul_profil" name="judul_profil" value="<?= arr_offset($profil, 'judul_profil') ?>">
+                                    <input type="text" class="form-control" id="judul_profil" name="judul_profil" value="<?= arr_offset($profil[0], 'judul_profil') ?>">
                                 </div>
                             </div>
                             <!------- Foto Profil ------->
@@ -42,9 +42,10 @@
                                         </div>
                                     </div>
                                     <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
-                                    <?php if (arr_offset($profil, 'path_media') != null) { ?>
-                                        <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= arr_offset($profil, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
-
+                                    <?php foreach ($profil as $key => $data) { ?>
+                                        <?php if (arr_offset($data, 'path_media') != null && arr_offset($data, 'jenis_dokumen') == 'profil_foto') { ?>
+                                            <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= arr_offset($data, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
+                                        <?php } ?>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -52,7 +53,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="deskripsi_profil" class="form-label">Deskripsi Profil</label>
-                                    <textarea id="deskripsi_profil" name="deskripsi_profil"><?= arr_offset($profil, 'deskripsi_profil') ?></textarea>
+                                    <textarea id="deskripsi_profil" name="deskripsi_profil"><?= arr_offset($profil[0], 'deskripsi_profil') ?></textarea>
                                 </div>
                             </div>
                             <!------- Visi Misi ------->
@@ -73,9 +74,10 @@
                                         </div>
                                     </div>
                                     <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
-                                    <?php if (arr_offset($profil, 'path_media') != null) { ?>
-                                        <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#strukturOrganisasi" data-file="<?= arr_offset($profil, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
-
+                                    <?php foreach ($profil as $key1 => $data1) { ?>
+                                        <?php if (arr_offset($data1, 'path_media') != null && arr_offset($data1, 'jenis_dokumen') == 'struktur_organisasi') { ?>
+                                        <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= arr_offset($data1, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
+                                        <?php } ?>
                                     <?php } ?>
                                 </div>
                             </div>

@@ -442,27 +442,35 @@ $routes->push('contact_kintun', '/contact/kintun', [ContactController::class, 'c
 
 /* ------------------------------- Front About ------------------------------ */
 $routes->push('about', '/about', [AboutController::class, 'index']);
+$routes->push('about_detail_team', '/about/{id}/detail-team', [AboutController::class, 'detailTeam']);
 /* -------------------------------------------------------------------------- */
 
 
 /* ---------------------------- Front Maintenance --------------------------- */
 $routes->push('maintenance', '/maintenance', [MaintenanceController::class, 'index']);
+/* -------------------------------------------------------------------------- */
 
-// page website dinamis
+
+/* -------------------------- Page Website Dinamis -------------------------- */
 $routes->prefix('/page', function ($routes) {
     $routes->push('page-dinamis', '/{page_url}', [HalamanController::class, 'index']);
 });
+/* -------------------------------------------------------------------------- */
+
 
 /* ---------------------- Ketentaun & Kebijakan Privasi --------------------- */
 $routes->push('ketentuan', '/ketentuan', [KetentuanController::class, 'index']);
+/* -------------------------------------------------------------------------- */
 
 
 /* ---------------------------- Panduan Komunitas --------------------------- */
 $routes->push('panduan', '/panduan', [PanduanController::class, 'index']);
+/* -------------------------------------------------------------------------- */
 
 
 /* --------------------------- Pedoman Media Siber -------------------------- */
 $routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
+/* -------------------------------------------------------------------------- */
 
 // routes like berita
 $routes->push('like-berita', '/likeBerita/{id}/store', [LikeBeritaController::class, 'storeLike']);

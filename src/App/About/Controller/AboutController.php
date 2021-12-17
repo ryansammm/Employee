@@ -55,4 +55,11 @@ class AboutController
 
         return new RedirectResponse('/about');
     }
+
+    public function detailTeam(Request $request)
+    {
+
+
+        return render_template('public/about/detail-team', []);
+    }
 }

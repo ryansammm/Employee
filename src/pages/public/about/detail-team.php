@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <!-- <div style="background-image: url('/assets/icon/avatar.jpg');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div> -->
-                            <img src="/assets/icon/avatar.jpg" alt="" style="width: 100%;">
+                            <img src="/assets/icon/avatar.jpg" alt="" style="width: 100%;border-radius: 0.25rem;">
                         </div>
                         <div class="col-md-8">
                             <div class=" justify-content-between align-items-center mb-3">
@@ -81,6 +81,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
                             <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Deskripsi Lengkap</h6>
                         </div>
+                        <hr class="ms-3">
                         <div class="description  ms-3">
                             <h6 class="fw-normal" style="text-align: justify;font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos labore nisi, ab omnis error, eius officiis perferendis voluptatem voluptate nemo neque cumque asperiores dignissimos velit unde quaerat enim ea libero eum? Dolorum, voluptate dolor! Nobis repudiandae harum quaerat temporibus fugiat, laudantium nihil saepe. Soluta laborum expedita sed numquam incidunt, quos, rem recusandae ipsam animi sit blanditiis velit nisi, accusamus itaque optio. Quidem repudiandae reiciendis labore non! Natus ex ut exercitationem dignissimos facere nam magni incidunt hic maiores aut deleniti veritatis, explicabo reiciendis asperiores distinctio numquam fugiat, quo dolore. Magni obcaecati maxime quibusdam deserunt sequi vero! Iusto neque rem atque odit?</h6>
                             </h6>

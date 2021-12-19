@@ -60,43 +60,45 @@
 
 <body link="#00a5b5" vlink="#00a5b5" alink="#00a5b5">
 
-    <table class=" main contenttable" align="center" style="font-weight: normal;border-collapse: collapse;border: 0;margin-left: auto;margin-right: auto;padding: 0;font-family: Arial, sans-serif;color: #555559;background-color: white;font-size: 16px;line-height: 26px;width: 600px;">
+    <table class="main contenttable" align="center" style="font-weight: normal;border-collapse: collapse;border: 0;margin-left: auto;margin-right: auto;padding: 0;font-family: Arial, sans-serif;color: #555559;background-color: white;font-size: 16px;line-height: 26px;width: 600px;">
         <tr>
             <td class="border" style="border-collapse: collapse;border: 1px solid #eeeff0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;">
                 <table style="font-weight: normal;border-collapse: collapse;border: 0;margin: 0;padding: 0;font-family: Arial, sans-serif;">
                     <tr>
                         <td colspan="4" valign="top" class="image-section" style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;background-color: #fff;border-bottom: 4px solid #00a5b5">
-                            <a href="https://pancateksindo.co.id"><img class="top-image" src="https://www.pancateksindo.co.id/logo-02.png" style="line-height: 1;width: 600px;" alt="PT PANCA TEKNOLOGI AKSESINDO"></a>
+                            <a href="https://pancateksindo.co.id" style="width: 600px;">
+                                <img class="justify-content-center" src="https://www.pancateksindo.co.id/logo-02.png" style="line-height: 1;width: 30%;position: relative;left: 37% !important;margin: 1rem 37% !important;" alt="PT PANCA TEKNOLOGI AKSESINDO">
+                            </a>
                         </td>
                     </tr>
                     <tr>
                         <td valign="top" class="side title" style="border-collapse: collapse;border: 0;margin: 0;padding: 20px;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;vertical-align: top;background-color: white;border-top: none;">
                             <table style="font-weight: normal;border-collapse: collapse;border: 0;margin: 0;padding: 0;font-family: Arial, sans-serif;">
                                 <tr>
-                                    <td class="head-title" style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 28px;line-height: 34px;font-weight: bold; text-align: center;">
+                                    <td class="head-title" style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 28px;line-height: 34px;font-weight: bold; text-align: left;">
                                         <div class="mktEditable" id="main_title">
                                             subject
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="sub-title" style="border-collapse: collapse;border: 0;margin: 0;padding: 0;padding-top:5px;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 18px;line-height: 29px;font-weight: bold;text-align: center;">
+                                    <td class="sub-title" style="border-collapse: collapse;border: 0;margin: 0;padding: 0;padding-top:5px;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 18px;line-height: 29px;font-weight: bold;text-align: left;">
                                         <div class="mktEditable" id="intro_title">
                                             Pengirim : name
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="grey-block" style="border-collapse: collapse;border: 0;margin: 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;background-color: #fff; text-align:center;">
+                                    <td class="grey-block" style="border-collapse: collapse;border: 0;margin: 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;background-color: #fff; text-align:left;">
                                         <div class="mktEditable" id="cta">
                                             <strong>Telpon :</strong> phone <br>
                                             <strong>Email :</strong> email <br>
-                                            <strong>Perusahaan :</strong> perusahaan<br><br>
+                                            <strong>Perusahaan :</strong> company<br><br>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="top-padding" style="border-collapse: collapse;border: 0;margin: 0;padding: 15px 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 21px;">
+                                    <td class="pt-0 mt-0" style="border-collapse: collapse;border: 0;margin: 0;padding: 15px 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 21px;">
                                         <hr size="1" color="#eeeff0">
                                     </td>
                                 </tr>

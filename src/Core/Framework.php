@@ -62,7 +62,10 @@ class Framework extends HttpKernel implements HttpKernelInterface
             ->leftjoin('media', 'media.id_relation', '=', 'users.id_user')
             ->where('id_user', $id_user)->first();
 
-        $GLOBALS['path_media'] = $data_users['path_media'];
+
+        if ($GLOBALS['id_user'] != '') {
+            $GLOBALS['path_media'] = $data_users['path_media'];
+        }
 
 
         // Get list of website main menu

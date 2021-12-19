@@ -6,6 +6,7 @@ use App\Kontak\Model\Kontak;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Contact\Validation\ContactValidation;
+use App\NotifTelegram\Model\NotifTelegram;
 use Core\Classes\SessionData;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -18,6 +19,7 @@ class ContactController
     public function __construct()
     {
         $this->kontak = new Kontak();
+        $this->nottifTelegram = new NotifTelegram();
     }
 
     public function index(Request $request)
@@ -72,34 +74,23 @@ class ContactController
         $datas = $request->request->all();
 
         $mail_body = str_replace('phone', $datas['phone'], $mail_body);
-        $mail_body = str_replace('nama', $datas['name'], $mail_body);
+        $mail_body = str_replace('name', $datas['name'], $mail_body);
         $mail_body = str_replace('email', $datas['email'], $mail_body);
         $mail_body = str_replace('company', $datas['company'], $mail_body);
         $mail_body = str_replace('subject', $datas['subject'], $mail_body);
         $mail_body = str_replace('message', $datas['message'], $mail_body);
 
-        //$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = env("EMAIL");                 // SMTP username
-        $mail->Password = env("PASSWORD");                           // SMTP password
-        $mail->SMTPSecure = 'TLS';                            // Enable TLS encryption, ssl also accepted
-        $mail->Port = env("SMTP_PORT");                                    // TCP port to connect to
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = env("EMAIL");
+        $mail->Password = env("PASSWORD");
+        $mail->SMTPSecure = 'TLS';
+        $mail->Port = env("SMTP_PORT");
 
         $mail->setFrom(env("EMAIL"));
-        $mail->addAddress("techoff@sinovatif.com");     // Add a recipient
-        // $mail->addReplyTo('info@example.com', 'Information');
-        /* if (count($email_cc) > 0) {
-            foreach ($email_cc as $key => $value) {
-                $mail->addCC($value);
-            }
-        }*/
-
-        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-        // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->addAddress("techoff@sinovatif.com");
+        $mail->isHTML(true);
 
         $mail->Subject = $datas['subject'];
         $mail->Body = $mail_body;
@@ -111,6 +102,11 @@ class ContactController
         } else {
             SessionData::get()->getFlashBag()->set('success', "Pesan anda telah terkirim! silakan ditunggu balasannya");
         }
+
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $message = urlencode("Subject : " . $datas['subject'] . "\nPengirim : " . $datas['name'] . "\nTelepon : " . $datas['phone'] . "\nEmail : " . $datas['email'] . "\nPerusahaan : " . $datas['company'] . "\n\nIsi Pesan : \n" .  $datas['message']);
+        $kirim =  $this->nottifTelegram->telegram($message);
+        /* -------------------------------------------------------------------------- */
 
         return new RedirectResponse('/contact');
     }

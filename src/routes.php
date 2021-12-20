@@ -431,6 +431,7 @@ $routes->prefix('gallery', function ($routes) {
 
 /* ----------------------------- Front Customer ----------------------------- */
 $routes->push('customer', '/customer', [CustomerController::class, 'index']);
+$routes->push('customer_detail', '/customer/{id}/detail', [CustomerController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
 
 

@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Profil
+                    <h1 class="m-0">Profil Pengguna
                         <!-- <a href="/admin/profil/create" class="btn btn-sm btn-outline-primary">Add New</a> -->
                     </h1>
                 </div><!-- /.col -->
@@ -28,7 +28,6 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Profile Pengguna</h5>
                     <div class="card-text">
                         <?php if (!empty($errors)) { ?>
                             <div class="alert alert-danger">

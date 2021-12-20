@@ -33,7 +33,7 @@ class UsersController
     public function store(Request $request)
     {
         /* --------------------------------- Request -------------------------------- */
-        $request->request->set('id_user', SessionData::get('id_user'));
+        // $request->request->set('id_user', SessionData::get('id_user'));
         $request->request->set('password_user', password_hash($request->request->get('password_user'), PASSWORD_DEFAULT));
 
         /* ------------------------------ Create Produk ----------------------------- */

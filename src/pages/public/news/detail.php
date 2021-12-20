@@ -18,7 +18,9 @@
             <div class="card rounded p-3" style="border-top: 5px solid #fe4d01;">
                 <h4 class="ps-3"><?= $detail_berita['judul_berita'] ?></h4>
                 <span class="text-muted ps-3" style="font-size: 12px;"><?= date_format(date_create($detail_berita['tgl_publish']), "j M Y") ?> | <?= $detail_berita['nama_depan'] ?> <?= $detail_berita['nama_belakang'] ?> | <a href="/news/<?= $detail_berita['id_kategori_berita'] ?>/kategori" class="text-muted text-decoration-none"> <?= $detail_berita['kategori_berita'] ?></a></span>
-                <img src="/assets/media/<?= $detail_berita['path_media'] ?>" alt="" style="width: 100%;height: 100%;border-radius: 0.25rem;" class="mt-3 px-3">
+                <div class="mx-3 mt-2" style="box-shadow: 0px 1px 4px 0px #00000033;">
+                    <img src="/assets/media/<?= $detail_berita['path_media'] ?>" alt="" style="width: 100%;height: 100%;border-radius: 0.25rem;" class="">
+                </div>
                 <div class="px-3 mt-3">
                     <?= html_entity_decode(nl2br($detail_berita['isi_berita'])) ?>
                     <!-- <span class="badge" style="background-color: aliceblue;">Opini suara & publik</span> -->

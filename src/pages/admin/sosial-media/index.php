@@ -51,8 +51,8 @@
                                     <td><?= $value['nama_sosial_media'] ?></td>
                                     <td> <i class="<?= $value['icon_sosial_media'] ?>"></i></td>
                                     <td>
-                                        <a class="btn btn-sm btn-info m-2" href="/admin/sosial-media/<?= $value['id_sosial_media'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_sosial_media'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-info" href="/admin/sosial-media/<?= $value['id_sosial_media'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_sosial_media'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>

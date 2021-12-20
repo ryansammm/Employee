@@ -53,18 +53,18 @@
 
                         <div class="col-md-2">
                             <a href="">
-                                <i class="fab fa-whatsapp"> Whatsapp</i>
+                                <i class="fab fa-whatsapp" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Whatsapp</i>
                             </a>
                         </div>
                         <div class="col-md-2">
                             <a href="">
-                                <i class="fab fa-facebook"> Facebook</i>
+                                <i class="fab fa-facebook" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Facebook</i>
                             </a>
                         </div>
 
                         <div class="col-md-2">
                             <a href="">
-                                <i class="fab fa-twitter"> Twiiter</i>
+                                <i class="fab fa-twitter" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Twiiter</i>
                             </a>
                         </div>
                     </div>

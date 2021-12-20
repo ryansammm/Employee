@@ -55,7 +55,7 @@ class KategoriLayananAdminController
         $id = $request->attributes->get("id");
         $this->model->where('id_kategori_layanan', $id)->update($request->request->all());
 
-        return new RedirectResponse('/admin/kategori-layanan');
+        return new RedirectResponse('/admin/kategori-layanan/konten');
     }
 
     public function delete(Request $request)

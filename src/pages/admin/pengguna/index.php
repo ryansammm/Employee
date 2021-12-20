@@ -40,8 +40,8 @@
                                     <td><?= $value['nama_user'] ?></td>
                                     <!-- <td><?= $value['role_admin'] ?></td> -->
                                     <td>
-                                        <a class="btn btn-sm btn-info m-2" href="/admin/pengguna/<?= $value['id_user'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus_pengguna" data-id="<?= $value['id_user'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-info" href="/admin/pengguna/<?= $value['id_user'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_pengguna" data-id="<?= $value['id_user'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>

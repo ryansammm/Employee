@@ -56,7 +56,7 @@ class KategoriProdukAdminController
         $id = $request->attributes->get("id");
         $this->model->where('id_kategori_produk', $id)->update($request->request->all());
 
-        return new RedirectResponse('/admin/kategori-produk');
+        return new RedirectResponse('/admin/kategori-produk/konten');
     }
 
     public function delete(Request $request)

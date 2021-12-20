@@ -33,27 +33,32 @@
                 </div>
             </div> -->
 
-            <table class="table table-sm mt-3">
-                <thead class="table-light">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Kontak</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="table-light">
-                    <?php foreach ($datas->items as $key => $value) { ?>
-                        <tr>
-                            <td><?= $key + 1 ?></td>
-                            <td><?= $value['nama_kontak'] ?></td>
-                            <td>
-                                <a class="btn btn-info m-2" href="/admin/kontak/<?= $value['id_kontak'] ?>/edit">Edit</a>
-                                <a href="#" class="btn btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_kontak'] ?>">hapus</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+
+            <div class="card">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Kontak</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($datas->items as $key => $value) { ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value['nama_kontak'] ?></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-info" href="/admin/kontak/<?= $value['id_kontak'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_kontak'] ?>">hapus</a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             <?= $datas->links(); ?>
         </div>

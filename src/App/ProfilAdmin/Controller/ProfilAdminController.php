@@ -39,7 +39,7 @@ class ProfilAdminController
 
     public function edit(Request $request)
     {
-        $profil = $this->profilAdmin->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->where('id_profil', session('id_user'))->get()->items;
+        $profil = $this->profilAdmin->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->get()->items;
         $visi_misi = $profil[0];
 
         return render_template('admin/profil/edit', ['profil' => $profil, 'visi_misi' => $visi_misi]);

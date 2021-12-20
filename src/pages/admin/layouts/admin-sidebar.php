@@ -220,6 +220,86 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Kelola Karyawan
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/karyawan" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Karyawan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/jabatan" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Jabatan</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Kelola Profile Tim
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/profile-team" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/jabatan" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Jabatan</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-header">Developer</li>
+
+                <li class="nav-item">
+                    <a href="/admin/menu" class="nav-link">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Kelola Menu Website
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Kelola Halaman
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/component" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Komponen</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/halaman" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Halaman</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/profile-saya" class="nav-link <?= $GLOBALS['url'] == '/admin/profile-saya' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
                         <p>

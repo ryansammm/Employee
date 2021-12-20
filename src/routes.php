@@ -22,6 +22,8 @@ use App\GaleriAdmin\Controller\GaleriAdminController;
 use App\GroupGaleri\Controller\GroupGaleriController;
 use App\Halaman\Controller\HalamanController;
 use App\Home\Controller\HomeController;
+use App\Jabatan\Controller\JabatanController;
+use App\Karyawan\Controller\KaryawanController;
 use App\KategoriBeritaAdmin\Controller\KategoriBeritaAdminController;
 use App\KategoriGaleriAdmin\Controller\KategoriGaleriAdminController;
 use App\KategoriLayananAdmin\Controller\KategoriLayananAdminController;
@@ -41,6 +43,7 @@ use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
+use App\ProfileTeam\Controller\ProfileTeamController;
 use App\Search\Controller\SearchController;
 use App\SemuaBerita\Controller\SemuaBeritaController;
 use App\SosialMedia\Controller\SosialMediaController;
@@ -374,6 +377,45 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('banner_show', '/{id}/show', [BannerController::class, 'show']);
         $routes->push('banner_delete', '/{id}/delete', [BannerController::class, 'delete']);
         $routes->push('banner_get', '/get', [BannerController::class, 'get']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------------- Profil Team -------------------------------- */
+    $routes->prefix('profile-team', function ($routes) {
+        $routes->push('profile_team', '', [ProfileTeamController::class, 'index']);
+        $routes->push('profile_team_create', '/create', [ProfileTeamController::class, 'create']);
+        $routes->push('profile_team_store', '/store', [ProfileTeamController::class, 'store']);
+        $routes->push('profile_team_edit', '/{id}/edit', [ProfileTeamController::class, 'edit']);
+        $routes->push('profile_team_update', '/{id}/update', [ProfileTeamController::class, 'update']);
+        $routes->push('profile_team_show', '/{id}/show', [ProfileTeamController::class, 'show']);
+        $routes->push('profile_team_delete', '/{id}/delete', [ProfileTeamController::class, 'delete']);
+        $routes->push('profile_team_get', '/get', [ProfileTeamController::class, 'get']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------------- Karyawan -------------------------------- */
+    $routes->prefix('karyawan', function ($routes) {
+        $routes->push('karyawan', '', [KaryawanController::class, 'index']);
+        $routes->push('karyawan_create', '/create', [KaryawanController::class, 'create']);
+        $routes->push('karyawan_store', '/store', [KaryawanController::class, 'store']);
+        $routes->push('karyawan_edit', '/{id}/edit', [KaryawanController::class, 'edit']);
+        $routes->push('karyawan_update', '/{id}/update', [KaryawanController::class, 'update']);
+        $routes->push('karyawan_show', '/{id}/show', [KaryawanController::class, 'show']);
+        $routes->push('karyawan_delete', '/{id}/delete', [KaryawanController::class, 'delete']);
+        $routes->push('karyawan_get', '/get', [KaryawanController::class, 'get']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* -------------------------------- Jabatan -------------------------------- */
+    $routes->prefix('jabatan', function ($routes) {
+        $routes->push('jabatan', '', [JabatanController::class, 'index']);
+        $routes->push('jabatan_create', '/create', [JabatanController::class, 'create']);
+        $routes->push('jabatan_store', '/store', [JabatanController::class, 'store']);
+        $routes->push('jabatan_edit', '/{id}/edit', [JabatanController::class, 'edit']);
+        $routes->push('jabatan_update', '/{id}/update', [JabatanController::class, 'update']);
+        $routes->push('jabatan_show', '/{id}/show', [JabatanController::class, 'show']);
+        $routes->push('jabatan_delete', '/{id}/delete', [JabatanController::class, 'delete']);
+        $routes->push('jabatan_get', '/get', [JabatanController::class, 'get']);
     });
     /* -------------------------------------------------------------------------- */
 });

@@ -59,7 +59,7 @@ class PelangganAdminController
     public function edit(Request $request)
     {
         $id = $request->attributes->get("id");
-        $pelanggan = $this->model->where('id_pelanggan', $id)->first();
+        $pelanggan = $this->model->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')->where('id_pelanggan', $id)->first();
 
         return render_template('admin/pelanggan/edit', ['pelanggan' => $pelanggan]);
     }

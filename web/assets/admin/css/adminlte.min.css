@@ -3112,14 +3112,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #ff4c08;
-    border-color: #ff4c08;
+    background-color: #007bff;
+    border-color: #007bff;
     box-shadow: none;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #ff3b00;
+    background-color: #0f59a9;
     border-color: #0062cc;
 }
 

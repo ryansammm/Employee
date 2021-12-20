@@ -57,4 +57,18 @@ class CustomerController
 
         return new RedirectResponse('/customer');
     }
+
+    public function detail(Request $request)
+    {
+        $id = $request->attributes->get("id");
+
+        $data_pelanggan = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')
+            ->where('id_pelanggan', $id)->first();
+
+        $datas_pelanggan = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')->get();
+
+        return render_template('public/customer/detail', ['data_pelanggan' => $data_pelanggan, 'datas_pelanggan' => $datas_pelanggan]);
+    }
 }

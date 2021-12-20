@@ -11,7 +11,11 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
+<<<<<<< HEAD
+ Date: 16/12/2021 11:27:45
+=======
  Date: 20/12/2021 10:22:57
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 */
 
 SET NAMES utf8mb4;
@@ -72,8 +76,12 @@ CREATE TABLE `asosiasi`  (
   `id_asosiasi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `nama_asosiasi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
+<<<<<<< HEAD
+  `updated_at` timestamp NULL DEFAULT NULL
+=======
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_asosiasi`) USING BTREE
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -81,6 +89,8 @@ CREATE TABLE `asosiasi`  (
 -- ----------------------------
 
 -- ----------------------------
+<<<<<<< HEAD
+=======
 -- Table structure for bank
 -- ----------------------------
 DROP TABLE IF EXISTS `bank`;
@@ -100,6 +110,7 @@ CREATE TABLE `bank`  (
 INSERT INTO `bank` VALUES ('92skajd', 'BCA', 'Burangrang', '2', '2021-12-19 14:42:27', '2021-12-19 14:42:29');
 
 -- ----------------------------
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 -- Table structure for banner
 -- ----------------------------
 DROP TABLE IF EXISTS `banner`;
@@ -252,8 +263,11 @@ CREATE TABLE `cms_halaman_detail`  (
   `cms_col` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `cms_col_order` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `cms_col_hide` char(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '2' COMMENT '1=ya, 2=tidak',
+<<<<<<< HEAD
+=======
   `cms_row_container` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `cms_col_container` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
   `id_cms_component` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -263,9 +277,15 @@ CREATE TABLE `cms_halaman_detail`  (
 -- ----------------------------
 -- Records of cms_halaman_detail
 -- ----------------------------
+<<<<<<< HEAD
+INSERT INTO `cms_halaman_detail` VALUES ('61b2d30b5e929', '61b2d30b52572', '1', '2', '6', '1', '2', '61b1a58a4b3e2', '2021-12-10 11:09:47', '2021-12-10 11:09:47');
+INSERT INTO `cms_halaman_detail` VALUES ('61b2d30b6dc17', '61b2d30b52572', '1', '2', '6', '2', '2', '61b1a58a4b3e2', '2021-12-10 11:09:47', '2021-12-10 11:09:47');
+INSERT INTO `cms_halaman_detail` VALUES ('61b2d30b798ab', '61b2d30b52572', '2', '2', '12', '1', '2', '61b1a58a4b3e2', '2021-12-10 11:09:47', '2021-12-10 11:09:47');
+=======
 INSERT INTO `cms_halaman_detail` VALUES ('61b2d30b5e929', '61b2d30b52572', '1', '2', '6', '1', '2', NULL, NULL, '61b1a58a4b3e2', '2021-12-10 11:09:47', '2021-12-10 11:09:47');
 INSERT INTO `cms_halaman_detail` VALUES ('61b2d30b6dc17', '61b2d30b52572', '1', '2', '6', '2', '2', NULL, NULL, '61b1a58a4b3e2', '2021-12-10 11:09:47', '2021-12-10 11:09:47');
 INSERT INTO `cms_halaman_detail` VALUES ('61b2d30b798ab', '61b2d30b52572', '2', '2', '12', '1', '2', NULL, NULL, '61b1a58a4b3e2', '2021-12-10 11:09:47', '2021-12-10 11:09:47');
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 
 -- ----------------------------
 -- Table structure for cms_kategori_menu
@@ -483,6 +503,8 @@ INSERT INTO `group_galeri` VALUES ('grglr6135d68c5f93f', 'glr6135d68c27d23', '',
 INSERT INTO `group_galeri` VALUES ('grglr6135d98176c97', 'glr6135d9812e659', '', '', '2021-09-06', '', 'foto', NULL, '2021-09-06 11:04:46');
 
 -- ----------------------------
+<<<<<<< HEAD
+=======
 -- Table structure for jabatan
 -- ----------------------------
 DROP TABLE IF EXISTS `jabatan`;
@@ -599,6 +621,7 @@ CREATE TABLE `karyawan_kontak_alt`  (
 -- ----------------------------
 
 -- ----------------------------
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 -- Table structure for kategori_berita
 -- ----------------------------
 DROP TABLE IF EXISTS `kategori_berita`;
@@ -855,6 +878,10 @@ INSERT INTO `media` VALUES ('61b6ce3ba7aaf', 'layer-66140356c5c703-61b6ce3b9c7e7
 INSERT INTO `media` VALUES ('61b6ce4b4be17', 'layer-261403537ab812-61b6ce4b4800f.png', '61b6ce4b3f8c9', 'usr61037f9c85184', NULL, '2021-12-13 11:38:35', '2021-12-13 11:38:35');
 INSERT INTO `media` VALUES ('61b6ce589d94e', 'layer-86140360030a43-61b6ce587bf07.png', '61b6ce584818d', 'usr61037f9c85184', NULL, '2021-12-13 11:38:48', '2021-12-13 11:38:48');
 INSERT INTO `media` VALUES ('61b722fd58d92', 'logoerzie611cd1bdaf28c-61b722fd31691.png', NULL, 'usr61037f9c85184', NULL, '2021-12-13 17:39:57', '2021-12-13 17:39:57');
+<<<<<<< HEAD
+INSERT INTO `media` VALUES ('61b75ceab6c53', '140-500x5006135d4a763083-61b75ceab28a4.jpg', 'usr61037f9c85184', 'usr61037f9c85184', NULL, '2021-12-13 21:47:06', '2021-12-13 21:47:06');
+=======
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 INSERT INTO `media` VALUES ('61b84ebdf1c8c', 'razer-laptop-61b84ebdec097.png', '61b848a97317c', 'usr61037f9c85184', NULL, '2021-12-14 14:58:53', '2021-12-14 14:58:53');
 INSERT INTO `media` VALUES ('61b84f0340f5c', 'logitech-61b84f03352b8.jpg', '61b84f0316e4a', 'usr61037f9c85184', NULL, '2021-12-14 15:00:03', '2021-12-14 15:00:03');
 INSERT INTO `media` VALUES ('61b84f14e90ed', 'rog-61b84f14e51e0.jpg', '61b84f14d281e', 'usr61037f9c85184', NULL, '2021-12-14 15:00:20', '2021-12-14 15:00:20');
@@ -893,11 +920,14 @@ INSERT INTO `media` VALUES ('61b9c91be9682', 'rog-61b9c91be18ff.jpg', '61b9c91bd
 INSERT INTO `media` VALUES ('61b9d9e3acd2f', 'logitech-61b9d9e3a0613.jpg', '61b9d9e37a695', 'usr61037f9c85184', NULL, '2021-12-15 19:04:51', '2021-12-15 19:04:51');
 INSERT INTO `media` VALUES ('61b9da539066e', 'razer-laptop-61b9da5389ccd.png', '61b9da5378f61', 'usr61037f9c85184', NULL, '2021-12-15 19:06:43', '2021-12-15 19:06:43');
 INSERT INTO `media` VALUES ('61b9db06c0a7b', 'razer-laptop-61b9db06b90ca.png', '61b9db06ae910', 'usr61037f9c85184', NULL, '2021-12-15 19:09:42', '2021-12-15 19:09:42');
+<<<<<<< HEAD
+=======
 INSERT INTO `media` VALUES ('61baee664fd9c', '1-61baee6648cd4.jpg', 'usr61037f9c85184', 'usr61037f9c85184', 'profil_foto', '2021-12-16 14:44:38', '2021-12-16 14:44:38');
 INSERT INTO `media` VALUES ('61bb1cca6f3de', '3-61bb1cca68d77.jpg', 'usr61037f9c85184', 'usr61037f9c85184', 'struktur_organisasi', '2021-12-16 18:02:34', '2021-12-16 18:02:34');
 INSERT INTO `media` VALUES ('61bc3f52be146', '1625328854-60e08cd6c9854-61bc3f52b4fac.jpg', '61bc3f528cfc2', 'usr61037f9c85184', NULL, '2021-12-17 14:42:10', '2021-12-17 14:42:10');
 INSERT INTO `media` VALUES ('61bfe48a2e6ba', '1-61bfe489b22eb.jpg', '61bfe4899be06', 'usr61037f9c85184', NULL, '2021-12-20 09:03:54', '2021-12-20 09:03:54');
 INSERT INTO `media` VALUES ('61bff364c37fb', '1-61bff364b8ffb.jpg', '61bff364614d5', 'usr61037f9c85184', NULL, '2021-12-20 10:07:16', '2021-12-20 10:07:16');
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 
 -- ----------------------------
 -- Table structure for pelanggan
@@ -986,6 +1016,9 @@ CREATE TABLE `profil`  (
 -- ----------------------------
 -- Records of profil
 -- ----------------------------
+<<<<<<< HEAD
+INSERT INTO `profil` VALUES ('usr61037f9c85184', 'Panca Teknologi Aksesindo', '<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p>', '<h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Visi</strong><br>“Menjadi Perusahaan Teknologi Kelas Dunia yang Terpercaya’’</h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"> </p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Misi</strong></h4><ul style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 1.618em; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami perusahaan solusi total berbasis teknologi elektronika dan informasi.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami memberikan solusi integrasi sistem yang inovatif dan berorientasi kepada harapan pelanggan dengan keunggulan SDM tersertifikasi dan aliansi global.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami memberikan produk dan layanan yang terkini dan berkelanjutan dengan menjamin keselamatan dan purna jual yang responsif.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami berkontribusi menjaga kedaulatan negara dan meningkatkan kualitas hidup.</li></ul><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"> </p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Peran Strategis</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">Teknologi yang dikembangkan Len mempunyai peran strategis dalam :<br>a) Meningkatkan kesejahteraan masyarakat, melalui produk-produk energi terbarukan.<br>b) Turut serta menjaga kedaulatan negara, dengan produk-produk pertahanan, transportasi dan ICT (<em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Information & Communication Technology</em>).<br>c) <em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Manufacturing</em>, sebagai teknologi pendukung kedua peran di atas.<br>Semua usaha tersebut pada akhirnya bermuara pada target Len untuk mengembangkan kemandirian teknologi yang berdaya saing.</p><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"> </p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Maksud dan Tujuan</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">Dalam Perubahan Anggaran Dasar Perusahaan Pasal 3 disebutkan bahwa maksud dan tujuan perusahaan adalah:<br><em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">“Turut melaksanakan dan menunjang kebijakan dan program Pemerintah di bidang Ekonomi dan Pembangunan Nasional pada umumnya dan khususnya dalam bidang Industri Elektronika dan Prasarana, yang mencakup bidang-bidang Broadcasting, Multimedia, Teknologi Informasi, Elektronika Daya, Elektronika Energi, Jaringan Telekomunikasi, Sistem Pengendalian dan Pengaturan, Navigasi, Persinyalan Kereta Api, Elektronika Kelautan (Maritim), Elektronika Penerbangan (Avionics), Elektronika Pertahanan baik perangkat lunak maupun perangkat kerasnya, selanjutnya disebut Elektronika Industri dan Prasarana serta rekayasa di bidang keteknikan lainnya serta optimalisasi aset-aset Perseroan, dengan menerapkan prinsip-prinsip Perseroan Terbatas.”</em></p><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"> </p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Sasaran Perusahaan</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"‐\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">RKAP 2015 merupakan milestone dalam pencapaian sasaran perusahaan jangka panjang. Dalam RJP Len tahun 2014-2019, sasaran jangka panjang perusahaan tahun 2019 adalah :<br><em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">”Menjadi perusahaan berstandar Global yang mampu mencapai lonjakan pertumbuhan kinerja yang signifikan, didukung oleh struktur modal yang kuat melalui inovasi, reposisi dan transformasi bisnis EPC dan Investasi”.</em></p>', '2021-12-04 15:34:35', '2021-12-04 15:34:35');
+=======
 INSERT INTO `profil` VALUES ('usr61037f9c85184', 'asd', '<p>asd</p>', '<h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Visi</strong><br>ï¿½Menjadi Perusahaan Teknologi Kelas Dunia yang Terpercayaï¿½ï¿½</h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"?\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">ï¿½</p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Misi</strong></h4><ul style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 1.618em; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami perusahaan solusi total berbasis teknologi elektronika dan informasi.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami memberikan solusi integrasi sistem yang inovatif dan berorientasi kepada harapan pelanggan dengan keunggulan SDM tersertifikasi dan aliansi global.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami memberikan produk dan layanan yang terkini dan berkelanjutan dengan menjamin keselamatan dan purna jual yang responsif.</li><li style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Kami berkontribusi menjaga kedaulatan negara dan meningkatkan kualitas hidup.</li></ul><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"?\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">ï¿½</p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Peran Strategis</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"?\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">Teknologi yang dikembangkan Len mempunyai peranï¿½strategis dalam :<br>a) Meningkatkan kesejahteraan masyarakat, melaluiï¿½produk-produk energi terbarukan.<br>b) Turut serta menjaga kedaulatan negara, denganï¿½produk-produk pertahanan, transportasi dan ICTï¿½(<em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Information & Communication Technology</em>).<br>c)ï¿½<em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Manufacturing</em>, sebagai teknologi pendukungï¿½kedua peran di atas.<br>Semua usaha tersebut padaï¿½akhirnya bermuara pada targetï¿½Len untuk mengembangkanï¿½kemandirian teknologi yangï¿½berdaya saing.</p><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"?\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">ï¿½</p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Maksud dan Tujuan</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"?\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">Dalam Perubahan Anggaran Dasar Perusahaan Pasalï¿½3 disebutkan bahwa maksud dan tujuan perusahaanï¿½adalah:<br><em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">ï¿½Turut melaksanakan dan menunjang kebijakanï¿½dan program Pemerintah di bidang Ekonomiï¿½dan Pembangunan Nasional pada umumnya danï¿½khususnya dalam bidang Industri Elektronikaï¿½dan Prasarana, yang mencakup bidang-bidangï¿½Broadcasting, Multimedia, Teknologi Informasi,ï¿½Elektronika Daya, Elektronika Energi, Jaringanï¿½Telekomunikasi, Sistem Pengendalian danï¿½Pengaturan, Navigasi, Persinyalan Kereta Api,ï¿½Elektronika Kelautan (Maritim), Elektronikaï¿½Penerbangan (Avionics), Elektronika Pertahananï¿½baik perangkat lunak maupun perangkat kerasnya,ï¿½selanjutnya disebut Elektronika Industri danï¿½Prasarana serta rekayasa di bidang keteknikanï¿½lainnya serta optimalisasi aset-aset Perseroan,ï¿½dengan menerapkan prinsip-prinsip Perseroanï¿½Terbatas.ï¿½</em></p><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"?\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">ï¿½</p><h4 style=\"margin-right: 0px; margin-bottom: 0.618em; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; color: rgb(9, 11, 12); font-weight: 700; font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\"><strong style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">Sasaran Perusahaan</strong></h4><p style=\"margin-right: 10px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; -webkit-hyphenate-character: \"?\"; orphans: 3; widows: 3; color: rgb(54, 66, 69); font-family: \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif;\">RKAP 2015 merupakan milestone dalam pencapaianï¿½sasaran perusahaan jangka panjang. Dalam RJP Lenï¿½tahun 2014-2019, sasaran jangka panjang perusahaanï¿½tahun 2019 adalah :<br><em style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline;\">ï¿½Menjadi perusahaan berstandar Global yangï¿½mampu mencapai lonjakan pertumbuhan kinerjaï¿½yang signifikan, didukung oleh struktur modalï¿½yang kuat melalui inovasi, reposisi dan transformasiï¿½bisnis EPC dan Investasiï¿½.</em></p>', '2021-12-04 15:34:35', '2021-12-04 15:34:35');
 
 -- ----------------------------
@@ -1014,6 +1047,7 @@ CREATE TABLE `profile_team`  (
 -- Records of profile_team
 -- ----------------------------
 INSERT INTO `profile_team` VALUES ('61bff364614d5', 'pengunjung1 pengunjung1', '1273817', 'pengunjung1@mail.com', 'Bandung', '2021-12-20', '2021-12-20', '1', '1', 'asdasd', 'asasd', 'asdsad', '2021-12-20 10:07:16', '2021-12-20 10:07:16');
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 
 -- ----------------------------
 -- Table structure for role
@@ -1111,6 +1145,10 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
+<<<<<<< HEAD
+INSERT INTO `users` VALUES ('61a8889294deb', 'asd', 'aksd@asd.asd', '$2y$10$cLExmS.hnTEgLlNxTE/lQu5jbh58ltMd3AM3wvzYHh4t/R3rCm8aG', NULL, 'asd', 'Informasi', '1273817', '2021-12-02', '2021-12-02 15:49:22', '2021-12-02 15:49:22');
+=======
+>>>>>>> e066ce504eabc0e6810735fdaeb630cf04a221fb
 INSERT INTO `users` VALUES ('usr61037f9c85184', 'Administrator', 'admin@mail.com', '$2y$10$rkiappIPSzPR4j38.jmHFucb140ebGlzsHUy4ulRzsI/ygkWusXYW', 'rol611bb6d4526b0', 'Administrator', 'Administrator', '10129823', '2021-12-03', '2021-11-23 09:09:22', '2021-11-23 09:09:25');
 
 -- ----------------------------

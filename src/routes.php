@@ -473,6 +473,7 @@ $routes->prefix('gallery', function ($routes) {
 
 /* ----------------------------- Front Customer ----------------------------- */
 $routes->push('customer', '/customer', [CustomerController::class, 'index']);
+$routes->push('customer_detail', '/customer/{id}/detail', [CustomerController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
 
 
@@ -521,6 +522,5 @@ $routes->push('dislike-berita', '/dislikeBerita/{id}/store', [LikeBeritaControll
 // routes search header
 $routes->push('search_result', '/search', [SearchController::class, 'index']);
 // $routes->push('search', '{url}', [SearchController::class, 'index']);
-
 
 return $routes;

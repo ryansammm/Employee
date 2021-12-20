@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            <!------- Service Image ------->
+            <!------- Product Image ------->
             <div class="card mt-3">
                 <div class="card-body p-2">
                     <div class="owl-carousel owl-theme">

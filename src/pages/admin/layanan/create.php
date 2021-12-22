@@ -41,14 +41,14 @@
                                 </div>
                             </div>
                             <!------- Kode Layanan ------->
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="kode_layanan" class="form-label">Kode Layanan</label>
                                     <input type="text" class="form-control" id="kode_layanan" name="kode_layanan">
                                 </div>
                             </div>
                             <!------- Nama Layanan ------->
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="nama_layanan" class="form-label">Nama Layanan</label>
                                     <input type="text" class="form-control" id="nama_layanan" name="nama_layanan">
@@ -81,11 +81,26 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="layanan_foto">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="layanan_foto_utama">
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                     </div>
                                     <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                </div>
+                            </div>
+                            <!------- Tambah Foto-Foto Album ------->
+                            <div class="container mt-3">
+                                <h5><strong> Upload Foto-foto Layanan Lainnya</strong> </h5>
+                                <div class="row listFormFoto mt-2">
+                                    <div class="col-2 listfoto pt-3" id="listfoto_1">
+                                        <h6>Foto 1</h6>
+                                        <input type="file" class="form-control" name="layanan_foto[]">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4 mt-3">
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-info tambahformfoto">Tambah Foto</button>
                                 </div>
                             </div>
                         </div>
@@ -142,5 +157,6 @@
         });
     });
 </script>
+<script src="/assets/admin/js/fotolayanan.js"></script>
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

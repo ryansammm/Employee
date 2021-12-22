@@ -29,6 +29,7 @@ class LayananController
         $data_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
+            ->where('jenis_dokumen', 'utama')
             ->paginate(8)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
         $datas_kategori = $this->modelKategoriLayanan
@@ -93,6 +94,12 @@ class LayananController
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->where('id_layanan', $id)->first();
 
+        $data_galeri_layanan = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
+            ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
+            ->where('id_layanan', $id)
+            ->where('jenis_dokumen', 'lainnya')
+            ->get();
 
         $datas_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
@@ -109,7 +116,7 @@ class LayananController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_layanan' => $all_layanan]);
+        return render_template('public/service/detail', ['data_layanan' => $data_layanan, 'datas_layanan' => $datas_layanan, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_layanan' => $all_layanan, 'data_galeri_layanan' => $data_galeri_layanan]);
     }
 
     public function kategori(Request $request)

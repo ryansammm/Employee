@@ -29,7 +29,9 @@ class ProdukController
         $data_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
-            ->paginate(8)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
+            ->where('jenis_dokumen', 'utama')
+            ->paginate(8)
+            ->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
 
         $datas_kategori = $this->modelKategoriProduk
             ->get();
@@ -83,9 +85,17 @@ class ProdukController
         $data_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
-            ->where('id_produk', $id)->first();
+            ->where('id_produk', $id)
+            ->first();
 
         $datas_kategori = $this->modelKategoriProduk
+            ->get();
+
+        $data_galeri_produk = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
+            ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
+            ->where('id_produk', $id)
+            ->where('jenis_dokumen', 'lainnya')
             ->get();
 
         foreach ($datas_kategori->items as $key => $value) {
@@ -109,7 +119,7 @@ class ProdukController
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);
 
-        return render_template('public/product/detail', ['data_produk' => $data_produk, 'datas_produk' => $datas_produk, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_produk' => $all_produk]);
+        return render_template('public/product/detail', ['data_produk' => $data_produk, 'datas_produk' => $datas_produk, 'datas_kategori' => $datas_kategori, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'all_produk' => $all_produk, 'data_galeri_produk' => $data_galeri_produk]);
     }
 
     public function kategori(Request $request)

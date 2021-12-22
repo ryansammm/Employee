@@ -46,6 +46,7 @@ class ProdukAdminController
 
     public function store(Request $request)
     {
+
         /* --------------------------------- Request -------------------------------- */
         $request->request->set('slug_produk', str_slug($request->request->get('nama_produk'), '-'));
         $request->request->set('id_user', SessionData::get('id_user'));
@@ -63,6 +64,7 @@ class ProdukAdminController
             'id_relation' => $create,
             'jenis_dokumen' => 'utama',
         ]);
+
 
         // Ini buat store data ke group produk
         foreach ($request->files->get('produk_foto') as $key => $value) {
@@ -87,7 +89,10 @@ class ProdukAdminController
         $data_kategori_produk = $this->modelKategoriProduk->get();
 
         $media = new Media();
-        $foto_produk_lainnya = $media->where('id_relation', $id)->where('jenis_dokumen', 'lainnya')->get();
+        $foto_produk_lainnya = $media
+            ->where('id_relation', $id)
+            ->where('jenis_dokumen', 'lainnya')
+            ->get();
 
         return render_template('admin/produk/edit', ['id' => $id, 'produk' => $produk, 'data_kategori_produk' => $data_kategori_produk, 'foto_produk_lainnya' => $foto_produk_lainnya]);
     }
@@ -97,11 +102,12 @@ class ProdukAdminController
         $id = $request->attributes->get("id");
 
         $request->request->set('deskripsi_produk', htmlspecialchars($request->request->get('deskripsi_produk')));
+        $request->request->set('deskripsi_lengkap_produk', htmlspecialchars($request->request->get('deskripsi_lengkap_produk')));
         $request->request->set('spesifikasi_produk', htmlspecialchars($request->request->get('spesifikasi_produk')));
         $this->model->where('id_produk', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('produk_foto_utam'), [
+        $media->updateMedia($request->files->get('produk_foto_utama'), [
             'id_relation' => $id,
             'jenis_dokumen' => 'utama',
         ], $this->model, $id);
@@ -160,9 +166,14 @@ class ProdukAdminController
         $id = $request->attributes->get("id");
 
         $media = new Media();
-        $media_data = $media->where('id_relation', $id)->first();
+
+        $media_data = $media->where('id_relation', $id)->get();
+
         $this->model->where('id_produk', $id)->delete();
-        $media->deleteMedia($media_data);
+
+        foreach ($media_data->items as $key => $value) {
+            $media->deleteMedia($value);
+        }
 
         return new RedirectResponse('/admin/produk');
     }

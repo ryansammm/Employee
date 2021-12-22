@@ -2,6 +2,7 @@
 
 namespace App\Users\Controller;
 
+use App\Role\Model\Role;
 use App\Users\Model\Users;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -26,8 +27,13 @@ class UsersController
 
     public function create(Request $request)
     {
+        $roles = new Role();
 
-        return render_template('admin/pengguna/create', []);
+        $datas_roles = $roles
+            ->orderBy('nama_role', 'ASC')
+            ->get();
+
+        return render_template('admin/pengguna/create', ['datas_roles' => $datas_roles]);
     }
 
     public function store(Request $request)
@@ -46,11 +52,15 @@ class UsersController
     public function edit(Request $request)
     {
         $id = $request->attributes->get("id");
-        $users = $this->model->where('id_user', $id)->first();
+        $users = $this->model->where('id_user', $id)
+            ->first();
 
-        // dd($users);
+        $roles = new Role();
+        $datas_roles = $roles
+            ->orderBy('nama_role', 'ASC')
+            ->get();
 
-        return render_template('admin/pengguna/edit', ['users' => $users]);
+        return render_template('admin/pengguna/edit', ['users' => $users, 'datas_roles' => $datas_roles]);
     }
 
     public function update(Request $request)

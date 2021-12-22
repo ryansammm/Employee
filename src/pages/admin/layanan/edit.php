@@ -77,19 +77,45 @@
                                 </div>
                             </div>
                             <!------- Foto Layanan ------->
-                            <div class="col-md-4">
-                                <label for="layanan_foto" class="form-label">Foto Layanan</label> (.jpg, .jpeg, .png)
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="layanan_foto">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img src="/assets/media/<?= $layanan['path_media'] ?>" class="img-fluid img-thumbnail">
+                                    </div>
+                                    <div class="col">
+                                        <label for="layanan_foto" class="form-label">Foto Produk Utama</label> (.jpg, .jpeg, .png)
+                                        <div class="form-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile" name="layanan_foto_utama">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
-                                    <?php if ($layanan['path_media'] != null) { ?>
-                                        <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= $layanan['path_media'] ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
+                                </div>
+                            </div>
+                            <!------- Tambah Foto-Foto Album ------->
+                            <div class="container mt-4">
+                                <h5 class="mb-0"><strong> Upload Foto-foto Layanan Lainnya</strong> </h5>
+                                <div class="row listFormFoto">
+                                    <?php foreach ($foto_layanan_lainnya->items as $key => $value) {
+                                        $keyForElement = $key + 1; ?>
+                                        <div class="col-2 listfoto pt-3" id="listfoto_<?= $keyForElement ?>">
+                                            <input type="hidden" name="id_media[]" value="<?= $value['id_media'] ?>">
+                                            <h6>Foto <?= $keyForElement ?></h6>
+                                            <a href="#" class="mb-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($value['path_media']) ?>">
+                                                <div class="mb-2" style="background: url('/assets/media/<?= $value['path_media'] ?>');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
+                                            </a>
+                                            <input type="file" class="form-control" name="layanan_foto_<?= $value['id_media'] ?>">
+                                            <?php if ($key != 0) { ?>
+                                                <button type="button" class="btn btn-sm btn-danger hapusformfoto mt-2" id="<?= 'hapuslistfoto_' . $keyForElement ?>">Hapus</button>
+                                            <?php } ?>
+                                        </div>
                                     <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row mb-4 mt-3">
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-info tambahformfoto">Tambah Foto</button>
                                 </div>
                             </div>
                         </div>
@@ -168,6 +194,7 @@
         });
     });
 </script>
+<script src="/assets/admin/js/fotolayanan.js"></script>
 
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

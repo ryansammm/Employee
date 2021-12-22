@@ -3,7 +3,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
-        <div class="row mb-2">
+            <div class="row mb-2">
                 <div class="col-sm-1">
                     <a href="/admin/pengguna" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
@@ -30,16 +30,31 @@
                         <div class="row">
                             <div class="container mt-4">
                                 <div class="mb-3">
+                                    <label for="nama_user" class="form-label">Role</label>
+                                    <select class="custom-select" name="id_role" required>
+                                        <option value="">-- Pilih Role --</option>
+                                        <?php foreach ($datas_roles->items as $key => $value) { ?>
+                                            <option value="<?= $value['id_role'] ?>" <?= $value['id_role'] == $users['id_role'] ? 'selected' : '' ?>><?= $value['nama_role'] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
                                     <label for="nama_user" class="form-label">Nama</label>
                                     <input type="text" class="form-control" id="nama_user" name="nama_user" value="<?= $users['nama_user'] ?>">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="email_user" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="email_user" name="email_user" value="<?= $users['email_user'] ?>">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password_user" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password_user" name="password_user">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="email_user" class="form-label">Email</label>
+                                            <input type="text" class="form-control" id="email_user" name="email_user" value="<?= $users['email_user'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="password_user" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="password_user" name="password_user">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -14,6 +14,7 @@ class Media extends Model
 
     public $path = '';
     protected $originalName = false;
+    public $comporessed = true;
 
     public function path(string $path = '')
     {
@@ -78,10 +79,15 @@ class Media extends Model
         }
 
         try {
-            $file->move(
-                $this->path,
-                $newFilename
-            );
+            if ($this->comporessed == true) {
+
+                $this->compressImage($file->getPathName(), $this->path . '/' . $newFilename, 40);
+            } else {
+                $file->move(
+                    $this->path,
+                    $newFilename
+                );
+            }
 
             $data = [
                 'status' => true,
@@ -208,57 +214,20 @@ class Media extends Model
         return true;
     }
 
-
-
-    public function compressed(UploadedFile $args)
+    public function compressImage($source, $destination, $quality)
     {
 
-        // BELUM BEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES
+        $info = getimagesize($source);
 
-        /* -------------------------------- Compress -------------------------------- */
-        // Compress Image
-        if (isset($_POST['upload'])) {
+        if ($info['mime'] == 'image/jpeg')
+            $image = imagecreatefromjpeg($source);
 
-            // Getting file name
-            $filename = $_FILES['imagefile']['name'];
+        elseif ($info['mime'] == 'image/gif')
+            $image = imagecreatefromgif($source);
 
-            // Valid extension
-            $valid_ext = array('png', 'jpeg', 'jpg');
+        elseif ($info['mime'] == 'image/png')
+            $image = imagecreatefrompng($source);
 
-            // Location
-            $location = "images/" . $filename;
-
-            // file extension
-            $file_extension = pathinfo($location, PATHINFO_EXTENSION);
-            $file_extension = strtolower($file_extension);
-
-            // Check extension
-            if (in_array($file_extension, $valid_ext)) {
-
-                // Compress Image
-                compressImage($_FILES['imagefile']['tmp_name'], $location, 60);
-            } else {
-                echo "Invalid file type.";
-            }
-        }
-
-        // Compress image
-        function compressImage($source, $destination, $quality)
-        {
-
-            $info = getimagesize($source);
-
-            if ($info['mime'] == 'image/jpeg')
-                $image = imagecreatefromjpeg($source);
-
-            elseif ($info['mime'] == 'image/gif')
-                $image = imagecreatefromgif($source);
-
-            elseif ($info['mime'] == 'image/png')
-                $image = imagecreatefrompng($source);
-
-            imagejpeg($image, $destination, $quality);
-        }
-        /* -------------------------------------------------------------------------- */
+        imagejpeg($image, $destination, $quality);
     }
 }

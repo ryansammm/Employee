@@ -90,11 +90,10 @@
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
                                         </div>
-                                        <!-- <span class="text-muted">Ukuran maksimum file : 2 Mb</span> -->
                                     </div>
                                 </div>
                             </div>
-                            <!-- TAMBAH FOTO FOTO ALBUM -->
+                            <!------- Tambah Foto-Foto Album ------->
                             <div class="container mt-4">
                                 <h5 class="mb-0"><strong> Upload Foto-foto Produk Lainnya</strong> </h5>
                                 <div class="row listFormFoto">
@@ -112,9 +111,7 @@
                                             <?php } ?>
                                         </div>
                                     <?php } ?>
-
                                 </div>
-
                             </div>
                             <div class="row mb-4 mt-3">
                                 <div class="col-12">

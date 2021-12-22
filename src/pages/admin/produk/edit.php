@@ -70,18 +70,51 @@
                                 </div>
                             </div>
                             <!------- Foto Produk ------->
-                            <div class="col-md-4">
-                                <label for="produk_foto" class="form-label">Foto Produk</label> (.jpg, .jpeg, .png)
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="produk_foto" name="produk_foto">
-                                            <label class="custom-file-label" for="produk_foto">Choose file</label>
-                                        </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img src="/assets/media/<?= $produk['path_media'] ?>" class="img-fluid img-thumbnail">
                                     </div>
-                                    <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                    <div class="col">
+                                        <label for="produk_foto" class="form-label">Foto Produk Utama</label> (.jpg, .jpeg, .png)
+                                        <div class="form-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile" name="produk_foto_utama">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                        <!-- <span class="text-muted">Ukuran maksimum file : 2 Mb</span> -->
+                                    </div>
                                 </div>
                             </div>
+                            <!-- TAMBAH FOTO FOTO ALBUM -->
+                            <div class="container mt-4">
+                                <h5 class="mb-0"><strong> Upload Foto-foto Produk Lainnya</strong> </h5>
+                                <div class="row listFormFoto">
+                                    <?php foreach ($foto_produk_lainnya->items as $key => $value) {
+                                        $keyForElement = $key + 1; ?>
+                                        <div class="col-2 listfoto pt-3" id="listfoto_<?= $keyForElement ?>">
+                                            <input type="hidden" name="id_media[]" value="<?= $value['id_media'] ?>">
+                                            <h6>Foto <?= $keyForElement ?></h6>
+                                            <a href="#" class="mb-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($value['path_media']) ?>">
+                                                <div class="mb-2" style="background: url('/assets/media/<?= $value['path_media'] ?>');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
+                                            </a>
+                                            <input type="file" class="form-control" name="produk_foto_<?= $value['id_media'] ?>">
+                                            <?php if ($key != 0) { ?>
+                                                <button type="button" class="btn btn-sm btn-danger hapusformfoto mt-2" id="<?= 'hapuslistfoto_' . $keyForElement ?>">Hapus</button>
+                                            <?php } ?>
+                                        </div>
+                                    <?php } ?>
+
+                                </div>
+
+                            </div>
+                            <div class="row mb-4 mt-3">
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-info tambahformfoto">Tambah Foto</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="card-footer">
@@ -97,6 +130,28 @@
     </section>
 </div>
 
+<!-- Modal Dokumen -->
+<div class="modal fade" id="dokumenPersyaratan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Foto Profil</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="" alt="" class="img-fluid fileSakip d-none">
+                <iframe src="" frameborder="0" id="fileSakipPDF" style="display: block;width:100%;height:400px;"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/app/file-preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function() {
@@ -136,5 +191,6 @@
         });
     });
 </script>
+<script src="/assets/admin/js/fotoproduk.js"></script>
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

@@ -62,7 +62,16 @@ class QueryBuilder extends Query
         //     }
         // }
 
-        $this->sql = "SELECT ";
+        $this->sql = "";
+        $this->query['table'] = "" . $this->table . "";
+
+        $sql = 'SELECT ';
+        $sql .= $this->query['select'] == '' ? "*" : "";
+        $this->sql .= $sql;
+
+        if ($this->query['where'] == ' WHERE ') {
+            $this->query['where'] = '';
+        }
 
         foreach ($this->query as $key => $value) {
             if ($key != 'limit') {
@@ -86,6 +95,7 @@ class QueryBuilder extends Query
                 $this->sql .= ' UNION ' . $value;
             }
         }
+        // dd($this->sql);
 
         return count($this->exec_get_all());
     }

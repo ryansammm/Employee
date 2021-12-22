@@ -76,7 +76,7 @@ class CustomerController
 
         $datas_pelanggan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')
-            ->paginate(10);
+            ->paginate(5);
 
         $datas_pelanggan_lainnya = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')

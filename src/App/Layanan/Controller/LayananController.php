@@ -98,13 +98,13 @@ class LayananController
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->where('layanan.id_kategori_layanan', $data_layanan['id_kategori_layanan'])
-            ->paginate(4)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
+            ->limit(4)->get();
 
         $all_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->orderBy("RAND()")
-            ->paginate(5)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
+            ->limit(5)->get();
 
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');
         extract($cmsKategoriModule->getCmsKategori(), EXTR_SKIP);

@@ -35,7 +35,7 @@
                             <div class=" justify-content-between align-items-center mb-3">
                                 <h4 style=" border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;"><?= $data_produk['nama_produk'] ?></h4>
                                 <hr>
-                                <small class="text-muted">Kode Produk : 980829</small><br>
+                                <small class="text-muted">Kode Produk : <?= $data_produk['kode_produk'] ?></small><br>
                                 <small class="text-muted">Kategori : <a href="/product/<?= $data_produk['id_kategori_produk'] ?>/kategori" class="text-decoration-none text-muted"><?= $data_produk['nama_kategori_produk'] ?></a></small>
                             </div>
                             <div class="description">
@@ -48,20 +48,18 @@
 
                     <!------- Share ------->
                     <div class="row justify-content-center">
-
                         <div class="col-md-2">
-                            <a href="">
+                            <a href="whatsapp://send?text=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" data-action="share/whatsapp/share" target="_blank">
                                 <i class="fab fa-whatsapp" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Whatsapp</i>
                             </a>
                         </div>
                         <div class="col-md-2">
-                            <a href="">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" target="_blank">
                                 <i class="fab fa-facebook" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Facebook</i>
                             </a>
                         </div>
-
                         <div class="col-md-2">
-                            <a href="">
+                            <a href="https://twitter.com/share?url=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" target="_blank">
                                 <i class="fab fa-twitter" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Twiiter</i>
                             </a>
                         </div>
@@ -210,8 +208,6 @@
                             </a>
                         </div>
                     <?php } ?>
-
-                    <?= $datas_produk->links() ?>
                 </div>
             </section>
 
@@ -234,7 +230,6 @@
                         </div>
                     <?php } ?>
                 </div>
-                <?= $all_produk->links() ?>
             </section>
 
             <!------- Landscape Banner Bawah ------->

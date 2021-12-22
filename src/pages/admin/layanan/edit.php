@@ -41,8 +41,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <!------- Kode Layanan ------->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="kode_layanan" class="form-label">Kode Layanan</label>
+                                    <input type="text" class="form-control" id="kode_layanan" name="kode_layanan" value="<?= $layanan['kode_layanan'] ?>">
+                                </div>
+                            </div>
                             <!------- Nama Layanan ------->
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="nama_layanan" class="form-label">Nama Layanan</label>
                                     <input type="text" class="form-control" id="nama_layanan" name="nama_layanan" value="<?= $layanan['nama_layanan'] ?>">

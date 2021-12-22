@@ -29,16 +29,22 @@
                             </a>
                         </div>
                         <hr>
+                        <h6 class="mt-4">Deskripsi Singkat Pekerjaan :</h6>
+                        <div class="mt-3">
+                            <p class="px-3" style="font-size: 14px;"><?= $data_pelanggan['deskripsi_singkat_pekerjaan'] ?></p>
+                        </div>
                         <h6 class="mt-4">Ringkasan Pekerjaan :</h6>
                         <div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">Kategori Pekerjaan<span><?= $data_pelanggan['nama_kategori_pekerjaan'] ?></span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Nama Pekerjaan<span>Upgrading Perangkat PABX PT. Jamkrida Jabar</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">No. SPK / PO<span>-</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Tanggal SPK / PO <span>-</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Tahun Buku<span>37.950.000</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Nama Pekerjaan<span><?= $data_pelanggan['nama_pekerjaan'] ?></span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">No. SPK / PO<span><?= $data_pelanggan['no_spk'] ?></span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Tanggal SPK / PO <span><?= date_format(date_create($data_pelanggan['tgl_spk']), "d-m-Y") ?></span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Waktu Pekerjaan<span><?= date_format(date_create($data_pelanggan['waktu_pekerjaan']), "d-m-Y") ?></span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Tahun Buku<span><?= $data_pelanggan['tahun_buku'] ?></span></li>
                             </ul>
                         </div>
+
                     </div>
                     <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-start">
                         <a href="/gallery" class="btn btn-primary me-2">Dokumentasi Pekerjaan</a>
@@ -78,7 +84,7 @@
 
 
 <!------- Klien Lainnya ------->
-<div class="container">
+<!-- <div class="container">
     <div class="row mt-4">
         <div class="card" style="background-color: unset;border: unset;">
             <div class="card-header" style="background-color: unset;padding: 0;border: unset;">
@@ -104,7 +110,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <?php include __DIR__ . '/../Footer.php' ?>

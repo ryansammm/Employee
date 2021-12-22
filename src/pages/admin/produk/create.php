@@ -41,8 +41,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <!------- Kode Produk ------->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="kode_produk" class="form-label">Kode Produk</label>
+                                    <input type="text" class="form-control" id="kode_produk" name="kode_produk">
+                                </div>
+                            </div>
                             <!------- Nama Produk ------->
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="nama_produk" class="form-label">Nama Produk</label>
                                     <input type="text" class="form-control" id="nama_produk" name="nama_produk">

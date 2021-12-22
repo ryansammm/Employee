@@ -37,7 +37,7 @@
                             <div class=" justify-content-between align-items-center mb-3">
                                 <h4 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;"><?= $data_layanan['nama_layanan'] ?></h4>
                                 <hr>
-                                <small class="text-muted">Kode Layanan : 980829</small><br>
+                                <small class="text-muted">Kode Layanan : <?= $data_layanan['kode_layanan'] ?></small><br>
                                 <small class="text-muted">Kategori : <a href="/service/<?= $data_layanan['id_kategori_layanan'] ?>/kategori" class="text-muted text-decoration-none"><?= $data_layanan['nama_kategori_layanan'] ?></a></small>
                             </div>
                             <div class="description">
@@ -50,20 +50,18 @@
 
                     <!------- Share ------->
                     <div class="row justify-content-center">
-
                         <div class="col-md-2">
-                            <a href="">
+                            <a href="whatsapp://send?text=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" data-action="share/whatsapp/share" target="_blank">
                                 <i class="fab fa-whatsapp" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Whatsapp</i>
                             </a>
                         </div>
                         <div class="col-md-2">
-                            <a href="">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" target="_blank">
                                 <i class="fab fa-facebook" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Facebook</i>
                             </a>
                         </div>
-
                         <div class="col-md-2">
-                            <a href="">
+                            <a href="https://twitter.com/share?url=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" target="_blank">
                                 <i class="fab fa-twitter" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Twiiter</i>
                             </a>
                         </div>
@@ -203,7 +201,6 @@
                 <div class="row">
                     <?php foreach ($datas_layanan->items as $key => $value) { ?>
                         <div class="col-md-3">
-
                             <a class="text-decoration-none text-dark" href="/service/<?= $value['id_layanan'] ?>/detail">
                                 <div class="card p-0">
                                     <div class=" align-self-center" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>
@@ -212,11 +209,9 @@
                                     <!-- <p class="mt-3"><a class="btn btn-sm btn-outline-primary" style="font-size: 10px !important;" href="/service/<?= $value['id_layanan'] ?>/detail">Detail &raquo;</a></p> -->
                                 </div>
                             </a>
-
                         </div>
                     <?php } ?>
                 </div>
-                <?= $datas_layanan->links() ?>
             </section>
 
             <!------- Layanan Yang Mungkin Anda Sukai ------->
@@ -238,7 +233,6 @@
                         </div>
                     <?php } ?>
                 </div>
-                <?= $all_layanan->links() ?>
             </section>
 
             <!------- Landscape Banner Bawah ------->

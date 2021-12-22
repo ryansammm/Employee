@@ -430,12 +430,12 @@
             overflowY: "visible",
             boxSizing: "content-box"
         }, t.desktopTitleStyle = {
-            height: "40px",
+            height: "59px",
             lineHeight: "30px",
             fontSize: "20px",
             display: "flex",
             justifyContent: "space-between",
-            padding: "5px 0 5px 20px",
+            padding: "0.5rem",
             fontFamily: "Lato, sans-serif",
             color: "#fff",
             cursor: "pointer"
@@ -503,7 +503,7 @@
                         var n = e.isOpened;
                         return o(t), (0, s.h)("div", null, n ? (0, s.h)("svg", {
                             style: {
-                                marginRight: 15,
+                                marginRight: "0px",
                                 marginTop: 6,
                                 verticalAlign: "middle"
                             },
@@ -528,17 +528,17 @@
                             "stroke-width": "1"
                         })) : (0, s.h)("svg", {
                             style: {
-                                marginRight: 15,
-                                marginTop: 6,
+                                marginRight: "0px",
+                                marginTop: "0px",
                                 verticalAlign: "middle"
                             },
                             fill: "#FFFFFF",
-                            height: "24",
+                            height: "50",
                             viewBox: "0 0 24 24",
-                            width: "24",
+                            width: "50",
                             xmlns: "http://www.w3.org/2000/svg"
                         }, (0, s.h)("path", {
-                            d: "M2.582 13.891c-0.272 0.268-0.709 0.268-0.979 0s-0.271-0.701 0-0.969l7.908-7.83c0.27-0.268 0.707-0.268 0.979 0l7.908 7.83c0.27 0.268 0.27 0.701 0 0.969s-0.709 0.268-0.978 0l-7.42-7.141-7.418 7.141z"
+                            d: "M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"
                         })))
                     }
                 }]), t
@@ -778,7 +778,7 @@
                                 right: "130px",
                                 marginTop: "23px",
                                 borderRadius: "5px",
-                                padding: "15px 20px",
+                                padding: "5px",
                                 boxShadow: "#8e8d8d -3px 2px 20px"
                             }
                         }, n.introMessage, (0, s.h)("div", {
@@ -853,7 +853,7 @@
         Object.defineProperty(t, "__esModule", {
             value: !0
         }), t.defaultConfiguration = {
-            titleClosed: "Live Chat",
+            //titleClosed: "Live Chat",
             titleOpen: "Panca Teknologi Aksesindo",
             closedStyle: "chat",
             closedChatAvatarUrl: "",
@@ -863,7 +863,7 @@
             // autoNoResponse: "It seems that no one is available to answer right now. Please tell us how we can contact you, and we will get back to you as soon as we can.",
             placeholderText: "Send a message...",
             displayMessageTime: !0,
-            mainColor: "#1f8ceb",
+            mainColor: "#0853a6",
             alwaysUseFloatingButton: !1,
             desktopHeight: 450,
             desktopWidth: 370
@@ -1024,7 +1024,7 @@
                             style: {
                                 display: "flex",
                                 alignItems: "center",
-                                padding: "0px 30px 0px 0px"
+                                padding: "0px 0px 0px 0px"
                             }
                         }, r ? n.titleOpen : n.titleClosed), (0, c.h)(v.default, {
                             isOpened: r

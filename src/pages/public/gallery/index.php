@@ -39,11 +39,10 @@
                                 <h6><?= $value['judul_galeri'] ?></h6>
                                 <div class="card-text truncate-string-2 mb-3" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['deskripsi_galeri'])) ?></div>
                                 <div class="d-flex justify-content-between align-items-center">
+                                    <a class="text-decoration-none" href="/gallery/<?= $value['id_kategori_galeri'] ?>/kategori"><small class="text-muted" style="font-size: 12px;"><?= $value['nama_kategori_galeri'] ?></small></a>
                                     <div class="btn-group">
                                         <a href="/gallery/<?= $value['id_galeri'] ?>/detail" type="button" class="btn btn-sm btn-outline-primary">Detail</a>
                                     </div>
-                                    <a class="text-decoration-none" href="/gallery/<?= $value['id_kategori_galeri'] ?>/kategori"><small class="text-muted" style="font-size: 12px;"><?= $value['nama_kategori_galeri'] ?></small></a>
-
                                 </div>
                             </div>
                         </div>

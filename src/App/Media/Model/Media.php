@@ -89,7 +89,6 @@ class Media extends Model
                 'message' => 'File uploaded successfully'
             ];
             $this->originalName = false;
-
         } catch (FileException $e) {
             $data = [
                 'status' => false,
@@ -97,6 +96,9 @@ class Media extends Model
                 'message' => 'Error uploading file: ' . $e->getMessage()
             ];
         }
+
+
+
 
         return $data;
     }
@@ -144,6 +146,7 @@ class Media extends Model
             $this->insert($data_media);
         }
 
+
         return $dokumen;
     }
 
@@ -159,13 +162,13 @@ class Media extends Model
         if ($file != null) {
             $media_data = $model->select('media.*')
                 ->leftJoin('media', 'media.id_relation', '=', $model->table . '.' . $model->primaryKey)
-                ->where(function($query) use ($data_media) {
+                ->where(function ($query) use ($data_media) {
                     if ($data_media['jenis_dokumen'] != '') {
                         $query->where('media.jenis_dokumen', $data_media['jenis_dokumen']);
                     }
                 })
                 ->where($model->primaryKey, $id_tabel)->first();
-                // dd($media_data);
+            // dd($media_data);
             $this->deleteMedia($media_data);
             $dokumen = $this->storeMedia($file, $data_media);
 
@@ -203,5 +206,59 @@ class Media extends Model
         }
 
         return true;
+    }
+
+
+
+    public function compressed(UploadedFile $args)
+    {
+
+        // BELUM BEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEES
+
+        /* -------------------------------- Compress -------------------------------- */
+        // Compress Image
+        if (isset($_POST['upload'])) {
+
+            // Getting file name
+            $filename = $_FILES['imagefile']['name'];
+
+            // Valid extension
+            $valid_ext = array('png', 'jpeg', 'jpg');
+
+            // Location
+            $location = "images/" . $filename;
+
+            // file extension
+            $file_extension = pathinfo($location, PATHINFO_EXTENSION);
+            $file_extension = strtolower($file_extension);
+
+            // Check extension
+            if (in_array($file_extension, $valid_ext)) {
+
+                // Compress Image
+                compressImage($_FILES['imagefile']['tmp_name'], $location, 60);
+            } else {
+                echo "Invalid file type.";
+            }
+        }
+
+        // Compress image
+        function compressImage($source, $destination, $quality)
+        {
+
+            $info = getimagesize($source);
+
+            if ($info['mime'] == 'image/jpeg')
+                $image = imagecreatefromjpeg($source);
+
+            elseif ($info['mime'] == 'image/gif')
+                $image = imagecreatefromgif($source);
+
+            elseif ($info['mime'] == 'image/png')
+                $image = imagecreatefrompng($source);
+
+            imagejpeg($image, $destination, $quality);
+        }
+        /* -------------------------------------------------------------------------- */
     }
 }

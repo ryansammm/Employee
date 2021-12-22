@@ -165,21 +165,21 @@
 
 
             <!------- Deskripsi Lengkap ------->
-            <section class="mt-4">
+            <section class="mt-3">
                 <div class="card">
                     <div class="card-body px-0 pe-3">
                         <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
                             <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Deskripsi Lengkap</h6>
                         </div>
                         <div class="description  ms-3">
-                            <h6 class="fw-normal" style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos ad ipsa ex doloremque voluptatum iusto aperiam. Totam, obcaecati. Mollitia quisquam vitae, neque consequatur molestias, suscipit velit exercitationem consequuntur perspiciatis unde voluptatem quod, aliquam minima asperiores et nihil? Vitae nam accusamus nihil tempora quam, animi necessitatibus obcaecati atque perspiciatis doloremque! Exercitationem itaque mollitia dolor adipisci dolorum fugit? Rerum vel unde quo eos labore ipsa doloribus voluptatem recusandae iusto hic repudiandae, quidem soluta doloremque dolor cupiditate. A repellendus laudantium alias qui quisquam sed, sequi recusandae iste atque ipsa quia fugit odio ipsam nesciunt eveniet eos magnam natus suscipit exercitationem excepturi. Aliquam, similique.</h6>
+                            <div class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_produk['deskripsi_lengkap_produk'])) ?></div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!------- Spesifikasi ------->
-            <section class="mt-4">
+            <section class="mt-3">
                 <div class="card">
                     <div class="card-body px-0 pe-3">
                         <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
@@ -193,7 +193,7 @@
             </section>
 
             <!------- Produk Lainnya ------->
-            <section class="mt-4">
+            <section class="mt-3">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Produk Lainnya</h5>
                     <a href="/product" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
@@ -216,7 +216,7 @@
             </section>
 
             <!------- Produk Yang Mungkin Anda Sukai ------->
-            <section class="mt-4">
+            <section class="mt-3">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Produk Yang Mungkin Anda Sukai</h5>
                     <a href="/product" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class=" bi bi-chevron-right"></i></a>

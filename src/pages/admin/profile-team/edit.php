@@ -122,10 +122,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="">Alamat</label>
                                     <textarea name="alamat" class="form-control" required><?= $detail['alamat'] ?></textarea>
-                                </div>
+                                </div> -->
                                 <div class="mb-3">
                                     <label for="">Deskripsi Singkat Pendidikan</label>
                                     <textarea name="riwayat_pendidikan" class="form-control" required><?= $detail['riwayat_pendidikan'] ?></textarea>

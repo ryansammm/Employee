@@ -10,7 +10,7 @@
     <?php } ?>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-3">
     <div class="row">
         <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
@@ -167,35 +167,35 @@
 
 
             <!------- Deskripsi Lengkap ------->
-            <section class="mt-4">
+            <section class="mt-3">
                 <div class="card">
                     <div class="card-body px-0 pe-3">
                         <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
                             <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Deskripsi Lengkap</h6>
                         </div>
                         <div class="description  ms-3">
-                            <h6 class="fw-normal" style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos ad ipsa ex doloremque voluptatum iusto aperiam. Totam, obcaecati. Mollitia quisquam vitae, neque consequatur molestias, suscipit velit exercitationem consequuntur perspiciatis unde voluptatem quod, aliquam minima asperiores et nihil? Vitae nam accusamus nihil tempora quam, animi necessitatibus obcaecati atque perspiciatis doloremque! Exercitationem itaque mollitia dolor adipisci dolorum fugit? Rerum vel unde quo eos labore ipsa doloribus voluptatem recusandae iusto hic repudiandae, quidem soluta doloremque dolor cupiditate. A repellendus laudantium alias qui quisquam sed, sequi recusandae iste atque ipsa quia fugit odio ipsam nesciunt eveniet eos magnam natus suscipit exercitationem excepturi. Aliquam, similique.</h6>
+                            <div class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_layanan['deskripsi_lengkap_layanan'])) ?></div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!------- Spesifikasi ------->
-            <section class="mt-4">
+            <section class="mt-3">
                 <div class="card">
                     <div class="card-body px-0 pe-3">
                         <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
                             <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Spesifikasi</h6>
                         </div>
                         <div class="description  ms-3">
-                            <h6 class="fw-normal" style="text-align: justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut quaerat enim porro, quo assumenda fuga laborum. Ratione accusantium porro ut vero doloribus unde id asperiores quaerat aliquam ducimus, minima repellendus harum mollitia dicta reprehenderit! Hic atque cumque facilis aliquid? Suscipit molestias illo temporibus ipsam eaque officia impedit quidem vero nam quasi consequatur soluta necessitatibus eveniet porro, est ratione odio doloribus reiciendis, quod ipsum dolore odit ut voluptates. Cumque, expedita fugit sequi, voluptas laudantium unde rem rerum officia quaerat repudiandae ducimus minima nihil aspernatur ullam, provident quibusdam impedit molestias ab. Accusamus vel autem repellendus voluptas, nam quos expedita facere saepe alias?</h6>
+                            <div class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_layanan['spesifikasi_layanan'])) ?></div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!------- Layanan Lainnya ------->
-            <section class="mt-4">
+            <section class="mt-3">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Layanan Lainnya</h5>
                     <a href="/service" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
@@ -220,7 +220,7 @@
             </section>
 
             <!------- Layanan Yang Mungkin Anda Sukai ------->
-            <section class="mt-4">
+            <section class="mt-3">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Layanan Yang Mungkin Anda Sukai</h5>
                     <a href="/service" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>

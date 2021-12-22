@@ -7,8 +7,17 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">Data Profil</h1>
                 </div>
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Profil</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Profil</a></li>
+                        <li class="breadcrumb-item active">Edit Data Profil</li>
+                    </ol>
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="#">Profil</a></li>
                         <li class="breadcrumb-item"><a href="#">Kelola Profil</a></li>
                         <li class="breadcrumb-item active">Edit Data Profil</li>
@@ -76,7 +85,7 @@
                                     <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
                                     <?php foreach ($profil as $key1 => $data1) { ?>
                                         <?php if (arr_offset($data1, 'path_media') != null && arr_offset($data1, 'jenis_dokumen') == 'struktur_organisasi') { ?>
-                                        <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= arr_offset($data1, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
+                                            <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= arr_offset($data1, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
                                         <?php } ?>
                                     <?php } ?>
                                 </div>

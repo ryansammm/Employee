@@ -45,9 +45,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="/gallery" class="btn btn-secondary">Kembali</a>
+                </div>
             </div>
 
-            <section class="mt-4">
+            <!-- <section class="mt-4">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <?php foreach ($data_group_galeri->items as $key => $value) { ?>
                         <div class="col-md-3">
@@ -65,7 +68,43 @@
                         </div>
                     <?php } ?>
                 </div>
-            </section>
+            </section> -->
+
+            <!------- Product Image ------->
+            <div class="card mt-3">
+                <div class="card-body p-2">
+                    <div class="owl-carousel owl-theme">
+
+                        <?php foreach ($data_group_galeri->items as $key => $value) { ?>
+                            <div class="item">
+                                <a href="" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#detailGaleri" data-file="<?= show($value['path_media']) ?>">
+                                    <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                                </a>
+                            </div>
+                        <?php } ?>
+
+
+                        <!-- <div class="item">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                <div style="background-image: url(/assets/produk/produk2.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            </a>
+                        </div> -->
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!------- Modal Service Image ------->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body p-1">
+                            <img src="/assets/produk/produk1.jpg" width="100%" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </div>
@@ -130,5 +169,7 @@
         }
     });
 </script>
+
+
 
 <?php include __DIR__ . '/../Footer.php' ?>

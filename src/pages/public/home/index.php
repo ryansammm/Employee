@@ -136,7 +136,7 @@
                 <div class="row">
                     <?php foreach ($data_produk->items as $key => $value) { ?>
                         <div class="col-md-2 mb-3">
-                            <a href="" class="text-decoration-none">
+                            <a href="/product/<?= $value['id_produk'] ?>/detail" class="text-decoration-none">
                                 <div class="card for-hover" style="border-radius: 8px;">
                                     <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 0.25rem 0.25rem 0 0;"></div>
                                     <div class="card-body" style="font-size: 12px;">
@@ -173,11 +173,11 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
                     <?php foreach ($data_pelanggan->items as $key => $value) { ?>
-                        <div class="col-2">
+                        <div class="col-2 mb-3">
                             <div class="card">
                                 <div class="card-body" style="padding: 1rem">
                                     <a href="">
-                                        <div class="img-video" style="background: url('/assets/media/<?= $value['path_media'] ?>');background-size: cover;background-position:  center;">
+                                        <div class="img-video" style="background: url('/assets/media/<?= $value['path_media'] ?>');background-size: 100%;background-position:  center;background-repeat: no-repeat;">
                                         </div>
                                     </a>
                                 </div>

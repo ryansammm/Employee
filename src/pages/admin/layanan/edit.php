@@ -52,7 +52,21 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="deskripsi_layanan" class="form-label">Deskripsi Layanan</label>
-                                    <textarea id="deskripsi_layanan" name="isi_berita"><?= $layanan['deskripsi_layanan'] ?></textarea>
+                                    <textarea id="deskripsi_layanan" name="deskripsi_layanan"><?= $layanan['deskripsi_layanan'] ?></textarea>
+                                </div>
+                            </div>
+                            <!------- Deskripsi Lengkap Layanan ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="deskripsi_lengkap_layanan" class="form-label">Deskripsi Lengkap Layanan</label>
+                                    <textarea id="deskripsi_lengkap_layanan" name="deskripsi_lengkap_layanan"><?= $layanan['deskripsi_lengkap_layanan'] ?></textarea>
+                                </div>
+                            </div>
+                            <!------- Spesifikasi Layanan ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="spesifikasi_layanan" class="form-label">Spesifikasi Layanan</label>
+                                    <textarea id="spesifikasi_layanan" name="spesifikasi_layanan"><?= $layanan['spesifikasi_layanan'] ?></textarea>
                                 </div>
                             </div>
                             <!------- Foto Layanan ------->
@@ -114,7 +128,29 @@
         // Summernote
         $('#deskripsi_layanan').summernote({
             placeholder: 'Start writing or type',
-            height: 500,
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
+        $('#deskripsi_lengkap_layanan').summernote({
+            placeholder: 'Start writing or type',
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
+        $('#spesifikasi_layanan').summernote({
+            placeholder: 'Start writing or type',
+            height: 200,
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['color', ['color']],

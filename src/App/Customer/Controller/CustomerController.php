@@ -67,8 +67,14 @@ class CustomerController
             ->where('id_pelanggan', $id)->first();
 
         $datas_pelanggan = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')->get();
+            ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')
+            ->paginate(10);
 
-        return render_template('public/customer/detail', ['data_pelanggan' => $data_pelanggan, 'datas_pelanggan' => $datas_pelanggan]);
+        $datas_pelanggan_lainnya = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')
+            ->orderBy("RAND()")
+            ->paginate(12);
+
+        return render_template('public/customer/detail', ['data_pelanggan' => $data_pelanggan, 'datas_pelanggan' => $datas_pelanggan, 'datas_pelanggan_lainnya' => $datas_pelanggan_lainnya]);
     }
 }

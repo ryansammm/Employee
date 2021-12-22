@@ -55,6 +55,13 @@
                                     <textarea id="deskripsi_produk" name="deskripsi_produk"><?= $produk['deskripsi_produk'] ?></textarea>
                                 </div>
                             </div>
+                            <!------- Deskripsi Lengkap Produk ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="deskripsi_lengkap_produk" class="form-label">Deskripsi Lengkap Produk</label>
+                                    <textarea id="deskripsi_lengkap_produk" name="deskripsi_lengkap_produk"><?= $produk['deskripsi_lengkap_produk'] ?></textarea>
+                                </div>
+                            </div>
                             <!------- Spesifikasi Produk ------->
                             <div class="col-md-12">
                                 <div class="mb-3">
@@ -95,6 +102,17 @@
     $(function() {
         // Summernote
         $('#deskripsi_produk').summernote({
+            placeholder: 'Start writing or type',
+            height: 200,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ],
+        });
+        $('#deskripsi_lengkap_produk').summernote({
             placeholder: 'Start writing or type',
             height: 200,
             toolbar: [

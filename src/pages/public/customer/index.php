@@ -19,11 +19,11 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
                     <?php foreach ($data_pelanggan->items as $key => $value) { ?>
-                        <div class="col-2">
+                        <div class="col-2 mb-3">
                             <div class="card">
                                 <div class="card-body" style="padding: 1rem">
-                                    <a href="/customer/<?= $value['id_pelanggan'] ?>/detail" target="_blank">
-                                        <div class="img-video" style="background: url('/assets/media/<?= $value['path_media'] ?>');background-size: cover;background-position:  center;">
+                                    <a href="/customer/<?= $value['id_pelanggan'] ?>/detail">
+                                        <div class="img-video" style="background: url('/assets/media/<?= $value['path_media'] ?>');background-size: 100%;background-position:  center;border-radius: 0.25rem;background-repeat: no-repeat;">
                                         </div>
                                     </a>
                                 </div>

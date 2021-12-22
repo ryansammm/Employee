@@ -94,24 +94,30 @@
                                     <h5 class="mb-0">Direksi</h5>
                                 </div>
                             </div>
-                            <div class="card-body pt-0 px-1">
+                            <div class="card-body py-0 px-1">
 
-                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-decoration-none">
-                                    <div class="side-news-item">
-                                        <div class="row">
-                                            <div class="col-3 px-0">
-                                                <div class="" style="background: url(/assets/icon/avatar.jpg);background-size: cover;background-position: top center;width: 100%;height: 87px;border-radius: 0.25rem;"></div>
-                                            </div>
-                                            <div class="col-9 pe-0">
-                                                <div class="row">
-                                                    <h6 class="card-title">Nama Lengkap</h6>
-                                                    <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">Jabatan</h6>
-                                                    <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia soluta suscipit accusamus illum dolore, nesciunt ullam fugiat accusantium. Quae, quam.</div>
+                                <?php foreach ($data_direksi->items as $key => $value) { ?>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-decoration-none" data-id="<?= arr_offset($value, 'id_profile_team') ?>" data-file="<?= arr_offset($value, 'path_media') ?>">
+                                        <div class="<?= $key == (count($data_direksi->items) - 1) ? '' : 'side-news-item' ?>" style="<?= $key == (count($data_direksi->items) - 1) ? 'padding: 0.5rem 1rem;' : '' ?>">
+                                            <div class="row">
+                                                <div class="col-3 px-0">
+                                                    <div class="" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: top center;width: 100%;height: 87px;border-radius: 0.25rem;"></div>
+                                                </div>
+                                                <div class="col-9 pe-0">
+                                                    <div class="row">
+                                                        <h6 class="card-title"><?= $value['nama_lengkap'] ?></h6>
+                                                        <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">
+                                                            <?php foreach ($value['nama_jabatan'] as $key2 => $value2) { ?>
+                                                                <span><?= $value2['nama'] ?></span>
+                                                            <?php } ?>
+                                                        </h6>
+                                                        <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                <?php } ?>
 
                             </div>
                         </div>
@@ -126,24 +132,30 @@
                                     <h5 class="mb-0">Manajerial</h5>
                                 </div>
                             </div>
-                            <div class="card-body pt-0 px-1">
+                            <div class="card-body py-0 px-1">
 
-                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-decoration-none">
-                                    <div class="side-news-item">
-                                        <div class="row">
-                                            <div class="col-3 px-0">
-                                                <div class="" style="background: url(/assets/icon/avatar.jpg);background-size: cover;background-position: top center;width: 100%;height: 87px;border-radius: 0.25rem;"></div>
-                                            </div>
-                                            <div class="col-9 pe-0">
-                                                <div class="row">
-                                                    <h6 class="card-title">Nama Lengkap</h6>
-                                                    <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">Jabatan</h6>
-                                                    <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia soluta suscipit accusamus illum dolore, nesciunt ullam fugiat accusantium. Quae, quam.</div>
+                                <?php foreach ($data_manajerial->items as $key => $value) { ?>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-decoration-none" data-id="<?= arr_offset($value, 'id_profile_team') ?>" data-file="<?= arr_offset($value, 'path_media') ?>">
+                                        <div class="<?= $key == (count($data_manajerial->items) - 1) ? '' : 'side-news-item' ?>" style="<?= $key == (count($data_manajerial->items) - 1) ? 'padding: 0.5rem 1rem;' : '' ?>">
+                                            <div class="row">
+                                                <div class="col-3 px-0">
+                                                    <div class="" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: top center;width: 100%;height: 87px;border-radius: 0.25rem;"></div>
+                                                </div>
+                                                <div class="col-9 pe-0">
+                                                    <div class="row">
+                                                        <h6 class="card-title"><?= $value['nama_lengkap'] ?></h6>
+                                                        <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">
+                                                            <?php foreach ($value['nama_jabatan'] as $key2 => $value2) { ?>
+                                                                <span><?= $value2['nama'] ?></span>
+                                                            <?php } ?>
+                                                        </h6>
+                                                        <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                <?php } ?>
 
                             </div>
                         </div>
@@ -158,24 +170,30 @@
                                     <h5 class="mb-0">Staff & Karyawan</h5>
                                 </div>
                             </div>
-                            <div class="card-body pt-0 px-1">
+                            <div class="card-body py-0 px-1">
 
-                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-decoration-none">
-                                    <div class="side-news-item">
-                                        <div class="row">
-                                            <div class="col-3 px-0">
-                                                <div class="" style="background: url(/assets/icon/avatar.jpg);background-size: cover;background-position: top center;width: 100%;height: 87px;border-radius: 0.25rem;"></div>
-                                            </div>
-                                            <div class="col-9 pe-0">
-                                                <div class="row">
-                                                    <h6 class="card-title">Nama Lengkap</h6>
-                                                    <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">Jabatan</h6>
-                                                    <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia soluta suscipit accusamus illum dolore, nesciunt ullam fugiat accusantium. Quae, quam.</div>
+                                <?php foreach ($data_staff->items as $key => $value) { ?>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-decoration-none" data-id="<?= arr_offset($value, 'id_profile_team') ?>" data-file="<?= arr_offset($value, 'path_media') ?>">
+                                        <div class="<?= $key == (count($data_staff->items) - 1) ? '' : 'side-news-item' ?>" style="<?= $key == (count($data_staff->items) - 1) ? 'padding: 0.5rem 1rem;' : '' ?>">
+                                            <div class="row">
+                                                <div class="col-3 px-0">
+                                                    <div class="" style="background: url(/assets/media/<?= $value['path_media'] ?>);background-size: cover;background-position: top center;width: 100%;height: 87px;border-radius: 0.25rem;"></div>
+                                                </div>
+                                                <div class="col-9 pe-0">
+                                                    <div class="row">
+                                                        <h6 class="card-title"><?= $value['nama_lengkap'] ?></h6>
+                                                        <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">
+                                                            <?php foreach ($value['nama_jabatan'] as $key2 => $value2) { ?>
+                                                                <span><?= $value2['nama'] ?></span>
+                                                            <?php } ?>
+                                                        </h6>
+                                                        <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                <?php } ?>
 
                             </div>
                         </div>
@@ -197,20 +215,49 @@
 
                     <div class="col-9">
                         <div class="row me-2">
-                            <h4 class="card-title">Ryan Samsudin</h4>
-                            <h6 class="card-title">Direktur Utama PT. Sumber Jaya Makmur</h6>
-                            <div class="mt-3" style="font-size: 14px;text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia soluta suscipit accusamus illum dolore, nesciunt ullam fugiat accusantium. Quae, quam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem dolore facilis quas ducimus et nesciunt ipsam ipsum eos nobis, beatae velit dolor animi id, ab a soluta minus fuga aut.</div>
-                            <div class="mt-3" style="font-size: 14px;text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia soluta suscipit accusamus illum dolore, nesciunt ullam fugiat accusantium. Quae, quam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem dolore facilis quas ducimus et nesciunt ipsam ipsum eos nobis, beatae velit dolor animi id, ab a soluta minus fuga aut. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium asperiores modi facere repellat provident laborum ab, dolorum placeat non cupiditate!</div>
+                            <h4 class="card-title nama"></h4>
+                            <h6 class="card-title jabatan"></h6>
+                            <div class="mt-3 riwayat" style="font-size: 14px;text-align: justify;"></div>
+                            <div class="mt-3 pengalaman" style="font-size: 14px;text-align: justify;"></div>
                         </div>
                     </div>
                     <div class="col-3">
-                        <img src="/assets/icon/tony.png" alt="" style="width: 100%;">
+                        <img class="fileProfile" src="" alt="" style="width: 100%;">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    $("#exampleModal").on("show.bs.modal", function(event) {
+        var modal = $('#exampleModal');
+        var button = event.relatedTarget;
+        var id = button.getAttribute("data-id");
+        var file = button.getAttribute("data-file");
+        var extFile = file.split(".");
+        $(this).find(".fileProfile").removeClass("d-none");
+        $(this)
+            .find(".fileProfile")[0]
+            .setAttribute("src", "/assets/media/" + file);
+
+        $.ajax({
+            url: "/about/" + id + "/get",
+            method: "get",
+        }).done(function(data) {
+            var jabatan = data.nama_jabatan;
+            modal.find('.nama').html(data.nama_lengkap);
+            // for (let x = 0; x < jabatan.length; x++) {
+            //     const element = jabatan[index];
+            //     modal.find('.jabatan').html(data.nama);
+            // }
+            modal.find('.riwayat').html(data.riwayat_pendidikan);
+            modal.find('.pengalaman').html(data.pengalaman_profesional);
+        });
+    });
+</script>
 
 
 <?php include __DIR__ . '/../Footer.php' ?>

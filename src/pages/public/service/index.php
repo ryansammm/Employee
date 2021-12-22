@@ -40,10 +40,10 @@
                                 <h6><?= $value['nama_layanan'] ?></h6>
                                 <div class="card-text truncate-string-2 mb-3" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['deskripsi_layanan'])) ?></div>
                                 <div class="d-flex justify-content-between align-items-center">
+                                    <a href="" class="text-muted text-decoration-none"><small><?= $value['nama_kategori_layanan'] ?></small></a>
                                     <div class="btn-group">
                                         <a href="/service/<?= $value['id_layanan'] ?>/detail" type="button" class="btn btn-sm btn-outline-primary">Detail</a>
                                     </div>
-                                    <a href="" class="text-muted text-decoration-none"><small><?= $value['nama_kategori_layanan'] ?></small></a>
                                 </div>
                             </div>
                         </div>

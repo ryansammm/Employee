@@ -287,27 +287,32 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav mr-auto">
                                     <?php foreach ($GLOBALS['web_menu'] as $key => $menu) { ?>
+
                                         <?php if ($menu['parent_id'] == '0') { ?>
+
                                             <?php if (empty($menu['sub_menu'])) { ?>
                                                 <li class="dropdown <?= $GLOBALS['url'] == $menu['link_url'] ? 'nav-item-active' : '' ?>">
                                                     <a class="dropdown-item" style="font-size: 16px;text-transform: capitalize;padding: 8px 16px;display: block !important;text-decoration: none;" href="<?= $menu['link_url'] ?>"><?= $menu['menu'] ?></a>
                                                 </li>
                                             <?php } else { ?>
-                                                <li class="dropdown">
+
+                                                <li class="dropdown <?= $GLOBALS['url'] == $menu['link_url'] ? 'nav-item-active' : '' ?>">
                                                     <a class="dropdown-toggle" style="font-size: 16px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu['menu'] ?></a>
                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                                                         <?php foreach ($menu['sub_menu'] as $key1 => $menu1) { ?>
+
                                                             <?php if (empty($menu1['sub_menu'])) { ?>
                                                                 <li><a class="dropdown-item" style="font-size: 16px;" href="/"><?= $menu1['menu'] ?></a></li>
                                                             <?php } else { ?>
-                                                                <li class="dropdown">
+                                                                <li class="dropdown <?= $GLOBALS['url'] == $menu1['link_url'] ? 'nav-item-active' : '' ?>">
                                                                     <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 16px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu1['menu'] ?></a>
                                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                         <?php foreach ($menu1['sub_menu'] as $key2 => $menu2) { ?>
                                                                             <?php if (empty($menu2['sub_menu'])) { ?>
                                                                                 <li><a class="dropdown-item" style="font-size: 16px;" href="/"><?= $menu2['menu'] ?></a></li>
                                                                             <?php } else { ?>
-                                                                                <li class="dropdown">
+                                                                                <li class="dropdown <?= $GLOBALS['url'] == $menu2['link_url'] ? 'nav-item-active' : '' ?>">
                                                                                     <a class="dropdown-toggle dropdown-sub-toggle" style="font-size: 16px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $menu2['menu'] ?></a>
                                                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                                         <?php foreach ($menu2['sub_menu'] as $key3 => $menu3) { ?>

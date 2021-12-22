@@ -32,7 +32,7 @@ class ProfileController
         $this->users->where('id_user', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($_FILES['foto_profil'], [
+        $media->updateMedia($request->files->get('foto_profil'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->users, $id);
@@ -45,6 +45,4 @@ class ProfileController
 
         return new RedirectResponse('/admin/profile-saya');
     }
-
-    
 }

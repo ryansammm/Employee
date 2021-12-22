@@ -486,6 +486,7 @@ $routes->push('contact_kintun', '/contact/kintun', [ContactController::class, 'c
 /* ------------------------------- Front About ------------------------------ */
 $routes->push('about', '/about', [AboutController::class, 'index']);
 $routes->push('about_detail_team', '/about/{id}/detail-team', [AboutController::class, 'detailTeam']);
+$routes->push('about_get', '/about/{id}/get', [AboutController::class, 'get']);
 /* -------------------------------------------------------------------------- */
 
 

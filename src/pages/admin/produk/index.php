@@ -24,7 +24,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row mb-3">
-                <div class="col-md-4 float-right">
+                <div class="col-md-6 float-right">
                     <label for="nama_produk">Kategori Produk</label>
                     <form action="/admin/produk" method="GET" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">

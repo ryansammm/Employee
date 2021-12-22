@@ -30,8 +30,6 @@ class GaleriAdminController
             ->leftJoin('media', 'media.id_relation', '=', 'galeri.id_galeri')
             ->paginate(10);
 
-        // dd($data_galeri);
-
         return render_template('admin/galeri/index', ['data_galeri' => $data_galeri]);
     }
 

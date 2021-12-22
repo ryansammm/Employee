@@ -78,15 +78,33 @@
                             </div>
                             <!------- Foto Produk ------->
                             <div class="col-md-4">
-                                <label for="produk_foto" class="form-label">Foto Produk</label> (.jpg, .jpeg, .png)
+                                <label for="produk_foto" class="form-label">Foto Produk Utama</label> (.jpg, .jpeg, .png)
                                 <div class="form-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile" name="produk_foto">
+                                        <input type="file" class="custom-file-input" id="customFile" name="produk_foto_utama">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </div>
                                 <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                             </div>
+                            <!-- TAMBAH FOTO FOTO ALBUM -->
+                            <div class="container mt-3">
+                                <h5><strong> Upload Foto-foto Produk Lainnya</strong> </h5>
+                                <div class="row listFormFoto mt-2">
+                                    <div class="col-2 listfoto pt-3" id="listfoto_1">
+                                        <h6>Foto 1</h6>
+                                        <input type="file" class="form-control" name="produk_foto[]">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row mb-4 mt-3">
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-info tambahformfoto">Tambah Foto</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="card-footer">
@@ -141,5 +159,6 @@
         });
     });
 </script>
+<script src="/assets/admin/js/fotoproduk.js"></script>
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

@@ -30,28 +30,90 @@
                             <!------- Nama Pelanggan ------->
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="nama_pelanggan" class="form-label">Nama Pelanggan</label>
-                                    <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan">
+                                    <label for="nama_pelanggan" class="form-label">Nama Pelanggan *</label>
+                                    <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" required>
                                 </div>
                             </div>
                             <!------- Foto Pelanggan ------->
                             <div class="col-md-6">
-                                <label for="pelanggan_foto" class="form-label">Logo Pelanggan</label> (.jpg, .jpeg, .png)
+                                <label for="pelanggan_foto" class="form-label">Logo Pelanggan *</label> (.jpg, .jpeg, .png)
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="pelanggan_foto">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="pelanggan_foto" required>
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                     </div>
                                     <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                 </div>
                             </div>
-                            <!-- link pelanggan -->
-                            <div class="col-md-6">
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="link_pelanggan" class="form-label">Link Eksternal</label>
-                                    <input type="text" class="form-control" id="link_pelanggan" name="link_pelanggan">
+                                    <label for="">Nama Perusahaan *</label>
+                                    <input type="text" name="nama_perusahaan" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="link_pelanggan" class="form-label">Link Eksternal *</label>
+                                    <input type="text" class="form-control" id="link_pelanggan" name="link_pelanggan" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="">Kategori Pekerjaan *</label>
+                                    <select name="kategori_pekerjaan" class="form-control" required>
+                                        <option value=""> -- Pilih Kategori Pekerjaan -- </option>
+                                        <option value="1">Pengadaan Barang</option>
+                                        <option value="2">Pengadaan Jasa</option>
+                                        <option value="3">Pengadaan Barang & Jasa</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="">Nama Pekerjaan / Project *</label>
+                                    <input type="text" name="nama_pekerjaan" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="">Deskripsi Singkat Pekerjaan *</label>
+                                    <textarea name="deskripsi_singkat_pekerjaan" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="">No. SPK / PO *</label>
+                                    <input type="text" name="no_spk" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="">Tanggal SPK / PO *</label>
+                                    <input type="date" name="tgl_spk" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="">Waktu Pekerjaan *</label>
+                                    <input type="date" name="waktu_pekerjaan" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="">Tahun Buku *</label>
+                                    <input type="number" name="tahun_buku" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +130,6 @@
         </div>
     </section>
 </div>
-
 
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

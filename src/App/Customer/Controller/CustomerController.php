@@ -66,6 +66,14 @@ class CustomerController
             ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')
             ->where('id_pelanggan', $id)->first();
 
+        if ($data_pelanggan['kategori_pekerjaan'] == '1') {
+            $data_pelanggan['nama_kategori_pekerjaan'] = 'Pengadaan Barang';
+        } else if ($data_pelanggan['kategori_pekerjaan'] == '2') {
+            $data_pelanggan['nama_kategori_pekerjaan'] = 'Pengadaan Jasa';
+        } else if ($data_pelanggan['kategori_pekerjaan'] == '3') {
+            $data_pelanggan['nama_kategori_pekerjaan'] = 'Pengadaan Barang & Jasa';
+        }
+
         $datas_pelanggan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')
             ->paginate(10);

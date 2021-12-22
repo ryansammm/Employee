@@ -32,30 +32,11 @@
                         <h6 class="mt-4">Ringkasan Pekerjaan :</h6>
                         <div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Instansi/SKPD <span>PT. Jamkrida Jabar</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Kegiatan <span>Pengadaan Barang</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Sub Kegiatan <span>-</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Kategori Pekerjaan<span><?= $data_pelanggan['nama_kategori_pekerjaan'] ?></span></li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">Nama Pekerjaan<span>Upgrading Perangkat PABX PT. Jamkrida Jabar</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Pagu Anggaran<span>-</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Nilai HPS<span>-</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Harga Penwaran<span>37.950.000</span></li>
-                                <h6 class="mt-4">Pihak Pertama :</h6>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Nama<span>Muji Rohmad</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Jabatan<span>Kepala Divisi Keuangan dan Umum</span></li>
-                                <h6 class="mt-4">Pihak Kedua :</h6>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Nama<span>Sofyan Ali Syahbana</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Jabatan<span>Direktur PT. Tristek Media Kreasindo</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Alamat Kantor<span>Jl. Gelombang Cinta No. 35 RT 004 RW 004, Cisaranten Kulon, Arcamanik, Kota Bandung</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">NPWP<span>82.501.797.7-7.429.000</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Rek. Bank<span>98230-3909</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Nama Perusahaan<span>PT. Tristek Media Kreasindo</span></li>
-                                <h6 class="mt-4">Surat Perintah Kerja :</h6>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Nomor<span>SPK-0014/DKU/JJ/X/2021</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Nilai Pekerjaan<span>37.950.000</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Nilai Pembayaran<span>37.450.000</span></li>
-                                <h6 class="mt-4">Pembebanan pada Kode Rekening RIncian Obyek Belanja :</h6>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Uraian Pekerjaan<span>Upgrading Perangkat PABX PT. Jamkrida Jabar</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">Waktu Pelaksanaan<span>19 Oktober 2021 - 18 November November 2021</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">No. SPK / PO<span>-</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Tanggal SPK / PO <span>-</span></li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">Tahun Buku<span>37.950.000</span></li>
                             </ul>
                         </div>
                     </div>

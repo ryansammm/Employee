@@ -170,10 +170,31 @@
                     </a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/logout" role="button">
-                        <!-- <i class="fas fa-expand-arrows-alt"></i> -->
-                        Logout
-                    </a>
+                    <div class="btn-group mr-3">
+                        <a type="button" class="text-decoration-none" data-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex">
+                                <div class="user-img align-items-center mr-3">
+                                    <div style="background-image: url(/assets/media/<?= $GLOBALS['path_media'] ?>);width: 38px;height: 38px;background-size: cover;background-position: center;border-radius: 50%;"></div>
+                                </div>
+                                <div class="user-name text-start ms-3">
+                                    <h6 class="mb-0 text-muted" style="font-size: 14px;"><?= $GLOBALS['nama_user'] ?></h6>
+                                    <p class="mb-0 text-sm text-primary" style="font-size: 14px;">Online</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu">
+                            <h6 class="dropdown-header">Hello, <?= $GLOBALS['nama_user'] ?>!</h6>
+                            <a class="dropdown-item" href="/admin/profile-saya">
+                                <i class="icon-mid bi bi-person me-2"></i> My
+                                Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/admin/logout">
+                                <i class="icon-mid bi bi-box-arrow-left me-2"></i>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
                 </li>
 
             </ul>

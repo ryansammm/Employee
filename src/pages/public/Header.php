@@ -377,5 +377,11 @@
         feather.replace()
     </script>
 
+    <style>
+        .tooltip {
+            font-size: 11px;
+        }
+    </style>
+
 
     <!-- content -->

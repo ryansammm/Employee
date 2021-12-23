@@ -136,7 +136,7 @@
                             <a class="text-decoration-none text-dark" href="/product/<?= $value['id_produk'] ?>/detail">
                                 <div class="card p-0">
                                     <div class="align-self-center" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>
-                                    <h4 class="mt-3 px-2" style="font-size: 16px;"><?= $value['nama_produk'] ?></h4>
+                                    <h4 class="mt-3 px-2 truncate-string-1" style="font-size: 16px;" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= $value['nama_produk'] ?>"><?= $value['nama_produk'] ?></h4>
                                     <div class="mb-3 truncate-string-2 px-2" style="font-size: 12px;"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
                                 </div>
                             </a>
@@ -157,7 +157,7 @@
                             <a class="text-decoration-none text-dark" href="/product/<?= $value['id_produk'] ?>/detail">
                                 <div class="card p-0">
                                     <div class="align-self-center" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>
-                                    <h4 class="mt-3 px-2" style="font-size: 16px;"><?= $value['nama_produk'] ?></h4>
+                                    <h4 class="mt-3 px-2 truncate-string-1" style="font-size: 16px;" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= $value['nama_produk'] ?>"><?= $value['nama_produk'] ?></h4>
                                     <div class="mb-3 truncate-string-2 px-2" style="font-size: 12px;"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
                                 </div>
                             </a>

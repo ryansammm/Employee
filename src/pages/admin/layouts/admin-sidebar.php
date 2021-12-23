@@ -313,14 +313,14 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="/admin/profile-saya" class="nav-link <?= $GLOBALS['url'] == '/admin/profile-saya' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
                         <p>
                             Profile Saya
                         </p>
                     </a>
-                </li>
+                </li> -->
 
 
                 <?php if ($GLOBALS['nama_user'] == 'Developer') { ?>

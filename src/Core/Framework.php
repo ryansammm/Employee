@@ -14,6 +14,8 @@ use App\Menu\Model\Menu;
 use App\SosialMedia\Model\SosialMedia;
 use App\SubMenu\Model\SubMenu;
 use App\Users\Model\Users;
+use Config\AppPermissions;
+use Config\RolePermissions;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -113,9 +115,6 @@ class Framework extends HttpKernel implements HttpKernelInterface
         $media = new Media();
         $data_media_title = $media->where('jenis_dokumen', 'cms-title')->first();
 
-
-
-
         /* ------------------------------- Akreditasi ------------------------------- */
         $akreditasi_model = new Akreditasi();
         $akreditasi = $akreditasi_model->leftJoin('media', 'media.id_relation', '=', 'akreditasi.id_akreditasi')->get();
@@ -167,6 +166,60 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         $GLOBALS['url'] = $urlTujuan;
         $GLOBALS['current_url'] = $current_url;
+
+        /* ----------------------------- User Previleges ---------------------------- */
+        $idRole = $id_role;
+        $aliasRole = $alias_role;
+        $urlTujuan = $request->getPathInfo();
+        $GLOBALS['url'] = $urlTujuan;
+        $GLOBALS['aliasRole'] = $aliasRole;
+
+        $app_permissions_obj = new AppPermissions();
+        $app_permissions = $app_permissions_obj->getPermissions();
+
+        $selectPermissions = [];
+        foreach ($app_permissions as $key => $value) {
+            if ($value['url'] == $urlTujuan) {
+                $selectPermissions = $value;
+            }
+        }
+
+        if ($idRole != null) {
+            $role_permissions_obj = new RolePermissions();
+            $role_permissions = $role_permissions_obj->getAllRolePermissions();
+            $GLOBALS['userPermissions'] = $role_permissions_obj->getRolePermissions($idRole);
+
+            $hasPermissions = false;
+            if (count($selectPermissions) > 0) {
+                if (($GLOBALS['userPermissions'] != '*' && in_array($selectPermissions['aliasPermission'], $GLOBALS['userPermissions']))) {
+                    $hasPermissions = true;
+                } else if ($GLOBALS['userPermissions'] == '*') {
+                    $hasPermissions = true;
+                }
+            }
+            // dd($selectPermissions, $urlTujuan, $GLOBALS['userPermissions'], $hasPermissions);
+            if (count($selectPermissions) == 0) {
+                $selectedUrl = $urlTujuan;
+                $pathInfo = $selectedUrl;
+            } else {
+                if ($hasPermissions) {
+                    $selectedUrl = $urlTujuan;
+                    $pathInfo = $selectedUrl;
+                } else {
+                    $selectedUrl = '/';
+                    $pathInfo = $selectedUrl;
+                }
+            }
+        } else {
+            if (count($selectPermissions) == 0) {
+                $selectedUrl = $urlTujuan;
+                $pathInfo = $selectedUrl;
+            } else {
+                $selectedUrl = '/';
+                $pathInfo = $selectedUrl;
+            }
+        }
+        /* --------------------------- End User Previleges -------------------------- */
 
         // -----------------------------------
 

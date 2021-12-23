@@ -39,7 +39,7 @@ class RolePermissions
     public function getRolePermissions($idRole)
     {
         foreach ($this->role_permissions as $key => $value) {
-            if ($value['idRole'] == $idRole) {
+            if ($value['id_role'] == $idRole) {
                 return $value['permissions'];
             }
         }

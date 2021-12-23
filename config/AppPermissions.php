@@ -8,107 +8,122 @@ class AppPermissions
         [
             'menu' => 'Profil',
             'aliasPermission' => 'profil',
-            'url' => '/profil'
+            'url' => '/admin/profil'
         ],
         [
             'menu' => 'Berita',
             'aliasPermission' => 'berita',
-            'url' => '/berita'
+            'url' => '/admin/berita'
         ],
         [
             'menu' => 'Kategori Berita',
             'aliasPermission' => 'kategori-berita',
-            'url' => '/kategori-berita'
+            'url' => '/admin/kategori-berita'
         ],
         [
             'menu' => 'Produk',
             'aliasPermission' => 'produk',
-            'url' => '/produk'
+            'url' => '/admin/produk'
         ],
         [
             'menu' => 'Kategori Produk',
             'aliasPermission' => 'kategori-produk',
-            'url' => '/kategori-produk'
+            'url' => '/admin/kategori-produk'
         ],
         [
             'menu' => 'Layanan',
             'aliasPermission' => 'layanan',
-            'url' => '/layanan'
+            'url' => '/admin/layanan'
         ],
         [
             'menu' => 'Kategori Layanan',
             'aliasPermission' => 'kategori-layanan',
-            'url' => '/kategori-layanan'
+            'url' => '/admin/kategori-layanan'
         ],
         [
             'menu' => 'Galeri',
             'aliasPermission' => 'galeri',
-            'url' => '/galeri'
+            'url' => '/admin/galeri'
         ],
         [
             'menu' => 'Kategori Galeri',
             'aliasPermission' => 'kategori-galeri',
-            'url' => '/kategori-galeri'
+            'url' => '/admin/kategori-galeri'
         ],
         [
             'menu' => 'Video',
             'aliasPermission' => 'video',
-            'url' => '/video'
+            'url' => '/admin/video'
         ],
         [
             'menu' => 'Banner',
             'aliasPermission' => 'banner',
-            'url' => '/banner'
+            'url' => '/admin/banner'
         ],
         [
             'menu' => 'Pelanggan',
             'aliasPermission' => 'pelanggan',
-            'url' => '/pelanggan'
+            'url' => '/admin/pelanggan'
         ],
         [
             'menu' => 'Akreditasi',
             'aliasPermission' => 'akreditasi',
-            'url' => '/akreditasi'
+            'url' => '/admin/akreditasi'
         ],
         [
             'menu' => 'Asosiasi',
             'aliasPermission' => 'asosiasi',
-            'url' => '/asosiasi'
+            'url' => '/admin/asosiasi'
         ],
         [
             'menu' => 'Kontak',
             'aliasPermission' => 'kontak',
-            'url' => '/kontak'
+            'url' => '/admin/kontak'
         ],
         [
             'menu' => 'Sosial Media',
             'aliasPermission' => 'sosial-media',
-            'url' => '/sosial-media'
+            'url' => '/admin/sosial-media'
         ],
         [
             'menu' => 'Pengguna',
             'aliasPermission' => 'pengguna',
-            'url' => '/pengguna'
+            'url' => '/admin/pengguna'
         ],
         [
             'menu' => 'Roles',
             'aliasPermission' => 'roles',
-            'url' => '/roles'
+            'url' => '/admin/roles'
         ],
         [
             'menu' => 'Karyawan',
             'aliasPermission' => 'karyawan',
-            'url' => '/karyawan'
+            'url' => '/admin/karyawan'
         ],
         [
             'menu' => 'Jabatan',
             'aliasPermission' => 'jabatan',
-            'url' => '/jabatan'
+            'url' => '/admin/jabatan'
         ],
         [
             'menu' => 'Profile Team',
             'aliasPermission' => 'profile-team',
-            'url' => '/profile-team'
+            'url' => '/admin/profile-team'
+        ],
+        [
+            'menu' => 'Kelola Admin Website',
+            'aliasPermission' => 'menu',
+            'url' => '/admin/menu'
+        ],
+        [
+            'menu' => 'Kelola Komponen Website',
+            'aliasPermission' => 'component',
+            'url' => '/admin/component'
+        ],
+        [
+            'menu' => 'Kelola Halaman Website',
+            'aliasPermission' => 'halaman',
+            'url' => '/admin/halaman'
         ],
 
     ];

@@ -29,7 +29,9 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div style="background-image: url('/assets/media/<?= $data_produk['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-file="<?= arr_offset($data_produk, 'path_media') ?>">
+                                <div style="background-image: url('/assets/media/<?= $data_produk['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div>
+                            </a>
                         </div>
                         <div class="col-md-6">
                             <div class=" justify-content-between align-items-center mb-3">
@@ -71,91 +73,23 @@
             <div class="card mt-3">
                 <div class="card-body p-2">
                     <div class="owl-carousel owl-theme">
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <div style="background-image: url(/assets/produk/produk1.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                <div style="background-image: url(/assets/produk/produk2.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                <div style="background-image: url(/assets/produk/produk3.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                                <div style="background-image: url(/assets/produk/produk4.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal5">
-                                <div style="background-image: url(/assets/produk/produk5.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal6">
-                                <div style="background-image: url(/assets/produk/produk6.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
+                        <?php foreach ($data_galeri_produk->items as $key => $value) { ?>
+                            <div class="item">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-file="<?= arr_offset($value, 'path_media') ?>">
+                                    <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                                </a>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
 
-            <!------- Modal Service Image ------->
+            <!------- Modal Product Image ------->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-body p-1">
-                            <img src="/assets/produk/produk1.jpg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/produk/produk2.jpg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/produk/produk3.jpg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/produk/produk4.jpg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/produk/produk5.jpg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/produk/produk6.jpg" width="100%" alt="">
+                            <img class="fileSakip" src="" alt="" style="width: 100%;">
                         </div>
                     </div>
                 </div>
@@ -254,5 +188,19 @@
 
     </div>
 </div>
+
+
+<script>
+    $("#exampleModal").on("show.bs.modal", function(event) {
+        var button = event.relatedTarget;
+        var file = button.getAttribute("data-file");
+        var extFile = file.split(".");
+        console.log(file);
+
+        $(this)
+            .find(".fileSakip")[0]
+            .setAttribute("src", "/assets/media/" + file);
+    });
+</script>
 
 <?php include __DIR__ . '/../Footer.php' ?>

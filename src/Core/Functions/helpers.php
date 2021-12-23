@@ -19,6 +19,38 @@ if (!function_exists('render_template')) {
             extract($request->attributes->all(), EXTR_SKIP);
         }
 
+        $isPermited = function ($userpermissions = [], $permissions, $option = 'required-all') {
+            $result = false;
+
+            // jika memiliki semua akses
+            if ($userpermissions == '*') {
+                return true;
+            }
+
+            // option "required-all"
+            if ($option == 'required-all') {
+                $permissionAmount = count($permissions);
+                foreach ($userpermissions as $key => $value) {
+                    foreach ($permissions as $key1 => $value1) {
+                        if ($value == $value1) {
+                            $permissionAmount--;
+                        }
+                    }
+                }
+                $result = $permissionAmount == 0 ? true : false;
+            } else {
+                // option "required-one"
+                foreach ($userpermissions as $key => $value) {
+                    if (in_array($value, $permissions)) {
+                        $result = true;
+                        break;
+                    }
+                }
+            }
+
+            return $result;
+        };
+
         extract($data, EXTR_SKIP);
 
         ob_start();
@@ -147,7 +179,7 @@ if (!function_exists('component')) {
 
         $component_final = $component_path;
         foreach ($datas as $key => $value) {
-            $component_final = str_replace('{'.$key.'}', $value, $component_final);
+            $component_final = str_replace('{' . $key . '}', $value, $component_final);
         }
 
         return html_entity_decode($component_final);

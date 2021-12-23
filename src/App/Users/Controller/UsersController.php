@@ -2,6 +2,8 @@
 
 namespace App\Users\Controller;
 
+use App\Media\Model\Media;
+use App\Role\Model\Role;
 use App\Users\Model\Users;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -26,8 +28,13 @@ class UsersController
 
     public function create(Request $request)
     {
+        $roles = new Role();
 
-        return render_template('admin/pengguna/create', []);
+        $datas_roles = $roles
+            ->orderBy('nama_role', 'ASC')
+            ->get();
+
+        return render_template('admin/pengguna/create', ['datas_roles' => $datas_roles]);
     }
 
     public function store(Request $request)
@@ -36,9 +43,14 @@ class UsersController
         // $request->request->set('id_user', SessionData::get('id_user'));
         $request->request->set('password_user', password_hash($request->request->get('password_user'), PASSWORD_DEFAULT));
 
-        /* ------------------------------ Create Produk ----------------------------- */
+        /* ------------------------------ Create Users ----------------------------- */
         $create = $this->model->insert($request->request->all());
 
+        $media = new Media();
+        $media->storeMedia($request->files->get('foto_profil'), [
+            'id_relation' => $create,
+            'jenis_dokumen' => '',
+        ]);
 
         return new RedirectResponse('/admin/pengguna');
     }
@@ -46,11 +58,17 @@ class UsersController
     public function edit(Request $request)
     {
         $id = $request->attributes->get("id");
-        $users = $this->model->where('id_user', $id)->first();
+        $users = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'users.id_user')
+            ->where('id_user', $id)
+            ->first();
 
-        // dd($users);
+        $roles = new Role();
+        $datas_roles = $roles
+            ->orderBy('nama_role', 'ASC')
+            ->get();
 
-        return render_template('admin/pengguna/edit', ['users' => $users]);
+        return render_template('admin/pengguna/edit', ['users' => $users, 'datas_roles' => $datas_roles]);
     }
 
     public function update(Request $request)
@@ -59,6 +77,12 @@ class UsersController
         $request->request->set('password_user', password_hash($request->request->get('password_user'), PASSWORD_DEFAULT));
 
         $this->model->where('id_user', $id)->update($request->request->all());
+
+        $media = new Media();
+        $media->updateMedia($request->files->get('foto_profil'), [
+            'id_relation' => $id,
+            'jenis_dokumen' => '',
+        ], $this->model, $id);
 
         return new RedirectResponse('/admin/pengguna');
     }

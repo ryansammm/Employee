@@ -54,13 +54,20 @@ class Framework extends HttpKernel implements HttpKernelInterface
         // Get user id
         $id_user = SessionData::get('id_user');
         $nama_user = SessionData::get('nama_user');
+        $id_role = SessionData::get('id_role');
+        $alias_role = SessionData::get('alias_role');
         $GLOBALS['id_user'] = $id_user;
         $GLOBALS['nama_user'] = $nama_user;
+        $GLOBALS['id_role'] = $id_role;
+        $GLOBALS['alias_role'] = $alias_role;
+
 
         $this->users = new Users();
         $data_users = $this->users
             ->leftjoin('media', 'media.id_relation', '=', 'users.id_user')
-            ->where('id_user', $id_user)->first();
+            ->leftJoin('role', 'role.id_role', '=', 'users.id_role')
+            ->where('id_user', $id_user)
+            ->first();
 
         $GLOBALS['path_media'] = isset($data_users['path_media']) ? $data_users['path_media'] : '';
 

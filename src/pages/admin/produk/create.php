@@ -87,7 +87,7 @@
                                 </div>
                                 <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                             </div>
-                            <!-- TAMBAH FOTO FOTO ALBUM -->
+                            <!------- Tambah Foto-Foto Album ------->
                             <div class="container mt-3">
                                 <h5><strong> Upload Foto-foto Produk Lainnya</strong> </h5>
                                 <div class="row listFormFoto mt-2">
@@ -95,16 +95,13 @@
                                         <h6>Foto 1</h6>
                                         <input type="file" class="form-control" name="produk_foto[]">
                                     </div>
-
                                 </div>
-
                             </div>
                             <div class="row mb-4 mt-3">
                                 <div class="col-12">
                                     <button type="button" class="btn btn-info tambahformfoto">Tambah Foto</button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="card-footer">

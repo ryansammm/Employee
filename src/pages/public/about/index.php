@@ -108,10 +108,11 @@
                                                         <h6 class="card-title"><?= $value['nama_lengkap'] ?></h6>
                                                         <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">
                                                             <?php foreach ($value['nama_jabatan'] as $key2 => $value2) { ?>
-                                                                <span><?= $value2['nama'] ?></span>
+                                                                <span><?= $value2['nama'] ?></span><br>
                                                             <?php } ?>
                                                         </h6>
-                                                        <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div>
+                                                        <small class="text-danger">Lihat Profil</small>
+                                                        <!-- <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,10 +147,11 @@
                                                         <h6 class="card-title"><?= $value['nama_lengkap'] ?></h6>
                                                         <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">
                                                             <?php foreach ($value['nama_jabatan'] as $key2 => $value2) { ?>
-                                                                <span><?= $value2['nama'] ?></span>
+                                                                <span><?= $value2['nama'] ?></span><br>
                                                             <?php } ?>
                                                         </h6>
-                                                        <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div>
+                                                        <small class="text-danger">Lihat Profil</small>
+                                                        <!-- <div class="truncate-string-1 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -184,10 +186,11 @@
                                                         <h6 class="card-title"><?= $value['nama_lengkap'] ?></h6>
                                                         <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">
                                                             <?php foreach ($value['nama_jabatan'] as $key2 => $value2) { ?>
-                                                                <span><?= $value2['nama'] ?></span>
+                                                                <span><?= $value2['nama'] ?></span><br>
                                                             <?php } ?>
                                                         </h6>
-                                                        <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div>
+                                                        <small class="text-danger">Lihat Profil</small>
+                                                        <!-- <div class="truncate-string-2 text-muted" style="font-size: 13px;font-weight: 300;"><?= $value['pengalaman_profesional'] ?></div> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,8 +218,8 @@
 
                     <div class="col-9">
                         <div class="row me-2">
-                            <h4 class="card-title nama"></h4>
-                            <h6 class="card-title jabatan"></h6>
+                            <h4 class="card-title nama mb-1"></h4>
+                            <h6 class="card-title jabatan" style="font-size: 14px;font-style: normal;"></h6>
                             <div class="mt-3 riwayat" style="font-size: 14px;text-align: justify;"></div>
                             <div class="mt-3 pengalaman" style="font-size: 14px;text-align: justify;"></div>
                         </div>
@@ -249,10 +252,16 @@
         }).done(function(data) {
             var jabatan = data.nama_jabatan;
             modal.find('.nama').html(data.nama_lengkap);
-            // for (let x = 0; x < jabatan.length; x++) {
-            //     const element = jabatan[index];
-            //     modal.find('.jabatan').html(data.nama);
-            // }
+
+
+            modal.find('.jabatan').html("");
+            for (let x = 0; x < jabatan.length; x++) {
+                var element = jabatan[x].nama;
+                var nama_jabatan = element;
+                modal.find('.jabatan').append(
+                    '<span>' + nama_jabatan + (x == (jabatan.length - 1) ? '' : ', ') + '</span>');
+            }
+
             modal.find('.riwayat').html(data.riwayat_pendidikan);
             modal.find('.pengalaman').html(data.pengalaman_profesional);
         });

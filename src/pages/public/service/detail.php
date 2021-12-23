@@ -69,95 +69,27 @@
                 </div>
             </div>
 
-            <!------- Service Image ------->
+            <!------- Services Image ------->
             <div class="card mt-3">
                 <div class="card-body p-2">
                     <div class="owl-carousel owl-theme">
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <div style="background-image: url(/assets/layanan/layanan1.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                <div style="background-image: url(/assets/layanan/layanan2.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                <div style="background-image: url(/assets/layanan/layanan3.jpeg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                                <div style="background-image: url(/assets/layanan/layanan4.png);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal5">
-                                <div style="background-image: url(/assets/layanan/layanan5.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal6">
-                                <div style="background-image: url(/assets/layanan/layanan6.jpg);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
-                            </a>
-                        </div>
+                        <?php foreach ($data_galeri_layanan->items as $key => $value) { ?>
+                            <div class="item">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-file="<?= arr_offset($value, 'path_media') ?>">
+                                    <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 181px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                                </a>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
 
-            <!------- Modal Service Image ------->
+            <!------- Modal Services Image ------->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-body p-1">
-                            <img src="/assets/layanan/layanan1.jpeg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/layanan/layanan2.jpeg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/layanan/layanan3.jpeg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/layanan/layanan4.png" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/layanan/layanan5.jpg" width="100%" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body p-1">
-                            <img src="/assets/layanan/layanan6.jpg" width="100%" alt="">
+                            <img class="fileSakip" src="" width="100%" alt="">
                         </div>
                     </div>
                 </div>
@@ -179,18 +111,20 @@
             </section>
 
             <!------- Spesifikasi ------->
-            <section class="mt-3">
-                <div class="card">
-                    <div class="card-body px-0 pe-3">
-                        <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
-                            <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Spesifikasi</h6>
-                        </div>
-                        <div class="description  ms-3">
-                            <div class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_layanan['spesifikasi_layanan'])) ?></div>
+            <?php if ($data_layanan['spesifikasi_layanan'] != NULL) { ?>
+                <section class="mt-3">
+                    <div class="card">
+                        <div class="card-body px-0 pe-3">
+                            <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
+                                <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Spesifikasi</h6>
+                            </div>
+                            <div class="description  ms-3">
+                                <div class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_layanan['spesifikasi_layanan'])) ?></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            <?php } ?>
 
             <!------- Layanan Lainnya ------->
             <section class="mt-3">
@@ -257,6 +191,19 @@
 
     </div>
 </div>
+
+<script>
+    $("#exampleModal").on("show.bs.modal", function(event) {
+        var button = event.relatedTarget;
+        var file = button.getAttribute("data-file");
+        var extFile = file.split(".");
+        console.log(file);
+
+        $(this)
+            .find(".fileSakip")[0]
+            .setAttribute("src", "/assets/media/" + file);
+    });
+</script>
 
 
 

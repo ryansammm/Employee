@@ -47,6 +47,7 @@ use App\ProdukAdmin\Controller\ProdukAdminController;
 use App\ProfilAdmin\Controller\ProfilAdminController;
 use App\Profile\Controller\ProfileController;
 use App\ProfileTeam\Controller\ProfileTeamController;
+use App\Role\Controller\RoleController;
 use App\Search\Controller\SearchController;
 use App\SemuaBerita\Controller\SemuaBeritaController;
 use App\SosialMedia\Controller\SosialMediaController;
@@ -429,6 +430,18 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('jabatan_show', '/{id}/show', [JabatanController::class, 'show']);
         $routes->push('jabatan_delete', '/{id}/delete', [JabatanController::class, 'delete']);
         $routes->push('jabatan_get', '/get', [JabatanController::class, 'get']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* ---------------------------------- Roles --------------------------------- */
+    $routes->prefix('roles', function ($routes) {
+        $routes->push('roles', '', [RoleController::class, 'index']);
+        $routes->push('roles_create', '/create', [RoleController::class, 'create']);
+        $routes->push('roles_store', '/store', [RoleController::class, 'store']);
+        $routes->push('roles_edit', '/{id}/edit', [RoleController::class, 'edit']);
+        $routes->push('roles_update', '/{id}/update', [RoleController::class, 'update']);
+        $routes->push('roles_show', '/{id}/show', [RoleController::class, 'show']);
+        $routes->push('roles_delete', '/{id}/delete', [RoleController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 });

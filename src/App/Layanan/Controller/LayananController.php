@@ -105,11 +105,13 @@ class LayananController
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->where('layanan.id_kategori_layanan', $data_layanan['id_kategori_layanan'])
+            ->where('jenis_dokumen', 'utama')
             ->limit(4)->get();
 
         $all_layanan = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
+            ->where('jenis_dokumen', 'utama')
             ->orderBy("RAND()")
             ->limit(5)->get();
 
@@ -146,6 +148,7 @@ class LayananController
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
             ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
             ->where('layanan.id_kategori_layanan', $kategori)
+            ->where('jenis_dokumen', 'utama')
             ->paginate(8)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
 
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');

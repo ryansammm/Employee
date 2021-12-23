@@ -57,6 +57,7 @@ class HomeController
         /* --------------------------------- Service -------------------------------- */
         $data_layanan = $service
             ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
+            ->where('jenis_dokumen', 'utama')
             ->paginate(4)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
         /* -------------------------------------------------------------------------- */
 
@@ -68,6 +69,7 @@ class HomeController
         $data_produk = $product
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
+            ->where('jenis_dokumen', 'utama')
             ->paginate(6)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
         /* -------------------------------------------------------------------------- */
 

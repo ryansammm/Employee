@@ -107,12 +107,14 @@ class ProdukController
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
             ->where('produk.id_kategori_produk', $data_produk['id_kategori_produk'])
+            ->where('jenis_dokumen', 'utama')
             ->limit(4)->get();
 
         $all_produk = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
             ->orderBy("RAND()")
+            ->where('jenis_dokumen', 'utama')
             ->limit(5)->get();
 
 
@@ -149,6 +151,7 @@ class ProdukController
             ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
             ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
             ->where('produk.id_kategori_produk', $kategori)
+            ->where('jenis_dokumen', 'utama')
             ->paginate(8)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
 
         $cmsKategoriModule = new CmsKategoriModule('produk-kami');

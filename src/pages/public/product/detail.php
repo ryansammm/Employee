@@ -29,7 +29,9 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div style="background-image: url('/assets/media/<?= $data_produk['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-file="<?= arr_offset($data_produk, 'path_media') ?>">
+                                <div style="background-image: url('/assets/media/<?= $data_produk['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div>
+                            </a>
                         </div>
                         <div class="col-md-6">
                             <div class=" justify-content-between align-items-center mb-3">
@@ -87,7 +89,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-body p-1">
-                            <img class="fileSakip" src="" width="100%" alt="">
+                            <img class="fileSakip" src="" alt="" style="width: 100%;">
                         </div>
                     </div>
                 </div>

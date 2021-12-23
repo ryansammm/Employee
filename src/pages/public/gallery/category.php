@@ -35,16 +35,19 @@
                 <?php foreach ($data_galeri->items as $key => $value) { ?>
                     <div class="col-md-3">
                         <div class="card shadow-sm">
-                            <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 225px;background-size: cover;background-position: center;"></div>
+                            <a class="text-decoration-none" href="/gallery/<?= $value['id_galeri'] ?>/detail">
+                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 193px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>
+                            </a>
                             <div class="card-body">
-                                <h6><?= $value['judul_galeri'] ?></h6>
-                                <div class="card-text truncate-string-2 mb-3" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['deskripsi_galeri'])) ?></div>
+                                <a class="text-decoration-none" href="/gallery/<?= $value['id_galeri'] ?>/detail">
+                                    <h6><?= $value['judul_galeri'] ?></h6>
+                                    <div class="card-text truncate-string-2 mb-3" style="font-size: 14px;"><?= html_entity_decode(nl2br($value['deskripsi_galeri'])) ?></div>
+                                </a>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="/gallery/<?= $value['id_galeri'] ?>/detail" type="button" class="btn btn-sm btn-outline-primary">Detail</a>
-                                    </div>
                                     <a class="text-decoration-none" href="/gallery/<?= $value['id_kategori_galeri'] ?>/kategori"><small class="text-muted" style="font-size: 12px;"><?= $value['nama_kategori_galeri'] ?></small></a>
-
+                                    <!-- <div class="btn-group">
+                                        <a href="/gallery/<?= $value['id_galeri'] ?>/detail" type="button" class="btn btn-sm btn-outline-primary">Detail</a>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

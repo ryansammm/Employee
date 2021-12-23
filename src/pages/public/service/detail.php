@@ -111,18 +111,20 @@
             </section>
 
             <!------- Spesifikasi ------->
-            <section class="mt-3">
-                <div class="card">
-                    <div class="card-body px-0 pe-3">
-                        <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
-                            <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Spesifikasi</h6>
-                        </div>
-                        <div class="description  ms-3">
-                            <div class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_layanan['spesifikasi_layanan'])) ?></div>
+            <?php if ($data_layanan['spesifikasi_layanan'] != NULL) { ?>
+                <section class="mt-3">
+                    <div class="card">
+                        <div class="card-body px-0 pe-3">
+                            <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
+                                <h6 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Spesifikasi</h6>
+                            </div>
+                            <div class="description  ms-3">
+                                <div class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_layanan['spesifikasi_layanan'])) ?></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            <?php } ?>
 
             <!------- Layanan Lainnya ------->
             <section class="mt-3">

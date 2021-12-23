@@ -140,7 +140,7 @@
                                 <div class="card for-hover" style="border-radius: 8px;">
                                     <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 0.25rem 0.25rem 0 0;"></div>
                                     <div class="card-body" style="font-size: 12px;">
-                                        <h6><?= $value['nama_produk'] ?></h6>
+                                        <h6 class="truncate-string-2" data-toggle="tooltip" data-placement="top" title="<?= $value['nama_produk'] ?>"><?= $value['nama_produk'] ?></h6>
                                         <div class="card-text truncate-string-2 mb-1"><?= html_entity_decode(nl2br($value['deskripsi_produk'])) ?></div>
                                         <div class="d-flex justify-content-start align-items-start">
                                             <!-- <div class="btn-group">

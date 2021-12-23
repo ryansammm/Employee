@@ -79,7 +79,7 @@ class Media extends Model
         }
 
         try {
-            if ($this->comporessed == true) {
+            if ($this->comporessed == false) {
 
                 $this->compressImage($file->getPathName(), $this->path . '/' . $newFilename, 40);
             } else {

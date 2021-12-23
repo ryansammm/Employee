@@ -105,7 +105,7 @@ class LikeBeritaKomentarController
                 ->where('id_berita', $id_berita)
                 ->where('id_user', $idUser)
                 ->where('id_berita_comment', $id_komentar)
-                ->where('jenislike_comment', '2')->delete();
+                ->where('jenislike_comment', '1')->delete();
         }
 
         return new RedirectResponse('/news/' . $id_berita . '/detail');

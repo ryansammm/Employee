@@ -10,6 +10,7 @@ use App\CmsKategoriStyle\Model\CmsKategoriModule;
 use App\CmsSetting\Model\CmsSetting;
 use App\KomentarBerita\Model\KomentarBerita;
 use App\LikeBerita\Model\LikeBerita;
+use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -182,10 +183,11 @@ class BeritaController
                     ->where('approval', '1')
                     ->where('media.jenis_dokumen', 'profil_foto');
             }, 'parent_comment');
-            // dd($komentar_berita);
         /* -------------------------------------------------------------------------- */
 
-        return render_template('public/news/detail', ['datas_kategori' => $datas_kategori, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting, 'data_berita_hangat' => $data_berita_hangat, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'like_berita' => $like_berita, 'dislike_berita' => $dislike_berita, 'komentar_berita' => $komentar_berita]);
+        $success = SessionData::get()->getFlashBag()->get('success', []);
+
+        return render_template('public/news/detail', ['datas_kategori' => $datas_kategori, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting, 'data_berita_hangat' => $data_berita_hangat, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'like_berita' => $like_berita, 'dislike_berita' => $dislike_berita, 'komentar_berita' => $komentar_berita, 'success' => $success]);
     }
 
     public function kategori(Request $request)

@@ -15,19 +15,19 @@ class RolePermissions
             'id_role' => '61c3ebd49785e',
             'nama_role' => 'Administrator',
             'alias_role' => 'administrator',
-            'permissions' => ['profil', 'berita', 'kategori-berita', 'produk', 'kategori-produk', 'layanan', 'kategori-layanan', 'galeri', 'kategori-layanan', 'video', 'banner', 'pelanggan', 'akreditasi', 'asosiasi', 'kontak', 'sosial-media', 'pengguna', 'roles', 'profile-team', 'jabatan']
+            'permissions' => ['profil', 'berita', 'kategori-berita', 'komentar-berita', 'produk', 'kategori-produk', 'layanan', 'kategori-layanan', 'galeri', 'kategori-layanan', 'video', 'banner', 'pelanggan', 'akreditasi', 'asosiasi', 'kontak', 'sosial-media', 'pengguna', 'roles', 'profile-team', 'jabatan']
         ],
         [
             'id_role' => '61c302ba75028',
             'nama_role' => 'Editor',
             'alias_role' => 'editor',
-            'permissions' => ['profil', 'berita', 'kategori-berita', 'produk', 'kategori-produk', 'layanan', 'kategori-layanan', 'galeri', 'kategori-layanan', 'video', 'banner', 'pelanggan', 'akreditasi', 'asosiasi', 'kontak', 'sosial-media', 'profile-team']
+            'permissions' => ['profil', 'berita', 'kategori-berita', 'komentar-berita', 'produk', 'kategori-produk', 'layanan', 'kategori-layanan', 'galeri', 'kategori-layanan', 'video', 'banner', 'pelanggan', 'akreditasi', 'asosiasi', 'kontak', 'sosial-media', 'profile-team']
         ],
         [
             'id_role' => '61c304b03104d',
             'nama_role' => 'User',
             'alias_role' => 'user',
-            'permissions' => ['berita', 'kategori-berita', 'produk', 'kategori-produk', 'layanan', 'kategori-layanan', 'galeri', 'kategori-galeri', 'video']
+            'permissions' => ['berita', 'kategori-berita', 'komentar-berita', 'produk', 'kategori-produk', 'layanan', 'kategori-layanan', 'galeri', 'kategori-galeri', 'video']
         ],
     ];
 

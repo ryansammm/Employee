@@ -34,37 +34,8 @@ class KomentarBeritaController
             'approval' => '2'
         ]);
 
-        SessionData::get()->getFlashBag()->add('msgSuccess', "Komentar anda berhasil di tambahkan!");
+        SessionData::get()->getFlashBag()->add('success', "Komentar anda berhasil di tambahkan!");
 
-        return new RedirectResponse("/news/" . $idBerita . "/detail");
-    }
-
-    public function storeCommentonReply(Request $request)
-    {
-        $idComment = $request->attributes->get('id');
-        $idUser = session('id_user');
-        $getComment = $this->model->selectOne($idComment);
-        $getComment['commentonComment'] = $idComment;
-        $getComment['countcommentComment'] = intval($getComment['countcommentComment']) + 1;
-
-        $this->model->create($request->request, $getComment['idBerita'], $idUser, $idComment);
-        $getComment['commentonComment'] = null;
-        $this->model->update($getComment, $getComment['idBerita'], $idUser, $idComment);
-
-        $this->session->getFlashBag()->add('msgSuccess', "Komentar anda berhasil di tambahkan!");
-
-        return new RedirectResponse("/informasi/berita/" . $getComment['idBerita']);
-    }
-
-    public function komentarBeritaApprovalStore(Request $request)
-    {
-        $id = $request->attributes->get('id');
-        if ($request->request->get('approvalKomentar') == '1') {
-            $this->model->approvalKomentar($id, $request->request->get('approvalKomentar'));
-        } else {
-            $this->model->delete($id);
-        }
-
-        return new RedirectResponse('/informasi-kesbangpol/komentar/approval');
+        return new RedirectResponse("/news/" . $idBerita . "/detail#form_komentar");
     }
 }

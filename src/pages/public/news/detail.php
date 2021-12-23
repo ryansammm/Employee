@@ -51,7 +51,14 @@
                 </div>
             </div>
             <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
-                <div class="card my-2 p-4">
+                <div class="card my-2 p-4" id="form_komentar">
+                    <?php if (!empty($success)) { ?>
+                        <?php foreach ($success as $succ) { ?>
+                            <div class="alert alert-success fade show" role="alert">
+                                <?= $succ ?>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
                     <form action="/komentar/<?= $detail_berita['id_berita'] ?>/store" method="POST">
                         <textarea class="form-control" name="comment" rows="5" placeholder="Silahkan tuliskan komentarmu...."></textarea>
                         <div class="d-flex flex-row-reverse">
@@ -74,8 +81,8 @@
                                             <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
                                         </div>
                                         <p class="" style="font-size:14px;"><?= $data['comment_text'] ?></p>
-                                        <a href="/like-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-up me-1"></i>2k</a>
-                                        <a href="/dislike-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-down me-1"></i>50</a>
+                                        <a href="/like-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-up me-1"></i><?= $data['countlike_comment'] != null ? $data['countlike_comment'] : 0 ?></a>
+                                        <a href="/dislike-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-down me-1"></i><?= $data['countdislike_comment'] != null ? $data['countdislike_comment'] : 0 ?></a>
 
                                         <a class="pe-2 text-lightgrey text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modal_balas_komentar" data-id="<?= $data['id_berita_comment'] ?>"><i class="far fa-comment me-1"></i><?= $data['countcomment_comment'] ?></a>
 
@@ -95,8 +102,8 @@
                                                                     <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
                                                                 </div>
                                                                 <p class="" style="font-size:14px;"><?= $sub['comment_text'] ?></p>
-                                                                <a href="#" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-up me-1"></i>2k</a>
-                                                                <a href="#" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-down me-1"></i>50</a>
+                                                                <a href="/like-komentar/<?= $sub['id_berita'] ?>/on/<?= $sub['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-up me-1"></i><?= $sub['countlike_comment'] != null ? $sub['countlike_comment'] : 0 ?></a>
+                                                                <a href="/dislike-komentar/<?= $sub['id_berita'] ?>/on/<?= $sub['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-down me-1"></i><?= $sub['countdislike_comment'] != null ? $sub['countdislike_comment'] : 0 ?></a>
                                                             </div>
                                                         </div>
                                                     </div>

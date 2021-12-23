@@ -21,6 +21,11 @@ class AppPermissions
             'url' => '/admin/kategori-berita'
         ],
         [
+            'menu' => 'Komentar Berita',
+            'aliasPermission' => 'komentar-berita',
+            'url' => '/admin/komentar-berita'
+        ],
+        [
             'menu' => 'Produk',
             'aliasPermission' => 'produk',
             'url' => '/admin/produk'

@@ -29,10 +29,13 @@ use App\KategoriGaleriAdmin\Controller\KategoriGaleriAdminController;
 use App\KategoriLayananAdmin\Controller\KategoriLayananAdminController;
 use App\KategoriProdukAdmin\Controller\KategoriProdukAdminController;
 use App\Ketentuan\Controller\KetentuanController;
+use App\KomentarBerita\Controller\KomentarBeritaController;
+use App\KomentarBeritaAdmin\Controller\KomentarBeritaAdminController;
 use App\Kontak\Controller\KontakController;
 use App\Layanan\Controller\LayananController;
 use App\LayananAdmin\Controller\LayananAdminController;
 use App\LikeBerita\Controller\LikeBeritaController;
+use App\LikeBeritaKomentar\Controller\LikeBeritaKomentarController;
 use App\Login\Controller\LoginController;
 use App\Maintenance\Controller\MaintenanceController;
 use App\Menu\Controller\MenuController;
@@ -91,6 +94,16 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('kategori_berita_edit', '/{id}/edit', [KategoriBeritaAdminController::class, 'edit']);
         $routes->push('kategori_berita_update', '/{id}/update', [KategoriBeritaAdminController::class, 'update']);
         $routes->push('kategori_berita_delete', '/{id}/delete', [KategoriBeritaAdminController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* --------------------------- Route Kelola Berita -------------------------- */
+    $routes->prefix('komentar-berita', function ($routes) {
+        $routes->push('komentar_berita', '', [KomentarBeritaAdminController::class, 'index']);
+        $routes->push('komentar_berita_edit', '/{id}/edit', [KomentarBeritaAdminController::class, 'edit']);
+        $routes->push('komentar_berita_update', '/{id}/update', [KomentarBeritaAdminController::class, 'update']);
+        $routes->push('komentar_berita_approve', '/{id}/approve/{status}', [KomentarBeritaAdminController::class, 'approve']);
+        $routes->push('komentar_berita_delete', '/{id}/delete', [KomentarBeritaAdminController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
 
@@ -517,8 +530,15 @@ $routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
 /* -------------------------------------------------------------------------- */
 
 // routes like berita
-$routes->push('like-berita', '/likeBerita/{id}/store', [LikeBeritaController::class, 'storeLike']);
-$routes->push('dislike-berita', '/dislikeBerita/{id}/store', [LikeBeritaController::class, 'storeDislike']);
+$routes->push('like_berita', '/like-berita/{id}/store', [LikeBeritaController::class, 'storeLike']);
+$routes->push('dislike_berita', '/dislike-berita/{id}/store', [LikeBeritaController::class, 'storeDislike']);
+
+// routes comment berita
+$routes->push('comment_berita', '/komentar/{id}/store', [KomentarBeritaController::class, 'storeComment']);
+
+// routes like komentar
+$routes->push('like_komentar', '/like-komentar/{id_berita}/on/{id_komentar}/store', [LikeBeritaKomentarController::class, 'storeLike']);
+$routes->push('dislike_komentar', '/dislike-komentar/{id_berita}/on/{id_komentar}/store', [LikeBeritaKomentarController::class, 'storeDislike']);
 
 // routes search header
 $routes->push('search_result', '/search', [SearchController::class, 'index']);

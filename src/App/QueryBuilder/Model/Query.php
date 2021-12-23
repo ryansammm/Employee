@@ -644,4 +644,38 @@ class Query
 
         return $this;
     }
+
+    public function whereNull(string $column)
+    {
+        if ($this->query['where'] == "") {
+            $this->query['where'] = " WHERE ";
+        } elseif (((substr($this->query['where'], -1) == "(" || substr($this->query['where'], -1) == ")")) || (substr($this->query['where'], -1) == "(")) {
+            $this->query['where'] .= "";
+        } else {
+            $this->query['where'] .= " AND ";
+        }
+
+        $this->query['where'] .= "$column IS NULL";
+
+        $this->generateSql();
+
+        return $this;
+    }
+
+    public function orWhereNull(string $column)
+    {
+        if ($this->query['where'] == "") {
+            $this->query['where'] = " WHERE ";
+        } elseif (((substr($this->query['where'], -1) == "(" || substr($this->query['where'], -1) == ")")) || (substr($this->query['where'], -1) == "(")) {
+            $this->query['where'] .= "";
+        } else {
+            $this->query['where'] .= " OR ";
+        }
+
+        $this->query['where'] .= "$column IS NULL";
+
+        $this->generateSql();
+
+        return $this;
+    }
 }

@@ -3,12 +3,13 @@
 namespace App\Berita\Controller;
 
 use App\Banner\Model\Banner;
-use App\KategoriBerita\Model\KategoriBerita;
 use App\KategoriBeritaAdmin\Model\KategoriBeritaAdmin;
 use App\Media\Model\Media;
 use App\Berita\Model\Berita;
 use App\CmsKategoriStyle\Model\CmsKategoriModule;
 use App\CmsSetting\Model\CmsSetting;
+use App\KomentarBerita\Model\KomentarBerita;
+use App\LikeBerita\Model\LikeBerita;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -17,12 +18,16 @@ class BeritaController
     public $model;
     public $cmsSetting;
     public $banner;
+    public $likeBerita;
+    public $komentarBerita;
 
     public function __construct()
     {
         $this->model = new Berita();
         $this->cmsSetting = new CmsSetting();
         $this->banner = new Banner();
+        $this->likeBerita = new LikeBerita();
+        $this->komentarBerita = new KomentarBerita();
     }
 
     public function index(Request $request)
@@ -116,7 +121,6 @@ class BeritaController
 
     public function detail(Request $request)
     {
-
         $berita = new Berita();
         $media = new Media();
         $kategori_berita = new KategoriBeritaAdmin();
@@ -158,7 +162,30 @@ class BeritaController
         $cms_setting = $this->cmsSetting->first();
         /* -------------------------------------------------------------------------- */
 
-        return render_template('public/news/detail', ['datas_kategori' => $datas_kategori, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting, 'data_berita_hangat' => $data_berita_hangat, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle]);
+        /* ----------------------------------- like & dislike ---------------------------------- */
+        $like_berita = $this->likeBerita
+            ->where('id_berita', $id)
+            ->where('id_user', session('id_user'))
+            ->where('jenislike_berita', '1')->first();
+        $dislike_berita = $this->likeBerita
+            ->where('id_berita', $id)
+            ->where('id_user', session('id_user'))
+            ->where('jenislike_berita', '2')->first();
+        /* -------------------------------------------------------------------------- */
+
+        /* ----------------------------------- komentar ---------------------------------- */
+        $komentar_berita = $this->komentarBerita
+            ->loadComment(function ($query) use ($id) {
+                $query->leftJoin('users', 'users.id_user', '=', 'berita_comment.id_user')
+                    ->leftJoin('media', 'media.id_relation', '=', 'users.id_user')
+                    ->where('id_berita', $id)
+                    ->where('approval', '1')
+                    ->where('media.jenis_dokumen', 'profil_foto');
+            }, 'parent_comment');
+            // dd($komentar_berita);
+        /* -------------------------------------------------------------------------- */
+
+        return render_template('public/news/detail', ['datas_kategori' => $datas_kategori, 'data_berita' => $data_berita, 'detail_berita' => $detail_berita, 'cms_setting' => $cms_setting, 'data_berita_hangat' => $data_berita_hangat, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'like_berita' => $like_berita, 'dislike_berita' => $dislike_berita, 'komentar_berita' => $komentar_berita]);
     }
 
     public function kategori(Request $request)

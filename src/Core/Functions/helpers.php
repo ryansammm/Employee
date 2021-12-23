@@ -153,3 +153,18 @@ if (!function_exists('component')) {
         return html_entity_decode($component_final);
     }
 }
+
+if (!function_exists('str_limit')) {
+    /**
+     * Limit string
+     *
+     * @param string $string
+     * @param int $limit
+     * @param string $end
+     * @return string
+     */
+    function str_limit($string, $limit, $end = '...')
+    {
+        return strlen($string) > $limit ? substr($string, 0, $limit) . $end : $string;
+    }
+}

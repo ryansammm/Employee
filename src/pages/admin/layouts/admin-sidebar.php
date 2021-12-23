@@ -42,6 +42,12 @@
                                 <p>Kelola Kategori</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/admin/komentar-berita" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Kategori</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">

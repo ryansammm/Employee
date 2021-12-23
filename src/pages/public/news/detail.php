@@ -29,22 +29,22 @@
                     <div class="row d-flex justify-content-center">
                         <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                             <div class="col-6 col-md-4 text-center text-grey">
-                                <a href="/likeBerita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
-                                    <i class="far fa-thumbs-up"></i>
+                                <a href="/like-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
+                                    <i class="<?= $like_berita ? 'fas' : 'far' ?> fa-thumbs-up"></i>
                                 </a>
-                                <span>0</span> Suka
+                                <span><?= $detail_berita['countlike_berita'] ?></span> Suka
                             </div>
                             <div class="col-6 col-md-4 text-center text-grey">
-                                <a href="/dislikeBerita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
-                                    <i class="far fa-thumbs-up" style="-ms-transform: rotate(180deg);transform: rotate(180deg);"></i>
+                                <a href="/dislike-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
+                                    <i class="<?= $dislike_berita ? 'fas' : 'far' ?> fa-thumbs-up" style="-ms-transform: rotate(180deg);transform: rotate(180deg);"></i>
                                 </a>
-                                <span>0</span> Tidak Suka
+                                <span><?= $detail_berita['countdislike_berita'] ?></span> Tidak Suka
                             </div>
                         <?php } ?>
                         <div class="col-6 col-md-4 text-center text-grey">
                             <a href="#" class="text-dark text-decoration-none btn-sosmed" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-bs-url="<?= $site_url ?>/informasi/berita/<?= $detail_berita['id_berita'] ?>" data-bs-idBerita="<?= $detail_berita['id_berita'] ?>">
                                 <i class="fas fa-share-alt"></i>
-                                <span>0</span> Bagikan
+                                <span><?= $detail_berita['countshare_berita'] ?></span> Bagikan
                             </a>
                         </div>
                     </div>
@@ -53,11 +53,61 @@
             <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                 <div class="card my-2 p-4">
                     <form action="/komentar/<?= $detail_berita['id_berita'] ?>/store" method="POST">
-                        <textarea class="form-control" rows="5" placeholder="Silahkan tuliskan komentarmu...."></textarea>
+                        <textarea class="form-control" name="comment" rows="5" placeholder="Silahkan tuliskan komentarmu...."></textarea>
                         <div class="d-flex flex-row-reverse">
                             <button type="submit" class="btn btn-primary rounded mt-3">Kirim</button>
                         </div>
                     </form>
+                </div>
+                <div class="card my-2">
+                    <div class="container py-3">
+                        <span><?= count($komentar_berita) ?> Komentar</span>
+                        <?php foreach ($komentar_berita as $key => $data) { ?>
+                            <div class="row my-3">
+                                <div class="col-sm-1">
+                                    <div style="background:url(/assets/media/<?= $data['path_media'] ?>);background-size:cover;background-position:center;display:block;width:50px;height:50px;border-radius:50%;"></div>
+                                </div>
+                                <div class="col-sm-11">
+                                    <div class="ms-2">
+                                        <div class="d-flex">
+                                            <h6 class="text-grey fw-normal" style="font-size:14px;"><?= $data['nama_user'] ?></h6>
+                                            <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
+                                        </div>
+                                        <p class="" style="font-size:14px;"><?= $data['comment_text'] ?></p>
+                                        <a href="/like-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-up me-1"></i>2k</a>
+                                        <a href="/dislike-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-down me-1"></i>50</a>
+
+                                        <a class="pe-2 text-lightgrey text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modal_balas_komentar" data-id="<?= $data['id_berita_comment'] ?>"><i class="far fa-comment me-1"></i><?= $data['countcomment_comment'] ?></a>
+
+                                        <?php if (!empty($data['sub_comment'])) { ?>
+                                            <div class="card shadow my-2 p-2">
+                                                <span class="ms-2">Balasan</span>
+                                                <?php foreach ($data['sub_comment'] as $key => $sub) { ?>
+
+                                                    <div class="row my-3 ms-1">
+                                                        <div class="col-sm-1">
+                                                            <div style="background:url(/assets/media/<?= $sub['path_media'] ?>);background-size:cover;background-position:center;display:block;width:50px;height:50px;border-radius:50%;"></div>
+                                                        </div>
+                                                        <div class="col-sm-11">
+                                                            <div class="ms-3">
+                                                                <div class="d-flex">
+                                                                    <h6 class="text-grey fw-normal" style="font-size:14px;"><?= $sub['nama_user'] ?></h6>
+                                                                    <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
+                                                                </div>
+                                                                <p class="" style="font-size:14px;"><?= $sub['comment_text'] ?></p>
+                                                                <a href="#" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-up me-1"></i>2k</a>
+                                                                <a href="#" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-down me-1"></i>50</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
             <?php } ?>
 
@@ -198,6 +248,34 @@
     </div>
 </div>
 
+<!-- Modal Balas Komentar -->
+<div class="modal fade" id="modal_balas_komentar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Balas Komentar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/komentar/<?= $detail_berita['id_berita'] ?>/store" method="POST">
+                    <input type="hidden" id="parent_comment" name="parent_comment">
+                    <textarea class="form-control" name="comment" rows="5" placeholder="Silahkan tuliskan komentarmu...."></textarea>
+                    <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="btn btn-primary rounded mt-3">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#modal_balas_komentar').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
 
+        var modal = $(this)
+        modal.find('#parent_comment').val(id)
+    })
+</script>
 
 <?php include __DIR__ . '/../Footer.php' ?>

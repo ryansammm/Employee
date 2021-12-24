@@ -41,6 +41,12 @@
     <!------- JQuery ------->
     <script src="/assets/js/jquery-3.6.0.min.js"></script>
 
+    <script>
+        $(document).on('click', function() {
+            $('.collapse').collapse('hide');
+        })
+    </script>
+
 </head>
 
 
@@ -69,7 +75,7 @@
 
     <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white mb-3">
 
-        <?php if ($GLOBALS['id_user'] == '') { ?>
+        <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
             <!------- Button Ubah Logo & Nama Perusahaan ------->
             <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
                 <i class="bi bi-pencil-square"></i>
@@ -183,6 +189,10 @@
                                     </a>
                                 <?php } ?>
                             </div>
+
+                            <button class="navbar-toggler d-sm-none d-block px-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="position: absolute;right: 0;top: 17%;">
+                                <span class="navbar-toggler-icon" style="border: 1px solid #b9b7b7;border-radius: 0.25rem;width: 40px;height: 40px;"><i class="bi bi-justify" style="font-size: 35px;"></i></span>
+                            </button>
 
                             <!-- mun katengah, si form di hide -->
                             <?php if ($GLOBALS['web_title']['cms_title_position'] == '1' && $GLOBALS['web_title']['cms_search'] == '1') { ?>

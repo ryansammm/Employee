@@ -42,7 +42,10 @@ class HomeController
 
         /* -------------------------------- About Us -------------------------------- */
         $data_profil = $about
-            ->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->get();
+            ->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')
+            ->where('jenis_dokumen', 'profil_foto')
+            ->get();
+
         $detail_profil = $data_profil->items[0];
         /* -------------------------------------------------------------------------- */
 

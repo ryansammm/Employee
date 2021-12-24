@@ -370,7 +370,7 @@ button {
 }
 
 button:focus:not(:focus-visible) {
-    outline: 0
+    outline: 0;
 }
 
 button,
@@ -4619,7 +4619,7 @@ fieldset:disabled .btn {
     background-color: transparent;
     border: 1px solid transparent;
     border-radius: .25rem;
-    transition: box-shadow .15s ease-in-out
+    transition: box-shadow .15s ease-in-out;
 }
 
 @media (prefers-reduced-motion:reduce) {

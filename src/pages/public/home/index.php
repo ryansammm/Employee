@@ -21,6 +21,9 @@
                     </div>
                     <hr style="margin-left: 4px;">
                     <div class="description ms-1">
+
+                        <div class="d-sm-none d-block mb-2" style="background-image: url('/assets/media/<?= $detail_profil['path_media'] ?>');width:100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+
                         <h6 class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($detail_profil['deskripsi_profil'])) ?></h6>
                     </div>
                 </div>

@@ -31,7 +31,7 @@
             <div class="card" style="background-color: unset;border: unset;">
                 <div class="card-header" style="background-color: unset;padding: 0;border: unset;">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Semua Berita</h5>
+                        <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Semua Berita <?= $detail_kategori['kategori_berita'] ?></h5>
                         <!-- <a href="/service" class="text-decoration-none" style="font-size: 14px;">Feed Lainnya <i class="bi bi-chevron-right"></i></a> -->
                     </div>
                 </div>
@@ -75,11 +75,11 @@
                                                         <span><?= posted_at($value['posted_at']) ?></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-2 d-flex">
+                                                <div class="col-3 d-flex">
                                                     <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                         <div class="me-3 sub-item" style="margin-top: 2px;">
                                                             <i class="fas fa-share"></i>
-                                                            <?= num($value['countshare_berita']) ?>
+                                                            <span><?= num($value['countshare_berita']) ?></span>
                                                             <span>Bagikan</span>
                                                         </div>
                                                     </a>

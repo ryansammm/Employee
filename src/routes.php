@@ -453,20 +453,20 @@ $routes->push('home', '/', [HomeController::class, 'index']);
 
 
 /* ------------------------------- Front News ------------------------------- */
-$routes->prefix('news', function ($routes) {
-    $routes->push('news', '', [BeritaController::class, 'index']);
-    $routes->push('news_detail', '/{id}/detail', [BeritaController::class, 'detail']);
-    $routes->push('news_kategori', '/{kategori}/kategori', [BeritaController::class, 'kategori']);
-});
+// $routes->prefix('news', function ($routes) {
+//     $routes->push('news', '', [BeritaController::class, 'index']);
+//     $routes->push('news_detail', '/{id}/detail', [BeritaController::class, 'detail']);
+//     $routes->push('news_kategori', '/{kategori}/kategori', [BeritaController::class, 'kategori']);
+// });
 /* -------------------------------------------------------------------------- */
 
 
 /* ----------------------------- Front All News ----------------------------- */
-$routes->prefix('all-news', function ($routes) {
-    $routes->push('all_news', '', [SemuaBeritaController::class, 'index']);
-    $routes->push('all_news_detail', '/{id}/detail', [SemuaBeritaController::class, 'detail']);
-    $routes->push('all_news_kategori', '/{kategori}/kategori', [SemuaBeritaController::class, 'kategori']);
-});
+// $routes->prefix('all-news', function ($routes) {
+//     $routes->push('all_news', '', [SemuaBeritaController::class, 'index']);
+//     $routes->push('all_news_detail', '/{id}/detail', [SemuaBeritaController::class, 'detail']);
+//     $routes->push('all_news_kategori', '/{kategori}/kategori', [SemuaBeritaController::class, 'kategori']);
+// });
 /* -------------------------------------------------------------------------- */
 
 

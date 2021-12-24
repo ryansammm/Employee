@@ -37,7 +37,7 @@
 
 
 <!------- Berita ------->
-<section id="Berita">
+<!-- <section id="Berita">
     <div class="container mt-4 pb-3">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Berita</h5>
@@ -60,7 +60,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 
 
 <!------- Layanan ------->
@@ -194,8 +194,21 @@
 </div>
 
 <script>
-    window.intergramId = "626917343"
+    window.intergramId = "626917343";
+    window.intergramCustomizations = {
+        titleClosed: 'Telegram',
+        titleOpen: 'Customer Service',
+        introMessage: 'First message when the user opens the chat for the first time',
+        autoResponse: 'A message that is sent immediately after the user sends its first message',
+        autoNoResponse: 'A message that is sent one minute after the user sends its first message ' +
+            'and no response was received',
+        mainColor: "#0853a6", // Can be any css supported color 'red', 'rgb(255,87,34)', etc
+        alwaysUseFloatingButton: false // Use the mobile floating button also on large screens
+    }
 </script>
-<script id="intergram" type="text/javascript" src="/assets/js/widget.js"></script>
+
+<script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
+
+<!-- <script id="intergram" type="text/javascript" src="/assets/js/widget.js"></script> -->
 
 <?php include __DIR__ . '/../Footer.php' ?>

@@ -30,7 +30,6 @@
                         <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/like-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
-                                    <!-- <i class="<?= $like_berita ? 'fas' : 'far' ?> fa-thumbs-yup"></i> -->
                                     <i class="bi bi-hand-thumbs-up<?= $like_berita ? '-fill' : '' ?>"></i>
                                     <span><?= $detail_berita['countlike_berita'] ?></span> Suka
                                 </a>

@@ -56,13 +56,14 @@
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <span><?= posted_at($item_berita_new(0, $i, $datas->items, 'posted_at')) ?></span>
                                                         </div>
-                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                        <!-- <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed"> -->
+                                                        <span class="text-decoration-none text-dark pe-1 d-flex" style="z-index: 999;">
                                                             <div class="me-3 sub-item" style="margin-top: 2px;">
                                                                 <i class="fas fa-share"></i>
                                                                 <span><?= num($item_berita_new(0, $i, $datas->items, 'countshare_berita')) ?></span>
                                                                 <span>Bagikan</span>
                                                             </div>
-                                                        </a>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,13 +102,14 @@
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <span><?= posted_at($item_berita_new(1, $i, $datas->items, 'posted_at')) ?></span>
                                                         </div>
-                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                        <!-- <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed"> -->
+                                                        <span class="text-decoration-none text-dark pe-1 d-flex" style="z-index: 999;">
                                                             <div class="me-3 sub-item" style="margin-top: 2px;">
                                                                 <i class="fas fa-share"></i>
                                                                 <span><?= num($item_berita_new(1, $i, $datas->items, 'countshare_berita')) ?></span>
                                                                 <span>Bagikan</span>
                                                             </div>
-                                                        </a>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,13 +146,14 @@
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <span><?= posted_at($item_berita_new(2, $i, $datas->items, 'posted_at')) ?></span>
                                                         </div>
-                                                        <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                        <span class="text-decoration-none text-dark pe-1 d-flex" style="z-index: 999;">
+                                                        <!-- <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed"> -->
                                                             <div class="me-3 sub-item" style="margin-top: 2px;">
                                                                 <i class="fas fa-share"></i>
                                                                 <span><?= num($item_berita_new(2, $i, $datas->items, 'countshare_berita')) ?></span>
                                                                 <span>Bagikan</span>
                                                             </div>
-                                                        </a>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -217,13 +220,14 @@
                                             <div class="sub-item" style="margin-top: 2px;">
                                                 <span><?= posted_at($value['posted_at']) ?></span>
                                             </div>
-                                            <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                            <!-- <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed"> -->
+                                            <span class="text-decoration-none text-dark pe-1 d-flex" style="z-index: 999;" >
                                                 <div class="me-3 sub-item" style="margin-top: 2px;">
                                                     <i class="fas fa-share"></i>
                                                     <span><?= num($value['countshare_berita']) ?></span>
                                                     <span>Bagikan</span>
                                                 </div>
-                                            </a>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -338,13 +342,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-2 d-flex">
-                                                    <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                    <!-- <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed"> -->
+                                                    <span class="text-decoration-none text-dark pe-1 d-flex" style="z-index: 999;" >
                                                         <div class="me-3 sub-item" style="margin-top: 2px;">
                                                             <i class="fas fa-share"></i>
                                                             <span><?= num($value['countshare_berita']) ?></span>
                                                             <span>Bagikan</span>
                                                         </div>
-                                                    </a>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>

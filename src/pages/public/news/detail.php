@@ -184,13 +184,14 @@
                                                     <div class="sub-item" style="margin-top: 2px;">
                                                         <span><?= posted_at($value['posted_at']) ?></span>
                                                     </div>
-                                                    <a class="text-decoration-none text-dark pe-1 d-flex btn-share-hangat" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-id="<?= $value['id_berita'] ?>">
+                                                    <!-- <a class="text-decoration-none text-dark pe-1 d-flex btn-share-hangat" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-id="<?= $value['id_berita'] ?>"> -->
+                                                    <span class="text-decoration-none text-dark pe-1 d-flex" style="z-index: 999;">
                                                         <div class="me-3 sub-item" style="margin-top: 2px;">
                                                             <i class="fas fa-share"></i>
                                                             <span><?= $value['countshare_berita'] > 0 ? $value['countshare_berita'] : 0 ?></span>
                                                             <span>Bagikan</span>
                                                         </div>
-                                                    </a>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>

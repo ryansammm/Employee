@@ -48,7 +48,7 @@
                     </div>
                     <div class="card-footer d-grid gap-2 d-flex justify-content-md-start">
                         <a href="/gallery" class="btn btn-primary me-2">Dokumentasi Pekerjaan</a>
-                        <a href="" class="btn btn-primary">Website <?= $data_pelanggan['nama_pelanggan'] ?></a>
+                        <a href="<?= $data_pelanggan['link_pelanggan'] ?>" target="_blank" class="btn btn-primary">Website <?= $data_pelanggan['nama_pelanggan'] ?></a>
                     </div>
                 </div>
             </div>

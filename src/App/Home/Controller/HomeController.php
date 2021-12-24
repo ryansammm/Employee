@@ -79,7 +79,7 @@ class HomeController
         /* ------------------------------ Our Customers ----------------------------- */
         $data_pelanggan = $customer
             ->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')
-            ->paginate(12);
+            ->limit(12)->get();
         /* -------------------------------------------------------------------------- */
 
         return render_template('public/home/index', ['detail_profil' => $detail_profil, 'data_layanan' => $data_layanan, 'data_produk' => $data_produk, 'data_pelanggan' => $data_pelanggan, 'data_video' => $data_video, 'data_berita' => $data_berita, 'data_kategori_berita' => $data_kategori_berita]);

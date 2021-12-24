@@ -200,3 +200,126 @@ if (!function_exists('str_limit')) {
         return strlen($string) > $limit ? substr($string, 0, $limit) . $end : $string;
     }
 }
+
+if (!function_exists('what_date_is')) {
+    /**
+     * Find spesific date
+     * 
+     * @param array $option ['hour' => 0, 'day' => 0, 'week' => 0, 'month' => 0, 'year' => 0]
+     * @param string $from (optional) format: 'yyyy-mm-dd'
+     */
+    function what_date_is(array $option)
+    {
+        $param = func_get_args();
+        $hour = 3600;
+        $day = $hour * 24;
+        $week = $day * 7;
+        $month = $week * 4;
+        $year = $month * 12;
+        $date_var = get_defined_vars();
+
+        $total_time = 0;
+        foreach ($option as $key => $value) {
+            if (isset($date_var[$key])) {
+                $total_time += $date_var[$key] * $value;
+            }
+        }
+
+        $from = isset($param[1]) ? strtotime($param[1]) : strtotime(date('Y-m-d'));
+        $date = $from + $total_time;
+
+        return date('Y-m-d', $date);
+    }
+}
+
+if (!function_exists('posted_at')) {
+    /**
+     * Find spesific date
+     * 
+     * @param string $created_at format: 'yyyy-mm-dd'
+     * @param bool $complete_version
+     */
+    function posted_at()
+    {
+        // // set variable
+        // $minute = 60;
+        // $hour = $minute * 60;
+        // $day = $hour * 24;
+        // $week = $day * 7;
+        // // $month = $week * 4;
+        // $month = 2629800;
+        // // $year = $month * 12;
+        // $year = 31557600;
+        // $date_var = get_defined_vars();
+        // $lang = ['Tahun', 'Bulan', 'Minggu', 'Hari', 'Jam', 'Menit', 'Detik'];
+
+        // $param = func_get_args();
+        // $created_at = $param[0];
+        // $complete_version = isset($param[1]) ? true : false;
+
+        // count total time
+        // rsort($date_var);
+        // $tgl = time() - strtotime($created_at);
+        // $tgl_arr = [];
+        // foreach ($date_var as $key => $value) {
+        //     $tgl_arr[$key] = floor($tgl / $value);
+        //     $tgl_arr[$key] = 0;
+        //     if ($tgl > $value) {
+        //         do {
+        //             $tgl -= $value;
+        //             $tgl_arr[$key] += 1;
+        //         } while ($tgl > $value);
+        //     } else {
+        //         continue;
+        //     }
+        // }
+
+        // // generate complete result
+        // foreach ($tgl_arr as $key => $item) {
+        //     $tgl_arr[$key] = [
+        //         'count' => $item,
+        //         'result' => $item > 0 ? $item.' '.$lang[$key] : ''
+        //     ];
+        // }
+        // $tgl_arr[] = [
+        //     'count' => $tgl,
+        //     'result' => $tgl > 0 ? $tgl.' Detik' : ''
+        // ];
+
+        // // generate complete result
+        // $result = '';
+        // foreach ($tgl_arr as $key => $value) {
+        //     if ($value['count'] > 0) {
+        //         $result .= $value['result'];
+        //         $result .= $key == count($tgl_arr) - 1 ? '' : ' ';
+        //     }
+        // }
+
+        // // generate simple result
+        // $simple_result = '';
+        // foreach ($tgl_arr as $key => $value) {
+        //     if ($value['count'] > 0) {
+        //         $simple_result = $value['result'];
+        //         break;
+        //     }
+        // }
+
+        // return $complete_version ? $result : $simple_result;
+
+        $param = func_get_args();
+        $created_at = $param[0];
+        $precision = isset($param[1]) ? $param[1] : 1;
+        $time = time() - strtotime($created_at);
+        $a = array('Dekade' => 315576000, 'Tahun' => 31557600, 'Bulan' => 2629800, 'Minggu' => 604800, 'Hari' => 86400, 'Jam' => 3600, 'Menit' => 60, 'Detik' => 1);
+        
+        $i = 0;
+        foreach ($a as $k => $v) {
+            $$k = floor($time / $v);
+            if ($$k) $i++;
+            $time = $i >= $precision ? 0 : $time - $$k * $v;
+            $$k = $$k ? $$k . ' ' . $k . ' ' : '';
+            @$result .= $$k;
+        }
+        return $result;
+    }
+}

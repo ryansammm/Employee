@@ -170,7 +170,7 @@
                                                         </div>
                                                     <?php } ?>
                                                     <div class="sub-item" style="margin-top: 2px;">
-                                                        <span>50 menit</span>
+                                                        <span><?= posted_at($value['posted_at']) ?></span>
                                                     </div>
                                                     <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                         <div class="me-3 sub-item" style="margin-top: 2px;">

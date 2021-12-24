@@ -122,13 +122,12 @@ class BeritaController
 
     public function detail(Request $request)
     {
-        $berita = new Berita();
-        $media = new Media();
         $kategori_berita = new KategoriBeritaAdmin();
 
         $id = $request->attributes->get("id");
 
         $data_berita_hangat = $this->model
+            ->select('berita.*', 'media.*', 'kategori_berita.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->paginate(4)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);

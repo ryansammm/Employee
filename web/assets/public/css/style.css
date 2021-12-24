@@ -134,3 +134,11 @@
     /* border: 1px solid #0000003b; */
     box-shadow: 1px 1px 0px 0px #00000038;
 }
+
+@media (min-width: 576px) {
+
+    .col-sm-absolute {
+        position: relative;
+    }
+
+}

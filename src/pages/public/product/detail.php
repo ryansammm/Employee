@@ -14,7 +14,7 @@
     <div class="row">
         <!------- Left Content ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
-            <div class="col-md-3">
+            <div class="col-md-3 d-sm-block d-none">
                 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
                 <?php if (!empty($GLOBALS['banner_potrait'])) { ?>
                     <?php foreach ($GLOBALS['banner_potrait'] as $key => $data) { ?>
@@ -31,6 +31,7 @@
                         <div class="col-md-6">
                             <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-file="<?= arr_offset($data_produk, 'path_media') ?>">
                                 <div style="background-image: url('/assets/media/<?= $data_produk['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem 0 0 0.25rem;"></div>
+                                <img src="/assets/media/<?= $data_produk['path_media'] ?>" alt="" style="width: 100%;display: none;" alt="<?= $data_produk['nama_produk'] ?>">
                             </a>
                         </div>
                         <div class="col-md-6">
@@ -50,17 +51,17 @@
 
                     <!------- Share ------->
                     <div class="row justify-content-center">
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-4">
                             <a href="whatsapp://send?text=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" data-action="share/whatsapp/share" target="_blank">
                                 <i class="fab fa-whatsapp" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Whatsapp</i>
                             </a>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-4">
                             <a href="https://www.facebook.com/sharer/sharer.php?u=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" target="_blank">
                                 <i class="fab fa-facebook" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Facebook</i>
                             </a>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-4">
                             <a href="https://twitter.com/share?url=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" target="_blank">
                                 <i class="fab fa-twitter" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Twiiter</i>
                             </a>
@@ -132,7 +133,7 @@
                 </div>
                 <div class="row">
                     <?php foreach ($datas_produk->items as $key => $value) { ?>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-4 mb-3">
                             <a class="text-decoration-none text-dark" href="/product/<?= $value['id_produk'] ?>/detail">
                                 <div class="card p-0">
                                     <div class="align-self-center" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>
@@ -153,7 +154,7 @@
                 </div>
                 <div class="row">
                     <?php foreach ($all_produk->items as $key => $value) { ?>
-                        <div class="col-md">
+                        <div class="col-md col-4 mb-3">
                             <a class="text-decoration-none text-dark" href="/product/<?= $value['id_produk'] ?>/detail">
                                 <div class="card p-0">
                                     <div class="align-self-center" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>

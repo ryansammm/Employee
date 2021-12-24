@@ -15,7 +15,7 @@
     <div class="row">
         <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
-            <div class="col-md-3">
+            <div class="col-md-3 d-sm-block d-none">
                 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
                 <!------- Landscape Banner Samping ------->
                 <?php if (!empty($GLOBALS['banner_potrait'])) { ?>
@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div style="background-image: url('/assets/media/<?= $detail_galeri['path_media'] ?>');width:410px;height: 460px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            <div style="background-image: url('/assets/media/<?= $detail_galeri['path_media'] ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
                         </div>
                         <div class="col-md-6">
                             <div class=" justify-content-between align-items-center mb-3 ms-3">
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
+                <div class="card-footer d-grid gap-2 d-flex justify-content-md-end">
                     <a href="/gallery" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>

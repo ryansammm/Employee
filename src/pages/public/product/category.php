@@ -14,7 +14,7 @@
     <div class="row">
         <!------- Left Category ------->
         <?php if ($cms_kategori_style && $cms_kategori_style['cms_side_menu_position'] == '1') { ?>
-            <div class="col-md-3">
+            <div class="col-md-3 d-sm-block d-none">
                 <?php require __DIR__ . '/../cms/cms-kategori/cms-kategori.php' ?>
                 <?php if (!empty($GLOBALS['banner_potrait'])) { ?>
                     <?php foreach ($GLOBALS['banner_potrait'] as $key => $data) { ?>
@@ -32,7 +32,7 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
                 <?php foreach ($data_produk->items as $key => $value) { ?>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6">
                         <div class="card shadow-sm">
                             <a class="text-decoration-none" href="/product/<?= $value['id_produk'] ?>/detail">
                                 <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:225px;background-size: cover;background-position: center;"></div>

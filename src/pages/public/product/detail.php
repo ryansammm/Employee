@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-md-2 col-4">
                             <a class="text-decoration-none" href="https://twitter.com/share?url=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" target="_blank">
-                                <i class="bi bi-twitter" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Twiiter</i>
+                                <i class="bi bi-twitter" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Twitter</i>
                             </a>
                         </div>
                     </div>

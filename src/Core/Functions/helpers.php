@@ -241,71 +241,6 @@ if (!function_exists('posted_at')) {
      */
     function posted_at()
     {
-        // // set variable
-        // $minute = 60;
-        // $hour = $minute * 60;
-        // $day = $hour * 24;
-        // $week = $day * 7;
-        // // $month = $week * 4;
-        // $month = 2629800;
-        // // $year = $month * 12;
-        // $year = 31557600;
-        // $date_var = get_defined_vars();
-        // $lang = ['Tahun', 'Bulan', 'Minggu', 'Hari', 'Jam', 'Menit', 'Detik'];
-
-        // $param = func_get_args();
-        // $created_at = $param[0];
-        // $complete_version = isset($param[1]) ? true : false;
-
-        // count total time
-        // rsort($date_var);
-        // $tgl = time() - strtotime($created_at);
-        // $tgl_arr = [];
-        // foreach ($date_var as $key => $value) {
-        //     $tgl_arr[$key] = floor($tgl / $value);
-        //     $tgl_arr[$key] = 0;
-        //     if ($tgl > $value) {
-        //         do {
-        //             $tgl -= $value;
-        //             $tgl_arr[$key] += 1;
-        //         } while ($tgl > $value);
-        //     } else {
-        //         continue;
-        //     }
-        // }
-
-        // // generate complete result
-        // foreach ($tgl_arr as $key => $item) {
-        //     $tgl_arr[$key] = [
-        //         'count' => $item,
-        //         'result' => $item > 0 ? $item.' '.$lang[$key] : ''
-        //     ];
-        // }
-        // $tgl_arr[] = [
-        //     'count' => $tgl,
-        //     'result' => $tgl > 0 ? $tgl.' Detik' : ''
-        // ];
-
-        // // generate complete result
-        // $result = '';
-        // foreach ($tgl_arr as $key => $value) {
-        //     if ($value['count'] > 0) {
-        //         $result .= $value['result'];
-        //         $result .= $key == count($tgl_arr) - 1 ? '' : ' ';
-        //     }
-        // }
-
-        // // generate simple result
-        // $simple_result = '';
-        // foreach ($tgl_arr as $key => $value) {
-        //     if ($value['count'] > 0) {
-        //         $simple_result = $value['result'];
-        //         break;
-        //     }
-        // }
-
-        // return $complete_version ? $result : $simple_result;
-
         $param = func_get_args();
         $created_at = $param[0];
         $precision = isset($param[1]) ? $param[1] : 1;
@@ -321,5 +256,17 @@ if (!function_exists('posted_at')) {
             @$result .= $$k;
         }
         return $result;
+    }
+}
+
+if (!function_exists('num')) {
+    /**
+     * Show integer data with default value
+     * 
+     * @param int $number
+     */
+    function num($number)
+    {
+        return $number > 0 ? $number : 0;
     }
 }

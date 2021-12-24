@@ -37,28 +37,29 @@
                                                     <div class="col d-flex">
                                                         <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
-                                                                <i class="bi bi-heart"></i>
-                                                                <span>0</span>
+                                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                                <span><?= num($item_berita_new(0, $i, $datas->items, 'countlike_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
                                                                 <i class="bi bi-chat"></i>
-                                                                <span>0</span>
+                                                                <span><?= num($item_berita_new(0, $i, $datas->items, 'countcomment_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
                                                                 <i class="bi bi-eye"></i>
-                                                                <span>0</span>
+                                                                <span><?= num($item_berita_new(0, $i, $datas->items, 'countview_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
-                                                            <span>50 menit</span>
+                                                            <span><?= posted_at($item_berita_new(0, $i, $datas->items, 'posted_at')) ?></span>
                                                         </div>
                                                         <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                             <div class="me-3 sub-item" style="margin-top: 2px;">
                                                                 <i class="fas fa-share"></i>
+                                                                <span><?= num($item_berita_new(0, $i, $datas->items, 'countshare_berita')) ?></span>
                                                                 <span>Bagikan</span>
                                                             </div>
                                                         </a>
@@ -81,28 +82,29 @@
                                                     <div class="col d-flex">
                                                         <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
-                                                                <i class="bi bi-heart"></i>
-                                                                <span>0</span>
+                                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                                <span><?= num($item_berita_new(1, $i, $datas->items, 'countlike_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
                                                                 <i class="bi bi-chat"></i>
-                                                                <span>0</span>
+                                                                <span><?= num($item_berita_new(1, $i, $datas->items, 'countcomment_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
                                                                 <i class="bi bi-eye"></i>
-                                                                <span>0</span>
+                                                                <span><?= num($item_berita_new(1, $i, $datas->items, 'countview_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
-                                                            <span>50 menit</span>
+                                                            <span><?= posted_at($item_berita_new(1, $i, $datas->items, 'posted_at')) ?></span>
                                                         </div>
                                                         <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                             <div class="me-3 sub-item" style="margin-top: 2px;">
                                                                 <i class="fas fa-share"></i>
+                                                                <span><?= num($item_berita_new(1, $i, $datas->items, 'countshare_berita')) ?></span>
                                                                 <span>Bagikan</span>
                                                             </div>
                                                         </a>
@@ -123,28 +125,29 @@
                                                     <div class="col d-flex">
                                                         <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
-                                                                <i class="bi bi-heart"></i>
-                                                                <span>0</span>
+                                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                                <span><?= num($item_berita_new(2, $i, $datas->items, 'countlike_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
                                                                 <i class="bi bi-chat"></i>
-                                                                <span>0</span>
+                                                                <span><?= num($item_berita_new(2, $i, $datas->items, 'countcomment_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
                                                                 <i class="bi bi-eye"></i>
-                                                                <span>0</span>
+                                                                <span><?= num($item_berita_new(2, $i, $datas->items, 'countview_berita')) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
-                                                            <span>50 menit</span>
+                                                            <span><?= posted_at($item_berita_new(2, $i, $datas->items, 'posted_at')) ?></span>
                                                         </div>
                                                         <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                             <div class="me-3 sub-item" style="margin-top: 2px;">
                                                                 <i class="fas fa-share"></i>
+                                                                <span><?= num($item_berita_new(2, $i, $datas->items, 'countshare_berita')) ?></span>
                                                                 <span>Bagikan</span>
                                                             </div>
                                                         </a>
@@ -195,28 +198,29 @@
                                         <div class="col d-flex">
                                             <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                                                 <div class="sub-item" style="margin-top: 2px;">
-                                                    <i class="bi bi-heart"></i>
-                                                    <span>0</span>
+                                                    <i class="bi bi-hand-thumbs-up"></i>
+                                                    <span><?= num($value['countlike_berita']) ?></span>
                                                 </div>
                                             <?php } ?>
                                             <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                                                 <div class="sub-item" style="margin-top: 2px;">
                                                     <i class="bi bi-chat"></i>
-                                                    <span>0</span>
+                                                    <span><?= num($value['countcomment_berita']) ?></span>
                                                 </div>
                                             <?php } ?>
                                             <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
                                                 <div class="sub-item" style="margin-top: 2px;">
                                                     <i class="bi bi-eye"></i>
-                                                    <span>0</span>
+                                                    <span><?= num($value['countview_berita']) ?></span>
                                                 </div>
                                             <?php } ?>
                                             <div class="sub-item" style="margin-top: 2px;">
-                                                <span>50 menit</span>
+                                                <span><?= posted_at($value['posted_at']) ?></span>
                                             </div>
                                             <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                 <div class="me-3 sub-item" style="margin-top: 2px;">
                                                     <i class="fas fa-share"></i>
+                                                    <span><?= num($value['countshare_berita']) ?></span>
                                                     <span>Bagikan</span>
                                                 </div>
                                             </a>
@@ -313,30 +317,31 @@
                                                 <div class="col d-flex" style="margin-top: auto;">
                                                     <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
+                                                            <i class="bi bi-hand-thumbs-up"></i>
+                                                            <span><?= num($value['countlike_berita']) ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <i class="bi bi-chat"></i>
-                                                            <span>0</span>
+                                                            <span><?= num($value['countcomment_berita']) ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <i class="bi bi-eye"></i>
-                                                            <span>0</span>
+                                                            <span><?= num($value['countview_berita']) ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <div class="sub-item">
-                                                        <span>50 menit</span>
+                                                        <span><?= posted_at($value['posted_at']) ?></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-2 d-flex">
                                                     <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                         <div class="me-3 sub-item" style="margin-top: 2px;">
                                                             <i class="fas fa-share"></i>
+                                                            <span><?= num($value['countshare_berita']) ?></span>
                                                             <span>Bagikan</span>
                                                         </div>
                                                     </a>

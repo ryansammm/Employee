@@ -542,6 +542,9 @@ $routes->push('panduan', '/panduan', [PanduanController::class, 'index']);
 $routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
 /* -------------------------------------------------------------------------- */
 
+// routes search header
+$routes->push('search_result', '/search', [SearchController::class, 'index']);
+
 // routes like berita
 $routes->push('like_berita', '/like-berita/{id}/store', [LikeBeritaController::class, 'storeLike']);
 $routes->push('dislike_berita', '/dislike-berita/{id}/store', [LikeBeritaController::class, 'storeDislike']);
@@ -553,8 +556,7 @@ $routes->push('comment_berita', '/komentar/{id}/store', [KomentarBeritaControlle
 $routes->push('like_komentar', '/like-komentar/{id_berita}/on/{id_komentar}/store', [LikeBeritaKomentarController::class, 'storeLike']);
 $routes->push('dislike_komentar', '/dislike-komentar/{id_berita}/on/{id_komentar}/store', [LikeBeritaKomentarController::class, 'storeDislike']);
 
-// routes search header
-$routes->push('search_result', '/search', [SearchController::class, 'index']);
-// $routes->push('search', '{url}', [SearchController::class, 'index']);
+// routes count share berita
+$routes->push('countshare_berita', '/share-berita/{id}', [BeritaController::class, 'storeShare']);
 
 return $routes;

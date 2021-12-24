@@ -31,20 +31,20 @@
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/like-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
                                     <i class="bi bi-hand-thumbs-up<?= $like_berita ? '-fill' : '' ?>"></i>
-                                    <span><?= $detail_berita['countlike_berita'] ?></span> Suka
+                                    <span><?= $detail_berita['countlike_berita'] > 0 ? $detail_berita['countlike_berita'] : 0 ?></span> Suka
                                 </a>
                             </div>
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/dislike-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
                                     <i class="bi bi-hand-thumbs-down<?= $dislike_berita ? '-fill' : '' ?>"></i>
-                                    <span><?= $detail_berita['countdislike_berita'] ?></span> Tidak Suka
+                                    <span><?= $detail_berita['countdislike_berita'] > 0 ? $detail_berita['countdislike_berita'] : 0 ?></span> Tidak Suka
                                 </a>
                             </div>
                         <?php } ?>
                         <div class="col-6 col-md-4 text-center text-grey">
                             <a href="#" class="text-dark text-decoration-none btn-sosmed" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-bs-url="<?= $site_url ?>/informasi/berita/<?= $detail_berita['id_berita'] ?>" data-bs-idBerita="<?= $detail_berita['id_berita'] ?>">
                                 <i class="bi bi-share"></i>
-                                <span><?= $detail_berita['countshare_berita'] ?></span> Bagikan
+                                <span class="countshare-berita"><?= $detail_berita['countshare_berita'] > 0 ? $detail_berita['countshare_berita'] : 0 ?></span> Bagikan
                             </a>
                         </div>
                     </div>
@@ -78,11 +78,17 @@
                                     <div class="ms-2">
                                         <div class="d-flex">
                                             <h6 class="text-grey fw-normal" style="font-size:14px;"><?= $data['nama_user'] ?></h6>
-                                            <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
+                                            <span class="text-muted ps-3" style="font-size: 13px;"><?= posted_at($data['posted_at']) ?></span>
                                         </div>
                                         <p class="" style="font-size:14px;"><?= $data['comment_text'] ?></p>
-                                        <a href="/like-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-up me-1"></i><?= $data['countlike_comment'] != null ? $data['countlike_comment'] : 0 ?></a>
-                                        <a href="/dislike-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-down me-1"></i><?= $data['countdislike_comment'] != null ? $data['countdislike_comment'] : 0 ?></a>
+                                        <a href="/like-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none">
+                                            <i class="bi bi-hand-thumbs-up<?= $data['countlike_comment'] != null ? '-fill' : '' ?>"></i>
+                                            <?= $data['countlike_comment'] != null ? $data['countlike_comment'] : 0 ?>
+                                        </a>
+                                        <a href="/dislike-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none">
+                                            <i class="bi bi-hand-thumbs-down<?= $data['countdislike_comment'] != null ? '-fill' : '' ?>"></i>
+                                            <?= $data['countdislike_comment'] != null ? $data['countdislike_comment'] : 0 ?>
+                                        </a>
 
                                         <a class="pe-2 text-lightgrey text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modal_balas_komentar" data-id="<?= $data['id_berita_comment'] ?>"><i class="far fa-comment me-1"></i><?= $data['countcomment_comment'] ?></a>
 
@@ -102,8 +108,14 @@
                                                                     <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
                                                                 </div>
                                                                 <p class="" style="font-size:14px;"><?= $sub['comment_text'] ?></p>
-                                                                <a href="/like-komentar/<?= $sub['id_berita'] ?>/on/<?= $sub['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-up me-1"></i><?= $sub['countlike_comment'] != null ? $sub['countlike_comment'] : 0 ?></a>
-                                                                <a href="/dislike-komentar/<?= $sub['id_berita'] ?>/on/<?= $sub['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none"><i class="far fa-thumbs-down me-1"></i><?= $sub['countdislike_comment'] != null ? $sub['countdislike_comment'] : 0 ?></a>
+                                                                <a href="/like-komentar/<?= $sub['id_berita'] ?>/on/<?= $sub['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none">
+                                                                    <i class="bi bi-hand-thumbs-up<?= $sub['countlike_comment'] != null ? '-fill' : '' ?>"></i>
+                                                                    <?= $sub['countlike_comment'] != null ? $sub['countlike_comment'] : 0 ?>
+                                                                </a>
+                                                                <a href="/dislike-komentar/<?= $sub['id_berita'] ?>/on/<?= $sub['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none">
+                                                                    <i class="bi bi-hand-thumbs-down<?= $sub['countdislike_comment'] != null ? '-fill' : '' ?>"></i>
+                                                                    <?= $sub['countdislike_comment'] != null ? $sub['countdislike_comment'] : 0 ?>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -153,28 +165,29 @@
                                                 <div class="col d-flex">
                                                     <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
+                                                            <i class="bi bi-hand-thumbs-up"></i>
+                                                            <span><?= $value['countlike_berita'] > 0 ? $value['countlike_berita'] : 0 ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <i class="bi bi-chat"></i>
-                                                            <span>0</span>
+                                                            <span><?= $value['countcomment_berita'] > 0 ? $value['countcomment_berita'] : 0 ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <i class="bi bi-eye"></i>
-                                                            <span>0</span>
+                                                            <span><?= $value['countview_berita'] > 0 ? $value['countview_berita'] : 0 ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <div class="sub-item" style="margin-top: 2px;">
                                                         <span><?= posted_at($value['posted_at']) ?></span>
                                                     </div>
-                                                    <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                    <a class="text-decoration-none text-dark pe-1 d-flex btn-share-hangat" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-id="<?= $value['id_berita'] ?>">
                                                         <div class="me-3 sub-item" style="margin-top: 2px;">
                                                             <i class="fas fa-share"></i>
+                                                            <span><?= $value['countshare_berita'] > 0 ? $value['countshare_berita'] : 0 ?></span>
                                                             <span>Bagikan</span>
                                                         </div>
                                                     </a>
@@ -217,32 +230,32 @@
             <div class="modal-body">
                 <div class="row justify-content-center">
                     <div class="col-2 mb-3">
-                        <a href="" class="whatsapp text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/whatsapp.svg" class="w-50 d-block mx-auto" alt="">
+                        <a href="whatsapp://send?text=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" class="whatsapp text-decoration-none btn-sosmed-share" data-id="<?= $detail_berita['id_berita'] ?>" target="_blank"><img src="/assets/icon/sosmed/whatsapp.svg" class="w-50 d-block mx-auto" alt="">
                             <p class="text-dark text-center" style="font-size: 12px"><br>Whatsapp</p>
                         </a>
                     </div>
                     <div class="col-2 mb-3">
-                        <a href="" class="instagram text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/instagram.svg" class="w-50 d-block mx-auto" alt="">
+                        <a href="" class="instagram text-decoration-none btn-sosmed-share" data-id="<?= $detail_berita['id_berita'] ?>" target="_blank"><img src="/assets/icon/sosmed/instagram.svg" class="w-50 d-block mx-auto" alt="">
                             <p class="text-dark text-center" style="font-size: 12px"><br>Instagram</p>
                         </a>
                     </div>
                     <div class="col-2 mb-3">
-                        <a href="" class="telegram text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/telegram.svg" class="w-50 d-block mx-auto" alt="">
+                        <a href="" class="telegram text-decoration-none btn-sosmed-share" data-id="<?= $detail_berita['id_berita'] ?>" target="_blank"><img src="/assets/icon/sosmed/telegram.svg" class="w-50 d-block mx-auto" alt="">
                             <p class="text-dark text-center" style="font-size: 12px"><br>Telegram</p>
                         </a>
                     </div>
                     <div class="col-2 mb-3">
-                        <a href="" class="facebook text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/facebook.svg" class="w-50 d-block mx-auto" alt="">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" class="facebook text-decoration-none btn-sosmed-share" data-id="<?= $detail_berita['id_berita'] ?>" target="_blank"><img src="/assets/icon/sosmed/facebook.svg" class="w-50 d-block mx-auto" alt="">
                             <p class="text-dark text-center" style="font-size: 12px"><br>Facebook</p>
                         </a>
                     </div>
                     <div class="col-2 mb-3">
-                        <a href="" class="twitter text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/twitter.svg" class="w-50 d-block mx-auto" alt="">
+                        <a href="https://twitter.com/share?url=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" class="twitter text-decoration-none btn-sosmed-share" data-id="<?= $detail_berita['id_berita'] ?>" target="_blank"><img src="/assets/icon/sosmed/twitter.svg" class="w-50 d-block mx-auto" alt="">
                             <p class="text-dark text-center" style="font-size: 12px"><br>Twitter</p>
                         </a>
                     </div>
                     <div class="col-2 mb-3">
-                        <a href="" class="email text-decoration-none" target="_blank"><img src="/assets/icon/sosmed/email.svg" class="w-50 d-block mx-auto" alt="">
+                        <a href="" class="email text-decoration-none btn-sosmed-share" data-id="<?= $detail_berita['id_berita'] ?>" target="_blank"><img src="/assets/icon/sosmed/email.svg" class="w-50 d-block mx-auto" alt="">
                             <p class="text-dark text-center" style="font-size: 12px"><br>Email</p>
                         </a>
                     </div>
@@ -283,6 +296,30 @@
         var modal = $(this)
         modal.find('#parent_comment').val(id)
     })
+</script>
+
+<!-- request count share -->
+<script>
+    function count_share(id) {
+        $.ajax({
+            url: '/share-berita/' + id,
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                location.reload();
+            }
+        });
+    }
+
+    $(document).on('click', '.btn-sosmed-share', function() {
+        var id = $(this).attr('data-id');
+        count_share(id);
+    });
+
+    $(document).on('click', '.btn-share-hangat', function() {
+        var id = $(this).attr('data-id');
+        $(document).find('.btn-sosmed-share').attr('data-id', id);
+    });
 </script>
 
 <?php include __DIR__ . '/../Footer.php' ?>

@@ -11,6 +11,7 @@ use App\CmsSetting\Model\CmsSetting;
 use App\KomentarBerita\Model\KomentarBerita;
 use App\LikeBerita\Model\LikeBerita;
 use Core\Classes\SessionData;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -47,6 +48,7 @@ class BeritaController
 
         /* ------------------------------ Berita Hangat ----------------------------- */
         $data_berita_hangat = $this->model
+            ->select('berita.*', 'media.*', 'kategori_berita.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->limit(4)->get();
@@ -54,6 +56,7 @@ class BeritaController
 
         /* ------------------------------ Semua Berita ------------------------------ */
         $data_berita = $this->model
+            ->select('berita.*', 'media.*', 'kategori_berita.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->limit(5)->get();
@@ -61,6 +64,7 @@ class BeritaController
 
         /* ---------------------------------- Feed ---------------------------------- */
         $data_feed = $this->model
+            ->select('berita.*', 'media.*', 'kategori_berita.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->paginate(5)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
@@ -68,6 +72,7 @@ class BeritaController
 
         /* ----------------------------- Berita Terkini ----------------------------- */
         $datas = $this->model
+            ->select('berita.*', 'media.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->get();
 
@@ -123,15 +128,22 @@ class BeritaController
     public function detail(Request $request)
     {
         $kategori_berita = new KategoriBeritaAdmin();
-
         $id = $request->attributes->get("id");
+
+        /* ------------------------------- Count View ------------------------------- */
+        $get_berita = $this->model->where('id_berita', $id)->first();
+        $this->model
+            ->where('id_berita', $id)
+            ->update([
+                'countview_berita' => $get_berita ? intval($get_berita['countview_berita']) + 1 : 0
+            ]);
+        /* ----------------------------- End Count View ----------------------------- */
 
         $data_berita_hangat = $this->model
             ->select('berita.*', 'media.*', 'kategori_berita.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->paginate(4)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
-
 
         $detail_berita = $this->model
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
@@ -176,7 +188,8 @@ class BeritaController
         /* ----------------------------------- komentar ---------------------------------- */
         $komentar_berita = $this->komentarBerita
             ->loadComment(function ($query) use ($id) {
-                $query->leftJoin('users', 'users.id_user', '=', 'berita_comment.id_user')
+                $query->select('users.*', 'media.path_media', 'berita_comment.*', 'berita_comment.created_at as posted_at')
+                    ->leftJoin('users', 'users.id_user', '=', 'berita_comment.id_user')
                     ->leftJoin('media', 'media.id_relation', '=', 'users.id_user')
                     ->where('id_berita', $id)
                     ->where('approval', '1')
@@ -250,5 +263,22 @@ class BeritaController
         /* -------------------------------------------------------------------------- */
 
         return render_template('public/news/category', ['datas_kategori' => $datas_kategori, 'datas' => $datas, 'count_news_trending' => $count_news_trending, 'item_berita_new' => $item_berita_new, 'item_berita_trending' => $item_berita_trending, 'cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'data_berita_hangat' => $data_berita_hangat, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed, 'data_berita' => $data_berita]);
+    }
+
+    public function storeShare(Request $request)
+    {
+        $id_berita = $request->attributes->get('id');
+        $berita = $this->model
+            ->where('id_berita', $id_berita)
+            ->first();
+
+        $count = intval($berita['countshare_berita']) + 1;
+        $this->model
+            ->where('id_berita', $id_berita)
+            ->update([
+                'countshare_berita' => $count
+            ]);
+
+        return new JsonResponse(['count' => $count]);
     }
 }

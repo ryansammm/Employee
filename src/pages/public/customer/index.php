@@ -19,7 +19,7 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
                     <?php foreach ($data_pelanggan->items as $key => $value) { ?>
-                        <div class="col-2 mb-3">
+                        <div class="col-md-2 col-4 mb-3">
                             <div class="card">
                                 <div class="card-body" style="padding: 1rem">
                                     <a href="/customer/<?= $value['id_pelanggan'] ?>/detail">

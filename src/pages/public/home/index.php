@@ -43,7 +43,7 @@
         <div class="row">
 
             <?php foreach ($data_berita->items as $key => $value) { ?>
-                <div class="col-md">
+                <div class="col-md col-6 mt-3">
                     <a href="/news/<?= $value['id_berita'] ?>/detail" class="text-dark text-decoration-none">
                         <div class="card for-hover p-2">
                             <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
@@ -70,7 +70,7 @@
         <div class="row">
 
             <?php foreach ($data_layanan->items as $key => $value) { ?>
-                <div class="col-md text-center">
+                <div class="col-md col-6 text-center mt-3">
                     <a href="/service/<?= $value['id_layanan'] ?>/detail" class="text-dark text-decoration-none">
                         <div class="card for-hover p-2">
                             <div class="align-self-center rounded-1" style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height: 140px;background-size: cover;background-position: center;"></div>
@@ -97,7 +97,7 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
                     <?php foreach ($data_video->items as $key => $value) { ?>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-6 mt-3">
                             <div class="card" style="height: 200px !important;">
                                 <div class="card-body p-0">
                                     <div class="js-video [youtube, widescreen]">
@@ -135,7 +135,7 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
                     <?php foreach ($data_produk->items as $key => $value) { ?>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-2 col-6 mb-3">
                             <a href="/product/<?= $value['id_produk'] ?>/detail" class="text-decoration-none">
                                 <div class="card for-hover" style="border-radius: 8px;">
                                     <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:190px;background-size: cover;background-position: center; border-radius: 0.25rem 0.25rem 0 0;"></div>
@@ -173,7 +173,7 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
                     <?php foreach ($data_pelanggan->items as $key => $value) { ?>
-                        <div class="col-2 mb-3">
+                        <div class="col-md-2 col-4 mb-3">
                             <div class="card">
                                 <div class="card-body" style="padding: 1rem">
                                     <a href="">

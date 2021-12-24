@@ -15,7 +15,7 @@
                 <div class="col-md-6">
                     <?php foreach ($data_profil->items as $key => $value) { ?>
                         <?php if ($value['jenis_dokumen'] == 'profil_foto') { ?>
-                            <div style="background-image: url('/assets/media/<?= arr_offset($value, 'path_media') ?>');width:410pt;height: 240pt;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            <div class="d-sm-block d-none" style="background-image: url('/assets/media/<?= arr_offset($value, 'path_media') ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
                         <?php } ?>
                     <?php } ?>
                 </div>
@@ -25,6 +25,13 @@
                     </div>
                     <hr>
                     <div class="description ms-3">
+
+                        <?php foreach ($data_profil->items as $key => $value) { ?>
+                            <?php if ($value['jenis_dokumen'] == 'profil_foto') { ?>
+                                <div class="d-sm-none d-block" style="background-image: url('/assets/media/<?= arr_offset($value, 'path_media') ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                            <?php } ?>
+                        <?php } ?>
+
                         <h6 class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br(arr_offset($data_profil->items[0], 'deskripsi_profil'))) ?></h6>
                     </div>
                 </div>
@@ -87,7 +94,7 @@
 
 
                     <!------- Direksi ------->
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-3">
                         <div class="card">
                             <div class="card-header">
                                 <div class="text-center">
@@ -126,7 +133,7 @@
 
 
                     <!------- Manajerial ------->
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-3">
                         <div class="card">
                             <div class="card-header">
                                 <div class="text-center">
@@ -165,7 +172,7 @@
 
 
                     <!------- Staff & Karyawan ------->
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-3">
                         <div class="card">
                             <div class="card-header">
                                 <div class="text-center">

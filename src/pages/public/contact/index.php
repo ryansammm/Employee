@@ -12,7 +12,7 @@
         <div class="card-body p-0">
             <div class="row align-items-stretch no-gutters contact-wrap">
                 <!------- Left Panel ------->
-                <div class="col-md-6">
+                <div class="col-md-6 col-12">
 
                     <div class="card-body">
                         <div class="form h-100">
@@ -97,10 +97,10 @@
                 </div>
 
                 <!------- Right Panel ------->
-                <div class="col-md-6">
+                <div class="col-md-6 col-12 d-sm-block d-none">
 
                     <div style="position: relative;background-image: url(/assets/logo/maps.jpg);width: 100%;height: 100%;background-size: cover;background-position: center;">
-                        <div class="card-body" style="position: absolute;top: 10%;">
+                        <div class="card-body postion-sm-absolute" style="position: absolute;top: 10%;">
                             <div class="row justify-content-center">
                                 <?php foreach ($datas->items as $key => $data) { ?>
                                     <?php if ($data['ishide_kontak'] == '2') { ?>

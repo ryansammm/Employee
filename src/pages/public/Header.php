@@ -69,7 +69,7 @@
 
     <nav class=" d-flex flex-wrap bd-subnavbar pt-2 bg-white mb-3">
 
-        <?php if ($GLOBALS['id_user'] != '') { ?>
+        <?php if ($GLOBALS['id_user'] == '') { ?>
             <!------- Button Ubah Logo & Nama Perusahaan ------->
             <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#logo-header" style="position: absolute;left: 1rem;top: 1.5rem;">
                 <i class="bi bi-pencil-square"></i>
@@ -187,7 +187,7 @@
                             <!-- mun katengah, si form di hide -->
                             <?php if ($GLOBALS['web_title']['cms_title_position'] == '1' && $GLOBALS['web_title']['cms_search'] == '1') { ?>
                                 <form action="/search" method="GET">
-                                    <div class="input-group mt-3 ms-3">
+                                    <div class="input-group mt-3 ms-3 d-sm-flex d-none">
                                         <input type="text" class="form-control" name="search" placeholder="Mengenal Lebih Jauh Tentang Kami.." aria-label="Recipient's username" aria-describedby="button-addon2" style="width: <?= $GLOBALS['id_user'] != '' ? '320pt' : '458pt' ?>;font-size: 14px;" value="<?= isset($search) ? show($search) : '' ?>">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="bi bi-search"></i></button>
@@ -197,7 +197,7 @@
                             <?php } ?>
 
                             <?php if ($GLOBALS['id_user'] != '') { ?>
-                                <div class="dropdown ps-4 ms-auto">
+                                <div class="dropdown ps-4 ms-auto d-sm-block d-none">
                                     <a class="text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                         <div class="d-flex mt-3">
                                             <div class="user-img align-items-center mr-3">

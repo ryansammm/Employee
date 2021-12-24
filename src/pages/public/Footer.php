@@ -2,45 +2,52 @@
 <div class="container-fluid " style="background-color: #141414 !important;">
     <footer class="row py-4 mt-5 border-top">
 
-        <div class="col-md-2" style="margin-top: auto;margin-bottom: auto;">
+        <div class="col-md-2 col-12" style="margin-top: auto;margin-bottom: auto;">
             <img class="d-flex mx-auto mb-2" src="/assets/logo/PTA-logo.png" alt="" style="width: 110px;">
             <p class="text-center m-0" style="color: #c1c1c1;font-weight: 600;">Panca Teknologi Aksesindo</p>
         </div>
 
-        <div class="col-md-2 pe-3">
+        <div class="col-md-2 pe-3 mb-3">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Asosiasi</h6>
             <div class="row">
                 <?php foreach ($GLOBALS['asosiasi']->items as $key => $data) { ?>
-                    <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <div class="col-md-4 col-2 mb-2 mt-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
                         <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="100%">
                     </div>
                 <?php } ?>
             </div>
         </div>
 
-        <div class="col-md-2 pe-3">
+        <div class="col-md-2 pe-3 mb-3">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Akreditasi</h6>
             <div class="row">
                 <?php foreach ($GLOBALS['akreditasi']->items as $key => $data) { ?>
-                    <div class="col-4 mb-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
+                    <div class="col-md-4 col-2 mb-2 mt-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
                         <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="100%">
                     </div>
                 <?php } ?>
             </div>
         </div>
 
-        <div class="col-md-2 text-center" style="margin-top: auto;margin-bottom: auto;">
+        <div class="col-md-2 col-12 text-center d-sm-block d-none" style="margin-top: auto;margin-bottom: auto;">
             <div class="d-flex-column justify-content-end">
-                <a href="https://play.google.com/store/apps/dev?id=5430770932615639149" target="_blank">
-                    <img class="mb-2" src="/assets/logo/playstore.png" alt="" style="width: 90%">
-                </a>
-                <a href="https://play.google.com/store/apps/dev?id=5430770932615639149" target="_blank">
-                    <img src="/assets/logo/appstore.png" alt="" style="width: 90%">
-                </a>
+                <div class="row">
+                    <div class="col-md-12 col-6">
+                        <a href="https://play.google.com/store/apps/dev?id=5430770932615639149" target="_blank">
+                            <img class="mb-2" src="/assets/logo/playstore.png" alt="" style="width: 90%">
+                        </a>
+                    </div>
+                    <div class="col-md-12 col-6">
+                        <a href="https://play.google.com/store/apps/dev?id=5430770932615639149" target="_blank">
+                            <img src="/assets/logo/appstore.png" alt="" style="width: 90%">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-md-2" style="margin-bottom: auto; width: 12% !important;">
+        <div class="col-md-2 col-12 mb-3" style="margin-bottom: auto; ">
+            <!-- <div class="col-md-2 col-12" style="margin-bottom: auto; width: 12% !important;"> -->
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Social Media</h6>
             <ul class="nav flex-column">
                 <?php foreach ($GLOBALS['sosial_media']->items as $key => $data) { ?>
@@ -49,7 +56,8 @@
             </ul>
         </div>
 
-        <div class="col-md-2" style="margin-bottom: auto;width: 18% !important;">
+        <div class="col-md-2 col-12" style="margin-bottom: auto;">
+            <!-- <div class="col-md-2 col-12" style="margin-bottom: auto;width: 18% !important;"> -->
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Lainnya</h6>
             <ul class="nav flex-column">
                 <li class="nav-item "><a href="/about" class="nav-link p-0 text" style="color: #c1c1c1;">Tentang Kami</a></li>
@@ -57,6 +65,23 @@
                     <li class="nav-item "><a href="<?= arr_offset($data1, 'link_url') ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank" aria-label="<?= arr_offset($data1, 'menu') ?>"><?= arr_offset($data1, 'menu') ?></a></li>
                 <?php } ?>
             </ul>
+        </div>
+
+        <div class="col-md-2 col-12 mt-3 text-center d-sm-none d-block" style="margin-top: auto;margin-bottom: auto;">
+            <div class="d-flex-column justify-content-end">
+                <div class="row">
+                    <div class="col-md-12 col-6">
+                        <a href="https://play.google.com/store/apps/dev?id=5430770932615639149" target="_blank">
+                            <img class="mb-2" src="/assets/logo/playstore.png" alt="" style="width: 90%">
+                        </a>
+                    </div>
+                    <div class="col-md-12 col-6">
+                        <a href="https://play.google.com/store/apps/dev?id=5430770932615639149" target="_blank">
+                            <img src="/assets/logo/appstore.png" alt="" style="width: 90%">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </footer>

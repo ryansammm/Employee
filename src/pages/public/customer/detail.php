@@ -16,7 +16,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3 ms-3">
@@ -46,14 +46,14 @@
                         </div>
 
                     </div>
-                    <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-start">
+                    <div class="card-footer d-grid gap-2 d-flex justify-content-md-start">
                         <a href="/gallery" class="btn btn-primary me-2">Dokumentasi Pekerjaan</a>
                         <a href="" class="btn btn-primary">Website <?= $data_pelanggan['nama_pelanggan'] ?></a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 d-sm-block d-none">
                 <div class="card">
                     <div class="card-body p-2 pb-0">
                         <div class="d-flex justify-content-between align-items-center ms-3 mb-2">
@@ -84,7 +84,7 @@
 
 
 <!------- Klien Lainnya ------->
-<!-- <div class="container">
+<div class="container d-sm-none d-block">
     <div class="row mt-4">
         <div class="card" style="background-color: unset;border: unset;">
             <div class="card-header" style="background-color: unset;padding: 0;border: unset;">
@@ -95,7 +95,7 @@
             <div class="card-body" style="padding: 10px 0 0 0;">
                 <div class="row">
                     <?php foreach ($datas_pelanggan_lainnya->items as $key => $value) { ?>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-2 col-4 mb-3">
                             <div class="card">
                                 <div class="card-body" style="padding: 1rem">
                                     <a href="/customer/<?= $value['id_pelanggan'] ?>/detail" target="_blank">
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 
 <?php include __DIR__ . '/../Footer.php' ?>

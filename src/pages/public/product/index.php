@@ -35,7 +35,7 @@
                     <div class="col-md-4 col-6">
                         <div class="card shadow-sm">
                             <a class="text-decoration-none" href="/product/<?= $value['id_produk'] ?>/detail">
-                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:225px;background-size: cover;background-position: center;"></div>
+                                <div style="background-image: url(/assets/media/<?= $value['path_media'] ?>);width: 100%;height:225px;background-size: cover;background-position: center;border-radius: 0.25rem 0.25rem 0 0;"></div>
                             </a>
                             <div class="card-body">
                                 <a class="text-decoration-none" href="/product/<?= $value['id_produk'] ?>/detail">

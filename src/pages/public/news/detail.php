@@ -27,7 +27,7 @@
                     <!-- <span class="badge bg-danger">Public Government</span> -->
                     <hr>
                     <div class="row d-flex justify-content-center">
-                        <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
+                        <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1' && session('id_user') != null) { ?>
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/like-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
                                     <i class="bi bi-hand-thumbs-up<?= $like_berita ? '-fill' : '' ?>"></i>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
+            <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1' && session('id_user') != null) { ?>
                 <div class="card my-2 p-4" id="form_komentar">
                     <?php if (!empty($success)) { ?>
                         <?php foreach ($success as $succ) { ?>

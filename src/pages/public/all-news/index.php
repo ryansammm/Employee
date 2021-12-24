@@ -55,30 +55,31 @@
                                                 <div class="col d-flex" style="margin-top: auto;">
                                                     <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
-                                                            <i class="bi bi-heart"></i>
-                                                            <span>0</span>
+                                                            <i class="bi bi-hand-thumbs-up"></i>
+                                                            <span><?= num($value['countlike_berita']) ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <i class="bi bi-chat"></i>
-                                                            <span>0</span>
+                                                            <span><?= num($value['countcomment_berita']) ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
                                                         <div class="sub-item" style="margin-top: 2px;">
                                                             <i class="bi bi-eye"></i>
-                                                            <span>0</span>
+                                                            <span><?= num($value['countview_berita']) ?></span>
                                                         </div>
                                                     <?php } ?>
                                                     <div class="sub-item">
-                                                        <span>50 menit</span>
+                                                        <span><?= posted_at($value['posted_at']) ?></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-2 d-flex">
+                                                <div class="col-3 d-flex">
                                                     <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                         <div class="me-3 sub-item" style="margin-top: 2px;">
                                                             <i class="fas fa-share"></i>
+                                                            <span><?= num($value['countshare_berita']) ?></span>
                                                             <span>Bagikan</span>
                                                         </div>
                                                     </a>

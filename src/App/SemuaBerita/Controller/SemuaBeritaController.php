@@ -40,6 +40,7 @@ class SemuaBeritaController
 
         /* ---------------------------------- Feed ---------------------------------- */
         $data_feed = $this->model
+            ->select('berita.*', 'media.*', 'kategori_berita.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->paginate(10)->appends(['kategori_berita' => $request->query->get('kategori_berita')]);
@@ -92,6 +93,10 @@ class SemuaBeritaController
 
         $kategori = $request->attributes->get("kategori");
 
+        $detail_kategori = $kategori_berita
+            ->where('id_kategori_berita', $kategori)
+            ->first();
+
         /* -------------------------------- Kategori -------------------------------- */
         $datas_kategori = $kategori_berita
             ->get();
@@ -104,6 +109,7 @@ class SemuaBeritaController
 
         /* ---------------------------------- Feed ---------------------------------- */
         $data_feed = $this->model
+            ->select('berita.*', 'media.*', 'kategori_berita.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->where('berita.id_kategori_berita', $kategori)
@@ -116,6 +122,6 @@ class SemuaBeritaController
         $cms_setting = $this->cmsSetting->first();
         /* -------------------------------------------------------------------------- */
 
-        return render_template('public/all-news/category', ['cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed, 'datas_kategori' => $datas_kategori]);
+        return render_template('public/all-news/category', ['cms_kategori_style' => $cms_kategori_style, 'cms_fonts' => $cms_fonts, 'cmsKategoriStyle' => $cmsKategoriStyle, 'cms_setting' => $cms_setting, 'data_feed' => $data_feed, 'datas_kategori' => $datas_kategori, 'detail_kategori' => $detail_kategori]);
     }
 }

@@ -28,7 +28,7 @@
 
                         <?php foreach ($data_profil->items as $key => $value) { ?>
                             <?php if ($value['jenis_dokumen'] == 'profil_foto') { ?>
-                                <div class="d-sm-none d-block" style="background-image: url('/assets/media/<?= arr_offset($value, 'path_media') ?>');width:100%;height: 100%;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+                                <div class="d-sm-none d-block mb-2" style="background-image: url('/assets/media/<?= arr_offset($value, 'path_media') ?>');width:100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
                             <?php } ?>
                         <?php } ?>
 

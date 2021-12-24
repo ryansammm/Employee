@@ -37,6 +37,10 @@
                         <div class="col-md-6">
                             <div class=" justify-content-between align-items-center mb-3 ms-3">
                                 <h4 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;"><?= $detail_galeri['judul_galeri'] ?></h4>
+
+                                <!------- Responsive ------->
+                                <div class="d-sm-none d-block" style="background-image: url('/assets/media/<?= $detail_galeri['path_media'] ?>');width:100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+
                                 <small class="text-muted">Kategori : <a href="/gallery/<?= $detail_galeri['id_kategori_galeri'] ?>/kategori" class="text-muted text-decoration-none"><?= $detail_galeri['nama_kategori_galeri'] ?></a></small>
                             </div>
                             <div class="description  ms-3">

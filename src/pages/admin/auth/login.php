@@ -187,7 +187,7 @@
 
     <div class="col-12">
 
-      <?php if (session('id_user') != null) { ?>
+      <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
         <!------- Ubah Warna ------->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#BackgroundColor" style="position: absolute;top: 1rem;right: 1rem;">
           Change Background Color
@@ -248,7 +248,7 @@
 
             <a href="/" class="d-block text-center" style="color: <?= $data_cms_background['text_cms_background'] ?> !important;"><?= $data_cms_title != false ? $data_cms_title['cms_title'] : '' ?></a>
 
-            <?php if (session('id_user') != null) { ?>
+            <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
               <!------- Ubah Logo ------->
               <div class="text-center">
                 <button type="button" class="btn btn-sm btn-primary mt-2" data-toggle="modal" data-target="#exampleModal">

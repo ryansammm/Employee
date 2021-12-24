@@ -191,7 +191,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/admin/logout">
                                 <i class="icon-mid bi bi-box-arrow-left me-2"></i>
-                                Profile
+                                Logout
                             </a>
                         </div>
                     </div>

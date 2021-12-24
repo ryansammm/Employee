@@ -36,9 +36,20 @@
                         <div class="col-md-6">
                             <div class=" justify-content-between align-items-center mb-3">
                                 <h4 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;"><?= $data_layanan['nama_layanan'] ?></h4>
-                                <hr>
-                                <small class="text-muted">Kode Layanan : <?= $data_layanan['kode_layanan'] ?></small><br>
-                                <small class="text-muted">Kategori : <a href="/service/<?= $data_layanan['id_kategori_layanan'] ?>/kategori" class="text-muted text-decoration-none"><?= $data_layanan['nama_kategori_layanan'] ?></a></small>
+
+                                <!------- Responsive ------->
+                                <div class="d-sm-none d-block mb-2" style="background-image: url('/assets/media/<?= $data_layanan['path_media'] ?>');width:100%;height: 200px;background-size: cover;background-position: center;border-radius: 0.25rem;"></div>
+
+                                <div class="d-sm-none d-block">
+                                    <small class="text-muted">Kode : <?= $data_layanan['kode_layanan'] ?> | Kategori : <?= $data_layanan['nama_kategori_layanan'] ?></small>
+                                </div>
+
+                                <hr class="d-sm-block d-none">
+
+                                <div class="d-sm-block d-none">
+                                    <small class="text-muted">Kode Layanan : <?= $data_layanan['kode_layanan'] ?></small><br>
+                                    <small class="text-muted">Kategori : <a href="/service/<?= $data_layanan['id_kategori_layanan'] ?>/kategori" class="text-muted text-decoration-none"><?= $data_layanan['nama_kategori_layanan'] ?></a></small>
+                                </div>
                             </div>
                             <div class="description">
                                 <h6 class="fw-normal" style="text-align: justify;"><?= html_entity_decode(nl2br($data_layanan['deskripsi_layanan'])) ?></h6>
@@ -128,7 +139,7 @@
 
             <!------- Layanan Lainnya ------->
             <section class="mt-3">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-sm-flex d-block justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Layanan Lainnya</h5>
                     <a href="/service" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
                 </div>
@@ -150,7 +161,7 @@
 
             <!------- Layanan Yang Mungkin Anda Sukai ------->
             <section class="mt-3">
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-sm-flex d-block justify-content-between align-items-center mb-3">
                     <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Layanan Yang Mungkin Anda Sukai</h5>
                     <a href="/service" class="text-decoration-none" style="font-size: 14px;">Lihat Lainnya <i class="bi bi-chevron-right"></i></a>
                 </div>

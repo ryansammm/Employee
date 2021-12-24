@@ -280,39 +280,6 @@
                     </ul>
                 </li>
 
-                <li class="nav-header">Developer</li>
-
-                <li class="nav-item">
-                    <a href="/admin/menu" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
-                            Kelola Menu Website
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
-                            Kelola Halaman
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/component" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Komponen</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/halaman" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Halaman</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
                 <!-- <li class="nav-item">
                     <a href="/admin/profile-saya" class="nav-link <?= $GLOBALS['url'] == '/admin/profile-saya' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
@@ -322,8 +289,7 @@
                     </a>
                 </li> -->
 
-
-                <?php if ($GLOBALS['nama_user'] == 'Developer') { ?>
+                <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
                     <li class="nav-header">Developer</li>
 
                     <li class="nav-item">
@@ -373,7 +339,6 @@
                             </p>
                         </a>
                     </li>
-
                 <?php } ?>
             </ul>
         </nav>

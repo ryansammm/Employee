@@ -104,6 +104,7 @@ class SemuaBeritaController
 
         /* ---------------------------------- Feed ---------------------------------- */
         $data_feed = $this->model
+            ->select('berita.*', 'media.*', 'kategori_berita.*', 'berita.created_at as posted_at')
             ->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')
             ->leftJoin('kategori_berita', 'kategori_berita.id_kategori_berita', '=', 'berita.id_kategori_berita')
             ->where('berita.id_kategori_berita', $kategori)

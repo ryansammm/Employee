@@ -31,20 +31,20 @@
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/like-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
                                     <i class="bi bi-hand-thumbs-up<?= $like_berita ? '-fill' : '' ?>"></i>
-                                    <span><?= $detail_berita['countlike_berita'] > 0 ? $detail_berita['countlike_berita'] : 0 ?></span> Suka
+                                    <span><?= num($detail_berita['countlike_berita']) ?></span> Suka
                                 </a>
                             </div>
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/dislike-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
                                     <i class="bi bi-hand-thumbs-down<?= $dislike_berita ? '-fill' : '' ?>"></i>
-                                    <span><?= $detail_berita['countdislike_berita'] > 0 ? $detail_berita['countdislike_berita'] : 0 ?></span> Tidak Suka
+                                    <span><?= num($detail_berita['countdislike_berita']) ?></span> Tidak Suka
                                 </a>
                             </div>
                         <?php } ?>
                         <div class="col-6 col-md-4 text-center text-grey">
                             <a href="#" class="text-dark text-decoration-none btn-sosmed" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-bs-url="<?= $site_url ?>/informasi/berita/<?= $detail_berita['id_berita'] ?>" data-bs-idBerita="<?= $detail_berita['id_berita'] ?>">
                                 <i class="bi bi-share"></i>
-                                <span class="countshare-berita"><?= $detail_berita['countshare_berita'] > 0 ? $detail_berita['countshare_berita'] : 0 ?></span> Bagikan
+                                <span class="countshare-berita"><?= num($detail_berita['countshare_berita']) ?></span> Bagikan
                             </a>
                         </div>
                     </div>
@@ -83,11 +83,11 @@
                                         <p class="" style="font-size:14px;"><?= $data['comment_text'] ?></p>
                                         <a href="/like-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none">
                                             <i class="bi bi-hand-thumbs-up<?= $data['countlike_comment'] != null ? '-fill' : '' ?>"></i>
-                                            <?= $data['countlike_comment'] != null ? $data['countlike_comment'] : 0 ?>
+                                            <?= num($data['countlike_comment']) ?>
                                         </a>
                                         <a href="/dislike-komentar/<?= $data['id_berita'] ?>/on/<?= $data['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none">
                                             <i class="bi bi-hand-thumbs-down<?= $data['countdislike_comment'] != null ? '-fill' : '' ?>"></i>
-                                            <?= $data['countdislike_comment'] != null ? $data['countdislike_comment'] : 0 ?>
+                                            <?= num($data['countdislike_comment']) ?>
                                         </a>
 
                                         <a class="pe-2 text-lightgrey text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#modal_balas_komentar" data-id="<?= $data['id_berita_comment'] ?>"><i class="far fa-comment me-1"></i><?= $data['countcomment_comment'] ?></a>
@@ -105,16 +105,16 @@
                                                             <div class="ms-3">
                                                                 <div class="d-flex">
                                                                     <h6 class="text-grey fw-normal" style="font-size:14px;"><?= $sub['nama_user'] ?></h6>
-                                                                    <span class="text-muted ps-3" style="font-size: 13px;">2 Bulan yang lalu</span>
+                                                                    <span class="text-muted ps-3" style="font-size: 13px;"><?= posted_at($sub['posted_at']) ?></span>
                                                                 </div>
                                                                 <p class="" style="font-size:14px;"><?= $sub['comment_text'] ?></p>
                                                                 <a href="/like-komentar/<?= $sub['id_berita'] ?>/on/<?= $sub['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none">
                                                                     <i class="bi bi-hand-thumbs-up<?= $sub['countlike_comment'] != null ? '-fill' : '' ?>"></i>
-                                                                    <?= $sub['countlike_comment'] != null ? $sub['countlike_comment'] : 0 ?>
+                                                                    <?= num($sub['countlike_comment']) ?>
                                                                 </a>
                                                                 <a href="/dislike-komentar/<?= $sub['id_berita'] ?>/on/<?= $sub['id_berita_comment'] ?>/store" class="pe-2 text-lightgrey text-decoration-none">
                                                                     <i class="bi bi-hand-thumbs-down<?= $sub['countdislike_comment'] != null ? '-fill' : '' ?>"></i>
-                                                                    <?= $sub['countdislike_comment'] != null ? $sub['countdislike_comment'] : 0 ?>
+                                                                    <?= nuM($sub['countdislike_comment']) ?>
                                                                 </a>
                                                             </div>
                                                         </div>

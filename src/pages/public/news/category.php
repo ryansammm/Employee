@@ -34,20 +34,20 @@
                                                     <div class="col d-flex">
                                                         <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
-                                                                <i class="bi bi-heart"></i>
-                                                                <span>0</span>
+                                                                <i class="bi bi-hand-thumbs-up"></i>
+                                                                <span><?= num($berita['countlike_berita']) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <?php if (arr_offset($cms_setting, 'cms_comment_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
                                                                 <i class="bi bi-chat"></i>
-                                                                <span>0</span>
+                                                                <span><?= num($berita['countcomment_berita']) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <?php if (arr_offset($cms_setting, 'cms_view_berita') == '1') { ?>
                                                             <div class="sub-item" style="margin-top: 2px;">
                                                                 <i class="bi bi-eye"></i>
-                                                                <span>0</span>
+                                                                <span><?= num($berita['countview_berita']) ?></span>
                                                             </div>
                                                         <?php } ?>
                                                         <div class="sub-item" style="margin-top: 2px;">

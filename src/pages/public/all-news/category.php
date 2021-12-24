@@ -76,13 +76,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-3 d-flex">
-                                                    <a class="text-decoration-none text-dark pe-1 d-flex" type="button" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
+                                                    <span class="text-decoration-none text-dark pe-1 d-flex" style="z-index: 999;" data-bs-toggle="modal" data-bs-target="#modalSosmed">
                                                         <div class="me-3 sub-item" style="margin-top: 2px;">
                                                             <i class="fas fa-share"></i>
                                                             <span><?= num($value['countshare_berita']) ?></span>
                                                             <span>Bagikan</span>
                                                         </div>
-                                                    </a>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>

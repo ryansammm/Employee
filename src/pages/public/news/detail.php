@@ -30,20 +30,20 @@
                         <?php if (arr_offset($cms_setting, 'cms_like_berita') == '1') { ?>
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/like-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
-                                    <i class="<?= $like_berita ? 'fas' : 'far' ?> fa-thumbs-up"></i>
+                                    <i class="bi bi-hand-thumbs-up<?= $like_berita ? '-fill' : '' ?>"></i>
                                     <span><?= $detail_berita['countlike_berita'] ?></span> Suka
                                 </a>
                             </div>
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/dislike-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
-                                    <i class="<?= $dislike_berita ? 'fas' : 'far' ?> fa-thumbs-up" style="-ms-transform: rotate(180deg);transform: rotate(180deg);"></i>
+                                    <i class="bi bi-hand-thumbs-down<?= $dislike_berita ? '-fill' : '' ?>"></i>
                                     <span><?= $detail_berita['countdislike_berita'] ?></span> Tidak Suka
                                 </a>
                             </div>
                         <?php } ?>
                         <div class="col-6 col-md-4 text-center text-grey">
                             <a href="#" class="text-dark text-decoration-none btn-sosmed" data-bs-toggle="modal" data-bs-target="#modalSosmed" data-bs-url="<?= $site_url ?>/informasi/berita/<?= $detail_berita['id_berita'] ?>" data-bs-idBerita="<?= $detail_berita['id_berita'] ?>">
-                                <i class="fas fa-share-alt"></i>
+                                <i class="bi bi-share"></i>
                                 <span><?= $detail_berita['countshare_berita'] ?></span> Bagikan
                             </a>
                         </div>

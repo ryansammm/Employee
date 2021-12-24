@@ -6,7 +6,7 @@ use App\LikeBeritaModule\LikeBeritaModule;
 use App\LikeBeritaModule\LikeBeritaModuleOperation;
 use App\LikeBeritaModule\SubModule\LikeBeritaBaseOperation;
 
-class DislikeBeritaBeritaInitiator extends LikeBeritaModule
+class DislikeBeritaInitiator extends LikeBeritaModule
 {
     private $id_berita, $id_user;
 

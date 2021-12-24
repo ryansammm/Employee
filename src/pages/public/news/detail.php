@@ -31,14 +31,14 @@
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/like-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
                                     <i class="<?= $like_berita ? 'fas' : 'far' ?> fa-thumbs-up"></i>
+                                    <span><?= $detail_berita['countlike_berita'] ?></span> Suka
                                 </a>
-                                <span><?= $detail_berita['countlike_berita'] ?></span> Suka
                             </div>
                             <div class="col-6 col-md-4 text-center text-grey">
                                 <a href="/dislike-berita/<?= $detail_berita['id_berita'] ?>/store" class="text-dark text-decoration-none">
                                     <i class="<?= $dislike_berita ? 'fas' : 'far' ?> fa-thumbs-up" style="-ms-transform: rotate(180deg);transform: rotate(180deg);"></i>
+                                    <span><?= $detail_berita['countdislike_berita'] ?></span> Tidak Suka
                                 </a>
-                                <span><?= $detail_berita['countdislike_berita'] ?></span> Tidak Suka
                             </div>
                         <?php } ?>
                         <div class="col-6 col-md-4 text-center text-grey">

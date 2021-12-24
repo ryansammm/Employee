@@ -6,31 +6,24 @@ abstract class LikeBeritaModule
 {
     abstract public function getInstance(): LikeBeritaModuleOperation;
 
-    public function store($id_berita, $id_user) : void
+    public function store() : void
     {
         $module = $this->getInstance();
 
         // get like berita
-        $get = $module->getLikeData();
+        $type = $module->getType() == '1' ? '1' : '2';
+        $get = $module->getLikeData($type);
 
         if (count($get) < 1) {
             // insert like berita
             $module->insertLikeData();
-
-            // get berita
-            $getBerita = $module->getBerita();
-            $getLike = $this->likeBerita
-                ->where('id_berita', $id)
-                ->where('id_user', $idUser)
-                ->where('jenislike_berita', '1')->get()->items;
-            
-            // get like berita
-
             
             // update count like berita
-            
+            $module->updateCountLikeBerita();
 
             // delete like berita
+            $type = $module->getType() == '1' ? '2' : '1';
+            $module->deleteLikeBerita($type);
         }
     }
 }

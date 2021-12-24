@@ -2,45 +2,43 @@
 
 namespace App\LikeBeritaModule\SubModule;
 
+use App\Berita\Model\Berita;
 use App\LikeBerita\Model\LikeBerita;
 use App\LikeBeritaModule\LikeBeritaModuleOperation;
 
 class LikeBeritaBaseOperation implements LikeBeritaModuleOperation
 {
-    private $id_berita, $id_user;
+    private $id_berita;
+    private $id_user;
     private $likeBerita;
+    private $berita;
     private $type;
 
     public function __construct(string $id_berita, string $id_user, string $type = '1')
     {
         $this->id_berita = $id_berita;
         $this->id_user = $id_user;
-        $this->type = $type;
         $this->likeBerita = new LikeBerita();
+        $this->berita = new Berita;
+        $this->type = $type;
     }
 
-    public function getLikeDataQuery(string $type)
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Get Like Berita Data
+     * 
+     * @param string $type: 1 for like, 2 for dislike
+     */
+    public function getLikeData(string $type = '1')
     {
         return $this->likeBerita
             ->where('id_berita', $this->id_berita)
             ->where('id_user', $this->id_user)
             ->where('jenislike_berita', $type)->get()->items;
-    }
-
-    /**
-     * Get Like Berita Data
-     */
-    public function getLikeData()
-    {
-        return $this->getLikeDataQuery('1');
-    }
-
-    /**
-     * Get Dislike Berita Data
-     */
-    public function getDislikeData()
-    {
-        return $this->getLikeDataQuery('2');
     }
 
     /**
@@ -88,27 +86,16 @@ class LikeBeritaBaseOperation implements LikeBeritaModuleOperation
         return $update;
     }
 
-    public function deleteLikeBeritaQuery(string $type)
+    /**
+     * Delete Like Berita Data
+     * 
+     * @param string $type: 1 for like, 2 for dislike
+     */
+    public function deleteLikeBerita(string $type = '1')
     {
         return $this->likeBerita
             ->where('id_berita', $this->id_berita)
             ->where('id_user', $this->id_user)
             ->where('jenislike_berita', $type)->delete();
-    }
-    
-    /**
-     * Delete Like Berita Data
-     */
-    public function deleteLikeBerita()
-    {
-        return $this->deleteLikeBeritaQuery('1');
-    }
-
-    /**
-     * Delete Dislike Berita Data
-     */
-    public function deleteDislikeBerita()
-    {
-        return $this->deleteLikeBeritaQuery('2');
     }
 }

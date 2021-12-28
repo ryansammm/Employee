@@ -31,8 +31,6 @@
     <link rel="stylesheet" href="/assets/plugins/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/assets/plugins/owl-carousel/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/assets/plugins/fullcalendar/main.css">
-    <script src="/assets/plugins/fullcalendar/main.js"></script>
-    <script src="/assets/plugins/moment/moment.min.js"></script>
 
     <!------- Captcha ------->
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>

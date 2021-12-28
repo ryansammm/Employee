@@ -107,6 +107,10 @@
 <script src="/assets/plugins/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="/assets/plugins/owl-carousel/js/owl.carousel.js"></script>
 
+<!------- Full Calendar ------->
+<script src="/assets/plugins/fullcalendar/main.js"></script>
+<script src="/assets/plugins/moment/moment.min.js"></script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 

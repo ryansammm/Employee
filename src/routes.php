@@ -548,6 +548,11 @@ $routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
 /* ------------------------------- Appointment ------------------------------ */
 $routes->push('appointment', '/appointment', [AppointmentController::class, 'index']);
 $routes->push('appointmentGet', '/appointment/get', [AppointmentController::class, 'get']);
+$routes->push('appointmentDetail', '/appointment/detail/{id}', [AppointmentController::class, 'detail']);
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------------- Booking -------------------------------- */
+$routes->push('booking', '/booking', [BookingController::class, 'index']);
 /* -------------------------------------------------------------------------- */
 
 // routes search header

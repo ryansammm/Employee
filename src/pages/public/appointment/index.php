@@ -27,11 +27,11 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="tanggal" class="form-label">Tanggal Mulai</label>
-                                <input type="date" class="form-control" id="tanggal" placeholder="" name="timestart_appointment" disabled>
+                                <input type="date" class="form-control create-tanggal-mulai" id="tanggal" value="" name="timestart_appointment" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="tanggal" class="form-label">Tanggal Selesai</label>
-                                <input type="date" class="form-control" id="tanggal" placeholder="" name="timeend_appointment" disabled>
+                                <input type="date" class="form-control create-tanggal-selesai" id="tanggal" value="" name="timeend_appointment" disabled>
                             </div>
                             <div class="mb-3">
                                 <label for="tanggal" class="form-label">Akun Zoom</label>
@@ -98,11 +98,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="text" class="form-control" id="tanggal" placeholder="27/12/2021 - 28/12/2021" disabled>
+                            <label for="tanggal" class="form-label">Tanggal Mulai</label>
+                            <input type="text" class="form-control tanggal-mulai" id="tanggal" value="" disabled>
                         </div>
                         <div class="mb-3">
-
+                            <label for="tanggal" class="form-label">Tanggal Selesai</label>
+                            <input type="text" class="form-control tanggal-selesai" id="tanggal" value="" disabled>
+                        </div>
+                        <div class="mb-3">
                             <label for="tanggal" class="form-label">Akun Zoom</label>
                             <select class="form-select" aria-label="Default select example" disabled>
                                 <option>-- Pilih Akun Zoom --</option>
@@ -114,15 +117,15 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="agenda" class="form-label">Agenda</label>
-                            <input type="text" class="form-control" id="agenda" placeholder="Contoh : Pertemuan atau Sosialiasi" disabled>
+                            <input type="text" class="form-control nama-agenda" id="agenda" value="" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="deskripsi" rows="3" placeholder="Deskripsi dari Agenda" disabled></textarea>
+                            <textarea class="form-control deskripsi-agenda" id="deskripsi" rows="3" aria-valuemax="" disabled></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="partisipan" class="form-label">Partisipan</label>
-                            <input type="number" class="form-control" id="partisipan" placeholder="Jumlah Partisipan" disabled>
+                            <input type="number" class="form-control partisipan" id="partisipan" value="" disabled>
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
@@ -166,8 +169,10 @@
 
             ];
 
+
             doc.datas.items.forEach(element => {
                 appointment.push({
+                    id: element.id_appointment,
                     title: element.title,
                     start: element.start,
                     end: element.end
@@ -194,7 +199,6 @@
                     },
                     initialView: 'dayGridMonth',
                     dayMaxEvents: true,
-                    // initialDate: '2020-09-12',
                     navLinks: true,
                     selectable: true,
                     selectMirror: true,
@@ -202,20 +206,13 @@
                     dayMaxEvents: true,
 
                     select: function(arg) {
+                        var modal = $('#createEventModal');
                         $('#createEventModal').modal('show');
                         $('.nama-agenda').val('');
 
-
-                        // var title = prompt('Nama Agenda:');
-                        // if (title) {
-                        //     calendar.addEvent({
-                        //         title: title,
-                        //         start: arg.start,
-                        //         end: arg.end,
-                        //         allDay: arg.allDay
-                        //     })
-                        // }
-
+                        console.log(arg.end);
+                        modal.find('.create-tanggal-mulai').val(arg.startStr);
+                        // modal.find('.create-tanggal-selesai').val(arg.endStr);
 
                         $('.simpan-entri').click(function(events) {
                             $('#createEventModal').modal('hide');
@@ -239,8 +236,20 @@
 
 
                     eventClick: function(arg) {
+                        var modal = $('#detailEventModal');
 
                         $('#detailEventModal').modal('show');
+
+                        $.ajax({
+                            url: "/appointment/detail/" + arg.event._def.publicId,
+                            method: "get",
+                        }).done(function(data) {
+                            modal.find('.tanggal-mulai').val(moment(data.detail.start).format('D-MM-YYYY'));
+                            modal.find('.tanggal-selesai').val(moment(data.detail.end).format('D-MM-YYYY'));
+                            modal.find('.nama-agenda').val(data.detail.agenda_appointment);
+                            modal.find('.deskripsi-agenda').val(data.detail.deskripsi_appointment);
+                            modal.find('.partisipan').val(data.detail.partisipan_appointment);
+                        });
 
                         $('.hapus-entri').click(function(events) {
                             $('#detailEventModal').modal('hide');

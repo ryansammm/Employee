@@ -279,6 +279,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="/admin/appointment-approval" class="nav-link <?= strpos($GLOBALS['url'], 'roles') != false ? 'active' : '' ?>">
+                        <i class="nav-icon fas fa-users-cog"></i>
+                        <p>
+                            Approval Pertemuan
+                        </p>
+                    </a>
+                </li>
 
                 <!-- <li class="nav-item">
                     <a href="/admin/profile-saya" class="nav-link <?= $GLOBALS['url'] == '/admin/profile-saya' ? 'active' : '' ?>">

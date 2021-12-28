@@ -8,4 +8,6 @@ class LikeBerita extends Model
 {
     protected $table = 'berita_like';
     protected $primaryKey = 'id_berita_like';
+
+    public function 
 }

@@ -2,6 +2,7 @@
 
 use App\About\Controller\AboutController;
 use App\Akreditasi\Controller\AkreditasiController;
+use App\AppointmentApproval\Controller\AppointmentApprovalController;
 use App\Asosiasi\Controller\AsosiasiController;
 use App\Banner\Controller\BannerController;
 use App\Berita\Controller\BeritaController;
@@ -444,6 +445,19 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('roles_delete', '/{id}/delete', [RoleController::class, 'delete']);
     });
     /* -------------------------------------------------------------------------- */
+
+    /* --------------------------- Approval Pertemuan --------------------------- */
+    $routes->prefix('appointment-approval', function ($routes) {
+        $routes->push('appointment_approval', '', [AppointmentApprovalController::class, 'index']);
+        $routes->push('appointment_approval_create', '/create', [AppointmentApprovalController::class, 'create']);
+        $routes->push('appointment_approval_store', '/store', [AppointmentApprovalController::class, 'store']);
+        $routes->push('appointment_approval_edit', '/{id}/edit', [AppointmentApprovalController::class, 'edit']);
+        $routes->push('appointment_approval_update', '/{id}/update', [AppointmentApprovalController::class, 'update']);
+        $routes->push('appointment_approval_show', '/{id}/show', [AppointmentApprovalController::class, 'show']);
+        $routes->push('appointment_approval_delete', '/{id}/delete', [AppointmentApprovalController::class, 'delete']);
+        $routes->push('appointment_approval_delete', '/check', [AppointmentApprovalController::class, 'check']);
+    });
+    /* -------------------------------------------------------------------------- */
 });
 
 
@@ -453,11 +467,11 @@ $routes->push('home', '/', [HomeController::class, 'index']);
 
 
 /* ------------------------------- Front News ------------------------------- */
-// $routes->prefix('news', function ($routes) {
-//     $routes->push('news', '', [BeritaController::class, 'index']);
-//     $routes->push('news_detail', '/{id}/detail', [BeritaController::class, 'detail']);
-//     $routes->push('news_kategori', '/{kategori}/kategori', [BeritaController::class, 'kategori']);
-// });
+$routes->prefix('news', function ($routes) {
+    $routes->push('news', '', [BeritaController::class, 'index']);
+    $routes->push('news_detail', '/{id}/detail', [BeritaController::class, 'detail']);
+    $routes->push('news_kategori', '/{kategori}/kategori', [BeritaController::class, 'kategori']);
+});
 /* -------------------------------------------------------------------------- */
 
 

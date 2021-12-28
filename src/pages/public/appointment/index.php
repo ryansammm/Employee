@@ -98,11 +98,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="text" class="form-control" id="tanggal" placeholder="27/12/2021 - 28/12/2021" disabled>
+                            <label for="tanggal" class="form-label">Tanggal Mulai</label>
+                            <input type="text" class="form-control tanggal-mulai" id="tanggal" value="" disabled>
                         </div>
                         <div class="mb-3">
-
+                            <label for="tanggal" class="form-label">Tanggal Selesai</label>
+                            <input type="text" class="form-control tanggal-selesai" id="tanggal" value="" disabled>
+                        </div>
+                        <div class="mb-3">
                             <label for="tanggal" class="form-label">Akun Zoom</label>
                             <select class="form-select" aria-label="Default select example" disabled>
                                 <option>-- Pilih Akun Zoom --</option>
@@ -114,15 +117,15 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="agenda" class="form-label">Agenda</label>
-                            <input type="text" class="form-control" id="agenda" placeholder="Contoh : Pertemuan atau Sosialiasi" disabled>
+                            <input type="text" class="form-control nama-agenda" id="agenda" value="" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="deskripsi" rows="3" placeholder="Deskripsi dari Agenda" disabled></textarea>
+                            <textarea class="form-control deskripsi-agenda" id="deskripsi" rows="3" aria-valuemax="" disabled></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="partisipan" class="form-label">Partisipan</label>
-                            <input type="number" class="form-control" id="partisipan" placeholder="Jumlah Partisipan" disabled>
+                            <input type="number" class="form-control partisipan" id="partisipan" value="" disabled>
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
@@ -159,101 +162,95 @@
 
 
 <script>
-    $.ajax({
-        url: '/appointment/get',
-        success: function(doc) {
-            var appointment = [
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
 
-            ];
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            height: 'auto',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listDay,listWeek'
+            },
 
-            doc.datas.items.forEach(element => {
-                appointment.push({
-                    title: element.title,
-                    start: element.start,
-                    end: element.end
-                })
-            });
-            document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
+            views: {
+                listDay: {
+                    buttonText: 'list day'
+                },
+                listWeek: {
+                    buttonText: 'list week'
+                }
+            },
+            initialView: 'dayGridMonth',
+            dayMaxEvents: true,
+            // initialDate: '2020-09-12',
+            navLinks: true,
+            selectable: true,
+            selectMirror: true,
+            editable: true,
+            dayMaxEvents: true,
 
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    height: 'auto',
-                    headerToolbar: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listDay,listWeek'
-                    },
+            select: function(arg) {
+                $('#createEventModal').modal('show');
+                $('.nama-agenda').val('');
 
-                    views: {
-                        listDay: {
-                            buttonText: 'list day'
-                        },
-                        listWeek: {
-                            buttonText: 'list week'
-                        }
-                    },
-                    initialView: 'dayGridMonth',
-                    dayMaxEvents: true,
-                    // initialDate: '2020-09-12',
-                    navLinks: true,
-                    selectable: true,
-                    selectMirror: true,
-                    editable: true,
-                    dayMaxEvents: true,
+                $('.simpan-entri').click(function(events) {
+                    $('#createEventModal').modal('hide');
+                    var title = $('.nama-agenda').val();
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: arg.start,
+                            end: arg.end,
+                            allDay: arg.allDay
+                        })
+                    }
 
-                    select: function(arg) {
-                        $('#createEventModal').modal('show');
-                        $('.nama-agenda').val('');
-
-
-                        // var title = prompt('Nama Agenda:');
-                        // if (title) {
-                        //     calendar.addEvent({
-                        //         title: title,
-                        //         start: arg.start,
-                        //         end: arg.end,
-                        //         allDay: arg.allDay
-                        //     })
-                        // }
-
-
-                        $('.simpan-entri').click(function(events) {
-                            $('#createEventModal').modal('hide');
-                            var title = $('.nama-agenda').val();
-                            if (title) {
-                                calendar.addEvent({
-                                    title: title,
-                                    start: arg.start,
-                                    end: arg.end,
-                                    allDay: arg.allDay
-                                })
-                            }
-
-                        });
-
-
-
-                        calendar.unselect()
-
-                    },
-
-
-                    eventClick: function(arg) {
-
-                        $('#detailEventModal').modal('show');
-
-                        $('.hapus-entri').click(function(events) {
-                            $('#detailEventModal').modal('hide');
-                            arg.event.remove()
-
-                        });
-                    },
-                    events: appointment
                 });
 
-                calendar.render();
-            });
-        }
+                calendar.unselect()
+
+            },
+
+
+            eventClick: function(arg) {
+                var modal = $('#detailEventModal');
+
+                $('#detailEventModal').modal('show');
+
+                $.ajax({
+                    url: "/appointment/detail/" + arg.event._def.publicId,
+                    method: "get",
+                }).done(function(data) {
+                    modal.find('.tanggal-mulai').val(moment(data.detail.start).format('D-MM-YYYY'));
+                    modal.find('.tanggal-selesai').val(moment(data.detail.end).format('D-MM-YYYY'));
+                    modal.find('.nama-agenda').val(data.detail.agenda_appointment);
+                    modal.find('.deskripsi-agenda').val(data.detail.deskripsi_appointment);
+                    modal.find('.partisipan').val(data.detail.partisipan_appointment);
+                });
+
+                $('.hapus-entri').click(function(events) {
+                    $('#detailEventModal').modal('hide');
+                    arg.event.remove()
+
+                });
+            },
+            events: []
+        });
+        calendar.render();
+
+        $.ajax({
+            url: '/appointment/get',
+            success: function(doc) {
+                doc.datas.items.forEach(element => {
+                    calendar.addEvent({
+                        title: element.title,
+                        start: element.start,
+                        end: element.end
+                    });
+                });
+            }
+        });
     });
 </script>
 

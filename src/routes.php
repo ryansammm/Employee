@@ -3,10 +3,12 @@
 use App\About\Controller\AboutController;
 use App\Akreditasi\Controller\AkreditasiController;
 use App\AppointmentApproval\Controller\AppointmentApprovalController;
+use App\Appointment\Controller\AppointmentController;
 use App\Asosiasi\Controller\AsosiasiController;
 use App\Banner\Controller\BannerController;
 use App\Berita\Controller\BeritaController;
 use App\BeritaAdmin\Controller\BeritaAdminController;
+use App\Booking\Controller\BookingController;
 use App\CmsBackground\Controller\CmsBackgroundController;
 use App\CmsComponent\Controller\CmsComponentController;
 use App\CmsFonts\Controller\CmsFontsController;
@@ -554,6 +556,12 @@ $routes->push('panduan', '/panduan', [PanduanController::class, 'index']);
 
 /* --------------------------- Pedoman Media Siber -------------------------- */
 $routes->push('pedoman', '/pedoman', [PedomanController::class, 'index']);
+/* -------------------------------------------------------------------------- */
+
+
+/* ------------------------------- Appointment ------------------------------ */
+$routes->push('appointment', '/appointment', [AppointmentController::class, 'index']);
+$routes->push('appointmentGet', '/appointment/get', [AppointmentController::class, 'get']);
 /* -------------------------------------------------------------------------- */
 
 // routes search header

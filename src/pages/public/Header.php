@@ -23,10 +23,16 @@
     <!------- Style theme ------->
     <link rel="stylesheet" href="/assets/public/css/style.css">
 
+    <!------- JQuery ------->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+
     <!------- Plugins ------->
     <link rel="stylesheet" href="/assets/plugins/truncate.css">
     <link rel="stylesheet" href="/assets/plugins/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/assets/plugins/owl-carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/plugins/fullcalendar/main.css">
+    <script src="/assets/plugins/fullcalendar/main.js"></script>
+    <script src="/assets/plugins/moment/moment.min.js"></script>
 
     <!------- Captcha ------->
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
@@ -38,14 +44,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!------- JQuery ------->
-    <script src="/assets/js/jquery-3.6.0.min.js"></script>
-
     <script>
         $(document).on('click', function() {
             $('.collapse').collapse('hide');
         })
     </script>
+
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                dateClick: function() {
+                    alert('a day has been clicked!');
+                },
+                headerToolbar: {
+                    center: 'dayGridMonth,timeGridWeek'
+                },
+            });
+            calendar.render();
+        });
+        calendar.getOption('locale');
+    </script> -->
+
+
 
 </head>
 
@@ -68,6 +91,11 @@
     @font-face {
         font-family: 'Astro-Space';
         src: url('/assets/fonts/Astro-Space.ttf') format('truetype');
+    }
+
+    #calendar {
+        max-width: 1100px;
+        margin: 0 auto;
     }
 </style>
 

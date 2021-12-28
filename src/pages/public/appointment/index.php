@@ -162,107 +162,101 @@
 
 
 <script>
-    $.ajax({
-        url: '/appointment/get',
-        success: function(doc) {
-            var appointment = [
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
 
-            ];
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            height: 'auto',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listDay,listWeek'
+            },
 
+            views: {
+                listDay: {
+                    buttonText: 'list day'
+                },
+                listWeek: {
+                    buttonText: 'list week'
+                }
+            },
+            initialView: 'dayGridMonth',
+            dayMaxEvents: true,
+            navLinks: true,
+            selectable: true,
+            selectMirror: true,
+            editable: true,
+            dayMaxEvents: true,
 
-            doc.datas.items.forEach(element => {
-                appointment.push({
-                    id: element.id_appointment,
-                    title: element.title,
-                    start: element.start,
-                    end: element.end
-                })
-            });
-            document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
+            select: function(arg) {
+                var modal = $('#createEventModal');
+                $('#createEventModal').modal('show');
+                $('.nama-agenda').val('');
 
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    height: 'auto',
-                    headerToolbar: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listDay,listWeek'
-                    },
+                console.log(arg.end);
+                modal.find('.create-tanggal-mulai').val(arg.startStr);
+                // modal.find('.create-tanggal-selesai').val(arg.endStr);
 
-                    views: {
-                        listDay: {
-                            buttonText: 'list day'
-                        },
-                        listWeek: {
-                            buttonText: 'list week'
-                        }
-                    },
-                    initialView: 'dayGridMonth',
-                    dayMaxEvents: true,
-                    navLinks: true,
-                    selectable: true,
-                    selectMirror: true,
-                    editable: true,
-                    dayMaxEvents: true,
+                $('.simpan-entri').click(function(events) {
+                    $('#createEventModal').modal('hide');
+                    var title = $('.nama-agenda').val();
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: arg.start,
+                            end: arg.end,
+                            allDay: arg.allDay
+                        })
+                    }
 
-                    select: function(arg) {
-                        var modal = $('#createEventModal');
-                        $('#createEventModal').modal('show');
-                        $('.nama-agenda').val('');
-
-                        console.log(arg.end);
-                        modal.find('.create-tanggal-mulai').val(arg.startStr);
-                        // modal.find('.create-tanggal-selesai').val(arg.endStr);
-
-                        $('.simpan-entri').click(function(events) {
-                            $('#createEventModal').modal('hide');
-                            var title = $('.nama-agenda').val();
-                            if (title) {
-                                calendar.addEvent({
-                                    title: title,
-                                    start: arg.start,
-                                    end: arg.end,
-                                    allDay: arg.allDay
-                                })
-                            }
-
-                        });
-
-
-
-                        calendar.unselect()
-
-                    },
-
-
-                    eventClick: function(arg) {
-                        var modal = $('#detailEventModal');
-
-                        $('#detailEventModal').modal('show');
-
-                        $.ajax({
-                            url: "/appointment/detail/" + arg.event._def.publicId,
-                            method: "get",
-                        }).done(function(data) {
-                            modal.find('.tanggal-mulai').val(moment(data.detail.start).format('D-MM-YYYY'));
-                            modal.find('.tanggal-selesai').val(moment(data.detail.end).format('D-MM-YYYY'));
-                            modal.find('.nama-agenda').val(data.detail.agenda_appointment);
-                            modal.find('.deskripsi-agenda').val(data.detail.deskripsi_appointment);
-                            modal.find('.partisipan').val(data.detail.partisipan_appointment);
-                        });
-
-                        $('.hapus-entri').click(function(events) {
-                            $('#detailEventModal').modal('hide');
-                            arg.event.remove()
-
-                        });
-                    },
-                    events: appointment
                 });
 
-                calendar.render();
-            });
-        }
+                calendar.unselect()
+
+            },
+
+
+            eventClick: function(arg) {
+                var modal = $('#detailEventModal');
+
+                $('#detailEventModal').modal('show');
+
+                $.ajax({
+                    url: "/appointment/detail/" + arg.event._def.publicId,
+                    method: "get",
+                }).done(function(data) {
+                    modal.find('.tanggal-mulai').val(moment(data.detail.start).format('D-MM-YYYY'));
+                    modal.find('.tanggal-selesai').val(moment(data.detail.end).format('D-MM-YYYY'));
+                    modal.find('.nama-agenda').val(data.detail.agenda_appointment);
+                    modal.find('.deskripsi-agenda').val(data.detail.deskripsi_appointment);
+                    modal.find('.partisipan').val(data.detail.partisipan_appointment);
+                });
+
+                $('.hapus-entri').click(function(events) {
+                    $('#detailEventModal').modal('hide');
+                    arg.event.remove()
+
+                });
+            },
+            events: []
+        });
+
+        calendar.render();
+
+        $.ajax({
+            url: '/appointment/get',
+            success: function(doc) {
+                doc.datas.items.forEach(element => {
+                    calendar.addEvent({
+                        id: element.id_appointment,
+                        title: element.title,
+                        start: element.start,
+                        end: element.end
+                    })
+                });
+            }
+        });
     });
 </script>
 

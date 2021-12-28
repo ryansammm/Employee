@@ -105,7 +105,6 @@
             var appointment = [
 
             ];
-            console.log(appointment);
 
 
             doc.datas.items.forEach(element => {
@@ -118,9 +117,26 @@
             });
         }
     });
+
+
     document.addEventListener('DOMContentLoaded', function() {
+
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            height: 'auto',
+            customButtons: {
+                myCustomButton: {
+                    text: 'custom!',
+                    click: function() {
+                        alert('clicked the custom button!');
+                    }
+                }
+            },
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listDay,listWeek'
+            },
             initialView: 'dayGridMonth',
             events: [{
                     title: 'event1',
@@ -140,6 +156,7 @@
         });
         calendar.render();
     });
+    CalLoading = true;
 </script>
 
 <?php include __DIR__ . '/../Footer.php' ?>

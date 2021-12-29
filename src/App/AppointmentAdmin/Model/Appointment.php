@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AppointmentApproval\Model;
+namespace App\AppointmentAdmin\Model;
 
 use App\Appointment\CheckAppointment\SubModule\CheckAppointment\CheckAppointmentInterface;
 use Core\Model;

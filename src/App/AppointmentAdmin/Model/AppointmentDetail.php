@@ -1,6 +1,6 @@
 <?php
 
-namespace App\AppointmentApproval\Model;
+namespace App\AppointmentAdmin\Model;
 
 use Core\Model;
 

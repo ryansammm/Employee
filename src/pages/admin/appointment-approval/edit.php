@@ -8,16 +8,15 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-1">
-                    <a href="/admin/appointment" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                    <a href="/admin/appointment-approval" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Edit Pertemuan</h1>
+                    <h1 class="m-0">Persetujuan Pertemuan</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Pertemuan</a></li>
-                        <li class="breadcrumb-item"><a href="#">Kelola Pertemuan</a></li>
-                        <li class="breadcrumb-item active">Edit Data Pertemuan</li>
+                        <li class="breadcrumb-item"><a href="#">Persetujuan Pertemuan</a></li>
+                        <li class="breadcrumb-item"><a href="#">Persetujuan</a></li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +25,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="/admin/appointment/<?= $detail['id_appointment'] ?>/update" method="POST" enctype="multipart/form-data">
+            <form action="/admin/appointment-approval/<?= $detail['id_appointment'] ?>/approval" method="POST" enctype="multipart/form-data">
                 <div class="wrapper" style="height: 100%;">
                     <div class="card">
                         <div class="card-body">
@@ -35,7 +34,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Nama Pengguna</label>
-                                            <select name="id_user" class="form-control" required>
+                                            <select name="id_user" class="form-control" required disabled>
                                                 <option value=""> -- Pilih Pengguna -- </option>
                                                 <?php foreach ($users->items as $key => $user) { ?>
                                                     <option value="<?= $user['id_user'] ?>" <?= $user['id_user'] == $detail['id_user'] ? 'selected' : '' ?>><?= $user['nama_user'] ?></option>
@@ -46,13 +45,13 @@
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label class="form-label">Uraian Agenda</label>
-                                            <input type="text" class="form-control" name="agenda_appointment" required value="<?= $detail['agenda_appointment'] ?>">
+                                            <input type="text" class="form-control" name="agenda_appointment" required value="<?= $detail['agenda_appointment'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label class="form-label">Deskripsi</label>
-                                            <textarea name="deskripsi_appointment" class="form-control" required><?= $detail['deskripsi_appointment'] ?></textarea>
+                                            <textarea name="deskripsi_appointment" class="form-control" required disabled><?= $detail['deskripsi_appointment'] ?></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -60,13 +59,13 @@
                                             <div class="col-12 col-md-6">
                                                 <label>Waktu Mulai</label>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control timestart_appointment" id="timestart_appointment" name="timestart_appointment" required autocomplete="off" value="<?= $detail['timestart_appointment'] ?>">
+                                                    <input type="text" class="form-control timestart_appointment" id="timestart_appointment" name="timestart_appointment" required autocomplete="off" value="<?= $detail['timestart_appointment'] ?>" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
                                                 <label for="">Waktu Berakhir</label>
                                                 <div class="form-group mb-3">
-                                                    <input type="text" class="form-control timeend_appointment" id="timeend_appointment" name="timeend_appointment" required autocomplete="off" value="<?= $detail['timeend_appointment'] ?>">
+                                                    <input type="text" class="form-control timeend_appointment" id="timeend_appointment" name="timeend_appointment" required autocomplete="off" value="<?= $detail['timeend_appointment'] ?>" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,10 +75,10 @@
                                             <label class="form-label">Apakah waktu appointment menggunakan jam ?</label>
                                             <div class="col-12">
                                                 <div class="d-block">
-                                                    <input type="radio" name="time_option" value="1" <?= $detail['time_option'] == '1' ? 'checked' : '' ?>> Ya
+                                                    <input type="radio" name="time_option" value="1" <?= $detail['time_option'] == '1' ? 'checked' : '' ?> disabled> Ya
                                                 </div>
                                                 <div class="d-block">
-                                                    <input type="radio" name="time_option" value="2" <?= $detail['time_option'] == '2' ? 'checked' : '' ?>> Tidak
+                                                    <input type="radio" name="time_option" value="2" <?= $detail['time_option'] == '2' ? 'checked' : '' ?> disabled> Tidak
                                                 </div>
                                             </div>
                                         </div>
@@ -87,7 +86,7 @@
                                     <div class="col-12 col-md-2">
                                         <div class="mb-3">
                                             <label class="form-label">Jumlah Partisipan</label>
-                                            <input type="number" min="1" class="form-control" name="partisipan_appointment" required value="<?= $detail['partisipan_appointment'] ?>">
+                                            <input type="number" min="1" class="form-control" name="partisipan_appointment" required value="<?= $detail['partisipan_appointment'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12 mt-4">
@@ -96,7 +95,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Akun Zoom</label>
-                                            <select name="id_zoom" class="form-control id_zoom">
+                                            <select name="id_zoom" class="form-control id_zoom" disabled>
                                                 <option value="">-- Pilih Akun Zoom --</option>
                                                 <?php foreach ($zoom->items as $key => $data) { ?>
                                                     <option value="<?= $data['id_zoom'] ?>"><?= $data['nama_zoom'] ?></option>
@@ -107,7 +106,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Ruangan</label>
-                                            <select name="id_ruangan" class="form-control id_ruangan">
+                                            <select name="id_ruangan" class="form-control id_ruangan" disabled>
                                                 <option value="">-- Pilih Ruangan --</option>
                                                 <?php foreach ($ruangan->items as $key => $data) { ?>
                                                     <option value="<?= $data['id_ruangan'] ?>"><?= $data['nama_ruangan'] ?></option>
@@ -149,6 +148,22 @@
                                         <div class="mb-3">
                                             <label class="form-label">Jumlah Snack</label>
                                             <input type="text" class="form-control" name="jumlah_snack" value="<?= $detail['jumlah_snack'] ?>">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="mt-3">Approval Appointment</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>Setujui Pertemuan?</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-block">
+                                            <input type="radio" name="status_appointment" value="1" <?= $detail['status_appointment'] == '1' ? 'checked' : '' ?>> Setujui
+                                        </div>
+                                        <div class="d-block">
+                                            <input type="radio" name="status_appointment" value="2" <?= $detail['status_appointment'] == '2' ? 'checked' : '' ?>> Tidak Setujui
                                         </div>
                                     </div>
                                 </div>

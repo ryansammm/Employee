@@ -1,10 +1,10 @@
 <?php
 
-namespace App\AppointmentApproval\Controller;
+namespace App\AppointmentAdmin\Controller;
 
 use App\Appointment\CheckAppointment\SubModule\CheckAppointment\CheckAppointment;
-use App\AppointmentApproval\Model\Appointment;
-use App\AppointmentApproval\Model\AppointmentDetail;
+use App\AppointmentAdmin\Model\Appointment;
+use App\AppointmentAdmin\Model\AppointmentDetail;
 use App\Ruangan\Model\Ruangan;
 use App\Users\Model\Users;
 use App\Zoom\Model\Zoom;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class AppointmentApprovalController
+class AppointmentAdminController
 {
     public $appointment;
     public $appointment_detail;
@@ -67,7 +67,7 @@ class AppointmentApprovalController
         $request->request->set('id_appointment', $create);
         $this->appointment_detail->insert($request->request->all());
 
-        return new RedirectResponse('/admin/appointment-approval');
+        return new RedirectResponse('/admin/appointment');
     }
 
     public function edit(Request $request)
@@ -87,11 +87,20 @@ class AppointmentApprovalController
 
     public function update(Request $request)
     {
-        return new RedirectResponse('/home');
+        $id = $request->attributes->get('id');
+
+        $this->appointment->where('id_appointment', $id)->update($request->request->all());
+        $this->appointment_detail->where('id_appointment', $id)->update($request->request->all());
+
+        return new RedirectResponse('/admin/appointment');
     }
 
     public function delete(Request $request)
     {
-        return new RedirectResponse('/home');
+        $id = $request->attributes->get('id');
+        $this->appointment_detail->where('id_appointment', $id)->delete();
+        $this->appointment->where('id_appointment', $id)->delete();
+
+        return new RedirectResponse('/admin/appointment');
     }
 }

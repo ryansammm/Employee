@@ -8,16 +8,16 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-1">
-                    <a href="/admin/appointment-approval" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                    <a href="/admin/appointment" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Tambah Appointment</h1>
+                    <h1 class="m-0">Tambah Pertemuan</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Appointment</a></li>
-                        <li class="breadcrumb-item"><a href="#">Kelola Appointment</a></li>
-                        <li class="breadcrumb-item active">Tambah Data Appointment</li>
+                        <li class="breadcrumb-item"><a href="#">Pertemuan</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Pertemuan</a></li>
+                        <li class="breadcrumb-item active">Tambah Data Pertemuan</li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +26,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="/admin/appointment-approval/store" method="POST" enctype="multipart/form-data">
+            <form action="/admin/appointment/store" method="POST" enctype="multipart/form-data">
                 <div class="wrapper" style="height: 100%;">
                     <div class="card">
                         <div class="card-body">
@@ -107,7 +107,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Ruangan</label>
-                                            <select name="id_rauangan" class="form-control id_ruangan">
+                                            <select name="id_ruangan" class="form-control id_ruangan">
                                                 <option value="">-- Pilih Ruangan --</option>
                                                 <?php foreach ($ruangan->items as $key => $data) { ?>
                                                     <option value="<?= $data['id_ruangan'] ?>"><?= $data['nama_ruangan'] ?></option>
@@ -152,22 +152,8 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <h5 class="mt-3">Approval Appointment</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <p>Setujui Pertemuan?</p>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="d-block">
-                                            <input type="radio" name="status_appointment" value="1" checked> Setujui
-                                        </div>
-                                        <div class="d-block">
-                                            <input type="radio" name="status_appointment" value="2"> Tidak Setujui
-                                        </div>
-                                    </div>
-                                </div>
+                                <input type="hidden" name="detail_id_zoom" value="<?= $detail['id_zoom'] ?>" class="detail_id_zoom">
+                                <input type="hidden" name="detail_id_ruangan" value="<?= $detail['id_ruangan'] ?>" class="detail_id_ruangan">
 
                                 <div class="row my-4">
                                     <div class="col-md d-flex justify-content-end">

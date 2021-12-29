@@ -3,7 +3,7 @@
 namespace App\Appointment\CheckAppointment\SubModule;
 
 use App\Appointment\CheckAppointment\Operation;
-use App\AppointmentApproval\Model\Appointment;
+use App\AppointmentAdmin\Model\Appointment;
 
 class BaseOperation implements Operation
 {
@@ -35,7 +35,7 @@ class BaseOperation implements Operation
             $appointment_detail = $this->appointment->tableDetail();
             if (!$appointment_detail->columnExists($object_model->primaryKey)) {
                 echo 'Column Mismatch : ';
-                echo 'Column <b>' . $object_model->primaryKey . '</b> not exists at <b>'.$appointment_detail->table.'</b> table<br>';
+                echo 'Column <b>' . $object_model->primaryKey . '</b> not exists at <b>' . $appointment_detail->table . '</b> table<br>';
                 die();
             }
         }
@@ -49,9 +49,10 @@ class BaseOperation implements Operation
         $type = $this->jenis_appointment;
         $data_appointment = $this->appointment
             ->leftJoin('appointment_detail', 'appointment_detail.id_appointment', '=', 'appointment.id_appointment')
-            ->where('timestart_appointment', '<=', $this->timestart_appointment)
-            ->where('timeend_appointment', '>=', $this->timeend_appointment)
-            ->where(function($query) use ($option, $type) {
+            ->where('timestart_appointment', '<=', $this->timeend_appointment)
+            ->where('timeend_appointment', '>', $this->timestart_appointment)
+            ->where('timeend_appointment', '>=', date('Y-m-d H:i:s'))
+            ->where(function ($query) use ($option, $type) {
                 if ($option == false) {
                     $query->where('jenis_appointment', $type);
                 }
@@ -65,12 +66,17 @@ class BaseOperation implements Operation
     {
         $list_object = $object['model']->get();
         $list_object_count = $object['model']->count();
-        
+
         foreach ($this->getAppointment() as $key => $value) {
             foreach ($list_object->items as $key1 => $value1) {
+                $list_object->items[$key1]['booked'] = false;
+                $list_object->items[$key1]['used'] = false;
                 if ($value[$object['model']->primaryKey] == $value1[$object['model']->primaryKey]) {
                     $list_object_count--;
-                    $list_object->items[$key1]['used'] = true;
+                    $list_object->items[$key1]['booked'] = true;
+                    if (strtotime(date('Y-m-d H:i:s')) >= strtotime($value['timestart_appointment']) && strtotime(date('Y-m-d H:i:s')) <= strtotime($value['timeend_appointment'])) {
+                        $list_object->items[$key1]['used'] = true;
+                    }
                 }
             }
         }

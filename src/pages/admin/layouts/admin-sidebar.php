@@ -280,12 +280,27 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/appointment-approval" class="nav-link <?= strpos($GLOBALS['url'], 'roles') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-users-cog"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Approval Pertemuan
+                            Kelola Pertemuan
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/appointment" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kelola Pertemuan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/appointment-approval" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Persetujuan</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <!-- <li class="nav-item">

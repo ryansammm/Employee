@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Pertemuan <a href="/admin/appointment/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
+                    <h1 class="m-0">Persetujuan Pertemuan</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Pertemuan</a></li>
-                        <li class="breadcrumb-item active">Kelola Pertemuan</li>
+                        <li class="breadcrumb-item"><a href="#">Persetujuan Pertemuan</a></li>
+                        <li class="breadcrumb-item active">Kelola Persetujuan Pertemuan</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -49,7 +49,7 @@
                                     <td><?= $value['nama_user'] ?></td>
                                     <td><?= $value['status_appointment'] == '1' ? 'Disetujui' : 'Tidak Disetujui' ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-info" href="/admin/appointment/<?= $value['id_appointment'] ?>/edit">Edit</a>
+                                        <a class="btn btn-sm btn-info" href="/admin/appointment-approval/<?= $value['id_appointment'] ?>/edit">Persetujuan</a>
                                         <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_appointment'] ?>">hapus</a>
                                     </td>
                                 </tr>

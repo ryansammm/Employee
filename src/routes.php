@@ -2,8 +2,9 @@
 
 use App\About\Controller\AboutController;
 use App\Akreditasi\Controller\AkreditasiController;
-use App\AppointmentApproval\Controller\AppointmentApprovalController;
 use App\Appointment\Controller\AppointmentController;
+use App\AppointmentAdmin\Controller\AppointmentAdminController;
+use App\AppointmentAdminApproval\Controller\AppointmentAdminApprovalController;
 use App\Asosiasi\Controller\AsosiasiController;
 use App\Banner\Controller\BannerController;
 use App\Berita\Controller\BeritaController;
@@ -448,16 +449,24 @@ $routes->prefix('admin', function ($routes) {
     });
     /* -------------------------------------------------------------------------- */
 
+    /* --------------------------- Kelola Pertemuan --------------------------- */
+    $routes->prefix('appointment', function ($routes) {
+        $routes->push('appointment_admin', '', [AppointmentAdminController::class, 'index']);
+        $routes->push('appointment_admin_create', '/create', [AppointmentAdminController::class, 'create']);
+        $routes->push('appointment_admin_store', '/store', [AppointmentAdminController::class, 'store']);
+        $routes->push('appointment_admin_edit', '/{id}/edit', [AppointmentAdminController::class, 'edit']);
+        $routes->push('appointment_admin_update', '/{id}/update', [AppointmentAdminController::class, 'update']);
+        $routes->push('appointment_admin_show', '/{id}/show', [AppointmentAdminController::class, 'show']);
+        $routes->push('appointment_admin_delete', '/{id}/delete', [AppointmentAdminController::class, 'delete']);
+        $routes->push('appointment_admin_check', '/check', [AppointmentAdminController::class, 'check']);
+    });
+    /* -------------------------------------------------------------------------- */
+
     /* --------------------------- Approval Pertemuan --------------------------- */
     $routes->prefix('appointment-approval', function ($routes) {
-        $routes->push('appointment_approval', '', [AppointmentApprovalController::class, 'index']);
-        $routes->push('appointment_approval_create', '/create', [AppointmentApprovalController::class, 'create']);
-        $routes->push('appointment_approval_store', '/store', [AppointmentApprovalController::class, 'store']);
-        $routes->push('appointment_approval_edit', '/{id}/edit', [AppointmentApprovalController::class, 'edit']);
-        $routes->push('appointment_approval_update', '/{id}/update', [AppointmentApprovalController::class, 'update']);
-        $routes->push('appointment_approval_show', '/{id}/show', [AppointmentApprovalController::class, 'show']);
-        $routes->push('appointment_approval_delete', '/{id}/delete', [AppointmentApprovalController::class, 'delete']);
-        $routes->push('appointment_approval_delete', '/check', [AppointmentApprovalController::class, 'check']);
+        $routes->push('appointment_approval', '', [AppointmentAdminApprovalController::class, 'index']);
+        $routes->push('appointment_approval_edit', '/{id}/edit', [AppointmentAdminApprovalController::class, 'edit']);
+        $routes->push('appointment_approval_update', '/{id}/update', [AppointmentAdminApprovalController::class, 'update']);
     });
     /* -------------------------------------------------------------------------- */
 });

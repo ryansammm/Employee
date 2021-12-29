@@ -7,7 +7,7 @@ $(document).on("change", "#timestart_appointment", function () {
 function cek_appointment(callback = null, id_zoom = null, id_ruangan = null) {
   $.ajax({
     type: "post",
-    url: "/admin/appointment-approval/check",
+    url: "/admin/appointment/check",
     data: {
       timestart_appointment: $(document).find("#timestart_appointment").val(),
       timeend_appointment: $(document).find("#timeend_appointment").val(),
@@ -18,41 +18,31 @@ function cek_appointment(callback = null, id_zoom = null, id_ruangan = null) {
 
     data.datas.zoom.forEach((element) => {
       zoom += '<option value="' + element.id_zoom + '" ';
-      if (callback == null) {
-        zoom += typeof element.used == "undefined" ? "" : "disabled";
-      } else {
-        if ((id_zoom != '' && id_zoom != null) && (id_zoom != element.id_zoom)) {
-          zoom += typeof element.used == "undefined" ? "" : "disabled";
-        }
+      if (element.booked && element.id_zoom != id_zoom) {
+        zoom += "disabled";
       }
       zoom += ">" + element.nama_zoom + " ";
-      if (callback != null) {
-        zoom +=
-          "" +
-          (typeof element.used == "undefined" ? "" : "(Saat Ini Digunakan)");
-      } else {
-        zoom +=
-          "" + (typeof element.used == "undefined" ? "" : "(Tidak Tersedia)");
+      if (element.booked && element.used && element.id_zoom == id_zoom) {
+        zoom += "(Saat Ini Digunakan)";
+      } else if (element.booked && element.id_zoom != id_zoom) {
+        zoom += "(Tidak Tersedia)";
       }
       zoom += "</option>";
     });
     data.datas.ruangan.forEach((element) => {
       ruangan += '<option value="' + element.id_ruangan + '" ';
       if (callback == null) {
-        ruangan += typeof element.used == "undefined" ? "" : "disabled";
+        ruangan += !element.booked ? "" : "disabled";
       } else {
         if (id_ruangan != element.id_ruangan) {
-          ruangan += typeof element.used == "undefined" ? "" : "disabled";
+          ruangan += !element.booked ? "" : "disabled";
         }
       }
       ruangan += ">" + element.nama_ruangan + " ";
-      if (callback != null) {
-        ruangan +=
-          "" +
-          (typeof element.used == "undefined" ? "" : "(Saat Ini Digunakan)");
+      if (id_ruangan == element.id_ruangan) {
+        ruangan += !element.booked ? "" : "(Saat Ini Digunakan)";
       } else {
-        ruangan +=
-          "" + (typeof element.used == "undefined" ? "" : "(Tidak Tersedia)");
+        ruangan += !element.booked ? "" : "(Tidak Tersedia)";
       }
       ruangan += "</option>";
     });
@@ -75,5 +65,12 @@ function setIdRuangan(id) {
 
 //cek availibility akun zoom dan ruangan
 $(document).on("change", "#timeend_appointment", function () {
-  cek_appointment();
+    var detail_id_zoom = $(document).find(".detail_id_zoom").val();
+    var detail_id_ruangan = $(document).find(".detail_id_ruangan").val();
+
+  if (detail_id_zoom !== '' && detail_id_ruangan !== '') {
+    cek_appointment(null, detail_id_zoom, detail_id_ruangan);
+  } else {
+    cek_appointment();
+  }
 });

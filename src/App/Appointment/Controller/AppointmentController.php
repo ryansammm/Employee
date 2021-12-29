@@ -83,7 +83,6 @@ class AppointmentController
 
     public function detail(Request $request)
     {
-
         $id = $request->attributes->get('id');
 
         $detail = $this->model

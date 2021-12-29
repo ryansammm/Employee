@@ -4,6 +4,7 @@ namespace App\Appointment\Controller;
 
 use App\Appointment\Model\Appointment;
 use App\AppointmentDetail\Model\AppointmentDetail;
+use App\Zoom\Model\Zoom;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +22,10 @@ class AppointmentController
     {
         $datas = $this->model->get();
 
-        return render_template('public/appointment/index', ['datas' => $datas]);
+        $zoom = new Zoom();
+        $datas_zoom = $zoom->get();
+
+        return render_template('public/appointment/index', ['datas' => $datas, 'datas_zoom' => $datas_zoom]);
     }
 
     public function create(Request $request)
@@ -88,6 +92,7 @@ class AppointmentController
 
         $detail = $this->model
             ->leftJoin('appointment_detail', 'appointment_detail.id_appointment', '=', 'appointment.id_appointment')
+            ->leftJoin('zoom', 'zoom.id_zoom', '=', 'appointment_detail.id_zoom')
             ->where('appointment.id_appointment', $id)
             ->first();
 

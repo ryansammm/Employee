@@ -7,7 +7,7 @@
             <p class="text-center m-0" style="color: #c1c1c1;font-weight: 400;font-family: Astro-Space;">Panca Teknologi Aksesindo</p>
         </div>
 
-        <div class="col-md-2 pe-3 mb-3">
+        <!-- <div class="col-md-2 pe-3 mb-3">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Asosiasi</h6>
             <div class="row">
                 <?php foreach ($GLOBALS['asosiasi']->items as $key => $data) { ?>
@@ -31,7 +31,7 @@
                     </div>
                 <?php } ?>
             </div>
-        </div>
+        </div> -->
 
         <div class="col-md-2 col-12 text-center d-sm-block d-none" style="margin-top: auto;margin-bottom: auto;">
             <div class="d-flex-column justify-content-end">
@@ -50,10 +50,20 @@
             </div>
         </div>
 
-        <div class="col-md-2 col-12 mb-3" style="margin-bottom: auto; ">
+        <div class="col-md-2 col-12 mb-3 d-sm-block d-none" style="margin-bottom: auto; ">
             <!-- <div class="col-md-2 col-12" style="margin-bottom: auto; width: 12% !important;"> -->
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Social Media</h6>
             <ul class="nav flex-column">
+                <?php foreach ($GLOBALS['sosial_media']->items as $key => $data) { ?>
+                    <li class="nav-item "><a href="<?= $data['link_sosial_media'] ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank"><i class="<?= $data['icon_sosial_media'] ?>"></i> <?= $data['nama_sosial_media'] ?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+
+        <div class="col-md-2 col-12 mb-3 d-sm-none d-block" style="margin-bottom: auto; ">
+            <!-- <div class="col-md-2 col-12" style="margin-bottom: auto; width: 12% !important;"> -->
+            <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;margin-left: 60px;margin-right: 60px;">Social Media</h6>
+            <ul class="nav flex-column" style="margin-left: 60px;margin-right: 60px;">
                 <?php foreach ($GLOBALS['sosial_media']->items as $key => $data) { ?>
                     <li class="nav-item "><a href="<?= $data['link_sosial_media'] ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank"><i class="<?= $data['icon_sosial_media'] ?>"></i> <?= $data['nama_sosial_media'] ?></a></li>
                 <?php } ?>

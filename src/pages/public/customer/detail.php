@@ -28,7 +28,7 @@
                                 <img src="/assets/media/<?= $data_pelanggan['path_media'] ?>" alt="" style="width: 20%;border-radius: 0.25rem;">
                             </a>
                         </div>
-                        <hr>
+                        <!-- <hr>
                         <h6 class="mt-4">Deskripsi Singkat Pekerjaan :</h6>
                         <div class="mt-3">
                             <p class="px-3" style="font-size: 14px;"><?= $data_pelanggan['deskripsi_singkat_pekerjaan'] ?></p>
@@ -43,7 +43,7 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-center">Waktu Pekerjaan<span><?= date_format(date_create($data_pelanggan['waktu_pekerjaan']), "d-m-Y") ?></span></li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">Tahun Buku<span><?= $data_pelanggan['tahun_buku'] ?></span></li>
                             </ul>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="card-footer d-grid gap-2 d-flex justify-content-md-start">

@@ -17,8 +17,8 @@
     <link href="/assets/public/css/bootstrap.css" rel="stylesheet">
     <!------- Bootstrap Icon ------->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <!------- Fontawesome ------->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
 
     <!------- Style theme ------->
     <link rel="stylesheet" href="/assets/public/css/style.css">
@@ -211,7 +211,8 @@
                                     </a>
                                 <?php } else if ($GLOBALS['web_title']['cms_title_option'] == 3) { ?>
                                     <a class="text-decoration-none" href="/" style="margin-top: auto;margin-bottom: auto;font-family: Astro-Space;">
-                                        <h6><?= $GLOBALS['web_title']['cms_title'] ?></h6>
+                                        <h6 class="mb-0"><?= $GLOBALS['web_title']['cms_title'] ?></h6>
+                                        <small style="font-size: 14px;font-style: italic;font-family: sans-serif;">System Integrator</small>
                                     </a>
                                 <?php } ?>
                             </div>

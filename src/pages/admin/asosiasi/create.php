@@ -33,7 +33,7 @@
                                     <input type="text" class="form-control" id="nama_asosiasi" name="nama_asosiasi">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="ikon_asosiasi" class="form-label">Ikon Asosiasi</label> (.jpg, .jpeg, .png)
+                                    <label for="ikon_asosiasi" class="form-label">Logo Asosiasi</label> (.jpg, .jpeg, .png)
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="ikon_asosiasi" name="ikon_asosiasi">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
@@ -43,15 +43,26 @@
                                         <span class="text-danger d-block"><b><?= $errors['ikon_asosiasi'] ?></b></span>
                                     <?php } ?>
                                 </div>
-                                <div class="row my-4">
-                                    <div class="col-md d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-danger">Submit</button>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Deskripsi Asosiasi</label>
+                                    <textarea class="form-control" id="" name="deskripsi_asosiasi" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sertifikat_asosiasi" class="form-label">Sertifikat Asosiasi</label> (.pdf)
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="sertifikat_asosiasi" name="sertifikat_asosiasi">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
+                                    <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <div class="col-md d-flex justify-content-end">
+                                <button type="submit" class="btn btn-danger">Submit</button>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </form>
         </div>

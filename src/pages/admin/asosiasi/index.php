@@ -40,7 +40,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Akdreditas</th>
-                                <th scope="col">Icon Asosiasi</th>
+                                <th scope="col">Logo Asosiasi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>

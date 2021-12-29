@@ -1,10 +1,12 @@
 <?php
 
 use App\About\Controller\AboutController;
+use App\Accreditation\Controller\AccreditationController;
 use App\Akreditasi\Controller\AkreditasiController;
 use App\AppointmentApproval\Controller\AppointmentApprovalController;
 use App\Appointment\Controller\AppointmentController;
 use App\Asosiasi\Controller\AsosiasiController;
+use App\Association\Controller\AssociationController;
 use App\Banner\Controller\BannerController;
 use App\Berita\Controller\BeritaController;
 use App\BeritaAdmin\Controller\BeritaAdminController;
@@ -541,6 +543,18 @@ $routes->push('maintenance', '/maintenance', [MaintenanceController::class, 'ind
 $routes->prefix('/page', function ($routes) {
     $routes->push('page-dinamis', '/{page_url}', [HalamanController::class, 'index']);
 });
+/* -------------------------------------------------------------------------- */
+
+
+/* ------------------------------- Association ------------------------------ */
+$routes->push('association', '/association', [AssociationController::class, 'index']);
+$routes->push('association', '/association/{id}/detail', [AssociationController::class, 'detail']);
+/* -------------------------------------------------------------------------- */
+
+
+/* ------------------------------ Accreditation ----------------------------- */
+$routes->push('accreditation', '/accreditation', [AccreditationController::class, 'index']);
+$routes->push('accreditation', '/accreditation/{id}/detail', [AccreditationController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
 
 

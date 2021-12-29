@@ -49,15 +49,35 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row my-4">
-                                    <div class="col-md d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-danger">Submit</button>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Deskripsi Asosiasi</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi_asosiasi" rows="3"><?= $detail['deskripsi_asosiasi'] ?></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <?php if (arr_offset($detail_pdf, 'path_media') != null) { ?>
+                                            <div class="col-2">
+                                                <embed src="/assets/media/<?= arr_offset($detail_pdf, 'path_media') ?>" class="img-fluid" type="application/pdf">
+                                            </div>
+                                        <?php } ?>
+                                        <div class="col">
+                                            <label for="sertifikat_asosiasi" class="form-label">Sertifikat Asosiasi</label> (.pdf)
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="sertifikat_asosiasi" name="sertifikat_asosiasi">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                            <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="card-footer">
+                            <div class="col-md d-flex justify-content-end">
+                                <button type="submit" class="btn btn-danger">Submit</button>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </form>
         </div>

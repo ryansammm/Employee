@@ -2,9 +2,9 @@
 <div class="container-fluid " style="background-color: #141414 !important;">
     <footer class="row py-4 mt-5 border-top">
 
-        <div class="col-md-2 col-12" style="margin-top: auto;margin-bottom: auto;">
+        <div class="col-md-2 col-12 mb-3" style="margin-top: auto;margin-bottom: auto;">
             <img class="d-flex mx-auto mb-2" src="/assets/logo/PTA-logo.png" alt="" style="width: 110px;">
-            <p class="text-center m-0" style="color: #c1c1c1;font-weight: 600;">Panca Teknologi Aksesindo</p>
+            <p class="text-center m-0" style="color: #c1c1c1;font-weight: 400;font-family: Astro-Space;">Panca Teknologi Aksesindo</p>
         </div>
 
         <div class="col-md-2 pe-3 mb-3">
@@ -12,7 +12,9 @@
             <div class="row">
                 <?php foreach ($GLOBALS['asosiasi']->items as $key => $data) { ?>
                     <div class="col-md-4 col-2 mb-2 mt-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                        <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="100%">
+                        <a href="/association/<?= $data['id_asosiasi'] ?>/detail" target="_blank">
+                            <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="50px" height="50px">
+                        </a>
                     </div>
                 <?php } ?>
             </div>
@@ -23,7 +25,9 @@
             <div class="row">
                 <?php foreach ($GLOBALS['akreditasi']->items as $key => $data) { ?>
                     <div class="col-md-4 col-2 mb-2 mt-2" style="padding-left: 0.7rem; padding-right: 0.7rem;">
-                        <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="100%">
+                        <a href="/accreditation/<?= $data['id_akreditasi'] ?>/detail" target="_blank">
+                            <img class="rounded-circle" src="/assets/media/<?= $data['path_media'] ?>" alt="" width="50px" height="50px">
+                        </a>
                     </div>
                 <?php } ?>
             </div>
@@ -56,15 +60,14 @@
             </ul>
         </div>
 
-        <div class="col-md-2 col-12" style="margin-bottom: auto;">
-            <!-- <div class="col-md-2 col-12" style="margin-bottom: auto;width: 18% !important;"> -->
+        <!-- <div class="col-md-2 col-12" style="margin-bottom: auto;">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Lainnya</h6>
             <ul class="nav flex-column">
                 <?php foreach ($GLOBALS['menu_footer'] as $key1 => $data1) { ?>
                     <li class="nav-item "><a href="<?= arr_offset($data1, 'link_url') ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank" aria-label="<?= arr_offset($data1, 'menu') ?>"><?= arr_offset($data1, 'menu') ?></a></li>
                 <?php } ?>
             </ul>
-        </div>
+        </div> -->
 
         <div class="col-md-2 col-12 mt-3 text-center d-sm-none d-block" style="margin-top: auto;margin-bottom: auto;">
             <div class="d-flex-column justify-content-end">

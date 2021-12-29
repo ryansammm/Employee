@@ -33,7 +33,7 @@
                                     <input type="text" class="form-control" id="nama_akreditasi" name="nama_akreditasi">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="ikon_akreditasi" class="form-label">Ikon Akreditasi</label> (.jpg, .jpeg, .png)
+                                    <label for="ikon_akreditasi" class="form-label">Logo Akreditasi</label> (.jpg, .jpeg, .png)
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="ikon_akreditasi" name="ikon_akreditasi">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
@@ -43,11 +43,23 @@
                                         <span class="text-danger d-block"><b><?= $errors['ikon_akreditasi'] ?></b></span>
                                     <?php } ?>
                                 </div>
-                                <div class="row my-4">
-                                    <div class="col-md d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-danger">Submit</button>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Deskripsi Akreditasi</label>
+                                    <textarea class="form-control" id="" name="deskripsi_akreditasi" rows="3"></textarea>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="sertifikat_akreditasi" class="form-label">Sertifikat Akreditasi</label> (.pdf)
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="sertifikat_akreditasi" name="sertifikat_akreditasi">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+                                    <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="col-md d-flex justify-content-end">
+                                <button type="submit" class="btn btn-danger">Submit</button>
                             </div>
                         </div>
                     </div>

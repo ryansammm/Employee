@@ -117,12 +117,12 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         /* ------------------------------- Akreditasi ------------------------------- */
         $akreditasi_model = new Akreditasi();
-        $akreditasi = $akreditasi_model->leftJoin('media', 'media.id_relation', '=', 'akreditasi.id_akreditasi')->get();
+        $akreditasi = $akreditasi_model->leftJoin('media', 'media.id_relation', '=', 'akreditasi.id_akreditasi')->where('jenis_dokumen', 'logo-akreditasi')->get();
         /* -------------------------------------------------------------------------- */
 
         /* -------------------------------- Asosiasi -------------------------------- */
         $asosiasi_model = new Asosiasi();
-        $asosiasi = $asosiasi_model->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->get();
+        $asosiasi = $asosiasi_model->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->where('jenis_dokumen', 'logo-asosiasi')->get();
         /* -------------------------------------------------------------------------- */
 
         /* ------------------------------ Sosial Media ------------------------------ */

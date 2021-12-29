@@ -101,10 +101,12 @@
                 <div class="row">
                     <?php foreach ($data_video->items as $key => $value) { ?>
                         <div class="col-md-3 col-6 mt-3">
-                            <div class="card" style="height: 200px !important;">
-                                <div class="card-body p-0">
+                            <div class="card">
+                                <div class="card-body p-2">
                                     <div class="js-video [youtube, widescreen]">
                                         <iframe src="<?= $value['link_video'] ?>" style="width: 100%; height: 150pt;border-radius: 0.25rem;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <h6 class="mt-2"><?= $value['judul_video'] ?></h6>
+                                        <div class="truncate-string-4" style="font-size: 14px;"><?= $value['keterangan_video'] ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +196,7 @@
 </div>
 
 <script>
-    window.intergramId = "626917343";
+    window.intergramId = "626917343"
     window.intergramCustomizations = {
         titleClosed: 'Telegram',
         titleOpen: 'Customer Service',
@@ -203,7 +205,7 @@
         autoNoResponse: 'A message that is sent one minute after the user sends its first message ' +
             'and no response was received',
         mainColor: "#0853a6", // Can be any css supported color 'red', 'rgb(255,87,34)', etc
-        alwaysUseFloatingButton: false // Use the mobile floating button also on large screens
+        alwaysUseFloatingButton: true // Use the mobile floating button also on large screens
     }
 </script>
 

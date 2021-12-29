@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AsosiasiController
 {
-    public $model;
+    public $asosiasi;
 
     public function __construct()
     {
@@ -18,7 +18,10 @@ class AsosiasiController
 
     public function index(Request $request)
     {
-        $datas = $this->asosiasi->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->paginate(10);
+        $datas = $this->asosiasi
+            ->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')
+            ->where('jenis_dokumen', 'logo-asosiasi')
+            ->paginate(10);
 
         return render_template('admin/asosiasi/index', compact('datas'));
     }
@@ -37,7 +40,11 @@ class AsosiasiController
         $media = new Media();
         $media->storeMedia($request->files->get('ikon_asosiasi'), [
             'id_relation' => $create,
-            'jenis_dokumen' => '',
+            'jenis_dokumen' => 'logo-asosiasi',
+        ]);
+        $media->storeMedia($request->files->get('sertifikat_asosiasi'), [
+            'id_relation' => $create,
+            'jenis_dokumen' => 'sertifikat-asosiasi',
         ]);
 
         return new RedirectResponse('/admin/asosiasi');
@@ -48,9 +55,19 @@ class AsosiasiController
 
 
         $id = $request->attributes->get('id');
-        $detail = $this->asosiasi->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->where('id_asosiasi', $id)->first();
+        $detail = $this->asosiasi
+            ->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')
+            ->where('id_asosiasi', $id)
+            ->where('jenis_dokumen', 'logo-asosiasi')
+            ->first();
 
-        return render_template('admin/asosiasi/edit', compact('detail'));
+        $detail_pdf = $this->asosiasi
+            ->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')
+            ->where('id_asosiasi', $id)
+            ->where('jenis_dokumen', 'sertifikat-asosiasi')
+            ->first();
+
+        return render_template('admin/asosiasi/edit', compact('detail', 'detail_pdf'));
     }
 
     public function update(Request $request)
@@ -62,8 +79,13 @@ class AsosiasiController
         $media = new Media();
         $media->updateMedia($request->files->get('ikon_asosiasi'), [
             'id_relation' => $id,
-            'jenis_dokumen' => '',
-        ], $this->model, $id);
+            'jenis_dokumen' => 'logo-asosiasi',
+        ], $this->asosiasi, $id);
+
+        $media->updateMedia($request->files->get('sertifikat_asosiasi'), [
+            'id_relation' => $id,
+            'jenis_dokumen' => 'sertifikat-asosiasi',
+        ], $this->asosiasi, $id);
 
         return new RedirectResponse('/admin/asosiasi');
     }
@@ -73,8 +95,8 @@ class AsosiasiController
 
         $id = $request->attributes->get('id');
         $media = new Media();
-        $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->where('id_asosiasi', $id)->first();
-        $this->model->where('id_asosiasi', $id)->delete();
+        $media_data = $this->asosiasi->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->where('id_asosiasi', $id)->first();
+        $this->asosiasi->where('id_asosiasi', $id)->delete();
         $media->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/asosiasi');

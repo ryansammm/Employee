@@ -37,8 +37,9 @@
                                 <label for="tanggal" class="form-label">Akun Zoom</label>
                                 <select class="form-select" aria-label="Default select example">
                                     <option>-- Pilih Akun Zoom --</option>
-                                    <option value="1">Akun Zoom 1 (Tersedia)</option>
-                                    <option value="2">Akun Zoom 2 (Tersedia)</option>
+                                    <?php foreach ($datas_zoom->items as $key => $value) { ?>
+                                        <option value="<?= $value['id_zoom'] ?>"><?= $value['nama_zoom'] ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
@@ -107,10 +108,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="tanggal" class="form-label">Akun Zoom</label>
-                            <select class="form-select" aria-label="Default select example" disabled>
+                            <select class="form-select" id="akun-zoom" aria-label="Default select example" disabled>
                                 <option>-- Pilih Akun Zoom --</option>
-                                <option value="1">Akun Zoom 1 (Tersedia)</option>
-                                <option value="2">Akun Zoom 2 (Tersedia)</option>
+                                <?php foreach ($datas_zoom->items as $key => $value) { ?>
+                                    <option value="<?= $value['id_zoom'] ?>"><?= $value['nama_zoom'] ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -129,19 +131,19 @@
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="sertifikat" disabled>
+                                <input class="form-check-input sertifikat" type="checkbox" value="" id="sertifikat" disabled>
                                 <label class="form-check-label" for="sertifikat">
                                     Sertifikat
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="daftar-hadir" disabled>
+                                <input class="form-check-input daftar-hadir" type="checkbox" value="" id="daftar-hadir" disabled>
                                 <label class="form-check-label" for="daftar-hadir">
                                     Daftar Hadir
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="kuesioner" disabled>
+                                <input class="form-check-input kuesioner" type="checkbox" value="" id="kuesioner" disabled>
                                 <label class="form-check-label" for="kuesioner">
                                     Kuesioner
                                 </label>
@@ -193,10 +195,8 @@
                 var modal = $('#createEventModal');
                 $('#createEventModal').modal('show');
                 $('.nama-agenda').val('');
-
-                console.log(arg.end);
                 modal.find('.create-tanggal-mulai').val(arg.startStr);
-                // modal.find('.create-tanggal-selesai').val(arg.endStr);
+                modal.find('.create-tanggal-selesai').val(arg.endStr);
 
                 $('.simpan-entri').click(function(events) {
                     $('#createEventModal').modal('hide');
@@ -231,6 +231,22 @@
                     modal.find('.nama-agenda').val(data.detail.agenda_appointment);
                     modal.find('.deskripsi-agenda').val(data.detail.deskripsi_appointment);
                     modal.find('.partisipan').val(data.detail.partisipan_appointment);
+                    modal.find('#akun-zoom').val(data.detail.id_zoom);
+                    if (data.detail.sertifikat == 1) {
+                        modal.find('.sertifikat').prop('checked', true);
+                    } else {
+                        modal.find('.sertifikat').prop('checked', false);
+                    }
+                    if (data.detail.daftar_hadir == 1) {
+                        modal.find('.daftar-hadir').prop('checked', true);
+                    } else {
+                        modal.find('.daftar-hadir').prop('checked', false);
+                    }
+                    if (data.detail.kuisioner == 1) {
+                        modal.find('.kuesioner').prop('checked', true);
+                    } else {
+                        modal.find('.kuesioner').prop('checked', false);
+                    }
                 });
 
                 $('.hapus-entri').click(function(events) {

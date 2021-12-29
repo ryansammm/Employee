@@ -3,68 +3,36 @@
 namespace App\Appointment\Controller;
 
 use App\Appointment\Model\Appointment;
-use App\AppointmentDetail\Model\AppointmentDetail;
+use App\Ruangan\Model\Ruangan;
 use App\Zoom\Model\Zoom;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class AppointmentController
 {
-    public $model;
+    public $appointment;
+    public $zoom;
+    public $ruangan;
 
     public function __construct()
     {
-        $this->model = new Appointment();
+        $this->appointment = new Appointment();
+        $this->zoom = new Zoom();
+        $this->ruangan = new Ruangan();
     }
 
     public function index(Request $request)
     {
-        $datas = $this->model->get();
+        $datas = $this->appointment->get();
+        $datas_zoom = $this->zoom->get();
+        $datas_ruangan = $this->ruangan->get();
 
-        $zoom = new Zoom();
-        $datas_zoom = $zoom->get();
-
-        return render_template('public/appointment/index', ['datas' => $datas, 'datas_zoom' => $datas_zoom]);
-    }
-
-    public function create(Request $request)
-    {
-
-        return render_template('home/create', []);
-    }
-
-    public function store(Request $request)
-    {
-
-        $this->model->insert($request->request->all());
-
-        return new RedirectResponse('/home');
-    }
-
-    public function edit(Request $request)
-    {
-
-
-        return render_template('home/edit', []);
-    }
-
-    public function update(Request $request)
-    {
-
-        return new RedirectResponse('/home');
-    }
-
-    public function delete(Request $request)
-    {
-
-        return new RedirectResponse('/home');
+        return render_template('public/appointment/index', ['datas' => $datas, 'datas_zoom' => $datas_zoom, 'datas_ruangan' => $datas_ruangan]);
     }
 
     public function get(Request $request)
     {
-
-        $datas = $this->model
+        $datas = $this->appointment
             ->leftJoin('appointment_detail', 'appointment_detail.id_appointment', '=', 'appointment.id_appointment')
             ->get();
 
@@ -77,8 +45,6 @@ class AppointmentController
             } else {
                 $datas->items[$key]['start'] = date_format(date_create($value['timestart_appointment']), 'Y-m-d');
                 $datas->items[$key]['end'] = date_format(date_create($value['timeend_appointment']), 'Y-m-d');
-                // $datas->items[$key]['start'] = $value['timestart_appointment'];
-                // $datas->items[$key]['end'] = $value['timeend_appointment'];
             }
         }
 
@@ -89,7 +55,7 @@ class AppointmentController
     {
         $id = $request->attributes->get('id');
 
-        $detail = $this->model
+        $detail = $this->appointment
             ->leftJoin('appointment_detail', 'appointment_detail.id_appointment', '=', 'appointment.id_appointment')
             ->leftJoin('zoom', 'zoom.id_zoom', '=', 'appointment_detail.id_zoom')
             ->where('appointment.id_appointment', $id)
@@ -103,8 +69,6 @@ class AppointmentController
         } else {
             $detail['start'] = date_format(date_create($detail['timestart_appointment']), 'Y-m-d');
             $detail['end'] = date_format(date_create($detail['timeend_appointment']), 'Y-m-d');
-            // $detail['start'] = $detail['timestart_appointment'];
-            // $detail['end'] = $detail['timeend_appointment'];
         }
 
         return new JsonResponse(['detail' => $detail]);

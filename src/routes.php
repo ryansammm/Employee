@@ -574,10 +574,6 @@ $routes->push('appointmentGet', '/appointment/get', [AppointmentController::clas
 $routes->push('appointmentDetail', '/appointment/detail/{id}', [AppointmentController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
 
-/* --------------------------------- Booking -------------------------------- */
-$routes->push('booking', '/booking', [BookingController::class, 'index']);
-/* -------------------------------------------------------------------------- */
-
 // routes search header
 $routes->push('search_result', '/search', [SearchController::class, 'index']);
 

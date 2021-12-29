@@ -1,17 +1,20 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div id='calendar'></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id='calendar'></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal create event -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--Add event modal-->
+<div id="createEventModal" class="modal fade">
     <form action="/appointment/store" method="POST">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -34,8 +37,9 @@
                                 <label for="tanggal" class="form-label">Akun Zoom</label>
                                 <select class="form-select" aria-label="Default select example">
                                     <option>-- Pilih Akun Zoom --</option>
-                                    <option value="1">Akun Zoom 1 (Tersedia)</option>
-                                    <option value="2">Akun Zoom 2 (Tersedia)</option>
+                                    <?php foreach ($datas_zoom->items as $key => $value) { ?>
+                                        <option value="<?= $value['id_zoom'] ?>"><?= $value['nama_zoom'] ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
@@ -103,20 +107,11 @@
                             <input type="text" class="form-control tanggal-selesai" id="tanggal" value="" disabled>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Akun Zoom</label>
-                            <select class="form-select" id="id_zoom" aria-label="Default select example" disabled>
-                                <option value="">-- Akun Zoom --</option>
+                            <label for="tanggal" class="form-label">Akun Zoom</label>
+                            <select class="form-select" id="akun-zoom" aria-label="Default select example" disabled>
+                                <option>-- Pilih Akun Zoom --</option>
                                 <?php foreach ($datas_zoom->items as $key => $value) { ?>
                                     <option value="<?= $value['id_zoom'] ?>"><?= $value['nama_zoom'] ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Ruangan</label>
-                            <select class="form-select" id="id_ruangan" aria-label="Default select example" disabled>
-                                <option value="">-- Ruangan --</option>
-                                <?php foreach ($datas_ruangan->items as $key => $value) { ?>
-                                    <option value="<?= $value['id_ruangan'] ?>"><?= $value['nama_ruangan'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -134,67 +129,52 @@
                             <label for="partisipan" class="form-label">Partisipan</label>
                             <input type="number" class="form-control partisipan" id="partisipan" value="" disabled>
                         </div>
-                    </div>
-                </div>
-                <h5>Detail Data</h5>
-                <div class="row">
-                    <div class="col-12 col-md-6">
                         <div class="mb-3">
-                            <label class="form-label">Link Zoom Meeting</label>
-                            <input type="text" class="form-control link_zoom" name="link_zoom" disabled>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Meeting ID</label>
-                            <input type="text" class="form-control meeting_id" name="meeting_id" disabled>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Password Meeting</label>
-                            <input type="text" class="form-control password_meeting" name="password_meeting" disabled>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Link Daftar Hadir</label>
-                            <input type="text" class="form-control link_daftar_hadir" name="link_daftar_hadir" disabled>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Link Kuisioner</label>
-                            <input type="text" class="form-control link_kuisioner" name="link_kuisioner" disabled>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-2">
-                        <div class="mb-3">
-                            <label class="form-label">Jumlah Snack</label>
-                            <input type="text" class="form-control jumlah_snack" name="jumlah_snack" disabled>
+                            <div class="form-check">
+                                <input class="form-check-input sertifikat" type="checkbox" value="" id="sertifikat" disabled>
+                                <label class="form-check-label" for="sertifikat">
+                                    Sertifikat
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input daftar-hadir" type="checkbox" value="" id="daftar-hadir" disabled>
+                                <label class="form-check-label" for="daftar-hadir">
+                                    Daftar Hadir
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input kuesioner" type="checkbox" value="" id="kuesioner" disabled>
+                                <label class="form-check-label" for="kuesioner">
+                                    Kuesioner
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <input type="hidden" id="ModalId">
+                <button type="button" class="btn btn-danger hapus-entri" data-bs-dismiss="modal">Hapus</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Simpan</button> -->
             </div>
         </div>
     </div>
 </div>
 
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-
         var calendarEl = document.getElementById('calendar');
+
         var calendar = new FullCalendar.Calendar(calendarEl, {
             height: 'auto',
             headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',
-                right: ''
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listDay,listWeek'
             },
+
             views: {
                 listDay: {
                     buttonText: 'list day'
@@ -204,6 +184,36 @@
                 }
             },
             initialView: 'dayGridMonth',
+            dayMaxEvents: true,
+            navLinks: true,
+            selectable: true,
+            selectMirror: true,
+            editable: true,
+            dayMaxEvents: true,
+
+            select: function(arg) {
+                var modal = $('#createEventModal');
+                $('#createEventModal').modal('show');
+                $('.nama-agenda').val('');
+                modal.find('.create-tanggal-mulai').val(arg.startStr);
+                modal.find('.create-tanggal-selesai').val(arg.endStr);
+
+                $('.simpan-entri').click(function(events) {
+                    $('#createEventModal').modal('hide');
+                    var title = $('.nama-agenda').val();
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: arg.start,
+                            end: arg.end,
+                            allDay: arg.allDay
+                        })
+                    }
+
+                });
+                calendar.unselect()
+            },
+
 
             eventClick: function(arg) {
                 var modal = $('#detailEventModal');
@@ -219,15 +229,7 @@
                     modal.find('.nama-agenda').val(data.detail.agenda_appointment);
                     modal.find('.deskripsi-agenda').val(data.detail.deskripsi_appointment);
                     modal.find('.partisipan').val(data.detail.partisipan_appointment);
-                    modal.find('.id_zoom').val(data.detail.id_zoom);
-                    modal.find('.id_ruangan').val(data.detail.id_ruangan);
-                    modal.find('.link_zoom').val(data.detail.link_zoom);
-                    modal.find('.meeting_id').val(data.detail.meeting_id);
-                    modal.find('.password_meeting').val(data.detail.password_meeting);
-                    modal.find('.link_daftar_hadir').val(data.detail.link_daftar_hadir);
-                    modal.find('.link_kuisioner').val(data.detail.link_kuisioner);
-                    modal.find('.jumlah_snack').val(data.detail.jumlah_snack);
-
+                    modal.find('#akun-zoom').val(data.detail.id_zoom);
                     if (data.detail.sertifikat == 1) {
                         modal.find('.sertifikat').prop('checked', true);
                     } else {
@@ -248,10 +250,12 @@
                 $('.hapus-entri').click(function(events) {
                     $('#detailEventModal').modal('hide');
                     arg.event.remove()
+
                 });
             },
             events: []
         });
+
         calendar.render();
 
         $.ajax({
@@ -269,5 +273,6 @@
         });
     });
 </script>
+
 
 <?php include __DIR__ . '/../Footer.php' ?>

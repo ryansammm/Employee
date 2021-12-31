@@ -33,15 +33,22 @@
                                     <input type="text" class="form-control" id="nama_akreditasi" name="nama_akreditasi">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="ikon_akreditasi" class="form-label">Ikon Akreditasi</label> (.jpg, .jpeg, .png)
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="ikon_akreditasi" name="ikon_akreditasi">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="/assets/logo/badge.png" class="img-fluid img-thumbnail foto_utama_preview">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="ikon_akreditasi" class="form-label">Ikon Akreditasi</label> (.jpg, .jpeg, .png)
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input foto_utama" id="ikon_akreditasi" name="ikon_akreditasi">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                            <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                            <?php if (isset($errors['ikon_akreditasi'])) { ?>
+                                                <span class="text-danger d-block"><b><?= $errors['ikon_akreditasi'] ?></b></span>
+                                            <?php } ?>
+                                        </div>
                                     </div>
-                                    <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
-                                    <?php if (isset($errors['ikon_akreditasi'])) { ?>
-                                        <span class="text-danger d-block"><b><?= $errors['ikon_akreditasi'] ?></b></span>
-                                    <?php } ?>
                                 </div>
                                 <div class="row my-4">
                                     <div class="col-md d-flex justify-content-end">
@@ -80,6 +87,7 @@
 </div>
 
 <script src="/assets/js/app/file-preview.js"></script>
+<script src="/assets/admin/js/preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function() {

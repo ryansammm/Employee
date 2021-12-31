@@ -36,13 +36,13 @@
                                     <div class="row">
                                         <?php if (arr_offset($detail, 'path_media') != null) { ?>
                                             <div class="col-2">
-                                                <img src="/assets/media/<?= arr_offset($detail, 'path_media') ?>" class="img-fluid">
+                                                <img src="/assets/media/<?= arr_offset($detail, 'path_media') ?>" class="img-fluid foto_utama_preview">
                                             </div>
                                         <?php } ?>
                                         <div class="col">
                                             <label for="ikon_asosiasi" class="form-label">Ikon Asosiasi</label> (.jpg, .jpeg, .png)
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="ikon_asosiasi" name="ikon_asosiasi">
+                                                <input type="file" class="custom-file-input foto_utama" id="ikon_asosiasi" name="ikon_asosiasi">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                             </div>
                                             <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
@@ -86,6 +86,7 @@
 </div>
 
 <script src="/assets/js/app/file-preview.js"></script>
+<script src="/assets/admin/js/preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function() {

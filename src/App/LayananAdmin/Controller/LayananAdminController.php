@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 class LayananAdminController
 {
     public $model;
-    public $produkTemp;
+    public $layananTemp;
     public $media;
     public $modelKategorilayanan;
 
@@ -244,5 +244,59 @@ class LayananAdminController
 
 
         return render_template('admin/layanan-redaction/redaction', ['data_layanan' => $data_layanan, 'kategori_layanan' => $kategori_layanan, 'id_kategori_layanan' => $id_kategori_layanan]);
+    }
+
+    public function redaction_detail(Request $request)
+    {
+        $id = $request->attributes->get("id");
+        $layanan = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
+            ->where('media.jenis_dokumen', 'utama')
+            ->where('id_layanan', $id)->first();
+        $data_kategori_layanan = $this->modelKategoriLayanan->get();
+
+        $media = new Media();
+        $foto_layanan_lainnya = $media
+            ->where('id_relation', $id)
+            ->where('jenis_dokumen', 'lainnya')
+            ->get();
+
+        return render_template('admin/layanan-redaction/detail', ['id' => $id, 'layanan' => $layanan, 'data_kategori_layanan' => $data_kategori_layanan, 'foto_layanan_lainnya' => $foto_layanan_lainnya]);
+    }
+
+    public function redaction_edit(Request $request)
+    {
+        $id = $request->attributes->get("id");
+        $layanan = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
+            ->where('media.jenis_dokumen', 'utama')
+            ->where('id_layanan', $id)->first();
+        $data_kategori_layanan = $this->modelKategoriLayanan->get();
+
+        $media = new Media();
+        $foto_layanan_lainnya = $media
+            ->where('id_relation', $id)
+            ->where('jenis_dokumen', 'lainnya')
+            ->get();
+
+        return render_template('admin/layanan-redaction/edit', ['id' => $id, 'layanan' => $layanan, 'data_kategori_layanan' => $data_kategori_layanan, 'foto_layanan_lainnya' => $foto_layanan_lainnya]);
+    }
+
+    public function approval_detail(Request $request)
+    {
+        $id = $request->attributes->get("id");
+        $layanan = $this->model
+            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
+            ->where('media.jenis_dokumen', 'utama')
+            ->where('id_layanan', $id)->first();
+        $data_kategori_layanan = $this->modelKategoriLayanan->get();
+
+        $media = new Media();
+        $foto_layanan_lainnya = $media
+            ->where('id_relation', $id)
+            ->where('jenis_dokumen', 'lainnya')
+            ->get();
+
+        return render_template('admin/layanan-approval/detail', ['id' => $id, 'layanan' => $layanan, 'data_kategori_layanan' => $data_kategori_layanan, 'foto_layanan_lainnya' => $foto_layanan_lainnya]);
     }
 }

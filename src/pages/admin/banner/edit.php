@@ -50,8 +50,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="foto_banner" class="form-label">Foto Banner</label> (.jpg, .jpeg, .png)
-                                    <img src="/assets/media/<?= arr_offset($detail, 'path_media') ?>" class="img-fluid img-thumbnail d-block mb-2">
-                                    <input type="file" class="form-control" id="foto_banner" name="foto_banner">
+                                    <img src="/assets/media/<?= arr_offset($detail, 'path_media') ?>" class="img-fluid img-thumbnail foto_utama_preview d-block mb-2">
+                                    <input type="file" class="form-control foto_utama" id="foto_banner" name="foto_banner">
                                     <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
                                     <?php if (isset($errors['foto_banner'])) { ?>
                                         <span class="text-danger d-block"><b><?= $errors['foto_banner'] ?></b></span>
@@ -145,6 +145,7 @@
 </div>
 
 <script src="/assets/js/app/file-preview.js"></script>
+<script src="/assets/admin/js/preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function() {

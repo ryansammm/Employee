@@ -32,7 +32,7 @@
             <form action="/admin/profil/update" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mb-3">
                             <!------- Judul Profil ------->
                             <div class="col-md-12">
                                 <div class="mb-3">
@@ -41,53 +41,61 @@
                                 </div>
                             </div>
                             <!------- Foto Profil ------->
-                            <div class="col-md-4">
-                                <label for="profil_foto" class="form-label">Foto Profil</label> (.jpg, .jpeg, .png)
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="profil_foto">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                    <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
-                                    <?php foreach ($profil as $key => $data) { ?>
-                                        <?php if (arr_offset($data, 'path_media') != null && arr_offset($data, 'jenis_dokumen') == 'profil_foto') { ?>
-                                            <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= arr_offset($data, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
-                                        <?php } ?>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <!------- Deskripsi Profil ------->
                             <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="deskripsi_profil" class="form-label">Deskripsi Profil</label>
-                                    <textarea id="deskripsi_profil" name="deskripsi_profil"><?= arr_offset($profil[0], 'deskripsi_profil') ?></textarea>
-                                </div>
-                            </div>
-                            <!------- Visi Misi ------->
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="visi_misi" class="form-label">Visi Misi</label>
-                                    <textarea id="visi_misi" name="visi_misi"><?= arr_offset($visi_misi, 'visi_misi') ?></textarea>
-                                </div>
-                            </div>
-                            <!------- Struktur Organisasi ------->
-                            <div class="col-md-4">
-                                <label for="struktur_organisasi" class="form-label">Struktur Organisasi</label> (.jpg, .jpeg, .png)
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="struktur_organisasi">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
+                                <label for="profil_foto" class="form-label">Foto Profil</label>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <img src="/assets/media/<?= arr_offset($profil[0], 'path_media') ?>" class="img-fluid img-thumbnail foto_utama_preview">
                                     </div>
-                                    <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
-                                    <?php foreach ($profil as $key1 => $data1) { ?>
-                                        <?php if (arr_offset($data1, 'path_media') != null && arr_offset($data1, 'jenis_dokumen') == 'struktur_organisasi') { ?>
-                                            <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= arr_offset($data1, 'path_media') ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
-                                        <?php } ?>
-                                    <?php } ?>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <div class="form-group mb-0">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input foto_utama" id="exampleInputFile" name="profil_foto">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="text-muted ml-1 d-block">Ukuran maksimum file : 2 Mb (.jpg, .jpeg, .png)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!------- Deskripsi Profil ------->
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="deskripsi_profil" class="form-label">Deskripsi Profil</label>
+                                <textarea id="deskripsi_profil" name="deskripsi_profil"><?= arr_offset($profil[0], 'deskripsi_profil') ?></textarea>
+                            </div>
+                        </div>
+                        <!------- Visi Misi ------->
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label for="visi_misi" class="form-label">Visi Misi</label>
+                                <textarea id="visi_misi" name="visi_misi"><?= arr_offset($visi_misi, 'visi_misi') ?></textarea>
+                            </div>
+                        </div>
+                        <!------- Struktur Organisasi ------->
+                        <div class="col-md-12 preview_list_foto">
+                            <label for="struktur_organisasi" class="form-label">Struktur Organisasi</label>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="foto_detail_preview" style="background-image: url(/assets/media/<?= arr_offset($profil[2], 'path_media') ?>);display:block;width:100%;height:150px;background-size:100%;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input foto_detail" id="exampleInputFile" name="struktur_organisasi">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                        <span class="text-muted ml-1 d-block">Ukuran maksimum file : 2 Mb (.jpg, .jpeg, .png)</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +155,8 @@
     </div>
 </div>
 
-<script src="/assets/js/app/file-preview.js"></script>
+<!-- <script src="/assets/js/app/file-preview.js"></script> -->
+<script src="/assets/admin/js/preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function() {

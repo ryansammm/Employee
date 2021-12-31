@@ -28,19 +28,22 @@
                     <div class="card-body">
                         <div class="row">
                             <!------- Nama Pelanggan ------->
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="nama_pelanggan" class="form-label">Nama Pelanggan *</label>
                                     <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" required>
                                 </div>
                             </div>
                             <!------- Foto Pelanggan ------->
-                            <div class="col-md-6">
+                            <div class="col-md-3">
+                                <img src="/assets/logo/partner.png" class="img-fluid img-thumbnail foto_utama_preview">
+                            </div>
+                            <div class="col-md-9">
                                 <label for="pelanggan_foto" class="form-label">Logo Pelanggan *</label> (.jpg, .jpeg, .png)
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile" name="pelanggan_foto" required>
+                                            <input type="file" class="custom-file-input foto_utama" id="exampleInputFile" name="pelanggan_foto" required>
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                     </div>
@@ -48,7 +51,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="">Nama Perusahaan *</label>
@@ -130,6 +133,8 @@
         </div>
     </section>
 </div>
+
+<script src="/assets/admin/js/preview.js"></script>
 
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

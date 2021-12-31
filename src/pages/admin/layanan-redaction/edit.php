@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-1">
-                    <a href="/admin/produk/redaction" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                    <a href="/admin/layanan/redaction" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
                     <h1 class="m-0">Data Layanan</h1>
@@ -23,10 +23,10 @@
 
     <section class="content">
         <div class="container-fluid">
-            <?= template('admin/produk/form/form-edit', [
-                'produk' => $produk,
-                'data_kategori_produk' => $data_kategori_produk,
-                'foto_produk_lainnya' => $foto_produk_lainnya,
+            <?= template('admin/layanan/form/form-edit', [
+                'layanan' => $layanan,
+                'data_kategori_layanan' => $data_kategori_layanan,
+                'foto_layanan_lainnya' => $foto_layanan_lainnya,
                 'status' => 3
             ]) ?>
         </div>

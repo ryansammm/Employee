@@ -49,12 +49,19 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="foto_banner" class="form-label">Foto Banner</label> (.jpg, .jpeg, .png)
-                                    <input type="file" class="form-control" id="foto_banner" name="foto_banner">
-                                    <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
-                                    <?php if (isset($errors['foto_banner'])) { ?>
-                                        <span class="text-danger d-block"><b><?= $errors['foto_banner'] ?></b></span>
-                                    <?php } ?>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="/assets/logo/badge.png" class="img-fluid img-thumbnail foto_utama_preview">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label for="foto_banner" class="form-label">Foto Banner</label> (.jpg, .jpeg, .png)
+                                            <input type="file" class="form-control foto_utama" id="foto_banner" name="foto_banner">
+                                            <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                            <?php if (isset($errors['foto_banner'])) { ?>
+                                                <span class="text-danger d-block"><b><?= $errors['foto_banner'] ?></b></span>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="d-block">Sembunyikan Banner?</label>
@@ -136,6 +143,7 @@
 </div>
 
 <script src="/assets/js/app/file-preview.js"></script>
+<script src="/assets/admin/js/preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function() {

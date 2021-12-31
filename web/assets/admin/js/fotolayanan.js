@@ -4,9 +4,10 @@ $(document).ready(function () {
         let numberLastId = parseInt(lastId.split('_')[1]) + 1;
 
         let elementFormFoto = `
-            <div class="col-2 listfoto pt-3" id="listfoto_${numberLastId}">
-                <h6>Foto ${numberLastId}</h6>
-                <input type="file" class="form-control" name="layanan_foto[]">
+            <div class="col-2 listfoto preview_list_foto pt-3" id="listfoto_${numberLastId}">
+                <label>Foto ${numberLastId}</label>
+                <div class="mb-2 foto_detail_preview" style="background: url('/assets/logo/layanan.jpg');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;    border: 1px solid #cbcbcb;"></div>
+                <input type="file" class="form-control foto_detail" name="layanan_foto[]">
                 <button type="button" class="btn btn-sm btn-danger hapusformfoto mb-2 mt-2" id="hapuslistfoto_${numberLastId}">Hapus</button>
             </div>
         `;

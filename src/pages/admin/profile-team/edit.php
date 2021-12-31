@@ -34,7 +34,7 @@
                                 <div class="row">
                                     <div class="col-3">
                                         <?php if ($detail['path_media'] != null) { ?>
-                                            <img src="/assets/media/<?= $detail['path_media'] ?>" class="img-fluid img-thumbnail">
+                                            <img src="/assets/media/<?= $detail['path_media'] ?>" class="img-fluid img-thumbnail foto_utama_preview">
                                         <?php } ?>
                                     </div>
                                     <div class="col">
@@ -46,7 +46,7 @@
                                             <div class="col-6">
                                                 <div class="mb-3">
                                                     <label for="">Foto Profile</label>
-                                                    <input type="file" name="profile_foto" class="form-control">
+                                                    <input type="file" name="profile_foto" class="form-control foto_utama">
                                                 </div>
                                             </div>
                                         </div>
@@ -171,6 +171,7 @@
 
 <script src="/assets/js/app/file-preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="/assets/admin/js/preview.js"></script>
 <!-- Include Choices JavaScript -->
 <script src="/assets/vendors/choices.js/choices.min.js"></script>
 <script>

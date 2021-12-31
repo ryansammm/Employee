@@ -165,7 +165,7 @@ $routes->prefix('admin', function ($routes) {
         /* --------------------------------- redaksi -------------------------------- */
         $routes->push('layanan_redaction', '/redaction', [LayananAdminController::class, 'redaction']);
         $routes->push('layanan_redaction_detail', '/redaction/{id}/detail', [LayananAdminController::class, 'redaction_detail']);
-        $routes->push('layanan_redaction_detail', '/redaction/{id}/edit', [LayananAdminController::class, 'redaction_edit']);
+        $routes->push('layanan_redaction_edit', '/redaction/{id}/edit', [LayananAdminController::class, 'redaction_edit']);
 
         /* -------------------------------- approval -------------------------------- */
         $routes->push('layanan_approval', '/approval', [LayananAdminController::class, 'approval']);

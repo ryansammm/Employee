@@ -32,23 +32,26 @@
                         <div class="card-body">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="mb-3">
                                             <label for="">Nama Lengkap *</label>
                                             <input type="text" name="nama_lengkap" class="form-control" required>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-2">
+                                        <img src="/assets/logo/user.png" class="img-fluid img-thumbnail foto_utama_preview">
+                                    </div>
+                                    <div class="col">
                                         <div class="mb-3">
                                             <label for="">Foto Profile</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="profile_foto">
+                                                <input type="file" class="custom-file-input foto_utama" name="profile_foto">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col-6">
                                         <div class="mb-3">
                                             <label for="">Jenis Profile Tim</label>
@@ -64,7 +67,7 @@
                                         <div class="mb-3">
                                             <label for="">Jabatan Profile Tim</label>
                                             <select name="jabatan[]" class="form-control multi-select" multiple="multiple">
-                                            <?php foreach ($jabatan->items as $key => $value) { ?>
+                                                <?php foreach ($jabatan->items as $key => $value) { ?>
                                                     <option value="<?= $value["id_jabatan"] ?>">
                                                         <?= $value["nama"] ?></option>
                                                 <?php } ?>
@@ -163,6 +166,7 @@
 
 <script src="/assets/js/app/file-preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="/assets/admin/js/preview.js"></script>
 <!-- Include Choices JavaScript -->
 <script src="/assets/vendors/choices.js/choices.min.js"></script>
 <script>

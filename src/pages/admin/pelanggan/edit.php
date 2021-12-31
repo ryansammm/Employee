@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="mb-3">
-                                    <img src="/assets/media/<?= $pelanggan['path_media'] ?>" alt="<?= $pelanggan['nama_pelanggan'] ?>" class="img-fluid img-thumbnail">
+                                    <img src="/assets/media/<?= $pelanggan['path_media'] ?>" alt="<?= $pelanggan['nama_pelanggan'] ?>" class="img-fluid img-thumbnail foto_utama_preview">
                                 </div>
                             </div>
                             <div class="col">
@@ -42,7 +42,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile" name="pelanggan_foto">
+                                                <input type="file" class="custom-file-input foto_utama" id="exampleInputFile" name="pelanggan_foto">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                             </div>
                                         </div>
@@ -133,6 +133,8 @@
         </div>
     </section>
 </div>
+
+<script src="/assets/admin/js/preview.js"></script>
 
 
 <?php include(__DIR__ . '/../layouts/admin-footer.php'); ?>

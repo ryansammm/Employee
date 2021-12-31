@@ -2,9 +2,9 @@
 
 namespace App\KategoriLayananAdmin\Model;
 
-use App\QueryBuilder\Model\QueryBuilder;
+use Core\Model;
 
-class KategoriLayananAdmin extends QueryBuilder
+class KategoriLayananAdmin extends Model
 {
     protected $table = 'kategori_layanan';
     protected $primaryKey = 'id_kategori_layanan';

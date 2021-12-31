@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-1">
-                    <a href="/admin/layanan/approval" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                    <a href="/admin/layanan/redaction" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
                     <h1 class="m-0">Detail Data Layanan</h1>
@@ -13,7 +13,7 @@
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Layanan</a></li>
-                        <li class="breadcrumb-item"><a href="#">Kelola Layanan</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pengecekan Redaksi Layanan</a></li>
                         <li class="breadcrumb-item active">Detail Data Layanan</li>
                     </ol>
                 </div>

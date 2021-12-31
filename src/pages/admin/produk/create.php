@@ -77,11 +77,14 @@
                                 </div>
                             </div>
                             <!------- Foto Produk ------->
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <img src="/assets/logo/produk.png" class="img-fluid img-thumbnail foto_utama_preview">
+                            </div>
+                            <div class="col-md-9">
                                 <label for="produk_foto" class="form-label">Foto Produk Utama</label> (.jpg, .jpeg, .png)
-                                <div class="form-group">
+                                <div class="form-group mb-1">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile" name="produk_foto_utama">
+                                        <input type="file" class="custom-file-input foto_utama" id="customFile" name="produk_foto_utama">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </div>
@@ -89,11 +92,13 @@
                             </div>
                             <!------- Tambah Foto-Foto Album ------->
                             <div class="container mt-3">
-                                <h5><strong> Upload Foto-foto Produk Lainnya</strong> </h5>
+                                <hr>
+                                <h5><strong>Upload Foto-foto Produk Lainnya</strong> </h5>
                                 <div class="row listFormFoto mt-2">
-                                    <div class="col-2 listfoto pt-3" id="listfoto_1">
-                                        <h6>Foto 1</h6>
-                                        <input type="file" class="form-control" name="produk_foto[]">
+                                    <div class="col-2 listfoto preview_list_foto pt-3" id="listfoto_1">
+                                        <label>Foto 1</label>
+                                        <div class="mb-2 foto_detail_preview" style="background: url('/assets/logo/produk.png');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;    border: 1px solid #cbcbcb;"></div>
+                                        <input type="file" class="form-control foto_detail" name="produk_foto[]">
                                     </div>
                                 </div>
                             </div>
@@ -118,6 +123,7 @@
 </div>
 
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="/assets/admin/js/preview.js"></script>
 <script>
     $(function() {
         // Summernote

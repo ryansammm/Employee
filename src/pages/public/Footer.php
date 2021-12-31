@@ -47,7 +47,15 @@
         </div>
 
         <div class="col-md-2 col-12 mb-3" style="margin-bottom: auto; ">
-            <!-- <div class="col-md-2 col-12" style="margin-bottom: auto; width: 12% !important;"> -->
+            <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Social Media</h6>
+            <ul class="nav flex-column">
+                <?php foreach ($GLOBALS['sosial_media']->items as $key => $data) { ?>
+                    <li class="nav-item "><a href="<?= $data['link_sosial_media'] ?>" class="nav-link p-0 text" style="color: #c1c1c1;" target="_blank"><i class="<?= $data['icon_sosial_media'] ?>"></i> <?= $data['nama_sosial_media'] ?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+
+        <div class="col-md-2 col-12 mb-3" style="margin-bottom: auto; ">
             <h6 style="color: #c1c1c1;border-bottom: 1.3pt solid #c1c1c1;">Social Media</h6>
             <ul class="nav flex-column">
                 <?php foreach ($GLOBALS['sosial_media']->items as $key => $data) { ?>

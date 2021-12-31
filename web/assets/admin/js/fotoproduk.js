@@ -14,6 +14,7 @@ $(document).ready(function () {
     $(".listFormFoto").append(elementFormFoto);
   });
 
+
   $(document).on("click", ".hapusformfoto", function () {
     let idButton = $(this).attr("id");
     let numberId = idButton.split("_")[1];
@@ -22,6 +23,20 @@ $(document).ready(function () {
 
     $(idFormFoto).remove();
   });
+});
+
+$('.produk_foto_utama').change(function () {
+  console.log('test');
+  var file = $(this).get(0).files[0];
+  if (file) {
+    var reader = new FileReader();
+
+    reader.onload = function () {
+      $(".produk_foto_utama_preview").attr("src", reader.result);
+      $(".produk_foto_utama_temp").val(reader.result);
+    }
+    reader.readAsDataURL(file);
+  }
 });
 
 $(document)
@@ -66,6 +81,6 @@ $(document)
     if ($(this).attr("data-changed") == "1") {
       modal_file.find(".fileSakip")[0].setAttribute("src", file);
     } else {
-      modal_file.find(".fileSakip")[0].setAttribute("src", '/assets/media/'+file);
+      modal_file.find(".fileSakip")[0].setAttribute("src", '/assets/media/' + file);
     }
   });

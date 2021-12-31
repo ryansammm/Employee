@@ -1,67 +1,66 @@
-<form action="/admin/produk/<?= $produk['id_produk'] ?>/update" method="POST" enctype="multipart/form-data" class="form_edit">
+<form action="/admin/layanan/<?= $layanan['id_layanan'] ?>/update" method="POST" enctype="multipart/form-data">
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <input type="hidden" name="status_produk" value="<?= isset($status) ? $status : '' ?>">
-                <!------- Kategori Produk ------->
+                <!------- Kategori Layanan ------->
                 <div class="col-md-4">
                     <div class="mb-3">
                         <div class="form-group">
-                            <label for="id_kategori_produk" class="form-label">Kategori Produk</label>
-                            <select class="custom-select" name="id_kategori_produk" id="id_kategori_produk">
-                                <?php foreach ($data_kategori_produk->items as $value) { ?>
-                                    <option <?= $produk['id_kategori_produk'] == $value['id_kategori_produk'] ? 'selected' : '' ?> value="<?= $value['id_kategori_produk'] ?>"><?= $value['nama_kategori_produk'] ?></option>
+                            <label for="id_kategori_layanan" class="form-label">Kategori Layanan</label>
+                            <select class="custom-select" name="id_kategori_layanan" id="id_kategori_layanan">
+                                <?php foreach ($data_kategori_layanan->items as $value) { ?>
+                                    <option <?= $layanan['id_kategori_layanan'] == $value['id_kategori_layanan'] ? 'selected' : '' ?> value="<?= $value['id_kategori_layanan'] ?>"><?= $value['nama_kategori_layanan'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                     </div>
                 </div>
-                <!------- Kode Produk ------->
+                <!------- Kode Layanan ------->
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label for="kode_produk" class="form-label">Kode Produk</label>
-                        <input type="text" class="form-control" id="kode_produk" name="kode_produk" value="<?= $produk['kode_produk'] ?>">
+                        <label for="kode_layanan" class="form-label">Kode Layanan</label>
+                        <input type="text" class="form-control" id="kode_layanan" name="kode_layanan" value="<?= $layanan['kode_layanan'] ?>">
                     </div>
                 </div>
-                <!------- Nama Produk ------->
+                <!------- Nama Layanan ------->
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label for="nama_produk" class="form-label">Nama Produk</label>
-                        <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?= $produk['nama_produk'] ?>">
+                        <label for="nama_layanan" class="form-label">Nama Layanan</label>
+                        <input type="text" class="form-control" id="nama_layanan" name="nama_layanan" value="<?= $layanan['nama_layanan'] ?>">
                     </div>
                 </div>
-                <!------- Deskripsi Produk ------->
+                <!------- Deskripsi Layanan ------->
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <label for="deskripsi_produk" class="form-label">Deskripsi Produk</label>
-                        <textarea id="deskripsi_produk" name="deskripsi_produk"><?= $produk['deskripsi_produk'] ?></textarea>
+                        <label for="deskripsi_layanan" class="form-label">Deskripsi Layanan</label>
+                        <textarea id="deskripsi_layanan" name="deskripsi_layanan"><?= $layanan['deskripsi_layanan'] ?></textarea>
                     </div>
                 </div>
-                <!------- Deskripsi Lengkap Produk ------->
+                <!------- Deskripsi Lengkap Layanan ------->
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <label for="deskripsi_lengkap_produk" class="form-label">Deskripsi Lengkap Produk</label>
-                        <textarea id="deskripsi_lengkap_produk" name="deskripsi_lengkap_produk"><?= $produk['deskripsi_lengkap_produk'] ?></textarea>
+                        <label for="deskripsi_lengkap_layanan" class="form-label">Deskripsi Lengkap Layanan</label>
+                        <textarea id="deskripsi_lengkap_layanan" name="deskripsi_lengkap_layanan"><?= $layanan['deskripsi_lengkap_layanan'] ?></textarea>
                     </div>
                 </div>
-                <!------- Spesifikasi Produk ------->
+                <!------- Spesifikasi Layanan ------->
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <label for="spesifikasi_produk" class="form-label">Spesifikasi Produk</label>
-                        <textarea id="spesifikasi_produk" name="spesifikasi_produk"><?= $produk['spesifikasi_produk'] ?></textarea>
+                        <label for="spesifikasi_layanan" class="form-label">Spesifikasi Layanan</label>
+                        <textarea id="spesifikasi_layanan" name="spesifikasi_layanan"><?= $layanan['spesifikasi_layanan'] ?></textarea>
                     </div>
                 </div>
-                <!------- Foto Produk ------->
+                <!------- Foto Layanan ------->
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-4">
-                            <img src="/assets/media/<?= $produk['path_media'] ?>" class="img-fluid img-thumbnail foto_utama_preview">
+                            <img src="/assets/media/<?= $layanan['path_media'] ?>" class="img-fluid img-thumbnail foto_utama_preview">
                         </div>
                         <div class="col">
-                            <label for="foto" class="form-label">Foto Produk Utama</label> (.jpg, .jpeg, .png)
+                            <label for="layanan_foto" class="form-label">Foto Produk Utama</label> (.jpg, .jpeg, .png)
                             <div class="form-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input foto_utama" id="customFile" name="produk_foto_utama">
+                                    <input type="file" class="custom-file-input foto_utama" id="customFile" name="layanan_foto_utama">
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
                             </div>
@@ -70,17 +69,17 @@
                 </div>
                 <!------- Tambah Foto-Foto Album ------->
                 <div class="container mt-4">
-                    <h5 class="mb-0"><strong> Upload Foto-foto Produk Lainnya</strong> </h5>
-                    <div class="row listFormFoto ">
-                        <?php foreach ($foto_produk_lainnya->items as $key => $value) {
+                    <h5 class="mb-0"><strong> Upload Foto-foto Layanan Lainnya</strong> </h5>
+                    <div class="row listFormFoto">
+                        <?php foreach ($foto_layanan_lainnya->items as $key => $value) {
                             $keyForElement = $key + 1; ?>
                             <div class="col-2 listfoto preview_list_foto pt-3" id="listfoto_<?= $keyForElement ?>">
                                 <input type="hidden" name="id_media[]" value="<?= $value['id_media'] ?>">
                                 <h6>Foto <?= $keyForElement ?></h6>
-                                <a href="#" class="mb-2 btn_foto_detail" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($value['path_media']) ?>" data-changed="2">
+                                <a href="#" class="mb-2  btn_foto_detail" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($value['path_media']) ?>">
                                     <div class="mb-2 foto_detail_preview" style="background: url('/assets/media/<?= $value['path_media'] ?>');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
                                 </a>
-                                <input type="file" class="form-control foto_detail" name="produk_foto_<?= $value['id_media'] ?>">
+                                <input type="file" class="form-control foto_detail" name="layanan_foto_<?= $value['id_media'] ?>">
                                 <?php if ($key != 0) { ?>
                                     <button type="button" class="btn btn-sm btn-danger hapusformfoto mt-2" id="<?= 'hapuslistfoto_' . $keyForElement ?>">Hapus</button>
                                 <?php } ?>
@@ -93,12 +92,12 @@
                         <button type="button" class="btn btn-info tambahformfoto">Tambah Foto</button>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="card-footer">
             <div class="row">
                 <div class="col-md d-flex justify-content-end">
+                    <button type="submit" class="btn btn-secondary mr-2" name="submit" value="draft">Simpan Sebagai Draft</button>
                     <button type="submit" class="btn btn-primary" name="submit" value="publish">Publish</button>
                 </div>
             </div>
@@ -111,7 +110,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">Foto Profil</h6>
+                <h6 class="modal-title" id="exampleModalLabel">Dokumen ORMAS</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -127,11 +126,14 @@
     </div>
 </div>
 
+
+
+<script src="/assets/js/app/file-preview.js"></script>
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function() {
         // Summernote
-        $('#deskripsi_produk').summernote({
+        $('#deskripsi_layanan').summernote({
             placeholder: 'Start writing or type',
             height: 200,
             toolbar: [
@@ -142,7 +144,7 @@
                 ['view', ['fullscreen', 'codeview', 'help']],
             ],
         });
-        $('#deskripsi_lengkap_produk').summernote({
+        $('#deskripsi_lengkap_layanan').summernote({
             placeholder: 'Start writing or type',
             height: 200,
             toolbar: [
@@ -153,7 +155,7 @@
                 ['view', ['fullscreen', 'codeview', 'help']],
             ],
         });
-        $('#spesifikasi_produk').summernote({
+        $('#spesifikasi_layanan').summernote({
             placeholder: 'Start writing or type',
             height: 200,
             toolbar: [
@@ -163,18 +165,8 @@
                 ['insert', ['link', 'picture', 'video']],
                 ['view', ['fullscreen', 'codeview', 'help']],
             ],
-        });
-
-        $('.preview_content').on('click', function(event) {
-            event.preventDefault();
-            $('.form_edit').attr('target', '_blank');
-            $('.form_edit').prop('action', $(this).attr('data-url'));
-
-            $('.form_edit').submit();
-
-            $('.form_edit').removeAttr('target');
-            $('.form_edit').prop('action', '/admin/produk/<?= $produk['id_produk'] ?>/update');
         });
     });
 </script>
+<script src="/assets/admin/js/fotolayanan.js"></script>
 <script src="/assets/admin/js/preview.js"></script>

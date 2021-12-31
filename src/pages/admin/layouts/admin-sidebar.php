@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="width: 270px;">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
         <img src="/assets/logo/PTA.png" alt="Balai Besar Keramik" class="brand-image">
@@ -95,7 +95,7 @@
                         <li class="nav-item">
                             <a href="/admin/produk/redaction" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Pengecekan Redaksi</p>
+                                <p>Pengecekan & Editorial</p>
                             </a>
                         </li>
                         <li class="nav-item">

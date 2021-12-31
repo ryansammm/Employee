@@ -36,7 +36,7 @@
 
     <div class="wrapper" style="height: 100%;">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="margin-left: 270px;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">

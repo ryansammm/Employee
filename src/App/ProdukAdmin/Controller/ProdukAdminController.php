@@ -2,6 +2,7 @@
 
 namespace App\ProdukAdmin\Controller;
 
+use App\ContentAdmin\SubModule\ContentAdmin\ContentAdmin;
 use App\KategoriProdukAdmin\Model\KategoriProdukAdmin;
 use App\Media\Model\Media;
 use App\PreviewContent\Model\ProdukTemp;
@@ -27,19 +28,10 @@ class ProdukAdminController
 
     public function index(Request $request)
     {
-        $kategori_produk = $this->modelKategoriProduk->get();
-        $id_kategori_produk = $request->query->get('id_kategori_produk');
-        $data_produk = $this->model
-            ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
-            ->where(function ($query) use ($request) {
-                if ($request->query->get('kategori_produk') != null) {
-                    $query->where('produk.id_kategori_produk', $request->query->get('kategori_produk'));
-                }
-            })
-            ->paginate(10)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $datas = $content_admin->get();
 
-
-        return render_template('admin/produk/index', ['data_produk' => $data_produk, 'kategori_produk' => $kategori_produk, 'id_kategori_produk' => $id_kategori_produk]);
+        return render_template('admin/produk/index', ['data_produk' => $datas['datas'], 'kategori_produk' => $datas['kategori'], 'id_kategori_produk' => $datas['id_kategori']]);
     }
 
     public function create(Request $request)
@@ -97,20 +89,10 @@ class ProdukAdminController
 
     public function edit(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $produk = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
-            ->where('media.jenis_dokumen', 'utama')
-            ->where('id_produk', $id)->first();
-        $data_kategori_produk = $this->modelKategoriProduk->get();
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
 
-        $media = new Media();
-        $foto_produk_lainnya = $media
-            ->where('id_relation', $id)
-            ->where('jenis_dokumen', 'lainnya')
-            ->get();
-
-        return render_template('admin/produk/edit', ['id' => $id, 'produk' => $produk, 'data_kategori_produk' => $data_kategori_produk, 'foto_produk_lainnya' => $foto_produk_lainnya]);
+        return render_template('admin/produk/edit', ['id' => $datas['id'], 'produk' => $datas['data'], 'data_kategori_produk' => $datas['data_kategori'], 'foto_produk_lainnya' => $datas['foto_lainnya']]);
     }
 
     public function updateData($model, $request)
@@ -242,19 +224,10 @@ class ProdukAdminController
 
     public function approval(Request $request)
     {
-        $kategori_produk = $this->modelKategoriProduk->get();
-        $id_kategori_produk = $request->query->get('id_kategori_produk');
-        $data_produk = $this->model
-            ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
-            ->where(function ($query) use ($request) {
-                if ($request->query->get('kategori_produk') != null) {
-                    $query->where('produk.id_kategori_produk', $request->query->get('kategori_produk'));
-                }
-            })
-            ->paginate(10)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $datas = $content_admin->get();
 
-
-        return render_template('admin/produk-approval/approval', ['data_produk' => $data_produk, 'kategori_produk' => $kategori_produk, 'id_kategori_produk' => $id_kategori_produk]);
+        return render_template('admin/produk-approval/approval', ['data_produk' => $datas['datas'], 'kategori_produk' => $datas['kategori'], 'id_kategori_produk' => $datas['id_kategori']]);
     }
 
     public function approval_action(Request $request)
@@ -287,55 +260,26 @@ class ProdukAdminController
 
     public function redaction(Request $request)
     {
-        $kategori_produk = $this->modelKategoriProduk->get();
-        $id_kategori_produk = $request->query->get('id_kategori_produk');
-        $data_produk = $this->model
-            ->leftJoin('kategori_produk', 'kategori_produk.id_kategori_produk', '=', 'produk.id_kategori_produk')
-            ->where(function ($query) use ($request) {
-                if ($request->query->get('kategori_produk') != null) {
-                    $query->where('produk.id_kategori_produk', $request->query->get('kategori_produk'));
-                }
-            })
-            ->paginate(10)->appends(['kategori_produk' => $request->query->get('kategori_produk')]);
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $datas = $content_admin->get();
 
-
-        return render_template('admin/produk-redaction/redaction', ['data_produk' => $data_produk, 'kategori_produk' => $kategori_produk, 'id_kategori_produk' => $id_kategori_produk]);
+        return render_template('admin/produk-redaction/redaction', ['data_produk' => $datas['datas'], 'kategori_produk' => $datas['kategori'], 'id_kategori_produk' => $datas['id_kategori']]);
     }
 
     public function redaction_detail(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $produk = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
-            ->where('media.jenis_dokumen', 'utama')
-            ->where('id_produk', $id)->first();
-        $data_kategori_produk = $this->modelKategoriProduk->get();
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
 
-        $media = new Media();
-        $foto_produk_lainnya = $media
-            ->where('id_relation', $id)
-            ->where('jenis_dokumen', 'lainnya')
-            ->get();
-
-        return render_template('admin/produk-redaction/detail', ['id' => $id, 'produk' => $produk, 'data_kategori_produk' => $data_kategori_produk, 'foto_produk_lainnya' => $foto_produk_lainnya]);
+        return render_template('admin/produk-redaction/detail', ['id' => $datas['id'], 'produk' => $datas['data'], 'data_kategori_produk' => $datas['data_kategori'], 'foto_produk_lainnya' => $datas['foto_lainnya']]);
     }
 
     public function redaction_edit(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $produk = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'produk.id_produk')
-            ->where('media.jenis_dokumen', 'utama')
-            ->where('id_produk', $id)->first();
-        $data_kategori_produk = $this->modelKategoriProduk->get();
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
 
-        $media = new Media();
-        $foto_produk_lainnya = $media
-            ->where('id_relation', $id)
-            ->where('jenis_dokumen', 'lainnya')
-            ->get();
-
-        return render_template('admin/produk-redaction/edit', ['id' => $id, 'produk' => $produk, 'data_kategori_produk' => $data_kategori_produk, 'foto_produk_lainnya' => $foto_produk_lainnya]);
+        return render_template('admin/produk-redaction/edit', ['id' => $datas['id'], 'produk' => $datas['data'], 'data_kategori_produk' => $datas['data_kategori'], 'foto_produk_lainnya' => $datas['foto_lainnya']]);
     }
 
     public function approval_detail(Request $request)

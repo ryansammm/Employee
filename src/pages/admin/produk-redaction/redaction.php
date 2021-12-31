@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Pengecekan Redaksi Produk</h1>
+                    <h1 class="m-0">Pengecekan & Editorial Produk</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Produk</a></li>
-                        <li class="breadcrumb-item active">Pengecekan Redaksi Produk</li>
+                        <li class="breadcrumb-item active">Pengecekan & Editorial Produk</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -26,7 +26,7 @@
             <div class="row mb-3">
                 <div class="col-md-6 float-right">
                     <label for="nama_produk">Kategori Produk</label>
-                    <form action="/admin/produk/approval" method="GET" enctype="multipart/form-data" class="form-inline">
+                    <form action="/admin/produk/redaction" method="GET" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                             <select class="custom-select" name="id_kategori_produk" id="id_kategori_produk" style="width: 16rem;">
                                 <option value="">Semua</option>

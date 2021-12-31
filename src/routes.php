@@ -125,7 +125,7 @@ $routes->prefix('admin', function ($routes) {
         /* --------------------------------- redaksi -------------------------------- */
         $routes->push('produk_redaction', '/redaction', [ProdukAdminController::class, 'redaction']);
         $routes->push('produk_redaction_detail', '/redaction/{id}/detail', [ProdukAdminController::class, 'redaction_detail']);
-        $routes->push('produk_redaction_detail', '/redaction/{id}/edit', [ProdukAdminController::class, 'redaction_edit']);
+        $routes->push('produk_redaction_edit', '/redaction/{id}/edit', [ProdukAdminController::class, 'redaction_edit']);
 
         /* -------------------------------- approval -------------------------------- */
         $routes->push('produk_approval', '/approval', [ProdukAdminController::class, 'approval']);

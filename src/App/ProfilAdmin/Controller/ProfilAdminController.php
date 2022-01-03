@@ -39,36 +39,36 @@ class ProfilAdminController
 
     public function edit(Request $request)
     {
-        $profil = $this->profilAdmin->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->get()->items;
-        $visi_misi = $profil[0];
+        $profil = $this->profilAdmin->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->first();
+        $media = new Media();
+        $sotk = $media->where('id_relation', $profil['id_profil'])->where('jenis_dokumen', 'struktur_organisasi')->first();
 
-        return render_template('admin/profil/edit', ['profil' => $profil, 'visi_misi' => $visi_misi]);
+        return render_template('admin/profil/edit', ['profil' => $profil, 'sotk' => $sotk]);
     }
 
     public function update(Request $request)
     {
-        $id = session('id_user');
         $media = new Media();
 
-        $query = $this->profilAdmin->select('media.*', 'profil.*')->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->where('id_profil', $id);
+        $query = $this->profilAdmin->select('media.*', 'profil.*')->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil');
         $datas = $query->first();
 
         if ($datas) {
+            $id_profil = $datas['id_profil'];
             $query->update($request->request->all());
         } else {
-            $request->request->set('id_profil', $id);
-            $this->profilAdmin->insert($request->request->all());
+            $id_profil = $this->profilAdmin->insert($request->request->all());
         }
 
         $media->updateMedia($request->files->get('profil_foto'), [
-            'id_relation' => $id,
+            'id_relation' => $id_profil,
             'jenis_dokumen' => 'profil_foto',
-        ], $this->profilAdmin, $id);
+        ], $this->profilAdmin, $id_profil);
 
         $media->updateMedia($request->files->get('struktur_organisasi'), [
-            'id_relation' => $id,
+            'id_relation' => $id_profil,
             'jenis_dokumen' => 'struktur_organisasi',
-        ], $this->profilAdmin, $id);
+        ], $this->profilAdmin, $id_profil);
 
         return new RedirectResponse('/admin/profil');
     }

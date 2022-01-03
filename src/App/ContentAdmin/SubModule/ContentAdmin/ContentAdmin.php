@@ -21,6 +21,9 @@ class ContentAdmin extends Module
 
     public function getInstance(): ModuleOperation
     {
-        return new BaseOperation($this->request, $this->model, $this->methods);
+        $instance = new BaseOperation($this->request, $this->model, $this->methods);
+        $instance->setCustomQuery($this);
+
+        return $instance;
     }
 }

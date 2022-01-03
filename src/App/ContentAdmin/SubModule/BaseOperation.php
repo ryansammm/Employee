@@ -12,11 +12,18 @@ class BaseOperation implements ModuleOperation
     private $model;
     private $method;
 
+    private $customQuery;
+
     public function __construct(Request $request, $model, string $method)
     {
         $this->request = $request;
         $this->model = $model;
         $this->method = $method;
+    }
+
+    public function setCustomQuery(CustomQuery $instance): void
+    {
+        $this->customQuery = $instance;
     }
 
     public function getMethod()
@@ -36,8 +43,15 @@ class BaseOperation implements ModuleOperation
                 if ($request->query->get($this->model->queryString()) != null) {
                     $query->where($this->model->table . '.' . $this->model->category()->primaryKey, $request->query->get($this->model->queryString()));
                 }
-            })
-            ->paginate(10)->appends([$this->model->queryString() => $this->request->query->get($this->model->queryString())]);
+            });
+        if ($this->customQuery->getAddQuery() != null) {
+            $datas->where($this->customQuery->getAddQuery());
+        }
+        $datas = $datas->paginate(10)->appends([$this->model->queryString() => $this->request->query->get($this->model->queryString())]);
+
+        if ($this->customQuery->getNewQuery() != null) {
+            extract($this->customQuery->execNewQuery(), EXTR_SKIP);
+        }
 
         return get_defined_vars();
     }
@@ -46,9 +60,14 @@ class BaseOperation implements ModuleOperation
     {
         $id = $this->request->attributes->get("id");
         $data = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', $this->model->table.'.'.$this->model->primaryKey)
+            ->leftJoin('media', 'media.id_relation', '=', $this->model->table . '.' . $this->model->primaryKey)
             ->where('media.jenis_dokumen', 'utama')
-            ->where('id_produk', $id)->first();
+            ->where($this->model->primaryKey, $id);
+
+        if ($this->customQuery->getAddQuery() != null) {
+            $data->where($this->customQuery->getAddQuery());
+        }
+        $data = $data->first();
         $data_kategori = $this->model->category()->get();
 
         $media = new Media();
@@ -56,6 +75,10 @@ class BaseOperation implements ModuleOperation
             ->where('id_relation', $id)
             ->where('jenis_dokumen', 'lainnya')
             ->get();
+
+        if ($this->customQuery->getNewQuery() != null) {
+            extract($this->customQuery->execNewQuery(), EXTR_SKIP);
+        }
 
         return get_defined_vars();
     }

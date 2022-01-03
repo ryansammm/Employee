@@ -2,7 +2,9 @@
 
 namespace App\ContentAdmin;
 
-abstract class Module
+use App\ContentAdmin\SubModule\CustomQuery;
+
+abstract class Module extends CustomQuery
 {
     abstract public function getInstance(): ModuleOperation;
 

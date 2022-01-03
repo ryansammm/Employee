@@ -2,8 +2,8 @@
 
 namespace App\GaleriAdmin\Controller;
 
+use App\ContentAdmin\SubModule\ContentAdmin\ContentAdmin;
 use App\GaleriAdmin\Model\GaleriAdmin;
-use App\GaleriAdmin\Validation\GaleriAdminValidation;
 use App\GroupGaleri\Model\GroupGaleriNew;
 use App\KategoriGaleriAdmin\Model\KategoriGaleriAdmin;
 use App\Media\Model\Media;
@@ -26,11 +26,14 @@ class GaleriAdminController
 
     public function index(Request $request)
     {
-        $data_galeri = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'galeri.id_galeri')
-            ->paginate(10);
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $content_admin->query(function($model) {
+            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table.'.'.$this->model->primaryKey)
+                ->where('media.jenis_dokumen', 'utama');
+        });
+        $datas = $content_admin->get();
 
-        return render_template('admin/galeri/index', ['data_galeri' => $data_galeri]);
+        return render_template('admin/galeri/content-management/index', ['data_galeri' => $datas['datas'], 'kategori_galeri' => $datas['kategori'], 'id_kategori_galeri' => $datas['id_kategori']]);
     }
 
     public function create(Request $request)
@@ -51,7 +54,7 @@ class GaleriAdminController
         $media = new Media();
         $media->storeMedia($request->files->get('galeri_foto'), [
             'id_relation' => $tambah_galeri,
-            'jenis_dokumen' => 'cover-galeri',
+            'jenis_dokumen' => 'utama',
         ]);
 
         // Ini buat store data ke group galeri
@@ -69,7 +72,7 @@ class GaleriAdminController
             // store foto portofolio
             $media->storeMedia($request->files->get('upload_galeri')[$key], [
                 'id_relation' => $createDetail,
-                'jenis_dokumen' => '',
+                'jenis_dokumen' => 'foto-lainnya',
             ]);
         }
 
@@ -78,12 +81,15 @@ class GaleriAdminController
 
     public function edit(Request $request)
     {
-        $kategori = $this->modelKategoriGaleri->get();
-        $id = $request->attributes->get("id");
-        $galeri = $this->model->leftJoin('media', 'media.id_relation', '=', 'galeri.id_galeri')->where('id_galeri', $id)->first();
-        $group_galeri = $this->groupGaleri->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')->where('id_galeri', $id)->get();
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $content_admin->newQuery($this->groupGaleri, function($model) use ($request) {
+            return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
+                ->where('id_galeri', $request->attributes->get('id'))
+                ->get();
+        });
+        $datas = $content_admin->get();
 
-        return render_template('admin/galeri/edit', ['galeri' => $galeri, 'group_galeri' => $group_galeri, 'kategori' => $kategori]);
+        return render_template('admin/galeri/content-management/edit', ['galeri' => $datas['data'], 'group_galeri' => $datas['group_galeri'], 'kategori' => $datas['data_kategori']]);
     }
 
     public function update(Request $request)
@@ -164,6 +170,9 @@ class GaleriAdminController
         }
 
         // update data induk
+        $status = $request->request->get('submit') == '1' ? '1' : '3';
+        $request->request->set('status_galeri', $status);
+        $request->request->set('deskripsi_galeri', htmlspecialchars($request->request->get('deskripsi_galeri'), ENT_QUOTES));
         $item = $this->model->where('id_galeri', $id)->update($request->request->all());
 
         $media = new Media();
@@ -202,5 +211,78 @@ class GaleriAdminController
         $this->model->where('id_galeri', $id)->delete();
 
         return new RedirectResponse('/admin/galeri');
+    }
+
+    public function approval(Request $request)
+    {
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $content_admin->query(function($model) {
+            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table.'.'.$this->model->primaryKey)
+                ->where('media.jenis_dokumen', 'utama');
+        });
+        $datas = $content_admin->get();
+
+        return render_template('admin/galeri/content-approval/index', ['data_galeri' => $datas['datas'], 'kategori_galeri' => $datas['kategori'], 'id_kategori_galeri' => $datas['id_kategori']]);
+    }
+
+    public function approval_action(Request $request)
+    {
+        $id = $request->attributes->get('id');
+        $status = $request->attributes->get('status');
+
+        $this->model->where('id_galeri', $id)->update(['status_galeri' => $status]);
+
+        return new RedirectResponse('/admin/galeri/approval');
+    }
+
+    public function redaction(Request $request)
+    {
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $content_admin->query(function($model) {
+            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table.'.'.$this->model->primaryKey)
+                ->where('media.jenis_dokumen', 'utama');
+        });
+        $datas = $content_admin->get();
+
+        return render_template('admin/galeri/redaction-check/index', ['data_galeri' => $datas['datas'], 'kategori_galeri' => $datas['kategori'], 'id_kategori_galeri' => $datas['id_kategori']]);
+    }
+
+    public function redaction_detail(Request $request)
+    {
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $content_admin->newQuery($this->groupGaleri, function($model) use ($request) {
+            return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
+                ->where('id_galeri', $request->attributes->get('id'))
+                ->get();
+        });
+        $datas = $content_admin->get();
+
+        return render_template('admin/galeri/redaction-check/detail', ['galeri' => $datas['data'], 'group_galeri' => $datas['group_galeri'], 'kategori' => $datas['data_kategori']]);
+    }
+
+    public function redaction_edit(Request $request)
+    {
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $content_admin->newQuery($this->groupGaleri, function($model) use ($request) {
+            return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
+                ->where('id_galeri', $request->attributes->get('id'))
+                ->get();
+        });
+        $datas = $content_admin->get();
+
+        return render_template('admin/galeri/redaction-check/edit', ['galeri' => $datas['data'], 'group_galeri' => $datas['group_galeri'], 'kategori' => $datas['data_kategori']]);
+    }
+
+    public function approval_detail(Request $request)
+    {
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $content_admin->newQuery($this->groupGaleri, function($model) use ($request) {
+            return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
+                ->where('id_galeri', $request->attributes->get('id'))
+                ->get();
+        });
+        $datas = $content_admin->get();
+
+        return render_template('admin/galeri/content-approval/detail', ['galeri' => $datas['data'], 'group_galeri' => $datas['group_galeri'], 'kategori' => $datas['data_kategori']]);
     }
 }

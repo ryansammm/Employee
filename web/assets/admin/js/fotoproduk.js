@@ -4,13 +4,15 @@ $(document).ready(function () {
     let numberLastId = parseInt(lastId.split("_")[1]) + 1;
 
     let elementFormFoto = `
-            <div class="col-2 listfoto preview_list_foto pt-3" id="listfoto_${numberLastId}">
-                <label>Foto ${numberLastId}</label>
-                <div class="mb-2 foto_detail_preview" style="background: url('/assets/logo/produk.png');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;    border: 1px solid #cbcbcb;"></div>
-                <input type="file" class="form-control foto_detail" name="produk_foto[]">
-                <button type="button" class="btn btn-sm btn-danger hapusformfoto mb-2 mt-2" id="hapuslistfoto_${numberLastId}">Hapus</button>
-            </div>
-        `;
+        <div class="col-2 listfoto preview_list_foto pt-3" id="listfoto_${numberLastId}">
+            <label>Foto ${numberLastId}</label>
+            <a href="#" class="mb-2 btn_foto_detail" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="" data-changed="2">
+              <div class="mb-2 foto_detail_preview" style="background: url('/assets/logo/produk.png');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;border: 1px solid #cbcbcb;"></div>
+            </a>
+            <input type="file" class="form-control foto_detail" name="produk_foto[]">
+            <button type="button" class="btn btn-sm btn-danger hapusformfoto mb-2 mt-2" id="hapuslistfoto_${numberLastId}">Hapus</button>
+        </div>
+    `;
 
     $(".listFormFoto").append(elementFormFoto);
   });
@@ -69,19 +71,5 @@ $(document)
         parent.find(".btn_foto_detail")[0].setAttribute("data-changed", "1");
       };
       reader.readAsDataURL(file);
-    }
-  });
-
-var modal_file = $("#dokumenPersyaratan");
-$(document)
-  .find(".btn_foto_detail")
-  .on("click", function (event) {
-    var file = $(this).attr("data-file");
-
-    modal_file.find(".fileSakip").removeClass("d-none");
-    if ($(this).attr("data-changed") == "1") {
-      modal_file.find(".fileSakip")[0].setAttribute("src", file);
-    } else {
-      modal_file.find(".fileSakip")[0].setAttribute("src", '/assets/media/' + file);
     }
   });

@@ -188,20 +188,20 @@ class ProdukAdminController
         $media = new Media();
         $media_data = $media->where('id_relation', $id)->get();
 
-        $this->model->where('id_produk', $id)->delete();
-
-        foreach ($media_data->items as $key => $value) {
-            $media->path(env('APP_MEDIA_DIR'))->deleteMedia($value);
-        }
-
         /* ----------------------------- Notif Telegram ----------------------------- */
         $user_aktif = session('nama_user');
         $datas = $request->request->all();
         $detail = $this->model->where('id_produk', $id)->first();
         $telegram = new NotifTelegram();
-        $message = urlencode($user_aktif . " telah mengahpuas data produk <b>" . $detail['nama_produk'] . "</b>");
+        $message = urlencode($user_aktif . " telah menghapus data produk <b>" . $detail['nama_produk'] . "</b>");
         $kirim =  $telegram->contentNotification($message);
         /* -------------------------------------------------------------------------- */
+
+        $this->model->where('id_produk', $id)->delete();
+
+        foreach ($media_data->items as $key => $value) {
+            $media->path(env('APP_MEDIA_DIR'))->deleteMedia($value);
+        }
 
         return new RedirectResponse('/admin/produk');
     }
@@ -263,8 +263,8 @@ class ProdukAdminController
         $detail = $this->model->where('id_produk', $id)->first();
         $telegram = new NotifTelegram();
         if ($status == '5') {
-            $message = urlencode($user_aktif . " telah menyetujui data pada produk <b>" . $detail['nama_produk'] . "</b>");
-        } elseif ($status == '4') {
+            $message = urlencode($user_aktif . " telah menyetujui data produk <b>" . $detail['nama_produk'] . "</b>");
+        } else {
             $message = urlencode($user_aktif . "  telah tidak menyetujui data produk <b>" . $detail['nama_produk'] . "</b>");
         }
 

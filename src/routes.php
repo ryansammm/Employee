@@ -125,7 +125,7 @@ $routes->prefix('admin', function ($routes) {
         /* --------------------------------- redaksi -------------------------------- */
         $routes->push('produk_redaction', '/redaction', [ProdukAdminController::class, 'redaction']);
         $routes->push('produk_redaction_detail', '/redaction/{id}/detail', [ProdukAdminController::class, 'redaction_detail']);
-        $routes->push('produk_redaction_detail', '/redaction/{id}/edit', [ProdukAdminController::class, 'redaction_edit']);
+        $routes->push('produk_redaction_edit', '/redaction/{id}/edit', [ProdukAdminController::class, 'redaction_edit']);
 
         /* -------------------------------- approval -------------------------------- */
         $routes->push('produk_approval', '/approval', [ProdukAdminController::class, 'approval']);
@@ -170,7 +170,7 @@ $routes->prefix('admin', function ($routes) {
         /* -------------------------------- approval -------------------------------- */
         $routes->push('layanan_approval', '/approval', [LayananAdminController::class, 'approval']);
         $routes->push('layanan_approval_action', '/approval/{id}/action/{status}', [LayananAdminController::class, 'approval_action']);
-        $routes->push('layanan_detail', '/{id}/detail', [LayananAdminController::class, 'detail']);
+        $routes->push('layanan_detail', '/approval/{id}/detail', [LayananAdminController::class, 'approval_detail']);
     });
     /* -------------------------------------------------------------------------- */
 
@@ -194,25 +194,23 @@ $routes->prefix('admin', function ($routes) {
 
     /* -------------------------- Route Kelola Galeri -------------------------- */
     $routes->prefix('galeri', function ($routes) {
+        /* ---------------------------------- draft --------------------------------- */
         $routes->push('galeri', '', [GaleriAdminController::class, 'index']);
         $routes->push('galeri_create', '/create', [GaleriAdminController::class, 'create']);
         $routes->push('galeri_store', '/store', [GaleriAdminController::class, 'store']);
         $routes->push('galeri_edit', '/{id}/edit', [GaleriAdminController::class, 'edit']);
         $routes->push('galeri_update', '/{id}/update', [GaleriAdminController::class, 'update']);
-        $routes->push('galeri_show', '/{id}/show', [GaleriAdminController::class, 'show']);
         $routes->push('galeri_delete', '/{id}/delete', [GaleriAdminController::class, 'delete']);
-    });
-    /* -------------------------------------------------------------------------- */
+        
+        /* --------------------------------- redaksi -------------------------------- */
+        $routes->push('galeri_redaction', '/redaction', [GaleriAdminController::class, 'redaction']);
+        $routes->push('galeri_redaction_detail', '/redaction/{id}/detail', [GaleriAdminController::class, 'redaction_detail']);
+        $routes->push('galeri_redaction_edit', '/redaction/{id}/edit', [GaleriAdminController::class, 'redaction_edit']);
 
-    /* -------------------------- Route Album Galeri -------------------------- */
-    $routes->prefix('album-galeri', function ($routes) {
-        $routes->push('album_galeri', '', [GroupGaleriController::class, 'index']);
-        $routes->push('album_galeri_create', '/create', [GroupGaleriController::class, 'create']);
-        $routes->push('album_galeri_store', '/store', [GroupGaleriController::class, 'store']);
-        $routes->push('album_galeri_edit', '/{id}/edit', [GroupGaleriController::class, 'edit']);
-        $routes->push('album_galeri_update', '/{id}/update', [GroupGaleriController::class, 'update']);
-        $routes->push('album_galeri_show', '/{id}/show', [GroupGaleriController::class, 'show']);
-        $routes->push('album_galeri_delete', '/{id}/delete', [GroupGaleriController::class, 'delete']);
+        /* -------------------------------- approval -------------------------------- */
+        $routes->push('galeri_approval', '/approval', [GaleriAdminController::class, 'approval']);
+        $routes->push('galeri_approval_action', '/approval/{id}/action/{status}', [GaleriAdminController::class, 'approval_action']);
+        $routes->push('galeri_approval_detail', '/approval/{id}/detail', [GaleriAdminController::class, 'approval_detail']);
     });
     /* -------------------------------------------------------------------------- */
 

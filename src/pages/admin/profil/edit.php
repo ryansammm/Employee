@@ -37,7 +37,14 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="judul_profil" class="form-label">Judul Profil</label>
-                                    <input type="text" class="form-control" id="judul_profil" name="judul_profil" value="<?= arr_offset($profil[0], 'judul_profil') ?>">
+                                    <input type="text" class="form-control" id="judul_profil" name="judul_profil" value="<?= arr_offset($profil, 'judul_profil') ?>">
+                                </div>
+                            </div>
+                            <!------- Tagline Profil ------->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label for="tagline_profil" class="form-label">Tagline Profil</label>
+                                    <input type="text" class="form-control" id="tagline_profil" name="tagline_profil" value="<?= arr_offset($profil, 'tagline_profil') ?>">
                                 </div>
                             </div>
                             <!------- Foto Profil ------->
@@ -45,7 +52,7 @@
                                 <label for="profil_foto" class="form-label">Foto Profil</label>
                                 <div class="row">
                                     <div class="col-6">
-                                        <img src="/assets/media/<?= arr_offset($profil[0], 'path_media') ?>" class="img-fluid img-thumbnail foto_utama_preview">
+                                        <img src="/assets/media/<?= arr_offset($profil, 'path_media') ?>" class="img-fluid img-thumbnail foto_utama_preview">
                                     </div>
                                 </div>
                                 <div class="row mt-3">
@@ -67,14 +74,14 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="deskripsi_profil" class="form-label">Deskripsi Profil</label>
-                                <textarea id="deskripsi_profil" name="deskripsi_profil"><?= arr_offset($profil[0], 'deskripsi_profil') ?></textarea>
+                                <textarea id="deskripsi_profil" name="deskripsi_profil"><?= arr_offset($profil, 'deskripsi_profil') ?></textarea>
                             </div>
                         </div>
                         <!------- Visi Misi ------->
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label for="visi_misi" class="form-label">Visi Misi</label>
-                                <textarea id="visi_misi" name="visi_misi"><?= arr_offset($visi_misi, 'visi_misi') ?></textarea>
+                                <textarea id="visi_misi" name="visi_misi"><?= arr_offset($profil, 'visi_misi') ?></textarea>
                             </div>
                         </div>
                         <!------- Struktur Organisasi ------->
@@ -82,7 +89,7 @@
                             <label for="struktur_organisasi" class="form-label">Struktur Organisasi</label>
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <div class="foto_detail_preview" style="background-image: url(/assets/media/<?= arr_offset($profil[2], 'path_media') ?>);display:block;width:100%;height:150px;background-size:100%;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
+                                    <div class="foto_detail_preview" style="background-image: url(/assets/media/<?= arr_offset($sotk, 'path_media') ?>);display:block;width:100%;height:150px;background-size:100%;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
                                 </div>
                             </div>
                             <div class="row">

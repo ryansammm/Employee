@@ -95,7 +95,7 @@
                         <li class="nav-item">
                             <a href="/admin/produk/redaction" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Pengecekan Redaksi</p>
+                                <p>Pengecekan & Editorial</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -147,7 +147,7 @@
                         <li class="nav-item">
                             <a href="/admin/layanan/redaction" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Pengecekan Redaksi</p>
+                                <p>Pengecekan & Editorial</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -185,7 +185,7 @@
                     <a href="/admin/galeri" class="nav-link <?= strpos($GLOBALS['url'], 'galeri') != false ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-image"></i>
                         <p>
-                            Jejak Kami
+                            Portofolio
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -193,7 +193,19 @@
                         <li class="nav-item">
                             <a href="/admin/galeri" class="nav-link" style="padding-left: 43px;">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Jejak Kami</p>
+                                <p>Kelola Portofolio</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/galeri/redaction" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pengecekan & Editorial</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/galeri/approval" class="nav-link" style="padding-left: 43px;">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Approval Portofolio</p>
                             </a>
                         </li>
                         <li class="nav-item">

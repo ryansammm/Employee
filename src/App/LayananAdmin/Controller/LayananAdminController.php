@@ -2,6 +2,7 @@
 
 namespace App\LayananAdmin\Controller;
 
+use App\ContentAdmin\SubModule\ContentAdmin\ContentAdmin;
 use App\KategoriLayananAdmin\Model\KategoriLayananAdmin;
 use App\LayananAdmin\Model\LayananAdmin;
 use App\Media\Model\Media;
@@ -26,18 +27,10 @@ class LayananAdminController
 
     public function index(Request $request)
     {
-        $kategori_layanan = $this->modelKategoriLayanan->get();
-        $id_kategori_layanan = $request->query->get('id_kategori_layanan');
-        $data_layanan = $this->model
-            ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
-            ->where(function ($query) use ($request) {
-                if ($request->query->get('kategori_layanan') != null) {
-                    $query->where('layanan.id_kategori_layanan', $request->query->get('kategori_layanan'));
-                }
-            })
-            ->paginate(10)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $datas = $content_admin->get();
 
-        return render_template('admin/layanan/index', ['data_layanan' => $data_layanan, 'kategori_layanan' => $kategori_layanan, 'id_kategori_layanan' => $id_kategori_layanan]);
+        return render_template('admin/layanan/content-management/index', ['data_layanan' => $datas['datas'], 'kategori_layanan' => $datas['kategori'], 'id_kategori_layanan' => $datas['id_kategori']]);
     }
 
     public function create(Request $request)
@@ -45,7 +38,7 @@ class LayananAdminController
         $data_kategori_layanan = $this->modelKategoriLayanan->get();
         $errors = SessionData::get()->getFlashBag()->get('errors', []);
 
-        return render_template('admin/layanan/create', ['data_kategori_layanan' => $data_kategori_layanan, 'errors' => $errors]);
+        return render_template('admin/layanan/content-management/create', ['data_kategori_layanan' => $data_kategori_layanan, 'errors' => $errors]);
     }
 
     public function store(Request $request)
@@ -58,7 +51,8 @@ class LayananAdminController
         $request->request->set('deskripsi_layanan', htmlspecialchars($request->request->get('deskripsi_layanan')));
         $request->request->set('deskripsi_lengkap_layanan', htmlspecialchars($request->request->get('deskripsi_lengkap_layanan')));
         $request->request->set('spesifikasi_layanan', htmlspecialchars($request->request->get('spesifikasi_layanan')));
-        $request->request->set('status_layanan', '2');
+        $request->request->set('status_layanan', '1');
+
         $create = $this->model->insert($request->request->all());
 
         /* ------------------------------ Media Layanan ------------------------------ */
@@ -84,20 +78,10 @@ class LayananAdminController
 
     public function edit(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $layanan = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
-            ->where('media.jenis_dokumen', 'utama')
-            ->where('id_layanan', $id)->first();
-        $data_kategori_layanan = $this->modelKategoriLayanan->get();
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
 
-        $media = new Media();
-        $foto_layanan_lainnya = $media
-            ->where('id_relation', $id)
-            ->where('jenis_dokumen', 'lainnya')
-            ->get();
-
-        return render_template('admin/layanan/edit', ['id' => $id, 'layanan' => $layanan, 'data_kategori_layanan' => $data_kategori_layanan, 'foto_layanan_lainnya' => $foto_layanan_lainnya]);
+        return render_template('admin/layanan/content-management/edit', ['id' => $datas['id'], 'layanan' => $datas['data'], 'data_kategori_layanan' => $datas['data_kategori'], 'foto_layanan_lainnya' => $datas['foto_lainnya']]);
     }
 
     public function update(Request $request)
@@ -107,9 +91,8 @@ class LayananAdminController
         $request->request->set('deskripsi_layanan', htmlspecialchars($request->request->get('deskripsi_layanan')));
         $request->request->set('deskripsi_lengkap_layanan', htmlspecialchars($request->request->get('deskripsi_lengkap_layanan')));
         $request->request->set('spesifikasi_layanan', htmlspecialchars($request->request->get('spesifikasi_layanan')));
-
-        $status_layanan = $request->request->get('submit') == 'publish' ? '1' : '2';
-        $request->request->set('status_layanan', $status_layanan);
+        $status = $request->request->get('submit') == '1' ? '1' : '3';
+        $request->request->set('status_layanan', $status);
 
         $this->model->where('id_layanan', $id)->update($request->request->all());
 
@@ -182,18 +165,10 @@ class LayananAdminController
 
     public function approval(Request $request)
     {
-        $kategori_layanan = $this->modelKategoriLayanan->get();
-        $id_kategori_layanan = $request->query->get('id_kategori_layanan');
-        $data_layanan = $this->model
-            ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
-            ->where(function ($query) use ($request) {
-                if ($request->query->get('kategori_layanan') != null) {
-                    $query->where('layanan.id_kategori_layanan', $request->query->get('kategori_layanan'));
-                }
-            })
-            ->paginate(10)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $datas = $content_admin->get();
 
-        return render_template('admin/layanan/approval', ['data_layanan' => $data_layanan, 'kategori_layanan' => $kategori_layanan, 'id_kategori_layanan' => $id_kategori_layanan]);
+        return render_template('admin/layanan/content-approval/index', ['data_layanan' => $datas['datas'], 'kategori_layanan' => $datas['kategori'], 'id_kategori_layanan' => $datas['id_kategori']]);
     }
 
     public function approval_action(Request $request)
@@ -206,97 +181,35 @@ class LayananAdminController
         return new RedirectResponse('/admin/layanan/approval');
     }
 
-    public function detail(Request $request)
-    {
-        $id = $request->attributes->get("id");
-        $layanan = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
-            ->where('media.jenis_dokumen', 'utama')
-            ->where('id_layanan', $id)->first();
-        $data_kategori_layanan = $this->modelKategoriLayanan->get();
-
-        $media = new Media();
-        $foto_layanan_lainnya = $media
-            ->where('id_relation', $id)
-            ->where('jenis_dokumen', 'lainnya')
-            ->get();
-
-        return render_template('admin/layanan/detail', [
-            'id' => $id,
-            'layanan' => $layanan, 'data_kategori_layanan' => $data_kategori_layanan, 'foto_layanan_lainnya' => $foto_layanan_lainnya
-        ]);
-    }
-
     public function redaction(Request $request)
     {
-        $kategori_layanan_admin = new KategoriLayananAdmin();
+        $content_admin = new ContentAdmin($request, $this->model, 'index');
+        $datas = $content_admin->get();
 
-        $kategori_layanan = $kategori_layanan_admin->get();
-        $id_kategori_layanan = $request->query->get('id_kategori_layanan');
-        $data_layanan = $this->model
-            ->leftJoin('kategori_layanan', 'kategori_layanan.id_kategori_layanan', '=', 'layanan.id_kategori_layanan')
-            ->where(function ($query) use ($request) {
-                if ($request->query->get('kategori_layanan') != null) {
-                    $query->where('layanan.id_kategori_layanan', $request->query->get('kategori_layanan'));
-                }
-            })
-            ->paginate(10)->appends(['kategori_layanan' => $request->query->get('kategori_layanan')]);
-
-
-        return render_template('admin/layanan-redaction/redaction', ['data_layanan' => $data_layanan, 'kategori_layanan' => $kategori_layanan, 'id_kategori_layanan' => $id_kategori_layanan]);
+        return render_template('admin/layanan/redaction-check/index', ['data_layanan' => $datas['datas'], 'kategori_layanan' => $datas['kategori'], 'id_kategori_layanan' => $datas['id_kategori']]);
     }
 
     public function redaction_detail(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $layanan = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
-            ->where('media.jenis_dokumen', 'utama')
-            ->where('id_layanan', $id)->first();
-        $data_kategori_layanan = $this->modelKategoriLayanan->get();
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
 
-        $media = new Media();
-        $foto_layanan_lainnya = $media
-            ->where('id_relation', $id)
-            ->where('jenis_dokumen', 'lainnya')
-            ->get();
-
-        return render_template('admin/layanan-redaction/detail', ['id' => $id, 'layanan' => $layanan, 'data_kategori_layanan' => $data_kategori_layanan, 'foto_layanan_lainnya' => $foto_layanan_lainnya]);
+        return render_template('admin/layanan/redaction-check/detail', ['id' => $datas['id'], 'layanan' => $datas['data'], 'data_kategori_layanan' => $datas['data_kategori'], 'foto_layanan_lainnya' => $datas['foto_lainnya']]);
     }
 
     public function redaction_edit(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $layanan = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
-            ->where('media.jenis_dokumen', 'utama')
-            ->where('id_layanan', $id)->first();
-        $data_kategori_layanan = $this->modelKategoriLayanan->get();
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
 
-        $media = new Media();
-        $foto_layanan_lainnya = $media
-            ->where('id_relation', $id)
-            ->where('jenis_dokumen', 'lainnya')
-            ->get();
-
-        return render_template('admin/layanan-redaction/edit', ['id' => $id, 'layanan' => $layanan, 'data_kategori_layanan' => $data_kategori_layanan, 'foto_layanan_lainnya' => $foto_layanan_lainnya]);
+        return render_template('admin/layanan/redaction-check/edit', ['id' => $datas['id'], 'layanan' => $datas['data'], 'data_kategori_layanan' => $datas['data_kategori'], 'foto_layanan_lainnya' => $datas['foto_lainnya']]);
     }
 
     public function approval_detail(Request $request)
     {
-        $id = $request->attributes->get("id");
-        $layanan = $this->model
-            ->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')
-            ->where('media.jenis_dokumen', 'utama')
-            ->where('id_layanan', $id)->first();
-        $data_kategori_layanan = $this->modelKategoriLayanan->get();
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
 
-        $media = new Media();
-        $foto_layanan_lainnya = $media
-            ->where('id_relation', $id)
-            ->where('jenis_dokumen', 'lainnya')
-            ->get();
-
-        return render_template('admin/layanan-approval/detail', ['id' => $id, 'layanan' => $layanan, 'data_kategori_layanan' => $data_kategori_layanan, 'foto_layanan_lainnya' => $foto_layanan_lainnya]);
+        return render_template('admin/layanan/content-approval/detail', ['id' => $datas['id'], 'layanan' => $datas['data'], 'data_kategori_layanan' => $datas['data_kategori'], 'foto_layanan_lainnya' => $datas['foto_lainnya']]);
     }
 }

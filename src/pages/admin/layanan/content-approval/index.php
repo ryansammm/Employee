@@ -74,8 +74,8 @@
                                     <td>
                                         <a class="btn btn-sm btn-info" href="/admin/layanan/approval/<?= $value['id_layanan'] ?>/detail">Detail</a>
                                         <?php if ($value['status_layanan'] == '3') { ?>
-                                            <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_layanan'] ?>" data-status="1">Setujui</a>
-                                            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_layanan'] ?>" data-status="2">Tolak</a>
+                                            <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_layanan'] ?>" data-status="5">Setujui</a>
+                                            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_layanan'] ?>" data-status="4">Tolak</a>
                                         <?php } ?>
                                     </td>
                                 </tr>

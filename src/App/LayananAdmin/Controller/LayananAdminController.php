@@ -6,6 +6,7 @@ use App\ContentAdmin\SubModule\ContentAdmin\ContentAdmin;
 use App\KategoriLayananAdmin\Model\KategoriLayananAdmin;
 use App\LayananAdmin\Model\LayananAdmin;
 use App\Media\Model\Media;
+use App\NotifTelegram\Model\NotifTelegram;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,6 +73,15 @@ class LayananAdminController
             ]);
         }
         /* -------------------------------------------------------------------------- */
+
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $datas = $request->request->all();
+        $user_aktif = session('nama_user');
+        $telegram = new NotifTelegram();
+        $message = urlencode($user_aktif . " telah menambahkan data layanan dengan nama <b>" . $datas['nama_layanan'] . "</b>");
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
 
         return new RedirectResponse('/admin/layanan');
     }
@@ -148,6 +158,20 @@ class LayananAdminController
             }
         }
 
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_layanan', $id)->first();
+        $telegram = new NotifTelegram();
+        if ($status == '1') {
+            $message = urlencode($user_aktif . " telah merubah data pada layanan <b>" . $detail['nama_layanan'] . "</b>");
+        } elseif ($status == '3') {
+            $message = urlencode($user_aktif . "  telah memeriksa redaksi dari layanan <b>" . $detail['nama_layanan'] . "</b>");
+        }
+
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
         return new RedirectResponse('/admin/layanan');
     }
 
@@ -157,7 +181,18 @@ class LayananAdminController
 
         $media = new Media();
         $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')->where('id_layanan', $id)->first();
+
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_layanan', $id)->first();
+        $telegram = new NotifTelegram();
+        $message = urlencode($user_aktif . " telah menghapus data layanan <b>" . $detail['nama_layanan'] . "</b>");
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
         $this->model->where('id_layanan', $id)->delete();
+
         $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/layanan');
@@ -177,6 +212,20 @@ class LayananAdminController
         $status = $request->attributes->get('status');
 
         $this->model->where('id_layanan', $id)->update(['status_layanan' => $status]);
+
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_layanan', $id)->first();
+        $telegram = new NotifTelegram();
+        if ($status == '5') {
+            $message = urlencode($user_aktif . " telah menyetujui data layanan <b>" . $detail['nama_layanan'] . "</b>");
+        } else {
+            $message = urlencode($user_aktif . "  telah tidak menyetujui data layanan <b>" . $detail['nama_layanan'] . "</b>");
+        }
+
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
 
         return new RedirectResponse('/admin/layanan/approval');
     }

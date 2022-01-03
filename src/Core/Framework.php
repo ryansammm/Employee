@@ -221,10 +221,6 @@ class Framework extends HttpKernel implements HttpKernelInterface
         }
         /* --------------------------- End User Previleges -------------------------- */
 
-        if ($id_user == null) {
-            $pathInfo = '/admin';
-        }
-
         try {
             $request->attributes->add($this->matcher->match($pathInfo));
 

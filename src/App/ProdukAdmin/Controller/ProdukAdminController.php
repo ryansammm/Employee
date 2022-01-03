@@ -63,7 +63,7 @@ class ProdukAdminController
         /* ------------------------------ Media Produk ------------------------------ */
         if ($request->files->get('produk_foto_utama') != null) {
             $media = new Media();
-            $media->storeMedia($request->files->get('produk_foto_utama'), [
+            $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('produk_foto_utama'), [
                 'id_relation' => $create,
                 'jenis_dokumen' => 'utama',
             ]);
@@ -73,7 +73,7 @@ class ProdukAdminController
         if ($request->files->get('produk_foto') != null) {
             foreach ($request->files->get('produk_foto') as $key => $value) {
                 // store foto portofolio
-                $media->storeMedia($request->files->get('produk_foto')[$key], [
+                $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('produk_foto')[$key], [
                     'id_relation' => $create,
                     'jenis_dokumen' => 'lainnya',
                 ]);
@@ -112,7 +112,7 @@ class ProdukAdminController
         $this->model->where('id_produk', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('produk_foto_utama'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('produk_foto_utama'), [
             'id_relation' => $id,
             'jenis_dokumen' => 'utama',
         ], $this->model, $id);
@@ -133,7 +133,7 @@ class ProdukAdminController
             if (!$exsist) {
                 // delete detail data
                 $media_data = $media->where('id_media', $value['id_media'])->first();
-                $media->deleteMedia($media_data);
+                $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
             }
         }
 
@@ -143,10 +143,10 @@ class ProdukAdminController
             if ($request->files->get('produk_foto_' . $value) != null) {
                 // delete detail data
                 $media_data = $media->where('id_media', $value)->first();
-                $media->deleteMedia($media_data);
+                $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
                 // store detail media
-                $media->storeMedia($request->files->get('produk_foto_' . $value), [
+                $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('produk_foto_' . $value), [
                     'id_relation' => $id,
                     'jenis_dokumen' => 'lainnya',
                 ]);
@@ -156,7 +156,7 @@ class ProdukAdminController
         // store detail data yang statusnya di tambah
         if ($request->files->get('produk_foto') != null) {
             foreach ($request->files->get('produk_foto') as $key => $value) {
-                $media->storeMedia($request->files->get('produk_foto')[$key], [
+                $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('produk_foto')[$key], [
                     'id_relation' => $id,
                     'jenis_dokumen' => 'lainnya',
                 ]);
@@ -191,7 +191,7 @@ class ProdukAdminController
         $this->model->where('id_produk', $id)->delete();
 
         foreach ($media_data->items as $key => $value) {
-            $media->deleteMedia($value);
+            $media->path(env('APP_MEDIA_DIR'))->deleteMedia($value);
         }
 
         /* ----------------------------- Notif Telegram ----------------------------- */

@@ -40,7 +40,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-4">
-                            <img src="/assets/media/<?= $galeri['path_media'] ?>" class="img-fluid img-thumbnail foto_utama_preview">
+                            <img src="<?= asset($galeri['path_media']) ?>" class="img-fluid img-thumbnail foto_utama_preview">
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                                         <div class="col-md-12">
                                             <div class="row preview_list_foto">
                                                 <div class="col-4">
-                                                    <div class="foto_detail_preview" style="background-image:url(/assets/media/<?= $value['path_media'] ?>);display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
+                                                    <div class="foto_detail_preview" style="background-image:url(<?= asset($value['path_media']) ?>);display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
                                                 </div>
                                             </div>
                                         </div>

@@ -62,7 +62,7 @@ class BeritaAdminController
 
 
         $media = new Media();
-        $media->storeMedia($request->files->get('gambar_thumbnail_berita'), [
+        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('gambar_thumbnail_berita'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -95,7 +95,7 @@ class BeritaAdminController
         $this->model->where('id_berita', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('gambar_thumbnail_berita'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('gambar_thumbnail_berita'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->model, $id);
@@ -110,7 +110,7 @@ class BeritaAdminController
         $media = new Media();
         $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'berita.id_berita')->where('id_berita', $id)->first();
         $this->model->where('id_berita', $id)->delete();
-        $media->deleteMedia($media_data);
+        $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/berita');
     }

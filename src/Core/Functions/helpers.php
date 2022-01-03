@@ -289,3 +289,17 @@ if (!function_exists('template')) {
         return $template->getContent();
     }
 }
+
+if (!function_exists('asset')) {
+    /**
+     * Get assets
+     * 
+     * @param string $path
+     */
+    function asset($path = '')
+    {
+        $app_url = $_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1' ? 'http://' . $_SERVER['HTTP_HOST'] : 'https://' . $_SERVER['HTTP_HOST'];
+
+        return env('APP_MEDIA_URL', $app_url).'/assets/media/' . $path;
+    }
+}

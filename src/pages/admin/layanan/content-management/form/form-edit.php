@@ -54,7 +54,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-4">
-                            <img src="/assets/media/<?= $layanan['path_media'] ?>" class="img-fluid img-thumbnail foto_utama_preview">
+                            <img src="<?= asset($layanan['path_media']) ?>" class="img-fluid img-thumbnail foto_utama_preview">
                         </div>
                         <div class="col">
                             <label for="layanan_foto" class="form-label">Foto Produk Utama</label> (.jpg, .jpeg, .png)
@@ -77,7 +77,7 @@
                                 <input type="hidden" name="id_media[]" value="<?= $value['id_media'] ?>">
                                 <h6>Foto <?= $keyForElement ?></h6>
                                 <a href="#" class="mb-2  btn_foto_detail" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($value['path_media']) ?>">
-                                    <div class="mb-2 foto_detail_preview" style="background: url('/assets/media/<?= $value['path_media'] ?>');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
+                                    <div class="mb-2 foto_detail_preview" style="background: url('<?= asset($value['path_media']) ?>');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
                                 </a>
                                 <input type="file" class="form-control foto_detail" name="layanan_foto_<?= $value['id_media'] ?>">
                                 <?php if ($key != 0) { ?>

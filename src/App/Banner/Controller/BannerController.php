@@ -50,7 +50,7 @@ class BannerController
         $create = $this->banner->insert($request->request->all());
 
         $media = new Media();
-        $media->storeMedia($request->files->get('foto_banner'), [
+        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('foto_banner'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -91,7 +91,7 @@ class BannerController
         $this->banner->where('id_banner', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('foto_banner'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('foto_banner'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->banner, $id);
@@ -105,7 +105,7 @@ class BannerController
         $media = new Media();
         $media_data = $this->banner->select('media.*')->where('id_banner', $id)->first();
         $this->banner->where('id_banner', $id)->delete();
-        $media->deleteMedia($media_data);
+        $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/banner');
     }

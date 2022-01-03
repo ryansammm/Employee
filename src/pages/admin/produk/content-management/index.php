@@ -48,6 +48,7 @@
                                 <th>No</th>
                                 <th>Kategori Produk</th>
                                 <th>Nama Produk</th>
+                                <th>Status Produk</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -59,10 +60,23 @@
                                     <td><?= $value['nama_produk'] ?></td>
                                     <td>
                                         <?php if ($value['status_produk'] == '1') { ?>
+                                            <h6><span class="badge badge-secondary">Draft</span></h6>
+                                        <?php } else if ($value['status_produk'] == '2') { ?>
+                                            <h6><span class="badge badge-danger">Tidak Lolos cek redaksi</span></h6>
+                                        <?php } else if ($value['status_produk'] == '3') { ?>
+                                            <h6><span class="badge badge-primary">Lolos cek redaksi</span></h6>
+                                        <?php } else if ($value['status_produk'] == '4') { ?>
+                                            <h6><span class="badge badge-danger">Tidak disetujui</span></h6>
+                                        <?php } else { ?>
+                                            <h6><span class="badge badge-success">Publish</span></h6>
+                                        <?php } ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($value['status_produk'] == '1' || $value['status_produk'] == '2') { ?>
                                             <a class="btn btn-sm btn-info" href="/admin/produk/<?= $value['id_produk'] ?>/edit">Edit</a>
                                             <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_produk" data-id="<?= $value['id_produk'] ?>">hapus</a>
                                         <?php } else { ?>
-                                            <h6><span class="badge badge-primary">Lolos cek redaksi</span></h6>
+                                            <a class="btn btn-sm btn-info" href="/admin/produk/redaction/<?= $value['id_produk'] ?>/detail">Detail</a>
                                         <?php } ?>
                                     </td>
                                 </tr>

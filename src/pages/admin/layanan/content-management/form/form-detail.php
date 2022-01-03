@@ -67,7 +67,7 @@
     <div class="row">
         <div class="col-4">
             <label for="layanan_foto" class="form-label">Foto Produk Utama</label> (.jpg, .jpeg, .png)
-            <img src="/assets/media/<?= $layanan['path_media'] ?>" class="img-fluid img-thumbnail">
+            <img src="<?= asset($layanan['path_media']) ?>" class="img-fluid img-thumbnail">
         </div>
     </div>
 </div>
@@ -81,7 +81,7 @@
                 <input type="hidden" name="id_media[]" value="<?= $value['id_media'] ?>">
                 <h6>Foto <?= $keyForElement ?></h6>
                 <a href="#" class="mb-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($value['path_media']) ?>">
-                    <div class="mb-2" style="background: url('/assets/media/<?= $value['path_media'] ?>');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
+                    <div class="mb-2" style="background: url('<?= asset($value['path_media']) ?>');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
                 </a>
             </div>
         <?php } ?>

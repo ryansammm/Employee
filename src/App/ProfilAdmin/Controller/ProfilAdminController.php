@@ -39,7 +39,7 @@ class ProfilAdminController
 
     public function edit(Request $request)
     {
-        $profil = $this->profilAdmin->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->first();
+        $profil = $this->profilAdmin->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->where('media.jenis_dokumen', 'profil_foto')->first();
         $media = new Media();
         $sotk = $media->where('id_relation', $profil['id_profil'])->where('jenis_dokumen', 'struktur_organisasi')->first();
 
@@ -60,12 +60,12 @@ class ProfilAdminController
             $id_profil = $this->profilAdmin->insert($request->request->all());
         }
 
-        $media->updateMedia($request->files->get('profil_foto'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('profil_foto'), [
             'id_relation' => $id_profil,
             'jenis_dokumen' => 'profil_foto',
         ], $this->profilAdmin, $id_profil);
 
-        $media->updateMedia($request->files->get('struktur_organisasi'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('struktur_organisasi'), [
             'id_relation' => $id_profil,
             'jenis_dokumen' => 'struktur_organisasi',
         ], $this->profilAdmin, $id_profil);
@@ -75,13 +75,12 @@ class ProfilAdminController
 
     public function delete(Request $request)
     {
-
         $id = $request->attributes->get("id");
 
         $media = new Media();
         $media_data = $this->profilAdmin->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'profil.id_profil')->where('id_profil', $id)->first();
         $this->profilAdmin->where('id_profil', $id)->delete();
-        $media->deleteMedia($media_data);
+        $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/profil');
     }

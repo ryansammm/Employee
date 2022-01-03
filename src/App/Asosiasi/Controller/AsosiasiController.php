@@ -25,7 +25,6 @@ class AsosiasiController
 
     public function create(Request $request)
     {
-
         return render_template('admin/asosiasi/create');
     }
 
@@ -35,7 +34,7 @@ class AsosiasiController
         $create = $this->asosiasi->insert($request->request->all());
 
         $media = new Media();
-        $media->storeMedia($request->files->get('ikon_asosiasi'), [
+        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('ikon_asosiasi'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -45,8 +44,6 @@ class AsosiasiController
 
     public function edit(Request $request)
     {
-
-
         $id = $request->attributes->get('id');
         $detail = $this->asosiasi->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->where('id_asosiasi', $id)->first();
 
@@ -60,7 +57,7 @@ class AsosiasiController
         $this->asosiasi->where('id_asosiasi', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('ikon_asosiasi'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('ikon_asosiasi'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->model, $id);
@@ -70,12 +67,11 @@ class AsosiasiController
 
     public function delete(Request $request)
     {
-
         $id = $request->attributes->get('id');
         $media = new Media();
         $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->where('id_asosiasi', $id)->first();
         $this->model->where('id_asosiasi', $id)->delete();
-        $media->deleteMedia($media_data);
+        $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/asosiasi');
     }

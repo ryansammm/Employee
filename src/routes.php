@@ -69,6 +69,7 @@ $routes = new RouteCollection();
 /* ------------------------------- Route Login ------------------------------ */
 $routes->push('admin_login', '/admin', [LoginController::class, 'index']);
 $routes->push('admin_login_action', '/admin/login', [LoginController::class, 'login']);
+$routes->push('admin_login_index', '/', [LoginController::class, 'index']);
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------- Register -------------------------------- */
@@ -491,7 +492,7 @@ $routes->prefix('admin', function ($routes) {
 
 
 /* ------------------------------- Front Home ------------------------------- */
-$routes->push('home', '/', [HomeController::class, 'index']);
+// $routes->push('home', '/', [HomeController::class, 'index']);
 /* -------------------------------------------------------------------------- */
 
 

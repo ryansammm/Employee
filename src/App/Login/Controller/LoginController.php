@@ -33,6 +33,10 @@ class LoginController
         $media = new Media();
         $data_media = $media->where('jenis_dokumen', 'cms-title')->first();
 
+        if (session('id_user') != null) {
+            return new RedirectResponse('/admin/profile-saya');
+        }
+
         return render_template('admin/auth/login', ['errors' => $errors, 'data_cms_title' => $data_cms_title, 'data_media' => $data_media, 'data_cms_background' => $data_cms_background]);
     }
 

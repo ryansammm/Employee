@@ -21,7 +21,8 @@ class Media extends Model
         if ($path == 'fonts') {
             $this->path = fonts_path();
         } else {
-            $this->path = storage_path();
+            // $this->path = storage_path();
+            $this->path = $path;
         }
 
         return $this;
@@ -102,8 +103,6 @@ class Media extends Model
                 'message' => 'Error uploading file: ' . $e->getMessage()
             ];
         }
-
-
 
 
         return $data;
@@ -187,7 +186,6 @@ class Media extends Model
                     }
                 })
                 ->where($model->primaryKey, $id_tabel)->first();
-            // dd($media_data);
             $this->deleteMedia($media_data);
             $dokumen = $this->storeMedia($file, $data_media);
 
@@ -203,8 +201,9 @@ class Media extends Model
      */
     public function deleteFile(string $file)
     {
-        if (file_exists(__DIR__ . '/../../../../web/assets/media/' . $file)) {
-            unlink(__DIR__ . '/../../../../web/assets/media/' . $file);
+        $path_media = $this->path == '' ? __DIR__ . '/../../../../web/assets/media/' : $this->path.'/';
+        if (file_exists($path_media . $file)) {
+            unlink($path_media . $file);
 
             return true;
         }

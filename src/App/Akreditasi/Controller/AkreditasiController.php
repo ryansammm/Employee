@@ -33,7 +33,7 @@ class AkreditasiController
         $create = $this->akreditasi->insert($request->request->all());
 
         $media = new Media();
-        $media->storeMedia($request->files->get('ikon_akreditasi'), [
+        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('ikon_akreditasi'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -55,7 +55,7 @@ class AkreditasiController
         $this->akreditasi->where('id_akreditasi', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('ikon_akreditasi'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('ikon_akreditasi'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->akreditasi, $id);
@@ -69,7 +69,7 @@ class AkreditasiController
         $media = new Media();
         $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'akreditasi.id_akreditasi')->where('id_akreditasi', $id)->first();
         $this->model->where('id_akreditasi', $id)->delete();
-        $media->deleteMedia($media_data);
+        $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/akreditasi');
     }

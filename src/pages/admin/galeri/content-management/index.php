@@ -49,6 +49,7 @@
                                 <th>Album</th>
                                 <th>Cover</th>
                                 <th>Tgl Album</th>
+                                <th>Status Galeri</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -61,10 +62,23 @@
                                     <td><?= $value['tgl_galeri'] ?></td>
                                     <td>
                                         <?php if ($value['status_galeri'] == '1') { ?>
+                                            <h6><span class="badge badge-secondary">Draft</span></h6>
+                                        <?php } else if ($value['status_galeri'] == '2') { ?>
+                                            <h6><span class="badge badge-danger">Tidak Lolos cek redaksi</span></h6>
+                                        <?php } else if ($value['status_galeri'] == '3') { ?>
+                                            <h6><span class="badge badge-primary">Lolos cek redaksi</span></h6>
+                                        <?php } else if ($value['status_galeri'] == '4') { ?>
+                                            <h6><span class="badge badge-danger">Tidak disetujui</span></h6>
+                                        <?php } else { ?>
+                                            <h6><span class="badge badge-success">Publish</span></h6>
+                                        <?php } ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($value['status_galeri'] == '1' || $value['status_produk'] == '2') { ?>
                                             <a class="btn btn-sm btn-info" href="/admin/galeri/<?= $value['id_galeri'] ?>/edit">Edit</a>
                                             <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_galeri" data-id="<?= $value['id_galeri'] ?>">hapus</a>
                                         <?php } else { ?>
-                                            <h6><span class="badge badge-primary">Lolos cek redaksi</span></h6>
+                                            <a class="btn btn-sm btn-info" href="/admin/galeri/redaction/<?= $value['id_galeri'] ?>/detail">Detail</a>
                                         <?php } ?>
                                     </td>
                                 </tr>

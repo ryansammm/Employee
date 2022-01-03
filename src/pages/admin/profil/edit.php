@@ -52,7 +52,7 @@
                                 <label for="profil_foto" class="form-label">Foto Profil</label>
                                 <div class="row">
                                     <div class="col-6">
-                                        <img src="/assets/media/<?= arr_offset($profil, 'path_media') ?>" class="img-fluid img-thumbnail foto_utama_preview">
+                                        <img src="<?= asset(arr_offset($profil, 'path_media')) ?>" class="img-fluid img-thumbnail foto_utama_preview">
                                     </div>
                                 </div>
                                 <div class="row mt-3">
@@ -89,7 +89,7 @@
                             <label for="struktur_organisasi" class="form-label">Struktur Organisasi</label>
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <div class="foto_detail_preview" style="background-image: url(/assets/media/<?= arr_offset($sotk, 'path_media') ?>);display:block;width:100%;height:150px;background-size:100%;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
+                                    <div class="foto_detail_preview" style="background-image: url(<?= asset(arr_offset($sotk, 'path_media')) ?>);display:block;width:100%;height:150px;background-size:100%;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
                                 </div>
                             </div>
                             <div class="row">

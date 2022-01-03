@@ -174,7 +174,7 @@
                         <a type="button" class="text-decoration-none" data-toggle="dropdown" aria-expanded="false">
                             <div class="d-flex">
                                 <div class="user-img align-items-center mr-3">
-                                    <div style="background-image: url(/assets/media/<?= $GLOBALS['path_media'] ?>);width: 38px;height: 38px;background-size: cover;background-position: center;border-radius: 50%;"></div>
+                                    <div style="background-image: url(<?= asset($GLOBALS['path_media']) ?>);width: 38px;height: 38px;background-size: cover;background-position: center;border-radius: 50%;"></div>
                                 </div>
                                 <div class="user-name text-start ms-3">
                                     <h6 class="mb-0 text-muted" style="font-size: 14px;"><?= $GLOBALS['nama_user'] ?></h6>

@@ -57,7 +57,7 @@ class LayananAdminController
 
         /* ------------------------------ Media Layanan ------------------------------ */
         $media = new Media();
-        $media->storeMedia($request->files->get('layanan_foto_utama'), [
+        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('layanan_foto_utama'), [
             'id_relation' => $create,
             'jenis_dokumen' => 'utama',
         ]);
@@ -66,7 +66,7 @@ class LayananAdminController
         // Ini buat store data ke group layanan
         foreach ($request->files->get('layanan_foto') as $key => $value) {
             // store foto portofolio
-            $media->storeMedia($request->files->get('layanan_foto')[$key], [
+            $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('layanan_foto')[$key], [
                 'id_relation' => $create,
                 'jenis_dokumen' => 'lainnya',
             ]);
@@ -97,7 +97,7 @@ class LayananAdminController
         $this->model->where('id_layanan', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('layanan_foto_utama'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('layanan_foto_utama'), [
             'id_relation' => $id,
             'jenis_dokumen' => 'utama',
         ], $this->model, $id);
@@ -118,7 +118,7 @@ class LayananAdminController
             if (!$exsist) {
                 // delete detail data
                 $media_data = $media->where('id_media', $value['id_media'])->first();
-                $media->deleteMedia($media_data);
+                $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
             }
         }
 
@@ -128,10 +128,10 @@ class LayananAdminController
             if ($request->files->get('layanan_foto_' . $value) != null) {
                 // delete detail data
                 $media_data = $media->where('id_media', $value)->first();
-                $media->deleteMedia($media_data);
+                $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
                 // store detail media
-                $media->storeMedia($request->files->get('layanan_foto_' . $value), [
+                $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('layanan_foto_' . $value), [
                     'id_relation' => $id,
                     'jenis_dokumen' => 'lainnya',
                 ]);
@@ -141,7 +141,7 @@ class LayananAdminController
         // store detail data yang statusnya di tambah
         if ($request->files->get('layanan_foto') != null) {
             foreach ($request->files->get('layanan_foto') as $key => $value) {
-                $media->storeMedia($request->files->get('layanan_foto')[$key], [
+                $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('layanan_foto')[$key], [
                     'id_relation' => $id,
                     'jenis_dokumen' => 'lainnya',
                 ]);
@@ -158,7 +158,7 @@ class LayananAdminController
         $media = new Media();
         $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'layanan.id_layanan')->where('id_layanan', $id)->first();
         $this->model->where('id_layanan', $id)->delete();
-        $media->deleteMedia($media_data);
+        $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/layanan');
     }

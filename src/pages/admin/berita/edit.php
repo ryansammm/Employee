@@ -55,7 +55,7 @@
                                     </div>
                                     <span class="text-muted d-block">Ukuran maksimum file : 2 Mb</span>
                                     <?php if ($berita['path_media'] != null) { ?>
-                                        <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= $berita['path_media'] ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
+                                        <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= asset($berita['path_media']) ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
                                     <?php } ?>
                                 </div>
                                 <div class="row my-4">

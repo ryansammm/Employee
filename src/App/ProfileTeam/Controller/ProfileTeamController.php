@@ -56,7 +56,7 @@ class ProfileTeamController
         }
 
         $media = new Media();
-        $media->storeMedia($request->files->get('profile_foto'), [
+        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('profile_foto'), [
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
@@ -95,7 +95,7 @@ class ProfileTeamController
         }
 
         $media = new Media();
-        $media->updateMedia($request->files->get('profile_foto'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('profile_foto'), [
             'id_relation' => $id,
             'jenis_dokumen' => '',
         ], $this->profileTeam, $id);
@@ -112,7 +112,7 @@ class ProfileTeamController
         $media = new Media();
         $media_data = $this->profileTeam->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'profile_team.id_profile_team')->where('id_profile_team', $id)->first();
         $this->profileTeam->where('id_profile_team', $id)->delete();
-        $media->deleteMedia($media_data);
+        $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/profile-team');
     }

@@ -25,7 +25,6 @@
     <div class="content">
         <div class="container-fluid">
 
-
             <div class="card">
                 <div class="card-body">
                     <div class="card-text">
@@ -85,8 +84,7 @@
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                                 <?php if (show($detail['path_media']) != '') { ?>
-                                    <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($detail['path_media']) ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
-
+                                    <a class="btn btn-sm btn-outline-danger mt-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= asset(show($detail['path_media'])) ?>"><i class="fas fa-eye"></i> Pratinjau File</a>
                                 <?php } ?>
                             </div>
                             <button type="reset" class="btn btn-secondary">Close</button>

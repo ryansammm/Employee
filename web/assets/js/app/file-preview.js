@@ -9,7 +9,7 @@ $("#dokumenPersyaratan").on("show.bs.modal", function (event) {
     $(this).find("#fileSakipPDF").addClass("d-none");
     $(this)
       .find(".fileSakip")[0]
-      .setAttribute("src", "/assets/media/" + file);
+      .setAttribute("src", file);
   } else {
     $(this).find(".fileSakip").addClass("d-none");
     $(this).find("#fileSakipPDF").removeClass("d-none");

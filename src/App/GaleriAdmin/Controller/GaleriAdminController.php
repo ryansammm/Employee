@@ -52,7 +52,7 @@ class GaleriAdminController
         $tambah_galeri = $this->model->insert($request->request->all());
 
         $media = new Media();
-        $media->storeMedia($request->files->get('galeri_foto'), [
+        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('galeri_foto'), [
             'id_relation' => $tambah_galeri,
             'jenis_dokumen' => 'utama',
         ]);
@@ -70,7 +70,7 @@ class GaleriAdminController
             ]);
 
             // store foto portofolio
-            $media->storeMedia($request->files->get('upload_galeri')[$key], [
+            $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('upload_galeri')[$key], [
                 'id_relation' => $createDetail,
                 'jenis_dokumen' => 'foto-lainnya',
             ]);
@@ -121,7 +121,7 @@ class GaleriAdminController
                 // delete detail data
                 $media_data = $this->groupGaleri->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')->where('id_relation', $value['id_group_galeri'])->first();
                 $this->groupGaleri->where('id_group_galeri', $value['id_group_galeri'])->delete();
-                $media->deleteMedia($media_data);
+                $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
             }
         }
 
@@ -131,10 +131,10 @@ class GaleriAdminController
             if ($request->files->get('upload_galeri_' . $value) != null) {
                 // delete detail data
                 $media_data = $this->groupGaleri->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')->where('id_relation', $value)->first();
-                $media->deleteMedia($media_data);
+                $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
                 // store detail media
-                $media->storeMedia($request->files->get('upload_galeri_' . $value), [
+                $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('upload_galeri_' . $value), [
                     'id_relation' => $value,
                     'jenis_dokumen' => '',
                 ]);
@@ -162,7 +162,7 @@ class GaleriAdminController
                     'kategori_group_galeri' => 'foto',
                 ]);
 
-                $media->storeMedia($request->files->get('upload_galeri')[$key], [
+                $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('upload_galeri')[$key], [
                     'id_relation' => $createDetail,
                     'jenis_dokumen' => '',
                 ]);
@@ -176,7 +176,7 @@ class GaleriAdminController
         $item = $this->model->where('id_galeri', $id)->update($request->request->all());
 
         $media = new Media();
-        $media->updateMedia($request->files->get('galeri_foto'), [
+        $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('galeri_foto'), [
             'id_relation' => $id,
             'jenis_dokumen' => 'cover-galeri',
         ], $this->model, $id);
@@ -194,14 +194,14 @@ class GaleriAdminController
         foreach ($getDetail->items as $key => $value) {
             $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')->where('id_relation', $value['id_group_galeri'])->first();
             $this->model->where('id_group_galeri', $value['id_group_galeri'])->delete();
-            $media->deleteMedia($media_data);
+            $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
         }
 
         // hapus media induk
         $selectMedia = $media->where('id_relation', $id)->first();
         if ($selectMedia) {
             $this->model->where('id_group_galeri', $selectMedia['id_group_galeri'])->delete();
-            $media->deleteMedia($media_data);
+            $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
         }
 
         // hapus data detail

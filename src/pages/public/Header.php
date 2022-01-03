@@ -212,7 +212,7 @@
                                 <?php } else if ($GLOBALS['web_title']['cms_title_option'] == 3) { ?>
                                     <a class="text-decoration-none" href="/" style="margin-top: auto;margin-bottom: auto;font-family: Astro-Space;">
                                         <h6 class="mb-0"><?= $GLOBALS['web_title']['cms_title'] ?></h6>
-                                        <small style="font-size: 14px;font-style: italic;font-family: sans-serif;">System Integrator</small>
+                                        <small style="font-size: 14px;font-style: italic;font-family: sans-serif;"><?= $GLOBALS['tagline'] ?></small>
                                     </a>
                                 <?php } ?>
                             </div>

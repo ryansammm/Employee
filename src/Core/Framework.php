@@ -11,6 +11,7 @@ use App\CmsKategoriStyle\Model\CmsKategoriStyle;
 use App\CmsTitle\Model\CmsTitle;
 use App\Media\Model\Media;
 use App\Menu\Model\Menu;
+use App\ProfilAdmin\Model\ProfilAdmin;
 use App\SosialMedia\Model\SosialMedia;
 use App\SubMenu\Model\SubMenu;
 use App\Users\Model\Users;
@@ -26,6 +27,7 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\HttpKernel;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class Framework extends HttpKernel implements HttpKernelInterface
 {
@@ -114,6 +116,11 @@ class Framework extends HttpKernel implements HttpKernelInterface
 
         $media = new Media();
         $data_media_title = $media->where('jenis_dokumen', 'cms-title')->first();
+
+        $profil = new ProfilAdmin();
+        $detail_profil = $profil->first();
+        $GLOBALS['tagline'] = $detail_profil['tagline_profil'];
+
 
         /* ------------------------------- Akreditasi ------------------------------- */
         $akreditasi_model = new Akreditasi();

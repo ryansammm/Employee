@@ -119,7 +119,7 @@
         var status = button.data('status')
 
         var modal = $(this)
-        modal.find('.modal-title').html(status == '1' ? 'Setujui Data' : 'Tolak Data');
+        modal.find('.modal-title').html(status == '5' ? 'Setujui Data' : 'Tolak Data');
         modal.find('#form_approval').attr('action', '/admin/produk/approval/' + id + '/action/' + status)
     })
 </script>

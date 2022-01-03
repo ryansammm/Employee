@@ -76,8 +76,8 @@
                                     <td>
                                         <a class="btn btn-sm btn-info" href="/admin/galeri/approval/<?= $value['id_galeri'] ?>/detail">Detail</a>
                                         <?php if ($value['status_galeri'] == '3') { ?>
-                                            <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_galeri'] ?>" data-status="1">Setujui</a>
-                                            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_galeri'] ?>" data-status="2">Tolak</a>
+                                            <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_galeri'] ?>" data-status="5">Setujui</a>
+                                            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_galeri'] ?>" data-status="4">Tolak</a>
                                         <?php } ?>
                                     </td>
                                 </tr>
@@ -157,7 +157,7 @@
         var status = button.data('status')
 
         var modal = $(this)
-        modal.find('.modal-title').html(status == '1' ? 'Setujui Data' : 'Tolak Data');
+        modal.find('.modal-title').html(status == '5' ? 'Setujui Data' : 'Tolak Data');
         modal.find('#form_approval').attr('action', '/admin/galeri/approval/' + id + '/action/' + status)
     })
 </script>

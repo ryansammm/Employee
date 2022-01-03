@@ -26,7 +26,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <?= template('admin/produk/content-management/form/form-detail', [
+                        <?= template('admin/produk/content-approval/form/form-detail', [
                             'produk' => $produk,
                             'data_kategori_produk' => $data_kategori_produk,
                             'foto_produk_lainnya' => $foto_produk_lainnya

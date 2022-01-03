@@ -24,7 +24,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <?= template('admin/galeri/content-management/form/form-detail', [
+            <?= template('admin/galeri/content-approval/form/form-detail', [
                 'galeri' => $galeri,
                 'kategori' => $kategori,
                 'group_galeri' => $group_galeri

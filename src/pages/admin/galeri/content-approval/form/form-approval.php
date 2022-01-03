@@ -5,8 +5,8 @@
         <div class="col-12">
             <h4>Approval Data</h4>
             <p>Setujui perubahan konten diatas?</p>
-            <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_produk'] ?>" data-status="5">Setujui</a>
-            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_produk'] ?>" data-status="4">Tolak</a>
+            <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_galeri'] ?>" data-status="5">Setujui</a>
+            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_galeri'] ?>" data-status="4">Tolak</a>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span class="pesan_approval">Apakah anda yakin untuk mengubah status publish produk ini?</span>
+                <span class="pesan_approval">Apakah anda yakin untuk mengubah status publish galeri ini?</span>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('form_approval').submit();">
@@ -43,6 +43,6 @@
 
         var modal = $(this)
         modal.find('.modal-title').html(status == '5' ? 'Setujui Data' : 'Tolak Data');
-        modal.find('#form_approval').attr('action', '/admin/produk/approval/' + id + '/action/' + status)
+        modal.find('#form_approval').attr('action', '/admin/galeri/approval/' + id + '/action/' + status)
     })
 </script>

@@ -63,7 +63,6 @@ class Framework extends HttpKernel implements HttpKernelInterface
         $GLOBALS['id_role'] = $id_role;
         $GLOBALS['alias_role'] = $alias_role;
 
-
         $this->users = new Users();
         $data_users = $this->users
             ->leftjoin('media', 'media.id_relation', '=', 'users.id_user')
@@ -222,7 +221,9 @@ class Framework extends HttpKernel implements HttpKernelInterface
         }
         /* --------------------------- End User Previleges -------------------------- */
 
-        // -----------------------------------
+        if ($id_user == null) {
+            $pathInfo = '/admin';
+        }
 
         try {
             $request->attributes->add($this->matcher->match($pathInfo));

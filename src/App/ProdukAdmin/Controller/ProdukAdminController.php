@@ -5,6 +5,7 @@ namespace App\ProdukAdmin\Controller;
 use App\ContentAdmin\SubModule\ContentAdmin\ContentAdmin;
 use App\KategoriProdukAdmin\Model\KategoriProdukAdmin;
 use App\Media\Model\Media;
+use App\NotifTelegram\Model\NotifTelegram;
 use App\PreviewContent\Model\ProdukTemp;
 use App\ProdukAdmin\Model\ProdukAdmin;
 use Core\Classes\SessionData;
@@ -44,6 +45,9 @@ class ProdukAdminController
 
     public function store(Request $request)
     {
+
+        $datas = $request->request->all();
+
         /* --------------------------------- Request -------------------------------- */
         $request->request->set('slug_produk', str_slug($request->request->get('nama_produk'), '-'));
         $request->request->set('id_user', SessionData::get('id_user'));
@@ -75,6 +79,13 @@ class ProdukAdminController
                 ]);
             }
         }
+        /* -------------------------------------------------------------------------- */
+
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $telegram = new NotifTelegram();
+        $message = urlencode($user_aktif . " telah menambahkan data produk dengan nama <b>" . $datas['nama_produk'] . "</b>");
+        $kirim =  $telegram->contentNotification($message);
         /* -------------------------------------------------------------------------- */
 
         return new RedirectResponse('/admin/produk');
@@ -152,6 +163,21 @@ class ProdukAdminController
             }
         }
 
+
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_produk', $id)->first();
+        $telegram = new NotifTelegram();
+        if ($status == '1') {
+            $message = urlencode($user_aktif . " telah merubah data pada produk <b>" . $detail['nama_produk'] . "</b>");
+        } elseif ($status == '3') {
+            $message = urlencode($user_aktif . "  telah memeriksa redaksi dari produk <b>" . $detail['nama_produk'] . "</b>");
+        }
+
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
         return new RedirectResponse('/admin/produk');
     }
 
@@ -161,6 +187,15 @@ class ProdukAdminController
 
         $media = new Media();
         $media_data = $media->where('id_relation', $id)->get();
+
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_produk', $id)->first();
+        $telegram = new NotifTelegram();
+        $message = urlencode($user_aktif . " telah menghapus data produk <b>" . $detail['nama_produk'] . "</b>");
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
 
         $this->model->where('id_produk', $id)->delete();
 
@@ -222,6 +257,20 @@ class ProdukAdminController
 
         $this->model->where('id_produk', $id)->update(['status_produk' => $status]);
 
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_produk', $id)->first();
+        $telegram = new NotifTelegram();
+        if ($status == '5') {
+            $message = urlencode($user_aktif . " telah menyetujui data produk <b>" . $detail['nama_produk'] . "</b>");
+        } else {
+            $message = urlencode($user_aktif . "  telah tidak menyetujui data produk <b>" . $detail['nama_produk'] . "</b>");
+        }
+
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
         return new RedirectResponse('/admin/produk/approval');
     }
 
@@ -255,15 +304,5 @@ class ProdukAdminController
         $datas = $content_admin->get();
 
         return render_template('admin/produk/content-approval/detail', ['id' => $datas['id'], 'produk' => $datas['data'], 'data_kategori_produk' => $datas['data_kategori'], 'foto_produk_lainnya' => $datas['foto_lainnya']]);
-    }
-
-    public function redaction_approval(Request $request)
-    {
-        $id = $request->attributes->get('id');
-        $status = $request->attributes->get('status');
-
-        $this->model->where('id_produk', $id)->update(['status_produk' => 3]);
-
-        return new RedirectResponse('/admin/produk/redaction');
     }
 }

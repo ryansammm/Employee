@@ -7,6 +7,7 @@ use App\GaleriAdmin\Model\GaleriAdmin;
 use App\GroupGaleri\Model\GroupGaleriNew;
 use App\KategoriGaleriAdmin\Model\KategoriGaleriAdmin;
 use App\Media\Model\Media;
+use App\NotifTelegram\Model\NotifTelegram;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,8 +28,8 @@ class GaleriAdminController
     public function index(Request $request)
     {
         $content_admin = new ContentAdmin($request, $this->model, 'index');
-        $content_admin->query(function($model) {
-            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table.'.'.$this->model->primaryKey)
+        $content_admin->query(function ($model) {
+            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table . '.' . $this->model->primaryKey)
                 ->where('media.jenis_dokumen', 'utama');
         });
         $datas = $content_admin->get();
@@ -76,13 +77,21 @@ class GaleriAdminController
             ]);
         }
 
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $datas = $request->request->all();
+        $user_aktif = session('nama_user');
+        $telegram = new NotifTelegram();
+        $message = urlencode($user_aktif . " telah menambahkan data portofolio dengan nama <b>" . $datas['judul_galeri'] . "</b>");
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
         return new RedirectResponse('/admin/galeri');
     }
 
     public function edit(Request $request)
     {
         $content_admin = new ContentAdmin($request, $this->model, 'detail');
-        $content_admin->newQuery($this->groupGaleri, function($model) use ($request) {
+        $content_admin->newQuery($this->groupGaleri, function ($model) use ($request) {
             return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
                 ->where('id_galeri', $request->attributes->get('id'))
                 ->get();
@@ -181,6 +190,20 @@ class GaleriAdminController
             'jenis_dokumen' => 'cover-galeri',
         ], $this->model, $id);
 
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_galeri', $id)->first();
+        $telegram = new NotifTelegram();
+        if ($status == '1') {
+            $message = urlencode($user_aktif . " telah merubah data portofolio pada dengan nama <b>" . $detail['judul_galeri'] . "</b>");
+        } elseif ($status == '3') {
+            $message = urlencode($user_aktif . "  telah memeriksa redaksi dari data portofolio dengan nama <b>" . $detail['judul_galeri'] . "</b>");
+        }
+
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
         return new RedirectResponse('/admin/galeri');
     }
 
@@ -189,10 +212,21 @@ class GaleriAdminController
         $id = $request->attributes->get('id');
         $getDetail = $this->groupGaleri->where('id_galeri', $id)->get();
 
+
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_galeri', $id)->first();
+        $telegram = new NotifTelegram();
+        $message = urlencode($user_aktif . " telah menghapus data galeri <b>" . $detail['judul_galeri'] . "</b>");
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
         $media = new Media();
         // hapus media detail
         foreach ($getDetail->items as $key => $value) {
             $media_data = $this->model->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')->where('id_relation', $value['id_group_galeri'])->first();
+
             $this->model->where('id_group_galeri', $value['id_group_galeri'])->delete();
             $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
         }
@@ -216,8 +250,8 @@ class GaleriAdminController
     public function approval(Request $request)
     {
         $content_admin = new ContentAdmin($request, $this->model, 'index');
-        $content_admin->query(function($model) {
-            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table.'.'.$this->model->primaryKey)
+        $content_admin->query(function ($model) {
+            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table . '.' . $this->model->primaryKey)
                 ->where('media.jenis_dokumen', 'utama');
         });
         $datas = $content_admin->get();
@@ -232,14 +266,28 @@ class GaleriAdminController
 
         $this->model->where('id_galeri', $id)->update(['status_galeri' => $status]);
 
+        /* ----------------------------- Notif Telegram ----------------------------- */
+        $user_aktif = session('nama_user');
+        $datas = $request->request->all();
+        $detail = $this->model->where('id_galeri', $id)->first();
+        $telegram = new NotifTelegram();
+        if ($status == '5') {
+            $message = urlencode($user_aktif . " telah menyetujui data portofolio <b>" . $detail['judul_galeri'] . "</b>");
+        } else {
+            $message = urlencode($user_aktif . "  telah tidak menyetujui data portofolio <b>" . $detail['judul_galeri'] . "</b>");
+        }
+
+        $kirim =  $telegram->contentNotification($message);
+        /* -------------------------------------------------------------------------- */
+
         return new RedirectResponse('/admin/galeri/approval');
     }
 
     public function redaction(Request $request)
     {
         $content_admin = new ContentAdmin($request, $this->model, 'index');
-        $content_admin->query(function($model) {
-            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table.'.'.$this->model->primaryKey)
+        $content_admin->query(function ($model) {
+            $model->leftJoin('media', 'media.id_relation', '=', $this->model->table . '.' . $this->model->primaryKey)
                 ->where('media.jenis_dokumen', 'utama');
         });
         $datas = $content_admin->get();
@@ -250,7 +298,7 @@ class GaleriAdminController
     public function redaction_detail(Request $request)
     {
         $content_admin = new ContentAdmin($request, $this->model, 'detail');
-        $content_admin->newQuery($this->groupGaleri, function($model) use ($request) {
+        $content_admin->newQuery($this->groupGaleri, function ($model) use ($request) {
             return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
                 ->where('id_galeri', $request->attributes->get('id'))
                 ->get();
@@ -263,7 +311,7 @@ class GaleriAdminController
     public function redaction_edit(Request $request)
     {
         $content_admin = new ContentAdmin($request, $this->model, 'detail');
-        $content_admin->newQuery($this->groupGaleri, function($model) use ($request) {
+        $content_admin->newQuery($this->groupGaleri, function ($model) use ($request) {
             return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
                 ->where('id_galeri', $request->attributes->get('id'))
                 ->get();
@@ -276,7 +324,7 @@ class GaleriAdminController
     public function approval_detail(Request $request)
     {
         $content_admin = new ContentAdmin($request, $this->model, 'detail');
-        $content_admin->newQuery($this->groupGaleri, function($model) use ($request) {
+        $content_admin->newQuery($this->groupGaleri, function ($model) use ($request) {
             return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
                 ->where('id_galeri', $request->attributes->get('id'))
                 ->get();

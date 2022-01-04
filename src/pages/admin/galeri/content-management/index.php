@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Galeri <a href="/admin/galeri/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
+                    <h1 class="m-0">Portofolio <a href="/admin/galeri/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Galeri</a></li>
-                        <li class="breadcrumb-item active">Kelola Galeri</li>
+                        <li class="breadcrumb-item"><a href="#">Portofolio</a></li>
+                        <li class="breadcrumb-item active">Kelola Portofolio</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="row mb-3">
                 <div class="col-md-6 float-right">
-                    <label for="nama_galeri">Kategori Galeri</label>
+                    <label for="nama_galeri">Kategori Portofolio</label>
                     <form action="/admin/galeri" method="GET" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                             <select class="custom-select" name="id_kategori_galeri" id="id_kategori_galeri" style="width: 16rem;">
@@ -49,7 +49,7 @@
                                 <th>Album</th>
                                 <th>Cover</th>
                                 <th>Tgl Album</th>
-                                <th>Status Galeri</th>
+                                <th>Status Portofolio</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -74,7 +74,7 @@
                                         <?php } ?>
                                     </td>
                                     <td>
-                                        <?php if ($value['status_galeri'] == '1' || $value['status_produk'] == '2') { ?>
+                                        <?php if ($value['status_galeri'] == '1' || $value['status_galeri'] == '2') { ?>
                                             <a class="btn btn-sm btn-info" href="/admin/galeri/<?= $value['id_galeri'] ?>/edit">Edit</a>
                                             <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_galeri" data-id="<?= $value['id_galeri'] ?>">hapus</a>
                                         <?php } else { ?>

@@ -72,7 +72,7 @@
                                         <?php } ?>
                                     </td>
                                     <td>
-                                        <?php if ($value['status_layanan'] == '1' || $value['status_produk'] == '2') { ?>
+                                        <?php if ($value['status_layanan'] == '1' || $value['status_layanan'] == '2') { ?>
                                             <a class="btn btn-sm btn-info" href="/admin/layanan/<?= $value['id_layanan'] ?>/edit">Edit</a>
                                             <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_layanan" data-id="<?= $value['id_layanan'] ?>">hapus</a>
                                         <?php } else { ?>

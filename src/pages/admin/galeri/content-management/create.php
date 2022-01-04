@@ -8,13 +8,13 @@
                     <a href="/admin/galeri" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Tambah Data Galeri</h1>
+                    <h1 class="m-0">Tambah Data Portofolio</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Galeri</a></li>
-                        <li class="breadcrumb-item"><a href="#">Kelola Galeri</a></li>
-                        <li class="breadcrumb-item active">Tambah Data Galeri</li>
+                        <li class="breadcrumb-item"><a href="#">Portofolio</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Portofolio</a></li>
+                        <li class="breadcrumb-item active">Tambah Data Portofolio</li>
                     </ol>
                 </div>
             </div>
@@ -28,11 +28,11 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <!------- Kategori Galeri ------->
+                            <!------- Kategori Portofolio ------->
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label for="id_kategori_galeri" class="form-label">Kategori Galeri</label>
+                                        <label for="id_kategori_galeri" class="form-label">Kategori Portofolio</label>
                                         <select class="custom-select" name="id_kategori_galeri" id="id_kategori_galeri" required>
                                             <option value="">-- Pilih Kategori --</option>
                                             <?php foreach ($data_kategori_galeri->items as $value) { ?>
@@ -42,28 +42,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <!------- Judul Galeri ------->
+                            <!------- Judul Portofolio ------->
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="judul_galeri" class="form-label">Judul Album</label>
                                     <input type="text" class="form-control" id="judul_galeri" name="judul_galeri">
                                 </div>
                             </div>
-                            <!------- Tanggal Galeri ------->
+                            <!------- Tanggal Portofolio ------->
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="tgl_galeri" class="form-label">Tanggal Upload</label>
                                     <input type="date" class="form-control" id="tgl_galeri" name="tgl_galeri">
                                 </div>
                             </div>
-                            <!------- Deskripsi Galeri ------->
+                            <!------- Deskripsi Portofolio ------->
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="deskripsi_galeri" class="form-label">Deskripsi Album</label>
                                     <textarea id="deskripsi_galeri" class="form-control" name="deskripsi_galeri"></textarea>
                                 </div>
                             </div>
-                            <!------- Foto Galeri ------->
+                            <!------- Foto Portofolio ------->
                             <div class="col-md-4">
                                 <label for="galeri_foto" class="form-label">Cover Album</label> (.jpg, .jpeg, .png)
                                 <div class="form-group">
@@ -95,7 +95,7 @@
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="" class="form-label">Upload Galeri</label>
+                                            <label for="" class="form-label">Upload Portofolio</label>
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="upload_galeri[]">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>

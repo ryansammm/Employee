@@ -38,7 +38,7 @@
                                             <img src="/assets/logo/badge.png" class="img-fluid img-thumbnail foto_utama_preview">
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="ikon_asosiasi" class="form-label">Ikon Asosiasi</label> (.jpg, .jpeg, .png)
+                                            <label for="ikon_asosiasi" class="form-label">Logo Asosiasi</label> (.jpg, .jpeg, .png)
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input foto_utama" id="ikon_asosiasi" name="ikon_asosiasi">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>

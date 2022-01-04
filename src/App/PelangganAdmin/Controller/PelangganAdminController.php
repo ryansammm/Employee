@@ -26,6 +26,7 @@ class PelangganAdminController
                     $query->where('pelanggan.id_kategori_pelanggan', $request->query->get('kategori_pelanggan'));
                 }
             })
+            ->orderBy('pelanggan.created_at', 'DESC')
             ->paginate(10)->appends(['kategori_pelanggan' => $request->query->get('kategori_pelanggan')]);
 
 

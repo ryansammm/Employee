@@ -8,13 +8,13 @@
                     <a href="/admin/galeri/approval" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Detail Data Galeri</h1>
+                    <h1 class="m-0">Detail Data Portofolio</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Galeri</a></li>
-                        <li class="breadcrumb-item"><a href="#">Approval Galeri</a></li>
-                        <li class="breadcrumb-item active">Detail Data Galeri</li>
+                        <li class="breadcrumb-item"><a href="#">Portofolio</a></li>
+                        <li class="breadcrumb-item"><a href="#">Approval Portofolio</a></li>
+                        <li class="breadcrumb-item active">Detail Data Portofolio</li>
                     </ol>
                 </div>
             </div>

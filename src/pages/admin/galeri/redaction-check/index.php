@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Pengecekan & Editorial Galeri</h1>
+                    <h1 class="m-0">Pengecekan & Editorial Portofolio</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Galeri</a></li>
-                        <li class="breadcrumb-item active">Pengecekan & Editorial Galeri</li>
+                        <li class="breadcrumb-item"><a href="#">Portofolio</a></li>
+                        <li class="breadcrumb-item active">Pengecekan & Editorial Portofolio</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="row mb-3">
                 <div class="col-md-6 float-right">
-                    <label for="nama_galeri">Kategori Galeri</label>
+                    <label for="nama_galeri">Kategori Portofolio</label>
                     <form action="/admin/galeri/redaction" method="GET" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                             <select class="custom-select" name="id_kategori_galeri" id="id_kategori_galeri" style="width: 16rem;">
@@ -76,7 +76,7 @@
                                     <td>
                                         <a class="btn btn-sm btn-info" href="/admin/galeri/redaction/<?= $value['id_galeri'] ?>/detail">Detail</a>
                                         <?php if ($value['status_galeri'] == '1') { ?>
-                                        <a class="btn btn-sm btn-secondary" href="/admin/galeri/redaction/<?= $value['id_galeri'] ?>/edit">Edit</a>
+                                            <a class="btn btn-sm btn-secondary" href="/admin/galeri/redaction/<?= $value['id_galeri'] ?>/edit">Edit</a>
                                         <?php } ?>
                                     </td>
                                 </tr>
@@ -154,7 +154,7 @@
         var button = $(event.relatedTarget)
         var id = button.data('id')
         var status = button.data('status')
-        
+
         var modal = $(this)
         modal.find('.modal-title').html(status == '1' ? 'Setujui Data' : 'Tolak Data');
         modal.find('#form_approval').attr('action', '/admin/produk/approval/' + id + '/action/' + status)

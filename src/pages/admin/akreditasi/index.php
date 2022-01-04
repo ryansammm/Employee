@@ -40,7 +40,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Akdreditas</th>
-                                <th scope="col">Icon Akreditasi</th>
+                                <th scope="col">Logo Akreditasi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -49,7 +49,7 @@
                                 <tr>
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['nama_akreditasi'] ?></td>
-                                    <td><img src="/assets/media/<?= $value['path_media'] ?>" class="img-fluid" width="40px"></td>
+                                    <td><img src="<?= asset($value['path_media']) ?>" class="img-fluid" width="40px"></td>
                                     <td>
                                         <a class="btn btn-sm btn-info" href="/admin/akreditasi/<?= $value['id_akreditasi'] ?>/edit">Edit</a>
                                         <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_akreditasi'] ?>">hapus</a>

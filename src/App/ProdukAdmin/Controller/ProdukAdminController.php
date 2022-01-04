@@ -51,7 +51,7 @@ class ProdukAdminController
         /* --------------------------------- Request -------------------------------- */
         $request->request->set('slug_produk', str_slug($request->request->get('nama_produk'), '-'));
         $request->request->set('id_user', SessionData::get('id_user'));
-        $request->request->set('status_produk', '2');
+        $request->request->set('status_produk', '1');
         /* -------------------------------------------------------------------------- */
 
         /* ------------------------------ Create Produk ----------------------------- */

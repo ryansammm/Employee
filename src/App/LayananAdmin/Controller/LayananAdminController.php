@@ -63,7 +63,6 @@ class LayananAdminController
             'jenis_dokumen' => 'utama',
         ]);
 
-
         // Ini buat store data ke group layanan
         foreach ($request->files->get('layanan_foto') as $key => $value) {
             // store foto portofolio
@@ -81,7 +80,6 @@ class LayananAdminController
         $message = urlencode($user_aktif . " telah menambahkan data layanan dengan nama <b>" . $datas['nama_layanan'] . "</b>");
         $kirim =  $telegram->contentNotification($message);
         /* -------------------------------------------------------------------------- */
-
 
         return new RedirectResponse('/admin/layanan');
     }
@@ -196,6 +194,14 @@ class LayananAdminController
         $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/layanan');
+    }
+
+    public function detail(Request $request)
+    {
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
+
+        return render_template('admin/layanan/content-management/detail', ['id' => $datas['id'], 'layanan' => $datas['data'], 'data_kategori_layanan' => $datas['data_kategori'], 'foto_layanan_lainnya' => $datas['foto_lainnya']]);
     }
 
     public function approval(Request $request)

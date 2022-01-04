@@ -163,7 +163,6 @@ class ProdukAdminController
             }
         }
 
-
         /* ----------------------------- Notif Telegram ----------------------------- */
         $user_aktif = session('nama_user');
         $datas = $request->request->all();
@@ -204,6 +203,14 @@ class ProdukAdminController
         }
 
         return new RedirectResponse('/admin/produk');
+    }
+
+    public function detail(Request $request)
+    {
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $datas = $content_admin->get();
+
+        return render_template('admin/produk/content-management/detail', ['id' => $datas['id'], 'produk' => $datas['data'], 'data_kategori_produk' => $datas['data_kategori'], 'foto_produk_lainnya' => $datas['foto_lainnya']]);
     }
 
     public function temp(Request $request)

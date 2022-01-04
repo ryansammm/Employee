@@ -122,6 +122,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('produk_edit', '/{id}/edit', [ProdukAdminController::class, 'edit']);
         $routes->push('produk_update', '/{id}/update', [ProdukAdminController::class, 'update']);
         $routes->push('produk_delete', '/{id}/delete', [ProdukAdminController::class, 'delete']);
+        $routes->push('produk_detail', '/{id}/detail', [ProdukAdminController::class, 'detail']);
 
         /* --------------------------------- redaksi -------------------------------- */
         $routes->push('produk_redaction', '/redaction', [ProdukAdminController::class, 'redaction']);
@@ -162,6 +163,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('layanan_edit', '/{id}/edit', [LayananAdminController::class, 'edit']);
         $routes->push('layanan_update', '/{id}/update', [LayananAdminController::class, 'update']);
         $routes->push('layanan_delete', '/{id}/delete', [LayananAdminController::class, 'delete']);
+        $routes->push('layanan_detail', '/{id}/detail', [LayananAdminController::class, 'detail']);
 
         /* --------------------------------- redaksi -------------------------------- */
         $routes->push('layanan_redaction', '/redaction', [LayananAdminController::class, 'redaction']);
@@ -171,7 +173,7 @@ $routes->prefix('admin', function ($routes) {
         /* -------------------------------- approval -------------------------------- */
         $routes->push('layanan_approval', '/approval', [LayananAdminController::class, 'approval']);
         $routes->push('layanan_approval_action', '/approval/{id}/action/{status}', [LayananAdminController::class, 'approval_action']);
-        $routes->push('layanan_detail', '/approval/{id}/detail', [LayananAdminController::class, 'approval_detail']);
+        $routes->push('layanan_approval_detail', '/approval/{id}/detail', [LayananAdminController::class, 'approval_detail']);
     });
     /* -------------------------------------------------------------------------- */
 
@@ -202,6 +204,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('galeri_edit', '/{id}/edit', [GaleriAdminController::class, 'edit']);
         $routes->push('galeri_update', '/{id}/update', [GaleriAdminController::class, 'update']);
         $routes->push('galeri_delete', '/{id}/delete', [GaleriAdminController::class, 'delete']);
+        $routes->push('galeri_detail', '/{id}/detail', [GaleriAdminController::class, 'detail']);
         
         /* --------------------------------- redaksi -------------------------------- */
         $routes->push('galeri_redaction', '/redaction', [GaleriAdminController::class, 'redaction']);

@@ -80,7 +80,7 @@
             <div class="col-2 listfoto pt-3" id="listfoto_<?= $keyForElement ?>">
                 <input type="hidden" name="id_media[]" value="<?= $value['id_media'] ?>">
                 <h6>Foto <?= $keyForElement ?></h6>
-                <a href="#" class="mb-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= show($value['path_media']) ?>">
+                <a href="#" class="mb-2" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="<?= asset(show($value['path_media'])) ?>">
                     <div class="mb-2" style="background: url('<?= asset($value['path_media']) ?>');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;"></div>
                 </a>
             </div>

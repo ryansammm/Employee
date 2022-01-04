@@ -40,10 +40,9 @@ class GaleriAdminController
     public function create(Request $request)
     {
         $data_kategori_galeri = $this->modelKategoriGaleri->get();
-
         $errors = SessionData::get()->getFlashBag()->get('errors', []);
 
-        return render_template('admin/galeri/create', ['erros' => $errors, 'data_kategori_galeri' => $data_kategori_galeri]);
+        return render_template('admin/galeri/content-management/create', ['erros' => $errors, 'data_kategori_galeri' => $data_kategori_galeri]);
     }
 
     public function store(Request $request)
@@ -245,6 +244,19 @@ class GaleriAdminController
         $this->model->where('id_galeri', $id)->delete();
 
         return new RedirectResponse('/admin/galeri');
+    }
+
+    public function detail(Request $request)
+    {
+        $content_admin = new ContentAdmin($request, $this->model, 'detail');
+        $content_admin->newQuery($this->groupGaleri, function ($model) use ($request) {
+            return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
+                ->where('id_galeri', $request->attributes->get('id'))
+                ->get();
+        });
+        $datas = $content_admin->get();
+
+        return render_template('admin/galeri/content-management/detail', ['galeri' => $datas['data'], 'group_galeri' => $datas['group_galeri'], 'kategori' => $datas['data_kategori']]);
     }
 
     public function approval(Request $request)

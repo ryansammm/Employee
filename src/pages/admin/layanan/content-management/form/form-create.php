@@ -76,7 +76,7 @@
                             <a href="#" class="mb-2 btn_foto_detail" data-toggle="modal" data-target="#dokumenPersyaratan" data-file="" data-changed="2">
                                 <div class="mb-2 foto_detail_preview" style="background: url('/assets/logo/layanan.jpg');display:block;width:100%;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;border-radius:5px;    border: 1px solid #cbcbcb;"></div>
                             </a>
-                            <input type="file" class="form-control foto_detail" name="produk_foto[]">
+                            <input type="file" class="form-control foto_detail" name="layanan_foto[]">
                         </div>
                     </div>
                 </div>

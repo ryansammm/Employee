@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-1">
-                    <a href="/admin/galeri/approval" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                    <a href="/admin/galeri" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
                     <h1 class="m-0">Detail Data Portofolio</h1>
@@ -23,7 +23,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <?= template('admin/galeri/content-approval/form/form-detail', [
+            <?= template('admin/galeri/content-management/form/form-detail', [
                 'galeri' => $galeri,
                 'kategori' => $kategori,
                 'group_galeri' => $group_galeri

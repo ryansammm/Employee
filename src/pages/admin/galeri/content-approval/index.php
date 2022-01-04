@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Approval Galeri</h1>
+                    <h1 class="m-0">Approval Portofolio</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Galeri</a></li>
-                        <li class="breadcrumb-item active">Approval Galeri</li>
+                        <li class="breadcrumb-item"><a href="#">Portofolio</a></li>
+                        <li class="breadcrumb-item active">Approval Portofolio</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -79,6 +79,7 @@
                                             <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_galeri'] ?>" data-status="5">Setujui</a>
                                             <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_galeri'] ?>" data-status="4">Tolak</a>
                                         <?php } ?>
+                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_galeri'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -88,32 +89,6 @@
             </div>
 
             <?= $data_galeri->links(); ?>
-        </div>
-    </div>
-</div>
-
-<!-- Modal hapus -->
-<div class="modal fade" id="modal_konfirmasi_hapus_galeri" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Apakah anda yakin untuk menghapus layanan ini?
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('form_hapus').submit();">
-                    Ya
-                </a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                <form action="" method="POST" id="form_hapus" style="display: none;">
-
-                </form>
-            </div>
         </div>
     </div>
 </div>
@@ -142,8 +117,34 @@
     </div>
 </div>
 
+<!-- Modal hapus -->
+<div class="modal fade" id="modal_konfirmasi_hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Apakah anda yakin untuk menghapus data ini?
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('form_hapus').submit();">
+                    Ya
+                </a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                <form action="" method="POST" id="form_hapus" style="display: none;">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-    $('#modal_konfirmasi_hapus_galeri').on('show.bs.modal', function(event) {
+    $('#modal_konfirmasi_hapus').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
 

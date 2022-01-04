@@ -76,7 +76,7 @@
                                             <a class="btn btn-sm btn-info" href="/admin/layanan/<?= $value['id_layanan'] ?>/edit">Edit</a>
                                             <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_layanan" data-id="<?= $value['id_layanan'] ?>">hapus</a>
                                         <?php } else { ?>
-                                            <a class="btn btn-sm btn-info" href="/admin/layanan/redaction/<?= $value['id_layanan'] ?>/detail">Detail</a>
+                                            <a class="btn btn-sm btn-info" href="/admin/layanan/<?= $value['id_layanan'] ?>/detail">Detail</a>
                                         <?php } ?>
                                     </td>
                                 </tr>

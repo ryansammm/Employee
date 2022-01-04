@@ -76,7 +76,7 @@
                                             <a class="btn btn-sm btn-info" href="/admin/produk/<?= $value['id_produk'] ?>/edit">Edit</a>
                                             <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_produk" data-id="<?= $value['id_produk'] ?>">hapus</a>
                                         <?php } else { ?>
-                                            <a class="btn btn-sm btn-info" href="/admin/produk/redaction/<?= $value['id_produk'] ?>/detail">Detail</a>
+                                            <a class="btn btn-sm btn-info" href="/admin/produk/<?= $value['id_produk'] ?>/detail">Detail</a>
                                         <?php } ?>
                                     </td>
                                 </tr>

@@ -77,6 +77,7 @@
                                             <a class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_layanan'] ?>" data-status="5">Setujui</a>
                                             <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_konfirmasi_approval" data-id="<?= $value['id_layanan'] ?>" data-status="4">Tolak</a>
                                         <?php } ?>
+                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_layanan'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -112,6 +113,32 @@
     </div>
 </div>
 
+<!-- Modal hapus -->
+<div class="modal fade" id="modal_konfirmasi_hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Apakah anda yakin untuk menghapus data ini?
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('form_hapus').submit();">
+                    Ya
+                </a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                <form action="" method="POST" id="form_hapus" style="display: none;">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     $('#modal_konfirmasi_approval').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
@@ -121,6 +148,14 @@
         var modal = $(this)
         modal.find('.modal-title').html(status == '5' ? 'Setujui Data' : 'Tolak Data');
         modal.find('#form_approval').attr('action', '/admin/layanan/approval/' + id + '/action/' + status)
+    })
+
+    $('#modal_konfirmasi_hapus').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+
+        var modal = $(this)
+        modal.find('#form_hapus').attr('action', '/admin/layanan/' + id + '/delete')
     })
 </script>
 

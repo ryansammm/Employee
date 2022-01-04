@@ -8,13 +8,13 @@
                     <a href="/admin/galeri" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Edit Data Galeri</h1>
+                    <h1 class="m-0">Edit Data Portofolio</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Galeri</a></li>
-                        <li class="breadcrumb-item"><a href="#">Kelola Galeri</a></li>
-                        <li class="breadcrumb-item active">Edit Data Galeri</li>
+                        <li class="breadcrumb-item"><a href="#">Portofolio</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Portofolio</a></li>
+                        <li class="breadcrumb-item active">Edit Data Portofolio</li>
                     </ol>
                 </div>
             </div>

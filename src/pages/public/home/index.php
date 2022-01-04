@@ -182,7 +182,7 @@
                             <div class="card">
                                 <div class="card-body" style="padding: 1rem">
                                     <a href="/customer/<?= $value['id_pelanggan'] ?>/detail">
-                                        <div class="img-video" style="background: url('/assets/media/<?= $value['path_media'] ?>');background-size: 100%;background-position:  center;background-repeat: no-repeat;">
+                                        <div class="img-video" style="background: url('/assets/media/<?= $value['path_media'] ?>');background-size: 70%;background-position:  center;background-repeat: no-repeat;">
                                         </div>
                                     </a>
                                 </div>

@@ -28,7 +28,7 @@
 
         <div class="col-md-9">
             <div class="d-flex justify-content-between align-items-center">
-                <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Jejak Kami</h5>
+                <h5 style="border-left: 5px solid #fe4d01;padding-left: 15px;font-weight: bold;">Portofolio</h5>
             </div>
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">

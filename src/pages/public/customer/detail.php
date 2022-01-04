@@ -46,9 +46,14 @@
                         </div> -->
 
                     </div>
-                    <div class="card-footer d-grid gap-2 d-flex justify-content-md-start">
-                        <a href="/gallery" class="btn btn-primary me-2">Dokumentasi Pekerjaan</a>
-                        <a href="<?= $data_pelanggan['link_pelanggan'] ?>" target="_blank" class="btn btn-primary">Website <?= $data_pelanggan['nama_pelanggan'] ?></a>
+                    <div class="card-footer d-flex justify-content-between">
+                        <div class="d-flex justify-content-md-start">
+                            <h6 class="my-auto"><?= $data_pelanggan['nama_perusahaan'] ?></h6>
+                        </div>
+                        <div class="d-flex justify-content-md-end">
+                            <a href="/gallery" class="btn btn-primary me-2">Dokumentasi Pekerjaan</a>
+                            <a href="<?= $data_pelanggan['link_pelanggan'] ?>" target="_blank" class="btn btn-primary">Website <?= $data_pelanggan['nama_pelanggan'] ?></a>
+                        </div>
                     </div>
                 </div>
             </div>

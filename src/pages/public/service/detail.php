@@ -62,7 +62,7 @@
                     <!------- Share ------->
                     <div class="row justify-content-center">
                         <div class="col-md-2 col-4">
-                            <a class="text-decoration-none" href="whatsapp://send?text=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" data-action="share/whatsapp/share" target="_blank">
+                            <a class="text-decoration-none" href="https://web.whatsapp.com/send?text=http://beta.pancateksindo.co.id<?= $GLOBALS['url'] ?>" data-action="share/whatsapp/share" target="_blank">
                                 <i class="bi bi-whatsapp" style="background: -webkit-linear-gradient(#9c47fc, #0853a6); -webkit-background-clip: text;-webkit-text-fill-color: transparent;"> Whatsapp</i>
                             </a>
                         </div>

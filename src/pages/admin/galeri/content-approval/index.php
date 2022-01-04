@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="row mb-3">
                 <div class="col-md-6 float-right">
-                    <label for="nama_galeri">Kategori Galeri</label>
+                    <label for="nama_galeri">Kategori Portofolio</label>
                     <form action="/admin/galeri/approval" method="GET" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                             <select class="custom-select" name="id_kategori_galeri" id="id_kategori_galeri" style="width: 16rem;">

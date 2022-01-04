@@ -8,13 +8,13 @@
                     <a href="/admin/pelanggan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Tambah Data Pelanggan</h1>
+                    <h1 class="m-0">Tambah Data Klien</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
-                        <li class="breadcrumb-item"><a href="#">Kelola Pelanggan</a></li>
-                        <li class="breadcrumb-item active">Tambah Data Pelanggan</li>
+                        <li class="breadcrumb-item"><a href="#">Klien</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Klien</a></li>
+                        <li class="breadcrumb-item active">Tambah Data Klien</li>
                     </ol>
                 </div>
             </div>
@@ -27,19 +27,19 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <!------- Nama Pelanggan ------->
+                            <!------- Nama Klien ------->
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label for="nama_pelanggan" class="form-label">Nama Pelanggan *</label>
+                                    <label for="nama_pelanggan" class="form-label">Nama Brand/Merk *</label>
                                     <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" required>
                                 </div>
                             </div>
-                            <!------- Foto Pelanggan ------->
+                            <!------- Foto Klien ------->
                             <div class="col-md-3">
                                 <img src="/assets/logo/partner.png" class="img-fluid img-thumbnail foto_utama_preview">
                             </div>
                             <div class="col-md-9">
-                                <label for="pelanggan_foto" class="form-label">Logo Pelanggan *</label> (.jpg, .jpeg, .png)
+                                <label for="pelanggan_foto" class="form-label">Logo Klien *</label> (.jpg, .jpeg, .png)
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="custom-file">
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="">Kategori Pekerjaan *</label>
@@ -119,7 +119,7 @@
                                     <input type="number" name="tahun_buku" class="form-control" required>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-footer">
                         <div class="row">

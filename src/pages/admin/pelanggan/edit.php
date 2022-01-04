@@ -8,13 +8,13 @@
                     <a href="/admin/pelanggan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                 </div>
                 <div class="col-sm-5">
-                    <h1 class="m-0">Edit Data Pelanggan</h1>
+                    <h1 class="m-0">Edit Data Klien</h1>
                 </div>
                 <div class="col">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
-                        <li class="breadcrumb-item"><a href="#">Kelola Pelanggan</a></li>
-                        <li class="breadcrumb-item active">Edit Data Pelanggan</li>
+                        <li class="breadcrumb-item"><a href="#">Klien</a></li>
+                        <li class="breadcrumb-item"><a href="#">Kelola Klien</a></li>
+                        <li class="breadcrumb-item active">Edit Data Klien</li>
                     </ol>
                 </div>
             </div>
@@ -29,16 +29,16 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="mb-3">
-                                    <img src="/assets/media/<?= $pelanggan['path_media'] ?>" alt="<?= $pelanggan['nama_pelanggan'] ?>" class="img-fluid img-thumbnail foto_utama_preview">
+                                    <img src="<?= asset($pelanggan['path_media']) ?>" alt="<?= $pelanggan['nama_pelanggan'] ?>" class="img-fluid img-thumbnail foto_utama_preview">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
-                                    <!------- Nama Pelanggan ------->
-                                    <label for="nama_pelanggan" class="form-label">Nama Pelanggan *</label>
+                                    <!------- Nama Klien ------->
+                                    <label for="nama_pelanggan" class="form-label">Nama Klien *</label>
                                     <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" required value="<?= $pelanggan['nama_pelanggan'] ?>">
-                                    <!------- Foto Pelanggan ------->
-                                    <label for="pelanggan_foto" class="form-label mt-3">Logo Pelanggan</label> (.jpg, .jpeg, .png)
+                                    <!------- Foto Klien ------->
+                                    <label for="pelanggan_foto" class="form-label mt-3">Logo Klien</label> (.jpg, .jpeg, .png)
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="custom-file">
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="">Kategori Pekerjaan *</label>
@@ -119,7 +119,7 @@
                                     <input type="number" name="tahun_buku" class="form-control" required value="<?= $pelanggan['tahun_buku'] ?>">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-footer">
                         <div class="row">

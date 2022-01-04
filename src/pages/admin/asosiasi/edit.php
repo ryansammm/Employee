@@ -36,11 +36,11 @@
                                     <div class="row">
                                         <?php if (arr_offset($detail, 'path_media') != null) { ?>
                                             <div class="col-2">
-                                                <img src="/assets/media/<?= arr_offset($detail, 'path_media') ?>" class="img-fluid foto_utama_preview">
+                                                <img src="<?= asset(arr_offset($detail, 'path_media')) ?>" class="img-fluid foto_utama_preview">
                                             </div>
                                         <?php } ?>
                                         <div class="col">
-                                            <label for="ikon_asosiasi" class="form-label">Ikon Asosiasi</label> (.jpg, .jpeg, .png)
+                                            <label for="ikon_asosiasi" class="form-label">Logo Asosiasi</label> (.jpg, .jpeg, .png)
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input foto_utama" id="ikon_asosiasi" name="ikon_asosiasi">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>

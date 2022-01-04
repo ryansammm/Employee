@@ -47,7 +47,7 @@ class BaseOperation implements ModuleOperation
         if ($this->customQuery->getAddQuery() != null) {
             $datas->where($this->customQuery->getAddQuery());
         }
-        $datas = $datas->paginate(10)->appends([$this->model->queryString() => $this->request->query->get($this->model->queryString())]);
+        $datas = $datas->orderBy($this->model->table . '.created_at', 'DESC')->paginate(10)->appends([$this->model->queryString() => $this->request->query->get($this->model->queryString())]);
 
         if ($this->customQuery->getNewQuery() != null) {
             extract($this->customQuery->execNewQuery(), EXTR_SKIP);

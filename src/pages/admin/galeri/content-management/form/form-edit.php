@@ -2,11 +2,11 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <!------- Kategori Galeri ------->
+                <!------- Kategori Portofolio ------->
                 <div class="col-md-4">
                     <div class="mb-3">
                         <div class="form-group">
-                            <label for="id_kategori_galeri" class="form-label">Kategori Galeri</label>
+                            <label for="id_kategori_galeri" class="form-label">Kategori Portofolio</label>
                             <select class="custom-select" name="id_kategori_galeri" id="id_kategori_galeri">
                                 <option value="">-- Pilih Kategori --</option>
                                 <?php foreach ($kategori->items as $value) { ?>
@@ -16,28 +16,28 @@
                         </div>
                     </div>
                 </div>
-                <!------- Judul Galeri ------->
+                <!------- Judul Portofolio ------->
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="judul_galeri" class="form-label">Judul Album</label>
                         <input type="text" class="form-control" id="judul_galeri" name="judul_galeri" value="<?= show($galeri['judul_galeri']) ?>">
                     </div>
                 </div>
-                <!------- Tanggal Galeri ------->
+                <!------- Tanggal Portofolio ------->
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="tgl_galeri" class="form-label">Tanggal Upload</label>
                         <input type="date" class="form-control" id="tgl_galeri" name="tgl_galeri" value="<?= show($galeri['tgl_galeri']) ?>">
                     </div>
                 </div>
-                <!------- Deskripsi Galeri ------->
+                <!------- Deskripsi Portofolio ------->
                 <div class="col-md-12">
                     <div class="mb-3">
                         <label for="deskripsi_galeri" class="form-label">Deskripsi Album</label>
                         <textarea id="deskripsi_galeri" class="form-control" name="deskripsi_galeri"><?= show($galeri['deskripsi_galeri']) ?></textarea>
                     </div>
                 </div>
-                <!------- Foto Galeri ------->
+                <!------- Foto Portofolio ------->
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-4">

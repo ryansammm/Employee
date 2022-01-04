@@ -99,7 +99,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img src="" alt="" class="img-fluid fileSakip d-none">
+                <img src="" alt="" class="img-fluid fileSakip d-none" style="width: 100%;">
                 <iframe src="" frameborder="0" id="fileSakipPDF" style="display: block;width:100%;height:400px;"></iframe>
             </div>
             <div class="modal-footer">

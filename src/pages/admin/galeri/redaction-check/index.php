@@ -76,7 +76,7 @@
                                     <td>
                                         <a class="btn btn-sm btn-info" href="/admin/galeri/redaction/<?= $value['id_galeri'] ?>/detail">Detail</a>
                                         <?php if ($value['status_galeri'] == '1') { ?>
-                                        <a class="btn btn-sm btn-secondary" href="/admin/galeri/redaction/<?= $value['id_galeri'] ?>/edit">Edit</a>
+                                            <a class="btn btn-sm btn-secondary" href="/admin/galeri/redaction/<?= $value['id_galeri'] ?>/edit">Edit</a>
                                         <?php } ?>
                                     </td>
                                 </tr>
@@ -154,7 +154,7 @@
         var button = $(event.relatedTarget)
         var id = button.data('id')
         var status = button.data('status')
-        
+
         var modal = $(this)
         modal.find('.modal-title').html(status == '1' ? 'Setujui Data' : 'Tolak Data');
         modal.find('#form_approval').attr('action', '/admin/produk/approval/' + id + '/action/' + status)

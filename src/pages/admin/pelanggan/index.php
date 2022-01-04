@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Pelanggan <a href="/admin/pelanggan/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
+                    <h1 class="m-0">Data Klien <a href="/admin/pelanggan/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
-                        <li class="breadcrumb-item active">Kelola Pelanggan</li>
+                        <li class="breadcrumb-item"><a href="#">Klien</a></li>
+                        <li class="breadcrumb-item active">Kelola Klien</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -29,8 +29,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Pelanggan</th>
-                                <th>Logo Pelanggan</th>
+                                <th>Nama Klien</th>
+                                <th>Logo Klien</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -39,7 +39,9 @@
                                 <tr>
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['nama_pelanggan'] ?></td>
-                                    <td><img src="/assets/media/<?= $value['path_media'] ?>" alt="Cover Album" width="40" height="40"></td>
+                                    <td>
+                                        <div style="background-image: url(<?= asset($value['path_media']) ?>);background-position: center;background-size: 100%;width: 50px;height: 50px;background-repeat: no-repeat;"></div>
+                                    </td>
                                     <td>
                                         <a class="btn btn-sm btn-info" href="/admin/pelanggan/<?= $value['id_pelanggan'] ?>/edit">Edit</a>
                                         <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_pelanggan" data-id="<?= $value['id_pelanggan'] ?>">hapus</a>
@@ -50,6 +52,7 @@
                     </table>
                 </div>
             </div>
+            <?= $data_pelanggan->links() ?>
         </div>
     </div>
 </div>
@@ -65,7 +68,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Apakah anda yakin untuk menghapus pelanggan ini?
+                Apakah anda yakin untuk menghapus data ini?
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('form_hapus').submit();">

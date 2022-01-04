@@ -99,7 +99,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col-md d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" name="submit" value="1">Submit</button>
                 </div>
             </div>
         </div>
@@ -117,8 +117,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img src="" alt="" class="img-fluid fileSakip d-none">
-                <iframe src="" frameborder="0" id="fileSakipPDF" style="display: block;width:100%;height:400px;"></iframe>
+                <img src="" alt="" class="img-fluid fileSakip d-none" style="border-radius: 0.25rem;">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">Close</button>

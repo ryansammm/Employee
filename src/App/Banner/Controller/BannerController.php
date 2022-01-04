@@ -29,7 +29,7 @@ class BannerController
 
     public function create(Request $request)
     {
-        $menu = $this->menu->where('header', '1')->get();
+        $menu = $this->menu->where('jenis_menu', '1')->orWhere('jenis_menu', '3')->get();
 
         return render_template('admin/banner/create', compact('menu'));
     }

@@ -97,7 +97,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col-md d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" name="submit" value="1">Submit</button>
                 </div>
             </div>
         </div>

@@ -40,7 +40,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Akdreditas</th>
-                                <th scope="col">Icon Asosiasi</th>
+                                <th scope="col">Logo Asosiasi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -49,7 +49,7 @@
                                 <tr>
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['nama_asosiasi'] ?></td>
-                                    <td><img src="/assets/media/<?= $value['path_media'] ?>" class="img-fluid" width="40px"></td>
+                                    <td><img src="<?= asset($value['path_media']) ?>" class="img-fluid" width="40px"></td>
                                     <td>
                                         <a class="btn btn-sm btn-info" href="/admin/asosiasi/<?= $value['id_asosiasi'] ?>/edit">Edit</a>
                                         <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_asosiasi'] ?>">hapus</a>
@@ -77,7 +77,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Apakah anda yakin untuk menghapus berita ini?
+                Apakah anda yakin untuk menghapus data ini?
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="#" onclick="event.preventDefault();

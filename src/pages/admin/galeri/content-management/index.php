@@ -49,7 +49,7 @@
                                 <th>Album</th>
                                 <th>Cover</th>
                                 <th>Tgl Album</th>
-                                <th>Status Galeri</th>
+                                <th>Status Portofolio</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

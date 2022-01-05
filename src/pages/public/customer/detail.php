@@ -51,7 +51,7 @@
                             <h6 class="my-auto"><?= $data_pelanggan['nama_perusahaan'] ?></h6>
                         </div>
                         <div class="d-flex justify-content-md-end">
-                            <a href="/gallery" class="btn btn-primary me-2">Dokumentasi Pekerjaan</a>
+                            <a href="/gallery/<?= $data_pelanggan['id_galeri'] ?>/detail" class="btn btn-primary me-2">Dokumentasi Pekerjaan</a>
                             <a href="<?= $data_pelanggan['link_pelanggan'] ?>" target="_blank" class="btn btn-primary">Website <?= $data_pelanggan['nama_pelanggan'] ?></a>
                         </div>
                     </div>

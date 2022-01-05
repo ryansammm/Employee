@@ -2,6 +2,10 @@
 
 namespace App\PelangganAdmin\Controller;
 
+use App\ContentAdmin\SubModule\ContentAdmin\ContentAdmin;
+use App\GaleriAdmin\Model\GaleriAdmin;
+use App\GroupGaleri\Model\GroupGaleriNew;
+use App\KategoriGaleriAdmin\Model\KategoriGaleriAdmin;
 use App\Media\Model\Media;
 use App\PelangganAdmin\Model\PelangganAdmin;
 use Core\Classes\SessionData;
@@ -11,10 +15,14 @@ use Symfony\Component\HttpFoundation\Request;
 class PelangganAdminController
 {
     public $model;
+    public $kategoriGaleri;
+    public $groupGaleri;
 
     public function __construct()
     {
         $this->model = new PelangganAdmin();
+        $this->kategoriGaleri = new KategoriGaleriAdmin();
+        $this->groupGaleri = new GroupGaleriNew();
     }
 
     public function index(Request $request)
@@ -35,8 +43,9 @@ class PelangganAdminController
 
     public function create(Request $request)
     {
+        $data_kategori_galeri = $this->kategoriGaleri->get();
 
-        return render_template('admin/pelanggan/create', []);
+        return render_template('admin/pelanggan/create', ['data_kategori_galeri' => $data_kategori_galeri]);
     }
 
     public function store(Request $request)
@@ -54,7 +63,7 @@ class PelangganAdminController
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
-        return new RedirectResponse('/admin/pelanggan');
+        return new RedirectResponse('/admin/pelanggan/'.$create.'/edit');
     }
 
     public function edit(Request $request)
@@ -62,7 +71,17 @@ class PelangganAdminController
         $id = $request->attributes->get("id");
         $pelanggan = $this->model->leftJoin('media', 'media.id_relation', '=', 'pelanggan.id_pelanggan')->where('id_pelanggan', $id)->first();
 
-        return render_template('admin/pelanggan/edit', ['pelanggan' => $pelanggan]);
+        // data portofolio
+        $request->attributes->set("id", $pelanggan['id_galeri']);
+        $content_admin = new ContentAdmin($request, new GaleriAdmin, 'detail');
+        $content_admin->newQuery($this->groupGaleri, function ($model) use ($request) {
+            return $model->leftJoin('media', 'media.id_relation', '=', 'group_galeri.id_group_galeri')
+                ->where('id_galeri', $request->attributes->get('id'))
+                ->get();
+        });
+        $datas = $content_admin->get();
+
+        return render_template('admin/pelanggan/edit', ['pelanggan' => $pelanggan, 'galeri' => $datas['data'], 'group_galeri' => $datas['group_galeri'], 'kategori' => $datas['data_kategori']]);
     }
 
     public function update(Request $request)

@@ -1,4 +1,7 @@
 <form action="/admin/galeri/<?= show($galeri['id_galeri']) ?>/update" method="POST" enctype="multipart/form-data">
+    <?php if (isset($id_pelanggan)) { ?>
+        <input type="hidden" name="id_pelanggan" value="<?= $id_pelanggan ?>">
+    <?php } ?>
     <div class="card">
         <div class="card-body">
             <div class="row">

@@ -23,49 +23,59 @@
 
     <section class="content">
         <div class="container-fluid">
-            <form action="/admin/pelanggan/store" method="POST" enctype="multipart/form-data">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <!------- Nama Klien ------->
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="nama_pelanggan" class="form-label">Nama Brand/Merk *</label>
-                                    <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" required>
-                                </div>
-                            </div>
-                            <!------- Foto Klien ------->
-                            <div class="col-md-3">
-                                <img src="/assets/logo/partner.png" class="img-fluid img-thumbnail foto_utama_preview">
-                            </div>
-                            <div class="col-md-9">
-                                <label for="pelanggan_foto" class="form-label">Logo Klien *</label> (.jpg, .jpeg, .png)
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input foto_utama" id="exampleInputFile" name="pelanggan_foto" required>
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Data Klien</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Protofolio Klien</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <form action="/admin/pelanggan/store" method="POST" enctype="multipart/form-data">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <!------- Nama Klien ------->
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="nama_pelanggan" class="form-label">Nama Brand/Merk *</label>
+                                            <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" required>
                                         </div>
                                     </div>
-                                    <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                    <!------- Foto Klien ------->
+                                    <div class="col-md-3">
+                                        <img src="/assets/logo/partner.png" class="img-fluid img-thumbnail foto_utama_preview">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label for="pelanggan_foto" class="form-label">Logo Klien *</label> (.jpg, .jpeg, .png)
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input foto_utama" id="exampleInputFile" name="pelanggan_foto" required>
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                            <span class="text-muted">Ukuran maksimum file : 2 Mb</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="">Nama Perusahaan *</label>
-                                    <input type="text" name="nama_perusahaan" class="form-control" required>
+                                <div class="row mt-3">
+                                    <div class="col-6">
+                                        <div class="mb-3">
+                                            <label for="">Nama Perusahaan *</label>
+                                            <input type="text" name="nama_perusahaan" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="mb-3">
+                                            <label for="link_pelanggan" class="form-label">Link Eksternal *</label>
+                                            <input type="text" class="form-control" id="link_pelanggan" name="link_pelanggan" required>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="link_pelanggan" class="form-label">Link Eksternal *</label>
-                                    <input type="text" class="form-control" id="link_pelanggan" name="link_pelanggan" required>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row">
+                                <!-- <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="">Kategori Pekerjaan *</label>
@@ -120,16 +130,25 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-md d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="text-center alert alert-secondary">Isi terlebih dahulu data klien untuk menambahkan portofolio klien</p>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 </div>

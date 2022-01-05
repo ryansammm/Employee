@@ -31,7 +31,4 @@
     </section>
 </div>
 
-<script src="/assets/admin/js/groupgaleri.js"></script>
-
-
 <?php include(__DIR__ . '/../../layouts/admin-footer.php'); ?>

@@ -8,6 +8,7 @@ use App\GroupGaleri\Model\GroupGaleriNew;
 use App\KategoriGaleriAdmin\Model\KategoriGaleriAdmin;
 use App\Media\Model\Media;
 use App\NotifTelegram\Model\NotifTelegram;
+use App\PelangganAdmin\Model\PelangganAdmin;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,12 +18,14 @@ class GaleriAdminController
     public $model;
     public $groupGaleri;
     public $modelKategoriGaleri;
+    public $klien;
 
     public function __construct()
     {
         $this->model = new GaleriAdmin();
         $this->groupGaleri = new GroupGaleriNew();
         $this->modelKategoriGaleri = new KategoriGaleriAdmin();
+        $this->klien = new PelangganAdmin();
     }
 
     public function index(Request $request)
@@ -83,6 +86,16 @@ class GaleriAdminController
         $message = urlencode($user_aktif . " telah menambahkan data portofolio dengan nama <b>" . $datas['judul_galeri'] . "</b>");
         $kirim =  $telegram->contentNotification($message);
         /* -------------------------------------------------------------------------- */
+
+        // link galeri portofolio to klien
+        $id_pelanggan = $request->request->get('id_pelanggan');
+        if ($id_pelanggan != null) {
+            $this->klien
+                ->where('id_pelanggan', $id_pelanggan)
+                ->update(['id_galeri' => $tambah_galeri]);
+            
+            return new RedirectResponse('/admin/pelanggan/'.$id_pelanggan.'/edit');
+        }
 
         return new RedirectResponse('/admin/galeri');
     }
@@ -198,6 +211,12 @@ class GaleriAdminController
             $message = urlencode($user_aktif . " telah merubah data portofolio pada dengan nama <b>" . $detail['judul_galeri'] . "</b>");
         } elseif ($status == '3') {
             $message = urlencode($user_aktif . "  telah memeriksa redaksi dari data portofolio dengan nama <b>" . $detail['judul_galeri'] . "</b>");
+        }
+
+        // link galeri portofolio to klien
+        $id_pelanggan = $request->request->get('id_pelanggan');
+        if ($id_pelanggan != null) {            
+            return new RedirectResponse('/admin/pelanggan/'.$id_pelanggan.'/edit');
         }
 
         $kirim =  $telegram->contentNotification($message);

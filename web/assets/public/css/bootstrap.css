@@ -7745,6 +7745,7 @@ textarea.form-control-lg {
 .text-white {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+  border-color: #00000000;
 }
 
 .text-body {

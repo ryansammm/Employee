@@ -23,6 +23,7 @@ use App\CmsSetting\Controller\CmsSettingController;
 use App\CmsTitle\Controller\CmsTitleController;
 use App\Contact\Controller\ContactController;
 use App\Customer\Controller\CustomerController;
+use App\Employee\Controller\EmployeeController;
 use App\Galeri\Controller\GaleriController;
 use App\GaleriAdmin\Controller\GaleriAdminController;
 use App\GroupGaleri\Controller\GroupGaleriController;
@@ -30,6 +31,7 @@ use App\Halaman\Controller\HalamanController;
 use App\Home\Controller\HomeController;
 use App\Jabatan\Controller\JabatanController;
 use App\Karyawan\Controller\KaryawanController;
+use App\Karyawan\Model\Karyawan;
 use App\KategoriBeritaAdmin\Controller\KategoriBeritaAdminController;
 use App\KategoriGaleriAdmin\Controller\KategoriGaleriAdminController;
 use App\KategoriLayananAdmin\Controller\KategoriLayananAdminController;
@@ -587,6 +589,12 @@ $routes->push('appointment', '/appointment', [AppointmentController::class, 'ind
 $routes->push('appointmentGet', '/appointment/get', [AppointmentController::class, 'get']);
 $routes->push('appointmentDetail', '/appointment/detail/{id}', [AppointmentController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
+
+/* -------------------------------- Karyawan -------------------------------- */
+$routes->push('employee', '/employee', [EmployeeController::class, 'index']);
+$routes->push('employeeDetail', '/employee/detail', [EmployeeController::class, 'detail']);
+/* -------------------------------------------------------------------------- */
+
 
 // routes search header
 $routes->push('search_result', '/search', [SearchController::class, 'index']);

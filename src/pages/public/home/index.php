@@ -195,6 +195,23 @@
     </div>
 </div>
 
+<!-- <script>
+    window.intergramId = "626917343"
+    window.intergramCustomizations = {
+        titleClosed: 'Telegram',
+        titleOpen: 'Customer Service',
+        introMessage: 'First message when the user opens the chat for the first time',
+        autoResponse: 'A message that is sent immediately after the user sends its first message',
+        autoNoResponse: 'A message that is sent one minute after the user sends its first message ' +
+            'and no response was received',
+        mainColor: "#0853a6",
+        alwaysUseFloatingButton: false
+    }
+</script>
+
+<script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script> -->
+
+
 <script>
     window.intergramId = "626917343"
     window.intergramCustomizations = {
@@ -204,11 +221,10 @@
         autoResponse: 'A message that is sent immediately after the user sends its first message',
         autoNoResponse: 'A message that is sent one minute after the user sends its first message ' +
             'and no response was received',
-        mainColor: "#0853a6", // Can be any css supported color 'red', 'rgb(255,87,34)', etc
-        alwaysUseFloatingButton: true // Use the mobile floating button also on large screens
+        mainColor: "#0853a6",
+        alwaysUseFloatingButton: true
     }
 </script>
-
 <script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
 
 <!-- <script id="intergram" type="text/javascript" src="/assets/js/widget.js"></script> -->

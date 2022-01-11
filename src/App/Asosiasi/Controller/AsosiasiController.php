@@ -95,8 +95,8 @@ class AsosiasiController
 
         $id = $request->attributes->get('id');
         $media = new Media();
-        $media_data = $this->asosiasi->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->where('id_asosiasi', $id)->first();
         $this->asosiasi->where('id_asosiasi', $id)->delete();
+        $media_data = $this->asosiasi->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'asosiasi.id_asosiasi')->where('id_asosiasi', $id)->first();
         $media->deleteMedia($media_data);
 
         return new RedirectResponse('/admin/asosiasi');

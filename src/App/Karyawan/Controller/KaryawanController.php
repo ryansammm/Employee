@@ -3,9 +3,11 @@
 namespace App\Karyawan\Controller;
 
 use App\Bank\Model\Bank;
+use App\Bidang\Model\Bidang;
 use App\Jabatan\Model\Jabatan;
 use App\Karyawan\Model\Karyawan;
 use App\Karyawan\Model\KaryawanKontakAlt;
+use App\KaryawanBidang\Model\KaryawanBidang;
 use App\Media\Model\Media;
 use Core\Classes\SessionData;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -17,6 +19,8 @@ class KaryawanController
     public $jabatan;
     public $bank;
     public $karyawanKontakAlt;
+    public $bidang;
+    public $karyawanBidang;
 
     public function __construct()
     {
@@ -24,6 +28,8 @@ class KaryawanController
         $this->jabatan = new Jabatan();
         $this->bank = new Bank();
         $this->karyawanKontakAlt = new KaryawanKontakAlt();
+        $this->bidang = new Bidang;
+        $this->karyawanBidang = new KaryawanBidang();
     }
 
     public function index(Request $request)
@@ -39,8 +45,10 @@ class KaryawanController
     {
         $errors = SessionData::get()->getFlashBag()->get('errors', []);
         $bank = $this->bank->get();
+        $jabatan = $this->jabatan->get();
+        $bidang = $this->bidang->get();
 
-        return render_template('admin/karyawan/create', ['errors' => $errors, 'bank' => $bank]);
+        return render_template('admin/karyawan/create', ['errors' => $errors, 'bank' => $bank, 'jabatan' => $jabatan, 'bidang' => $bidang]);
     }
 
     public function store(Request $request)

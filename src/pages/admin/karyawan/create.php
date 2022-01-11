@@ -26,20 +26,20 @@
 
     <div class="content">
         <div class="container-fluid">
-            <form action="/admin/karyawan/store" method="POST" enctype="multipart/form-data">
-                <div class="wrapper" style="height: 100%;">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="sebelum-bergabung-tab" data-toggle="tab" href="#sebelum-bergabung" role="tab" aria-controls="sebelum-bergabung" aria-selected="true">Data Sebelum Bergabung</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="setelah-bergabung-tab" data-toggle="tab" href="#setelah-bergabung" role="tab" aria-controls="setelah-bergabung" aria-selected="false">Data Setelah Bergabung</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="sebelum-bergabung" role="tabpanel" aria-labelledby="sebelum-bergabung-tab">
-                            <div class="card">
-                                <div class="card-body">
+            <div class="wrapper" style="height: 100%;">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="sebelum-bergabung-tab" data-toggle="tab" href="#sebelum-bergabung" role="tab" aria-controls="sebelum-bergabung" aria-selected="true">Data Sebelum Bergabung</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="setelah-bergabung-tab" data-toggle="tab" href="#setelah-bergabung" role="tab" aria-controls="setelah-bergabung" aria-selected="false">Data Setelah Bergabung</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="sebelum-bergabung" role="tabpanel" aria-labelledby="sebelum-bergabung-tab">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/admin/karyawan/store" method="POST" enctype="multipart/form-data">
                                     <div class="container">
                                         <!-- IDENTITAS KARYAWAN -->
                                         <h5 class="mt-3">IDENTITAS KARYAWAN</h5>
@@ -323,245 +323,253 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- END PERBANKAN -->
-                                    <!-- PERPAJAKAN -->
-                                    <h5 class="mt-3">PERPAJAJAKN</h5>
-                                    <div class="row">
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Nomor NPWP</label>
-                                                <input type="text" name="no_npwp" class="form-control">
+                                        <!-- END PERBANKAN -->
+                                        <!-- END PERBANKAN -->
+                                        <!-- PERPAJAKAN -->
+                                        <h5 class="mt-3">PERPAJAJAKN</h5>
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Nomor NPWP</label>
+                                                    <input type="text" name="no_npwp" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Nomor KPP</label>
+                                                    <input type="text" name="no_kpp" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Tanggal Terdaftar</label>
+                                                    <input type="text" name="no_kpp" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Nomor KPP</label>
-                                                <input type="text" name="no_kpp" class="form-control">
+                                        <!-- END PERPAJAKAN -->
+                                        <!-- PENDIDIKAN FORMAL -->
+                                        <h5 class="mt-3">PENDIDIKAN FORMAL</h5>
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Pendidikan Dasar</label>
+                                                    <input type="hidden" name="jenis_pendidikan" value="1">
+                                                    <input type="text" name="pendidikan[]" class="form-control">
+                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Pendidikan Menengah</label>
+                                                    <input type="hidden" name="jenis_pendidikan" value="2">
+                                                    <input type="text" name="pendidikan[]" class="form-control">
+                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Pendidikan Atas</label>
+                                                    <input type="hidden" name="jenis_pendidikan" value="3">
+                                                    <input type="text" name="pendidikan[]" class="form-control">
+                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                    <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Diploma</label>
+                                                    <input type="hidden" name="jenis_pendidikan" value="4">
+                                                    <input type="text" name="pendidikan[]" class="form-control">
+                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                    <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Sarjana</label>
+                                                    <input type="hidden" name="jenis_pendidikan" value="5">
+                                                    <input type="text" name="pendidikan[]" class="form-control">
+                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                    <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Magister</label>
+                                                    <input type="hidden" name="jenis_pendidikan" value="6">
+                                                    <input type="text" name="pendidikan[]" class="form-control">
+                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                    <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Doktoral</label>
+                                                    <input type="hidden" name="jenis_pendidikan" value="7">
+                                                    <input type="text" name="pendidikan[]" class="form-control">
+                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                    <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Tanggal Terdaftar</label>
-                                                <input type="text" name="no_kpp" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END PERPAJAKAN -->
-                                    <!-- PENDIDIKAN FORMAL -->
-                                    <h5 class="mt-3">PENDIDIKAN FORMAL</h5>
-                                    <div class="row">
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Pendidikan Dasar</label>
-                                                <input type="hidden" name="jenis_pendidikan" value="1">
-                                                <input type="text" name="pendidikan[]" class="form-control">
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Pendidikan Menengah</label>
-                                                <input type="hidden" name="jenis_pendidikan" value="2">
-                                                <input type="text" name="pendidikan[]" class="form-control">
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Pendidikan Atas</label>
-                                                <input type="hidden" name="jenis_pendidikan" value="3">
-                                                <input type="text" name="pendidikan[]" class="form-control">
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
-                                                <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Diploma</label>
-                                                <input type="hidden" name="jenis_pendidikan" value="4">
-                                                <input type="text" name="pendidikan[]" class="form-control">
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
-                                                <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Sarjana</label>
-                                                <input type="hidden" name="jenis_pendidikan" value="5">
-                                                <input type="text" name="pendidikan[]" class="form-control">
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
-                                                <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Magister</label>
-                                                <input type="hidden" name="jenis_pendidikan" value="6">
-                                                <input type="text" name="pendidikan[]" class="form-control">
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
-                                                <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Doktoral</label>
-                                                <input type="hidden" name="jenis_pendidikan" value="7">
-                                                <input type="text" name="pendidikan[]" class="form-control">
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
-                                                <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END PENDIDIKAN FORMAL -->
-                                    <!-- PENDIDIKAN NON FORMAL -->
-                                    <h5 class="mt-3 mb-0">PENDIDIKAN NON FORMAL |<span style="font-size: 13px;"> Sebelum bergabung</span></h5>
-                                    <span style="font-size: 13px;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar, dll)</span>
-                                    <div class="card mt-3">
-                                        <div class="card-body">
-                                            <div class="multi-input-container2">
-                                                <div class="row mt-2 multi-input-item2">
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Nama Lembaga</label>
-                                                            <input type="text" name="lembaga_pendidikan_nonformal[]" class="form-control">
+                                        <!-- END PENDIDIKAN FORMAL -->
+                                        <!-- PENDIDIKAN NON FORMAL -->
+                                        <h5 class="mt-3 mb-0">PENDIDIKAN NON FORMAL |<span style="font-size: 13px;"> Sebelum bergabung</span></h5>
+                                        <span style="font-size: 13px;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar, dll)</span>
+                                        <div class="card mt-3">
+                                            <div class="card-body">
+                                                <div class="multi-input-container2">
+                                                    <div class="row mt-2 multi-input-item2">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Nama Lembaga</label>
+                                                                <input type="text" name="lembaga_pendidikan_nonformal[]" class="form-control">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Periode Tahun</label>
-                                                            <input type="number" min="1" name="tahun_nonformal[]" class="form-control">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Periode Tahun</label>
+                                                                <input type="number" min="1" name="tahun_nonformal[]" class="form-control">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Deskripsi</label>
-                                                            <textarea name="deskripsi_nonformal[]" class="form-control"></textarea>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Deskripsi</label>
+                                                                <textarea name="deskripsi_nonformal[]" class="form-control"></textarea>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <button type="button" class="btn btn-sm btn-success multi-input-add2">Tambah Data</button>
-                                        </div>
-                                    </div>
-                                    <!-- END PENDIDIKAN NON FORMAL -->
-                                    <!-- KELUARGA YANG BISA DIHUBUNGI -->
-                                    <h5 class="mt-3">KELUARGA YANG BISA DIHUBUNGI</h5>
-                                    <div class="row">
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="" class="form-label">Nama Lengkap sesuai KTP</label>
-                                                <input type="text" class="form-control" name="nama_kontak_alt">
+                                                <button type="button" class="btn btn-sm btn-success multi-input-add2">Tambah Data</button>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="" class="form-label">Hubungan Keluarga</label>
-                                                <input type="text" class="form-control" name="hubungan_keluarga_kontak_alt">
+                                        <!-- END PENDIDIKAN NON FORMAL -->
+                                        <!-- KELUARGA YANG BISA DIHUBUNGI -->
+                                        <h5 class="mt-3">KELUARGA YANG BISA DIHUBUNGI</h5>
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Nama Lengkap sesuai KTP</label>
+                                                    <input type="text" class="form-control" name="nama_kontak_alt">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Hubungan Keluarga</label>
+                                                    <input type="text" class="form-control" name="hubungan_keluarga_kontak_alt">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Alamat Lengkap</label>
+                                                    <textarea name="alamat_kontak_alt" class="form-control"></textarea>
+                                                    <input type="text" name="kode_pos_kontak_alt" class="form-control mt-2" placeholder="Kode POS">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Nomor Seluler Kerluarga</label>
+                                                    <input type="text" name="no_hp_kontak_alt" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="">Alamat E-mail Keluarga</label>
+                                                    <input type="text" name="email_kontak_alt" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="" class="form-label">Alamat Lengkap</label>
-                                                <textarea name="alamat_kontak_alt" class="form-control"></textarea>
-                                                <input type="text" name="kode_pos_kontak_alt" class="form-control mt-2" placeholder="Kode POS">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Nomor Seluler Kerluarga</label>
-                                                <input type="text" name="no_hp_kontak_alt" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="">Alamat E-mail Keluarga</label>
-                                                <input type="text" name="email_kontak_alt" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END KELUARGA YANG BISA DIHUBUNGI -->
-                                    <!-- PENGALAMAN ORGANISASI -->
-                                    <h5 class="mt-3">PENGALAMAN ORGANISASI</h5>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="multi-input-container">
-                                                <div class="row multi-input-item">
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Nama Lembaga / Organisasi</label>
-                                                            <input type="text" name="lembaga_organisasi[]" class="form-control">
+                                        <!-- END KELUARGA YANG BISA DIHUBUNGI -->
+                                        <!-- PENGALAMAN ORGANISASI -->
+                                        <h5 class="mt-3 mb-0">PENGALAMAN ORGANISASI</h5>
+                                        <span style="font-size: 13px;">Sebelum Bergabung</span>
+                                        <div class="card mt-3">
+                                            <div class="card-body">
+                                                <div class="multi-input-container">
+                                                    <div class="row multi-input-item">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Nama Lembaga / Organisasi</label>
+                                                                <input type="text" name="lembaga_organisasi[]" class="form-control">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Jabatan di Lembaga / Organisasi</label>
-                                                            <input type="text" name="jabatan_organisasi[]" class="form-control">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Jabatan di Lembaga / Organisasi</label>
+                                                                <input type="text" name="jabatan_organisasi[]" class="form-control">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Periode Keaktifan</label>
-                                                            <input type="text" name="periode_aktif_organisasi[]" class="form-control">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Periode Keaktifan</label>
+                                                                <input type="text" name="periode_aktif_organisasi[]" class="form-control">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <button type="button" class="btn btn-sm btn-success multi-input-add">Tambah Data</button>
                                             </div>
-                                            <button type="button" class="btn btn-sm btn-success multi-input-add">Tambah Data</button>
                                         </div>
-                                    </div>
-                                    <!-- END PENGALAMAN ORGANISASI -->
-                                    <!-- PENGALAMAN PEKERJAAN -->
-                                    <h5 class="mt-3">PENGALAMAN PEKERJAAN</h5>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="multi-input-container1">
-                                                <div class="row multi-input-item1">
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Nama Lembaga</label>
-                                                            <input type="text" name="nama_lembaga_pekerjaan[]" class="form-control">
+                                        <!-- END PENGALAMAN ORGANISASI -->
+                                        <!-- PENGALAMAN PEKERJAAN -->
+                                        <h5 class="mt-3">PENGALAMAN PEKERJAAN</h5>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="multi-input-container1">
+                                                    <div class="row multi-input-item1">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Nama Lembaga</label>
+                                                                <input type="text" name="nama_lembaga_pekerjaan[]" class="form-control">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Nama Pekerjaan</label>
-                                                            <input type="text" name="nama_pekerjaan_pekerjaan[]" class="form-control">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Nama Pekerjaan</label>
+                                                                <input type="text" name="nama_pekerjaan_pekerjaan[]" class="form-control">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Lokasi Lembaga</label>
-                                                            <input type="text" name="lokasi_pekerjaan[]" class="form-control">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Lokasi Lembaga</label>
+                                                                <input type="text" name="lokasi_pekerjaan[]" class="form-control">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Periode Pekerjaan</label>
-                                                            <input type="text" name="periode_pelaksanaan_pekerjaan[]" class="form-control">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="mb-3">
+                                                                <label for="">Periode Pekerjaan</label>
+                                                                <input type="text" name="periode_pelaksanaan_pekerjaan[]" class="form-control">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <button type="button" class="btn btn-sm btn-success multi-input-add1">Tambah Data</button>
                                             </div>
-                                            <button type="button" class="btn btn-sm btn-success multi-input-add1">Tambah Data</button>
                                         </div>
+                                        <!-- END PENGALAMAN PEKERJAAN -->
                                     </div>
-                                    <!-- END PENGALAMAN PEKERJAAN -->
 
                                     <div class="row my-4">
                                         <div class="col-md d-flex justify-content-end">
                                             <button type="submit" class="btn btn-danger">Submit</button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="setelah-bergabung" role="tabpanel" aria-labelledby="setelah-bergabung-tab">...</div>
                     </div>
-
+                    <div class="tab-pane fade" id="setelah-bergabung" role="tabpanel" aria-labelledby="setelah-bergabung-tab">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="alert alert-secondary text-center">Lengakapi terlebih dahulu <b>Data Sebelum Bergabung</b></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+            </div>
         </div>
-        </form>
     </div>
 </div>
 

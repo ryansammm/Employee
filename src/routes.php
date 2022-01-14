@@ -205,7 +205,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('galeri_update', '/{id}/update', [GaleriAdminController::class, 'update']);
         $routes->push('galeri_delete', '/{id}/delete', [GaleriAdminController::class, 'delete']);
         $routes->push('galeri_detail', '/{id}/detail', [GaleriAdminController::class, 'detail']);
-        
+
         /* --------------------------------- redaksi -------------------------------- */
         $routes->push('galeri_redaction', '/redaction', [GaleriAdminController::class, 'redaction']);
         $routes->push('galeri_redaction_detail', '/redaction/{id}/detail', [GaleriAdminController::class, 'redaction_detail']);
@@ -443,6 +443,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('karyawan_show', '/{id}/show', [KaryawanController::class, 'show']);
         $routes->push('karyawan_delete', '/{id}/delete', [KaryawanController::class, 'delete']);
         $routes->push('karyawan_get', '/get', [KaryawanController::class, 'get']);
+        $routes->push('karyawan_hide', '/{id}/hide', [KaryawanController::class, 'hide']);
     });
     /* -------------------------------------------------------------------------- */
 

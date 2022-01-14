@@ -26,7 +26,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Team</th>
+                                <th scope="col">Nama Karyawan</th>
                                 <th scope="col">Kontak</th>
                                 <th scope="col">Aksi</th>
                             </tr>
@@ -37,11 +37,11 @@
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['nama_lengkap'] ?></td>
                                     <td>
-                                        <?= $value['no_hp'] ?><br><?= $value['email'] ?>
+                                        <?= $value['no_seluler_kantor'] ?>
                                     </td>
                                     <td>
-                                        <a class=" btn btn-sm btn-info m-2" href="/admin/karyawan/<?= $value['id_karyawan'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_karyawan'] ?>">hapus</a>
+                                        <a class=" btn btn-sm btn-info mr-2" href="/admin/karyawan/<?= $value['id_karyawan'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-warning " data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_karyawan'] ?>">Alihkan</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -66,7 +66,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                Apakah anda yakin untuk menghapus berita ini?
+                Apakah anda yakin untuk mengalihikan data ini?
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="#" onclick="event.preventDefault();
@@ -88,7 +88,7 @@
         var id = button.data('id')
 
         var modal = $(this)
-        modal.find('#form_hapus').attr('action', '/admin/karyawan/' + id + '/delete')
+        modal.find('#form_hapus').attr('action', '/admin/karyawan/' + id + '/hide')
     })
 </script>
 

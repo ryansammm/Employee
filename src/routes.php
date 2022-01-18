@@ -592,7 +592,8 @@ $routes->push('appointmentDetail', '/appointment/detail/{id}', [AppointmentContr
 
 /* -------------------------------- Karyawan -------------------------------- */
 $routes->push('employee', '/employee', [EmployeeController::class, 'index']);
-$routes->push('employeeDetail', '/employee/detail', [EmployeeController::class, 'detail']);
+$routes->push('employeeList', '/employee/list', [EmployeeController::class, 'list']);
+$routes->push('employeeDetail', '/employee/{id}/detail', [EmployeeController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
 
 

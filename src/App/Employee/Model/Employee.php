@@ -6,6 +6,6 @@ use Core\Model;
 
 class Employee extends Model
 {
-    protected $table = 'name';
-    protected $primaryKey = 'id_name';
+    protected $table = 'karyawan';
+    protected $primaryKey = 'id_karyawan';
 }

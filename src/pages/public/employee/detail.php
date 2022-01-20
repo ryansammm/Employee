@@ -126,11 +126,11 @@
 
 <body>
     <div class="container-fluid px-4">
-        <div class="row">
-            <div class="card">
+        <div class="card mb-3">
 
-                <!------- Header ------->
-                <div class="row" style="background-color: #1c1c1c;padding: 0.5rem;">
+            <!------- Header ------->
+            <div class="">
+                <div class="row mx-auto" style="background-color: #1c1c1c;padding: 0.5rem;">
                     <div class="col-md-4 my-auto">
                         <div class="text-center">
                             <img class="" src="/assets/logo/tristek.png" alt="" style="width: 35%;">
@@ -163,326 +163,464 @@
                         </div>
                     </div>
                 </div>
-                <!------- End Header ------->
+            </div>
+            <!------- End Header ------->
 
-                <div class="card-body container ps-2">
-                    <div class="row">
+            <div class="card-body container ps-2">
+                <div class="row">
 
-                        <!------- Profile Image ------->
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <h6><?= $karyawan['nama_lengkap'] ?></h6>
-                                    <div class="mb-2" style="border: 1px solid #dfdfdf;">
-                                        <img class="img-fluid p-3" src="/assets/media/<?= $karyawan['path_media'] ?>" alt="">
-                                    </div>
-                                    <div class="text-center">
-                                        <div class="mb-3">Nama Panggilan :</div>
-                                        <h4><?= $karyawan['nama_panggilan'] ?></h4>
-                                    </div>
+                    <!------- Profile Image ------->
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h6><?= $karyawan['nama_lengkap'] ?></h6>
+                                <div class="mb-2" style="border: 1px solid #dfdfdf;">
+                                    <img class="img-fluid p-3" src="/assets/media/<?= $karyawan['path_media'] ?>" alt="">
+                                </div>
+                                <div class="text-center">
+                                    <div class="mb-3">Nama Panggilan :</div>
+                                    <h4><?= $karyawan['nama_panggilan'] ?></h4>
                                 </div>
                             </div>
                         </div>
-                        <!------- End Profile Image ------->
+                    </div>
+                    <!------- End Profile Image ------->
 
-                        <div class="col-md-9">
-                            <div class="row">
+                    <div class="col-md-9">
+                        <!------- Identitas Karyawan ------->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="em-title">Identitas Karyawan</div>
+                                <table class="table">
+                                    <tr>
+                                        <td style="width: 48%;">Nama Lengkap Sesuai KTP</td>
+                                        <td>:</td>
+                                        <td><b><?= $karyawan['nama_lengkap'] ?></b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jabatan</td>
+                                        <td>:</td>
+                                        <td><b><?= $karyawan['nama'] ?></b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Divisi</td>
+                                        <td>:</td>
+                                        <td><b><?= $karyawan['nama_divisi'] ?></b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bidang / Departemen</td>
+                                        <td>:</td>
+                                        <td><b><?= $karyawan['nama_bidang'] ?></b></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table" style="margin-top: 1.2rem;">
+                                    <tr>
+                                        <td style="width: 49%;">Status Kepegawaian</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['nama_status_kepegawaian'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Induk Karyawan</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_induk_karyawan'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Masa Kerja</td>
+                                        <td>:</td>
+                                        <td><?= posted_at($karyawan['tgl_mulai_kerja'], 4) ?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!------- End Identitas Karyawan ------->
 
-                                <!------- Identitas Karyawan ------->
-                                <div class="col-md-6">
-                                    <div class="em-title">Identitas Karyawan</div>
-                                    <table class="table">
+                        <hr>
+
+                        <!------- Data Pribadi ------->
+                        <div class="em-title">Data Pribadi</div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tr>
+                                        <td style="width: 48%;">Nomor KTP</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_ktp'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Kartu Keluarga</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_kk'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Seluler Pribadi</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_seluler_pribadi'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Seluler Kantor</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_seluler_kantor'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat Email Pribadi</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['email_pribadi'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat Email Kantor</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['email_kantor'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kewarganegaraan</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['kewarganegaraan'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No. Passport, Bila Ada</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_passport'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Sim C</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_sim_c'] ?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tr>
+                                        <td style="width: 48%;">Tempat Lahir</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['tempat_lahir'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Lahir</td>
+                                        <td>:</td>
+                                        <td><?= date_format(date_create($karyawan['tgl_lahir']), "d F Y") ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenis Kelamin</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['jenis_kelamin'] == 1 ? 'Laki-Laki' : 'Perempuan' ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['status_perkawinan'] == 1 ? 'Sudah Menikah' : 'Belum Menikah' ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Berat Badan</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['berat_badan'] ?> KG</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat Email Kantor</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['tinggi_badan'] ?> CM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Golongan Darah</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['golongan_darah'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Agama</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['agama_detail'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No. Sim A/B/B1/B2</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_sim_lainnya'] ?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!------- Data Pribadi ------->
+
+                    </div>
+
+                </div>
+
+                <nav class="nav justify-content-end">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-bottom: 0px;">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Data Sebelum Bergabung</button>
+                        <button class="nav-link" id="nav-setelah-tab" data-bs-toggle="tab" data-bs-target="#nav-setelah" type="button" role="tab" aria-controls="nav-setelah" aria-selected="true">Data Setelah Bergabung</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Dokumen Pendukung</button>
+                    </div>
+                </nav>
+
+
+                <hr class="mt-0" style="background-color: red;">
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="home-tab">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="em-title mb-2">Alamat Sesuai KTP</div>
+                                <div>
+                                    <?= $karyawan['alamat_ktp'] ?><br>
+                                    <?= $karyawan['kode_pos_ktp'] ?>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="em-title mb-2">Alamat Tinggal Saat Ini</div>
+                                <div>
+                                    <?= $karyawan['alamat_tinggal'] ?><br>
+                                    <?= $karyawan['kode_pos_tinggal'] ?>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="em-title mb-3">Asuransi</div>
+                                <table class="table">
+                                    <tr>
+                                        <td>No. BPJS Ketenagakerjaan</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_bpjs_ketenagakerjaan'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No. BPJS Kesehatan</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_bpjs_kesehatan'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama Asuransi Lainnya</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['nama_asuransi'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No. Asuransi</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_asuransi'] ?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="em-title mb-3">Perbankan</div>
+                                <table class="table">
+                                    <tr>
+                                        <td>Nama Bank</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['nama_bank'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No. Rekening</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['no_rek_bank'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cabang</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['cabang_bank'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Atas Nama</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['an_bank'] ?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="em-title mb-3">Perpajakan</div>
+                                <table class="table">
+                                    <tr>
+                                        <td style="width: 48%;">Nomor NPWP</td>
+                                        <td style="width: 3%;">:</td>
+                                        <td><?= $karyawan['no_npwp'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama KPP</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal terdaftar</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan['tgl_terdaftar_pajak'] ?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="em-title">Pendidikan Formal</div>
+
+                                <table class="table" style="margin-top: 1.2rem;">
+
+                                    <?php foreach ($pendidikan_formal->items as $key => $value) { ?>
                                         <tr>
-                                            <td style="width: 48%;">Nama Lengkap Sesuai KTP</td>
+                                            <td><?= $value['nama_pendidikan'] ?></td>
                                             <td>:</td>
-                                            <td><b><?= $karyawan['nama_lengkap'] ?></b></td>
+                                            <td><?= $value['nama_sekolah'] ?></td>
+                                            <td>Tahun Lulus</td>
+                                            <td>:</td>
+                                            <td><?= $value['tahun_lulus'] ?></td>
+                                        </tr>
+
+                                        <?php if ($value['jenis_pendidikan'] > 2) { ?>
+                                            <tr>
+                                                <td style="margin-left: 2rem !important;display: block;">Jurusan, Bila Ada</td>
+                                                <td>:</td>
+                                                <td><?= $value['jurusan'] ?></td>
+                                            </tr>
+                                        <?php } ?>
+
+                                    <?php } ?>
+
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="em-title text-nowrap">Pendidikan Non Formal,
+                                    <span> Sebelum Bergabung</span>
+                                    <br>
+                                    <span style="font-weight: normal;text-transform: none;font-style: italic;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar dll)</span>
+                                </div>
+
+                                <?php foreach ($pendidikan_non_formal->items as $key => $value) { ?>
+                                    <table class="table mb-3">
+                                        <tr>
+                                            <td style="width: 49%;">Nama Lembaga</td>
+                                            <td style="width: 3%;">:</td>
+                                            <td><?= $value['nama_lembaga'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Jabatan</td>
+                                            <td>Periode Tahun</td>
                                             <td>:</td>
-                                            <td><b><?= $karyawan['nama'] ?></b></td>
+                                            <td><?= $value['periode_tahun'] ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Divisi</td>
+                                            <td>Deskripsi</td>
                                             <td>:</td>
-                                            <td><b><?= $karyawan['nama_divisi'] ?></b></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bidang / Departemen</td>
-                                            <td>:</td>
-                                            <td><b><?= $karyawan['nama_bidang'] ?></b></td>
+                                            <td><?= $value['deskripsi'] ?></td>
                                         </tr>
                                     </table>
-                                </div>
-                                <!------- End Identitas Karyawan ------->
-
-                                <div class="col-md-6">
-                                    <table class="table" style="margin-top: 1.2rem;">
-                                        <tr>
-                                            <td style="width: 49%;">Status Kepegawaian</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['nama_status_kepegawaian'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor Induk Karyawan</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_induk_karyawan'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tanggal Mulai Kerja</td>
-                                            <td>:</td>
-                                            <td><?= date_format(date_create($karyawan['tgl_mulai_kerja']), "d-m-Y") ?></td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                <?php } ?>
 
                             </div>
+                        </div>
+                        <hr>
 
-                            <hr>
-                            <div class="em-title">Data Pribadi</div>
+                        <div class="row">
+                            <div class="col-md-6">
 
-                            <div class="row">
-                                <div class="col-md-6">
+                                <!-- <div>Kemampuan :</div> -->
+                                <div class="em-title mb-3">Kemampuan :</div>
+                                <div style="margin-left: 1rem;">
                                     <table class="table">
-                                        <tr>
-                                            <td style="width: 48%;">Nomor KTP</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_ktp'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor Kartu Keluarga</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_kk'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor Seluler Pribadi</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_seluler_pribadi'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor Seluler Kantor</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_seluler_kantor'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat Email Pribadi</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['email_pribadi'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat Email Kantor</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['email_kantor'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kewarganegaraan</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['kewarganegaraan'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>No. Passport, Bila Ada</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_passport'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor Sim C</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_sim_c'] ?></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-md-6">
-                                    <table class="table">
-                                        <tr>
-                                            <td style="width: 48%;">Tempat Lahir</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['tempat_lahir'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tanggal Lahir</td>
-                                            <td>:</td>
-                                            <td><?= date_format(date_create($karyawan['tgl_lahir']), "d F Y") ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jenis Kelamin</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['jenis_kelamin'] == 1 ? 'Laki-Laki' : 'Perempuan' ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Status</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['status_perkawinan'] == 1 ? 'Sudah Menikah' : 'Belum Menikah' ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Berat Badan</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['berat_badan'] ?> KG</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat Email Kantor</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['tinggi_badan'] ?> CM</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Golongan Darah</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['golongan_darah'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Agama</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['agama_detail'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>No. Sim A/B/B1/B2</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_sim_lainnya'] ?></td>
-                                        </tr>
+                                        <?php foreach ($kemampuan->items as $key => $value) { ?>
+                                            <tr>
+                                                <td style="width: 3%;"><?= $key += 1 ?>.</td>
+                                                <td style="width: 49%;"><?= $value['nama_kemampuan'] ?></td>
+                                                <td style="width: 4%;">:</td>
+                                                <td><?= $value['tingkatan'] ?></td>
+                                            </tr>
+                                        <?php } ?>
                                     </table>
                                 </div>
                             </div>
 
+                            <div class="col-md-3">
+                                <div class="em-title mb-3">Hobi :</div>
+                                <div class="border-bottom">
+                                    <span><?= $karyawan['hobi'] ?></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="em-title mb-3">Karakter :</div>
+                                <div class="border-bottom">
+                                    <span><?= $karyawan['karakter'] ?></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-nowrap em-title mb-3">Keluarga Yang Bisa Dihubungi</div>
+                                <table class="table">
+                                    <tr>
+                                        <td style="width: 55%;">Nama Lengkap</td>
+                                        <td>:</td>
+                                        <td><b><?= $karyawan_kontak_alt['nama_kontak_alt'] ?></b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hubungan Keluarga</td>
+                                        <td>:</td>
+                                        <td><b><?= $karyawan_kontak_alt['hubungan_keluarga_kontak_alt'] ?></b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat Lengkap</td>
+                                        <td>:</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="margin-left: 2rem !important;display: block;"><?= $karyawan_kontak_alt['alamat_kontak_alt'] ?></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Seluler Keluarga</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan_kontak_alt['no_telp_kontak_alt'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat E-mail Keluarga</td>
+                                        <td>:</td>
+                                        <td><?= $karyawan_kontak_alt['email_kontak_alt'] ?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="em-title mb-3 text-nowrap">Pengalaman Organisasi,<span> Sebelum Bergabung</span></div>
+
+                                <?php foreach ($pengalaman_organisasi->items as $key => $value) { ?>
+                                    <table class="table mb-3">
+                                        <tr>
+                                            <td style="width: 48%;">Nama Lembaga / Organisasi</td>
+                                            <td style="width: 3%;">:</td>
+                                            <td><?= $value['nama_organisasi'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jabatan di Lembaga / Organisasi</td>
+                                            <td>:</td>
+                                            <td><?= $value['jabatan_organisasi'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Periode Keaktifan</td>
+                                            <td>:</td>
+                                            <td><?= $value['periode_aktif'] ?></td>
+                                        </tr>
+                                    </table>
+                                <?php } ?>
+
+                            </div>
                         </div>
 
                     </div>
 
-                    <nav class="nav justify-content-end">
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Data Utama</button>
-                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Dokumen Pendukung</button>
-                        </div>
-                    </nav>
-
-
-                    <hr class="mt-0">
-
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="home-tab">
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="em-title mb-2">Alamat Sesuai KTP</div>
-                                    <div>
-                                        <?= $karyawan['alamat_ktp'] ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="em-title mb-2">Alamat Tinggal Saat Ini</div>
-                                    <div>
-                                        <?= $karyawan['alamat_tinggal'] ?>
-                                    </div>
-                                </div>
+                    <div class="tab-pane fade" id="nav-setelah" role="tabpanel" aria-labelledby="setelah-tab">
+                        <?php if (empty($pendidikan_non_formal_bergabung->items)) { ?>
+                        <?php } else { ?>
+                            <div class="em-title mb-3 text-nowrap">Pendidikan Non Formal,
+                                <span> Setelah Bergabung</span>
+                                <br>
+                                <span style="font-weight: normal;text-transform: none;font-style: italic;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar dll)</span>
                             </div>
-                            <hr>
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="em-title mb-3">Asuransi</div>
-                                    <table class="table">
-                                        <tr>
-                                            <td>No. BPJS Ketenagakerjaan</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_bpjs_ketenagakerjaan'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>No. BPJS Kesehatan</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_bpjs_kesehatan'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Asuransi Lainnya</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['nama_asuransi'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>No. Asuransi</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_asuransi'] ?></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="em-title mb-3">Perbankan</div>
-                                    <table class="table">
-                                        <tr>
-                                            <td>Nama Bank</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['nama_bank'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>No. Rekening</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['no_rek_bank'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cabang</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['cabang_bank'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Atas Nama</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['an_bank'] ?></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="em-title mb-3">Perpajakan</div>
-                                    <table class="table">
-                                        <tr>
-                                            <td style="width: 48%;">Nomor NPWP</td>
-                                            <td style="width: 3%;">:</td>
-                                            <td><?= $karyawan['no_npwp'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama KPP</td>
-                                            <td>:</td>
-                                            <td>-</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tanggal terdaftar</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan['tgl_terdaftar_pajak'] ?></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="em-title">Pendidikan Formal</div>
-
-                                    <table class="table" style="margin-top: 1.2rem;">
-
-                                        <?php foreach ($pendidikan_formal->items as $key => $value) { ?>
-                                            <tr>
-                                                <td><?= $value['nama_pendidikan'] ?></td>
-                                                <td>:</td>
-                                                <td><?= $value['nama_sekolah'] ?></td>
-                                                <td>Tahun Lulus</td>
-                                                <td>:</td>
-                                                <td><?= $value['tahun_lulus'] ?></td>
-                                            </tr>
-
-                                            <?php if ($value['jenis_pendidikan'] > 2) { ?>
-                                                <tr>
-                                                    <td style="margin-left: 2rem !important;display: block;">Jurusan, Bila Ada</td>
-                                                    <td>:</td>
-                                                    <td><?= $value['jurusan'] ?></td>
-                                                </tr>
-                                            <?php } ?>
-
-                                        <?php } ?>
-
-                                    </table>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="em-title text-nowrap">Pendidikan Non Formal,
-                                        <span> Sebelum Bergabung</span>
-                                        <br>
-                                        <span style="font-weight: normal;text-transform: none;font-style: italic;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar dll)</span>
-                                    </div>
-
-                                    <?php foreach ($pendidikan_non_formal->items as $key => $value) { ?>
+                                <?php foreach ($pendidikan_non_formal_bergabung->items as $key => $value) { ?>
+                                    <div class="col-md-6">
                                         <table class="table mb-3">
                                             <tr>
                                                 <td style="width: 49%;">Nama Lembaga</td>
@@ -500,80 +638,20 @@
                                                 <td><?= $value['deskripsi'] ?></td>
                                             </tr>
                                         </table>
-                                    <?php } ?>
-
-                                </div>
-                            </div>
-                            <hr>
-
-                            <div class="row">
-                                <div class="col-md-6">
-
-                                    <!-- <div>Kemampuan :</div> -->
-                                    <div class="em-title mb-3">Kemampuan :</div>
-                                    <div style="margin-left: 1rem;">
-                                        <table class="table">
-                                            <?php foreach ($kemampuan->items as $key => $value) { ?>
-                                                <tr>
-                                                    <td style="width: 3%;"><?= $key += 1 ?>.</td>
-                                                    <td style="width: 49%;"><?= $value['nama_kemampuan'] ?></td>
-                                                    <td style="width: 4%;">:</td>
-                                                    <td><?= $value['tingkatan'] ?></td>
-                                                </tr>
-                                            <?php } ?>
-                                        </table>
                                     </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="em-title mb-3">Hobi :</div>
-                                    <span><?= $karyawan['hobi'] ?></span>
-                                </div>
-
+                                <?php } ?>
                             </div>
-
                             <hr>
+                        <?php } ?>
 
+                        <?php if (empty($pengalaman_organisasi_bergabung->items)) { ?>
+                        <?php } else { ?>
+                            <div class="em-title mb-3 text-nowrap">Pengalaman Organisasi,
+                                <span> Setelah Bergabung</span>
+                            </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="text-nowrap em-title mb-3">Keluarga Yang Bisa Dihubungi</div>
-                                    <table class="table">
-                                        <tr>
-                                            <td style="width: 55%;">Nama Lengkap</td>
-                                            <td>:</td>
-                                            <td><b><?= $karyawan_kontak_alt['nama_kontak_alt'] ?></b></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hubungan Keluarga</td>
-                                            <td>:</td>
-                                            <td><b><?= $karyawan_kontak_alt['hubungan_keluarga_kontak_alt'] ?></b></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat Lengkap</td>
-                                            <td>:</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="margin-left: 2rem !important;display: block;"><?= $karyawan_kontak_alt['alamat_kontak_alt'] ?></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor Seluler Keluarga</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan_kontak_alt['no_telp_kontak_alt'] ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat E-mail Keluarga</td>
-                                            <td>:</td>
-                                            <td><?= $karyawan_kontak_alt['email_kontak_alt'] ?></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="em-title mb-3 text-nowrap">Pengalaman Organisasi,<span> Sebelum Bergabung</span></div>
-
-                                    <?php foreach ($pengalaman_organisasi->items as $key => $value) { ?>
+                                <?php foreach ($pengalaman_organisasi_bergabung->items as $key => $value) { ?>
+                                    <div class="col-md-6">
                                         <table class="table mb-3">
                                             <tr>
                                                 <td style="width: 48%;">Nama Lembaga / Organisasi</td>
@@ -591,179 +669,117 @@
                                                 <td><?= $value['periode_aktif'] ?></td>
                                             </tr>
                                         </table>
-                                    <?php } ?>
-
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <?php if (empty($pendidikan_non_formal_bergabung->items)) { ?>
-                            <?php } else { ?>
-                                <div class="em-title mb-3 text-nowrap">Pendidikan Non Formal,
-                                    <span> Setelah Bergabung</span>
-                                    <br>
-                                    <span style="font-weight: normal;text-transform: none;font-style: italic;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar dll)</span>
-                                </div>
-                                <div class="row">
-                                    <?php foreach ($pendidikan_non_formal_bergabung->items as $key => $value) { ?>
-                                        <div class="col-md-6">
-                                            <table class="table mb-3">
-                                                <tr>
-                                                    <td style="width: 49%;">Nama Lembaga</td>
-                                                    <td style="width: 3%;">:</td>
-                                                    <td><?= $value['nama_lembaga'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Periode Tahun</td>
-                                                    <td>:</td>
-                                                    <td><?= $value['periode_tahun'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Deskripsi</td>
-                                                    <td>:</td>
-                                                    <td><?= $value['deskripsi'] ?></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <hr>
-                            <?php } ?>
-
-                            <?php if (empty($pengalaman_organisasi_bergabung->items)) { ?>
-                            <?php } else { ?>
-                                <div class="em-title mb-3 text-nowrap">Pengalaman Organisasi,
-                                    <span> Setelah Bergabung</span>
-                                </div>
-                                <div class="row">
-                                    <?php foreach ($pengalaman_organisasi_bergabung->items as $key => $value) { ?>
-                                        <div class="col-md-6">
-                                            <table class="table mb-3">
-                                                <tr>
-                                                    <td style="width: 48%;">Nama Lembaga / Organisasi</td>
-                                                    <td style="width: 3%;">:</td>
-                                                    <td><?= $value['nama_organisasi'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Jabatan di Lembaga / Organisasi</td>
-                                                    <td>:</td>
-                                                    <td><?= $value['jabatan_organisasi'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Periode Keaktifan</td>
-                                                    <td>:</td>
-                                                    <td><?= $value['periode_aktif'] ?></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <hr>
-                            <?php } ?>
-
-                            <div class="em-title mb-3 text-nowrap">Pengalaman Pekerjaan</div>
-                            <div class="row">
-                                <?php foreach ($pengalaman_pekerjaan->items as $key => $value) { ?>
-                                    <div class="col-md-6">
-                                        <table class="table">
-                                            <tr>
-                                                <td style="width: 30%;">Nama Lembaga</td>
-                                                <td style="width: 3%;">:</td>
-                                                <td><?= $value['nama_lembaga'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Nama Pekerjaan</td>
-                                                <td>:</td>
-                                                <td><?= $value['nama_pekerjaan'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lokasi Pekerjaan</td>
-                                                <td>:</td>
-                                                <td><?= $value['lokasi_lembaga'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Periode Pelaksanaan </td>
-                                                <td>:</td>
-                                                <td><?= $value['periode_pelaksanaan'] ?></td>
-                                            </tr>
-                                        </table>
                                     </div>
                                 <?php } ?>
                             </div>
+                            <hr>
+                        <?php } ?>
 
-
-                        </div>
-
-
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
+                        <div class="em-title mb-3 text-nowrap">Pengalaman Pekerjaan</div>
+                        <div class="row">
+                            <?php foreach ($pengalaman_pekerjaan->items as $key => $value) { ?>
                                 <div class="col-md-6">
                                     <table class="table">
-                                        <?php foreach ($dokumen_pendukung as $key => $value) { ?>
+                                        <tr>
+                                            <td style="width: 30%;">Nama Lembaga</td>
+                                            <td style="width: 3%;">:</td>
+                                            <td><?= $value['nama_lembaga'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama Pekerjaan</td>
+                                            <td>:</td>
+                                            <td><?= $value['nama_pekerjaan'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lokasi Pekerjaan</td>
+                                            <td>:</td>
+                                            <td><?= $value['lokasi_lembaga'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Periode Pelaksanaan </td>
+                                            <td>:</td>
+                                            <td><?= $value['periode_pelaksanaan'] ?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <!------- Dokumen Pendukung ------->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <?php foreach ($dokumen_pendukung as $key => $value) { ?>
+
+                                        <?php if ($value['name'] == 'file_sertifikat') { ?>
+                                            <?php foreach ($media_sertifikat->items as $key2 => $value2) { ?>
+                                                <tr>
+                                                    <td><?= $key += 1 ?>.</td>
+                                                    <td><?= $value['label'] ?> <?= $key2 += 1 ?></td>
+                                                    <td>:</td>
+                                                    <td>
+                                                        <div class="">
+                                                            <button style="font-size: 12px;" type="button" class="btn btn-sm pratinjau btn-outline-primary" data-bs-file="<?= $selectMedia($karyawan['id_karyawan'], $value['name'])['path_media'] ?>"><i class="fa fa-eye" aria-hidden="true"></i> Pratinjau</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                        <?php } else { ?>
                                             <tr>
                                                 <td><?= $key += 1 ?>.</td>
                                                 <td><?= $value['label'] ?></td>
                                                 <td>:</td>
                                                 <td>
                                                     <div class="">
-                                                        <button style="font-size: 12px;" type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-file="<?= $selectMedia($karyawan['id_karyawan'], $value['name'])['path_media'] ?>" data-bs-target="#dokumenPersyaratan"><i class="fa fa-eye" aria-hidden="true"></i> Pratinjau</button>
+                                                        <button style="font-size: 12px;" type="button" class="btn btn-sm pratinjau btn-outline-primary" data-bs-file="<?= $selectMedia($karyawan['id_karyawan'], $value['name'])['path_media'] ?>"><i class="fa fa-eye" aria-hidden="true"></i> Pratinjau</button>
                                                     </div>
                                                 </td>
                                             </tr>
                                         <?php } ?>
-                                    </table>
+                                    <?php } ?>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="border rounded p-2">
+                                    <img src="" alt="" class="img-fluid fileSakip d-none rounded">
+                                    <iframe class="rounded" src="" frameborder="0" toolbar="true" id="fileSakipPDF" style="display: block;width:100%;height:574px;"></iframe>
                                 </div>
                             </div>
                         </div>
+                        <!------- End Dokumen Pendukung ------->
                     </div>
+                </div>
 
+            </div>
+
+
+            <div class="card-footer">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <!-- <a href="/employee/<?= $karyawan['id_karyawan'] ?>/export" class="btn btn-sm btn-outline-primary me-2" type="button" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export</a> -->
+                    <a href="/employee/<?= $karyawan['id_karyawan'] ?>/print" class="btn btn-sm btn-outline-primary" type="button" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
                 </div>
             </div>
+
         </div>
     </div>
-
-    <div class="modal fade" id="dokumenPersyaratan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="modal-title" id="exampleModalLabel">Preview</h6>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body mx-auto">
-                    <img src="" alt="" class="img-fluid fileSakip d-none">
-                    <iframe src="" frameborder="0" toolbar="true" id="fileSakipPDF" style="display: block;width:100%;height:400px;"></iframe>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </body>
 
+
 <script>
-    $("#dokumenPersyaratan").on("show.bs.modal", function(event) {
-        // Button that triggered the modal
-        var button = event.relatedTarget;
-        var file = button.getAttribute("data-bs-file");
+    $(".pratinjau").on('click', function(event) {
+        var file = $(this).attr("data-bs-file");
         var extFile = file.split(".");
 
         if (extFile[1] != 'pdf') {
-            $(this).find("#fileSakipPDF").addClass("d-none");
-            $(this).find(".fileSakip").removeClass("d-none");
-            $(this).find(".modal-body").addClass("mx-auto");
-            $(this)
-                .find(".fileSakip")[0]
-                .setAttribute("src", '/assets/media/' + file);
+            $("#fileSakipPDF").addClass("d-none");
+            $(".fileSakip").removeClass("d-none");
+            $(".fileSakip").prop("src", '/assets/media/' + file);
         } else {
-            $(this).find(".fileSakip").addClass("d-none");
-            $(this).find("#fileSakipPDF").removeClass("d-none");
-            $(this).find(".modal-body").removeClass("mx-auto");
-            $(this)
-                .find("#fileSakipPDF")[0]
-                .setAttribute("src", '/assets/media/' + file);
+            $(".fileSakip").addClass("d-none");
+            $("#fileSakipPDF").removeClass("d-none");
+            $("#fileSakipPDF").prop("src", '/assets/media/' + file);
         }
 
     });

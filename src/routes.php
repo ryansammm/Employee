@@ -593,6 +593,8 @@ $routes->push('appointmentDetail', '/appointment/detail/{id}', [AppointmentContr
 /* -------------------------------- Karyawan -------------------------------- */
 $routes->push('employee', '/employee', [EmployeeController::class, 'index']);
 $routes->push('employeeList', '/employee/list', [EmployeeController::class, 'list']);
+$routes->push('employeePrint', '/employee/{id}/print', [EmployeeController::class, 'print']);
+$routes->push('employeeExport', '/employee/{id}/export', [EmployeeController::class, 'export']);
 $routes->push('employeeDetail', '/employee/{id}/detail', [EmployeeController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
 

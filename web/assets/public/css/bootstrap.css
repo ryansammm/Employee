@@ -595,6 +595,7 @@ progress {
 
 .img-fluid {
   max-width: 100%;
+  object-fit: cover;
   height: auto;
 }
 
@@ -3943,7 +3944,8 @@ textarea.form-control-lg {
 }
 
 .nav-tabs {
-  border-bottom: 1px solid #dee2e6;
+  /* border-bottom: 1px solid #dee2e6; */
+  border-bottom: red;
 }
 .nav-tabs .nav-link {
   margin-bottom: -1px;
@@ -3955,6 +3957,7 @@ textarea.form-control-lg {
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
   border-color: #e9ecef #e9ecef #dee2e6;
   isolation: isolate;
+  border-color: #e9ecef #e9ecef #dee2e6;
 }
 .nav-tabs .nav-link.disabled {
   color: #6c757d;
@@ -3965,7 +3968,8 @@ textarea.form-control-lg {
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
   background-color: #fff;
-  border-color: #dee2e6 #dee2e6 #fff;
+  /* border-color: #e3e3e3 #e3e3e3 #fff; */
+  border-color: #ff0000 #ff0000 #fff;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;

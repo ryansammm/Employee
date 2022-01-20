@@ -1,5 +1,16 @@
 <?php include __DIR__ . '/../Header.php' ?>
 
+<style>
+    table {
+        font-size: 13px;
+        font-family: 'Poppins', sans-serif !important;
+    }
+
+    h5 {
+        font-family: 'Poppins', sans-serif !important;
+    }
+</style>
+
 <div class="container">
     <div class="card">
         <div class="card-body">

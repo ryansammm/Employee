@@ -2,9 +2,9 @@
 <div class="container-fluid " style="background-color: #141414 !important;">
     <footer class="row py-4 mt-5 border-top">
 
-        <div class="col-md-2 col-12 mb-3" style="margin-top: auto;margin-bottom: auto;">
+        <div class="col-md-3 col-12 mb-3" style="margin-top: auto;margin-bottom: auto;">
             <img class="d-flex mx-auto mb-2" src="/assets/logo/PTA-logo.png" alt="" style="width: 110px;">
-            <p class="text-center m-0" style="color: #c1c1c1;font-weight: 400;font-family: Astro-Space;">Panca Teknologi Aksesindo</p>
+            <p class="text-center m-0 text-nowrap" style="color: #c1c1c1;font-weight: 400;font-family: Astro-Space;">Panca Teknologi Aksesindo</p>
         </div>
 
         <!-- <div class="col-md-2 pe-3 mb-3">
@@ -33,7 +33,7 @@
             </div>
         </div> -->
 
-        <div class="col-md-6"></div>
+        <div class="col-md-5"></div>
 
         <div class="col-md-2 col-12 text-center d-sm-block d-none" style="margin-top: auto;margin-bottom: auto;">
             <div class="d-flex-column justify-content-end">

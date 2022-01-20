@@ -8,7 +8,9 @@
         "doctrine/annotations": "^1.13",
         "siriusphp/validation": "^3.0",
         "symfony/mime": "^5.4",
-        "phpmailer/phpmailer": "^6.5"
+        "phpmailer/phpmailer": "^6.5",
+        "dompdf/dompdf": "^1.1",
+        "mpdf/mpdf": "^8.0"
     },
 	"autoload": {
         "files": [

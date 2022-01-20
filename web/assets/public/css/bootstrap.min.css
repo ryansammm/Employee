@@ -416,7 +416,7 @@ button {
 [type=reset]:not(:disabled),
 [type=submit]:not(:disabled),
 button:not(:disabled) {
-    cursor: pointer
+    cursor: pointer;
 }
 
 ::-moz-focus-inner {
@@ -4468,7 +4468,7 @@ fieldset:disabled .btn {
 
 .nav-link:focus,
 .nav-link:hover {
-    color: #0a58ca
+    color: #0a58ca;
 }
 
 .nav-link.disabled {
@@ -4486,13 +4486,13 @@ fieldset:disabled .btn {
     background: 0 0;
     border: 1px solid transparent;
     border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem
+    border-top-right-radius: .25rem;
 }
 
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
     border-color: #e9ecef #e9ecef #dee2e6;
-    isolation: isolate
+    isolation: isolate;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -5136,7 +5136,7 @@ fieldset:disabled .btn {
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem
+    border-radius: .25rem;
 }
 
 .card>hr {

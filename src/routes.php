@@ -48,6 +48,7 @@ use App\Login\Controller\LoginController;
 use App\Maintenance\Controller\MaintenanceController;
 use App\Menu\Controller\MenuController;
 use App\Panduan\Controller\PanduanController;
+use App\Partner\Controller\PartnerController;
 use App\Pedoman\Controller\PedomanController;
 use App\PelangganAdmin\Controller\PelangganAdminController;
 use App\Produk\Controller\ProdukController;
@@ -529,6 +530,12 @@ $routes->prefix('gallery', function ($routes) {
 /* ----------------------------- Front Customer ----------------------------- */
 $routes->push('customer', '/customer', [CustomerController::class, 'index']);
 $routes->push('customer_detail', '/customer/{id}/detail', [CustomerController::class, 'detail']);
+/* -------------------------------------------------------------------------- */
+
+
+/* ----------------------------- Front Partner ----------------------------- */
+$routes->push('partner', '/partner', [PartnerController::class, 'index']);
+$routes->push('partner_detail', '/partner/{id}/detail', [PartnerController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
 
 

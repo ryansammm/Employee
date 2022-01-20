@@ -34,435 +34,496 @@
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="/admin/profil" class="nav-link <?= $GLOBALS['url'] == '/admin/profil' ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-id-card"></i>
-                        <p>
-                            Kelola Profil Perusahaan
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/profil" class="nav-link <?= $GLOBALS['url'] == '/admin/profil' ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-id-card"></i>
+                            <p>
+                                Kelola Profil Perusahaan
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c304b03104d' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link <?= strpos($GLOBALS['url'], 'berita') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-newspaper"></i>
-                        <p>
-                            Berita
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/berita" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Berita</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/kategori-berita" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Kategori</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/komentar-berita" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Komentar</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link <?= strpos($GLOBALS['url'], 'berita') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-newspaper"></i>
+                            <p>
+                                Berita
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/berita" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Berita</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/kategori-berita" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Kategori</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/komentar-berita" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Komentar</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c304b03104d' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link <?= strpos($GLOBALS['url'], 'produk') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-box"></i>
-                        <p>
-                            Produk Kami
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/produk" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Produk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/produk/redaction" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Pengecekan & Editorial</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/produk/approval" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Approval Produk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
-                            </a>
-                            <ul class="nav nav-treeview" style="display: none;">
-                                <li class="nav-item" style="padding-left: 55px;">
-                                    <a href="/admin/kategori-produk/konten" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Kelola Konten</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="padding-left: 55px;">
-                                    <a href="/admin/kategori-produk/style" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Kelola Tampilan</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link <?= strpos($GLOBALS['url'], 'produk') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-box"></i>
+                            <p>
+                                Produk Kami
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/produk" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Produk</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/produk/redaction" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Pengecekan & Editorial</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/produk/approval" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Approval Produk</p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview" style="display: none;">
+                                    <li class="nav-item" style="padding-left: 55px;">
+                                        <a href="/admin/kategori-produk/konten" class="nav-link">
+                                            <i class="far fa-dot-circle nav-icon"></i>
+                                            <p>Kelola Konten</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" style="padding-left: 55px;">
+                                        <a href="/admin/kategori-produk/style" class="nav-link">
+                                            <i class="far fa-dot-circle nav-icon"></i>
+                                            <p>Kelola Tampilan</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998'  || $GLOBALS['id_role'] == '61c304b03104d' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link <?= strpos($GLOBALS['url'], 'layanan') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
-                            Layanan Kami
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/layanan" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Layanan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/layanan/redaction" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Pengecekan & Editorial</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/layanan/approval" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Approval Layanan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
-                            </a>
-                            <ul class="nav nav-treeview" style="display: none;">
-                                <li class="nav-item" style="padding-left: 55px;">
-                                    <a href="/admin/kategori-layanan/konten" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Kelola Konten</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="padding-left: 55px;">
-                                    <a href="/admin/kategori-layanan/style" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Kelola Tampilan</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link <?= strpos($GLOBALS['url'], 'layanan') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-cogs"></i>
+                            <p>
+                                Layanan Kami
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/layanan" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Layanan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/layanan/redaction" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Pengecekan & Editorial</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/layanan/approval" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Approval Layanan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview" style="display: none;">
+                                    <li class="nav-item" style="padding-left: 55px;">
+                                        <a href="/admin/kategori-layanan/konten" class="nav-link">
+                                            <i class="far fa-dot-circle nav-icon"></i>
+                                            <p>Kelola Konten</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" style="padding-left: 55px;">
+                                        <a href="/admin/kategori-layanan/style" class="nav-link">
+                                            <i class="far fa-dot-circle nav-icon"></i>
+                                            <p>Kelola Tampilan</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c304b03104d' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="/admin/galeri" class="nav-link <?= strpos($GLOBALS['url'], 'galeri') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-image"></i>
-                        <p>
-                            Portofolio
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/galeri" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Portofolio</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/galeri/redaction" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Pengecekan & Editorial</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/galeri/approval" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Approval Portofolio</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
-                            </a>
-                            <ul class="nav nav-treeview" style="display: none;">
-                                <li class="nav-item" style="padding-left: 55px;">
-                                    <a href="/admin/kategori-galeri/konten" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Kelola Konten</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="padding-left: 55px;">
-                                    <a href="/admin/kategori-galeri/style" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Kelola Tampilan</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/galeri" class="nav-link <?= strpos($GLOBALS['url'], 'galeri') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>
+                                Portofolio
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/galeri" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Portofolio</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/galeri/redaction" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Pengecekan & Editorial</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/galeri/approval" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Approval Portofolio</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Kategori <i class="right fas fa-angle-left"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview" style="display: none;">
+                                    <li class="nav-item" style="padding-left: 55px;">
+                                        <a href="/admin/kategori-galeri/konten" class="nav-link">
+                                            <i class="far fa-dot-circle nav-icon"></i>
+                                            <p>Kelola Konten</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" style="padding-left: 55px;">
+                                        <a href="/admin/kategori-galeri/style" class="nav-link">
+                                            <i class="far fa-dot-circle nav-icon"></i>
+                                            <p>Kelola Tampilan</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c304b03104d' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="/admin/video" class="nav-link <?= strpos($GLOBALS['url'], 'video') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-video"></i>
-                        <p>
-                            Kelola Video
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/video" class="nav-link <?= strpos($GLOBALS['url'], 'video') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-video"></i>
+                            <p>
+                                Kelola Video
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="/admin/banner" class="nav-link <?= strpos($GLOBALS['url'], 'banner') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-file-image"></i>
-                        <p>
-                            Kelola Banner
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/banner" class="nav-link <?= strpos($GLOBALS['url'], 'banner') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-file-image"></i>
+                            <p>
+                                Kelola Banner
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="/admin/pelanggan" class="nav-link <?= strpos($GLOBALS['url'], 'pelanggan') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Kelola Klien
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/pelanggan" class="nav-link <?= strpos($GLOBALS['url'], 'pelanggan') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Kelola Klien
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="/admin/akreditasi" class="nav-link <?= strpos($GLOBALS['url'], 'akreditasi') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-award"></i>
-                        <p>
-                            Kelola Akreditasi
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/partner" class="nav-link <?= strpos($GLOBALS['url'], 'partner') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Kelola Partner
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="/admin/asosiasi" class="nav-link <?= strpos($GLOBALS['url'], 'asosiasi') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-handshake"></i>
-                        <p>
-                            Kelola Asosiasi
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/akreditasi" class="nav-link <?= strpos($GLOBALS['url'], 'akreditasi') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-award"></i>
+                            <p>
+                                Kelola Akreditasi
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="/admin/kontak" class="nav-link <?= strpos($GLOBALS['url'], 'kontak') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Kelola Kontak
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/asosiasi" class="nav-link <?= strpos($GLOBALS['url'], 'asosiasi') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-handshake"></i>
+                            <p>
+                                Kelola Asosiasi
+                            </p>
+                        </a>
+                    </li>
+                <?php } ?>
+
+                <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
+                    <li class="nav-item">
+                        <a href="/admin/kontak" class="nav-link <?= strpos($GLOBALS['url'], 'kontak') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Kelola Kontak
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028') { ?>
-                <li class="nav-item">
-                    <a href="/admin/sosial-media" class="nav-link <?= strpos($GLOBALS['url'], 'sosial-media') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-thumbs-up"></i>
-                        <p>
-                            Kelola Sosial Media
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/sosial-media" class="nav-link <?= strpos($GLOBALS['url'], 'sosial-media') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-thumbs-up"></i>
+                            <p>
+                                Kelola Sosial Media
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
-                <li class="nav-item">
-                    <a href="/admin/pengguna" class="nav-link <?= strpos($GLOBALS['url'], 'pengguna') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-users-cog"></i>
-                        <p>
-                            Kelola Pengguna
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/pengguna" class="nav-link <?= strpos($GLOBALS['url'], 'pengguna') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-users-cog"></i>
+                            <p>
+                                Kelola Pengguna
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
-                <li class="nav-item">
-                    <a href="/admin/roles" class="nav-link <?= strpos($GLOBALS['url'], 'roles') != false ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-users-cog"></i>
-                        <p>
-                            Kelola Role
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/roles" class="nav-link <?= strpos($GLOBALS['url'], 'roles') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-users-cog"></i>
+                            <p>
+                                Kelola Role
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Kelola Karyawan
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/karyawan" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Karyawan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/jabatan" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Jabatan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/pelamar" class="nav-link <?= strpos($GLOBALS['url'], 'pelamar') != false ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Kelola Data Pelamar
+                            </p>
+                        </a>
+                    </li>
+                <?php } ?>
+
+
+                <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Kelola Karyawan
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/karyawan" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Karyawan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/jabatan" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Jabatan</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
+
+                <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Data Karyawan
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/data-karyawan/tetap" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Karyawan Tetap</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/data-karyawan/kontrak" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Karyawan Kontrak</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/data-karyawan/tidak-tetap" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Karyawan Tidak Tetap</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/data-karyawan/resign" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Karyawan Resign</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998' || $GLOBALS['id_role'] == '61c302ba75028' || $GLOBALS['id_role'] == '61c3ebd49785e') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Kelola Profile Tim
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/profile-team" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Profile</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/jabatan" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Jabatan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Kelola Profile Tim
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/profile-team" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Profile</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/jabatan" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Jabatan</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Kelola Pertemuan
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/appointment" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Pertemuan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/appointment-approval" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Persetujuan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Kelola Pertemuan
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/appointment" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Pertemuan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/appointment-approval" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Persetujuan</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
-                <li class="nav-item">
-                    <a href="/admin/menu" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
-                            Kelola Menu Website
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/menu" class="nav-link">
+                            <i class="nav-icon fas fa-cogs"></i>
+                            <p>
+                                Kelola Menu Website
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
-                            Kelola Halaman
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/component" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Komponen</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/halaman" class="nav-link" style="padding-left: 43px;">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kelola Halaman</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-cogs"></i>
+                            <p>
+                                Kelola Halaman
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/component" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Komponen</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/halaman" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Halaman</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
-                <li class="nav-item">
-                    <a href="/admin/login-template" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
-                            Ubah Template Log In
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/setting-website" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
-                            Pengaturan Website
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/login-template" class="nav-link">
+                            <i class="nav-icon fas fa-cogs"></i>
+                            <p>
+                                Ubah Template Log In
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/setting-website" class="nav-link">
+                            <i class="nav-icon fas fa-cogs"></i>
+                            <p>
+                                Pengaturan Website
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
 
             </ul>

@@ -37,6 +37,7 @@ class KaryawanController
     public $kemampuan;
     public $pengalamanOrganisasi;
     public $pengalamanPekerjaan;
+    public $media;
 
     public function __construct()
     {
@@ -54,14 +55,33 @@ class KaryawanController
         $this->kemampuan = new Kemampuan();
         $this->pengalamanOrganisasi = new PengalamanOrganisasi();
         $this->pengalamanPekerjaan = new PengalamanPekerjaan();
+        $this->media = new Media();
     }
 
     public function index(Request $request)
     {
         $datas = $this->karyawan
-            ->leftJoin('media', 'media.id_relation', '=', 'karyawan.id_karyawan')
-            ->where('hide', '2')
+            ->leftJoin('status_kepegawaian', 'status_kepegawaian.id_status_kepegawaian', '=', 'karyawan.id_status_kepegawaian')
+            ->leftJoin('bank', 'bank.id_bank', '=', 'karyawan.id_bank')
+            ->leftJoin('karyawan_jabatan', 'karyawan_jabatan.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('jabatan', 'jabatan.id_jabatan', '=', 'karyawan_jabatan.id_jabatan')
+            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_relation', '=', 'karyawan.id_karyawan')
+            ->leftJoin('bidang_entitas', 'bidang_entitas.id_relation', '=', 'karyawan.id_karyawan')
+            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'bidang_entitas.id_bidang')
+            ->where('karyawan.hide', '2')
             ->paginate(10);
+
+        foreach ($datas->items as $key => $value) {
+            if ($value['status_karyawan'] == '1') {
+                $datas->items[$key]['jenis_karyawan'] = 'Karyawan Tetap';
+            } else if ($value['status_karyawan'] == '2') {
+                $datas->items[$key]['jenis_karyawan'] = 'Karyawan Kontrak';
+            } else if ($value['status_karyawan'] == '3') {
+                $datas->items[$key]['jenis_karyawan'] = 'Karyawan Tidak Tetap';
+            } else if ($value['status_karyawan'] == '4') {
+                $datas->items[$key]['jenis_karyawan'] = 'Karyawan Resign';
+            }
+        }
 
         return render_template('admin/karyawan/index', ['datas' => $datas]);
     }
@@ -203,17 +223,31 @@ class KaryawanController
         $media = new Media();
         $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('profile_foto'), [
             'id_relation' => $create,
-            'jenis_dokumen' => 'foto-profil-karyawan',
+            'jenis_dokumen' => 'foto_profile',
         ]);
         /* -------------------------------------------------------------------------- */
 
+
         /* ---------------------------- Dokumen Pendukung --------------------------- */
         foreach (array_keys($request->files->all()) as $key2 => $value2) {
-            if ($key2 != 'profile_foto') {
-                $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get($value2), [
-                    'id_relation' => $create,
-                    'jenis_dokumen' => $value2,
-                ], $this->karyawan, $create);
+
+            if ($value2 == 'file_sertifikat') {
+                foreach ($request->files->get('file_sertifikat') as $key => $value) {
+                    $media->path(env('APP_MEDIA_DIR'))->updateMedia($value, [
+                        'id_relation' => $create,
+                        'jenis_dokumen' => 'file_sertifikat',
+                    ], $this->karyawan, $create);
+                }
+            }
+
+            if ($value2 != 'profile_foto') {
+                if ($value2 != 'file_sertifikat') {
+                    // dd($request->files->get($value2));
+                    $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get($value2), [
+                        'id_relation' => $create,
+                        'jenis_dokumen' => $value2,
+                    ], $this->karyawan, $create);
+                }
             }
         }
         /* -------------------------------------------------------------------------- */
@@ -224,6 +258,8 @@ class KaryawanController
     public function edit(Request $request)
     {
         $id = $request->attributes->get('id');
+
+        $date = date('Y-m-d');
 
         $status_kepegawaian = $this->statusKepegawaian->get();
         $bank = $this->bank->orderBy('nama_bank', 'ASC')->get();
@@ -241,6 +277,7 @@ class KaryawanController
             ->leftJoin('bidang_entitas', 'bidang_entitas.id_relation', '=', 'karyawan.id_karyawan')
             ->leftJoin('bidang', 'bidang.id_bidang', '=', 'bidang_entitas.id_bidang')
             ->where('karyawan.id_karyawan', $id)
+            ->where('media.jenis_dokumen', 'foto_profile')
             ->first();
         /* -------------------------------------------------------------------------- */
 
@@ -315,9 +352,42 @@ class KaryawanController
             ->get();
         /* -------------------------------------------------------------------------- */
 
+        $dokumen_pendukung = [
+            ['label' => 'KTP', 'name' => 'file_ktp'],
+            ['label' => 'NPWP', 'name' => 'file_npwp'],
+            ['label' => 'Ijazah Terakhir', 'name' => 'file_ijazah'],
+            ['label' => 'Transkrip Nilai Terakhir', 'name' => 'file_transkrip_nilai'],
+            ['label' => 'Sertifikat', 'name' => 'file_sertifikat[]'],
+            ['label' => 'Salinan Buku Bank', 'name' => 'file_salinan_bank'],
+            ['label' => 'SIM A', 'name' => 'file_sim_a'],
+            ['label' => 'SIM B1', 'name' => 'file_sim_b1'],
+            ['label' => 'SIM B2', 'name' => 'file_sim_b2'],
+            ['label' => 'SIM C', 'name' => 'file_sim_c'],
+            ['label' => 'SIM D', 'name' => 'file_sim_d'],
+            ['label' => 'Kartu Keluarga', 'name' => 'file_kk'],
+            ['label' => 'Passport', 'name' => 'file_passport'],
+            ['label' => 'Salinan Kartu Anggota Asuransi', 'name' => 'file_asuransi'],
+            ['label' => 'Pakelaring / Surat Keterangan Pengalaman Kerja', 'name' => 'file_pakelaring'],
+            ['label' => 'Kartu Kuning', 'name' => 'file_kartu_kuning'],
+        ];
+
+        $selectMedia = function ($id, $jenis_dokumen) {
+            $media = new Media();
+
+            return $media_karyawan = $media
+                ->where('id_relation', $id)
+                ->where('jenis_dokumen', $jenis_dokumen)
+                ->first();
+        };
+
+        $media_sertifikat = $this->media
+            ->where('jenis_dokumen', 'file_sertifikat')
+            ->where('id_relation', $id)
+            ->get();
+
         $detail_kontak_alt = $this->karyawanKontakAlt->where('id_karyawan', $id)->first();
 
-        return render_template('admin/karyawan/edit', ['detail' => $detail, 'status_kepegawaian' => $status_kepegawaian, 'bank' => $bank, 'detail_kontak_alt' => $detail_kontak_alt, 'jabatan' => $jabatan, 'bidang' => $bidang, 'pendidikan_non_formal' => $pendidikan_non_formal, 'kemampuan' => $kemampuan, 'keluarga' => $keluarga, 'pengalaman_organisasi' => $pengalaman_organisasi, 'pengalaman_pekerjaan' => $pengalaman_pekerjaan, 'pendidikan_formal' => $pendidikan_formal, 'pendidikan_non_formal_bergabung' => $pendidikan_non_formal_bergabung, 'pengalaman_organisasi_bergabung' => $pengalaman_organisasi_bergabung]);
+        return render_template('admin/karyawan/edit', ['detail' => $detail, 'status_kepegawaian' => $status_kepegawaian, 'bank' => $bank, 'detail_kontak_alt' => $detail_kontak_alt, 'jabatan' => $jabatan, 'bidang' => $bidang, 'pendidikan_non_formal' => $pendidikan_non_formal, 'kemampuan' => $kemampuan, 'keluarga' => $keluarga, 'pengalaman_organisasi' => $pengalaman_organisasi, 'pengalaman_pekerjaan' => $pengalaman_pekerjaan, 'pendidikan_formal' => $pendidikan_formal, 'pendidikan_non_formal_bergabung' => $pendidikan_non_formal_bergabung, 'pengalaman_organisasi_bergabung' => $pengalaman_organisasi_bergabung, 'dokumen_pendukung' => $dokumen_pendukung, 'selectMedia' => $selectMedia, 'media_sertifikat' => $media_sertifikat]);
     }
 
     public function update(Request $request)
@@ -460,8 +530,32 @@ class KaryawanController
         $media = new Media();
         $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('profile_foto'), [
             'id_relation' => $id,
-            'jenis_dokumen' => '',
+            'jenis_dokumen' => 'foto_profile',
         ], $this->karyawan, $id);
+        /* -------------------------------------------------------------------------- */
+
+        /* ---------------------------- Dokumen Pendukung --------------------------- */
+        foreach (array_keys($request->files->all()) as $key2 => $value2) {
+
+            if ($value2 == 'file_sertifikat') {
+                foreach ($request->files->get('file_sertifikat') as $key => $value) {
+                    $media->path(env('APP_MEDIA_DIR'))->updateMedia($value, [
+                        'id_relation' => $id,
+                        'jenis_dokumen' => 'file_sertifikat',
+                    ], $this->karyawan, $id);
+                }
+            }
+
+            if ($value2 != 'profile_foto') {
+                if ($value2 != 'file_sertifikat') {
+                    // dd($request->files->get($value2));
+                    $media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get($value2), [
+                        'id_relation' => $id,
+                        'jenis_dokumen' => $value2,
+                    ], $this->karyawan, $id);
+                }
+            }
+        }
         /* -------------------------------------------------------------------------- */
 
         /* ------------------------------- Update Time ------------------------------ */
@@ -520,7 +614,12 @@ class KaryawanController
 
         /* ------------------------------ Foto Profile ------------------------------ */
         $media = new Media();
-        $media_data = $this->karyawan->select('media.*')->leftJoin('media', 'media.id_relation', '=', 'karyawan.id_karyawan')->where('id_karyawan', $id)->first();
+        $media_data = $this->karyawan
+            ->select('media.*')
+            ->leftJoin('media', 'media.id_relation', '=', 'karyawan.id_karyawan')
+            ->where('id_karyawan', $id)
+
+            ->first();
         $this->karyawan->where('id_karyawan', $id)->delete();
         $media->path(env('APP_MEDIA_DIR'))->deleteMedia($media_data);
         /* -------------------------------------------------------------------------- */
@@ -528,14 +627,16 @@ class KaryawanController
         return new RedirectResponse('/admin/karyawan');
     }
 
-    public function hide(Request $request)
+    public function status(Request $request)
     {
 
         $id = $request->attributes->get('id');
 
+        $datas = $request->request->all();
+
         /* ------------------------------ Hide Karyawan ----------------------------- */
         $this->karyawan->where('id_karyawan', $id)->update([
-            'hide' => '1'
+            'status_karyawan' => $datas['status_karyawan']
         ]);
         /* -------------------------------------------------------------------------- */
 

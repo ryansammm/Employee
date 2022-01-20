@@ -21,6 +21,8 @@ use App\CmsSetting\Controller\CmsSettingController;
 use App\CmsTitle\Controller\CmsTitleController;
 use App\Contact\Controller\ContactController;
 use App\Customer\Controller\CustomerController;
+use App\DataKaryawan\Controller\DataKaryawanController;
+use App\DataKaryawan\Model\DataKaryawan;
 use App\Galeri\Controller\GaleriController;
 use App\GaleriAdmin\Controller\GaleriAdminController;
 use App\GroupGaleri\Controller\GroupGaleriController;
@@ -44,7 +46,9 @@ use App\Login\Controller\LoginController;
 use App\Maintenance\Controller\MaintenanceController;
 use App\Menu\Controller\MenuController;
 use App\Panduan\Controller\PanduanController;
+use App\PartnerAdmin\Controller\PartnerAdminController;
 use App\Pedoman\Controller\PedomanController;
+use App\Pelamar\Controller\PelamarController;
 use App\PelangganAdmin\Controller\PelangganAdminController;
 use App\Produk\Controller\ProdukController;
 use App\ProdukAdmin\Controller\ProdukAdminController;
@@ -271,6 +275,19 @@ $routes->prefix('admin', function ($routes) {
     });
     /* -------------------------------------------------------------------------- */
 
+
+    /* -------------------------- Route Kelola Partner -------------------------- */
+    $routes->prefix('partner', function ($routes) {
+        $routes->push('partner', '', [PartnerAdminController::class, 'index']);
+        $routes->push('partner_create', '/create', [PartnerAdminController::class, 'create']);
+        $routes->push('partner_store', '/store', [PartnerAdminController::class, 'store']);
+        $routes->push('partner_edit', '/{id}/edit', [PartnerAdminController::class, 'edit']);
+        $routes->push('partner_update', '/{id}/update', [PartnerAdminController::class, 'update']);
+        $routes->push('partner_show', '/{id}/show', [PartnerAdminController::class, 'show']);
+        $routes->push('partner_delete', '/{id}/delete', [PartnerAdminController::class, 'delete']);
+    });
+    /* -------------------------------------------------------------------------- */
+
     /* --------------------------- Route Kelola Profil -------------------------- */
     $routes->prefix('profil', function ($routes) {
         $routes->push('profil', '', [ProfilAdminController::class, 'edit']);
@@ -443,7 +460,30 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('karyawan_show', '/{id}/show', [KaryawanController::class, 'show']);
         $routes->push('karyawan_delete', '/{id}/delete', [KaryawanController::class, 'delete']);
         $routes->push('karyawan_get', '/get', [KaryawanController::class, 'get']);
-        $routes->push('karyawan_hide', '/{id}/hide', [KaryawanController::class, 'hide']);
+        $routes->push('karyawan_status', '/{id}/status', [KaryawanController::class, 'status']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* ------------------------------ Data Karyawan ----------------------------- */
+    $routes->prefix('data-karyawan', function ($routes) {
+        $routes->push('data_karyawan_tetap', '/tetap', [DataKaryawanController::class, 'karyawanTetap']);
+        $routes->push('data_karyawan_kontrak', '/kontrak', [DataKaryawanController::class, 'karyawanKontrak']);
+        $routes->push('data_karyawan_tidak_tetap', '/tidak-tetap', [DataKaryawanController::class, 'karyawanTidakTetap']);
+        $routes->push('data_karyawan_resign', '/resign', [DataKaryawanController::class, 'karyawanResign']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* --------------------------------- Pelamar -------------------------------- */
+    $routes->prefix('pelamar', function ($routes) {
+        $routes->push('pelamar', '', [PelamarController::class, 'index']);
+        $routes->push('pelamar_create', '/create', [PelamarController::class, 'create']);
+        $routes->push('pelamar_store', '/store', [PelamarController::class, 'store']);
+        $routes->push('pelamar_edit', '/{id}/edit', [PelamarController::class, 'edit']);
+        $routes->push('pelamar_update', '/{id}/update', [PelamarController::class, 'update']);
+        $routes->push('pelamar_show', '/{id}/show', [PelamarController::class, 'show']);
+        $routes->push('pelamar_delete', '/{id}/delete', [PelamarController::class, 'delete']);
+        $routes->push('pelamar_get', '/get', [PelamarController::class, 'get']);
+        $routes->push('pelamar_status', '/{id}/status', [PelamarController::class, 'status']);
     });
     /* -------------------------------------------------------------------------- */
 

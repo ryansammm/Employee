@@ -6,7 +6,7 @@
 <style>
     label {
         font-weight: 500 !important;
-        font-size: 13px !important;
+        font-size: 11px !important;
     }
 
     .form-control {
@@ -64,29 +64,26 @@
     }
 
     h5 {
-        font-size: 16px !important;
+        font-size: 13px !important;
     }
 </style>
 
 
 <div class="content-wrapper" id="top">
-
-
-
     <div class="bs-stepper">
         <div class="bs-stepper-header" role="tablist" style="background-color: #9191912e;">
             <!-- your steps here -->
             <div class="step" data-target="#sebelum-bergabung">
                 <button type="button" class="step-trigger" role="tab" aria-controls="sebelum-bergabung" id="sebelum-bergabung-trigger">
                     <span class="bs-stepper-circle">1</span>
-                    <span class="bs-stepper-label">Data Sebelum Bergabung</span>
+                    <span class="bs-stepper-label">Data Utama</span>
                 </button>
             </div>
             <div class="line"></div>
             <div class="step" data-target="#sesudah-bergabung">
                 <button type="button" class="step-trigger" role="tab" aria-controls="sesudah-bergabung" id="sesudah-bergabung-trigger">
                     <span class="bs-stepper-circle">2</span>
-                    <span class="bs-stepper-label">Data Sesudah Bergabung</span>
+                    <span class="bs-stepper-label">Data Pengalaman</span>
                 </button>
             </div>
             <div class="line"></div>
@@ -101,7 +98,6 @@
         <div class="bs-stepper-content">
             <form action="/admin/karyawan/store" method="POST" enctype="multipart/form-data">
 
-
                 <div id="sebelum-bergabung" class="content" role="tabpanel" aria-labelledby="sebelum-bergabung-trigger">
                     <div class="content-header">
                         <div class="container-fluid">
@@ -110,13 +106,13 @@
                                     <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                                 </div>
                                 <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
+                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Karyawan</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Karyawan</a></li>
-                                        <li class="breadcrumb-item active">Tambah Kolom Karyawan</li>
+                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
+                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Tambah Kolom Pelamar</li>
                                     </ol>
                                 </div>
                             </div>
@@ -125,245 +121,170 @@
                     <div class="container">
                         <div class="card">
                             <div class="card-body">
-                                <!-- IDENTITAS KARYAWAN -->
-                                <h5>IDENTITAS KARYAWAN</h5>
-                                <div class="border rounded p-3">
+                                <!-- IDENTITAS PRIBADI -->
+                                <h5>IDENTITAS PRIBADI</h5>
+                                <div class="border rounded px-3 py-2">
                                     <div class="row">
-
                                         <div class="col-md-2">
                                             <div class="crop">
                                                 <img class="foto_utama_preview" src="/assets/icon/default-profile.jpg" alt="Donald Duck">
                                             </div>
                                         </div>
-
                                         <div class="col-md-10">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Foto Profile</label>
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input foto_utama" name="profile_foto" required>
+                                                            <input type="file" class="custom-file-input foto_utama" name="foto_profile_pelamar" required>
                                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Status Kepegawaian *</label>
-                                                        <select name="id_status_kepegawaian" class="form-control" required>
-                                                            <option value=""> -- Pilih Status -- </option>
-                                                            <?php foreach ($status_kepegawaian->items as $key => $data) { ?>
-                                                                <option value="<?= $data['id_status_kepegawaian'] ?>"><?= $data['nama_status_kepegawaian'] ?></option>
-                                                            <?php } ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Nomor Induk Karyawan *</label>
-                                                        <input type="text" name="no_induk_karyawan" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Tanggal Mulai Bekerja *</label>
-                                                        <input type="date" name="tgl_mulai_kerja" class="form-control" required value="<?= date("Y-m-d") ?>">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Nama Lengkap Sesuai KTP *</label>
-                                                        <input type="text" name="nama_lengkap" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Nama Panggilan *</label>
-                                                        <input type="text" name="nama_panggilan" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4">
-                                            <div class="mb-2">
-                                                <label for="">Jabatan *</label>
-                                                <select name="id_jabatan" class="form-control" required>
-                                                    <option value=""> -- Pilih Jabatan -- </option>
-                                                    <?php foreach ($jabatan->items as $key => $data) { ?>
-                                                        <option value="<?= $data['id_jabatan'] ?>"><?= $data['nama'] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <div class="mb-1">
-                                                <label for="">Divisi *</label>
-                                                <input type="text" name="nama_divisi" id="" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <div class="mb-1">
-                                                <label for="">Bidang / Departemen *</label>
-                                                <select name="id_bidang" class="form-control" required>
-                                                    <option value=""> -- Pilih Bidang / Departemen -- </option>
-                                                    <?php foreach ($bidang->items as $key => $item) { ?>
-                                                        <option value="<?= $item['id_bidang'] ?>"><?= $item['nama_bidang'] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END IDENTITAS KARYAWAN -->
-                                <!-- DATA PRIBADI -->
-                                <h5 class="mt-3">DATA PRIBADI</h5>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="border rounded p-3">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6">
+                                                <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Nomor KTP *</label>
                                                         <input type="text" name="no_ktp" class="form-control" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
+                                                <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Nomor Kartu Keluarga *</label>
                                                         <input type="text" name="no_kk" class="form-control" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="mb-2">
+                                                        <label for="">Nama Lengkap Sesuai KTP *</label>
+                                                        <input type="text" name="nama_lengkap" class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Nomor Seluler Pribadi *</label>
                                                         <input type="text" name="no_seluler_pribadi" class="form-control" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Nomor Seluler Kantor *</label>
-                                                        <input type="text" name="no_seluler_kantor" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
+                                                <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Alamat Email Pribadi *</label>
                                                         <input type="text" name="email_pribadi" class="form-control" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
                                                     <div class="mb-2">
-                                                        <label for="">Alamat Email Kantor *</label>
-                                                        <input type="text" name="email_kantor" class="form-control" required>
+                                                        <label for="">Nama Panggilan *</label>
+                                                        <input type="text" name="nama_panggilan" class="form-control" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
+                                                <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Kewarganegaraan *</label>
                                                         <input type="text" name="kewarganegaraan" class="form-control" required>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
+                                                <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Nomor Passport, Bila Ada</label>
                                                         <input type="text" name="no_passport" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Nomor SIM C</label>
-                                                        <input type="text" name="no_sim_c" class="form-control">
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="border rounded p-3">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Tempat Lahir *</label>
-                                                        <input type="text" name="tempat_lahir" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="tgl_lahir" class="form-label">Tanggal Lahir *</label>
-                                                        <input type="date" class="form-control" required id="tgl_lahir" name="tgl_lahir">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Jenis Kelamin *</label>
-                                                        <select name="jenis_kelamin" class="form-control" required>
-                                                            <option value=""> -- Pilih Jenis Kelamin -- </option>
-                                                            <option value="1">Laki - Laki</option>
-                                                            <option value="2">Perempuan</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Status *</label>
-                                                        <select name="status_perkawinan" class="form-control" required>
-                                                            <option value=""> -- Pilih Status Perkawinan -- </option>
-                                                            <option value="1">Sudah Menikah</option>
-                                                            <option value="2">Belum Menikah</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-3">
-                                                    <div class="mb-2">
-                                                        <label for="">Berat Badan *</label>
-                                                        <input type="number" min="1" name="berat_badan" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-3">
-                                                    <div class="mb-2">
-                                                        <label for="">Tinggi Badan *</label>
-                                                        <input type="number" min="1" name="tinggi_badan" class="form-control" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Golongan Darah *</label>
-                                                        <select name="gol_darah" class="form-control" required>
-                                                            <option value=""> -- Pilih Golongan Darah -- </option>
-                                                            <option value="1">A</option>
-                                                            <option value="2">B</option>
-                                                            <option value="3">AB</option>
-                                                            <option value="4">O</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">Agama *</label>
-                                                        <select name="agama" class="form-control" required>
-                                                            <option value=""> -- Pilih Agama -- </option>
-                                                            <option value="1">Islam</option>
-                                                            <option value="2">Kristen Protestan</option>
-                                                            <option value="3">Kristen Katolik</option>
-                                                            <option value="4">Hindu</option>
-                                                            <option value="5">Buddha</option>
-                                                            <option value="6">Khonghucu</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-2">
-                                                        <label for="">No. SIM A/B/B1/B2</label>
-                                                        <input type="text" name="no_sim_lainnya" class="form-control">
-                                                    </div>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Tempat Lahir *</label>
+                                                <input type="text" name="tempat_lahir" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="tgl_lahir" class="form-label">Tanggal Lahir *</label>
+                                                <input type="date" class="form-control" required id="tgl_lahir" name="tgl_lahir">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Jenis Kelamin *</label>
+                                                <select name="jenis_kelamin" class="form-control" required>
+                                                    <option value=""> -- Pilih Jenis Kelamin -- </option>
+                                                    <option value="1">Laki - Laki</option>
+                                                    <option value="2">Perempuan</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Status *</label>
+                                                <select name="status_perkawinan" class="form-control" required>
+                                                    <option value=""> -- Pilih Status Perkawinan -- </option>
+                                                    <option value="1">Sudah Menikah</option>
+                                                    <option value="2">Belum Menikah</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-2">
+                                                <label for="">Berat Badan *</label>
+                                                <input type="number" min="1" name="berat_badan" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-2">
+                                                <label for="">Tinggi Badan *</label>
+                                                <input type="number" min="1" name="tinggi_badan" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-2">
+                                                <label for="">Golongan Darah *</label>
+                                                <select name="gol_darah" class="form-control" required>
+                                                    <option value=""> -- Pilih Golongan Darah -- </option>
+                                                    <option value="1">A</option>
+                                                    <option value="2">B</option>
+                                                    <option value="3">AB</option>
+                                                    <option value="4">O</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-2">
+                                                <label for="">Agama *</label>
+                                                <select name="agama" class="form-control" required>
+                                                    <option value=""> -- Pilih Agama -- </option>
+                                                    <option value="1">Islam</option>
+                                                    <option value="2">Kristen Protestan</option>
+                                                    <option value="3">Kristen Katolik</option>
+                                                    <option value="4">Hindu</option>
+                                                    <option value="5">Buddha</option>
+                                                    <option value="6">Khonghucu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Nomor SIM C</label>
+                                                <input type="text" name="no_sim_c" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">No. SIM A/B/B1/B2</label>
+                                                <input type="text" name="no_sim_lainnya" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- END DATA PRIBADI -->
-                                <h5 class="mt-3">ALAMAT</h5>
+                                <!-- END IDENTITAS KARYAWAN -->
+
+                                <!------- Start Alamat ------->
+                                <h5 class="mt-3">ALAMAT PELAMAR</h5>
                                 <div class="row">
                                     <!-- ALAMAT SESUAI KTP -->
                                     <div class="col-6">
@@ -371,7 +292,7 @@
                                             <div class="mb-2">
                                                 <label for="">Alamat Sesuai KTP *</label>
                                                 <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                                <input type="text" name="kode_pos_ktp" class="form-control" required placeholder="Kode POS KTP *">
+                                                <input type="text" name="kode_pos_ktp" class="form-control" required placeholder="Kode POS alamat KTP *">
                                             </div>
                                         </div>
                                     </div>
@@ -388,9 +309,52 @@
                                     </div>
                                     <!-- END ALAMAT SAAT INI -->
                                 </div>
+                                <!------- End Alamat ------->
+
+                                <!-- POSISI / JABATAN YANG DILAMAR -->
+                                <h5 class="mt-3">POSISI / JABATAN YANG DILAMAR</h5>
+                                <div class="border rounded p-3">
+                                    <div class="row">
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-2">
+                                                <label for="">Posisi / Jabatan *</label>
+                                                <input type="text" name="posisi_pelamar" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-2">
+                                                <label for="">Tanggal Siap Kerja *</label>
+                                                <input type="date" name="tgl_siap_kerja" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-2">
+                                                <label for="">Gaji Terakhir *</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" style="font-size: 12px;">Rp.</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="gaji_terakhir">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
+                                            <div class="mb-2">
+                                                <label for="">Gaji yang <strong>diharapkan</strong> *</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" style="font-size: 12px;">Rp.</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="gaji_diharapkan">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END PERBANKAN -->
 
                                 <!-- ASURANSI -->
-                                <h5 class="mt-3">ASURANSI</h5>
+                                <!-- <h5 class="mt-3">ASURANSI</h5>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="border rounded p-3">
@@ -428,10 +392,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- END ASURANSI -->
+
                                 <!-- PERBANKAN -->
-                                <h5 class="mt-3">PERBANKAN</h5>
+                                <!-- <h5 class="mt-3">PERBANKAN</h5>
                                 <div class="border rounded p-3">
                                     <div class="row">
                                         <div class="col-12 col-md-3">
@@ -464,10 +429,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- END PERBANKAN -->
+
                                 <!-- PERPAJAKAN -->
-                                <h5 class="mt-3">PERPAJAKAN</h5>
+                                <!-- <h5 class="mt-3">PERPAJAKAN</h5>
                                 <div class="border rounded p-3">
                                     <div class="row">
                                         <div class="col-12 col-md-4">
@@ -489,8 +455,40 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- END PERPAJAKAN -->
+
+                                <!-- PENDIDIKAN NON FORMAL -->
+                                <h5 class="mt-3 mb-0">PENDIDIKAN NON FORMAL <span style="font-size: 13px;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar, dll)</span></h5>
+
+                                <div class="border rounded p-3 mt-2">
+                                    <div class="multi-input-container2">
+                                        <div class="row mt-2 multi-input-item2">
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-2">
+                                                    <label for="">Nama Lembaga</label>
+                                                    <input type="text" name="lembaga_pendidikan_nonformal[]" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-2">
+                                                    <label for="">Periode Tahun</label>
+                                                    <input type="number" min="1" name="tahun_nonformal[]" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-2">
+                                                    <label for="">Deskripsi</label>
+                                                    <textarea name="deskripsi_nonformal[]" class="form-control" required></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <button type="button" class="btn btn-sm btn-success multi-input-add2">Tambah Kolom</button>
+                                </div>
+                                <!-- END PENDIDIKAN NON FORMAL -->
+
                                 <!-- PENDIDIKAN FORMAL -->
                                 <h5 class="mt-3">PENDIDIKAN FORMAL</h5>
                                 <div class="border rounded p-3">
@@ -561,36 +559,6 @@
                                     </div>
                                 </div>
                                 <!-- END PENDIDIKAN FORMAL -->
-                                <!-- PENDIDIKAN NON FORMAL -->
-                                <h5 class="mt-3 mb-0">PENDIDIKAN NON FORMAL |<span style="font-size: 13px;"> Sebelum bergabung</span></h5>
-                                <span style="font-size: 13px;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar, dll)</span>
-                                <div class="border rounded p-3 mt-2">
-                                    <div class="multi-input-container2">
-                                        <div class="row mt-2 multi-input-item2">
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-2">
-                                                    <label for="">Nama Lembaga</label>
-                                                    <input type="text" name="lembaga_pendidikan_nonformal[]" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-2">
-                                                    <label for="">Periode Tahun</label>
-                                                    <input type="number" min="1" name="tahun_nonformal[]" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-2">
-                                                    <label for="">Deskripsi</label>
-                                                    <textarea name="deskripsi_nonformal[]" class="form-control" required></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <button type="button" class="btn btn-sm btn-success multi-input-add2">Tambah Kolom</button>
-                                </div>
-                                <!-- END PENDIDIKAN NON FORMAL -->
 
                                 <!-- KEMAMPUAN -->
                                 <h5 class="mt-3">KEMAMPUAN</h5>
@@ -676,71 +644,7 @@
                                     </div>
                                 </div>
                                 <!-- END KELUARGA YANG BISA DIHUBUNGI -->
-                                <!-- PENGALAMAN ORGANISASI -->
-                                <h5 class="mt-3 mb-0">PENGALAMAN ORGANISASI</h5>
-                                <span style="font-size: 13px;">Sebelum Bergabung</span>
-                                <div class="border rounded p-3 mt-2">
-                                    <div class="multi-input-container">
-                                        <div class="row multi-input-item">
-                                            <div class="col-12 col-md-5">
-                                                <div class="mb-2">
-                                                    <label for="">Nama Lembaga / Organisasi</label>
-                                                    <input type="text" name="lembaga_organisasi[]" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-5">
-                                                <div class="mb-2">
-                                                    <label for="">Jabatan di Lembaga / Organisasi</label>
-                                                    <input type="text" name="jabatan_organisasi[]" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-2">
-                                                <div class="mb-2">
-                                                    <label for="">Periode Keaktifan</label>
-                                                    <input type="text" name="periode_aktif_organisasi[]" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <button type="button" class="btn btn-sm btn-success multi-input-add">Tambah Kolom</button>
-                                </div>
-                                <!-- END PENGALAMAN ORGANISASI -->
-                                <!-- PENGALAMAN PEKERJAAN -->
-                                <h5 class="mt-3">PENGALAMAN PEKERJAAN</h5>
-                                <div class="border rounded p-3 mt-2">
-                                    <div class="multi-input-container1">
-                                        <div class="row multi-input-item1">
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-2">
-                                                    <label for="">Nama Lembaga</label>
-                                                    <input type="text" name="nama_lembaga_pekerjaan[]" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-2">
-                                                    <label for="">Nama Pekerjaan</label>
-                                                    <input type="text" name="nama_pekerjaan[]" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-2">
-                                                    <label for="">Lokasi Lembaga</label>
-                                                    <input type="text" name="lokasi_pekerjaan[]" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-2">
-                                                    <label for="">Periode Pekerjaan</label>
-                                                    <input type="text" name="periode_pelaksanaan_pekerjaan[]" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <button type="button" class="btn btn-sm btn-success multi-input-add1">Tambah Kolom</button>
-                                </div>
-                                <!-- END PENGALAMAN PEKERJAAN -->
+
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-end">
@@ -752,6 +656,7 @@
                 </div>
 
                 <div id="sesudah-bergabung" class="content" role="tabpanel" aria-labelledby="sesudah-bergabung-trigger">
+                    <!------- Start Header ------->
                     <div class="content-header">
                         <div class="container-fluid">
                             <div class="row mb-2">
@@ -759,143 +664,164 @@
                                     <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                                 </div>
                                 <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
+                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Karyawan</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Karyawan</a></li>
-                                        <li class="breadcrumb-item active">Tambah Kolom Karyawan</li>
+                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
+                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Tambah Kolom Pelamar</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!------- End Header ------->
+
                     <div class="card">
                         <div class="card-body">
-                            <!-- PENDIDIKAN NON FORMAL -->
-                            <h5 class="mt-3 mb-0">PENDIDIKAN NON FORMAL |<span style="font-size: 13px;"> Setelah bergabung</span></h5>
-                            <span style="font-size: 13px;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar, dll)</span>
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <div class="multi-input-container4">
-                                        <?php if (empty($pendidikan_non_formal_bergabung->items)) { ?>
-                                            <div class="row mt-2 multi-input-item4">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="">Nama Lembaga</label>
-                                                        <input type="text" name="lembaga_pendidikan_nonformal_setelah[]" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="">Periode Tahun</label>
-                                                        <input type="number" min="1" name="tahun_nonformal_setelah[]" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="">Deskripsi</label>
-                                                        <textarea name="deskripsi_nonformal_setelah[]" class="form-control"></textarea>
-                                                    </div>
-                                                </div>
+                            <!-- PENGALAMAN PEKERJAAN -->
+                            <h5 class="mt-3">PENGALAMAN PEKERJAAN</h5>
+                            <div class="border rounded p-3 mt-2">
+                                <div class="multi-input-container1">
+                                    <div class="row multi-input-item1">
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Nama Lembaga</label>
+                                                <input type="text" name="nama_lembaga_pekerjaan[]" class="form-control">
                                             </div>
-                                        <?php } else { ?>
-                                            <?php foreach ($pendidikan_non_formal_bergabung->items as $key => $value) { ?>
-                                                <div class="row mt-2 multi-input-item4">
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Nama Lembaga</label>
-                                                            <input type="text" name="lembaga_pendidikan_nonformal_setelah[]" class="form-control" value="<?= $value['nama_lembaga'] ?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Periode Tahun</label>
-                                                            <input type="number" min="1" name="tahun_nonformal_setelah[]" class="form-control" value="<?= $value['periode_tahun'] ?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Deskripsi</label>
-                                                            <textarea name="deskripsi_nonformal_setelah[]" class="form-control"><?= $value['deskripsi'] ?></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        <?php } ?>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Nama Pekerjaan</label>
+                                                <input type="text" name="nama_pekerjaan[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Lokasi Lembaga</label>
+                                                <input type="text" name="lokasi_pekerjaan[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Periode Pekerjaan</label>
+                                                <input type="text" name="periode_pelaksanaan_pekerjaan[]" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <button type="button" class="btn btn-sm mt-2 btn-success multi-input-add4">Tambah Kolom</button>
                                 </div>
+                                <hr>
+                                <button type="button" class="btn btn-sm btn-success multi-input-add1">Tambah Kolom</button>
                             </div>
-                            <!-- END PENDIDIKAN NON FORMAL -->
+                            <!-- END PENGALAMAN PEKERJAAN -->
+
                             <!-- PENGALAMAN ORGANISASI -->
                             <h5 class="mt-3 mb-0">PENGALAMAN ORGANISASI</h5>
-                            <span style="font-size: 13px;">Setelah Bergabung</span>
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <div class="multi-input-container5">
-                                        <?php if (empty($pengalaman_organisasi_bergabung->items)) { ?>
-                                            <div class="row multi-input-item5">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="">Nama Lembaga / Organisasi</label>
-                                                        <input type="text" name="lembaga_organisasi_setelah[]" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="">Jabatan di Lembaga / Organisasi</label>
-                                                        <input type="text" name="jabatan_organisasi_setelah[]" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="">Periode Keaktifan</label>
-                                                        <input type="text" name="periode_aktif_organisasi_setelah[]" class="form-control">
+                            <div class="border rounded p-3 mt-2">
+                                <div class="multi-input-container">
+                                    <div class="row multi-input-item">
+                                        <div class="col-12 col-md-5">
+                                            <div class="mb-2">
+                                                <label for="">Nama Lembaga / Organisasi</label>
+                                                <input type="text" name="lembaga_organisasi[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-5">
+                                            <div class="mb-2">
+                                                <label for="">Jabatan di Lembaga / Organisasi</label>
+                                                <input type="text" name="jabatan_organisasi[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-2">
+                                            <div class="mb-2">
+                                                <label for="">Periode Keaktifan</label>
+                                                <input type="text" name="periode_aktif_organisasi[]" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <button type="button" class="btn btn-sm btn-success multi-input-add">Tambah Kolom</button>
+                            </div>
+                            <!-- END PENGALAMAN ORGANISASI -->
+
+                            <!-- KURSUS / SEMINAR YANG PERNAH DIIKUTI -->
+                            <h5 class="mt-3 mb-0">KURSUS / SEMINAR YANG PERNAH DIIKUTI</h5>
+                            <div class="border rounded p-3 mt-2">
+                                <div class="multi-input-container7">
+                                    <div class="row multi-input-item7">
+                                        <div class="col-12 col-md-2">
+                                            <div class="mb-2">
+                                                <label for="">Tahun</label>
+                                                <input type="text" name="tahun_kursus[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <div class="mb-2">
+                                                <label for="">Nama Lembaga</label>
+                                                <input type="text" name="nama_lembaga_kursus[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="mb-2">
+                                                <label for="">Deskripsi</label>
+                                                <input type="text" name="deskripsi_kursus[]" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <button type="button" class="btn btn-sm btn-success multi-input-add7">Tambah Kolom</button>
+                            </div>
+                            <!-- END KURSUS / SEMINAR YANG PERNAH DIIKUTI -->
+
+                            <!-- Start Kemampuan Bahasa -->
+                            <h5 class="mt-3 mb-0">KEMAMPUAN BAHASA <span>(Ya/Tidak)</span></h5>
+                            <div class="border rounded p-3 mt-2">
+                                <div class="">
+                                    <div class="row multi-input-container8">
+                                        <div class="col-md-6 multi-input-item8">
+                                            <div class="border rounded p-3 mt-2">
+                                                <div class="row">
+                                                    <div class="col-12 col-md-12">
+                                                        <div class="mb-2">
+                                                            <label for="">Nama Bahasa</label>
+                                                            <input type="text" name="nama_bahasa[]" class="form-control">
+                                                        </div>
+                                                        <div class="mb-2">
+                                                            <div class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" id="customRadioInline1" name="kemampuan_bahasa" value="1" class="custom-control-input">
+                                                                <label class="custom-control-label my-auto" for="customRadioInline1">Lisan / Tulis Aktif</label>
+                                                            </div>
+                                                            <div class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" id="customRadioInline2" name="kemampuan_bahasa" value="2" class="custom-control-input">
+                                                                <label class="custom-control-label my-auto" for="customRadioInline2">Lisan / Tulis Pasif</label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php } else { ?>
-                                            <?php foreach ($pengalaman_organisasi_bergabung->items as $key => $value) { ?>
-                                                <div class="row multi-input-item5">
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Nama Lembaga / Organisasi</label>
-                                                            <input type="text" name="lembaga_organisasi_setelah[]" class="form-control" value="<?= $value['nama_organisasi'] ?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Jabatan di Lembaga / Organisasi</label>
-                                                            <input type="text" name="jabatan_organisasi_setelah[]" class="form-control" value="<?= $value['jabatan_organisasi'] ?>">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="">Periode Keaktifan</label>
-                                                            <input type="text" name="periode_aktif_organisasi_setelah[]" class="form-control" value="<?= $value['periode_aktif'] ?>">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        <?php } ?>
+                                        </div>
                                     </div>
-                                    <button type="button" class="btn btn-sm mt-2 btn-success multi-input-add5">Tambah Kolom</button>
                                 </div>
+                                <hr>
+                                <button type="button" class="btn btn-sm btn-success multi-input-add8">Tambah Kolom</button>
                             </div>
-                            <!-- END PENGALAMAN ORGANISASI -->
                         </div>
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-end">
-                                <a href="#top" class="btn btn-sm btn-primary mr-1" id="next-form" onclick="stepper.previous()">Previous</a>
-                                <a href="#top" class="btn btn-sm btn-primary" id="next-form" onclick="stepper.next()">Next</a>
-                            </div>
+                        <!-- End Kampuan Bahasa -->
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-end">
+                            <a href="#top" class="btn btn-sm btn-primary mr-1" id="next-form" onclick="stepper.previous()">Previous</a>
+                            <a href="#top" class="btn btn-sm btn-primary" id="next-form" onclick="stepper.next()">Next</a>
                         </div>
                     </div>
                 </div>
 
                 <div id="data-pendukung" class="content" role="tabpanel" aria-labelledby="data-pendukung-trigger">
+                    <!------- Start Header ------->
                     <div class="content-header">
                         <div class="container-fluid">
                             <div class="row mb-2">
@@ -903,18 +829,19 @@
                                     <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                                 </div>
                                 <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
+                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Karyawan</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Karyawan</a></li>
-                                        <li class="breadcrumb-item active">Tambah Kolom Karyawan</li>
+                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
+                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Tambah Kolom Pelamar</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!------- End Header ------->
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -1096,9 +1023,10 @@
                 </div>
             </form>
         </div>
-    </div>
 
+    </div>
 </div>
+
 
 <!-- Modal Dokumen -->
 <div class="modal fade" id="dokumenPersyaratan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1128,10 +1056,10 @@
 
 <script>
     $(document).ready(function() {
-        $('input[name="alamt_ktp"]').val('Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang');
+        // $('input[name="alamt_ktp"]').val('Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang');
         // $('textarea').html('DESKRIPSI');
         // $('input[type="number"]').val('1');
-        $("select").prop("selectedIndex", 1);
+        // $("select").prop("selectedIndex", 1);
         // $('input[type="date"]').val('2020-01-01');
 
     })
@@ -1241,6 +1169,31 @@
         $(document).on('click', '.multi-input-delete5', function() {
             var parent6 = $(this).closest('.multi-input-item6');
             parent6.remove();
+        })
+
+        // multi kursus
+        $('.multi-input-add7').on('click', function() {
+            var item7 = $('.multi-input-item7').first().clone();
+            item7.prepend('<hr class="mb-0">');
+            item7.append('<div class="col-12"><button type="button" class="btn btn-sm btn-danger mt-1 multi-input-delete7">Hapus Kolom</button></div>');
+            $('.multi-input-container7').append(item7);
+        })
+
+        $(document).on('click', '.multi-input-delete7', function() {
+            var parent7 = $(this).closest('.multi-input-item7');
+            parent7.remove();
+        })
+
+        // multi kursus
+        $('.multi-input-add8').on('click', function() {
+            var item8 = $('.multi-input-item8').first().clone();
+            item8.append('<button type="button" class="btn btn-sm btn-danger mt-1 multi-input-delete8">Hapus Kolom</button>');
+            $('.multi-input-container8').append(item8);
+        })
+
+        $(document).on('click', '.multi-input-delete8', function() {
+            var parent8 = $(this).closest('.multi-input-item8');
+            parent8.remove();
         })
     });
 </script>

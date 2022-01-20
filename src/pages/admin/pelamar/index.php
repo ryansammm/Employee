@@ -40,12 +40,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Karyawan <a href="/admin/karyawan/create" class="btn btn-sm btn-outline-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a></h1>
+                    <h1 class="m-0">Pelamar <a href="/admin/pelamar/create" class="btn btn-sm btn-outline-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Karyawan</a></li>
-                        <li class="breadcrumb-item active">Kelola Karyawan</li>
+                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
+                        <li class="breadcrumb-item active">Kelola Pelamar</li>
                     </ol>
                 </div>
             </div>

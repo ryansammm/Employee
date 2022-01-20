@@ -3447,8 +3447,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-    color: #007bff;
-    border-color: #007bff
+    color: #343a40;
+    border-color: #343a40;
 }
 
 .btn-outline-primary:hover {
@@ -3519,14 +3519,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
-    color: #28a745;
-    border-color: #28a745
+    color: #343a40;
+    border-color: #343a40;
 }
 
 .btn-outline-success:hover {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745
+    background-color: #0a9735;
+    border-color: #0a9735;
 }
 
 .btn-outline-success.focus,
@@ -14952,7 +14952,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 [class*=sidebar-dark-] {
-    background-color: #343a40
+    background-color: #181818;
 }
 
 [class*=sidebar-dark-] .user-panel a:hover {

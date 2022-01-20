@@ -63,7 +63,7 @@ class PelangganAdminController
             'id_relation' => $create,
             'jenis_dokumen' => '',
         ]);
-        return new RedirectResponse('/admin/pelanggan/'.$create.'/edit');
+        return new RedirectResponse('/admin/pelanggan/' . $create . '/edit');
     }
 
     public function edit(Request $request)

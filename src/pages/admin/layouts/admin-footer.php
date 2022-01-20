@@ -15,6 +15,9 @@
 <!-- bs-custom-file-input -->
 <script src="/assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
+<!-- BS-Stepper -->
+<script src="/assets/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+
 <script>
     $(function() {
         bsCustomFileInput.init();

@@ -2,8 +2,22 @@
 
 namespace App\Pelamar\Controller;
 
+use App\Bank\Model\Bank;
+use App\Bidang\Model\Bidang;
+use App\Karyawan\Model\KaryawanKontakAlt;
+use App\KaryawanBidang\Model\KaryawanBidang;
+use App\KaryawanDivisi\Model\KaryawanDivisi;
+use App\KaryawanJabatan\Model\KaryawanJabatan;
+use App\Kemampuan\Model\Kemampuan;
+use App\KemampuanBahasa\Model\KemampuanBahasa;
+use App\Kursus\Model\Kursus;
 use App\Media\Model\Media;
 use App\Pelamar\Model\Pelamar;
+use App\PendidikanFormal\Model\PendidikanFormal;
+use App\PendidikanNonFormal\Model\PendidikanNonFormal;
+use App\PengalamanOrganisasi\Model\PengalamanOrganisasi;
+use App\PengalamanPekerjaan\Model\PengalamanPekerjaan;
+use App\PengalamanPekerjaanPelamar\Model\PengalamanPekerjaanPelamar;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -11,11 +25,39 @@ class PelamarController
 {
     public $pelamar;
     public $media;
+    public $bank;
+    public $kemampuanBahasa;
+    public $kursus;
+    public $pengalamanPekerjaanPelamar;
+    public $karyawanKontakAlt;
+    public $bidang;
+    public $karyawanJabatan;
+    public $karyawanDivisi;
+    public $karyawanBidang;
+    public $pendidikanFormal;
+    public $pendidikanNonFormal;
+    public $kemampuan;
+    public $pengalamanOrganisasi;
+    public $pengalamanPekerjaan;
 
     public function __construct()
     {
         $this->pelamar = new Pelamar();
         $this->media = new Media();
+        $this->bank = new Bank();
+        $this->kemampuanBahasa = new KemampuanBahasa();
+        $this->kursus = new Kursus();
+        $this->pengalamanPekerjaanPelamar = new PengalamanPekerjaanPelamar();
+        $this->karyawanKontakAlt = new KaryawanKontakAlt();
+        $this->bidang = new Bidang();
+        $this->karyawanJabatan = new KaryawanJabatan();
+        $this->karyawanDivisi = new KaryawanDivisi();
+        $this->karyawanBidang = new KaryawanBidang();
+        $this->pendidikanFormal = new PendidikanFormal();
+        $this->pendidikanNonFormal = new PendidikanNonFormal();
+        $this->kemampuan = new Kemampuan();
+        $this->pengalamanOrganisasi = new PengalamanOrganisasi();
+        $this->pengalamanPekerjaan = new PengalamanPekerjaan();
     }
 
     public function index(Request $request)
@@ -29,16 +71,17 @@ class PelamarController
     public function create(Request $request)
     {
 
-        return render_template('admin/pelamar/create', []);
+        $bank = $this->bank->get();
+
+        return render_template('admin/pelamar/create', ['bank' => $bank]);
     }
 
     public function store(Request $request)
     {
 
-        $create = $this->pelamar
-            ->insert($request->request->all());
 
         $request->request->set('hide', '2');
+        $request->request->set('status_karyawan', '5');
         $datas = $request->request->all();
         // dd($datas);
 
@@ -46,30 +89,55 @@ class PelamarController
         $create = $this->karyawan->insert($datas);
         /* -------------------------------------------------------------------------- */
 
+        /* --------------------------------- Pelamar -------------------------------- */
+        $request->request->set('id_karyawan', $create);
+        $pelamar = $this->pelamar->insert($datas);
+        /* -------------------------------------------------------------------------- */
+
+        /* ---------------------------- Kemampuan Bahasa ---------------------------- */
+        $create_kemampuan_bahasa = $this->kemampuanBahasa->insert($datas);
+        /* -------------------------------------------------------------------------- */
+
+        /* --------------------------------- Kursus --------------------------------- */
+        $create_kursus = $this->kursus->insert($datas);
+        /* -------------------------------------------------------------------------- */
+
+        /* ---------------------- Pengalaman Pekerjaan Pelamar ---------------------- */
+        foreach ($datas['nama_lembaga_pekerjaan'] as $key => $value) {
+            $create_pengalaman_pekerjaan_pelamar = $this->pengalamanPekerjaanPelamar->insert([
+                'id_relation' => $create,
+                'nama_lembaga' => $datas['nama_lembaga_pekerjaan'][$key],
+                'nama_pekerjaan' => $datas['nama_pekerjaan'][$key],
+                'lokasi_lembaga' => $datas['lokasi_pekerjaan'][$key],
+                'periode_pelaksanaan' => $datas['periode_pelaksanaan_pekerjaan'][$key],
+            ]);
+        }
+        /* -------------------------------------------------------------------------- */
+
         /* ---------------------------- Karyawan Jabatan ---------------------------- */
-        $create_karyawan_jabatan = $this->karyawanJabatan->insert([
-            [
-                'id_karyawan' => $create,
-                'id_jabatan' => $datas['id_jabatan'],
-                'hide' => '2',
-            ]
-        ]);
+        // $create_karyawan_jabatan = $this->karyawanJabatan->insert([
+        //     [
+        //         'id_karyawan' => $create,
+        //         'id_jabatan' => $datas['id_jabatan'],
+        //         'hide' => '2',
+        //     ]
+        // ]);
         /* -------------------------------------------------------------------------- */
 
         /* ----------------------------- Karyawan Divisi ---------------------------- */
-        $create_karyawan_divisi = $this->karyawanDivisi->insert([
-            'id_relation' => $create,
-            'nama_divisi' => $datas['nama_divisi'],
-            'hide' => '2',
-        ]);
+        // $create_karyawan_divisi = $this->karyawanDivisi->insert([
+        //     'id_relation' => $create,
+        //     'nama_divisi' => $datas['nama_divisi'],
+        //     'hide' => '2',
+        // ]);
         /* -------------------------------------------------------------------------- */
 
         /* ----------------------------- Karyawan Bidang ---------------------------- */
-        $create_karyawan_bidang = $this->karyawanBidang->insert([
-            'id_bidang' => $datas['id_bidang'],
-            'id_relation' => $create,
-            'hide' => '2',
-        ]);
+        // $create_karyawan_bidang = $this->karyawanBidang->insert([
+        //     'id_bidang' => $datas['id_bidang'],
+        //     'id_relation' => $create,
+        //     'hide' => '2',
+        // ]);
         /* -------------------------------------------------------------------------- */
 
         /* ---------------------------- Pendidikan Formal --------------------------- */
@@ -141,22 +209,22 @@ class PelamarController
         /* -------------------------------------------------------------------------- */
 
         /* -------------------------- Pengalaman Pekerjaan -------------------------- */
-        foreach ($datas['nama_lembaga_pekerjaan'] as $key => $value) {
-            $create_pengalaman_pekerjaan = $this->pengalamanPekerjaan->insert([
-                'id_relation' => $create,
-                'nama_lembaga' => $datas['nama_lembaga_pekerjaan'][$key],
-                'nama_pekerjaan' => $datas['nama_pekerjaan'][$key],
-                'lokasi_lembaga' => $datas['lokasi_pekerjaan'][$key],
-                'periode_pelaksanaan' => $datas['periode_pelaksanaan_pekerjaan'][$key],
-            ]);
-        }
+        // foreach ($datas['nama_lembaga_pekerjaan'] as $key => $value) {
+        //     $create_pengalaman_pekerjaan = $this->pengalamanPekerjaan->insert([
+        //         'id_relation' => $create,
+        //         'nama_lembaga' => $datas['nama_lembaga_pekerjaan'][$key],
+        //         'nama_pekerjaan' => $datas['nama_pekerjaan'][$key],
+        //         'lokasi_lembaga' => $datas['lokasi_pekerjaan'][$key],
+        //         'periode_pelaksanaan' => $datas['periode_pelaksanaan_pekerjaan'][$key],
+        //     ]);
+        // }
         /* -------------------------------------------------------------------------- */
 
         /* ------------------------------ Profile Foto ------------------------------ */
         $media = new Media();
-        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('profile_foto'), [
+        $media->path(env('APP_MEDIA_DIR'))->storeMedia($request->files->get('foto_profile_pelamar'), [
             'id_relation' => $create,
-            'jenis_dokumen' => 'foto_profile',
+            'jenis_dokumen' => 'foto_profile_pelamar',
         ]);
         /* -------------------------------------------------------------------------- */
 
@@ -185,7 +253,7 @@ class PelamarController
         }
         /* -------------------------------------------------------------------------- */
 
-        return new RedirectResponse('/home');
+        return new RedirectResponse('/admin/pelamar');
     }
 
     public function edit(Request $request)

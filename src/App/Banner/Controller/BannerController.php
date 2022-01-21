@@ -62,7 +62,7 @@ class BannerController
     {
         $id = $request->attributes->get('id');
         $detail = $this->banner->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')->where('id_banner', $id)->first();
-        $menu = $this->menu->where('header', '1')->get();
+        $menu = $this->menu->where('jenis_menu', '1')->orWhere('jenis_menu', '3')->get();
         $banner = $this->banner
             ->leftJoin('media', 'media.id_relation', '=', 'banner.id_banner')
             ->where('id_banner', '!=', $detail['id_banner'])

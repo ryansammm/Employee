@@ -28,7 +28,7 @@
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Data Partner</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Protofolio Partner</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Dokumentasi Partner</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -150,13 +150,17 @@
                                     'galeri' => $galeri,
                                     'group_galeri' => $group_galeri,
                                     'status' => 1,
-                                    'id_partner' => $partner['id_partner'],
+                                    'id_relation' => $partner['id_partner'],
+                                    'table_name' => 'partner',
+                                    'url' => 'partner'
                                 ]) ?>
                             <?php } else { ?>
                                 <?= template('admin/galeri/content-management/form/form-create', [
                                     'data_kategori_galeri' => $kategori,
                                     'status' => 1,
-                                    'id_partner' => $partner['id_partner'],
+                                    'id_relation' => $partner['id_partner'],
+                                    'table_name' => 'partner',
+                                    'url' => 'partner'
                                 ]) ?>
                             <?php } ?>
                         </div>

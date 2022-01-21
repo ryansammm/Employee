@@ -31,7 +31,6 @@ class SosialMediaController
 
     public function store(Request $request)
     {
-
         $create = $this->sosial_media->insert($request->request->all());
 
         return new RedirectResponse('/admin/sosial-media');
@@ -39,7 +38,6 @@ class SosialMediaController
 
     public function edit(Request $request)
     {
-
         $id = $request->attributes->get('id');
         $detail = $this->sosial_media
             ->where('id_sosial_media', $id)
@@ -50,16 +48,16 @@ class SosialMediaController
 
     public function update(Request $request)
     {
-
         $id = $request->attributes->get('id');
+        $this->sosial_media->where('id_sosial_media', $id)->update($request->request->all());
 
         return new RedirectResponse('/admin/sosial-media');
     }
 
     public function delete(Request $request)
     {
-
         $id = $request->attributes->get('id');
+        $this->sosial_media->where('id_sosial_media', $id)->delete();
 
         return new RedirectResponse('/admin/sosial-media');
     }

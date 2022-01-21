@@ -8,8 +8,10 @@ use App\GroupGaleri\Model\GroupGaleriNew;
 use App\KategoriGaleriAdmin\Model\KategoriGaleriAdmin;
 use App\Media\Model\Media;
 use App\NotifTelegram\Model\NotifTelegram;
+use App\PartnerAdmin\Model\PartnerAdmin;
 use App\PelangganAdmin\Model\PelangganAdmin;
 use Core\Classes\SessionData;
+use Core\Model;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,6 +28,18 @@ class GaleriAdminController
         $this->groupGaleri = new GroupGaleriNew();
         $this->modelKategoriGaleri = new KategoriGaleriAdmin();
         $this->klien = new PelangganAdmin();
+    }
+
+    protected function getExternalEntity(string $table_name)
+    {
+        $model = null;
+        if ($table_name == 'pelanggan') {
+            $model = new PelangganAdmin();
+        } else if ($table_name == 'partner') {
+            $model = new PartnerAdmin();
+        }
+
+        return $model;
     }
 
     public function index(Request $request)
@@ -87,14 +101,16 @@ class GaleriAdminController
         $kirim =  $telegram->contentNotification($message);
         /* -------------------------------------------------------------------------- */
 
-        // link galeri portofolio to klien
-        $id_pelanggan = $request->request->get('id_pelanggan');
-        if ($id_pelanggan != null) {
-            $this->klien
-                ->where('id_pelanggan', $id_pelanggan)
+        // link galeri portofolio to some entity
+        $id_relation = $request->request->get('id_relation');
+        $table_model = $this->getExternalEntity($request->request->get('table_name'));
+        $url = $request->request->get('url');
+        if ($id_relation != null && $table_model != null && $url != null) {
+            $table_model
+                ->where($table_model->primaryKey, $id_relation)
                 ->update(['id_galeri' => $tambah_galeri]);
             
-            return new RedirectResponse('/admin/pelanggan/'.$id_pelanggan.'/edit');
+            return new RedirectResponse('/admin/'.$url.'/'.$id_relation.'/edit');
         }
 
         return new RedirectResponse('/admin/galeri');

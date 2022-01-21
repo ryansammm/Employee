@@ -58,7 +58,7 @@
                                 <tr>
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['judul_galeri'] ?></td>
-                                    <td><img src="/assets/media/<?= $value['path_media'] ?>" alt="Cover Album" width="75"></td>
+                                    <td><img src="<?= asset($value['path_media']) ?>" alt="Cover Album" width="75"></td>
                                     <td><?= $value['tgl_galeri'] ?></td>
                                     <td>
                                         <?php if ($value['status_galeri'] == '1') { ?>

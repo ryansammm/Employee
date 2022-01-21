@@ -478,7 +478,8 @@ $routes->prefix('admin', function ($routes) {
 
 
 /* ------------------------------- Front Home ------------------------------- */
-$routes->push('home', '/', [HomeController::class, 'index']);
+// $routes->push('home', '/', [HomeController::class, 'index']);
+$routes->push('home', '/', [EmployeeController::class, 'index']);
 /* -------------------------------------------------------------------------- */
 
 

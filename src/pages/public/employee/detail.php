@@ -758,7 +758,7 @@
             <div class="card-footer">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <!-- <a href="/employee/<?= $karyawan['id_karyawan'] ?>/export" class="btn btn-sm btn-outline-primary me-2" type="button" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export</a> -->
-                    <a href="/employee/<?= $karyawan['id_karyawan'] ?>/print" class="btn btn-sm btn-outline-primary" type="button" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> Print</a>
+                    <a href="/employee/<?= $karyawan['id_karyawan'] ?>/print" class="btn btn-sm btn-outline-primary" type="button" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> Print & <i class="fa fa-file-pdf-o" aria-hidden="true"> Export PDF</i></a>
                 </div>
             </div>
 

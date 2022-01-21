@@ -87,10 +87,17 @@
                 </button>
             </div>
             <div class="line"></div>
+            <div class="step" data-target="#survey">
+                <button type="button" class="step-trigger" role="tab" aria-controls="survey" id="survey-trigger">
+                    <span class="bs-stepper-circle">3</span>
+                    <span class="bs-stepper-label">Survey</span>
+                </button>
+            </div>
+            <div class="line"></div>
             <div class="step" data-target="#data-pendukung">
                 <button type="button" class="step-trigger" role="tab" aria-controls="data-pendukung" id="data-pendukung-trigger">
-                    <span class="bs-stepper-circle">3</span>
-                    <span class="bs-stepper-label">Data Pendukung</span>
+                    <span class="bs-stepper-circle">4</span>
+                    <span class="bs-stepper-label">Dokumen Pendukung</span>
                 </button>
             </div>
         </div>
@@ -143,16 +150,22 @@
                                                 </div>
                                                 <div class="col-12 col-md-4">
                                                     <div class="mb-2">
-                                                        <label for="">Nomor KTP *</label>
-                                                        <input type="text" name="no_ktp" class="form-control" required>
+                                                        <label for="">Nomor Registrasi *</label>
+                                                        <input type="text" name="no_registrasi" class="form-control" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-4">
                                                     <div class="mb-2">
+                                                        <label for="">Nomor KTP *</label>
+                                                        <input type="text" name="no_ktp" class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-12 col-md-4">
+                                                    <div class="mb-2">
                                                         <label for="">Nomor Kartu Keluarga *</label>
                                                         <input type="text" name="no_kk" class="form-control" required>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -351,10 +364,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- END PERBANKAN -->
+                                <!-- END POSISI / JABATAN YANG DILAMAR -->
 
                                 <!-- ASURANSI -->
-                                <!-- <h5 class="mt-3">ASURANSI</h5>
+                                <h5 class="mt-3">ASURANSI</h5>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="border rounded p-3">
@@ -392,11 +405,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- END ASURANSI -->
 
                                 <!-- PERBANKAN -->
-                                <!-- <h5 class="mt-3">PERBANKAN</h5>
+                                <h5 class="mt-3">PERBANKAN</h5>
                                 <div class="border rounded p-3">
                                     <div class="row">
                                         <div class="col-12 col-md-3">
@@ -429,11 +442,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- END PERBANKAN -->
 
                                 <!-- PERPAJAKAN -->
-                                <!-- <h5 class="mt-3">PERPAJAKAN</h5>
+                                <h5 class="mt-3">PERPAJAKAN</h5>
                                 <div class="border rounded p-3">
                                     <div class="row">
                                         <div class="col-12 col-md-4">
@@ -455,7 +468,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- END PERPAJAKAN -->
 
                                 <!-- PENDIDIKAN NON FORMAL -->
@@ -685,28 +698,46 @@
                             <div class="border rounded p-3 mt-2">
                                 <div class="multi-input-container1">
                                     <div class="row multi-input-item1">
-                                        <div class="col-12 col-md-6">
+                                        <div class="col-12 col-md-8">
                                             <div class="mb-2">
-                                                <label for="">Nama Lembaga</label>
-                                                <input type="text" name="nama_lembaga_pekerjaan[]" class="form-control">
+                                                <label for="">Nama Perusahaan</label>
+                                                <input type="text" name="nama_perusahaan_pelamar[]" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6">
+                                        <div class="col-12 col-md-4">
                                             <div class="mb-2">
-                                                <label for="">Nama Pekerjaan</label>
-                                                <input type="text" name="nama_pekerjaan[]" class="form-control">
+                                                <label for="">Jenis Usaha</label>
+                                                <input type="text" name="jenis_usaha[]" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6">
+                                        <div class="col-12 col-md-8">
                                             <div class="mb-2">
-                                                <label for="">Lokasi Lembaga</label>
-                                                <input type="text" name="lokasi_pekerjaan[]" class="form-control">
+                                                <label for="">Nama Atasan Langsung</label>
+                                                <input type="text" name="nama_atasan[]" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6">
+                                        <div class="col-12 col-md-4">
                                             <div class="mb-2">
-                                                <label for="">Periode Pekerjaan</label>
-                                                <input type="text" name="periode_pelaksanaan_pekerjaan[]" class="form-control">
+                                                <label for="">No. Telp Kantor / HP Atasan</label>
+                                                <input type="text" name="no_kontak_atasan[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-8">
+                                            <div class="mb-2">
+                                                <label for="">Jabatan Terakhir</label>
+                                                <input type="text" name="jabatan_terakhir[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <div class="mb-2">
+                                                <label for="">Tanggal Berhenti Bekerja</label>
+                                                <input type="date" name="tgl_berhenti[]" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <div class="mb-2">
+                                                <label for="">Alasan</label>
+                                                <textarea class="form-control" name="alasan_berhenti[]" id="" cols="30"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -818,6 +849,9 @@
                             <a href="#top" class="btn btn-sm btn-primary" id="next-form" onclick="stepper.next()">Next</a>
                         </div>
                     </div>
+                </div>
+
+                <div id="survey" class="content" role="tabpanel" aria-labelledby="survey-trigger">
                 </div>
 
                 <div id="data-pendukung" class="content" role="tabpanel" aria-labelledby="data-pendukung-trigger">

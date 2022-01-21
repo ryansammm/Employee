@@ -46,7 +46,7 @@ class KaryawanController
         $this->jabatan = new Jabatan();
         $this->bank = new Bank();
         $this->karyawanKontakAlt = new KaryawanKontakAlt();
-        $this->bidang = new Bidang;
+        $this->bidang = new Bidang();
         $this->karyawanJabatan = new KaryawanJabatan();
         $this->karyawanDivisi = new KaryawanDivisi();
         $this->karyawanBidang = new KaryawanBidang();

@@ -32,7 +32,6 @@ class PartnerAdminController
         $datas = $this->partner_admin
             ->leftJoin('media', 'media.id_relation', '=', 'partner.id_partner')
             ->paginate(10);
-        // dd($datas);
 
         return render_template('admin/partner/index', ['datas' => $datas]);
     }
@@ -59,9 +58,8 @@ class PartnerAdminController
 
     public function edit(Request $request)
     {
-
         $id = $request->attributes->get('id');
-
+        
         $partner = $this->partner_admin
             ->leftJoin('media', 'media.id_relation', '=', 'partner.id_partner')
             ->where('id_partner', $id)
@@ -77,7 +75,7 @@ class PartnerAdminController
         });
         $datas = $content_admin->get();
 
-        return render_template('admin/partner/edit', ['partner' => $partner, 'galeri' => $datas['data'], 'group_galeri' => $datas['group_galeri'], 'kategori' => $datas['data_kategori']]);
+        return render_template('admin/partner/edit', ['partner' => $partner, 'galeri' => $datas['data'], 'group_galeri' => $datas['group_galeri'], 'kategori' => $datas['data_kategori'], 'model' => $this->partner_admin]);
     }
 
     public function update(Request $request)

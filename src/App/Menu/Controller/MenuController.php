@@ -20,13 +20,14 @@ class MenuController
 
     public function index(Request $request)
     {
+        $data_widget_menu = $this->menu->get();
         $datas = $this->menu->paginate(10);
         
         usort($datas->items, function ($a, $b) {
             return $a['urutan'] - $b['urutan'];
         });
 
-        return render_template('admin/cms-menu/index', compact('datas'));
+        return render_template('admin/cms-menu/index', compact('datas', 'data_widget_menu'));
     }
 
     public function create(Request $request)

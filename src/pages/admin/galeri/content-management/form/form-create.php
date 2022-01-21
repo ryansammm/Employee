@@ -1,6 +1,8 @@
 <form action="/admin/galeri/store" method="POST" enctype="multipart/form-data">
-    <?php if (isset($id_pelanggan)) { ?>
-        <input type="hidden" name="id_pelanggan" value="<?= $id_pelanggan ?>">
+    <?php if (isset($id_relation) && isset($table_name) && isset($url)) { ?>
+        <input type="hidden" name="id_relation" value="<?= $id_relation ?>">
+        <input type="hidden" name="table_name" value="<?= $table_name ?>">
+        <input type="hidden" name="url" value="<?= $url ?>">
     <?php } ?>
     <div class="card">
         <div class="card-body">

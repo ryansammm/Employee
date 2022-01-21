@@ -42,7 +42,7 @@
                                     <form action="/admin/menu/sort" method="POST">
                                         <!-- /.card-header -->
                                         <ul class="todo-list" data-widget="todo-list">
-                                            <?php foreach ($datas->items as $key => $data) { ?>
+                                            <?php foreach ($data_widget_menu->items as $key => $data) { ?>
                                                 <?php if (arr_offset($data, 'jenis_menu') == '1' || arr_offset($data, 'jenis_menu') == '3') { ?>
                                                     <li class="<?= arr_offset($data, 'hide') == '1' ? 'done' : '' ?> d-flex justify-content-between">
                                                         <input type="hidden" class="urutan-menu" name="urutan_menu[]" value="<?= arr_offset($data, 'id_cms_menu') ?>">

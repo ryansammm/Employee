@@ -11,7 +11,7 @@
  Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 21/01/2022 13:29:57
+ Date: 21/01/2022 16:01:42
 */
 
 SET NAMES utf8mb4;
@@ -741,7 +741,7 @@ CREATE TABLE `karyawan`  (
   `id_karyawan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `id_status_kepegawaian` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `no_induk_karyawan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `tgl_mulai_kerja` date NOT NULL,
+  `tgl_mulai_kerja` date NULL DEFAULT NULL,
   `nama_lengkap` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `nama_panggilan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `no_ktp` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
@@ -792,6 +792,10 @@ CREATE TABLE `karyawan`  (
 INSERT INTO `karyawan` VALUES ('61e633c13a4c6', '62446345', '9893450346534', '2020-12-09', 'Ryan Samsudin', 'Iyan', '3299253952069', '323121829395058', '089531123123', '08123654736', 'ryansamsudin1998@gmail.com', 'ryansammm@mail.com', 'Indonesia', '-', '1332-9906-000004', 'Sumedang', '1998-01-01', '1', '2', '55', '165', '2', '1', '-', 'Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang', '45321', 'Jl. Maleer IV No. 212/118 RT.01/RW.02, Kel. Kelurahan, Kec. Batununggal, Kota Bandung', '40274', '-', '234723523968', '-', '-', '135323', '82385729', 'Burangrang', 'Ryan Samsudin', '3-352-3423523-3', '-', '2020-01-01', 'Music, Riding, Travelling, Game, Coffee, Music Produce', 'Mudah bergaul, Ramah, Tidak Sombong, Rajin Menabung', '2', '2', '2022-01-18 10:28:01', '2022-01-19 17:05:35');
 INSERT INTO `karyawan` VALUES ('61e7cca8db58b', '62446345', '23942985203', '2022-01-19', 'Tom Holan', 'Lan', '34503469634930', '234829352039', '08549673745', '08187423959', 'tom@mail.com', 'holan@mail.com', 'Indonesia', '-', '928398230603', 'Sumedang', '2022-01-19', '1', '1', '65', '165', '1', '1', '-', 'Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang', '45321', 'Jl. Maleer IV No. 212/118 RT.01/RW.02, Kel. Kelurahan, Kec. Batununggal, Kota Bandung', '40274', '-', '239582382369', '-', '-', '135323', '423952386', 'Burangrang', 'Tom Holan', '-', '-', '2022-01-19', 'Parkour', 'Saya orang yang ceria dan apa adanya, ramah terhadap lingkungan dan rajin menabung', '2', '1', '2022-01-19 15:32:40', '2022-01-20 10:24:38');
 INSERT INTO `karyawan` VALUES ('61e7d15c35583', '62446345', '12919120923', '2022-01-19', 'Robert Downey JR', 'Oney', '321124812591232', '32181249129501239', '0851231287', '08123912859', 'robert@mail.com', 'downey@mail.com', 'Indonesia', '-', '9182912823', 'Sumedang', '1995-01-09', '1', '1', '65', '171', '4', '1', '-', 'Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang', '45321', 'Jl. Maleer IV No. 212/118 RT.01/RW.02, Kel. Kelurahan, Kec. Batununggal, Kota Bandung', '40274', '-', '-', '-', '-', '135323', '4128519283', 'Burangrang', 'Robert Downey', '-', '-', '2022-01-19', 'Hobi saya membuat robot dan menyelamatkan dunia', 'Cool.', '2', '1', '2022-01-19 15:52:44', '2022-01-19 15:52:44');
+INSERT INTO `karyawan` VALUES ('61ea60cc0bf05', NULL, NULL, NULL, 'Ryan Samsudin', 'Iyan', '872349384', NULL, '089123412', NULL, 'ryan@mail.com', NULL, 'Indonesia', '982349350', '98234923529', 'Sumedang', '1998-01-01', '1', '2', '55', '165', '2', '1', '982349823239', 'Link. Talun Kidul', '45321', 'Maleer IV', '12342', '98998790', '676768676', 'Ga Ada', '872349234', '135323', '989035498', 'Burangrang', 'Ryan Samsudin', '98234829', 'KPP Persada', '2022-01-21', 'Music, Coffee', 'Enjoy Aman', '2', '5', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `karyawan` VALUES ('61ea621fbd85b', NULL, NULL, NULL, 'Ryan Samsudin', 'Iyan', '872349384', NULL, '089123412', NULL, 'ryan@mail.com', NULL, 'Indonesia', '982349350', '98234923529', 'Sumedang', '1998-01-01', '1', '2', '55', '165', '2', '1', '982349823239', 'Link. Talun Kidul', '45321', 'Maleer IV', '12342', '98998790', '676768676', 'Ga Ada', '872349234', '135323', '989035498', 'Burangrang', 'Ryan Samsudin', '98234829', 'KPP Persada', '2022-01-21', 'Music, Coffee', 'Enjoy Aman', '2', '5', '2022-01-21 14:34:55', '2022-01-21 14:34:55');
+INSERT INTO `karyawan` VALUES ('61ea625848448', NULL, NULL, NULL, 'Ryan Samsudin', 'Iyan', '872349384', NULL, '089123412', NULL, 'ryan@mail.com', NULL, 'Indonesia', '982349350', '98234923529', 'Sumedang', '1998-01-01', '1', '2', '55', '165', '2', '1', '982349823239', 'Link. Talun Kidul', '45321', 'Maleer IV', '12342', '98998790', '676768676', 'Ga Ada', '872349234', '135323', '989035498', 'Burangrang', 'Ryan Samsudin', '98234829', 'KPP Persada', '2022-01-21', 'Music, Coffee', 'Enjoy Aman', '2', '5', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `karyawan` VALUES ('61ea6bd1b6639', NULL, NULL, NULL, 'WIHHHHH', 'Iyan', '872349384', NULL, '089123412', NULL, 'ryan@mail.com', NULL, 'Indonesia', '982349350', '98234923529', 'Sumedang', '1998-01-01', '1', '2', '55', '165', '2', '1', '982349823239', 'Link. Talun Kidul', '45321', 'Maleer IV', '12342', '98998790', '676768676', 'Ga Ada', '872349234', '135323', '989035498', 'Burangrang', 'Ryan Samsudin', '98234829', 'KPP Persada', '2022-01-21', 'Music, Coffee', 'Enjoy Aman', '2', '5', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for karyawan_divisi
@@ -946,6 +950,12 @@ INSERT INTO `karyawan_kontak_alt` VALUES ('61e5166f5ebfc', NULL, NULL, NULL, NUL
 INSERT INTO `karyawan_kontak_alt` VALUES ('61e633c168222', 'Suhlan', 'Ayah Kandung', 'Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang', '45321', '08123893584', '-', '61e633c13a4c6', '2', '2022-01-18 10:28:01', '2022-01-18 10:28:01');
 INSERT INTO `karyawan_kontak_alt` VALUES ('61e7cca91b249', 'May', 'Tante', 'Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang', '45321', '0823492359', 'may@mail.com', '61e7cca8db58b', '2', '2022-01-19 15:32:41', '2022-01-19 15:32:41');
 INSERT INTO `karyawan_kontak_alt` VALUES ('61e7d15c6458b', 'Pepper Pots', 'Istri', 'Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang', '45321', '08212941829', 'pepper@mail.com', '61e7d15c35583', '2', '2022-01-19 15:52:44', '2022-01-19 15:52:44');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61ea5e0978cf9', 'Suhlan', 'Ayah', 'Link. Talun Kidul', '45321', '081238418', 'ayah@mail.com', NULL, '2', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61ea5e522da7f', 'Suhlan', 'Ayah', 'Link. Talun Kidul', '45321', '081238418', 'ayah@mail.com', NULL, '2', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61ea6057a74a8', 'Suhlan', 'Ayah', 'Link. Talun Kidul', '45321', '081238418', 'ayah@mail.com', NULL, '2', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61ea60cc2c44a', 'Suhlan', 'Ayah', 'Link. Talun Kidul', '45321', '081238418', 'ayah@mail.com', '61ea60cc0bf05', '2', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61ea62585ea5e', 'Suhlan', 'Ayah', 'Link. Talun Kidul', '45321', '081238418', 'ayah@mail.com', '61ea625848448', '2', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61ea6bd1dc176', 'Suhlan', 'Ayah', 'Link. Talun Kidul', '45321', '081238418', 'ayah@mail.com', '61ea6bd1b6639', '2', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for kategori_berita
@@ -1106,6 +1116,15 @@ INSERT INTO `kemampuan` VALUES ('61e7e26f5af32', '61e633c13a4c6', 'Microsoft Wor
 INSERT INTO `kemampuan` VALUES ('61e7e26f5e5aa', '61e633c13a4c6', 'Microsoft Excel', '3', '2', '2022-01-19 17:05:35', '2022-01-19 17:05:35');
 INSERT INTO `kemampuan` VALUES ('61e8d5f62f3cd', '61e7cca8db58b', 'Microsoft Word', '3', '2', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
 INSERT INTO `kemampuan` VALUES ('61e8d5f630415', '61e7cca8db58b', 'Microsoft Excel', '4', '2', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
+INSERT INTO `kemampuan` VALUES ('61ea5e0974602', NULL, 'Microsoft Word', '1', '2', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `kemampuan` VALUES ('61ea5e0976ab1', NULL, 'Microsoft Excel', '3', '2', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `kemampuan` VALUES ('61ea5e522a06d', NULL, 'Microsoft Word', '1', '2', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `kemampuan` VALUES ('61ea5e522bf13', NULL, 'Microsoft Excel', '3', '2', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `kemampuan` VALUES ('61ea6057a5a77', NULL, 'Microsoft Word', '1', '2', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `kemampuan` VALUES ('61ea60cc21d12', '61ea60cc0bf05', 'Microsoft Word', '1', '2', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `kemampuan` VALUES ('61ea62585da95', '61ea625848448', 'Microsoft Word', '1', '2', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `kemampuan` VALUES ('61ea6bd1d93f7', '61ea6bd1b6639', 'Microsoft Word', '1', '2', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `kemampuan` VALUES ('61ea6bd1daa4a', '61ea6bd1b6639', 'Microsoft Excel', '2', '2', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for kemampuan_bahasa
@@ -1124,6 +1143,12 @@ CREATE TABLE `kemampuan_bahasa`  (
 -- ----------------------------
 -- Records of kemampuan_bahasa
 -- ----------------------------
+INSERT INTO `kemampuan_bahasa` VALUES ('61ea5e0956ff2', NULL, 'Array', '1', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `kemampuan_bahasa` VALUES ('61ea5e5212503', NULL, 'Array', '1', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `kemampuan_bahasa` VALUES ('61ea60578de9b', NULL, 'Array', '1', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `kemampuan_bahasa` VALUES ('61ea60cc0e89d', NULL, 'Array', '1', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `kemampuan_bahasa` VALUES ('61ea62584aa0f', NULL, 'Array', '1', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `kemampuan_bahasa` VALUES ('61ea6bd1ba18d', NULL, 'Array', '1', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for kontak
@@ -1214,6 +1239,12 @@ CREATE TABLE `kursus`  (
 -- ----------------------------
 -- Records of kursus
 -- ----------------------------
+INSERT INTO `kursus` VALUES ('61ea5e0959398', NULL, 'Array', 'Array', 'Array', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `kursus` VALUES ('61ea5e5214637', NULL, 'Array', 'Array', 'Array', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `kursus` VALUES ('61ea605790357', NULL, 'Array', 'Array', 'Array', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `kursus` VALUES ('61ea60cc1038c', NULL, 'Array', 'Array', 'Array', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `kursus` VALUES ('61ea62584c078', NULL, 'Array', 'Array', 'Array', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `kursus` VALUES ('61ea6bd1c17b0', NULL, 'Array', 'Array', 'Array', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for layanan
@@ -1589,6 +1620,82 @@ INSERT INTO `media` VALUES ('61e96e7a7b0d9', 'tom-61e96e7a79190.jpg', '61e96e7a7
 INSERT INTO `media` VALUES ('61e9701c4f01b', 'cd711fca60134229d08e3f8e6604674b-61e9701c4cf6e.jpg', '61e96c518576f', '61bfeeef5402f', 'partner_logo', '2022-01-20 21:22:20', '2022-01-20 21:22:20');
 INSERT INTO `media` VALUES ('61e9729b70d35', 'tom-61e9729b6ea06.jpg', '61e9729b68e9c', '61bfeeef5402f', 'utama', '2022-01-20 21:32:59', '2022-01-20 21:32:59');
 INSERT INTO `media` VALUES ('61e9729b738dc', 'cd711fca60134229d08e3f8e6604674b-61e9729b728c5.jpg', '61e9729b71e6e', '61bfeeef5402f', 'foto-lainnya', '2022-01-20 21:32:59', '2022-01-20 21:32:59');
+INSERT INTO `media` VALUES ('61ea5e09a0141', 'cd711fca60134229d08e3f8e6604674b-61ea5e097d59f.jpg', NULL, '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `media` VALUES ('61ea5e5234cf9', 'cd711fca60134229d08e3f8e6604674b-61ea5e5231a0e.jpg', NULL, '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e5237f26', 'ktp-61ea5e5236366.jpg', NULL, '61bfeeef5402f', 'file_ktp', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e523a05d', 'npwp-61ea5e52388e8.jpg', NULL, '61bfeeef5402f', 'file_npwp', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e523c6af', 'ijazah-61ea5e523aadf.png', NULL, '61bfeeef5402f', 'file_ijazah', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e523ebe9', 'nilai-61ea5e523d051.jpg', NULL, '61bfeeef5402f', 'file_transkrip_nilai', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e5241153', 'sertifikat-61ea5e523f535.jpg', NULL, '61bfeeef5402f', 'file_sertifikat', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e52436ca', 'buku-bank-61ea5e5241ba1.jpg', NULL, '61bfeeef5402f', 'file_salinan_bank', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e5245b2b', 'sim-61ea5e52440b0.jpg', NULL, '61bfeeef5402f', 'file_sim_c', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e524819b', 'kk-61ea5e5246305.jpg', NULL, '61bfeeef5402f', 'file_kk', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e524a892', 'passport-61ea5e5248c0b.jpg', NULL, '61bfeeef5402f', 'file_passport', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e524d1ce', 'asuransi-61ea5e524b416.jpg', NULL, '61bfeeef5402f', 'file_asuransi', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e524f1f6', 'pakelaring-61ea5e524db08.jpg', NULL, '61bfeeef5402f', 'file_pakelaring', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e5251976', 'kartu-kuning-61ea5e524fb62.jpg', NULL, '61bfeeef5402f', 'file_kartu_kuning', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e52540fb', 'skck-61ea5e52522df.jpg', NULL, '61bfeeef5402f', 'file_skck', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea5e52567b4', 'vaksin-61ea5e5254a81.jpg', NULL, '61bfeeef5402f', 'file_vaksin', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `media` VALUES ('61ea6057af92a', 'cd711fca60134229d08e3f8e6604674b-61ea6057ac1d2.jpg', NULL, '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057b210c', 'ktp-61ea6057b057a.jpg', NULL, '61bfeeef5402f', 'file_ktp', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057b4409', 'npwp-61ea6057b2c8a.jpg', NULL, '61bfeeef5402f', 'file_npwp', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057b68fc', 'ijazah-61ea6057b4ccd.png', NULL, '61bfeeef5402f', 'file_ijazah', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057b8c09', 'nilai-61ea6057b71d2.jpg', NULL, '61bfeeef5402f', 'file_transkrip_nilai', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057bac60', 'sertifikat-61ea6057b94ff.jpg', NULL, '61bfeeef5402f', 'file_sertifikat', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057bcc5c', 'buku-bank-61ea6057bb64e.jpg', NULL, '61bfeeef5402f', 'file_salinan_bank', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057bed5b', 'sim-61ea6057bd525.jpg', NULL, '61bfeeef5402f', 'file_sim_c', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057c13be', 'kk-61ea6057bf651.jpg', NULL, '61bfeeef5402f', 'file_kk', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057c37bd', 'passport-61ea6057c1cd1.jpg', NULL, '61bfeeef5402f', 'file_passport', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057c5e97', 'asuransi-61ea6057c4198.jpg', NULL, '61bfeeef5402f', 'file_asuransi', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057cc66b', 'pakelaring-61ea6057cad80.jpg', NULL, '61bfeeef5402f', 'file_pakelaring', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057cebdc', 'kartu-kuning-61ea6057cd227.jpg', NULL, '61bfeeef5402f', 'file_kartu_kuning', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057d1137', 'skck-61ea6057cf688.jpg', NULL, '61bfeeef5402f', 'file_skck', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea6057d333f', 'vaksin-61ea6057d1ace.jpg', NULL, '61bfeeef5402f', 'file_vaksin', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `media` VALUES ('61ea60cc36a6f', 'cd711fca60134229d08e3f8e6604674b-61ea60cc34ed8.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc3806e', 'ktp-61ea60cc37256.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_ktp', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc42a2e', 'npwp-61ea60cc41a53.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_npwp', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc44374', 'ijazah-61ea60cc432fc.png', '61ea60cc0bf05', '61bfeeef5402f', 'file_ijazah', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc459a5', 'nilai-61ea60cc44c3d.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_transkrip_nilai', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc470d5', 'sertifikat-61ea60cc461f7.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_sertifikat', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc48836', 'buku-bank-61ea60cc4796e.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_salinan_bank', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc49dad', 'sim-61ea60cc48f40.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_sim_c', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc52a74', 'kk-61ea60cc5198f.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_kk', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc541f1', 'passport-61ea60cc53355.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_passport', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc55775', 'asuransi-61ea60cc54aa8.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_asuransi', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc56c03', 'pakelaring-61ea60cc55ece.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_pakelaring', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc583f8', 'kartu-kuning-61ea60cc57428.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_kartu_kuning', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc59990', 'skck-61ea60cc58c4e.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_skck', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea60cc5ae6b', 'vaksin-61ea60cc5a0b6.jpg', '61ea60cc0bf05', '61bfeeef5402f', 'file_vaksin', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `media` VALUES ('61ea62586e85c', 'cd711fca60134229d08e3f8e6604674b-61ea62586c33f.jpg', '61ea625848448', '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea625878869', 'ktp-61ea6258773c9.jpg', '61ea625848448', '61bfeeef5402f', 'file_ktp', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea62587a8e8', 'npwp-61ea625879aab.jpg', '61ea625848448', '61bfeeef5402f', 'file_npwp', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea62587bed1', 'ijazah-61ea62587b12f.png', '61ea625848448', '61bfeeef5402f', 'file_ijazah', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea62587d3e9', 'nilai-61ea62587c71f.jpg', '61ea625848448', '61bfeeef5402f', 'file_transkrip_nilai', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea62588aa4a', 'sertifikat-61ea6258899e8.jpg', '61ea625848448', '61bfeeef5402f', 'file_sertifikat', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea62588c5d7', 'buku-bank-61ea62588b7ab.jpg', '61ea625848448', '61bfeeef5402f', 'file_salinan_bank', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea62588deae', 'sim-61ea62588d011.jpg', '61ea625848448', '61bfeeef5402f', 'file_sim_c', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea62588f4b1', 'kk-61ea62588e6f8.jpg', '61ea625848448', '61bfeeef5402f', 'file_kk', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea625890a5a', 'passport-61ea62588fd2d.jpg', '61ea625848448', '61bfeeef5402f', 'file_passport', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea625891f6b', 'asuransi-61ea62589135a.jpg', '61ea625848448', '61bfeeef5402f', 'file_asuransi', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea6258933d5', 'pakelaring-61ea625892759.jpg', '61ea625848448', '61bfeeef5402f', 'file_pakelaring', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea625894b54', 'kartu-kuning-61ea625893b90.jpg', '61ea625848448', '61bfeeef5402f', 'file_kartu_kuning', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea62589616a', 'skck-61ea625895410.jpg', '61ea625848448', '61bfeeef5402f', 'file_skck', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea6258977be', 'vaksin-61ea625896945.jpg', '61ea625848448', '61bfeeef5402f', 'file_vaksin', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `media` VALUES ('61ea6bd1e709b', 'cd711fca60134229d08e3f8e6604674b-61ea6bd1e05e1.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `media` VALUES ('61ea6bd1ea95e', 'ktp-61ea6bd1e7f5b.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_ktp', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `media` VALUES ('61ea6bd1f1b5f', 'npwp-61ea6bd1f041e.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_npwp', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `media` VALUES ('61ea6bd1f40f8', 'ijazah-61ea6bd1f24ea.png', '61ea6bd1b6639', '61bfeeef5402f', 'file_ijazah', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `media` VALUES ('61ea6bd2035f4', 'nilai-61ea6bd20095e.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_transkrip_nilai', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd20d6b5', 'sertifikat-61ea6bd20b034.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_sertifikat', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd2113c7', 'buku-bank-61ea6bd20e7cf.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_salinan_bank', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd2151bd', 'sim-61ea6bd2122c1.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_sim_c', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd218f8c', 'kk-61ea6bd215f09.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_kk', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd21c331', 'passport-61ea6bd219afe.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_passport', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd21f614', 'asuransi-61ea6bd21d061.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_asuransi', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd222de4', 'pakelaring-61ea6bd220572.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_pakelaring', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd226d2a', 'kartu-kuning-61ea6bd22401c.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_kartu_kuning', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd22a125', 'skck-61ea6bd227bf8.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_skck', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
+INSERT INTO `media` VALUES ('61ea6bd22cdbc', 'vaksin-61ea6bd22acc4.jpg', '61ea6bd1b6639', '61bfeeef5402f', 'file_vaksin', '2022-01-21 15:16:18', '2022-01-21 15:16:18');
 
 -- ----------------------------
 -- Table structure for partner
@@ -1633,6 +1740,12 @@ CREATE TABLE `pelamar`  (
 -- ----------------------------
 -- Records of pelamar
 -- ----------------------------
+INSERT INTO `pelamar` VALUES ('61ea5e0954b84', NULL, 'A2.1700107', 'Supervison', '2022-01-22', '5000000', '6000000', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pelamar` VALUES ('61ea5e5210734', NULL, 'A2.1700107', 'Supervison', '2022-01-22', '5000000', '6000000', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pelamar` VALUES ('61ea60578c175', NULL, 'A2.1700107', 'Supervison', '2022-01-22', '5000000', '6000000', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pelamar` VALUES ('61ea60cc0d0d8', NULL, 'A2.1700107', 'Supervison', '2022-01-22', '5000000', '6000000', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pelamar` VALUES ('61ea625849695', '61ea625848448', 'A2.1700107', 'Supervison', '2022-01-22', '5000000', '6000000', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pelamar` VALUES ('61ea6bd1b85dc', '61ea6bd1b6639', 'A2.1700107', 'Supervison', '2022-01-22', '5000000', '6000000', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for pelanggan
@@ -1970,6 +2083,48 @@ INSERT INTO `pendidikan_formal` VALUES ('61e8d5f627811', '61e7cca8db58b', '-', '
 INSERT INTO `pendidikan_formal` VALUES ('61e8d5f62875d', '61e7cca8db58b', 'Universitas Sebelas April', '2021', 'Ekonomi', '5', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
 INSERT INTO `pendidikan_formal` VALUES ('61e8d5f629abd', '61e7cca8db58b', '-', '-', '-', '6', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
 INSERT INTO `pendidikan_formal` VALUES ('61e8d5f62acd7', '61e7cca8db58b', '-', '-', '-', '7', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e096010a', NULL, 'SDN 1 Sumedang', '2012', NULL, '1', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e0961e2c', NULL, 'SMPN 1 Sumedang', '2015', NULL, '2', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e0963c96', NULL, 'SMAN 1 Sumedang', '2018', 'IPA', '3', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e0965d34', NULL, 'Politeknik Bandung', '2021', 'Elektro', '4', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e096a2a2', NULL, 'Universitas Pendidikan Indonesia', '2025', 'Psikologi', '5', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e096c0c6', NULL, 'Universitas Gajah Mada', '2027', 'Kedokteran', '6', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e096e094', NULL, 'Universitas Indonesia', '2029', 'Kimia', '7', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e521a82e', NULL, 'SDN 1 Sumedang', '2012', NULL, '1', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e521beb2', NULL, 'SMPN 1 Sumedang', '2015', NULL, '2', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e521de75', NULL, 'SMAN 1 Sumedang', '2018', 'IPA', '3', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e521f56b', NULL, 'Politeknik Bandung', '2021', 'Elektro', '4', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e5220ffa', NULL, 'Universitas Pendidikan Indonesia', '2025', 'Psikologi', '5', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e5223865', NULL, 'Universitas Gajah Mada', '2027', 'Kedokteran', '6', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_formal` VALUES ('61ea5e52251b0', NULL, 'Universitas Indonesia', '2029', 'Kimia', '7', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6057947b9', NULL, 'SDN 1 Sumedang', '2012', NULL, '1', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60579623c', NULL, 'SMPN 1 Sumedang', '2015', NULL, '2', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60579b536', NULL, 'SMAN 1 Sumedang', '2018', 'IPA', '3', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60579d208', NULL, 'Politeknik Bandung', '2021', 'Elektro', '4', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60579eb76', NULL, 'Universitas Pendidikan Indonesia', '2025', 'Psikologi', '5', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6057a0481', NULL, 'Universitas Gajah Mada', '2027', 'Kedokteran', '6', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6057a1f95', NULL, 'Universitas Indonesia', '2029', 'Kimia', '7', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60cc1918e', '61ea60cc0bf05', 'SDN 1 Sumedang', '2012', NULL, '1', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60cc1a30a', '61ea60cc0bf05', 'SMPN 1 Sumedang', '2015', NULL, '2', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60cc1b693', '61ea60cc0bf05', 'SMAN 1 Sumedang', '2018', 'IPA', '3', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60cc1c7a6', '61ea60cc0bf05', 'Politeknik Bandung', '2021', 'Elektro', '4', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60cc1d936', '61ea60cc0bf05', 'Universitas Pendidikan Indonesia', '2025', 'Psikologi', '5', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60cc1ea6c', '61ea60cc0bf05', 'Universitas Gajah Mada', '2027', 'Kedokteran', '6', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pendidikan_formal` VALUES ('61ea60cc1fbf9', '61ea60cc0bf05', 'Universitas Indonesia', '2029', 'Kimia', '7', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pendidikan_formal` VALUES ('61ea62584ea6d', '61ea625848448', 'SDN 1 Sumedang', '2012', NULL, '1', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pendidikan_formal` VALUES ('61ea62585660e', '61ea625848448', 'SMPN 1 Sumedang', '2015', NULL, '2', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6258577ee', '61ea625848448', 'SMAN 1 Sumedang', '2018', 'IPA', '3', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6258589e0', '61ea625848448', 'Politeknik Bandung', '2021', 'Elektro', '4', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6258599e0', '61ea625848448', 'Universitas Pendidikan Indonesia', '2025', 'Psikologi', '5', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pendidikan_formal` VALUES ('61ea62585a92c', '61ea625848448', 'Universitas Gajah Mada', '2027', 'Kedokteran', '6', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pendidikan_formal` VALUES ('61ea62585bc06', '61ea625848448', 'Universitas Indonesia', '2029', 'Kimia', '7', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6bd1c8a9b', '61ea6bd1b6639', 'SDN 1 Sumedang', '2012', NULL, '1', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6bd1cab49', '61ea6bd1b6639', 'SMPN 1 Sumedang', '2015', NULL, '2', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6bd1ccb7a', '61ea6bd1b6639', 'SMAN 1 Sumedang', '2018', 'IPA', '3', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6bd1cece2', '61ea6bd1b6639', 'Politeknik Bandung', '2021', 'Elektro', '4', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6bd1d0dc7', '61ea6bd1b6639', 'Universitas Pendidikan Indonesia', '2025', 'Psikologi', '5', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6bd1d2ae5', '61ea6bd1b6639', 'Universitas Gajah Mada', '2027', 'Kedokteran', '6', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pendidikan_formal` VALUES ('61ea6bd1d4849', '61ea6bd1b6639', 'Universitas Indonesia', '2029', 'Kimia', '7', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for pendidikan_nonformal
@@ -2032,6 +2187,15 @@ INSERT INTO `pendidikan_nonformal` VALUES ('61e7e26f48906', '61e633c13a4c6', '-'
 INSERT INTO `pendidikan_nonformal` VALUES ('61e7e26f4c761', '61e633c13a4c6', NULL, NULL, NULL, '2', '2022-01-19 17:05:35', '2022-01-19 17:05:35');
 INSERT INTO `pendidikan_nonformal` VALUES ('61e8d5f62c2e1', '61e7cca8db58b', '-', '1', '-', '1', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
 INSERT INTO `pendidikan_nonformal` VALUES ('61e8d5f62de56', '61e7cca8db58b', NULL, NULL, NULL, '2', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea5e09702ab', NULL, 'CSI', '2019', 'Bagus', '1', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea5e0972394', NULL, 'LPKMA', '2020', 'Sangat Bagus', '1', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea5e52269f2', NULL, 'CSI', '2019', 'Bagus', '1', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea5e5228445', NULL, 'LPKMA', '2020', 'Sangat Bagus', '1', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea6057a3917', NULL, 'CSI', '2019', 'Bagus', '1', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea60cc20c77', '61ea60cc0bf05', 'CSI', '2019', 'Bagus', '1', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea62585cbac', '61ea625848448', 'CSI', '2019', 'Bagus', '1', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea6bd1d62d5', '61ea6bd1b6639', 'CSI', '2019', 'Bagus', '1', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pendidikan_nonformal` VALUES ('61ea6bd1d786f', '61ea6bd1b6639', 'LKMA', '2020', 'Bagus', '1', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for pengalaman_organisasi
@@ -2095,6 +2259,15 @@ INSERT INTO `pengalaman_organisasi` VALUES ('61e7e26f6f3bb', '61e633c13a4c6', 'U
 INSERT INTO `pengalaman_organisasi` VALUES ('61e7e26f7371c', '61e633c13a4c6', NULL, NULL, NULL, '2', '2022-01-19 17:05:35', '2022-01-19 17:05:35');
 INSERT INTO `pengalaman_organisasi` VALUES ('61e8d5f6321d7', '61e7cca8db58b', '-', '-', '-', '1', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
 INSERT INTO `pengalaman_organisasi` VALUES ('61e8d5f632f8f', '61e7cca8db58b', NULL, NULL, NULL, '2', '2022-01-20 10:24:38', '2022-01-20 10:24:38');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea5e097a97b', NULL, 'Lembaga 1', 'Jabatan 1', '2010', '1', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea5e097c6e8', NULL, 'Lembaga 2', 'Jabatan 3', '2011', '1', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea5e522f162', NULL, 'Lembaga 1', 'Jabatan 1', '2010', '1', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea5e5230f65', NULL, 'Lembaga 2', 'Jabatan 3', '2011', '1', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea6057a8dbc', NULL, 'Lembaga 1', 'Jabatan 1', '2010', '1', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea60cc33220', '61ea60cc0bf05', 'Lembaga 1', 'Jabatan 1', '2010', '1', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea62585fd38', '61ea625848448', 'Lembaga 1', 'Jabatan 1', '2010', '1', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea6bd1ddfa1', '61ea6bd1b6639', 'Lembaga 1', 'Jabatan 1', '2010', '1', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pengalaman_organisasi` VALUES ('61ea6bd1df9f7', '61ea6bd1b6639', 'Lembaga 2', 'Jabatan 2', '2011', '1', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for pengalaman_pekerjaan
@@ -2178,6 +2351,15 @@ CREATE TABLE `pengalaman_pekerjaan_pelamar`  (
 -- ----------------------------
 -- Records of pengalaman_pekerjaan_pelamar
 -- ----------------------------
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea5e095be39', '61ea5e0954b84', 'Mekar Jaya', 'Sandang dan Pangan', 'Udin', '08129128', 'Pemasaran', '2021-02-12', 'Good', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea5e095deb0', '61ea5e0954b84', 'Mekar Harapan', 'Pengadaan', 'Nurjaya', '08917623758', 'VP', '2022-01-21', 'Good', '2022-01-21 14:17:29', '2022-01-21 14:17:29');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea5e5216cf2', '61ea5e5210734', 'Mekar Jaya', 'Sandang dan Pangan', 'Udin', '08129128', 'Pemasaran', '2021-02-12', 'Good', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea5e52188f6', '61ea5e5210734', 'Mekar Harapan', 'Pengadaan', 'Nurjaya', '08917623758', 'VP', '2022-01-21', 'Good', '2022-01-21 14:18:42', '2022-01-21 14:18:42');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea605792ad7', '61ea60578c175', 'Mekar Jaya', 'Sandang dan Pangan', 'Udin', '08129128', 'Pemasaran', '2021-02-12', 'Good', '2022-01-21 14:27:19', '2022-01-21 14:27:19');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea60cc11db3', '61ea60cc0d0d8', 'Mekar Jaya', 'Sandang dan Pangan', 'Udin', '08129128', 'Pemasaran', '2021-02-12', 'Good', '2022-01-21 14:29:16', '2022-01-21 14:29:16');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea62584d9d7', '61ea625849695', 'Mekar Jaya', 'Sandang dan Pangan', 'Udin', '08129128', 'Pemasaran', '2021-02-12', 'Good', '2022-01-21 14:35:52', '2022-01-21 14:35:52');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea6bd1c45ce', '61ea6bd1b85dc', 'Mekar Jaya', 'Sandang dan Pangan', 'Udin', '08129128', 'Pemasaran', '2021-02-12', 'Good', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61ea6bd1c6b41', '61ea6bd1b85dc', 'Hans Jaya', 'Sandang dan Pangan', 'Udin', '08129128', 'Pemasaran', '2021-02-12', 'Good', '2022-01-21 15:16:17', '2022-01-21 15:16:17');
 
 -- ----------------------------
 -- Table structure for pengumuman

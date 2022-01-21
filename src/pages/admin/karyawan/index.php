@@ -73,23 +73,25 @@
                         </thead>
                         <tbody>
                             <?php foreach ($datas->items as $key => $value) { ?>
-                                <tr>
-                                    <td><?= $key + 1 ?></td>
-                                    <td>
-                                        <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" target="_balcnk"><?= $value['nama_lengkap'] ?></a>
-                                    </td>
-                                    <td><?= $value['nama'] ?></td>
-                                    <td><?= $value['nama_divisi'] ?></td>
-                                    <td><?= $value['nama_bidang'] ?></td>
-                                    <td><?= $value['no_induk_karyawan'] ?></td>
-                                    <td><?= date_format(date_create($value['tgl_mulai_kerja']), "d-m-Y") ?></td>
-                                    <td><?= $value['jenis_karyawan'] ?></td>
-                                    <td>
-                                        <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-outline-success mr-1" data-toggle="tooltip" data-placement="bottom" title="Pratinjau" target="_blank"><i class="fa fa-eye"></i></a>
-                                        <a class=" btn btn-sm btn-outline-primary mr-1" href="/admin/karyawan/<?= $value['id_karyawan'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-sm btn-outline-dark " data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_karyawan'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
-                                    </td>
-                                </tr>
+                                <?php if ($value['status_karyawan'] != '5') { ?>
+                                    <tr>
+                                        <td><?= $key + 1 ?></td>
+                                        <td>
+                                            <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" target="_balcnk"><?= $value['nama_lengkap'] ?></a>
+                                        </td>
+                                        <td><?= $value['nama'] ?></td>
+                                        <td><?= $value['nama_divisi'] ?></td>
+                                        <td><?= $value['nama_bidang'] ?></td>
+                                        <td><?= $value['no_induk_karyawan'] ?></td>
+                                        <td><?= date_format(date_create($value['tgl_mulai_kerja']), "d F Y") ?></td>
+                                        <td><?= $value['jenis_karyawan'] ?></td>
+                                        <td>
+                                            <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-outline-success mr-1" data-toggle="tooltip" data-placement="bottom" title="Pratinjau" target="_blank"><i class="fa fa-eye"></i></a>
+                                            <a class=" btn btn-sm btn-outline-primary mr-1" href="/admin/karyawan/<?= $value['id_karyawan'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
+                                            <a href="#" class="btn btn-sm btn-outline-dark " data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_karyawan'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                             <?php } ?>
                         </tbody>
                     </table>

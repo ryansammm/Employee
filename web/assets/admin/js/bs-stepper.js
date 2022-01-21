@@ -91,7 +91,7 @@
         l = function (t, e, n, s) {
             n.forEach(function (e) {
                 var n = e.querySelector(s.selectors.trigger);
-                n.setAttribute("aria-selected", "false"), t.classList.contains(r.LINEAR)
+                n.setAttribute("aria-selected", "false"), t.classList.contains(r.LINEAR) && n.setAttribute("disabled", "disabled")
             }), e.classList.add(r.ACTIVE);
             var i = e.querySelector(s.selectors.trigger);
             i.setAttribute("aria-selected", "true"), t.classList.contains(r.LINEAR) && i.removeAttribute("disabled")

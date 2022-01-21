@@ -68,34 +68,60 @@
     }
 </style>
 
+<script>
+    var page1 = function() {
+        var stepper = new Stepper(document.querySelector('.bs-stepper'))
+
+        stepper.to(1)
+    }
+
+    var page2 = function() {
+        var stepper = new Stepper(document.querySelector('.bs-stepper'))
+
+        stepper.to(2)
+    }
+
+    var page3 = function() {
+        var stepper = new Stepper(document.querySelector('.bs-stepper'))
+
+        stepper.to(3)
+    }
+
+    var page4 = function() {
+        var stepper = new Stepper(document.querySelector('.bs-stepper'))
+
+        stepper.to(4)
+    }
+</script>
+
 
 <div class="content-wrapper" id="top">
     <div class="bs-stepper">
         <div class="bs-stepper-header" role="tablist" style="background-color: #9191912e;">
             <!-- your steps here -->
             <div class="step" data-target="#sebelum-bergabung">
-                <button type="button" class="step-trigger" role="tab" aria-controls="sebelum-bergabung" id="sebelum-bergabung-trigger">
+                <button type="button" onclick="page1()" class="step-trigger" role="tab" aria-controls="sebelum-bergabung" id="sebelum-bergabung-trigger">
                     <span class="bs-stepper-circle">1</span>
                     <span class="bs-stepper-label">Data Utama</span>
                 </button>
             </div>
             <div class="line"></div>
             <div class="step" data-target="#sesudah-bergabung">
-                <button type="button" class="step-trigger" role="tab" aria-controls="sesudah-bergabung" id="sesudah-bergabung-trigger">
+                <button type="button" onclick="page2()" class="step-trigger" role="tab" aria-controls="sesudah-bergabung" id="sesudah-bergabung-trigger">
                     <span class="bs-stepper-circle">2</span>
                     <span class="bs-stepper-label">Data Pengalaman</span>
                 </button>
             </div>
             <div class="line"></div>
             <div class="step" data-target="#survey">
-                <button type="button" class="step-trigger" role="tab" aria-controls="survey" id="survey-trigger">
+                <button type="button" onclick="page3()" class="step-trigger" role="tab" aria-controls="survey" id="survey-trigger">
                     <span class="bs-stepper-circle">3</span>
                     <span class="bs-stepper-label">Survey</span>
                 </button>
             </div>
             <div class="line"></div>
             <div class="step" data-target="#data-pendukung">
-                <button type="button" class="step-trigger" role="tab" aria-controls="data-pendukung" id="data-pendukung-trigger">
+                <button type="button" onclick="page4()" class="step-trigger" role="tab" aria-controls="data-pendukung" id="data-pendukung-trigger">
                     <span class="bs-stepper-circle">4</span>
                     <span class="bs-stepper-label">Dokumen Pendukung</span>
                 </button>
@@ -103,14 +129,14 @@
         </div>
 
         <div class="bs-stepper-content">
-            <form action="/admin/karyawan/store" method="POST" enctype="multipart/form-data">
+            <form action="/admin/pelamar/store" method="POST" enctype="multipart/form-data">
 
                 <div id="sebelum-bergabung" class="content" role="tabpanel" aria-labelledby="sebelum-bergabung-trigger">
                     <div class="content-header">
                         <div class="container-fluid">
                             <div class="row mb-2">
                                 <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                                    <a href="/admin/pelamar" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                                 </div>
                                 <div class="col-sm-5">
                                     <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
@@ -674,7 +700,7 @@
                         <div class="container-fluid">
                             <div class="row mb-2">
                                 <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                                    <a href="/admin/pelamar" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                                 </div>
                                 <div class="col-sm-5">
                                     <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
@@ -822,11 +848,11 @@
                                                         </div>
                                                         <div class="mb-2">
                                                             <div class="custom-control custom-radio custom-control-inline">
-                                                                <input type="radio" id="customRadioInline1" name="kemampuan_bahasa" value="1" class="custom-control-input">
+                                                                <input type="radio" id="customRadioInline1" name="kemampuan_bahasa[]" value="1" class="custom-control-input">
                                                                 <label class="custom-control-label my-auto" for="customRadioInline1">Lisan / Tulis Aktif</label>
                                                             </div>
                                                             <div class="custom-control custom-radio custom-control-inline">
-                                                                <input type="radio" id="customRadioInline2" name="kemampuan_bahasa" value="2" class="custom-control-input">
+                                                                <input type="radio" id="customRadioInline2" name="kemampuan_bahasa[]" value="2" class="custom-control-input">
                                                                 <label class="custom-control-label my-auto" for="customRadioInline2">Lisan / Tulis Pasif</label>
                                                             </div>
                                                         </div>
@@ -860,7 +886,7 @@
                         <div class="container-fluid">
                             <div class="row mb-2">
                                 <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                                    <a href="/admin/pelamar" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
                                 </div>
                                 <div class="col-sm-5">
                                     <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>

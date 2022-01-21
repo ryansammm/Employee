@@ -62,12 +62,6 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Lengkap</th>
-                                <th scope="col">Jabatan</th>
-                                <th scope="col">Divisi</th>
-                                <th scope="col">Bidang</th>
-                                <th scope="col">No. Induk Karyawan</th>
-                                <th scope="col">Tanggal Mulai Kerja</th>
-                                <th scope="col">Status Kepegawaian</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -78,16 +72,10 @@
                                     <td>
                                         <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" target="_balcnk"><?= $value['nama_lengkap'] ?></a>
                                     </td>
-                                    <td><?= $value['nama'] ?></td>
-                                    <td><?= $value['nama_divisi'] ?></td>
-                                    <td><?= $value['nama_bidang'] ?></td>
-                                    <td><?= $value['no_induk_karyawan'] ?></td>
-                                    <td><?= date_format(date_create($value['tgl_mulai_kerja']), "d-m-Y") ?></td>
-                                    <td><?= $value['jenis_karyawan'] ?></td>
                                     <td>
                                         <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-outline-success mr-1" data-toggle="tooltip" data-placement="bottom" title="Pratinjau" target="_blank"><i class="fa fa-eye"></i></a>
-                                        <a class=" btn btn-sm btn-outline-primary mr-1" href="/admin/karyawan/<?= $value['id_karyawan'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-sm btn-outline-dark " data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_karyawan'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
+                                        <a class=" btn btn-sm btn-outline-primary mr-1" href="/admin/pelamar/<?= $value['id_pelamar'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-dark " data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_pelamar'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -147,7 +135,7 @@
         var id = button.data('id')
 
         var modal = $(this)
-        modal.find('#form_hapus').attr('action', '/admin/karyawan/' + id + '/status')
+        modal.find('#form_hapus').attr('action', '/admin/pelamar/' + id + '/status')
     })
 
     $(function() {

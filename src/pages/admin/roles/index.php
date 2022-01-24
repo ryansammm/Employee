@@ -39,8 +39,8 @@
                                     <td><?= $value['nama_role'] ?></td>
                                     <td><?= $value['alias_role'] ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-info mr-1" href="/admin/roles/<?= $value['id_role'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_roles" data-id="<?= $value['id_role'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-outline-primary m-1" href="/admin/roles/<?= $value['id_role'] ?>/edit"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger m-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus_roles" data-id="<?= $value['id_role'] ?>"><i class="fa fa-user-times" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

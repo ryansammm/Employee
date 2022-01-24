@@ -69,6 +69,7 @@ class PelamarController
         $datas = $this->pelamar
             ->leftJoin('karyawan', 'karyawan.id_karyawan', '=', 'pelamar.id_karyawan')
             ->where('status_karyawan', '5')
+            ->orderBy('pelamar.created_at', 'DESC')
             ->paginate(10);
 
         return render_template('admin/pelamar/index', ['datas' => $datas]);
@@ -415,22 +416,187 @@ class PelamarController
 
         $detail_kontak_alt = $this->karyawanKontakAlt->where('id_karyawan', $detail['id_karyawan'])->first();
 
-        return render_template('admin/pelamar/edit', ['detail' => $detail, 'bank' => $bank, 'detail_kontak_alt' => $detail_kontak_alt, 'pengalaman_kerja_pelamar' => $pengalaman_kerja_pelamar, 'pendidikan_non_formal' => $pendidikan_non_formal, 'kemampuan' => $kemampuan, 'keluarga' => $keluarga, 'pengalaman_organisasi' => $pengalaman_organisasi, 'pengalaman_pekerjaan' => $pengalaman_pekerjaan, 'pendidikan_formal' => $pendidikan_formal, 'pendidikan_non_formal_bergabung' => $pendidikan_non_formal_bergabung, 'pengalaman_organisasi_bergabung' => $pengalaman_organisasi_bergabung, 'dokumen_pendukung' => $dokumen_pendukung, 'selectMedia' => $selectMedia, 'media_sertifikat' => $media_sertifikat]);
+        $kemampuan_bahasa = $this->kemampuanBahasa
+            ->where('id_pelamar', $id)
+            ->get();
+
+
+        return render_template('admin/pelamar/edit', ['detail' => $detail, 'bank' => $bank, 'detail_kontak_alt' => $detail_kontak_alt, 'pengalaman_kerja_pelamar' => $pengalaman_kerja_pelamar, 'pendidikan_non_formal' => $pendidikan_non_formal, 'kemampuan' => $kemampuan, 'keluarga' => $keluarga, 'pengalaman_organisasi' => $pengalaman_organisasi, 'pengalaman_pekerjaan' => $pengalaman_pekerjaan, 'pendidikan_formal' => $pendidikan_formal, 'pendidikan_non_formal_bergabung' => $pendidikan_non_formal_bergabung, 'pengalaman_organisasi_bergabung' => $pengalaman_organisasi_bergabung, 'dokumen_pendukung' => $dokumen_pendukung, 'selectMedia' => $selectMedia, 'media_sertifikat' => $media_sertifikat, 'kursus' => $kursus, 'kemampuan_bahasa' => $kemampuan_bahasa]);
     }
 
     public function update(Request $request)
     {
+        /* --------------------------------- Request -------------------------------- */
         $id = $request->attributes->get('id');
+        $datas = $request->request->all();
+        $detail = $this->pelamar
+            ->leftJoin('karyawan', 'karyawan.id_karyawan', '=', 'pelamar.id_karyawan')
+            ->where('pelamar.id_pelamar', $id)
+            ->first();
+        $id_karyawan = $detail['id_karyawan'];
+        /* -------------------------------------------------------------------------- */
 
-        $update = $this->pelamar->update($request->request->all());
+        /* --------------------------------- Pelamar -------------------------------- */
+        $update = $this->pelamar
+            ->where('id_pelamar', $id)
+            ->update($request->request->all());
+        /* -------------------------------------------------------------------------- */
 
+        /* -------------------------------- Karyawan -------------------------------- */
+        $update_karyawan = $this->karyawan
+            ->where('id_karyawan', $id_karyawan)
+            ->update($request->request->all());
+        /* -------------------------------------------------------------------------- */
 
-        $this->media->updateMedia($request->files->get('nama_input'), [
-            'id_relation' => $id,
-            'jenis_dokumen' => 'jenis',
-        ], $this->pelamar, $id);
+        /* ------------------------------ Foto Profile ------------------------------ */
+        $this->media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get('foto_profile_pelamar'), [
+            'id_relation' => $id_karyawan,
+            'jenis_dokumen' => 'foto_profile_pelamar',
+        ], $this->karyawan, $id_karyawan);
+        /* -------------------------------------------------------------------------- */
 
-        return new RedirectResponse('/home');
+        /* ---------------------------- Pendidikan Formal --------------------------- */
+        $this->pendidikanFormal->where('id_relation', $id_karyawan)->delete();
+        foreach ($datas['pendidikan'] as $key => $value) {
+
+            if ($datas['jenis_pendidikan'][$key] == 1 || $datas['jenis_pendidikan'][$key] == 2) {
+                $jurusan = NULL;
+            } else {
+                $jurusan = $datas['jurusan_pendidikan'][$key];
+            }
+
+            $create_pendidikan_formal = $this->pendidikanFormal->insert(
+                [
+                    'id_relation' => $id_karyawan,
+                    'nama_sekolah' => $datas['pendidikan'][$key],
+                    'tahun_lulus' => $datas['tahun_pendidikan'][$key],
+                    'jurusan' => $jurusan,
+                    'jenis_pendidikan' => $datas['jenis_pendidikan'][$key],
+                ]
+            );
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* -------------------------- Pendidikan Non Formal ------------------------- */
+        $this->pendidikanNonFormal->where('id_relation', $id_karyawan)->delete();
+        foreach ($datas['lembaga_pendidikan_nonformal'] as $key => $value) {
+            $create_pendidikan_non_formal = $this->pendidikanNonFormal->insert(
+                [
+                    'id_relation' => $id_karyawan,
+                    'nama_lembaga' => $datas['lembaga_pendidikan_nonformal'][$key],
+                    'periode_tahun' => $datas['tahun_nonformal'][$key],
+                    'deskripsi' => $datas['deskripsi_nonformal'][$key],
+                    'status' => '1'
+                ]
+            );
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* -------------------------------- Kemampuan ------------------------------- */
+        $this->kemampuan->where('id_relation', $id_karyawan)->delete();
+        foreach ($datas['nama_kemampuan'] as $key => $value) {
+            $create_kemampuan = $this->kemampuan->insert(
+                [
+                    'id_relation' => $id_karyawan,
+                    'nama_kemampuan' => $datas['nama_kemampuan'][$key],
+                    'tingkat_kemampuan' => $datas['tingkat_kemampuan'][$key],
+                    'hide' => '2'
+                ]
+            );
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* ---------------------- keluarga Yang Bisa Dihubungi ---------------------- */
+        $this->karyawanKontakAlt
+            ->where('id_karyawan', $id_karyawan)
+            ->update($request->request->all());
+        /* -------------------------------------------------------------------------- */
+
+        /* ---------------------------- Kemampuan Bahasa ---------------------------- */
+        $this->kemampuanBahasa->where('id_pelamar', $id)->delete();
+        foreach ($datas['nama_bahasa'] as $key => $value) {
+            $create_kemampuan_bahasa = $this->kemampuanBahasa->insert([
+                'id_pelamar' => $id,
+                'nama_bahasa' => $datas['nama_bahasa'][$key],
+                'kemampuan_bahasa' => $datas['kemampuan_bahasa'][$key],
+            ]);
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* -------------------------- Pengalaman Organisasi ------------------------- */
+        $this->pengalamanOrganisasi->where('id_relation', $id_karyawan)->delete();
+        foreach ($datas['lembaga_organisasi'] as $key => $value) {
+            $create_pengalaman_organisasi = $this->pengalamanOrganisasi->insert(
+                [
+                    'id_relation' => $id_karyawan,
+                    'nama_organisasi' => $datas['lembaga_organisasi'][$key],
+                    'jabatan_organisasi' => $datas['jabatan_organisasi'][$key],
+                    'periode_aktif' => $datas['periode_aktif_organisasi'][$key],
+                    'status' => '1'
+                ]
+            );
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* --------------------------------- Kursus --------------------------------- */
+        $this->kursus->where('id_pelamar', $id)->delete();
+        foreach ($datas['nama_lembaga_kursus'] as $key => $value) {
+            $create_kursus = $this->kursus->insert([
+                'id_pelamar' => $id,
+                'tahun_kursus' => $datas['tahun_kursus'][$key],
+                'nama_lembaga_kursus' => $datas['nama_lembaga_kursus'][$key],
+                'deskripsi_kursus' => $datas['deskripsi_kursus'][$key],
+            ]);
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* ---------------------- Pengalaman Pekerjaan Pelamar ---------------------- */
+        $this->pengalamanPekerjaanPelamar->where('id_pelamar', $id)->delete();
+        foreach ($datas['nama_perusahaan_pelamar'] as $key => $value) {
+            $create_pengalaman_pekerjaan_pelamar = $this->pengalamanPekerjaanPelamar->insert([
+                'id_pelamar' => $id,
+                'nama_perusahaan_pelamar' => $datas['nama_perusahaan_pelamar'][$key],
+                'jenis_usaha' => $datas['jenis_usaha'][$key],
+                'nama_atasan' => $datas['nama_atasan'][$key],
+                'no_kontak_atasan' => $datas['no_kontak_atasan'][$key],
+                'jabatan_terakhir' => $datas['jabatan_terakhir'][$key],
+                'tgl_berhenti' => $datas['tgl_berhenti'][$key],
+                'alasan_berhenti' => $datas['alasan_berhenti'][$key],
+            ]);
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* ---------------------------- Dokumen Pendukung --------------------------- */
+        foreach (array_keys($request->files->all()) as $key2 => $value2) {
+
+            if ($value2 == 'file_sertifikat') {
+                foreach ($request->files->get('file_sertifikat') as $key => $value) {
+                    $this->media->path(env('APP_MEDIA_DIR'))->updateMedia($value, [
+                        'id_relation' => $id_karyawan,
+                        'jenis_dokumen' => 'file_sertifikat',
+                    ], $this->karyawan, $id_karyawan);
+                }
+            }
+
+            if ($value2 != 'profile_foto') {
+                if ($value2 != 'file_sertifikat') {
+                    // dd($request->files->get($value2));
+                    $this->media->path(env('APP_MEDIA_DIR'))->updateMedia($request->files->get($value2), [
+                        'id_relation' => $id_karyawan,
+                        'jenis_dokumen' => $value2,
+                    ], $this->karyawan, $id_karyawan);
+                }
+            }
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* ------------------------------- Update Time ------------------------------ */
+        $this->karyawan->where('id_karyawan', $id)->update([
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+        /* -------------------------------------------------------------------------- */
+
+        return new RedirectResponse('/admin/pelamar/' . $id . '/edit');
     }
 
     public function detail(Request $request)

@@ -40,8 +40,8 @@
                                     <td><?= $value['nama_user'] ?></td>
                                     <!-- <td><?= $value['role_admin'] ?></td> -->
                                     <td>
-                                        <a class="btn btn-sm btn-info" href="/admin/pengguna/<?= $value['id_user'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_konfirmasi_hapus_pengguna" data-id="<?= $value['id_user'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-outline-primary m-1" href="/admin/pengguna/<?= $value['id_user'] ?>/edit"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger m-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus_pengguna" data-id="<?= $value['id_user'] ?>"><i class="fa fa-user-times" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -49,6 +49,7 @@
                     </table>
                 </div>
             </div>
+            <?= $data_pengguna->links() ?>
         </div>
     </div>
 </div>

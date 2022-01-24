@@ -3,72 +3,6 @@
 <!-- Include Choices CSS -->
 <link rel="stylesheet" href="/assets/vendors/choices.js/choices.min.css" />
 
-<style>
-    label {
-        font-weight: 500 !important;
-        font-size: 11px !important;
-    }
-
-    .form-control {
-        font-size: 12px !important;
-        height: calc(2.0rem + 1px);
-        padding: .175rem .75rem !important;
-    }
-
-    button {
-        font-size: 11px !important;
-    }
-
-    .btn {
-        font-size: 11px;
-    }
-
-    .custom-file-label {
-        font-size: 12px !important;
-        font-style: italic;
-        height: calc(2.0rem + 1px);
-    }
-
-    .custom-file,
-    .custom-file-input {
-        height: calc(2.0rem + 1px);
-    }
-
-    .crop {
-        width: 157px;
-        height: 199px;
-        overflow: hidden;
-        margin-top: 7px;
-    }
-
-    .crop img {
-        width: 157px;
-        height: 199px;
-        border-radius: 0.25rem;
-        object-fit: contain;
-    }
-
-    body {
-        font-family: 'Poppins', sans-serif !important;
-    }
-
-    .sidebar {
-        font-size: 13px !important;
-    }
-
-    .brand-text {
-        font-size: 11px !important;
-    }
-
-    .main-footer {
-        font-size: 11px;
-    }
-
-    h5 {
-        font-size: 13px !important;
-    }
-</style>
-
 <script>
     var page1 = function() {
         var stepper = new Stepper(document.querySelector('.bs-stepper'))
@@ -130,23 +64,22 @@
         </div>
 
         <div class="bs-stepper-content">
-            <form action="/admin/karyawan/store" method="POST" enctype="multipart/form-data">
+            <form action="/admin/pelamar/<?= $detail['id_pelamar'] ?>/update" method="POST" enctype="multipart/form-data">
 
                 <div id="sebelum-bergabung" class="content" role="tabpanel" aria-labelledby="sebelum-bergabung-trigger">
-                    <div class="content-header">
+                    <div class="content-header mt-1 pl-0">
                         <div class="container-fluid">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
-                                </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Ubah Pelamar</h1>
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/pelamar" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Pelamar Pekerjaan</h1>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
-                                        <li class="breadcrumb-item active">Ubah Data Pelamar</li>
+                                        <li class="breadcrumb-item"><a href="#">Data Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Ubah Data Pelamar Pekerjaan</li>
                                     </ol>
                                 </div>
                             </div>
@@ -170,7 +103,7 @@
                                                     <div class="mb-2">
                                                         <label for="">Foto Profile</label>
                                                         <div class="custom-file">
-                                                            <input type="file" class="custom-file-input foto_utama" name="foto_profile_pelamar" required>
+                                                            <input type="file" class="custom-file-input foto_utama" name="foto_profile_pelamar">
                                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                                         </div>
                                                     </div>
@@ -498,6 +431,25 @@
                                 </div>
                                 <!-- END PERPAJAKAN -->
 
+                                <!-- PENDIDIKAN FORMAL -->
+                                <h5 class="mt-3">PENDIDIKAN FORMAL</h5>
+                                <div class="border rounded p-3">
+                                    <div class="row">
+                                        <?php foreach ($pendidikan_formal->items as $key => $value) { ?>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for=""><?= $value['nama_pendidikan'] ?></label>
+                                                    <input type="hidden" name="jenis_pendidikan[]" value="<?= $key += 1 ?>">
+                                                    <input type="text" name="pendidikan[]" class="form-control" value="<?= $value['nama_sekolah'] ?>">
+                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus" value="<?= $value['tahun_lulus'] ?>">
+                                                    <input type="<?= $value['jenis_pendidikan'] < 3 ? 'hidden' : 'text' ?>" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada" value="<?= $value['jurusan'] ?>">
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                                <!-- END PENDIDIKAN FORMAL -->
+
                                 <!-- PENDIDIKAN NON FORMAL -->
                                 <h5 class="mt-3 mb-0">PENDIDIKAN NON FORMAL |<span style="font-size: 13px;"> Sebelum bergabung</span></h5>
                                 <span style="font-size: 13px;">(Sertifikasi, Pelatihan Kerja, Kursus/Seminar, dll)</span>
@@ -529,25 +481,6 @@
                                 </div>
                                 <button type="button" class="btn btn-sm btn-success mt-2 multi-input-add2">Tambah Kolom</button>
                                 <!-- END PENDIDIKAN NON FORMAL -->
-
-                                <!-- PENDIDIKAN FORMAL -->
-                                <h5 class="mt-3">PENDIDIKAN FORMAL</h5>
-                                <div class="border rounded p-3">
-                                    <div class="row">
-                                        <?php foreach ($pendidikan_formal->items as $key => $value) { ?>
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-3">
-                                                    <label for=""><?= $value['nama_pendidikan'] ?></label>
-                                                    <input type="hidden" name="jenis_pendidikan[]" value="<?= $key += 1 ?>">
-                                                    <input type="text" name="pendidikan[]" class="form-control" value="<?= $value['nama_sekolah'] ?>">
-                                                    <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus" value="<?= $value['tahun_lulus'] ?>">
-                                                    <input type="<?= $value['jenis_pendidikan'] < 3 ? 'hidden' : 'text' ?>" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada" value="<?= $value['jurusan'] ?>">
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                                <!-- END PENDIDIKAN FORMAL -->
 
                                 <!-- KEMAMPUAN -->
                                 <h5 class="mt-3">KEMAMPUAN</h5>
@@ -639,7 +572,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-end">
-                                    <a href="#top" class="btn btn-sm btn-primary" id="next-form" onclick="stepper.next()">Next</a>
+                                    <a href="#top" class="btn btn-sm btn-next" id="next-form" onclick="stepper.next()">Salanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -648,20 +581,19 @@
 
                 <div id="sesudah-bergabung" class="content" role="tabpanel" aria-labelledby="sesudah-bergabung-trigger">
                     <!------- Start Header ------->
-                    <div class="content-header">
+                    <div class="content-header mt-1 pl-0">
                         <div class="container-fluid">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
-                                </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/pelamar" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Pelamar Pekerjaan</h1>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
-                                        <li class="breadcrumb-item active">Tambah Kolom Pelamar</li>
+                                        <li class="breadcrumb-item"><a href="#">Data Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Ubah Data Pelamar Pekerjaan</li>
                                     </ol>
                                 </div>
                             </div>
@@ -763,26 +695,28 @@
                             <h5 class="mt-3 mb-0">KURSUS / SEMINAR YANG PERNAH DIIKUTI</h5>
                             <div class="border rounded p-3 mt-2">
                                 <div class="multi-input-container7">
-                                    <div class="row multi-input-item7">
-                                        <div class="col-12 col-md-2">
-                                            <div class="mb-2">
-                                                <label for="">Tahun</label>
-                                                <input type="text" name="tahun_kursus[]" class="form-control">
+                                    <?php foreach ($kursus->items as $key => $variable) { ?>
+                                        <div class="row multi-input-item7">
+                                            <div class="col-12 col-md-2">
+                                                <div class="mb-2">
+                                                    <label for="">Tahun</label>
+                                                    <input type="text" name="tahun_kursus[]" class="form-control" value="<?= $variable['tahun_kursus'] ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-4">
+                                                <div class="mb-2">
+                                                    <label for="">Nama Lembaga</label>
+                                                    <input type="text" name="nama_lembaga_kursus[]" class="form-control" value="<?= $variable['nama_lembaga_kursus'] ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-2">
+                                                    <label for="">Deskripsi</label>
+                                                    <input type="text" name="deskripsi_kursus[]" class="form-control" value="<?= $variable['deskripsi_kursus'] ?>">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-4">
-                                            <div class="mb-2">
-                                                <label for="">Nama Lembaga</label>
-                                                <input type="text" name="nama_lembaga_kursus[]" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-2">
-                                                <label for="">Deskripsi</label>
-                                                <input type="text" name="deskripsi_kursus[]" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                                 <hr>
                                 <button type="button" class="btn btn-sm btn-success multi-input-add7">Tambah Kolom</button>
@@ -794,28 +728,30 @@
                             <div class="border rounded p-3 mt-2">
                                 <div class="">
                                     <div class="row multi-input-container8">
-                                        <div class="col-md-6 multi-input-item8">
-                                            <div class="border rounded p-3 mt-2">
-                                                <div class="row">
-                                                    <div class="col-12 col-md-12">
-                                                        <div class="mb-2">
-                                                            <label for="">Nama Bahasa</label>
-                                                            <input type="text" name="nama_bahasa[]" class="form-control">
-                                                        </div>
-                                                        <div class="mb-2">
-                                                            <div class="custom-control custom-radio custom-control-inline">
-                                                                <input type="radio" id="customRadioInline1" name="kemampuan_bahasa" value="1" class="custom-control-input">
-                                                                <label class="custom-control-label my-auto" for="customRadioInline1">Lisan / Tulis Aktif</label>
+                                        <?php foreach ($kemampuan_bahasa->items as $key => $variable) { ?>
+                                            <div class="col-md-6 multi-input-item8">
+                                                <div class="border rounded p-3 mt-2">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="mb-2">
+                                                                <label for="">Nama Bahasa</label>
+                                                                <input type="text" name="nama_bahasa[]" class="form-control" value="<?= $variable['nama_bahasa'] ?>">
                                                             </div>
-                                                            <div class="custom-control custom-radio custom-control-inline">
-                                                                <input type="radio" id="customRadioInline2" name="kemampuan_bahasa" value="2" class="custom-control-input">
-                                                                <label class="custom-control-label my-auto" for="customRadioInline2">Lisan / Tulis Pasif</label>
+                                                            <div class="mb-2">
+                                                                <div class="custom-control custom-radio custom-control-inline">
+                                                                    <input type="radio" id="customRadioInline1" name="kemampuan_bahasa" value="1" class="custom-control-input" <?= $variable['kemampuan_bahasa'] == 1 ? 'checked' : '' ?>>
+                                                                    <label class="custom-control-label my-auto" for="customRadioInline1" style="line-height: 24px;">Lisan / Tulis Aktif</label>
+                                                                </div>
+                                                                <div class="custom-control custom-radio custom-control-inline">
+                                                                    <input type="radio" id="customRadioInline2" name="kemampuan_bahasa" value="2" class="custom-control-input" <?= $variable['kemampuan_bahasa'] == 2 ? 'checked' : '' ?>>
+                                                                    <label class="custom-control-label my-auto" for="customRadioInline2" style="line-height: 24px;">Lisan / Tulis Pasif</label>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <hr>
@@ -824,213 +760,189 @@
                         </div>
                         <!-- End Kampuan Bahasa -->
 
-                    </div>
-                    <div class="card-footer">
-                        <div class="d-flex justify-content-end">
-                            <a href="#top" class="btn btn-sm btn-primary mr-1" id="next-form" onclick="stepper.previous()">Previous</a>
-                            <a href="#top" class="btn btn-sm btn-primary" id="next-form" onclick="stepper.next()">Next</a>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-end">
+                                <a href="#top" class="btn btn-sm btn-next mr-1" id="next-form" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
+                                <a href="#top" class="btn btn-sm btn-next" id="next-form" onclick="stepper.next()">Salanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div id="survey" class="content" role="tabpanel" aria-labelledby="survey-trigger">
-                </div>
-
-                <div id="data-pendukung" class="content" role="tabpanel" aria-labelledby="data-pendukung-trigger">
                     <!------- Start Header ------->
-                    <div class="content-header">
+                    <div class="content-header mt-1 pl-0">
                         <div class="container-fluid">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
-                                </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/pelamar" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Pelamar Pekerjaan</h1>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
-                                        <li class="breadcrumb-item active">Tambah Kolom Pelamar</li>
+                                        <li class="breadcrumb-item"><a href="#">Data Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Ubah Data Pelamar Pekerjaan</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!------- End Header ------->
+
+                    <!------- Survey ------->
                     <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">KTP *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_ktp">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                            <div class="row justify-content-between mb-2">
+                                <h5>PERTANYAAN & JAWABAN</h5>
+                                <h6 class="float-right" style="font-size: 9px;font-weight: 600;">> Jawab dengan Singkat dan lugas.</h6>
+                            </div>
+                            <div class="border rounded p-3">
+                                <div class="mb-3">
+                                    <label for="">Darimana Anda Mengetahui PT. Tristek Media Kreasindo (TMK) ? Sebutkan media / sumber informasinya</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">NPWP *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_npwp">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Mengapa Anda tertarik melaksanakan Program Karyawan Lepas di Perusahaan ini?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Ijazah Terakhir *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_ijazah">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah anda bersedia mengikuti seluruh kebijakan dan peraturan yang ada di PT> Tristek Media Kreasindo (TMK)? Jika tidak sebutkan alasannya</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Transkrip Nilai Terakhir *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_transkrip_nilai">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda bersedia untuk menjaga kerahasiaan data dan / atau informasi yang ada di PT. Tristek Media Kreasindo (TMK)?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="multi-input-container6">
-                                        <div class="mb-2 multi-input-item6">
-                                            <label for="">Sertifikat *</label>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="file_sertifikat[]">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn btn-sm btn-success multi-input-add6 mb-1">Tambah Kolom</button>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda bisa mengendarai kendaraan bermotor dan memiliki kelengkapan pendukungnya (SIM & STNK)?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Salinan Buku Bank *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_salinan_bank">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda bersedia untuk ikut pekerjaan lembur di hari kerja maupun libur?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM A, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_a">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda pernah berurusan dengan Pihak Berwajib karena tindak kejahatan?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM B1, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_b1">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda pernah tertular virus corona (Covid-19)? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM B2, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_b2">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda pernah menderita penyakit tertular lainnya? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM C</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_c">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda pernah menderita penyakit yang memerlukan perawatan khusus dan lama? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM D, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_d">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda bersedia mengikuti perjalanan dinas keluar kota?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Kartu Keluarga *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_kk">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah anda bersedia, Untuk ditempatkan di divisi / bidang dan / atau departemen berbeda?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Passport, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_passport">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Apa yang ingin Anda dapatkan dengan melaksanakan Progra Karyawan Lepas di perusahaan ini?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Salinan Kartu Anggota Asuransi, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_asuransi">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="">Jika periode Program Karyawan Lepas selesai, apakah Anda bersedia untuk direkrut unttuk menjadi karyawan di Perusahaan Kami?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Pekalaring / Surat Ket. Pengalaman Kerja *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_pakelaring">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Kartu Kuning, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_kartu_kuning">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Surat Keterangan Catatan Kepolisian, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_skck">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Kartu Vaksin *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_vaksin">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label font-italic" for="defaultCheck1">
+                                        Data Karyawan ini dibuat dengan data sebenar - benarnya untuk keperluan kepegawaian di PT. TRISTEK MEDIA KREASINDO. Apabila ada perubahan data mohon secepatnya mengajukan perubahan.
+                                    </label>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="d-flex justify-content-end">
-                                <a href="#top" class="btn btn-sm btn-primary mr-1" onclick="stepper.previous()">Previous</a>
+                                <a href="#top" class="btn btn-sm btn-next mr-1" id="next-form" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
+                                <a href="#top" class="btn btn-sm btn-next cek-btn disabled" id="next-form" onclick="stepper.next()">Selanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- End Survey ------->
+                </div>
+
+                <div id="data-pendukung" class="content" role="tabpanel" aria-labelledby="data-pendukung-trigger">
+                    <!------- Start Header ------->
+                    <div class="content-header mt-1 pl-0">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/pelamar" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Pelamar Pekerjaan</h1>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
+                                        <li class="breadcrumb-item"><a href="#">Data Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Ubah Data Pelamar Pekerjaan</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- End Header ------->
+
+                    <div class="card">
+                        <div class="card-body">
+                            <?php foreach ($dokumen_pendukung as $key => $value) { ?>
+                                <?php if ($value['name'] == 'file_sertifikat[]') { ?>
+                                    <?php foreach ($media_sertifikat->items as $key2 => $value2) { ?>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="multi-input-container6">
+                                                    <div class="mb-2 multi-input-item6">
+                                                        <label for=""><?= $value['label'] ?> <?= $key2 += 1 ?></label>
+                                                        <div class="d-flex">
+                                                            <button type="button" class="btn btn-sm btn-primary mr-2" data-toggle="modal" data-file="<?= asset($selectMedia($detail['id_karyawan'], $value['name'])['path_media']) ?>" data-target="#dokumenPersyaratan">Preview</button>
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" name="<?= $value['name'] ?>">
+                                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn btn-sm btn-success multi-input-add6 mb-1">Tambah Kolom</button>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="mb-2">
+                                                <label for=""><?= $value['label'] ?></label>
+                                                <div class="d-flex">
+
+                                                    <?php if ($selectMedia($detail['id_karyawan'], $value['name']) != FALSE) { ?>
+                                                        <button type="button" class="btn btn-sm btn-primary mr-2" data-toggle="modal" data-file="<?= asset($selectMedia($detail['id_karyawan'], $value['name'])['path_media']) ?>" data-target="#dokumenPersyaratan">Preview</button>
+                                                    <?php } ?>
+
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" name="<?= $value['name'] ?>">
+                                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-end">
+                                <a href="#top" class="btn btn-sm btn-next mr-1" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
                                 <button type="submit" class="btn btn-sm btn-success">Submit</button>
                             </div>
                         </div>
@@ -1043,10 +955,20 @@
     </div>
 </div>
 
+<script>
+    $('#defaultCheck1').click(function() {
+        if ($(this).is(':checked')) {
+            $('.cek-btn').removeClass('disabled');
+        } else {
+            $('.cek-btn').addClass('disabled');
+        }
+    });
+</script>
+
 
 <!-- Modal Dokumen -->
 <div class="modal fade" id="dokumenPersyaratan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h6 class="modal-title" id="exampleModalLabel">Preview</h6>

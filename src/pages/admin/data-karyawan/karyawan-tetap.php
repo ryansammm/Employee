@@ -3,15 +3,7 @@
 <style>
     td,
     th {
-        font-size: 14px;
-    }
-
-    .btn-group-sm>.btn,
-    .btn-sm {
-        padding: .25rem .3rem;
-        font-size: .875rem;
-        line-height: 0.5;
-        border-radius: .2rem;
+        font-size: 11.5px;
     }
 
     .fa {
@@ -30,8 +22,9 @@
         font-size: 13px !important;
     }
 
-    nav {
-        font-size: 14px !important;
+    li a i,
+    li a span {
+        font-size: 12px;
     }
 </style>
 
@@ -41,12 +34,6 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Karyawan Tetap</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Karyawan Tetap</a></li>
-                        <li class="breadcrumb-item active">Data Karyawan Tetap</li>
-                    </ol>
                 </div>
             </div>
         </div>

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Panca Teknologi Aksesindo</title>
+    <title>Admin | PT. Tristek Media Kreasindo</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/logo/PTA.png" />
+    <!-- <link rel="shortcut icon" href="/assets/logo/PTA.png" /> -->
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,7 +38,137 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini">
+
+<style>
+    nav {
+        font-size: 12px !important;
+    }
+
+    .plus {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    td,
+    th {
+        font-size: 14px;
+    }
+
+    .btn-aksi a {
+        padding: .25rem .3rem;
+        font-size: .875rem;
+        line-height: 0.5;
+        border-radius: .2rem;
+    }
+
+    .fa {
+        cursor: pointer !important;
+    }
+
+    h1 {
+        font-size: 22px !important;
+    }
+
+    .breadcrumb {
+        font-size: 14px !important;
+    }
+
+    footer {
+        font-size: 13px !important;
+    }
+
+    .btn-next {
+        color: #fff;
+        background-color: #787878;
+        border-color: #787878;
+        box-shadow: none;
+    }
+
+    .btn-next:hover {
+        color: #fff;
+        background-color: red;
+        border-color: red;
+        box-shadow: none;
+    }
+
+    li.nav-header {
+        font-size: 12px !important;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif !important;
+    }
+
+    label {
+        font-weight: 500 !important;
+        font-size: 11px !important;
+    }
+
+    .form-control {
+        font-size: 12px !important;
+        height: calc(2.0rem + 1px);
+        padding: .175rem .75rem !important;
+    }
+
+    button {
+        font-size: 11px !important;
+    }
+
+    .btn {
+        font-size: 11px;
+    }
+
+    .custom-file-label {
+        font-size: 12px !important;
+        font-style: italic;
+        height: calc(2.0rem + 1px);
+    }
+
+    .custom-file,
+    .custom-file-input {
+        height: calc(2.0rem + 1px);
+    }
+
+    .crop {
+        width: 157px;
+        height: 199px;
+        overflow: hidden;
+        margin-top: 7px;
+    }
+
+    .crop img {
+        width: 157px;
+        height: 199px;
+        border-radius: 0.25rem;
+        object-fit: contain;
+    }
+
+    .sidebar {
+        font-size: 13px !important;
+    }
+
+    .brand-text {
+        font-size: 11px !important;
+    }
+
+    .main-footer {
+        font-size: 11px;
+    }
+
+    h5 {
+        font-size: 13px !important;
+    }
+
+    .d-flex h1 {
+        line-height: 26px;
+    }
+
+    .custom-control label {
+        line-height: 24px;
+    }
+</style>
+
+<body class="hold-transition sidebar-mini layout-fixed">
 
     <div class="wrapper" style="height: 100%;">
         <!-- Navbar -->
@@ -183,20 +313,20 @@
                                     <div style="background-image: url(<?= asset($GLOBALS['path_media']) ?>);width: 38px;height: 38px;background-size: cover;background-position: center;border-radius: 50%;"></div>
                                 </div>
                                 <div class="user-name text-start ms-3">
-                                    <h6 class="mb-0 text-muted" style="font-size: 14px;"><?= $GLOBALS['nama_user'] ?></h6>
-                                    <p class="mb-0 text-sm text-primary" style="font-size: 14px;">Online</p>
+                                    <h6 class="mb-0 text-muted" style="font-size: 12px;"><?= $GLOBALS['nama_user'] ?></h6>
+                                    <p class="mb-0 text-primary" style="font-size: 11px;">Online</p>
                                 </div>
                             </div>
                         </a>
-                        <div class="dropdown-menu">
-                            <h6 class="dropdown-header">Hello, <?= $GLOBALS['nama_user'] ?>!</h6>
+                        <div class="dropdown-menu" style="font-size: 12px !important;">
+                            <h6 class="dropdown-header" style="text-align: left !important;">Hello, <?= $GLOBALS['nama_user'] ?>!</h6>
                             <a class="dropdown-item" href="/admin/profile-saya">
-                                <i class="icon-mid bi bi-person me-2"></i> My
-                                Profile
+                                <i class="fa fa-user mr-1" aria-hidden="true"></i>
+                                My Profile
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/admin/logout">
-                                <i class="icon-mid bi bi-box-arrow-left me-2"></i>
+                                <i class="fa fa-sign-out-alt" aria-hidden="true" style="font-size: 13px !important;"></i>
                                 Logout
                             </a>
                         </div>

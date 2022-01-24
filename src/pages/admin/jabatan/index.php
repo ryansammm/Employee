@@ -1,27 +1,59 @@
 <?php include(__DIR__ . '/../layouts/admin-header.php'); ?>
 
+<style>
+    td,
+    th {
+        font-size: 11.5px;
+    }
+
+    .fa {
+        cursor: pointer !important;
+    }
+
+    h1 {
+        font-size: 22px !important;
+    }
+
+    .breadcrumb {
+        font-size: 14px !important;
+    }
+
+    footer {
+        font-size: 13px !important;
+    }
+
+    li a i,
+    li a span {
+        font-size: 12px;
+    }
+</style>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content-header pb-2">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Jabatan <a href="/admin/jabatan/create" class="btn btn-sm btn-outline-primary">Add New</a></h1>
-                </div><!-- /.col -->
+                    <h1 class="m-0">Data Jabatan</h1>
+                </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Jabatan</a></li>
-                        <li class="breadcrumb-item active">Kelola Jabatan</li>
+                        <li>
+                            <a href="/admin/jabatan/create" class="btn btn-sm btn-outline-primary py-2 ml-2">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span>Tambah Data</span>
+                            </a>
+                        </li>
                     </ol>
-                </div><!-- /.col -->
+                </div>
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
+    <div class="content mt-0">
         <div class="container-fluid">
 
             <div class="card">
@@ -40,8 +72,8 @@
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value['nama'] ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-info m-2" href="/admin/jabatan/<?= $value['id_jabatan'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-warning m-2" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_jabatan'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-outline-primary my-1" href="/admin/jabatan/<?= $value['id_jabatan'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-outline-warning my-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_jabatan'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>

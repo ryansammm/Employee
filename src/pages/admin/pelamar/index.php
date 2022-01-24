@@ -3,15 +3,7 @@
 <style>
     td,
     th {
-        font-size: 14px;
-    }
-
-    .btn-group-sm>.btn,
-    .btn-sm {
-        padding: .25rem .3rem;
-        font-size: .875rem;
-        line-height: 0.5;
-        border-radius: .2rem;
+        font-size: 11.5px;
     }
 
     .fa {
@@ -30,22 +22,27 @@
         font-size: 13px !important;
     }
 
-    nav {
-        font-size: 14px !important;
+    li a i,
+    li a span {
+        font-size: 12px;
     }
 </style>
 
 <div class="content-wrapper">
-    <div class="content-header">
+    <div class="content-header pb-1">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Pelamar <a href="/admin/pelamar/create" class="btn btn-sm btn-outline-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a></h1>
+                    <h1 class="m-0">Data Pelamar</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
-                        <li class="breadcrumb-item active">Kelola Pelamar</li>
+                        <li>
+                            <a href="/admin/pelamar/create" class="btn btn-sm btn-outline-primary py-2 ml-2">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span>Tambah Data</span>
+                            </a>
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -62,6 +59,9 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Lengkap</th>
+                                <th scope="col">Nomor Registrasi</th>
+                                <th scope="col">Posisi/Jabatan</th>
+                                <th scope="col">Tanggal Siap Kerja</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -72,10 +72,15 @@
                                     <td>
                                         <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" target="_balcnk"><?= $value['nama_lengkap'] ?></a>
                                     </td>
-                                    <td>
-                                        <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-outline-success mr-1" data-toggle="tooltip" data-placement="bottom" title="Pratinjau" target="_blank"><i class="fa fa-eye"></i></a>
-                                        <a class=" btn btn-sm btn-outline-primary mr-1" href="/admin/pelamar/<?= $value['id_pelamar'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-sm btn-outline-dark " data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_pelamar'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
+                                    <td><?= $value['no_registrasi'] ?></td>
+                                    <td><?= $value['posisi_pelamar'] ?></td>
+                                    <td><?= date_format(date_create($value['tgl_siap_kerja']), "d F Y") ?></td>
+                                    <td class="btn-aksi">
+                                        <!-- <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-outline-success m-1" data-toggle="tooltip" data-placement="bottom" title="Pratinjau" target="_blank"><i class="fa fa-eye"></i></a> -->
+                                        <a class=" btn btn-sm btn-outline-primary my-1" href="/admin/pelamar/<?= $value['id_pelamar'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-dark my-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_pelamar'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
+                                        <a class=" btn btn-sm btn-outline-primary my-1" href="#" data-toggle="tooltip" data-placement="bottom" title="Bagikan"><i class="fa fa-share-square" aria-hidden="true"></i></i></a>
+                                        <a class=" btn btn-sm btn-outline-primary my-1" href="#" data-toggle="tooltip" data-placement="bottom" title="Hostory"><i class="fa fa-history" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

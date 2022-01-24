@@ -3,71 +3,6 @@
 <!-- Include Choices CSS -->
 <link rel="stylesheet" href="/assets/vendors/choices.js/choices.min.css" />
 
-<style>
-    label {
-        font-weight: 500 !important;
-        font-size: 11px !important;
-    }
-
-    .form-control {
-        font-size: 12px !important;
-        height: calc(2.0rem + 1px);
-        padding: .175rem .75rem !important;
-    }
-
-    button {
-        font-size: 11px !important;
-    }
-
-    .btn {
-        font-size: 11px;
-    }
-
-    .custom-file-label {
-        font-size: 12px !important;
-        font-style: italic;
-        height: calc(2.0rem + 1px);
-    }
-
-    .custom-file,
-    .custom-file-input {
-        height: calc(2.0rem + 1px);
-    }
-
-    .crop {
-        width: 157px;
-        height: 199px;
-        overflow: hidden;
-        margin-top: 7px;
-    }
-
-    .crop img {
-        width: 157px;
-        height: 199px;
-        border-radius: 0.25rem;
-    }
-
-    body {
-        font-family: 'Poppins', sans-serif !important;
-    }
-
-    .sidebar {
-        font-size: 13px !important;
-    }
-
-    .brand-text {
-        font-size: 11px !important;
-    }
-
-    .main-footer {
-        font-size: 11px;
-    }
-
-    h5 {
-        font-size: 13px !important;
-    }
-</style>
-
 <script>
     var page1 = function() {
         var stepper = new Stepper(document.querySelector('.bs-stepper'))
@@ -132,25 +67,26 @@
             <form action="/admin/pelamar/store" method="POST" enctype="multipart/form-data">
 
                 <div id="sebelum-bergabung" class="content" role="tabpanel" aria-labelledby="sebelum-bergabung-trigger">
-                    <div class="content-header">
+                    <!------- Start Header ------->
+                    <div class="content-header mt-1 pl-0">
                         <div class="container-fluid">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/pelamar" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
-                                </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/pelamar" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Tambah Data Pelamar Pekerjaan</h1>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
-                                        <li class="breadcrumb-item active">Tambah Kolom Pelamar</li>
+                                        <li class="breadcrumb-item"><a href="#">Data Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Tambah Data Pelamar Pekerjaan</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!------- End Header ------->
                     <div class="container">
                         <div class="card">
                             <div class="card-body">
@@ -687,7 +623,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-end">
-                                    <a href="#top" class="btn btn-sm btn-primary" id="next-form" onclick="stepper.next()">Next</a>
+                                    <a href="#top" class="btn btn-sm btn-next" id="next-form" onclick="stepper.next()">Selanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -696,20 +632,19 @@
 
                 <div id="sesudah-bergabung" class="content" role="tabpanel" aria-labelledby="sesudah-bergabung-trigger">
                     <!------- Start Header ------->
-                    <div class="content-header">
+                    <div class="content-header mt-1 pl-0">
                         <div class="container-fluid">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/pelamar" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
-                                </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/pelamar" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Pelamar Pekerjaan</h1>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
-                                        <li class="breadcrumb-item active">Tambah Kolom Pelamar</li>
+                                        <li class="breadcrumb-item"><a href="#">Data Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Ubah Data Pelamar Pekerjaan</li>
                                     </ol>
                                 </div>
                             </div>
@@ -871,31 +806,131 @@
                     </div>
                     <div class="card-footer">
                         <div class="d-flex justify-content-end">
-                            <a href="#top" class="btn btn-sm btn-primary mr-1" id="next-form" onclick="stepper.previous()">Previous</a>
-                            <a href="#top" class="btn btn-sm btn-primary" id="next-form" onclick="stepper.next()">Next</a>
+                            <a href="#top" class="btn btn-sm btn-next mr-1" id="next-form" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
+                            <a href="#top" class="btn btn-sm btn-next" id="next-form" onclick="stepper.next()">Selanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div id="survey" class="content" role="tabpanel" aria-labelledby="survey-trigger">
+                    <!------- Start Header ------->
+                    <div class="content-header mt-1 pl-0">
+                        <div class="container-fluid">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/pelamar" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Pelamar Pekerjaan</h1>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
+                                        <li class="breadcrumb-item"><a href="#">Data Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Ubah Data Pelamar Pekerjaan</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- End Header ------->
+
+                    <!------- Survey ------->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row justify-content-between mb-2">
+                                <h5>PERTANYAAN & JAWABAN</h5>
+                                <h6 class="float-right" style="font-size: 9px;font-weight: 600;">> Jawab dengan Singkat dan lugas.</h6>
+                            </div>
+                            <div class="border rounded p-3">
+                                <div class="mb-3">
+                                    <label for="">Darimana Anda Mengetahui PT. Tristek Media Kreasindo (TMK) ? Sebutkan media / sumber informasinya</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Mengapa Anda tertarik melaksanakan Program Karyawan Lepas di Perusahaan ini?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah anda bersedia mengikuti seluruh kebijakan dan peraturan yang ada di PT> Tristek Media Kreasindo (TMK)? Jika tidak sebutkan alasannya</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda bersedia untuk menjaga kerahasiaan data dan / atau informasi yang ada di PT. Tristek Media Kreasindo (TMK)?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda bisa mengendarai kendaraan bermotor dan memiliki kelengkapan pendukungnya (SIM & STNK)?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda bersedia untuk ikut pekerjaan lembur di hari kerja maupun libur?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda pernah berurusan dengan Pihak Berwajib karena tindak kejahatan?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda pernah tertular virus corona (Covid-19)? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda pernah menderita penyakit tertular lainnya? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda pernah menderita penyakit yang memerlukan perawatan khusus dan lama? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah Anda bersedia mengikuti perjalanan dinas keluar kota?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apakah anda bersedia, Untuk ditempatkan di divisi / bidang dan / atau departemen berbeda?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Apa yang ingin Anda dapatkan dengan melaksanakan Progra Karyawan Lepas di perusahaan ini?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">Jika periode Program Karyawan Lepas selesai, apakah Anda bersedia untuk direkrut unttuk menjadi karyawan di Perusahaan Kami?</label>
+                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label font-italic" for="defaultCheck1">
+                                        Data Karyawan ini dibuat dengan data sebenar - benarnya untuk keperluan kepegawaian di PT. TRISTEK MEDIA KREASINDO. Apabila ada perubahan data mohon secepatnya mengajukan perubahan.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-end">
+                                <a href="#top" class="btn btn-sm btn-next mr-1" id="next-form" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
+                                <a href="#top" class="btn btn-sm btn-next cek-btn disabled" id="next-form" onclick="stepper.next()">Selanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- End Survey ------->
                 </div>
 
                 <div id="data-pendukung" class="content" role="tabpanel" aria-labelledby="data-pendukung-trigger">
                     <!------- Start Header ------->
-                    <div class="content-header">
+                    <div class="content-header mt-1 pl-0">
                         <div class="container-fluid">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/pelamar" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
-                                </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Pelamar</h1>
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/pelamar" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Pelamar Pekerjaan</h1>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
-                                        <li class="breadcrumb-item"><a href="#">Pelamar</a></li>
-                                        <li class="breadcrumb-item"><a href="#">Kelola Pelamar</a></li>
-                                        <li class="breadcrumb-item active">Tambah Kolom Pelamar</li>
+                                        <li class="breadcrumb-item"><a href="#">Data Pelamar</a></li>
+                                        <li class="breadcrumb-item active">Ubah Data Pelamar Pekerjaan</li>
                                     </ol>
                                 </div>
                             </div>
@@ -1074,7 +1109,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="d-flex justify-content-end">
-                                <a href="#top" class="btn btn-sm btn-primary mr-1" onclick="stepper.previous()">Previous</a>
+                                <a href="#top" class="btn btn-sm btn-next mr-1" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
                                 <button type="submit" class="btn btn-sm btn-success">Submit</button>
                             </div>
                         </div>
@@ -1086,6 +1121,17 @@
 
     </div>
 </div>
+
+
+<script>
+    $('#defaultCheck1').click(function() {
+        if ($(this).is(':checked')) {
+            $('.cek-btn').removeClass('disabled');
+        } else {
+            $('.cek-btn').addClass('disabled');
+        }
+    });
+</script>
 
 
 <!-- Modal Dokumen -->

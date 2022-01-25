@@ -33,11 +33,11 @@
                         <tr>
                             <td><?= $key += 1 ?>.</td>
                             <td><a class="text-decoration-none" href="/employee/<?= $value['id_karyawan'] ?>/detail"><?= $value['nama_lengkap'] ?></a></td>
-                            <td><?= $value['nama'] ?></td>
+                            <td><?= $value['nama_jabatan'] ?></td>
                             <td><?= $value['nama_divisi'] ?></td>
                             <td><?= $value['nama_bidang'] ?></td>
                             <td><?= $value['no_induk_karyawan'] ?></td>
-                            <td><?= date_format(date_create($value['tgl_mulai_kerja']), "d-m-Y") ?></td>
+                            <td><?= date_format(date_create($value['tgl_mulai_kerja']), "d F Y") ?></td>
                             <td><a href="/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                         </tr>
                     <?php } ?>

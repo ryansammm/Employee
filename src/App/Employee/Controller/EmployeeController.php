@@ -46,14 +46,15 @@ class EmployeeController
     {
 
         $datas_karyawan = $this->karyawan
-            ->leftJoin('media', 'media.id_relation', '=', 'karyawan.id_karyawan')->leftJoin('karyawan_jabatan', 'karyawan_jabatan.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('media', 'media.id_relation', '=', 'karyawan.id_karyawan')
+            ->leftJoin('karyawan_jabatan', 'karyawan_jabatan.id_karyawan', '=', 'karyawan.id_karyawan')
             ->leftJoin('jabatan', 'jabatan.id_jabatan', '=', 'karyawan_jabatan.id_jabatan')
-            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang_entitas', 'bidang_entitas.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'bidang_entitas.id_bidang')
+            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('divisi', 'divisi.id_divisi', '=', 'karyawan_divisi.id_divisi')
+            ->leftJoin('karyawan_bidang', 'karyawan_bidang.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'karyawan_bidang.id_bidang')
             ->where('jenis_dokumen', '=', 'foto_profile')
             ->get();
-        // dd($datas_karyawan);
 
         return render_template('public/employee/index', ['datas_karyawan' => $datas_karyawan]);
     }
@@ -94,9 +95,10 @@ class EmployeeController
             ->leftJoin('media', 'media.id_relation', '=', 'karyawan.id_karyawan')
             ->leftJoin('karyawan_jabatan', 'karyawan_jabatan.id_karyawan', '=', 'karyawan.id_karyawan')
             ->leftJoin('jabatan', 'jabatan.id_jabatan', '=', 'karyawan_jabatan.id_jabatan')
-            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang_entitas', 'bidang_entitas.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'bidang_entitas.id_bidang')
+            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('divisi', 'divisi.id_divisi', '=', 'karyawan_divisi.id_divisi')
+            ->leftJoin('karyawan_bidang', 'karyawan_bidang.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'karyawan_bidang.id_bidang')
             ->where('karyawan.id_karyawan', $id)
             ->where('media.jenis_dokumen', 'foto_profile')
             ->first();
@@ -260,9 +262,10 @@ class EmployeeController
             ->leftJoin('bank', 'bank.id_bank', '=', 'karyawan.id_bank')
             ->leftJoin('karyawan_jabatan', 'karyawan_jabatan.id_karyawan', '=', 'karyawan.id_karyawan')
             ->leftJoin('jabatan', 'jabatan.id_jabatan', '=', 'karyawan_jabatan.id_jabatan')
-            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang_entitas', 'bidang_entitas.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'bidang_entitas.id_bidang')
+            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('divisi', 'divisi.id_divisi', '=', 'karyawan_divisi.id_divisi')
+            ->leftJoin('karyawan_bidang', 'karyawan_bidang.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'karyawan_bidang.id_bidang')
             ->get();
         // dd($datas_karyawan);
 

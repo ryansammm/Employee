@@ -117,7 +117,7 @@
     }
 
     body {
-        font-size: 8px;
+        font-size: 6.7pt;
         font-family: 'Poppins', sans-serif !important;
         margin-left: auto;
         margin-right: auto;

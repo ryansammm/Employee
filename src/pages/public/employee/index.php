@@ -43,7 +43,7 @@
                                     <div class="row ms-1">
                                         <h6 class="card-title"><?= $value['nama_lengkap'] ?></h6>
                                         <h6 class="card-title" style="font-size: 14px;font-style: italic;font-weight: 400;margin-bottom: 6px;">
-                                            <span><?= $value['nama'] ?></span><br>
+                                            <span><?= $value['nama_jabatan'] ?></span><br>
                                         </h6>
                                         <a class="text-decoration-none" href="/employee/<?= $value['id_karyawan'] ?>/detail">
                                             <small class="text-danger"><span class="plus">+</span> Lihat Profil</small>

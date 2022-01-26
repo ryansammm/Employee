@@ -3,6 +3,7 @@
 use App\About\Controller\AboutController;
 use App\Accreditation\Controller\AccreditationController;
 use App\Akreditasi\Controller\AkreditasiController;
+use App\Applicant\Controller\ApplicantController;
 use App\Appointment\Controller\AppointmentController;
 use App\AppointmentAdmin\Controller\AppointmentAdminController;
 use App\AppointmentAdminApproval\Controller\AppointmentAdminApprovalController;
@@ -604,6 +605,14 @@ $routes->push('employeeList', '/employee/list', [EmployeeController::class, 'lis
 $routes->push('employeePrint', '/employee/{id}/print', [EmployeeController::class, 'print']);
 $routes->push('employeeExport', '/employee/{id}/export', [EmployeeController::class, 'export']);
 $routes->push('employeeDetail', '/employee/{id}/detail', [EmployeeController::class, 'detail']);
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------- Applicant ------------------------------- */
+$routes->push('applicant', '/applicant', [ApplicantController::class, 'index']);
+$routes->push('applicantList', '/applicant/list', [ApplicantController::class, 'list']);
+$routes->push('applicantPrint', '/applicant/{id}/print', [ApplicantController::class, 'print']);
+$routes->push('applicantExport', '/applicant/{id}/export', [ApplicantController::class, 'export']);
+$routes->push('applicantDetail', '/applicant/{id}/detail', [ApplicantController::class, 'detail']);
 /* -------------------------------------------------------------------------- */
 
 

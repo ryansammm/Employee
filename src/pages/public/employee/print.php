@@ -253,7 +253,7 @@
                                 <tr>
                                     <td>Jabatan</td>
                                     <td>:</td>
-                                    <td><b><?= $karyawan['nama'] ?></b></td>
+                                    <td><b><?= $karyawan['nama_jabatan'] ?></b></td>
                                 </tr>
                                 <tr>
                                     <td>Divisi</td>
@@ -371,7 +371,7 @@
                                     <td><?= $karyawan['berat_badan'] ?> KG</td>
                                 </tr>
                                 <tr>
-                                    <td>Alamat Email Kantor</td>
+                                    <td>Tinggi Badan</td>
                                     <td>:</td>
                                     <td><?= $karyawan['tinggi_badan'] ?> CM</td>
                                 </tr>

@@ -34,7 +34,7 @@ class LoginController
         $data_media = $media->where('jenis_dokumen', 'cms-title')->first();
 
         if (session('id_user') != null) {
-            return new RedirectResponse('/admin/profile-saya');
+            return new RedirectResponse('/admin/karyawan');
         }
 
         return render_template('admin/auth/login', ['errors' => $errors, 'data_cms_title' => $data_cms_title, 'data_media' => $data_media, 'data_cms_background' => $data_cms_background]);
@@ -42,25 +42,25 @@ class LoginController
 
     public function login(Request $request)
     {
-        if ($request->request->get('g-recaptcha-response')) {
-			$captcha = $request->request->get('g-recaptcha-response');
-			$secretKey = "6Ldif3EdAAAAAJx2RlrTsNYdqNJs-Az2kQz5fpm8";
-			$ip = $_SERVER['REMOTE_ADDR'];
-			// post request to server
-			$url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
-			$response = file_get_contents($url);
-			$responseKeys = json_decode($response, true);
-			// should return JSON with success as true
-			if (!$responseKeys["success"]) {
-				SessionData::get()->getFlashBag()->add('errors', 'Pengisian captcha gagal!');
+        // if ($request->request->get('g-recaptcha-response')) {
+        //     $captcha = $request->request->get('g-recaptcha-response');
+        //     $secretKey = "6Ldif3EdAAAAAJx2RlrTsNYdqNJs-Az2kQz5fpm8";
+        //     $ip = $_SERVER['REMOTE_ADDR'];
+        //     // post request to server
+        //     $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+        //     $response = file_get_contents($url);
+        //     $responseKeys = json_decode($response, true);
+        //     // should return JSON with success as true
+        //     if (!$responseKeys["success"]) {
+        //         SessionData::get()->getFlashBag()->add('errors', 'Pengisian captcha gagal!');
 
-				return new RedirectResponse('/admin');
-			}
-		} else {
-			SessionData::get()->getFlashBag()->add('errors', 'Captcha wajib diisi!');
+        //         return new RedirectResponse('/admin');
+        //     }
+        // } else {
+        //     SessionData::get()->getFlashBag()->add('errors', 'Captcha wajib diisi!');
 
-			return new RedirectResponse('/admin');
-		}
+        //     return new RedirectResponse('/admin');
+        // }
 
         $email = $request->request->get('email');
         $password = $request->request->get('password');

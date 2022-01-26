@@ -140,7 +140,7 @@
         width: 157px;
         height: 199px;
         border-radius: 0.25rem;
-        object-fit: contain;
+        object-fit: cover;
     }
 
     .sidebar {
@@ -306,32 +306,36 @@
                     </a>
                 </li> -->
                 <li class="nav-item">
+                    <div class="d-flex mr-3">
+                        <div class="user-img align-items-center mr-1">
+                            <div style="background-image: url(<?= asset($GLOBALS['path_media']) ?>);width: 38px;height: 38px;background-size: cover;background-position: center;border-radius: 50%;"></div>
+                        </div>
+                        <div class="user-name text-start my-auto ms-3">
+                            <h6 class="mb-0 text-muted" style="font-size: 12px;"><?= $GLOBALS['nama_user'] ?></h6>
+                            <p class="mb-0 text-primary" style="font-size: 11px;">Online</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item my-auto">
                     <div class="btn-group mr-3">
                         <a type="button" class="text-decoration-none" data-toggle="dropdown" aria-expanded="false">
-                            <div class="d-flex">
-                                <div class="user-img align-items-center mr-3">
-                                    <div style="background-image: url(<?= asset($GLOBALS['path_media']) ?>);width: 38px;height: 38px;background-size: cover;background-position: center;border-radius: 50%;"></div>
-                                </div>
-                                <div class="user-name text-start ms-3">
-                                    <h6 class="mb-0 text-muted" style="font-size: 12px;"><?= $GLOBALS['nama_user'] ?></h6>
-                                    <p class="mb-0 text-primary" style="font-size: 11px;">Online</p>
-                                </div>
-                            </div>
+                            <i class="fa fa-cog" aria-hidden="true" style="font-size: 23px;color: transparent;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: #8d8d8d;"></i>
                         </a>
-                        <div class="dropdown-menu" style="font-size: 12px !important;">
+                        <div class="dropdown-menu mt-2" style="font-size: 12px !important;">
                             <h6 class="dropdown-header" style="text-align: left !important;">Hello, <?= $GLOBALS['nama_user'] ?>!</h6>
                             <a class="dropdown-item" href="/admin/profile-saya">
                                 <i class="fa fa-user mr-1" aria-hidden="true"></i>
                                 My Profile
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/admin/logout">
+                            <a class="dropdown-item text-danger" href="/admin/logout">
                                 <i class="fa fa-sign-out-alt" aria-hidden="true" style="font-size: 13px !important;"></i>
                                 Logout
                             </a>
                         </div>
                     </div>
                 </li>
+
 
             </ul>
         </nav>

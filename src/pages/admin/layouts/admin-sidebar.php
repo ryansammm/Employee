@@ -1,3 +1,11 @@
+<style>
+    @media (min-width: 992px) {
+        .brand-image {
+            margin-left: 0px;
+        }
+    }
+</style>
+
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -33,19 +41,6 @@
                     <li class="nav-header">Administrator</li>
                 <?php } ?> -->
 
-                <li class="nav-header">Data User</li>
-
-                <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link <?= strpos($GLOBALS['url'], 'user') != false ? 'active' : '' ?>">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Kelola Data User
-                            </p>
-                        </a>
-                    </li>
-                <?php } ?>
-
                 <li class="nav-header">Data Pelamar</li>
 
                 <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
@@ -80,6 +75,18 @@
                                 <a href="/admin/jabatan" class="nav-link" style="padding-left: 43px;">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Kelola Jabatan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/divisi" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Divisi</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/bidang" class="nav-link" style="padding-left: 43px;">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kelola Bidang</p>
                                 </a>
                             </li>
                         </ul>

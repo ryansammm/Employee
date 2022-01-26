@@ -9,6 +9,7 @@ use App\Asosiasi\Controller\AsosiasiController;
 use App\Banner\Controller\BannerController;
 use App\Berita\Controller\BeritaController;
 use App\BeritaAdmin\Controller\BeritaAdminController;
+use App\Bidang\Controller\BidangController;
 use App\Booking\Controller\BookingController;
 use App\CmsBackground\Controller\CmsBackgroundController;
 use App\CmsComponent\Controller\CmsComponentController;
@@ -23,6 +24,7 @@ use App\Contact\Controller\ContactController;
 use App\Customer\Controller\CustomerController;
 use App\DataKaryawan\Controller\DataKaryawanController;
 use App\DataKaryawan\Model\DataKaryawan;
+use App\Divisi\Controller\DivisiController;
 use App\Galeri\Controller\GaleriController;
 use App\GaleriAdmin\Controller\GaleriAdminController;
 use App\GroupGaleri\Controller\GroupGaleriController;
@@ -497,6 +499,32 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('jabatan_show', '/{id}/show', [JabatanController::class, 'show']);
         $routes->push('jabatan_delete', '/{id}/delete', [JabatanController::class, 'delete']);
         $routes->push('jabatan_get', '/get', [JabatanController::class, 'get']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* --------------------------------- Divisi --------------------------------- */
+    $routes->prefix('divisi', function ($routes) {
+        $routes->push('divisi', '', [DivisiController::class, 'index']);
+        $routes->push('divisi_create', '/create', [DivisiController::class, 'create']);
+        $routes->push('divisi_store', '/store', [DivisiController::class, 'store']);
+        $routes->push('divisi_edit', '/{id}/edit', [DivisiController::class, 'edit']);
+        $routes->push('divisi_update', '/{id}/update', [DivisiController::class, 'update']);
+        $routes->push('divisi_show', '/{id}/show', [DivisiController::class, 'show']);
+        $routes->push('divisi_delete', '/{id}/delete', [DivisiController::class, 'delete']);
+        $routes->push('divisi_get', '/get', [DivisiController::class, 'get']);
+    });
+    /* -------------------------------------------------------------------------- */
+
+    /* --------------------------------- Bidang --------------------------------- */
+    $routes->prefix('bidang', function ($routes) {
+        $routes->push('bidang', '', [BidangController::class, 'index']);
+        $routes->push('bidang_create', '/create', [BidangController::class, 'create']);
+        $routes->push('bidang_store', '/store', [BidangController::class, 'store']);
+        $routes->push('bidang_edit', '/{id}/edit', [BidangController::class, 'edit']);
+        $routes->push('bidang_update', '/{id}/update', [BidangController::class, 'update']);
+        $routes->push('bidang_show', '/{id}/show', [BidangController::class, 'show']);
+        $routes->push('bidang_delete', '/{id}/delete', [BidangController::class, 'delete']);
+        $routes->push('bidang_get', '/get', [BidangController::class, 'get']);
     });
     /* -------------------------------------------------------------------------- */
 

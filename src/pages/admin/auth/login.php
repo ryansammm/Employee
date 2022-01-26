@@ -4,10 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Panca Teknologi Aksesindo</title>
+  <title>PT. Tristek Media Kreasindo</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
   <!-- bootstrap 4.6 -->
@@ -31,6 +35,43 @@
   <!------- Captcha ------->
   <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 </head>
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13px;
+  }
+
+  label {
+    font-weight: 500 !important;
+    font-size: 11px !important;
+  }
+
+  .btn {
+    font-size: 11px;
+  }
+
+  .form-control {
+    font-size: 12px !important;
+    height: calc(2.0rem + 1px);
+    padding: .175rem .75rem !important;
+  }
+
+  h5 {
+    font-size: 13px !important;
+  }
+
+  .custom-file-label {
+    font-size: 12px !important;
+    font-style: italic;
+    height: calc(2.0rem + 1px);
+  }
+
+  .custom-file,
+  .custom-file-input {
+    height: calc(2.0rem + 1px);
+  }
+</style>
 
 <body>
 
@@ -246,7 +287,9 @@
               <img src="/assets/media/<?= $data_media['path_media'] ?>" alt="" style="height: 80px;width: auto;display: block;margin: auto;">
             <?php   } ?>
 
-            <a href="/" class="d-block text-center" style="color: <?= $data_cms_background['text_cms_background'] ?> !important;"><?= $data_cms_title != false ? $data_cms_title['cms_title'] : '' ?></a>
+            <!-- <a href="/" class="d-block text-center" style="font-size: 20px;color: <?= $data_cms_background['text_cms_background'] ?> !important;"><?= $data_cms_title != false ? $data_cms_title['cms_title'] : '' ?></a> -->
+
+            <img src="/assets/logo/tmk-2-black.png" class="img-thumbnail border-0 shadow-none mb-1" alt="">
 
             <?php if ($GLOBALS['id_role'] == '61c3ea5e19998') { ?>
               <!------- Ubah Logo ------->
@@ -307,7 +350,7 @@
 
           </div>
           <!-- /.login-logo -->
-          <p class="login-box-msg" style="color: <?= $data_cms_background['text_cms_background'] ?> !important;">Log In untuk masuk ke pengelolaan konten website</p>
+          <!-- <p class="login-box-msg" style="color: <?= $data_cms_background['text_cms_background'] ?> !important;">Log In untuk masuk ke pengelolaan konten website</p> -->
 
 
           <form action="admin/login" method="post">
@@ -338,7 +381,7 @@
               </div>
             <?php } ?>
 
-            <div class="g-recaptcha mb-2" data-sitekey="6Ldif3EdAAAAAG_-wHumRSkNuV8Y2eeLLTYpdoSR"></div>
+            <!-- <div class="g-recaptcha mb-2" data-sitekey="6Ldif3EdAAAAAG_-wHumRSkNuV8Y2eeLLTYpdoSR"></div> -->
 
             <div class="row">
               <div class="col-8">
@@ -350,8 +393,8 @@
                 </div> -->
               </div>
               <!-- /.col -->
-              <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+              <div class="col-12">
+                <button type="submit" class="btn btn-sm btn-primary btn-block my-2">Masuk</button>
               </div>
               <!-- /.col -->
             </div>
@@ -378,7 +421,7 @@
               Confirm Password
             </a>
           </p> -->
-          <p class="mb-0">
+          <p class="mt-3 mb-0 text-right mr-1">
             <a type="button" data-toggle="modal" data-target="#register" style="color: <?= $data_cms_background['text_cms_background'] ?> !important;">
               Registrasi Akun
             </a>
@@ -580,16 +623,13 @@
 
               <div class="col-md-6"></div>
               <div class="col-md-6">
-                <div class="g-recaptcha mb-3" data-sitekey="6Ldif3EdAAAAAG_-wHumRSkNuV8Y2eeLLTYpdoSR"></div>
+                <!-- <div class="g-recaptcha mb-3" data-sitekey="6Ldif3EdAAAAAG_-wHumRSkNuV8Y2eeLLTYpdoSR"></div> -->
               </div>
-
             </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-sm btn-primary">Submit</button>
           </div>
       </form>
     </div>

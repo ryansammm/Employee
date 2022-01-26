@@ -18,7 +18,9 @@ class JabatanController
 
     public function index(Request $request)
     {
-        $datas = $this->jabatan->paginate(10);
+        $datas = $this->jabatan
+            ->orderBy('nama_jabatan', 'asc')
+            ->paginate(10);
 
         return render_template('admin/jabatan/index', compact('datas'));
     }

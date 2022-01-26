@@ -510,7 +510,7 @@ mark {
 
 .img-fluid {
     max-width: 100%;
-    height: auto
+    height: 270px;
 }
 
 .img-thumbnail {
@@ -16386,7 +16386,15 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
     .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused .brand-image,
     .sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-image {
-        margin-right: .5rem
+        margin-right: .5rem;
+
+    }
+
+    .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused .brand-image,
+    .sidebar-mini.sidebar-collapse .main-sidebar .brand-image {
+        margin-left: 4px;
+        width: 154px;
+        transition: 0.3s;
     }
 
     .sidebar-mini.sidebar-collapse .main-sidebar.sidebar-focused .sidebar-form,

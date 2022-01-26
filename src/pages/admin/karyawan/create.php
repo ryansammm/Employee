@@ -3,70 +3,7 @@
 <!-- Include Choices CSS -->
 <link rel="stylesheet" href="/assets/vendors/choices.js/choices.min.css" />
 
-<style>
-    label {
-        font-weight: 500 !important;
-        font-size: 13px !important;
-    }
 
-    .form-control {
-        font-size: 12px !important;
-        height: calc(2.0rem + 1px);
-        padding: .175rem .75rem !important;
-    }
-
-    button {
-        font-size: 11px !important;
-    }
-
-    .btn {
-        font-size: 11px;
-    }
-
-    .custom-file-label {
-        font-size: 12px !important;
-        font-style: italic;
-        height: calc(2.0rem + 1px);
-    }
-
-    .custom-file,
-    .custom-file-input {
-        height: calc(2.0rem + 1px);
-    }
-
-    .crop {
-        width: 157px;
-        height: 199px;
-        overflow: hidden;
-        margin-top: 7px;
-    }
-
-    .crop img {
-        width: 157px;
-        height: 199px;
-        border-radius: 0.25rem;
-    }
-
-    body {
-        font-family: 'Poppins', sans-serif !important;
-    }
-
-    .sidebar {
-        font-size: 13px !important;
-    }
-
-    .brand-text {
-        font-size: 11px !important;
-    }
-
-    .main-footer {
-        font-size: 11px;
-    }
-
-    h5 {
-        font-size: 16px !important;
-    }
-</style>
 
 
 <div class="content-wrapper" id="top">
@@ -104,13 +41,13 @@
 
                 <div id="sebelum-bergabung" class="content" role="tabpanel" aria-labelledby="sebelum-bergabung-trigger">
                     <div class="content-header">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
-                                </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <a href="/admin/karyawan" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
@@ -191,19 +128,24 @@
                                                 <select name="id_jabatan" class="form-control" required>
                                                     <option value=""> -- Pilih Jabatan -- </option>
                                                     <?php foreach ($jabatan->items as $key => $data) { ?>
-                                                        <option value="<?= $data['id_jabatan'] ?>"><?= $data['nama'] ?></option>
+                                                        <option value="<?= $data['id_jabatan'] ?>"><?= $data['nama_jabatan'] ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">
-                                            <div class="mb-1">
+                                            <div class="mb-2">
                                                 <label for="">Divisi *</label>
-                                                <input type="text" name="nama_divisi" id="" class="form-control" required>
+                                                <select name="id_divisi" class="form-control" required>
+                                                    <option value=""> -- Pilih Jabatan -- </option>
+                                                    <?php foreach ($divisi->items as $key => $data) { ?>
+                                                        <option value="<?= $data['id_divisi'] ?>"><?= $data['nama_divisi'] ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">
-                                            <div class="mb-1">
+                                            <div class="mb-2">
                                                 <label for="">Bidang / Departemen *</label>
                                                 <select name="id_bidang" class="form-control" required>
                                                     <option value=""> -- Pilih Bidang / Departemen -- </option>
@@ -753,15 +695,15 @@
 
                 <div id="sesudah-bergabung" class="content" role="tabpanel" aria-labelledby="sesudah-bergabung-trigger">
                     <div class="content-header">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                                <div class="col-sm-6 pl-0">
+                                    <div class="d-flex">
+                                        <a href="/admin/karyawan" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
+                                    </div>
                                 </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
-                                </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6 pr-0">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
                                         <li class="breadcrumb-item"><a href="#">Karyawan</a></li>
                                         <li class="breadcrumb-item"><a href="#">Kelola Karyawan</a></li>
@@ -771,7 +713,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card container">
                         <div class="card-body">
                             <!-- PENDIDIKAN NON FORMAL -->
                             <h5 class="mt-3 mb-0">PENDIDIKAN NON FORMAL |<span style="font-size: 13px;"> Setelah bergabung</span></h5>
@@ -897,15 +839,15 @@
 
                 <div id="data-pendukung" class="content" role="tabpanel" aria-labelledby="data-pendukung-trigger">
                     <div class="content-header">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row mb-2">
-                                <div class="col-sm-1">
-                                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
+                                <div class="col-sm-6 pl-0">
+                                    <div class="d-flex">
+                                        <a href="/admin/karyawan" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                                        <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
+                                    </div>
                                 </div>
-                                <div class="col-sm-5">
-                                    <h1 class="m-0" style="font-size: 18px !important;">Tambah Karyawan</h1>
-                                </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6 pr-0">
                                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
                                         <li class="breadcrumb-item"><a href="#">Karyawan</a></li>
                                         <li class="breadcrumb-item"><a href="#">Kelola Karyawan</a></li>
@@ -915,7 +857,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card container">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-8">
@@ -1128,11 +1070,12 @@
 
 <script>
     $(document).ready(function() {
-        $('input[name="alamt_ktp"]').val('Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang');
-        // $('textarea').html('DESKRIPSI');
-        // $('input[type="number"]').val('1');
+        $('input[type="text"]').val('Contoh');
+        // $('input[name="alamt_ktp"]').val('Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang');
+        $('textarea').html('DESKRIPSI');
+        $('input[type="number"]').val('1');
         $("select").prop("selectedIndex", 1);
-        // $('input[type="date"]').val('2020-01-01');
+        $('input[type="date"]').val('2020-01-01');
 
     })
 </script>

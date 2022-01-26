@@ -4,6 +4,7 @@ namespace App\Karyawan\Controller;
 
 use App\Bank\Model\Bank;
 use App\Bidang\Model\Bidang;
+use App\Divisi\Model\Divisi;
 use App\Jabatan\Model\Jabatan;
 use App\Karyawan\Model\Karyawan;
 use App\Karyawan\Model\KaryawanKontakAlt;
@@ -26,9 +27,10 @@ class KaryawanController
     public $statusKepegawaian;
     public $karyawan;
     public $jabatan;
+    public $divisi;
+    public $bidang;
     public $bank;
     public $karyawanKontakAlt;
-    public $bidang;
     public $karyawanJabatan;
     public $karyawanDivisi;
     public $karyawanBidang;
@@ -44,9 +46,10 @@ class KaryawanController
         $this->statusKepegawaian = new StatusKepegawaian();
         $this->karyawan = new Karyawan();
         $this->jabatan = new Jabatan();
+        $this->divisi = new Divisi();
+        $this->bidang = new Bidang();
         $this->bank = new Bank();
         $this->karyawanKontakAlt = new KaryawanKontakAlt();
-        $this->bidang = new Bidang();
         $this->karyawanJabatan = new KaryawanJabatan();
         $this->karyawanDivisi = new KaryawanDivisi();
         $this->karyawanBidang = new KaryawanBidang();
@@ -65,41 +68,45 @@ class KaryawanController
             ->leftJoin('bank', 'bank.id_bank', '=', 'karyawan.id_bank')
             ->leftJoin('karyawan_jabatan', 'karyawan_jabatan.id_karyawan', '=', 'karyawan.id_karyawan')
             ->leftJoin('jabatan', 'jabatan.id_jabatan', '=', 'karyawan_jabatan.id_jabatan')
-            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang_entitas', 'bidang_entitas.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'bidang_entitas.id_bidang')
+            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('divisi', 'divisi.id_divisi', '=', 'karyawan_divisi.id_divisi')
+            ->leftJoin('karyawan_bidang', 'karyawan_bidang.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'karyawan_bidang.id_bidang')
             ->where('karyawan.hide', '2')
+            ->where('karyawan.status_data', '1')
+            ->orderBy('karyawan.updated_at', 'desc')
             ->paginate(10);
 
-        foreach ($datas->items as $key => $value) {
-            if ($value['status_karyawan'] == '1') {
-                $datas->items[$key]['jenis_karyawan'] = 'Karyawan Tetap';
-            } else if ($value['status_karyawan'] == '2') {
-                $datas->items[$key]['jenis_karyawan'] = 'Karyawan Kontrak';
-            } else if ($value['status_karyawan'] == '3') {
-                $datas->items[$key]['jenis_karyawan'] = 'Karyawan Tidak Tetap';
-            } else if ($value['status_karyawan'] == '4') {
-                $datas->items[$key]['jenis_karyawan'] = 'Karyawan Resign';
-            }
-        }
+        $status_kepegawaian = $this->statusKepegawaian
+            ->orderBy('nama_status_kepegawaian', 'ASC')
+            ->get();
 
-        return render_template('admin/karyawan/index', ['datas' => $datas]);
+        return render_template('admin/karyawan/index', ['datas' => $datas, 'status_kepegawaian' => $status_kepegawaian]);
     }
 
     public function create(Request $request)
     {
         $errors = SessionData::get()->getFlashBag()->get('errors', []);
+
         $bank = $this->bank
             ->orderBy('nama_bank', 'ASC')
             ->get();
-        $jabatan = $this->jabatan
-            ->orderBy('nama', 'ASC')
-            ->get();
-        $bidang = $this->bidang
-            ->orderBy('nama_bidang', 'ASC')->get();
-        $status_kepegawaian = $this->statusKepegawaian->get();
 
-        return render_template('admin/karyawan/create', ['errors' => $errors, 'bank' => $bank, 'jabatan' => $jabatan, 'bidang' => $bidang, 'status_kepegawaian' => $status_kepegawaian]);
+        $jabatan = $this->jabatan
+            ->orderBy('nama_jabatan', 'ASC')
+            ->get();
+
+        $divisi = $this->divisi
+            ->orderBy('nama_divisi', 'ASC')
+            ->get();
+
+        $bidang = $this->bidang
+            ->orderBy('nama_bidang', 'ASC')
+            ->get();
+
+        $status_kepegawaian = $this->statusKepegawaian->orderBy('nama_status_kepegawaian', 'ASC')->get();
+
+        return render_template('admin/karyawan/create', ['errors' => $errors, 'bank' => $bank, 'jabatan' => $jabatan, 'divisi' => $divisi, 'bidang' => $bidang, 'status_kepegawaian' => $status_kepegawaian]);
     }
 
     public function store(Request $request)
@@ -107,7 +114,6 @@ class KaryawanController
 
         $request->request->set('hide', '2');
         $datas = $request->request->all();
-        // dd($datas);
 
         /* -------------------------------- Karyawan -------------------------------- */
         $create = $this->karyawan->insert($datas);
@@ -125,17 +131,21 @@ class KaryawanController
 
         /* ----------------------------- Karyawan Divisi ---------------------------- */
         $create_karyawan_divisi = $this->karyawanDivisi->insert([
-            'id_relation' => $create,
-            'nama_divisi' => $datas['nama_divisi'],
-            'hide' => '2',
+            [
+                'id_karyawan' => $create,
+                'id_divisi' => $datas['id_divisi'],
+                'hide' => '2',
+            ]
         ]);
         /* -------------------------------------------------------------------------- */
 
         /* ----------------------------- Karyawan Bidang ---------------------------- */
         $create_karyawan_bidang = $this->karyawanBidang->insert([
-            'id_bidang' => $datas['id_bidang'],
-            'id_relation' => $create,
-            'hide' => '2',
+            [
+                'id_karyawan' => $create,
+                'id_bidang' => $datas['id_bidang'],
+                'hide' => '2',
+            ]
         ]);
         /* -------------------------------------------------------------------------- */
 
@@ -261,9 +271,10 @@ class KaryawanController
 
         $date = date('Y-m-d');
 
-        $status_kepegawaian = $this->statusKepegawaian->get();
+        $status_kepegawaian = $this->statusKepegawaian->orderBy('nama_status_kepegawaian', 'ASC')->get();
         $bank = $this->bank->orderBy('nama_bank', 'ASC')->get();
-        $jabatan = $this->jabatan->orderBy('nama', 'ASC')->get();
+        $jabatan = $this->jabatan->orderBy('nama_jabatan', 'ASC')->get();
+        $divisi = $this->divisi->orderBy('nama_divisi', 'ASC')->get();
         $bidang = $this->bidang->orderBy('nama_bidang', 'ASC')->get();
 
         /* -------------------------------- Karyawan -------------------------------- */
@@ -273,9 +284,10 @@ class KaryawanController
             ->leftJoin('media', 'media.id_relation', '=', 'karyawan.id_karyawan')
             ->leftJoin('karyawan_jabatan', 'karyawan_jabatan.id_karyawan', '=', 'karyawan.id_karyawan')
             ->leftJoin('jabatan', 'jabatan.id_jabatan', '=', 'karyawan_jabatan.id_jabatan')
-            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang_entitas', 'bidang_entitas.id_relation', '=', 'karyawan.id_karyawan')
-            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'bidang_entitas.id_bidang')
+            ->leftJoin('karyawan_divisi', 'karyawan_divisi.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('divisi', 'divisi.id_divisi', '=', 'karyawan_divisi.id_divisi')
+            ->leftJoin('karyawan_bidang', 'karyawan_bidang.id_karyawan', '=', 'karyawan.id_karyawan')
+            ->leftJoin('bidang', 'bidang.id_bidang', '=', 'karyawan_bidang.id_bidang')
             ->where('karyawan.id_karyawan', $id)
             ->where('media.jenis_dokumen', 'foto_profile')
             ->first();
@@ -387,13 +399,25 @@ class KaryawanController
 
         $detail_kontak_alt = $this->karyawanKontakAlt->where('id_karyawan', $id)->first();
 
-        return render_template('admin/karyawan/edit', ['detail' => $detail, 'status_kepegawaian' => $status_kepegawaian, 'bank' => $bank, 'detail_kontak_alt' => $detail_kontak_alt, 'jabatan' => $jabatan, 'bidang' => $bidang, 'pendidikan_non_formal' => $pendidikan_non_formal, 'kemampuan' => $kemampuan, 'keluarga' => $keluarga, 'pengalaman_organisasi' => $pengalaman_organisasi, 'pengalaman_pekerjaan' => $pengalaman_pekerjaan, 'pendidikan_formal' => $pendidikan_formal, 'pendidikan_non_formal_bergabung' => $pendidikan_non_formal_bergabung, 'pengalaman_organisasi_bergabung' => $pengalaman_organisasi_bergabung, 'dokumen_pendukung' => $dokumen_pendukung, 'selectMedia' => $selectMedia, 'media_sertifikat' => $media_sertifikat]);
+        return render_template('admin/karyawan/edit', ['detail' => $detail, 'status_kepegawaian' => $status_kepegawaian, 'bank' => $bank, 'detail_kontak_alt' => $detail_kontak_alt, 'jabatan' => $jabatan, 'divisi' => $divisi, 'bidang' => $bidang, 'pendidikan_non_formal' => $pendidikan_non_formal, 'kemampuan' => $kemampuan, 'keluarga' => $keluarga, 'pengalaman_organisasi' => $pengalaman_organisasi, 'pengalaman_pekerjaan' => $pengalaman_pekerjaan, 'pendidikan_formal' => $pendidikan_formal, 'pendidikan_non_formal_bergabung' => $pendidikan_non_formal_bergabung, 'pengalaman_organisasi_bergabung' => $pengalaman_organisasi_bergabung, 'dokumen_pendukung' => $dokumen_pendukung, 'selectMedia' => $selectMedia, 'media_sertifikat' => $media_sertifikat]);
     }
 
     public function update(Request $request)
     {
-        /* --------------------------------- Request -------------------------------- */
+        /* ----------------------------------- ID ----------------------------------- */
         $id = $request->attributes->get('id');
+        /* -------------------------------------------------------------------------- */
+
+        /* ----------------------------- Status Karyawan ---------------------------- */
+        $status_kepegawaian = $this->statusKepegawaian->get();
+        foreach ($status_kepegawaian->items as $key => $value) {
+            if ($request->request->get('id_status_kepegawaian') == $value['id_status_kepegawaian']) {
+                $request->request->set('status_karyawan', $key += '1');
+            }
+        }
+        /* -------------------------------------------------------------------------- */
+
+        /* --------------------------------- Request -------------------------------- */
         $datas = $request->request->all();
         /* -------------------------------------------------------------------------- */
 
@@ -406,11 +430,11 @@ class KaryawanController
         /* -------------------------------------------------------------------------- */
 
         /* --------------------------------- Divisi --------------------------------- */
-        $this->karyawanDivisi->where('id_relation', $id)->update($datas);
+        $this->karyawanDivisi->where('id_karyawan', $id)->update($datas);
         /* -------------------------------------------------------------------------- */
 
         /* --------------------------------- Bidang --------------------------------- */
-        $this->karyawanBidang->where('id_relation', $id)->update($datas);
+        $this->karyawanBidang->where('id_karyawan', $id)->update($datas);
         /* -------------------------------------------------------------------------- */
 
         /* ---------------------------- Pendidikan Formal --------------------------- */
@@ -636,7 +660,7 @@ class KaryawanController
 
         /* ------------------------------ Hide Karyawan ----------------------------- */
         $this->karyawan->where('id_karyawan', $id)->update([
-            'status_karyawan' => $datas['status_karyawan']
+            'id_status_kepegawaian' => $datas['id_status_kepegawaian']
         ]);
         /* -------------------------------------------------------------------------- */
 

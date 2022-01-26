@@ -35,12 +35,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Data Jabatan</h1>
+                    <h1 class="m-0">Data Divisi</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li>
-                            <a href="/admin/jabatan/create" class="btn btn-sm btn-outline-primary py-2 ml-2">
+                            <a href="/admin/divisi/create" class="btn btn-sm btn-outline-primary py-2 ml-2">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                 <span>Tambah Data</span>
                             </a>
@@ -62,7 +62,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Jabatan</th>
+                                <th scope="col">Nama Divisi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -70,10 +70,10 @@
                             <?php foreach ($datas->items as $key => $value) { ?>
                                 <tr>
                                     <td><?= $key + 1 ?></td>
-                                    <td><?= $value['nama_jabatan'] ?></td>
+                                    <td><?= $value['nama_divisi'] ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-outline-primary my-1" href="/admin/jabatan/<?= $value['id_jabatan'] ?>/edit">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-outline-warning my-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_jabatan'] ?>">hapus</a>
+                                        <a class="btn btn-sm btn-outline-primary my-1" href="/admin/divisi/<?= $value['id_divisi'] ?>/edit">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-outline-warning my-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_divisi'] ?>">hapus</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -120,7 +120,7 @@
         var id = button.data('id')
 
         var modal = $(this)
-        modal.find('#form_hapus').attr('action', '/admin/jabatan/' + id + '/delete')
+        modal.find('#form_hapus').attr('action', '/admin/divisi/' + id + '/delete')
     })
 </script>
 

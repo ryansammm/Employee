@@ -69,7 +69,7 @@
                 <div id="sebelum-bergabung" class="content" role="tabpanel" aria-labelledby="sebelum-bergabung-trigger">
                     <!------- Start Header ------->
                     <div class="content-header mt-1 pl-0">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row mb-2">
                                 <div class="col-sm-6">
                                     <div class="d-flex">
@@ -633,7 +633,7 @@
                 <div id="sesudah-bergabung" class="content" role="tabpanel" aria-labelledby="sesudah-bergabung-trigger">
                     <!------- Start Header ------->
                     <div class="content-header mt-1 pl-0">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row mb-2">
                                 <div class="col-sm-6">
                                     <div class="d-flex">
@@ -651,144 +651,145 @@
                         </div>
                     </div>
                     <!------- End Header ------->
-
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- PENGALAMAN PEKERJAAN -->
-                            <h5 class="mt-3">PENGALAMAN PEKERJAAN</h5>
-                            <div class="border rounded p-3 mt-2">
-                                <div class="multi-input-container1">
-                                    <div class="row multi-input-item1">
-                                        <div class="col-12 col-md-8">
-                                            <div class="mb-2">
-                                                <label for="">Nama Perusahaan</label>
-                                                <input type="text" name="nama_perusahaan_pelamar[]" class="form-control">
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- PENGALAMAN PEKERJAAN -->
+                                <h5 class="mt-3">PENGALAMAN PEKERJAAN</h5>
+                                <div class="border rounded p-3 mt-2">
+                                    <div class="multi-input-container1">
+                                        <div class="row multi-input-item1">
+                                            <div class="col-12 col-md-8">
+                                                <div class="mb-2">
+                                                    <label for="">Nama Perusahaan</label>
+                                                    <input type="text" name="nama_perusahaan_pelamar[]" class="form-control">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <div class="mb-2">
-                                                <label for="">Jenis Usaha</label>
-                                                <input type="text" name="jenis_usaha[]" class="form-control">
+                                            <div class="col-12 col-md-4">
+                                                <div class="mb-2">
+                                                    <label for="">Jenis Usaha</label>
+                                                    <input type="text" name="jenis_usaha[]" class="form-control">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-8">
-                                            <div class="mb-2">
-                                                <label for="">Nama Atasan Langsung</label>
-                                                <input type="text" name="nama_atasan[]" class="form-control">
+                                            <div class="col-12 col-md-8">
+                                                <div class="mb-2">
+                                                    <label for="">Nama Atasan Langsung</label>
+                                                    <input type="text" name="nama_atasan[]" class="form-control">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <div class="mb-2">
-                                                <label for="">No. Telp Kantor / HP Atasan</label>
-                                                <input type="text" name="no_kontak_atasan[]" class="form-control">
+                                            <div class="col-12 col-md-4">
+                                                <div class="mb-2">
+                                                    <label for="">No. Telp Kantor / HP Atasan</label>
+                                                    <input type="text" name="no_kontak_atasan[]" class="form-control">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-8">
-                                            <div class="mb-2">
-                                                <label for="">Jabatan Terakhir</label>
-                                                <input type="text" name="jabatan_terakhir[]" class="form-control">
+                                            <div class="col-12 col-md-8">
+                                                <div class="mb-2">
+                                                    <label for="">Jabatan Terakhir</label>
+                                                    <input type="text" name="jabatan_terakhir[]" class="form-control">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <div class="mb-2">
-                                                <label for="">Tanggal Berhenti Bekerja</label>
-                                                <input type="date" name="tgl_berhenti[]" class="form-control">
+                                            <div class="col-12 col-md-4">
+                                                <div class="mb-2">
+                                                    <label for="">Tanggal Berhenti Bekerja</label>
+                                                    <input type="date" name="tgl_berhenti[]" class="form-control">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-12">
-                                            <div class="mb-2">
-                                                <label for="">Alasan</label>
-                                                <textarea class="form-control" name="alasan_berhenti[]" id="" cols="30"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <button type="button" class="btn btn-sm btn-success multi-input-add1">Tambah Kolom</button>
-                            </div>
-                            <!-- END PENGALAMAN PEKERJAAN -->
-
-                            <!-- PENGALAMAN ORGANISASI -->
-                            <h5 class="mt-3 mb-0">PENGALAMAN ORGANISASI</h5>
-                            <div class="border rounded p-3 mt-2">
-                                <div class="multi-input-container">
-                                    <div class="row multi-input-item">
-                                        <div class="col-12 col-md-5">
-                                            <div class="mb-2">
-                                                <label for="">Nama Lembaga / Organisasi</label>
-                                                <input type="text" name="lembaga_organisasi[]" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-5">
-                                            <div class="mb-2">
-                                                <label for="">Jabatan di Lembaga / Organisasi</label>
-                                                <input type="text" name="jabatan_organisasi[]" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-2">
-                                            <div class="mb-2">
-                                                <label for="">Periode Keaktifan</label>
-                                                <input type="text" name="periode_aktif_organisasi[]" class="form-control">
+                                            <div class="col-12 col-md-12">
+                                                <div class="mb-2">
+                                                    <label for="">Alasan</label>
+                                                    <textarea class="form-control" name="alasan_berhenti[]" id="" cols="30"></textarea>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <button type="button" class="btn btn-sm btn-success multi-input-add1">Tambah Kolom</button>
                                 </div>
-                                <hr>
-                                <button type="button" class="btn btn-sm btn-success multi-input-add">Tambah Kolom</button>
-                            </div>
-                            <!-- END PENGALAMAN ORGANISASI -->
+                                <!-- END PENGALAMAN PEKERJAAN -->
 
-                            <!-- KURSUS / SEMINAR YANG PERNAH DIIKUTI -->
-                            <h5 class="mt-3 mb-0">KURSUS / SEMINAR YANG PERNAH DIIKUTI</h5>
-                            <div class="border rounded p-3 mt-2">
-                                <div class="multi-input-container7">
-                                    <div class="row multi-input-item7">
-                                        <div class="col-12 col-md-2">
-                                            <div class="mb-2">
-                                                <label for="">Tahun</label>
-                                                <input type="text" name="tahun_kursus[]" class="form-control">
+                                <!-- PENGALAMAN ORGANISASI -->
+                                <h5 class="mt-3 mb-0">PENGALAMAN ORGANISASI</h5>
+                                <div class="border rounded p-3 mt-2">
+                                    <div class="multi-input-container">
+                                        <div class="row multi-input-item">
+                                            <div class="col-12 col-md-5">
+                                                <div class="mb-2">
+                                                    <label for="">Nama Lembaga / Organisasi</label>
+                                                    <input type="text" name="lembaga_organisasi[]" class="form-control">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <div class="mb-2">
-                                                <label for="">Nama Lembaga</label>
-                                                <input type="text" name="nama_lembaga_kursus[]" class="form-control">
+                                            <div class="col-12 col-md-5">
+                                                <div class="mb-2">
+                                                    <label for="">Jabatan di Lembaga / Organisasi</label>
+                                                    <input type="text" name="jabatan_organisasi[]" class="form-control">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="mb-2">
-                                                <label for="">Deskripsi</label>
-                                                <input type="text" name="deskripsi_kursus[]" class="form-control">
+                                            <div class="col-12 col-md-2">
+                                                <div class="mb-2">
+                                                    <label for="">Periode Keaktifan</label>
+                                                    <input type="text" name="periode_aktif_organisasi[]" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <button type="button" class="btn btn-sm btn-success multi-input-add">Tambah Kolom</button>
                                 </div>
-                                <hr>
-                                <button type="button" class="btn btn-sm btn-success multi-input-add7">Tambah Kolom</button>
-                            </div>
-                            <!-- END KURSUS / SEMINAR YANG PERNAH DIIKUTI -->
+                                <!-- END PENGALAMAN ORGANISASI -->
 
-                            <!-- Start Kemampuan Bahasa -->
-                            <h5 class="mt-3 mb-0">KEMAMPUAN BAHASA <span>(Ya/Tidak)</span></h5>
-                            <div class="border rounded p-3 mt-2">
-                                <div class="">
-                                    <div class="row multi-input-container8">
-                                        <div class="col-md-6 multi-input-item8">
-                                            <div class="border rounded p-3 mt-2">
-                                                <div class="row">
-                                                    <div class="col-12 col-md-12">
-                                                        <div class="mb-2">
-                                                            <label for="">Nama Bahasa</label>
-                                                            <input type="text" name="nama_bahasa[]" class="form-control">
-                                                        </div>
-                                                        <div class="mb-2">
-                                                            <div class="custom-control custom-radio custom-control-inline">
-                                                                <input type="radio" id="customRadioInline1" name="kemampuan_bahasa[]" value="1" class="custom-control-input">
-                                                                <label class="custom-control-label my-auto" for="customRadioInline1">Lisan / Tulis Aktif</label>
+                                <!-- KURSUS / SEMINAR YANG PERNAH DIIKUTI -->
+                                <h5 class="mt-3 mb-0">KURSUS / SEMINAR YANG PERNAH DIIKUTI</h5>
+                                <div class="border rounded p-3 mt-2">
+                                    <div class="multi-input-container7">
+                                        <div class="row multi-input-item7">
+                                            <div class="col-12 col-md-2">
+                                                <div class="mb-2">
+                                                    <label for="">Tahun</label>
+                                                    <input type="text" name="tahun_kursus[]" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-4">
+                                                <div class="mb-2">
+                                                    <label for="">Nama Lembaga</label>
+                                                    <input type="text" name="nama_lembaga_kursus[]" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-2">
+                                                    <label for="">Deskripsi</label>
+                                                    <input type="text" name="deskripsi_kursus[]" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <button type="button" class="btn btn-sm btn-success multi-input-add7">Tambah Kolom</button>
+                                </div>
+                                <!-- END KURSUS / SEMINAR YANG PERNAH DIIKUTI -->
+
+                                <!-- Start Kemampuan Bahasa -->
+                                <h5 class="mt-3 mb-0">KEMAMPUAN BAHASA <span>(Ya/Tidak)</span></h5>
+                                <div class="border rounded p-3 mt-2">
+                                    <div class="">
+                                        <div class="row multi-input-container8">
+                                            <div class="col-md-6 multi-input-item8">
+                                                <div class="border rounded p-3 mt-2">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-12">
+                                                            <div class="mb-2">
+                                                                <label for="">Nama Bahasa</label>
+                                                                <input type="text" name="nama_bahasa[]" class="form-control">
                                                             </div>
-                                                            <div class="custom-control custom-radio custom-control-inline">
-                                                                <input type="radio" id="customRadioInline2" name="kemampuan_bahasa[]" value="2" class="custom-control-input">
-                                                                <label class="custom-control-label my-auto" for="customRadioInline2">Lisan / Tulis Pasif</label>
+                                                            <div class="mb-2">
+                                                                <div class="custom-control custom-radio custom-control-inline">
+                                                                    <input type="radio" id="customRadioInline1" name="kemampuan_bahasa[]" value="1" class="custom-control-input">
+                                                                    <label class="custom-control-label my-auto" for="customRadioInline1">Lisan / Tulis Aktif</label>
+                                                                </div>
+                                                                <div class="custom-control custom-radio custom-control-inline">
+                                                                    <input type="radio" id="customRadioInline2" name="kemampuan_bahasa[]" value="2" class="custom-control-input">
+                                                                    <label class="custom-control-label my-auto" for="customRadioInline2">Lisan / Tulis Pasif</label>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -796,18 +797,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <button type="button" class="btn btn-sm btn-success multi-input-add8">Tambah Kolom</button>
                                 </div>
-                                <hr>
-                                <button type="button" class="btn btn-sm btn-success multi-input-add8">Tambah Kolom</button>
                             </div>
-                        </div>
-                        <!-- End Kampuan Bahasa -->
+                            <!-- End Kampuan Bahasa -->
 
-                    </div>
-                    <div class="card-footer">
-                        <div class="d-flex justify-content-end">
-                            <a href="#top" class="btn btn-sm btn-next mr-1" id="next-form" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
-                            <a href="#top" class="btn btn-sm btn-next" id="next-form" onclick="stepper.next()">Selanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#top" class="btn btn-sm btn-next mr-1" id="next-form" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
+                                    <a href="#top" class="btn btn-sm btn-next" id="next-form" onclick="stepper.next()">Selanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -815,7 +816,7 @@
                 <div id="survey" class="content" role="tabpanel" aria-labelledby="survey-trigger">
                     <!------- Start Header ------->
                     <div class="content-header mt-1 pl-0">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row mb-2">
                                 <div class="col-sm-6">
                                     <div class="d-flex">
@@ -835,81 +836,83 @@
                     <!------- End Header ------->
 
                     <!------- Survey ------->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row justify-content-between mb-2">
-                                <h5>PERTANYAAN & JAWABAN</h5>
-                                <h6 class="float-right" style="font-size: 9px;font-weight: 600;">> Jawab dengan Singkat dan lugas.</h6>
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row justify-content-between mb-2">
+                                    <h5>PERTANYAAN & JAWABAN</h5>
+                                    <h6 class="float-right" style="font-size: 9px;font-weight: 600;">> Jawab dengan Singkat dan lugas.</h6>
+                                </div>
+                                <div class="border rounded p-3">
+                                    <div class="mb-3">
+                                        <label for="">Darimana Anda Mengetahui PT. Tristek Media Kreasindo (TMK) ? Sebutkan media / sumber informasinya</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Mengapa Anda tertarik melaksanakan Program Karyawan Lepas di Perusahaan ini?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah anda bersedia mengikuti seluruh kebijakan dan peraturan yang ada di PT> Tristek Media Kreasindo (TMK)? Jika tidak sebutkan alasannya</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah Anda bersedia untuk menjaga kerahasiaan data dan / atau informasi yang ada di PT. Tristek Media Kreasindo (TMK)?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah Anda bisa mengendarai kendaraan bermotor dan memiliki kelengkapan pendukungnya (SIM & STNK)?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah Anda bersedia untuk ikut pekerjaan lembur di hari kerja maupun libur?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah Anda pernah berurusan dengan Pihak Berwajib karena tindak kejahatan?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah Anda pernah tertular virus corona (Covid-19)? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah Anda pernah menderita penyakit tertular lainnya? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah Anda pernah menderita penyakit yang memerlukan perawatan khusus dan lama? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah Anda bersedia mengikuti perjalanan dinas keluar kota?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apakah anda bersedia, Untuk ditempatkan di divisi / bidang dan / atau departemen berbeda?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Apa yang ingin Anda dapatkan dengan melaksanakan Progra Karyawan Lepas di perusahaan ini?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Jika periode Program Karyawan Lepas selesai, apakah Anda bersedia untuk direkrut unttuk menjadi karyawan di Perusahaan Kami?</label>
+                                        <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                        <label class="form-check-label font-italic" for="defaultCheck1">
+                                            Data Karyawan ini dibuat dengan data sebenar - benarnya untuk keperluan kepegawaian di PT. TRISTEK MEDIA KREASINDO. Apabila ada perubahan data mohon secepatnya mengajukan perubahan.
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="border rounded p-3">
-                                <div class="mb-3">
-                                    <label for="">Darimana Anda Mengetahui PT. Tristek Media Kreasindo (TMK) ? Sebutkan media / sumber informasinya</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#top" class="btn btn-sm btn-next mr-1" id="next-form" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
+                                    <a href="#top" class="btn btn-sm btn-next cek-btn disabled" id="next-form" onclick="stepper.next()">Selanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="">Mengapa Anda tertarik melaksanakan Program Karyawan Lepas di Perusahaan ini?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah anda bersedia mengikuti seluruh kebijakan dan peraturan yang ada di PT> Tristek Media Kreasindo (TMK)? Jika tidak sebutkan alasannya</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah Anda bersedia untuk menjaga kerahasiaan data dan / atau informasi yang ada di PT. Tristek Media Kreasindo (TMK)?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah Anda bisa mengendarai kendaraan bermotor dan memiliki kelengkapan pendukungnya (SIM & STNK)?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah Anda bersedia untuk ikut pekerjaan lembur di hari kerja maupun libur?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah Anda pernah berurusan dengan Pihak Berwajib karena tindak kejahatan?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah Anda pernah tertular virus corona (Covid-19)? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah Anda pernah menderita penyakit tertular lainnya? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah Anda pernah menderita penyakit yang memerlukan perawatan khusus dan lama? Jika iya, sebutkan kapan tertularnya dan penanganan / pengecekan apa yang anda lakukan!</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah Anda bersedia mengikuti perjalanan dinas keluar kota?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apakah anda bersedia, Untuk ditempatkan di divisi / bidang dan / atau departemen berbeda?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Apa yang ingin Anda dapatkan dengan melaksanakan Progra Karyawan Lepas di perusahaan ini?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="">Jika periode Program Karyawan Lepas selesai, apakah Anda bersedia untuk direkrut unttuk menjadi karyawan di Perusahaan Kami?</label>
-                                    <textarea name="alamat_ktp" class="form-control mb-2"></textarea>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label font-italic" for="defaultCheck1">
-                                        Data Karyawan ini dibuat dengan data sebenar - benarnya untuk keperluan kepegawaian di PT. TRISTEK MEDIA KREASINDO. Apabila ada perubahan data mohon secepatnya mengajukan perubahan.
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-end">
-                                <a href="#top" class="btn btn-sm btn-next mr-1" id="next-form" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
-                                <a href="#top" class="btn btn-sm btn-next cek-btn disabled" id="next-form" onclick="stepper.next()">Selanjutnya <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -919,7 +922,7 @@
                 <div id="data-pendukung" class="content" role="tabpanel" aria-labelledby="data-pendukung-trigger">
                     <!------- Start Header ------->
                     <div class="content-header mt-1 pl-0">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row mb-2">
                                 <div class="col-sm-6">
                                     <div class="d-flex">
@@ -937,184 +940,185 @@
                         </div>
                     </div>
                     <!------- End Header ------->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">KTP *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_ktp">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">NPWP *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_npwp">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Ijazah Terakhir *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_ijazah">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Transkrip Nilai Terakhir *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_transkrip_nilai">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="multi-input-container6">
-                                        <div class="mb-2 multi-input-item6">
-                                            <label for="">Sertifikat *</label>
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">KTP *</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="file_sertifikat[]">
+                                                <input type="file" class="custom-file-input" name="file_ktp">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-sm btn-success multi-input-add6 mb-1">Tambah Kolom</button>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Salinan Buku Bank *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_salinan_bank">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">NPWP *</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_npwp">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM A, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_a">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Ijazah Terakhir *</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_ijazah">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM B1, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_b1">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Transkrip Nilai Terakhir *</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_transkrip_nilai">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM B2, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_b2">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="multi-input-container6">
+                                            <div class="mb-2 multi-input-item6">
+                                                <label for="">Sertifikat *</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="file_sertifikat[]">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-sm btn-success multi-input-add6 mb-1">Tambah Kolom</button>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Salinan Buku Bank *</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_salinan_bank">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM C</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_c">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">SIM A, Bila Ada</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_sim_a">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">SIM D, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_sim_d">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">SIM B1, Bila Ada</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_sim_b1">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Kartu Keluarga *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_kk">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">SIM B2, Bila Ada</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_sim_b2">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Passport, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_passport">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">SIM C</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_sim_c">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Salinan Kartu Anggota Asuransi, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_asuransi">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">SIM D, Bila Ada</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_sim_d">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Pekalaring / Surat Ket. Pengalaman Kerja *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_pakelaring">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Kartu Keluarga *</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_kk">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Kartu Kuning, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_kartu_kuning">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Passport, Bila Ada</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_passport">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Surat Keterangan Catatan Kepolisian, Bila Ada</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_skck">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Salinan Kartu Anggota Asuransi, Bila Ada</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_asuransi">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="mb-2">
-                                        <label for="">Kartu Vaksin *</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="file_vaksin">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Pekalaring / Surat Ket. Pengalaman Kerja *</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_pakelaring">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Kartu Kuning, Bila Ada</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_kartu_kuning">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Surat Keterangan Catatan Kepolisian, Bila Ada</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_skck">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="mb-2">
+                                            <label for="">Kartu Vaksin *</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="file_vaksin">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-end">
-                                <a href="#top" class="btn btn-sm btn-next mr-1" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
-                                <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-end">
+                                    <a href="#top" class="btn btn-sm btn-next mr-1" onclick="stepper.previous()"><i class="fa fa-chevron-left" aria-hidden="true"></i> Sebelumnya</a>
+                                    <button type="submit" class="btn btn-sm btn-success">Submit</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </form>
         </div>
@@ -1162,11 +1166,12 @@
 
 <script>
     $(document).ready(function() {
+        $('input[type="text"]').val('Contoh');
         // $('input[name="alamt_ktp"]').val('Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang');
-        // $('textarea').html('DESKRIPSI');
-        // $('input[type="number"]').val('1');
-        // $("select").prop("selectedIndex", 1);
-        // $('input[type="date"]').val('2020-01-01');
+        $('textarea').html('DESKRIPSI');
+        $('input[type="number"]').val('1');
+        $("select").prop("selectedIndex", 1);
+        $('input[type="date"]').val('2020-01-01');
 
     })
 </script>

@@ -19,6 +19,7 @@ use App\PendidikanNonFormal\Model\PendidikanNonFormal;
 use App\PengalamanOrganisasi\Model\PengalamanOrganisasi;
 use App\PengalamanPekerjaan\Model\PengalamanPekerjaan;
 use App\PengalamanPekerjaanPelamar\Model\PengalamanPekerjaanPelamar;
+use App\StatusKepegawaian\Model\StatusKepegawaian;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -41,6 +42,7 @@ class PelamarController
     public $kemampuan;
     public $pengalamanOrganisasi;
     public $pengalamanPekerjaan;
+    public $status_kepegawaian;
 
     public function __construct()
     {
@@ -61,6 +63,7 @@ class PelamarController
         $this->kemampuan = new Kemampuan();
         $this->pengalamanOrganisasi = new PengalamanOrganisasi();
         $this->pengalamanPekerjaan = new PengalamanPekerjaan();
+        $this->status_kepegawaian = new StatusKepegawaian();
     }
 
     public function index(Request $request)
@@ -68,11 +71,13 @@ class PelamarController
 
         $datas = $this->pelamar
             ->leftJoin('karyawan', 'karyawan.id_karyawan', '=', 'pelamar.id_karyawan')
-            ->where('status_karyawan', '5')
+            ->where('status_data', '2')
             ->orderBy('pelamar.created_at', 'DESC')
             ->paginate(10);
 
-        return render_template('admin/pelamar/index', ['datas' => $datas]);
+        $status_kepegawaian = $this->status_kepegawaian->get();
+
+        return render_template('admin/pelamar/index', ['datas' => $datas, 'status_kepegawaian' => $status_kepegawaian]);
     }
 
     public function create(Request $request)
@@ -88,7 +93,7 @@ class PelamarController
 
 
         $request->request->set('hide', '2');
-        $request->request->set('status_karyawan', '5');
+        $request->request->set('status_data', '2');
         $datas = $request->request->all();
         // dd($datas);
 
@@ -626,5 +631,26 @@ class PelamarController
         $delete = $this->pelamar->where('id_table', $id)->delete();
 
         return new RedirectResponse('/home');
+    }
+
+    public function status(Request $request)
+    {
+
+        $id = $request->attributes->get('id');
+
+        $datas = $request->request->all();
+
+        $pelamar = $this->pelamar->where('id_pelamar', $id)
+            ->leftJoin('karyawan', 'karyawan.id_karyawan', '=', 'pelamar.id_karyawan')
+            ->first();
+
+        /* ------------------------------ Hide Karyawan ----------------------------- */
+        $this->karyawan->where('id_karyawan', $pelamar['id_karyawan'])->update([
+            'id_status_kepegawaian' => $datas['id_status_kepegawaian'],
+            'status_data' => '1',
+        ]);
+        /* -------------------------------------------------------------------------- */
+
+        return new RedirectResponse('/admin/pelamar');
     }
 }

@@ -66,13 +66,13 @@
 
 <div class="content-wrapper">
     <div class="content-header">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row mb-2">
-                <div class="col-sm-1">
-                    <a href="/admin/karyawan" class="btn btn-sm btn-danger"><i class="fas fa-arrow-left text-white"></i></a>
-                </div>
-                <div class="col-sm-5">
-                    <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Karyawan</h1>
+                <div class="col-sm-6">
+                    <div class="d-flex">
+                        <a href="/admin/karyawan" class="btn btn-sm btn-danger mr-2"><i class="fas fa-arrow-left text-white"></i></a>
+                        <h1 class="m-0" style="font-size: 18px !important;">Ubah Data Karyawan</h1>
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right" style="font-size: 13px !important;">
@@ -86,7 +86,7 @@
     </div>
 
     <div class="content">
-        <div class="container-fluid">
+        <div class="container">
             <div class="wrapper" style="height: 100%;">
                 <ul class="nav nav-tabs" id="myTab" role="tablist" style="font-size: 13px !important;">
                     <li class="nav-item" role="presentation">
@@ -105,7 +105,7 @@
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="sebelum-bergabung" role="tabpanel" aria-labelledby="sebelum-bergabung-tab">
 
-                                    <div class="container">
+                                    <div class="container-fluid">
                                         <!-- IDENTITAS KARYAWAN -->
                                         <h5 class="mt-3">IDENTITAS KARYAWAN</h5>
                                         <div class="border rounded p-3 mb-5">
@@ -163,7 +163,7 @@
                                                         <select name="id_jabatan" class="form-control">
                                                             <option value=""> -- Pilih Jabatan -- </option>
                                                             <?php foreach ($jabatan->items as $key => $data) { ?>
-                                                                <option value="<?= $data['id_jabatan'] ?>" <?= $data['id_jabatan'] == $detail['id_jabatan'] ? 'selected' : '' ?>><?= $data['nama'] ?></option>
+                                                                <option value="<?= $data['id_jabatan'] ?>" <?= $data['id_jabatan'] == $detail['id_jabatan'] ? 'selected' : '' ?>><?= $data['nama_jabatan'] ?></option>
                                                             <?php } ?>
                                                         </select>
                                                     </div>
@@ -171,7 +171,12 @@
                                                 <div class="col-12 col-md-4">
                                                     <div class="mb-3">
                                                         <label for="">Divisi *</label>
-                                                        <input type="text" name="nama_divisi" id="" class="form-control" value="<?= $detail['nama_divisi'] ?>">
+                                                        <select name="id_divisi" class="form-control">
+                                                            <option value=""> -- Pilih Divisi -- </option>
+                                                            <?php foreach ($divisi->items as $key => $data) { ?>
+                                                                <option value="<?= $data['id_divisi'] ?>" <?= $data['id_divisi'] == $detail['id_divisi'] ? 'selected' : '' ?>><?= $data['nama_divisi'] ?></option>
+                                                            <?php } ?>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-4">

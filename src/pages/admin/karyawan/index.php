@@ -53,8 +53,8 @@
         <div class="container-fluid">
 
             <div class="card">
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
+                <div class="card-body p-0">
+                    <table class="table table-sm table-hover text-nowrap">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -70,27 +70,25 @@
                         </thead>
                         <tbody>
                             <?php foreach ($datas->items as $key => $value) { ?>
-                                <?php if ($value['status_karyawan'] != '5') { ?>
-                                    <tr>
-                                        <td><?= $key + 1 ?></td>
-                                        <td>
-                                            <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" target="_balcnk"><?= $value['nama_lengkap'] ?></a>
-                                        </td>
-                                        <td><?= $value['nama'] ?></td>
-                                        <td><?= $value['nama_divisi'] ?></td>
-                                        <td><?= $value['nama_bidang'] ?></td>
-                                        <td><?= $value['no_induk_karyawan'] ?></td>
-                                        <td><?= date_format(date_create($value['tgl_mulai_kerja']), "d F Y") ?></td>
-                                        <td><?= $value['jenis_karyawan'] ?></td>
-                                        <td>
-                                            <a href="http://localhost:9999/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-outline-success my-1" data-toggle="tooltip" data-placement="bottom" title="Pratinjau" target="_blank"><i class="fa fa-eye"></i></a>
-                                            <a class=" btn btn-sm btn-outline-primary my-1" href="/admin/karyawan/<?= $value['id_karyawan'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
-                                            <a href="#" class="btn btn-sm btn-outline-dark my-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_karyawan'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
-                                            <a class=" btn btn-sm btn-outline-primary my-1" href="#" data-toggle="tooltip" data-placement="bottom" title="Bagikan"><i class="fa fa-share-square" aria-hidden="true"></i></i></a>
-                                            <a class=" btn btn-sm btn-outline-primary my-1" href="#" data-toggle="tooltip" data-placement="bottom" title="Hostory"><i class="fa fa-history" aria-hidden="true"></i></a>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
+                                <tr>
+                                    <td><?= $key += 1 ?></td>
+                                    <td>
+                                        <a href="http://employee.demo1.tristek.co.id/employee/<?= $value['id_karyawan'] ?>/detail" target="_balcnk"><?= $value['nama_lengkap'] ?></a>
+                                    </td>
+                                    <td><?= $value['nama_bidang'] ?></td>
+                                    <td><?= $value['nama_divisi'] ?></td>
+                                    <td><?= $value['nama_bidang'] ?></td>
+                                    <td><?= $value['no_induk_karyawan'] ?></td>
+                                    <td><?= date_format(date_create($value['tgl_mulai_kerja']), "d F Y") ?></td>
+                                    <td><?= $value['nama_status_kepegawaian'] ?></td>
+                                    <td>
+                                        <a href="http://employee.demo1.tristek.co.id/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-outline-success my-1" data-toggle="tooltip" data-placement="bottom" title="Pratinjau" target="_blank"><i class="fa fa-eye"></i></a>
+                                        <a class=" btn btn-sm btn-outline-primary my-1" href="/admin/karyawan/<?= $value['id_karyawan'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-dark my-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_karyawan'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
+                                        <a class=" btn btn-sm btn-outline-primary my-1" href="#" data-id="<?= $value['id_karyawan'] ?>" data-toggle="modal" data-target="#shareModal"><i class="fa fa-share-square" data-toggle="tooltip" data-placement="bottom" title="Bagikan" aria-hidden="true"></i></i></a>
+                                        <a class=" btn btn-sm btn-outline-primary my-1" href="#" data-toggle="tooltip" data-placement="bottom" title="History"><i class="fa fa-history" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>
@@ -114,22 +112,12 @@
             </div>
             <form action="" method="POST" id="form_hapus">
                 <div class="modal-body">
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadioInline1" name="status_karyawan" class="custom-control-input" value="1">
-                        <label class="custom-control-label" for="customRadioInline1">Karyawan Tetap</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadioInline2" name="status_karyawan" class="custom-control-input" value="2">
-                        <label class="custom-control-label" for="customRadioInline2">Karyawan Kontrak</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadioInline3" name="status_karyawan" class="custom-control-input" value="3">
-                        <label class="custom-control-label" for="customRadioInline3">Karyawan Tidak Tetap</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadioInline4" name="status_karyawan" class="custom-control-input" value="4">
-                        <label class="custom-control-label" for="customRadioInline4">Resign</label>
-                    </div>
+                    <?php foreach ($status_kepegawaian->items as $key => $value) { ?>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadioInline<?= $key ?>" name="id_status_kepegawaian" class="custom-control-input" value="<?= $value['id_status_kepegawaian'] ?>">
+                            <label class="custom-control-label" for="customRadioInline<?= $key ?>"><?= $value['nama_status_kepegawaian'] ?></label>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="modal-footer">
                     <a class="btn btn-primary" href="#" onclick="event.preventDefault();document.getElementById('form_hapus').submit();">
@@ -138,6 +126,48 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Share -->
+<div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class=" modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="shareModalLabel">Bagikan</h5> -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6 class="text-center">Bagikan Data Karyawan Ini Melalui Tautan Berikut :</h6>
+                <div class="my-3">
+                    <div class="d-flex justify-content-center" style="font-size: 13px;">
+                        <div id="whatsapp" class="m-2">
+                            <a href="" class="text-decoration-none text-dark">
+                                <i class="fab fa-whatsapp" style="background-color: #212121;color: white;padding: 5px 6px;border-radius: 0.25rem;"></i>
+                                <span>Whatsapp</span>
+                            </a>
+                        </div>
+                        <div id="telegram" class="m-2">
+                            <a href="" class="text-decoration-none text-dark">
+                                <i class="fab fa-telegram-plane" style="background-color: #212121;color: white;padding: 5px 6px;border-radius: 0.25rem;"></i>
+                                <span>Telegram</span>
+                            </a>
+                        </div>
+                        <div id="email" class="m-2">
+                            <a href="" class="text-decoration-none text-dark">
+                                <i class="fas fa-envelope-open" style="background-color: #212121;color: white;padding: 5px 6px;border-radius: 0.25rem;"></i>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="caption">
+                    <h5 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias aliquid blanditiis deserunt maiores magni ut rem voluptatibus asperiores voluptatum nam.</h5>
+                </div>
+            </div>
         </div>
     </div>
 </div>

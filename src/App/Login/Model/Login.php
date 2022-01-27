@@ -23,13 +23,12 @@ class Login extends QueryBuilder
                 SessionData::set('id_role', $user['id_role']);
                 SessionData::set('alias_role', $user['alias_role']);
 
-                return new RedirectResponse('/admin/profile-saya');
-
+                return new RedirectResponse('/admin/karyawan');
             } else {
                 SessionData::get()->getFlashBag()->add('errors', 'Password salah!');
             }
         } else {
-            SessionData::get()->getFlashBag()->add('errors', 'Akun tidak ditemukan!');    
+            SessionData::get()->getFlashBag()->add('errors', 'Akun tidak ditemukan!');
         }
 
         return new RedirectResponse('/admin');

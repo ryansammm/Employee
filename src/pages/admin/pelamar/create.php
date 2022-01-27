@@ -119,7 +119,7 @@
                                                 <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Nomor KTP *</label>
-                                                        <input type="text" name="no_ktp" class="form-control" required>
+                                                        <input type="text" name="no_ktp" class="form-control number" maxlength="16" required>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-12 col-md-4">
@@ -139,13 +139,13 @@
                                                 <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Nomor Seluler Pribadi *</label>
-                                                        <input type="text" name="no_seluler_pribadi" class="form-control" required>
+                                                        <input type="text" name="no_seluler_pribadi" class="form-control number" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-4">
                                                     <div class="mb-2">
                                                         <label for="">Alamat Email Pribadi *</label>
-                                                        <input type="text" name="email_pribadi" class="form-control" required>
+                                                        <input type="email" name="email_pribadi" class="form-control" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -245,7 +245,7 @@
                                         <div class="col-12 col-md-6">
                                             <div class="mb-2">
                                                 <label for="">Nomor SIM C</label>
-                                                <input type="text" name="no_sim_c" class="form-control">
+                                                <input type="text" name="no_sim_c" id="sim-c" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
@@ -309,7 +309,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" style="font-size: 12px;">Rp.</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="gaji_terakhir">
+                                                    <input type="text" class="form-control rupiah" name="gaji_terakhir">
                                                 </div>
                                             </div>
                                         </div>
@@ -320,7 +320,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" style="font-size: 12px;">Rp.</span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="gaji_diharapkan">
+                                                    <input type="text" class="form-control rupiah" name="gaji_diharapkan">
                                                 </div>
                                             </div>
                                         </div>
@@ -414,7 +414,7 @@
                                         <div class="col-12 col-md-4">
                                             <div class="mb-2">
                                                 <label for="">Nomor NPWP</label>
-                                                <input type="text" name="no_npwp" class="form-control">
+                                                <input type="text" name="no_npwp" class="form-control" id="npwp">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">
@@ -473,7 +473,7 @@
                                                 <label for="">Pendidikan Dasar</label>
                                                 <input type="hidden" name="jenis_pendidikan[]" value="1">
                                                 <input type="text" name="pendidikan[]" class="form-control" required>
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2 number" maxlength="4" placeholder="Tahun Lulus">
                                                 <input type="hidden" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
                                             </div>
                                         </div>
@@ -482,7 +482,7 @@
                                                 <label for="">Pendidikan Menengah</label>
                                                 <input type="hidden" name="jenis_pendidikan[]" value="2">
                                                 <input type="text" name="pendidikan[]" class="form-control" required>
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2 number" maxlength="4" placeholder="Tahun Lulus">
                                                 <input type="hidden" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
                                             </div>
                                         </div>
@@ -491,7 +491,7 @@
                                                 <label for="">Pendidikan Atas</label>
                                                 <input type="hidden" name="jenis_pendidikan[]" value="3">
                                                 <input type="text" name="pendidikan[]" class="form-control" required>
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2 number" maxlength="4" placeholder="Tahun Lulus">
                                                 <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
                                             </div>
                                         </div>
@@ -500,7 +500,7 @@
                                                 <label for="">Diploma</label>
                                                 <input type="hidden" name="jenis_pendidikan[]" value="4">
                                                 <input type="text" name="pendidikan[]" class="form-control" required>
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2 number" maxlength="4" placeholder="Tahun Lulus">
                                                 <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
                                             </div>
                                         </div>
@@ -509,7 +509,7 @@
                                                 <label for="">Sarjana</label>
                                                 <input type="hidden" name="jenis_pendidikan[]" value="5">
                                                 <input type="text" name="pendidikan[]" class="form-control" required>
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2 number" maxlength="4" placeholder="Tahun Lulus">
                                                 <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
                                             </div>
                                         </div>
@@ -518,7 +518,7 @@
                                                 <label for="">Magister</label>
                                                 <input type="hidden" name="jenis_pendidikan[]" value="6">
                                                 <input type="text" name="pendidikan[]" class="form-control" required>
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2 number" maxlength="4" placeholder="Tahun Lulus">
                                                 <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
                                             </div>
                                         </div>
@@ -527,7 +527,7 @@
                                                 <label for="">Doktoral</label>
                                                 <input type="hidden" name="jenis_pendidikan[]" value="7">
                                                 <input type="text" name="pendidikan[]" class="form-control" required>
-                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus">
+                                                <input type="text" name="tahun_pendidikan[]" class="form-control mt-2 number" maxlength="4" placeholder="Tahun Lulus">
                                                 <input type="text" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada">
                                             </div>
                                         </div>
@@ -606,7 +606,7 @@
                                         <div class="col-12 col-md-6">
                                             <div class="mb-2">
                                                 <label for="">Alamat E-mail Keluarga</label>
-                                                <input type="text" name="email_kontak_alt" class="form-control">
+                                                <input type="email" name="email_kontak_alt" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-12">
@@ -1163,15 +1163,17 @@
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- Include Choices JavaScript -->
 <script src="/assets/vendors/choices.js/choices.min.js"></script>
+<!------- Form Mask ------->
+<script src="/assets/js/mask-form.js"></script>
 
 <script>
     $(document).ready(function() {
-        $('input[type="text"]').val('Contoh');
+        // $('input[type="text"]').val('Contoh');
         // $('input[name="alamt_ktp"]').val('Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec. Sumedang Utara, Kab. SUmedang');
-        $('textarea').html('DESKRIPSI');
-        $('input[type="number"]').val('1');
-        $("select").prop("selectedIndex", 1);
-        $('input[type="date"]').val('2020-01-01');
+        // $('textarea').html('DESKRIPSI');
+        // $('input[type="number"]').val('1');
+        // $("select").prop("selectedIndex", 1);
+        // $('input[type="date"]').val('2020-01-01');
 
     })
 </script>

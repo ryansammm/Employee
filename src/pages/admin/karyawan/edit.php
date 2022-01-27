@@ -110,10 +110,10 @@
                                         <h5 class="mt-3">IDENTITAS KARYAWAN</h5>
                                         <div class="border rounded p-3 mb-5">
                                             <div class="row">
-                                                <div class="col-12 col-md-12 mb-3">
+                                                <div class="col-12 col-md-12">
                                                     <div class="row">
                                                         <div class="col-md-2">
-                                                            <img class="img-fluid rounded foto_utama_preview" src="<?= asset($detail['path_media']) ?>" alt="">
+                                                            <img class="rounded foto_utama_preview" src="<?= asset($detail['path_media']) ?>" alt="" style="max-width: 100%;height: 224px;object-fit: contain;border: 1px solid #e9e9e9;">
                                                         </div>
                                                         <div class="col-12 col-md-10">
                                                             <div class="row mb-3">
@@ -204,37 +204,37 @@
                                                         <div class="col-12 col-md-6">
                                                             <div class="mb-3">
                                                                 <label for="">Nomor KTP *</label>
-                                                                <input type="text" name="no_ktp" class="form-control" value="<?= $detail['no_ktp'] ?>">
+                                                                <input type="text" name="no_ktp" class="form-control number" maxlength="16" value="<?= $detail['no_ktp'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-md-6">
                                                             <div class="mb-3">
                                                                 <label for="">Nomor Kartu Keluarga *</label>
-                                                                <input type="text" name="no_kk" class="form-control" value="<?= $detail['no_kk'] ?>">
+                                                                <input type="text" name="no_kk" class="form-control number" maxlength="16" value="<?= $detail['no_kk'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-md-6">
                                                             <div class="mb-3">
                                                                 <label for="">Nomor Seluler Pribadi *</label>
-                                                                <input type="text" name="no_seluler_pribadi" class="form-control" value="<?= $detail['no_seluler_pribadi'] ?>">
+                                                                <input type="text" name="no_seluler_pribadi" class="form-control number" value="<?= $detail['no_seluler_pribadi'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-md-6">
                                                             <div class="mb-3">
                                                                 <label for="">Nomor Seluler Kantor *</label>
-                                                                <input type="text" name="no_seluler_kantor" class="form-control" value="<?= $detail['no_seluler_kantor'] ?>">
+                                                                <input type="text" name="no_seluler_kantor" class="form-control number" value="<?= $detail['no_seluler_kantor'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-md-6">
                                                             <div class="mb-3">
                                                                 <label for="">Alamat Email Pribadi *</label>
-                                                                <input type="text" name="email_pribadi" class="form-control" value="<?= $detail['email_pribadi'] ?>">
+                                                                <input type="email" name="email_pribadi" class="form-control" value="<?= $detail['email_pribadi'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-md-6">
                                                             <div class="mb-3">
                                                                 <label for="">Alamat Email Kantor *</label>
-                                                                <input type="text" name="email_kantor" class="form-control" value="<?= $detail['email_kantor'] ?>">
+                                                                <input type="email" name="email_kantor" class="form-control" value="<?= $detail['email_kantor'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-md-6">
@@ -252,7 +252,7 @@
                                                         <div class="col-12 col-md-6">
                                                             <div class="mb-3">
                                                                 <label for="">Nomor SIM C</label>
-                                                                <input type="text" name="no_sim_c" class="form-control" value="<?= $detail['no_sim_c'] ?>">
+                                                                <input type="text" name="no_sim_c" class="form-control" id="sim-c" value="<?= $detail['no_sim_c'] ?>">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -378,7 +378,7 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="mb-3">
                                                         <label for="">No. BPJS Ketenagarkerjaan *</label>
-                                                        <input type="text" name="no_bpjs_ketenagakerjaan" class="form-control" value="<?= $detail['no_bpjs_ketenagakerjaan'] ?>">
+                                                        <input type="text" name="no_bpjs_ketenagakerjaan" class="form-control number" value="<?= $detail['no_bpjs_ketenagakerjaan'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6">
@@ -390,13 +390,13 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="mb-3">
                                                         <label for="">No. BPJS Kesehatan *</label>
-                                                        <input type="text" name="no_bpjs_kesehatan" class="form-control" value="<?= $detail['no_bpjs_kesehatan'] ?>">
+                                                        <input type="text" name="no_bpjs_kesehatan" class="form-control number" value="<?= $detail['no_bpjs_kesehatan'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6">
                                                     <div class="mb-3">
                                                         <label for="">Nomor Asuransi</label>
-                                                        <input type="text" name="no_asuransi" class="form-control" value="<?= $detail['no_asuransi'] ?>">
+                                                        <input type="text" name="no_asuransi" class="form-control number" value="<?= $detail['no_asuransi'] ?>">
                                                     </div>
                                                 </div>
                                             </div>
@@ -445,7 +445,7 @@
                                                 <div class="col-12 col-md-4">
                                                     <div class="mb-3">
                                                         <label for="">Nomor NPWP</label>
-                                                        <input type="text" name="no_npwp" class="form-control" value="<?= $detail['no_npwp'] ?>">
+                                                        <input type="text" name="no_npwp" class="form-control" id="npwp" value="<?= $detail['no_npwp'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-4">
@@ -473,7 +473,7 @@
                                                             <label for=""><?= $value['nama_pendidikan'] ?></label>
                                                             <input type="hidden" name="jenis_pendidikan[]" value="<?= $key += 1 ?>">
                                                             <input type="text" name="pendidikan[]" class="form-control" value="<?= $value['nama_sekolah'] ?>">
-                                                            <input type="text" name="tahun_pendidikan[]" class="form-control mt-2" placeholder="Tahun Lulus" value="<?= $value['tahun_lulus'] ?>">
+                                                            <input type="text" name="tahun_pendidikan[]" class="form-control mt-2 number" maxlength="4" placeholder="Tahun Lulus" value="<?= $value['tahun_lulus'] ?>">
                                                             <input type="<?= $value['jenis_pendidikan'] < 3 ? 'hidden' : 'text' ?>" name="jurusan_pendidikan[]" class="form-control mt-2" placeholder="Jurusan, Bila Ada" value="<?= $value['jurusan'] ?>">
                                                         </div>
                                                     </div>
@@ -586,13 +586,13 @@
                                                 <div class="col-12 col-md-6">
                                                     <div class="mb-3">
                                                         <label for="">Nomor Seluler Kerluarga</label>
-                                                        <input type="text" name="no_telp_kontak_alt" class="form-control" value="<?= $keluarga['no_telp_kontak_alt'] ?>">
+                                                        <input type="text" name="no_telp_kontak_alt" class="form-control number" value="<?= $keluarga['no_telp_kontak_alt'] ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6">
                                                     <div class="mb-3">
                                                         <label for="">Alamat E-mail Keluarga</label>
-                                                        <input type="text" name="email_kontak_alt" class="form-control" value="<?= $keluarga['email_kontak_alt'] ?>">
+                                                        <input type="email" name="email_kontak_alt" class="form-control" value="<?= $keluarga['email_kontak_alt'] ?>">
                                                     </div>
                                                 </div>
                                             </div>
@@ -867,6 +867,8 @@
 <script src="/assets/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- Include Choices JavaScript -->
 <script src="/assets/vendors/choices.js/choices.min.js"></script>
+<!------- Mask ------->
+<script src="/assets/js/mask-form.js"></script>
 
 <script>
     $('#dokumenPersyaratan').on('shown.bs.modal', function() {

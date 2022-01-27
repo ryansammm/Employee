@@ -10,7 +10,7 @@
     <title>PT. Tristek Media Kreasindo</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/logo/PTA.png" />
+    <!-- <link rel="shortcut icon" href="/assets/logo/PTA.png" /> -->
 
     <!------- Font ------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,11 +125,44 @@
 </style>
 
 <body>
-    <div class="container-fluid px-4">
+    <div class="container-fluid p-0 m-0">
+        <div class="row mx-auto" style="background-color: #1c1c1c;padding: 0.5rem;">
+            <div class="col-md-4 my-auto">
+                <div class="text-center">
+                    <img class="" src="/assets/logo/tristek.png" alt="" style="width: 35%;">
+                </div>
+            </div>
+            <div class="col-md-4 text-center my-auto">
+                <div>
+                    <h3 class="text-light">Data Karyawan</h3>
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-left: 8rem;">
+                <div class="text-white">
+                    <table class="table text-white" style="border-color: #00000000;">
+                        <tr>
+                            <td>Kode Form</td>
+                            <td>:</td>
+                            <td>F.ADIUM-TMK.001/270821/R.01.3</td>
+                        </tr>
+                        <tr>
+                            <td>Last Update</td>
+                            <td>:</td>
+                            <td><?= date_format(date_create($detail['updated_at']), "d F Y") ?></td>
+                        </tr>
+                        <tr>
+                            <td>Update By</td>
+                            <td>:</td>
+                            <td>Ryan Samsudin</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
         <div class="card mb-3">
 
             <!------- Header ------->
-            <div class="">
+            <!-- <div class="">
                 <div class="row mx-auto" style="background-color: #1c1c1c;padding: 0.5rem;">
                     <div class="col-md-4 my-auto">
                         <div class="text-center">
@@ -163,7 +196,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!------- End Header ------->
 
             <div class="card-body container ps-2">

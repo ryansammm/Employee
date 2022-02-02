@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | PT. Tristek Media Kreasindo</title>
+    <title>Tristek Media Kreasindo | Admin</title>
 
     <!-- Favicon -->
-    <!-- <link rel="shortcut icon" href="/assets/logo/PTA.png" /> -->
+    <link rel="shortcut icon" href="/assets/logo/tmk-favicon.png" />
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,6 +22,8 @@
     <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets/admin/css/adminlte.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="/assets/admin/css/tmk-style.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/assets/plugins/summernote/summernote-bs4.min.css">
     <!-- Truncate -->
@@ -30,11 +32,14 @@
     <!-- <script src="/assets/js/jquery-3.3.1.min.js"></script> -->
     <script src="/assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
+    <!-- <script src="/assets/plugins/bootstrap-4.6.1-dist/css/bootstrap.min.css"></script> -->
     <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!------- Bootstrap Icon ------->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!------- BS-Stepper ------->
     <link rel="stylesheet" href="/assets/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!------- Re-Captcha ------->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 
@@ -176,7 +181,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars" style="font-size: 18px;color: #1c1c1c;margin-top: 3px;"></i></a>
                 </li>
                 <!-- <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
@@ -186,9 +191,10 @@
                 </li> -->
             </ul>
 
-            <ul class="navbar-nav" style="margin-left: 23.5rem;font-size: 16px;">
+            <ul class="navbar-nav" style="font-size: 16px;">
                 <li class="nav-item">
-                    <span>B r e a k</span> <span class="mx-2"> T h e </span> <span> L i m i t</span>
+                    <img src="/assets/logo/TMK-black.png" alt="" class="mr-1" style="height: 23px;">
+                    <span style="font-size: 16px;font-weight: 600;line-height: 40px;">Employee Profile Manager</span>
                 </li>
             </ul>
 

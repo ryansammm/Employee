@@ -463,6 +463,7 @@ $routes->prefix('admin', function ($routes) {
         $routes->push('karyawan_delete', '/{id}/delete', [KaryawanController::class, 'delete']);
         $routes->push('karyawan_get', '/get', [KaryawanController::class, 'get']);
         $routes->push('karyawan_status', '/{id}/status', [KaryawanController::class, 'status']);
+        $routes->push('karyawan_action', '/{id}/action', [KaryawanController::class, 'action']);
     });
     /* -------------------------------------------------------------------------- */
 

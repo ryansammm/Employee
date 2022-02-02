@@ -15046,6 +15046,11 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
     color: #505050;
 }
 
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active img,
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active img {
+    filter: invert(33%) sepia(0%) saturate(1260%) hue-rotate(177deg) brightness(95%) contrast(98%);
+}
+
 .sidebar-dark-primary .nav-sidebar.nav-legacy>.nav-item>.nav-link.active,
 .sidebar-light-primary .nav-sidebar.nav-legacy>.nav-item>.nav-link.active {
     border-color: #007bff

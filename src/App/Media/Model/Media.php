@@ -20,8 +20,9 @@ class Media extends Model
     {
         if ($path == 'fonts') {
             $this->path = fonts_path();
+        } elseif ($path == '') {
+            $this->path = storage_path();
         } else {
-            // $this->path = storage_path();
             $this->path = $path;
         }
 
@@ -201,7 +202,7 @@ class Media extends Model
      */
     public function deleteFile(string $file)
     {
-        $path_media = $this->path == '' ? __DIR__ . '/../../../../web/assets/media/' : $this->path.'/';
+        $path_media = $this->path == '' ? __DIR__ . '/../../../../web/assets/media/' : $this->path . '/';
         if (file_exists($path_media . $file)) {
             unlink($path_media . $file);
 
@@ -243,9 +244,9 @@ class Media extends Model
         imagejpeg($image, $destination, $quality);
     }
 
-    public function cloneMedia(string $file, string $target_dir = __DIR__.'/../../../../web/assets/media/')
+    public function cloneMedia(string $file, string $target_dir = __DIR__ . '/../../../../web/assets/media/')
     {
-        $source_dir = __DIR__.'/../../../../web/assets/media/';
+        $source_dir = __DIR__ . '/../../../../web/assets/media/';
         $file_media = explode('-', $file);
         $file_ext = explode('.', $file_media[count($file_media) - 1])[1];
         unset($file_media[count($file_media) - 1]);

@@ -62,7 +62,7 @@ class Paginator extends Query
     {
         $this->active = [];
 
-        $template = '<div class="row mt-3"><div class="col-4"><h6 class="text-muted fw-normal mt-2" style="font-size: 14px;">Showing ' . ($this->countRows > 0 ? ($this->page_first_result + 1) : $this->page_first_result) . ' to ' . $this->total_data_per_page . ' of ' . $this->countRows . ' entries</h6></div>';
+        $template = '<div class="row mt-3"><div class="col-4"><h6 class="text-muted fw-normal mt-2" style="font-size: 12px;">Showing ' . ($this->countRows > 0 ? ($this->page_first_result + 1) : $this->page_first_result) . ' to ' . $this->total_data_per_page . ' of ' . $this->countRows . ' entries</h6></div>';
 
         if ($this->number_of_page > 1) {
             $template .= '<div class="col" style="font-size: 14px;">';

@@ -810,7 +810,7 @@
                                                         <div class="d-flex">
 
                                                             <?php if ($selectMedia($detail['id_karyawan'], $value['name']) != FALSE) { ?>
-                                                                <button type="button" class="btn btn-sm btn-primary mr-2" data-toggle="modal" data-file="<?= asset($selectMedia($detail['id_karyawan'], $value['name'])['path_media']) ?>" data-target="#dokumenPersyaratan">Preview</button>
+                                                                <button type="button" class="btn btn-sm btn-primary mr-2" data-toggle="modal" data-file="<?= $selectMedia($detail['id_karyawan'], $value['name'])['path_media'] ?>" data-target="#dokumenPersyaratan">Preview</button>
                                                             <?php } ?>
 
                                                             <div class="custom-file">

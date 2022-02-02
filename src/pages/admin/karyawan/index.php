@@ -28,26 +28,86 @@
     }
 </style>
 
+
 <div class="content-wrapper">
+
+    <section id="search-bar">
+        <div style="background-color: #D3D3D3; padding: 1.7rem;">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="searchBar">
+                        <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Pencarian..." value="" />
+                        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+                            <svg style="width:20px;height:20px" viewBox="0 0 24 24">
+                                <path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="float-right">
+                        <img src="/assets/logo/tmk-2-black.png" alt="" style="height: 30px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!------- Start Header ------->
     <div class="content-header pb-1">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Karyawan</h1>
+                <div class="col-sm-3">
+                    <h1 class="m-0">Data Karyawan</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li>
-                            <a href="/admin/karyawan/create" class="btn btn-sm btn-outline-primary py-2 ml-2">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                                <span>Tambah Data</span>
-                            </a>
-                        </li>
-                    </ol>
+                <div class="col-sm-9">
+                    <div class="d-flex justify-content-end">
+                        <div class="mr-1">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukan Nama...">
+                        </div>
+                        <div class="mr-1">
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>-- Pilih Jabatan --</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="mr-1">
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>-- Pilih Divisi --</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="mr-1">
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>-- Pilih Bidang --</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div>
+                            <ol class="breadcrumb text-nowrap">
+                                <li>
+                                    <a href="/admin/karyawan/create" class="btn btn-sm btn-outline-primary py-2 ml-2">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                        <span>Tambah Data</span>
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!------- End Header ------->
 
     <div class="content">
         <div class="container-fluid">
@@ -81,13 +141,14 @@
                                     <td><?= $value['no_induk_karyawan'] ?></td>
                                     <td><?= date_format(date_create($value['tgl_mulai_kerja']), "d F Y") ?></td>
                                     <td><?= $value['nama_status_kepegawaian'] ?></td>
-                                    <td>
+                                    <td><a href="/admin/karyawan/<?= $value['id_karyawan'] ?>/action" class="text-tmk-red"><img src="/assets/logo/dots.svg" alt="" style="width: 20px;height: 20px;"></a></td>
+                                    <!-- <td>
                                         <a href="http://employee.demo1.tristek.co.id/employee/<?= $value['id_karyawan'] ?>/detail" class="btn btn-sm btn-outline-success my-1" data-toggle="tooltip" data-placement="bottom" title="Pratinjau" target="_blank"><i class="fa fa-eye"></i></a>
                                         <a class=" btn btn-sm btn-outline-primary my-1" href="/admin/karyawan/<?= $value['id_karyawan'] ?>/edit" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit"></i></a>
                                         <a href="#" class="btn btn-sm btn-outline-dark my-1" data-toggle="modal" data-target="#modal_konfirmasi_hapus" data-id="<?= $value['id_karyawan'] ?>"><i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Alihkan"></i></a>
                                         <a class=" btn btn-sm btn-outline-primary my-1" href="#" data-id="<?= $value['id_karyawan'] ?>" data-toggle="modal" data-target="#shareModal"><i class="fa fa-share-square" data-toggle="tooltip" data-placement="bottom" title="Bagikan" aria-hidden="true"></i></i></a>
                                         <a class=" btn btn-sm btn-outline-primary my-1" href="#" data-toggle="tooltip" data-placement="bottom" title="History"><i class="fa fa-history" aria-hidden="true"></i></a>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -99,6 +160,8 @@
         </div>
     </div>
 </div>
+
+
 
 <!-- Modal hapus -->
 <div class="modal fade" id="modal_konfirmasi_hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

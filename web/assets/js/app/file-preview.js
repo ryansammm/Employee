@@ -10,14 +10,14 @@ $("#dokumenPersyaratan").on("show.bs.modal", function (event) {
     $(this).find(".modal-body").addClass("mx-auto");
     $(this)
       .find(".fileSakip")[0]
-      .setAttribute("src", file);
+      .setAttribute("src", "/assets/media/" + file);
   } else {
     $(this).find(".fileSakip").addClass("d-none");
     $(this).find("#fileSakipPDF").removeClass("d-none");
     $(this).find(".modal-body").removeClass("mx-auto");
     $(this)
       .find("#fileSakipPDF")[0]
-      .setAttribute("src", file);
+      .setAttribute("src", "/assets/media/" + file);
   }
 
 });

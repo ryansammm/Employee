@@ -170,19 +170,24 @@ if (!function_exists('component')) {
      * @param array $datas
      * @return string
      */
-    function component(string $path = '', array $datas)
-    {
-        $base_path = 'cms';
-        $component_path = file_get_contents(__DIR__ . '/../../pages/public/' . $base_path . '/' . $path . '.php');
+    if (!function_exists('component')) {
+        /**
+         * Get component
+         *
+         * @param string $path
+         * @param array $datas
+         * @return string
+         */
+        function component(string $path = '', array $datas = [])
+        {
+            extract($datas, EXTR_SKIP);
 
-        extract($datas, EXTR_SKIP);
+            ob_start();
+            include sprintf(__DIR__ . '/../../pages/%s.php', $path);
 
-        $component_final = $component_path;
-        foreach ($datas as $key => $value) {
-            $component_final = str_replace('{' . $key . '}', $value, $component_final);
+            $template = new Response(ob_get_clean());
+            return $template->getContent();
         }
-
-        return html_entity_decode($component_final);
     }
 }
 
@@ -246,7 +251,7 @@ if (!function_exists('posted_at')) {
         $precision = isset($param[1]) ? $param[1] : 1;
         $time = time() - strtotime($created_at);
         $a = array('Dekade' => 315576000, 'Tahun' => 31557600, 'Bulan' => 2629800, 'Minggu' => 604800, 'Hari' => 86400, 'Jam' => 3600, 'Menit' => 60, 'Detik' => 1);
-        
+
         $i = 0;
         foreach ($a as $k => $v) {
             $$k = floor($time / $v);
@@ -300,6 +305,6 @@ if (!function_exists('asset')) {
     {
         $app_url = $_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1' ? 'http://' . $_SERVER['HTTP_HOST'] : 'https://' . $_SERVER['HTTP_HOST'];
 
-        return env('APP_MEDIA_URL', $app_url).'/assets/media/' . $path;
+        return env('APP_MEDIA_URL', $app_url) . '/assets/media/' . $path;
     }
 }

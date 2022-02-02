@@ -1,6 +1,6 @@
 <!-- Main Footer -->
 <footer class="main-footer">
-    <strong>Copyright &copy; 2022 <a href="https://www.sinovatif.com/">PT. Tristek Media Kreasindo</a>.</strong>
+    <span>PT. Tristek Media Kreasindo &copy; 2017 - Sekarang</span>
     <div class="float-right d-none d-sm-inline-block">
         <!-- <b>Version</b> 3.1.0 -->
     </div>

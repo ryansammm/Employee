@@ -24,6 +24,10 @@
     <link rel="stylesheet" href="/assets/admin/css/adminlte.min.css">
     <!-- Style -->
     <link rel="stylesheet" href="/assets/admin/css/tmk-style.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/assets/plugins/summernote/summernote-bs4.min.css">
     <!-- Truncate -->

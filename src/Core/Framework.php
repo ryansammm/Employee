@@ -222,6 +222,7 @@ class Framework extends HttpKernel implements HttpKernelInterface
         /* --------------------------- End User Previleges -------------------------- */
 
         try {
+            $pathInfo = $request->getPathInfo();
             $request->attributes->add($this->matcher->match($pathInfo));
 
             $controller = $this->controllerResolver->getController($request);

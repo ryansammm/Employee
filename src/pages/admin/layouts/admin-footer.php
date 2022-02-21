@@ -11,6 +11,13 @@
 <script src="/assets/admin/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/assets/admin/js/demo.js"></script>
+<!-- InputMask -->
+<script src="/assets/plugins/moment/moment.min.js"></script>
+<script src="/assets/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
+<script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 
 <!-- bs-custom-file-input -->
 <script src="/assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>

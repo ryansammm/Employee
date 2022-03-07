@@ -11,7 +11,7 @@
  Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 24/01/2022 18:05:23
+ Date: 07/03/2022 09:13:20
 */
 
 SET NAMES utf8mb4;
@@ -304,9 +304,13 @@ CREATE TABLE `bidang`  (
 -- ----------------------------
 -- Records of bidang
 -- ----------------------------
-INSERT INTO `bidang` VALUES ('1289ajsd', 'Desain Grafis', '2022-01-10 14:29:17', '2022-01-10 14:29:20');
-INSERT INTO `bidang` VALUES ('2187asjd', 'Keuangan', '2022-01-10 14:29:58', '2022-01-10 14:30:00');
-INSERT INTO `bidang` VALUES ('9askdj', 'Administrasi', '2022-01-10 14:29:41', '2022-01-10 14:29:45');
+INSERT INTO `bidang` VALUES ('1289ajsd', 'Administrasi', '2022-01-10 14:29:17', '2022-01-10 14:29:20');
+INSERT INTO `bidang` VALUES ('2187asjd', 'Komersial', '2022-01-10 14:29:58', '2022-01-10 14:30:00');
+INSERT INTO `bidang` VALUES ('61efac8267152', 'Teknis', '2022-01-25 14:53:38', '2022-01-25 14:53:38');
+INSERT INTO `bidang` VALUES ('61efac8b7c5e4', 'Operasional', '2022-01-25 14:53:47', '2022-01-25 14:53:47');
+INSERT INTO `bidang` VALUES ('61efacb1157f5', 'Outsource / Tidak Tetap', '2022-01-25 14:54:25', '2022-01-25 14:54:25');
+INSERT INTO `bidang` VALUES ('61efacbbf324c', 'Konsultan / Tenaga Ahli', '2022-01-25 14:54:35', '2022-01-25 14:54:35');
+INSERT INTO `bidang` VALUES ('9askdj', 'Keuangan', '2022-01-10 14:29:41', '2022-01-10 14:29:45');
 
 -- ----------------------------
 -- Table structure for bidang_entitas
@@ -325,6 +329,14 @@ CREATE TABLE `bidang_entitas`  (
 -- ----------------------------
 -- Records of bidang_entitas
 -- ----------------------------
+INSERT INTO `bidang_entitas` VALUES ('61ef6918d23c7', '9askdj', '61ef6918cb9bc', '2', '2022-01-25 10:06:00', '2022-01-25 10:06:00');
+INSERT INTO `bidang_entitas` VALUES ('61ef6cb90e9cd', '9askdj', '61ef6cb90a988', '2', '2022-01-25 10:21:29', '2022-01-25 10:21:29');
+INSERT INTO `bidang_entitas` VALUES ('61ef6cd872391', '9askdj', '61ef6cd86eb52', '2', '2022-01-25 10:22:00', '2022-01-25 10:22:00');
+INSERT INTO `bidang_entitas` VALUES ('61ef6d2f8d0f2', '1289ajsd', '61ef6d2f86dc3', '2', '2022-01-25 10:23:27', '2022-01-25 10:23:27');
+INSERT INTO `bidang_entitas` VALUES ('61ef6d45a97f3', '9askdj', '61ef6d45a5290', '2', '2022-01-25 10:23:49', '2022-01-25 10:23:49');
+INSERT INTO `bidang_entitas` VALUES ('61ef6d605e5c6', '9askdj', '61ef6d605a10e', '2', '2022-01-25 10:24:16', '2022-01-25 10:24:16');
+INSERT INTO `bidang_entitas` VALUES ('61ef6d6d20646', '9askdj', '61ef6d6d1d7c9', '2', '2022-01-25 10:24:29', '2022-01-25 10:24:29');
+INSERT INTO `bidang_entitas` VALUES ('61ef81b6ea6e6', '9askdj', '61ef81b6e5209', '2', '2022-01-25 11:51:02', '2022-01-25 11:51:02');
 
 -- ----------------------------
 -- Table structure for cms_background
@@ -580,7 +592,12 @@ CREATE TABLE `divisi`  (
 -- ----------------------------
 -- Records of divisi
 -- ----------------------------
-INSERT INTO `divisi` VALUES ('873242933', 'Operasional', NULL, NULL);
+INSERT INTO `divisi` VALUES ('61efa21c068f3', 'Administrasi Umum', '2022-01-25 14:09:16', '2022-01-25 14:51:17');
+INSERT INTO `divisi` VALUES ('61efac2b95a5a', 'Keuangan', '2022-01-25 14:52:11', '2022-01-25 14:52:11');
+INSERT INTO `divisi` VALUES ('61efac35d6dca', 'Programmer', '2022-01-25 14:52:21', '2022-01-25 14:52:21');
+INSERT INTO `divisi` VALUES ('61efac3d90454', 'Operasional', '2022-01-25 14:52:29', '2022-01-25 14:52:29');
+INSERT INTO `divisi` VALUES ('61efac54436c5', 'Outsource Teknis', '2022-01-25 14:52:52', '2022-01-25 14:52:52');
+INSERT INTO `divisi` VALUES ('873242933', 'Sales Engineur', NULL, '2022-01-25 14:52:03');
 
 -- ----------------------------
 -- Table structure for galeri
@@ -659,7 +676,7 @@ INSERT INTO `group_galeri` VALUES ('grglr6135d98176c97', 'glr6135d9812e659', '',
 DROP TABLE IF EXISTS `jabatan`;
 CREATE TABLE `jabatan`  (
   `id_jabatan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `nama_jabatan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `hide` char(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '2' COMMENT '1=ya, 2=tidak',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -669,13 +686,14 @@ CREATE TABLE `jabatan`  (
 -- ----------------------------
 -- Records of jabatan
 -- ----------------------------
-INSERT INTO `jabatan` VALUES ('61bc3b2d07844', 'Presiden Komisaris', NULL, '2021-12-17 14:24:29', '2021-12-17 14:24:29');
-INSERT INTO `jabatan` VALUES ('61bc3b3a5a378', 'Komisaris Independen', NULL, '2021-12-17 14:24:42', '2021-12-17 14:24:42');
-INSERT INTO `jabatan` VALUES ('61bc3b42daaa9', 'Presiden Direktur', NULL, '2021-12-17 14:24:50', '2021-12-17 14:24:50');
-INSERT INTO `jabatan` VALUES ('61bc3b56e9bab', 'Komisaris', NULL, '2021-12-17 14:25:10', '2021-12-17 14:25:10');
-INSERT INTO `jabatan` VALUES ('61bc3b7e747b9', 'Administrasi', NULL, '2021-12-17 14:25:50', '2021-12-17 14:25:50');
-INSERT INTO `jabatan` VALUES ('61bc3b8339d07', 'Keuangan', NULL, '2021-12-17 14:25:55', '2021-12-17 14:25:55');
-INSERT INTO `jabatan` VALUES ('61bc3b8e9ce85', 'Produksi', NULL, '2021-12-17 14:26:06', '2021-12-17 14:26:06');
+INSERT INTO `jabatan` VALUES ('61efab8d56213', 'Staff', NULL, '2022-01-25 14:49:33', '2022-01-25 14:49:33');
+INSERT INTO `jabatan` VALUES ('61efab993a3e4', 'Supervisor', NULL, '2022-01-25 14:49:45', '2022-01-25 14:49:45');
+INSERT INTO `jabatan` VALUES ('61efaba1a477a', 'Manager', NULL, '2022-01-25 14:49:53', '2022-01-25 14:49:53');
+INSERT INTO `jabatan` VALUES ('61efabb0a474b', 'Wakil Direktur', NULL, '2022-01-25 14:50:08', '2022-01-25 14:50:08');
+INSERT INTO `jabatan` VALUES ('61efabba6b1bc', 'Direktur', NULL, '2022-01-25 14:50:18', '2022-01-25 14:50:18');
+INSERT INTO `jabatan` VALUES ('61efabc1e6650', 'Direktur Utama', NULL, '2022-01-25 14:50:25', '2022-01-25 14:50:25');
+INSERT INTO `jabatan` VALUES ('61efabd427b1f', 'Anggota Komisaris', NULL, '2022-01-25 14:50:44', '2022-01-25 14:50:44');
+INSERT INTO `jabatan` VALUES ('61efabddac610', 'Komisaris Utama', NULL, '2022-01-25 14:50:53', '2022-01-25 14:50:53');
 
 -- ----------------------------
 -- Table structure for karyawan
@@ -724,7 +742,7 @@ CREATE TABLE `karyawan`  (
   `hobi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `karakter` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `hide` char(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '2' COMMENT '1=ya, 2=tidak',
-  `status_karyawan` char(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '1' COMMENT '1 = Karyawan Tetap, 2 = Karyawan Kontrak, 3 = Karyawan Tidak Tetap, 4 = Resign, 5 = Pelamar',
+  `status_data` char(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '1' COMMENT '1 = Karyawan, 2 = Pelamar',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_karyawan`) USING BTREE
@@ -733,24 +751,56 @@ CREATE TABLE `karyawan`  (
 -- ----------------------------
 -- Records of karyawan
 -- ----------------------------
+INSERT INTO `karyawan` VALUES ('61efae2480a13', '872394598', 'Contoh', '2020-01-01', 'Tom Holand', 'Tom', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', '1', '1', '1', '1', '1', '1', 'Contoh', 'DESKRIPSI', 'Conto', 'DESKRIPSI', 'Conto', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '135323', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', 'DESKRIPSI', 'DESKRIPSI', '2', '1', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `karyawan` VALUES ('61efae53ee3f6', '873529358', 'Contoh', '2020-01-01', 'Robert D.J.R', 'Robert', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', '1', '1', '1', '1', '1', '1', 'Contoh', 'DESKRIPSI', 'Conto', 'DESKRIPSI', 'Conto', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '135323', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', 'DESKRIPSI', 'DESKRIPSI', '2', '1', '2022-01-25 15:01:23', '2022-01-25 15:01:23');
+INSERT INTO `karyawan` VALUES ('61efaf25201c3', '872394598', '3211212391829481', '2020-01-01', 'Ryan Sam', 'Iyan', '3211231218724817', '3211823718273817', '081321112347', '0851298312948', 'ryan@mail.com', 'ryansammm@mail.com', 'Indonesia', '-', '9878-9273-429358', 'Sumedang', '1998-01-01', '1', '1', '55', '165', '2', '1', '-', 'Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec, Sumedang Utara, Kab. Sumedang', '45321', 'Jl. Angkrek No.31 RT.02/RW.01, Kel. Talun, Kec, Sumedang Utara, Kab. Sumedang', '45312', '-', '823429342835', '-', '-', '135323', '412361247', 'Burangrang', 'Ryan Sam', '87.263.472.9-835.292', '-', '2020-01-01', 'Coffee, Music, Skate, Motobike', 'Ramah dan Rajin Menabung', '2', '1', '2022-01-25 15:04:53', '2022-02-16 15:37:56');
+INSERT INTO `karyawan` VALUES ('61efaf67ba1d1', '872392358', 'Contoh', '2020-01-01', 'Scarlett Johansson', 'Scarlett', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', '1', '1', '1', '1', '1', '1', 'Contoh', 'DESKRIPSI', 'Conto', 'DESKRIPSI', 'Conto', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '135323', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', 'DESKRIPSI', 'DESKRIPSI', '2', '1', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `karyawan` VALUES ('61efbb59f166d', NULL, NULL, NULL, 'Ryan Samsudin', 'Iyan', 'Contoh', NULL, 'Contoh', NULL, 'Contoh', NULL, 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', '1', '1', '1', '1', '1', '1', 'Contoh', NULL, 'Conto', 'DESKRIPSI', 'Conto', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '135323', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', 'DESKRIPSI', 'DESKRIPSI', '2', '2', '2022-01-25 15:56:57', '2022-01-25 15:56:57');
+INSERT INTO `karyawan` VALUES ('61efbb797240e', '', NULL, NULL, 'Ardhin Naufal', 'Deen', 'Contoh', NULL, 'Contoh', NULL, 'Contoh', NULL, 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', '1', '1', '1', '1', '1', '1', 'Contoh', 'DESKRIPSI', 'Conto', 'DESKRIPSI', 'Conto', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '135323', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', 'DESKRIPSI', 'DESKRIPSI', '2', '2', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+
+-- ----------------------------
+-- Table structure for karyawan_bidang
+-- ----------------------------
+DROP TABLE IF EXISTS `karyawan_bidang`;
+CREATE TABLE `karyawan_bidang`  (
+  `id_karyawan_bidang` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `id_karyawan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `id_bidang` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `hide` char(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '2' COMMENT '1=ya, 2=tidak',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_karyawan_bidang`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of karyawan_bidang
+-- ----------------------------
+INSERT INTO `karyawan_bidang` VALUES ('61efae24859f0', '61efae2480a13', '1289ajsd', '2', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `karyawan_bidang` VALUES ('61efae53f35fe', '61efae53ee3f6', '1289ajsd', '2', '2022-01-25 15:01:23', '2022-01-25 15:01:23');
+INSERT INTO `karyawan_bidang` VALUES ('61efaf2524904', '61efaf25201c3', '61efac8267152', '2', '2022-01-25 15:04:53', '2022-01-25 15:04:53');
+INSERT INTO `karyawan_bidang` VALUES ('61efaf67bf349', '61efaf67ba1d1', '1289ajsd', '2', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
 
 -- ----------------------------
 -- Table structure for karyawan_divisi
 -- ----------------------------
 DROP TABLE IF EXISTS `karyawan_divisi`;
 CREATE TABLE `karyawan_divisi`  (
-  `id_karyawan_divisi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `id_relation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `nama_divisi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `hide` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '1 = Hide, 2 = Show',
+  `id_karyawan_divisi` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `id_karyawan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `id_divisi` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `hide` char(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '2' COMMENT '1=ya, 2=tidak',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_karyawan_divisi`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of karyawan_divisi
 -- ----------------------------
+INSERT INTO `karyawan_divisi` VALUES ('61efae24842e4', '61efae2480a13', '61efa21c068f3', '2', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `karyawan_divisi` VALUES ('61efae53f1eb4', '61efae53ee3f6', '61efa21c068f3', '2', '2022-01-25 15:01:23', '2022-01-25 15:01:23');
+INSERT INTO `karyawan_divisi` VALUES ('61efaf252347f', '61efaf25201c3', '61efac35d6dca', '2', '2022-01-25 15:04:53', '2022-01-25 15:04:53');
+INSERT INTO `karyawan_divisi` VALUES ('61efaf67bd899', '61efaf67ba1d1', '61efa21c068f3', '2', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
 
 -- ----------------------------
 -- Table structure for karyawan_jabatan
@@ -769,6 +819,10 @@ CREATE TABLE `karyawan_jabatan`  (
 -- ----------------------------
 -- Records of karyawan_jabatan
 -- ----------------------------
+INSERT INTO `karyawan_jabatan` VALUES ('61efae2482599', '61efae2480a13', '61efabd427b1f', '2', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `karyawan_jabatan` VALUES ('61efae53f02f4', '61efae53ee3f6', '61efabd427b1f', '2', '2022-01-25 15:01:23', '2022-01-25 15:01:23');
+INSERT INTO `karyawan_jabatan` VALUES ('61efaf2521b72', '61efaf25201c3', '61efab8d56213', '2', '2022-01-25 15:04:53', '2022-01-25 15:04:53');
+INSERT INTO `karyawan_jabatan` VALUES ('61efaf67bbf55', '61efaf67ba1d1', '61efabd427b1f', '2', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
 
 -- ----------------------------
 -- Table structure for karyawan_kontak_alt
@@ -792,6 +846,13 @@ CREATE TABLE `karyawan_kontak_alt`  (
 -- ----------------------------
 -- Records of karyawan_kontak_alt
 -- ----------------------------
+INSERT INTO `karyawan_kontak_alt` VALUES ('61efae249315e', 'Contoh', 'Contoh', 'DESKRIPSI', 'Contoh', 'Contoh', 'Contoh', '61efae2480a13', '2', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61efae541090c', 'Contoh', 'Contoh', 'DESKRIPSI', 'Contoh', 'Contoh', 'Contoh', '61efae53ee3f6', '2', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61efaf2532afd', 'Sri', 'Ibu Kandung', 'Link. Talun Kidul No.29 RT.01/RW.06, Kel. Talun, Kec, Sumedang Utara, Kab. Sumedang', '45321', '082982342231', 'Contoh@mail.com', '61efaf25201c3', '2', '2022-01-25 15:04:53', '2022-01-25 15:04:53');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61efaf67d1292', 'Contoh', 'Contoh', 'DESKRIPSI', 'Contoh', 'Contoh', 'Contoh', '61efaf67ba1d1', '2', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61efb9e447894', 'Contoh', 'Contoh', 'DESKRIPSI', 'Contoh', 'Contoh', 'Contoh', '61efb9e42329b', '2', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61efbb5a309ad', 'Contoh', 'Contoh', 'DESKRIPSI', 'Contoh', 'Contoh', 'Contoh', '61efbb59f166d', '2', '2022-01-25 15:56:58', '2022-01-25 15:56:58');
+INSERT INTO `karyawan_kontak_alt` VALUES ('61efbb79a1e46', 'Contoh', 'Contoh', 'DESKRIPSI', 'Contoh', 'Contoh', 'Contoh', '61efbb797240e', '2', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
 
 -- ----------------------------
 -- Table structure for kategori_berita
@@ -904,6 +965,14 @@ CREATE TABLE `kemampuan`  (
 -- ----------------------------
 -- Records of kemampuan
 -- ----------------------------
+INSERT INTO `kemampuan` VALUES ('61efae2491c54', '61efae2480a13', 'Contoh', '1', '2', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `kemampuan` VALUES ('61efae540e966', '61efae53ee3f6', 'Contoh', '1', '2', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `kemampuan` VALUES ('61efaf67ce67a', '61efaf67ba1d1', 'Contoh', '1', '2', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `kemampuan` VALUES ('61efb9e4461e0', '61efb9e42329b', 'Contoh', '1', '2', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `kemampuan` VALUES ('61efbb79a082b', '61efbb797240e', 'Contoh', '1', '2', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `kemampuan` VALUES ('61f0f4fe9a7c0', '61efbb59f166d', 'Contoh', '1', '2', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `kemampuan` VALUES ('620cb7e47419a', '61efaf25201c3', 'Microsoft Word', '2', '2', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `kemampuan` VALUES ('620cb7e474f56', '61efaf25201c3', 'Microsoft Excel', '2', '2', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
 
 -- ----------------------------
 -- Table structure for kemampuan_bahasa
@@ -922,6 +991,9 @@ CREATE TABLE `kemampuan_bahasa`  (
 -- ----------------------------
 -- Records of kemampuan_bahasa
 -- ----------------------------
+INSERT INTO `kemampuan_bahasa` VALUES ('61efb9e426ec2', '61efb9e425359', 'Contoh', NULL, '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `kemampuan_bahasa` VALUES ('61efbb79761da', '61efbb7974190', 'Contoh', '1', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `kemampuan_bahasa` VALUES ('61f0f4fe9c7c8', '61efbb5a0cbf0', 'Contoh', '2', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
 
 -- ----------------------------
 -- Table structure for kontak
@@ -1012,6 +1084,9 @@ CREATE TABLE `kursus`  (
 -- ----------------------------
 -- Records of kursus
 -- ----------------------------
+INSERT INTO `kursus` VALUES ('61efb9e428c0a', '61efb9e425359', 'Contoh', 'Contoh', 'Contoh', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `kursus` VALUES ('61efbb7984bc0', '61efbb7974190', 'Contoh', 'Contoh', 'Contoh', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `kursus` VALUES ('61f0f4fea0893', '61efbb5a0cbf0', 'Contoh', 'Contoh', 'Contoh', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
 
 -- ----------------------------
 -- Table structure for layanan
@@ -1059,6 +1134,17 @@ CREATE TABLE `media`  (
 -- ----------------------------
 -- Records of media
 -- ----------------------------
+INSERT INTO `media` VALUES ('61efae249ea2d', 'tom-61efae249994d.jpg', '61efae2480a13', '61bfeeef5402f', 'foto_profile', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `media` VALUES ('61efae541862d', 'cd711fca60134229d08e3f8e6604674b-61efae541499f.jpg', '61efae53ee3f6', '61bfeeef5402f', 'foto_profile', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `media` VALUES ('61efaf67db8b3', 'original-61efaf67d5335.jpg', '61efaf67ba1d1', '61bfeeef5402f', 'foto_profile', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `media` VALUES ('61efb9e45965f', 'tom-61efb9e455c15.jpg', '61efb9e42329b', '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `media` VALUES ('61efbb5a42293', 'tom-61efbb5a3e6d1.jpg', '61efbb59f166d', '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-25 15:56:58', '2022-01-25 15:56:58');
+INSERT INTO `media` VALUES ('61efbb79a7a6a', '154f9dc563afb336726764325457-61efbb79a44b7.jpg', '61efbb797240e', '61bfeeef5402f', 'foto_profile_pelamar', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `media` VALUES ('61f79e8bb0ac6', 'nj3ulfpgpefunyfya9wijzwgp6e-61f79e8baea54.jpg', '61efaf25201c3', '61bfeeef5402f', 'foto_profile', '2022-01-31 15:32:11', '2022-01-31 15:32:11');
+INSERT INTO `media` VALUES ('61f7a16933e9f', 'ktp-61f7a16931feb.jpg', '61efaf25201c3', '61bfeeef5402f', 'file_ktp', '2022-01-31 15:44:25', '2022-01-31 15:44:25');
+INSERT INTO `media` VALUES ('61f7a39c34ee3', '3-x-4-61f7a39c32db4.jpg', '61bfeeef5402f', '61bfeeef5402f', NULL, '2022-01-31 15:53:48', '2022-01-31 15:53:48');
+INSERT INTO `media` VALUES ('620cb7e4834e4', 'npwp-620cb7e47cc85.jpg', '61efaf25201c3', 'usr61037f9c85184', 'file_npwp', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `media` VALUES ('620cbb92c2118', 'passport-620cbb92bf30b.jpg', 'usr61037f9c85184', 'usr61037f9c85184', NULL, '2022-02-16 15:53:38', '2022-02-16 15:53:38');
 
 -- ----------------------------
 -- Table structure for partner
@@ -1103,6 +1189,8 @@ CREATE TABLE `pelamar`  (
 -- ----------------------------
 -- Records of pelamar
 -- ----------------------------
+INSERT INTO `pelamar` VALUES ('61efbb5a0cbf0', '61efbb59f166d', 'Contoh', 'Contoh', '2020-01-01', 'Contoh', 'Contoh', '2022-01-25 15:56:58', '2022-01-25 15:56:58');
+INSERT INTO `pelamar` VALUES ('61efbb7974190', '61efbb797240e', 'Contoh', 'Contoh', '2020-01-01', 'Contoh', 'Contoh', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
 
 -- ----------------------------
 -- Table structure for pelanggan
@@ -1160,6 +1248,55 @@ CREATE TABLE `pendidikan_formal`  (
 -- ----------------------------
 -- Records of pendidikan_formal
 -- ----------------------------
+INSERT INTO `pendidikan_formal` VALUES ('61efae248725e', '61efae2480a13', 'Contoh', 'Conto', NULL, '1', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pendidikan_formal` VALUES ('61efae24888a5', '61efae2480a13', 'Contoh', 'Conto', NULL, '2', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pendidikan_formal` VALUES ('61efae248a22c', '61efae2480a13', 'Contoh', 'Conto', 'Contoh', '3', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pendidikan_formal` VALUES ('61efae248b5af', '61efae2480a13', 'Contoh', 'Conto', 'Contoh', '4', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pendidikan_formal` VALUES ('61efae248ca1e', '61efae2480a13', 'Contoh', 'Conto', 'Contoh', '5', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pendidikan_formal` VALUES ('61efae248dd4e', '61efae2480a13', 'Contoh', 'Conto', 'Contoh', '6', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pendidikan_formal` VALUES ('61efae248f1c4', '61efae2480a13', 'Contoh', 'Conto', 'Contoh', '7', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pendidikan_formal` VALUES ('61efae5400fe9', '61efae53ee3f6', 'Contoh', 'Conto', NULL, '1', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pendidikan_formal` VALUES ('61efae54037ac', '61efae53ee3f6', 'Contoh', 'Conto', NULL, '2', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pendidikan_formal` VALUES ('61efae5405997', '61efae53ee3f6', 'Contoh', 'Conto', 'Contoh', '3', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pendidikan_formal` VALUES ('61efae5407173', '61efae53ee3f6', 'Contoh', 'Conto', 'Contoh', '4', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pendidikan_formal` VALUES ('61efae5408b22', '61efae53ee3f6', 'Contoh', 'Conto', 'Contoh', '5', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pendidikan_formal` VALUES ('61efae5409fd0', '61efae53ee3f6', 'Contoh', 'Conto', 'Contoh', '6', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pendidikan_formal` VALUES ('61efae540b876', '61efae53ee3f6', 'Contoh', 'Conto', 'Contoh', '7', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pendidikan_formal` VALUES ('61efaf67c0eb8', '61efaf67ba1d1', 'Contoh', 'Conto', NULL, '1', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pendidikan_formal` VALUES ('61efaf67c27cc', '61efaf67ba1d1', 'Contoh', 'Conto', NULL, '2', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pendidikan_formal` VALUES ('61efaf67c4059', '61efaf67ba1d1', 'Contoh', 'Conto', 'Contoh', '3', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pendidikan_formal` VALUES ('61efaf67c5995', '61efaf67ba1d1', 'Contoh', 'Conto', 'Contoh', '4', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pendidikan_formal` VALUES ('61efaf67c775b', '61efaf67ba1d1', 'Contoh', 'Conto', 'Contoh', '5', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pendidikan_formal` VALUES ('61efaf67c905e', '61efaf67ba1d1', 'Contoh', 'Conto', 'Contoh', '6', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pendidikan_formal` VALUES ('61efaf67cad6c', '61efaf67ba1d1', 'Contoh', 'Conto', 'Contoh', '7', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pendidikan_formal` VALUES ('61efb9e42c484', '61efb9e42329b', 'Contoh', 'Conto', NULL, '1', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pendidikan_formal` VALUES ('61efb9e43b1fb', '61efb9e42329b', 'Contoh', 'Conto', NULL, '2', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pendidikan_formal` VALUES ('61efb9e43d38a', '61efb9e42329b', 'Contoh', 'Conto', 'Contoh', '3', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pendidikan_formal` VALUES ('61efb9e43ec46', '61efb9e42329b', 'Contoh', 'Conto', 'Contoh', '4', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pendidikan_formal` VALUES ('61efb9e440232', '61efb9e42329b', 'Contoh', 'Conto', 'Contoh', '5', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pendidikan_formal` VALUES ('61efb9e441936', '61efb9e42329b', 'Contoh', 'Conto', 'Contoh', '6', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pendidikan_formal` VALUES ('61efb9e442fab', '61efb9e42329b', 'Contoh', 'Conto', 'Contoh', '7', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pendidikan_formal` VALUES ('61efbb7987ef8', '61efbb797240e', 'Contoh', 'Conto', NULL, '1', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pendidikan_formal` VALUES ('61efbb79896c0', '61efbb797240e', 'Contoh', 'Conto', NULL, '2', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pendidikan_formal` VALUES ('61efbb798af44', '61efbb797240e', 'Contoh', 'Conto', 'Contoh', '3', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pendidikan_formal` VALUES ('61efbb798c4ce', '61efbb797240e', 'Contoh', 'Conto', 'Contoh', '4', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pendidikan_formal` VALUES ('61efbb798dc06', '61efbb797240e', 'Contoh', 'Conto', 'Contoh', '5', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pendidikan_formal` VALUES ('61efbb798fcf2', '61efbb797240e', 'Contoh', 'Conto', 'Contoh', '6', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pendidikan_formal` VALUES ('61efbb79911c0', '61efbb797240e', 'Contoh', 'Conto', 'Contoh', '7', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pendidikan_formal` VALUES ('61f0f4fe921fa', '61efbb59f166d', 'Contoh', 'Conto', NULL, '1', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pendidikan_formal` VALUES ('61f0f4fe930bf', '61efbb59f166d', 'Contoh', 'Conto', NULL, '2', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pendidikan_formal` VALUES ('61f0f4fe93e66', '61efbb59f166d', 'Contoh', 'Conto', 'Contoh', '3', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pendidikan_formal` VALUES ('61f0f4fe94ad5', '61efbb59f166d', 'Contoh', 'Conto', 'Contoh', '4', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pendidikan_formal` VALUES ('61f0f4fe95705', '61efbb59f166d', 'Contoh', 'Conto', 'Contoh', '5', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pendidikan_formal` VALUES ('61f0f4fe963f9', '61efbb59f166d', 'Contoh', 'Conto', 'Contoh', '6', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pendidikan_formal` VALUES ('61f0f4fe971db', '61efbb59f166d', 'Contoh', 'Conto', 'Contoh', '7', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pendidikan_formal` VALUES ('620cb7e467c14', '61efaf25201c3', 'SDN Tegal Kalong 2', '2010', NULL, '1', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_formal` VALUES ('620cb7e468d3e', '61efaf25201c3', 'SMPN 1 Sumedang', '2013', NULL, '2', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_formal` VALUES ('620cb7e469d22', '61efaf25201c3', 'SMKN 1 Sumedang', '2016', 'Teknik Komputer & Jaringan', '3', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_formal` VALUES ('620cb7e46ad87', '61efaf25201c3', '-', '-', '-', '4', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_formal` VALUES ('620cb7e46bcdd', '61efaf25201c3', 'STMIK Sumedang', '2021', 'Teknik Informatika', '5', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_formal` VALUES ('620cb7e46c95f', '61efaf25201c3', '-', '-', '-', '6', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_formal` VALUES ('620cb7e46d875', '61efaf25201c3', '-', '-', '-', '7', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
 
 -- ----------------------------
 -- Table structure for pendidikan_nonformal
@@ -1180,6 +1317,16 @@ CREATE TABLE `pendidikan_nonformal`  (
 -- ----------------------------
 -- Records of pendidikan_nonformal
 -- ----------------------------
+INSERT INTO `pendidikan_nonformal` VALUES ('61efae249084c', '61efae2480a13', 'Contoh', '1', 'DESKRIPSI', '1', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pendidikan_nonformal` VALUES ('61efae540d13e', '61efae53ee3f6', 'Contoh', '1', 'DESKRIPSI', '1', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pendidikan_nonformal` VALUES ('61efaf67cc99e', '61efaf67ba1d1', 'Contoh', '1', 'DESKRIPSI', '1', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pendidikan_nonformal` VALUES ('61efb9e4449bf', '61efb9e42329b', 'Contoh', '1', 'DESKRIPSI', '1', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pendidikan_nonformal` VALUES ('61efbb799f031', '61efbb797240e', 'Contoh', '1', 'DESKRIPSI', '1', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pendidikan_nonformal` VALUES ('61f0f4fe984fc', '61efbb59f166d', 'Contoh', '1', 'DESKRIPSI', '1', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pendidikan_nonformal` VALUES ('620cb7e46ed07', '61efaf25201c3', 'LPKMA', '2019', '-', '1', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_nonformal` VALUES ('620cb7e46fc23', '61efaf25201c3', 'CSI', '2020', '-', '1', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_nonformal` VALUES ('620cb7e471744', '61efaf25201c3', '-', '-', '-', '2', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pendidikan_nonformal` VALUES ('620cb7e4727ee', '61efaf25201c3', '-', '-', '-', '2', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
 
 -- ----------------------------
 -- Table structure for pengalaman_organisasi
@@ -1200,6 +1347,16 @@ CREATE TABLE `pengalaman_organisasi`  (
 -- ----------------------------
 -- Records of pengalaman_organisasi
 -- ----------------------------
+INSERT INTO `pengalaman_organisasi` VALUES ('61efae24946ec', '61efae2480a13', 'Contoh', 'Contoh', 'Contoh', '1', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pengalaman_organisasi` VALUES ('61efae54122e2', '61efae53ee3f6', 'Contoh', 'Contoh', 'Contoh', '1', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pengalaman_organisasi` VALUES ('61efaf67d2d29', '61efaf67ba1d1', 'Contoh', 'Contoh', 'Contoh', '1', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pengalaman_organisasi` VALUES ('61efb9e454ee9', '61efb9e42329b', 'Contoh', 'Contoh', 'Contoh', '1', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pengalaman_organisasi` VALUES ('61efbb79a380d', '61efbb797240e', 'Contoh', 'Contoh', 'Contoh', '1', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pengalaman_organisasi` VALUES ('61f0f4fe9e850', '61efbb59f166d', 'Contoh', 'Contoh', 'Contoh', '1', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
+INSERT INTO `pengalaman_organisasi` VALUES ('620cb7e4770a1', '61efaf25201c3', 'Senat Mahasiswa', 'Wakil Ketua', '2019', '1', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pengalaman_organisasi` VALUES ('620cb7e478008', '61efaf25201c3', 'Padus Marantika', 'Ketua', '2020', '1', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pengalaman_organisasi` VALUES ('620cb7e479531', '61efaf25201c3', '-', '-', '-', '2', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
+INSERT INTO `pengalaman_organisasi` VALUES ('620cb7e47a403', '61efaf25201c3', '-', '-', '-', '2', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
 
 -- ----------------------------
 -- Table structure for pengalaman_pekerjaan
@@ -1220,6 +1377,10 @@ CREATE TABLE `pengalaman_pekerjaan`  (
 -- ----------------------------
 -- Records of pengalaman_pekerjaan
 -- ----------------------------
+INSERT INTO `pengalaman_pekerjaan` VALUES ('61efae2496067', '61efae2480a13', 'Contoh', 'Contoh', 'Contoh', 'Conto', '2022-01-25 15:00:36', '2022-01-25 15:00:36');
+INSERT INTO `pengalaman_pekerjaan` VALUES ('61efae5413c86', '61efae53ee3f6', 'Contoh', 'Contoh', 'Contoh', 'Conto', '2022-01-25 15:01:24', '2022-01-25 15:01:24');
+INSERT INTO `pengalaman_pekerjaan` VALUES ('61efaf67d492c', '61efaf67ba1d1', 'Contoh', 'Contoh', 'Contoh', 'Conto', '2022-01-25 15:05:59', '2022-01-25 15:05:59');
+INSERT INTO `pengalaman_pekerjaan` VALUES ('620cb7e47b8d1', '61efaf25201c3', '-', '-', '-', '-', '2022-02-16 15:37:56', '2022-02-16 15:37:56');
 
 -- ----------------------------
 -- Table structure for pengalaman_pekerjaan_pelamar
@@ -1243,6 +1404,9 @@ CREATE TABLE `pengalaman_pekerjaan_pelamar`  (
 -- ----------------------------
 -- Records of pengalaman_pekerjaan_pelamar
 -- ----------------------------
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61efb9e42a5ad', '61efb9e425359', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', 'DESKRIPSI', '2022-01-25 15:50:44', '2022-01-25 15:50:44');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61efbb798667d', '61efbb7974190', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', 'DESKRIPSI', '2022-01-25 15:57:29', '2022-01-25 15:57:29');
+INSERT INTO `pengalaman_pekerjaan_pelamar` VALUES ('61f0f4fea2716', '61efbb5a0cbf0', 'Contoh', 'Contoh', 'Contoh', 'Contoh', 'Contoh', '2020-01-01', 'DESKRIPSI', '2022-01-26 14:15:10', '2022-01-26 14:15:10');
 
 -- ----------------------------
 -- Table structure for pengumuman
@@ -1418,14 +1582,18 @@ DROP TABLE IF EXISTS `status_kepegawaian`;
 CREATE TABLE `status_kepegawaian`  (
   `id_status_kepegawaian` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `nama_status_kepegawaian` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_status_kepegawaian`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of status_kepegawaian
 -- ----------------------------
+INSERT INTO `status_kepegawaian` VALUES ('872392358', 'Resign', '2022-01-25 14:26:00', '2022-01-25 14:26:05');
+INSERT INTO `status_kepegawaian` VALUES ('872394598', 'Karyawan Kontrak', '2022-01-25 09:33:18', '2022-01-25 09:33:21');
+INSERT INTO `status_kepegawaian` VALUES ('873529358', 'Karyawan Tetap', '2022-01-25 09:32:40', '2022-01-25 09:32:35');
+INSERT INTO `status_kepegawaian` VALUES ('982983429', 'Karyawan Tidak Tetap', '2022-01-25 09:33:13', '2022-01-25 09:33:16');
 
 -- ----------------------------
 -- Table structure for temp_visitor

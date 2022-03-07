@@ -127,6 +127,14 @@
                     stepper.to(2)
                 }
 
+                var riwayatKaryawan = function(kelas) {
+                    $('.btn-action').removeClass('action-active')
+                    $(kelas).addClass('action-active')
+                    var stepper = new Stepper(document.querySelector('.bs-stepper'))
+
+                    stepper.to(3)
+                }
+
                 var page3 = function() {
                     var stepper = new Stepper(document.querySelector('.bs-stepper'))
 
@@ -219,9 +227,9 @@
                                 </div>
                                 <div class="col pr-0">
                                     <div class="d-flex mb-1 pb-2 border-bottom btn-act">
-                                        <div class="btn btn-sm btn-red btn-action mr-2">
+                                        <button type="button" onclick="riwayatKaryawan(this)" class="btn btn-sm btn-red btn-action mr-2 step-trigger" role="tab" aria-controls="riwayat" id="riwayat-trigger">
                                             <i class="fas fa-history"></i>
-                                        </div>
+                                        </button>
                                         <span>Riwayat Karyawan</span>
                                     </div>
                                     <p>Menu untuk Melihat Riwayat Karyawan Selama Bekerja</p>
@@ -244,6 +252,13 @@
                     <div class="step" data-target="#ubah-data-karyawan">
                         <button type="button" class="step-trigger" role="tab" aria-controls="ubah-data-karyawan" id="ubah-data-karyawan-trigger">
                             <span class="bs-stepper-circle">2</span>
+                            <span class="bs-stepper-label">Various information</span>
+                        </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#riwayat-data-karyawan">
+                        <button type="button" class="step-trigger" role="tab" aria-controls="riwayat-data-karyawan" id="riwayat-data-karyawan-trigger">
+                            <span class="bs-stepper-circle">3</span>
                             <span class="bs-stepper-label">Various information</span>
                         </button>
                     </div>
@@ -270,6 +285,7 @@
                     </div>
                     <!------- End Detail Karyawan ------->
 
+                    <!------- Start Edit Karyawan ------->
                     <div id="ubah-data-karyawan" class="content" role="tabpanel" aria-labelledby="ubah-data-karyawan-trigger">
                         <?= component('admin/karyawan/component/edit-karyawan', [
                             'detail' => $detail,
@@ -292,6 +308,27 @@
                             'bidang' => $bidang,
                         ]) ?>
                     </div>
+                    <!------- End Edit Karyawan ------->
+                    <div id="riwayat-data-karyawan" class="content" role="tabpanel" aria-labelledby="riwayat-data-karyawan-trigger">
+                        <?= component('admin/karyawan/component/riwayat-karyawan', [
+                            'detail' => $detail,
+                            'karyawan' => $karyawan,
+                            'pendidikan_formal' => $pendidikan_formal,
+                            'pendidikan_non_formal' => $pendidikan_non_formal,
+                            'pendidikan_non_formal_bergabung' => $pendidikan_non_formal_bergabung,
+                            'kemampuan' => $kemampuan,
+                            'karyawan_kontak_alt' => $karyawan_kontak_alt,
+                            'pengalaman_organisasi' => $pengalaman_organisasi,
+                            'pengalaman_organisasi_bergabung' => $pengalaman_organisasi_bergabung,
+                            'pengalaman_pekerjaan' => $pengalaman_pekerjaan,
+                            'dokumen_pendukung' => $dokumen_pendukung,
+                            'media_sertifikat' => $media_sertifikat,
+                            'selectMedia' => $selectMedia,
+                        ]) ?>
+                    </div>
+                    <!------- Start Riwayat Karyawan ------->
+
+                    <!------- End Riwayat Karyawan ------->
                 </div>
             </div>
 
